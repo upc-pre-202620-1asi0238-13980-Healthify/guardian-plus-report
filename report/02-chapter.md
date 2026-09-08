@@ -19,15 +19,15 @@
 #### 2.3.1. User Personas
 
 #### 2.3.2. User Task Matrix
-| Task | Adulto mayor – Frecuencia | Adulto mayor – Importancia | Familiar/cuidador – Frecuencia | Familiar/cuidador – Importancia |
+| Task (Adaptado para supervisión) | Familiares (Ausentes) – Frecuencia | Familiares (Ausentes) – Importancia | Cuidadores (Activos) – Frecuencia | Cuidadores (Activos) – Importancia |
 |---|---|---|---|---|
-| Tomar medicamentos | Alta | Media | Alta | Alta |
-| Medir signos vitales (ej. presión) | Media | Media | Baja | Media |
-| Pedir ayuda en caso de emergencia | Baja | Alta | Baja | Alta |
-| Comunicar su estado de salud | Baja | Alta | Baja | Alta |
-| Revisar reportes médicos | Baja | Baja | Media | Alta |
-| Acompañar en citas médicas | Media | Media | Media | Baja |
-| Supervisar rutinas diarias | Baja | Baja | Baja | Media |
+| Supervisar toma de medicamentos | Media | Alta | Alta | Alta |
+| Monitorear signos vitales | Media | Alta | Alta | Alta |
+| Atender alertas de emergencia | Baja | Alta | Baja | Alta |
+| Conocer estado general de salud | Media | Alta | Alta | Alta |
+| Revisar reportes médicos | Alta | Alta | Media | Media |
+| Acompañar en citas médicas | Baja | Media | Alta | Alta |
+| Supervisar rutinas diarias | Baja | Alta | Alta | Alta |
 #### 2.3.3. User Journey Mapping
 
 #### 2.3.4. Empathy Mapping
