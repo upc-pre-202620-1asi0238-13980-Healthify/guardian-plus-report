@@ -19,7 +19,7 @@
 #### 2.3.1. User Personas
 
 #### 2.3.2. User Task Matrix
-| Task (Adaptado para supervisión) | Familiares (Ausentes) – Frecuencia | Familiares (Ausentes) – Importancia | Cuidadores (Activos) – Frecuencia | Cuidadores (Activos) – Importancia |
+| Task (Adaptado para supervisión) | Familiares – Frecuencia | Familiares – Importancia | Cuidadores – Frecuencia | Cuidadores – Importancia |
 |---|---|---|---|---|
 | Supervisar toma de medicamentos | Media | Alta | Alta | Alta |
 | Monitorear signos vitales | Media | Alta | Alta | Alta |
