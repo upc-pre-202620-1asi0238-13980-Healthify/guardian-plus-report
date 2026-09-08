@@ -68,15 +68,15 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 **Preguntas para segmento 2**
 **(Cuidadores responsables del bienestar de personas con necesidades especiales)**
 
-- ¿Cómo es un día típico en el cuidado de paciente, qué tareas debe hacer normalmente?
-- ¿En algún momento ha tenido que al paciente bajo su cuidado solo en casa?
+- ¿Cómo es un día típico en el cuidado de su paciente, qué tareas debe hacer normalmente?
+- ¿En algún momento ha tenido que dejar al paciente bajo su cuidado solo en casa?
 - ¿Qué es lo que más le preocupa cuando su paciente está solo en casa?
 - ¿Cómo le gustaría enterarse si ocurre algo mientras usted no está?
 - ¿En qué momentos del día siente mayor necesidad de monitorear su paciente?
-- ¿Qué aspectos de la salud de la persona con necesidades especiales considera más difíciles de vigilar constantemente?
+- ¿Qué aspectos de la salud de su paciente considera más difíciles de vigilar constantemente?
 - ¿Qué tan cómodo cree que sería usar tecnologías (apps, pulseras, dispositivos) para apoyar el cuidado de su paciente?
 - ¿Qué información cree que sería útil que le muestre nuestro servicio sobre el estado de su paciente, aparte de los signos vitales básicos?
-- ¿Piensa usted que la supervisión constante que debe realizar le genera carga?. De ser así, ¿de qué manera cree que nuestro servicio le ayudaría a reducir la carga?
+- ¿Piensa usted que la supervisión constante que debe realizar le genera carga? De ser así, ¿de qué manera cree que nuestro servicio le ayudaría a reducir la carga?
 - ¿Qué funciones cree que serían más útiles en una aplicación de monitoreo para personas con necesidades especiales?
 - ¿Cómo le gustaría que se vieran estas funciones en la aplicación o la pulsera, en relación a la facilidad de uso de estas?
 - ¿Qué situaciones de emergencia ha tenido que enfrentar con el paciente y cómo las resolvió?
