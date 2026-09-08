@@ -25,6 +25,14 @@ Como respuesta a esta problemática, Guardian+ propone una solución móvil que 
 
 #### 1.2.1. Antecedentes y problemática
 
+En el Perú, el proceso de envejecimiento poblacional viene acelerándose: durante el tercer trimestre de 2025, el 44,6 % de los hogares del país contaba con al menos un adulto mayor, cifra que en Lima Metropolitana llegó al 47,4 % (INEI, 2025). Además, el índice de dependencia de adultos mayores pasará de 23,0 % en 2025 a 41,5 % en 2050 (INEI, 2025), lo que anticipa una demanda creciente de acompañamiento y cuidado. A esta magnitud se suma la vulnerabilidad del grupo: cerca del 66 % de los adultos mayores presenta algún grado de fragilidad, el 60 % vive con dos o más enfermedades crónicas (comorbilidad) y uno de cada cuatro vive en situación de soledad (INEI, como se citó en Andina, 2022; Infobae, 2025). En paralelo, el MINSA reporta que uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, una de las principales causas de hospitalización en esta población (Gobierno del Perú, 2018).
+
+El punto crítico es que buena parte de estos hogares depende de una supervisión presencial que no siempre es posible: los familiares deben cumplir responsabilidades laborales o viven a distancia, y los cuidadores gestionan a varias personas a la vez. Cuando el adulto mayor queda solo, sus familiares y cuidadores carecen de una forma oportuna, centralizada y a distancia de conocer su estado y de ser alertados ante un evento crítico. Guardian+ aborda esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta de forma clara y genera alertas, permitiendo una respuesta rápida sin necesidad de presencia constante.
+
+**Análisis 5W2H**
+
+![5w2h](../assets/images/chapterI/5w2h.png)
+
 #### 1.2.2. Lean UX Process
 
 ##### 1.2.2.1. Lean UX Problem Statements
