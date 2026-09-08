@@ -42,6 +42,48 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 
 #### 2.2.1. Diseño de entrevistas
 
+**Preguntas para segmento 1**
+**(Familiares de personas con necesidades especiales)**
+
+- ¿Qué relación tiene con la persona que cuida o acompaña, y vive usted con ella o de forma independiente?
+- ¿Su familiar suele estar solo o con poca compañía en algunos momentos del día? Si es así, ¿qué es lo que más le preocupa a usted en esa situación?
+- ¿Cómo maneja usted las situaciones en las que su familiar se siente mal de salud o sufre algún malestar repentino?
+- ¿Ha tenido alguna experiencia reciente en la que su familiar necesitó ayuda y no había nadie cerca? ¿Qué ocurrió?
+- ¿Qué tipo de ayuda o acompañamiento le gustaría que su familiar tuviera disponible sin depender de que usted esté siempre presente?
+- ¿Qué significa para usted que su familiar se sienta seguro en su propia casa?
+- En caso de una caída o un problema de salud repentino de su familiar, ¿qué tan rápido cree que podría conseguirse ayuda?
+- ¿Su familiar suele tener dificultades para recordar sus horarios de medicamentos o sus citas médicas? Si es así, ¿qué sistemas utilizan actualmente para recordárselos?
+- ¿Qué tan cómodo se siente usted usando tecnología (aplicaciones, relojes inteligentes, pulseras) para temas de salud o para comunicarse con el resto de la familia sobre el estado de su familiar?
+- ¿A través de qué medios o canales digitales suele mantenerse informado sobre el estado de salud o bienestar de su familiar (WhatsApp, llamadas, apps, redes sociales)?
+- Si pudiera contar con un dispositivo que le ayude a monitorear el bienestar de su familiar, ¿qué características serían las más importantes para usted, además de conocer su ubicación?
+- ¿Qué tipo de actividades realiza su familiar con más frecuencia (caminar, hacer ejercicio suave, socializar con amigos u otros familiares)?
+- ¿Qué cambios ha notado en la salud o en la vida cotidiana de su familiar en los últimos años?
+- ¿Qué le daría más tranquilidad: prevenir problemas de salud de su familiar o recibir ayuda inmediata cuando ocurren?
+- ¿Qué cosas le resultan fáciles y cuáles difíciles a su familiar al usar aparatos electrónicos?
+- Si existiera una pulsera o dispositivo que apoye el cuidado de su familiar, ¿qué es lo primero que le gustaría que hiciera por él/ella?
+- ¿Qué funciones o características evitaría en un dispositivo para que no le resulte molesto o incómodo de usar a su familiar?
+- ¿Existen marcas de tecnología o salud (relojes, apps, seguros) en las que usted confía especialmente para el cuidado de su familia? ¿Por qué?
+- ¿Estaría dispuesto/a a pagar por un servicio de este tipo? ¿Qué precio consideraría razonable?
+
+**Preguntas para segmento 2**
+**(Cuidadores responsables del bienestar de personas con necesidades especiales)**
+
+- ¿Cómo es un día típico en el cuidado de paciente, qué tareas debe hacer normalmente?
+- ¿En algún momento ha tenido que dejar al adulto mayor bajo su cuidado solo en casa?
+- ¿Qué es lo que más le preocupa cuando su paciente está solo en casa?
+- ¿Cómo le gustaría enterarse si ocurre algo mientras usted no está?
+- ¿En qué momentos del día siente mayor necesidad de monitorear su paciente?
+- ¿Qué aspectos de la salud de la persona con necesidades especiales considera más difíciles de vigilar constantemente?
+- ¿Qué tan cómodo cree que sería usar tecnologías (apps, pulseras, dispositivos) para apoyar el cuidado de su paciente?
+- ¿Qué información cree que sería útil que le muestre nuestro servicio sobre el estado de su paciente, aparte de los signos vitales básicos?
+- ¿Piensa usted que la supervisión constante que debe realizar le genera carga?. De ser así, ¿de qué manera cree que nuestro servicio le ayudaría a reducir la carga?
+- ¿Qué funciones cree que serían más útiles en una aplicación de monitoreo para adultos mayores?
+- ¿Cómo le gustaría que se vieran estas funciones en la aplicación o la pulsera, en relación a la facilidad de uso de estas?
+- ¿Qué situaciones de emergencia ha tenido que enfrentar con el paciente y cómo las resolvió?
+- ¿Alguna vez ha sentido que la supervisión manual sobre el paciente bajo su cuidado fue insuficiente?
+- ¿Qué características harían que usted confíe en un sistema de monitoreo para complementar su trabajo?
+- ¿Usted compraría el servicio que le ofrecemos si es a un precio razonable?
+
 #### 2.2.2. Registro de entrevistas
 
 #### 2.2.3. Análisis de entrevistas
