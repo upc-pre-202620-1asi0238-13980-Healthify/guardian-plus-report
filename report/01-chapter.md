@@ -37,11 +37,56 @@ El punto crítico es que buena parte de estos hogares depende de una supervisió
 
 ##### 1.2.2.1. Lean UX Problem Statements
 
+**Problem Statement principal (PS-1):**
+El cuidado de adultos mayores en el Perú se ha apoyado principalmente en la supervisión presencial y en herramientas genéricas (llamadas, mensajería o wearables orientados al fitness) que no fueron diseñadas para el acompañamiento a distancia. Lo que los familiares y cuidadores necesitan es una forma oportuna, centralizada y confiable de conocer el estado del adulto mayor y de ser alertados ante eventos críticos, incluso cuando no están presentes. Debido a que las soluciones actuales no integran monitoreo, alertas y comunicación pensados para este contexto, la información llega fragmentada y tarde. Por ello, Guardian+ abordará esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta en un dashboard claro y emite notificaciones y alertas en tiempo real. Nuestro foco inicial serán los familiares que supervisan a distancia y los cuidadores responsables del acompañamiento frecuente.
+
+Enunciados secundarios por objetivo:
+
+- **PS-2 (Seguridad):** los familiares y cuidadores no reciben aviso oportuno ante caídas o emergencias. ¿Cómo garantizar una respuesta rápida mediante alertas inmediatas en la app?
+- **PS-3 (Salud):** no existe un seguimiento continuo y comprensible de los signos del adulto mayor. ¿Cómo ofrecer un monitoreo preventivo desde el aplicativo móvil?
+
 ##### 1.2.2.2. Lean UX Assumptions
+
+**Business Assumptions (Suposiciones de negocio)**
+
+- Creemos que existe un mercado creciente de familias e instituciones que necesitan supervisar a distancia a adultos mayores.
+- Creemos que podemos adquirir usuarios mediante alianzas con instituciones de salud, EPS/seguros y centros de cuidado, además de canales digitales.
+- Creemos que generaremos ingresos con un modelo freemium/suscripción (plan básico gratuito y plan premium con reportes e historial detallado).
+- Creemos que nuestro principal riesgo es que los datos mostrados sean imprecisos o que las alertas fallen, y lo mitigaremos con validación de datos y un diseño cuidadoso de la lógica de alertas.
+
+**Business Outcome Assumptions (Resultados de negocio esperados)**
+
+- Creemos que el éxito se reflejará en un uso recurrente de la app (usuarios activos diarios) y en una alta tasa de respuesta a las alertas.
+- Creemos que una buena experiencia elevará la retención y la conversión del plan gratuito al premium.
+
+**User Assumptions (Suposiciones sobre los usuarios)**
+
+- Creemos que nuestros usuarios iniciales son familiares que supervisan a distancia y cuidadores con varias personas a cargo.
+- Creemos que valoran, ante todo, la tranquilidad: saber a tiempo cómo está el adulto mayor y poder reaccionar rápido.
+- Creemos que tienen niveles variados de familiaridad tecnológica, por lo que requieren una interfaz simple e intuitiva.
+
+**User Outcome Assumptions (Beneficios esperados por el usuario)**
+
+- Creemos que los familiares reducirán su incertidumbre al acceder a indicadores y alertas oportunas.
+- Creemos que los cuidadores optimizarán su labor al centralizar el monitoreo de varias personas y reducir la carga de supervisión manual.
+
+**Feature Assumptions (Suposiciones sobre funcionalidades)**
+
+- Creemos que un dashboard de indicadores claro cubre la necesidad de conocer el estado del adulto mayor.
+- Creemos que las notificaciones y alertas en tiempo real ante eventos críticos permiten reaccionar a tiempo.
+- Creemos que los reportes e historial del estado del adulto mayor aportan valor preventivo.
+- Creemos que la comunicación directa (contacto rápido con familiares o servicios) refuerza la respuesta ante emergencias.
 
 ##### 1.2.2.3. Lean UX Hypothesis Statements
 
+- **H1:** Creemos que mejoraremos la respuesta ante emergencias si los familiares y cuidadores reciben avisos oportunos mediante alertas en tiempo real ante caídas o eventos críticos. *Métrica:* se reduce el tiempo promedio entre el evento detectado y la primera acción del responsable.
+- **H2:** Creemos que aumentaremos el uso recurrente de la app si los cuidadores logran supervisar sin presencia física mediante un dashboard de indicadores centralizado. *Métrica:* usuarios activos diarios y frecuencia de consultas al dashboard.
+- **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado del adulto mayor. *Métrica:* número de reportes revisados y tasa de retención semanal.
+- **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
+
 ##### 1.2.2.4. Lean UX Canvas
+
+![Lean UX Canvas](../assets/images/chapterI/leanux-canvas.png)
 
 ### 1.3. Segmentos objetivo
 
