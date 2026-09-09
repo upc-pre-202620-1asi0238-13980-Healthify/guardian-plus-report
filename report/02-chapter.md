@@ -99,6 +99,14 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 #### 2.3.1. User Personas
 
+## Primer segmento: Familiares 
+
+![user-persona-1](../assets/images/chapterII/user-persona-1.png)
+
+## Segundo segmento: Cuidadores
+
+![user-persona-2](../assets/images/chapterII/user-persona-2.png)
+
 #### 2.3.2. User Task Matrix
 | Task (Adaptado para supervisión) | Familiares – Frecuencia | Familiares – Importancia | Cuidadores – Frecuencia | Cuidadores – Importancia |
 |---|---|---|---|---|
