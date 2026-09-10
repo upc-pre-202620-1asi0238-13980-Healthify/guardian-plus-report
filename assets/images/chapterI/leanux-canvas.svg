@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="1920" height="1080" fill="#ffffff"/>
+<rect x="16.0" y="16.0" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="42.0" y="65.0" fill="#111111" font-size="23" font-weight="800">
+<tspan x="42.0" dy="0">1  BUSINESS PROBLEM</tspan>
+</text>
+<text x="42.0" y="112.0" fill="#1a1a1a" font-size="21">
+<tspan x="42.0" dy="0">El cuidado de las personas</tspan>
+<tspan x="42.0" dy="28">vulnerables que requieren cuidado</tspan>
+<tspan x="42.0" dy="28">(adultos mayores, personas con</tspan>
+<tspan x="42.0" dy="28">discapacidad o en situación de</tspan>
+<tspan x="42.0" dy="28">dependencia) depende de la</tspan>
+<tspan x="42.0" dy="28">supervisión presencial; familiares</tspan>
+<tspan x="42.0" dy="28">y cuidadores no cuentan con una</tspan>
+<tspan x="42.0" dy="28">forma oportuna y centralizada de</tspan>
+<tspan x="42.0" dy="28">conocer su estado y reaccionar a</tspan>
+<tspan x="42.0" dy="28">distancia ante eventos críticos.</tspan>
+</text>
+<rect x="16.0" y="369.3" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="42.0" y="418.3" fill="#111111" font-size="23" font-weight="800">
+<tspan x="42.0" dy="0">3  USERS</tspan>
+</text>
+<text x="42.0" y="465.3" fill="#1a1a1a" font-size="21">
+<tspan x="42.0" dy="0">Familiares (hijos, nietos u otros</tspan>
+<tspan x="42.0" dy="28">responsables que supervisan a</tspan>
+<tspan x="42.0" dy="28">distancia) y cuidadores</tspan>
+<tspan x="42.0" dy="28">(formales/informales, particulares</tspan>
+<tspan x="42.0" dy="28">o de instituciones). Sujeto</tspan>
+<tspan x="42.0" dy="28">monitoreado: la persona a su</tspan>
+<tspan x="42.0" dy="28">cuidado, con especial énfasis en</tspan>
+<tspan x="42.0" dy="28">adultos mayores (datos vía</tspan>
+<tspan x="42.0" dy="28">wearable).</tspan>
+</text>
+<rect x="16.0" y="722.7" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="42.0" y="771.7" fill="#111111" font-size="23" font-weight="800">
+<tspan x="42.0" dy="0">6  HYPOTHESES</tspan>
+</text>
+<text x="42.0" y="818.7" fill="#1a1a1a" font-size="21">
+<tspan x="42.0" dy="0">H1–H4 (ver 1.2.2.3): alertas →</tspan>
+<tspan x="42.0" dy="28">respuesta, dashboard → uso</tspan>
+<tspan x="42.0" dy="28">recurrente, reportes →</tspan>
+<tspan x="42.0" dy="28">confianza/retención, comunicación</tspan>
+<tspan x="42.0" dy="28">→ capacidad de respuesta.</tspan>
+</text>
+<rect x="649.3" y="16.0" width="621.3" height="694.7" fill="#d3d3d3"/>
+<text x="675.3" y="65.0" fill="#111111" font-size="23" font-weight="800">
+<tspan x="675.3" dy="0">5  SOLUTIONS</tspan>
+<tspan x="675.3" dy="29">(FEATURES)</tspan>
+</text>
+<text x="675.3" y="141.0" fill="#1a1a1a" font-size="25">
+<tspan x="675.3" dy="0">Dashboard de indicadores,</tspan>
+<tspan x="675.3" dy="34">alertas/notificaciones en</tspan>
+<tspan x="675.3" dy="34">tiempo real, reportes e</tspan>
+<tspan x="675.3" dy="34">historial, comunicación</tspan>
+<tspan x="675.3" dy="34">directa con</tspan>
+<tspan x="675.3" dy="34">contactos/servicios, interfaz</tspan>
+<tspan x="675.3" dy="34">simple e intuitiva.</tspan>
+</text>
+<rect x="649.3" y="722.7" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="675.3" y="771.7" fill="#111111" font-size="23" font-weight="800">
+<tspan x="675.3" dy="0">7  WHAT&#x27;S THE MOST</tspan>
+<tspan x="675.3" dy="29">IMPORTANT THING WE NEED TO</tspan>
+<tspan x="675.3" dy="29">LEARN FIRST?</tspan>
+</text>
+<text x="675.3" y="876.7" fill="#1a1a1a" font-size="21">
+<tspan x="675.3" dy="0">Si familiares/cuidadores confían</tspan>
+<tspan x="675.3" dy="28">en las alertas y el dashboard lo</tspan>
+<tspan x="675.3" dy="28">suficiente como para reaccionar a</tspan>
+<tspan x="675.3" dy="28">tiempo basándose en la información</tspan>
+<tspan x="675.3" dy="28">de la app.</tspan>
+</text>
+<rect x="1282.7" y="16.0" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="1308.7" y="65.0" fill="#111111" font-size="23" font-weight="800">
+<tspan x="1308.7" dy="0">2  BUSINESS OUTCOMES</tspan>
+</text>
+<text x="1308.7" y="112.0" fill="#1a1a1a" font-size="21">
+<tspan x="1308.7" dy="0">Uso recurrente de la app (usuarios</tspan>
+<tspan x="1308.7" dy="28">activos diarios), alta tasa de</tspan>
+<tspan x="1308.7" dy="28">respuesta a alertas, buena</tspan>
+<tspan x="1308.7" dy="28">retención y conversión de gratuito</tspan>
+<tspan x="1308.7" dy="28">a premium.</tspan>
+</text>
+<rect x="1282.7" y="369.3" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="1308.7" y="418.3" fill="#111111" font-size="23" font-weight="800">
+<tspan x="1308.7" dy="0">4  USER OUTCOMES &amp;</tspan>
+<tspan x="1308.7" dy="29">BENEFITS</tspan>
+</text>
+<text x="1308.7" y="494.3" fill="#1a1a1a" font-size="21">
+<tspan x="1308.7" dy="0">Familiares: menos incertidumbre y</tspan>
+<tspan x="1308.7" dy="28">tranquilidad. Cuidadores: labor</tspan>
+<tspan x="1308.7" dy="28">optimizada, monitoreo centralizado</tspan>
+<tspan x="1308.7" dy="28">y menor carga. Ambos: reacción</tspan>
+<tspan x="1308.7" dy="28">rápida ante emergencias.</tspan>
+</text>
+<rect x="1282.7" y="722.7" width="621.3" height="341.3" fill="#d3d3d3"/>
+<text x="1308.7" y="771.7" fill="#111111" font-size="23" font-weight="800">
+<tspan x="1308.7" dy="0">8  WHAT&#x27;S THE LEAST AMOUNT OF</tspan>
+<tspan x="1308.7" dy="29">WORK WE NEED TO DO TO LEARN</tspan>
+<tspan x="1308.7" dy="29">THE NEXT MOST IMPORTANT THING?</tspan>
+</text>
+<text x="1308.7" y="876.7" fill="#1a1a1a" font-size="21">
+<tspan x="1308.7" dy="0">Un MVP con dashboard y alertas</tspan>
+<tspan x="1308.7" dy="28">alimentado por datos simulados del</tspan>
+<tspan x="1308.7" dy="28">wearable, probado con un grupo</tspan>
+<tspan x="1308.7" dy="28">pequeño de familiares/cuidadores,</tspan>
+<tspan x="1308.7" dy="28">midiendo tiempo de respuesta y uso</tspan>
+<tspan x="1308.7" dy="28">de las alertas.</tspan>
+</text>
+</svg>
