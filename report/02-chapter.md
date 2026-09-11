@@ -124,7 +124,6 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 #### 2.3.5. Big Picture EventStorming
 
 #### 2.3.6. Ubiquitous Language
-
 # 2.4. Requirements specification
 
 ## 2.4.1. User Stories
@@ -164,13 +163,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar la lectura actual del ritmo cardíaco del adulto mayor para monitorear su estabilidad cardiovascular e identificar irregularidades de manera oportuna.</td>
+    <td colspan="4">Como cuidador, deseo consultar la lectura actual del ritmo cardíaco del adulto mayor, persona con discapacidad o en situación de dependencia para monitorear su estabilidad cardiovascular e identificar irregularidades de manera oportuna.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Lectura de ritmo cardíaco en rango normal</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite lecturas de frecuencia cardíaca entre 60 y 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular actual del adulto mayor.<br>- <strong>Entonces</strong> el sistema presenta el valor biométrico en tiempo real y clasifica el estado cardíaco como normal.<br><br><strong>Escenario 2: Detección de taquicardia o ritmo elevado</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca superior a 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor.<br>- <strong>Entonces</strong> el sistema clasifica el valor como elevado y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 3: Detección de bradicardia o ritmo bajo</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca inferior a 50 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor.<br>- <strong>Entonces</strong> el sistema clasifica el valor como bajo y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 4: Interrupción en la transmisión de telemetría</strong><br>- <strong>Dado que</strong> la transmisión de telemetría desde el dispositivo wearable no responde o pierde sincronización.<br>- <strong>Cuando</strong> el cuidador intenta consultar el ritmo cardíaco actual.<br>- <strong>Entonces</strong> el sistema expone el último valor histórico registrado indicando la ausencia de señal en vivo.</td>
+    <td colspan="4"><strong>Escenario 1: Lectura de ritmo cardíaco en rango normal</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite lecturas de frecuencia cardíaca entre 60 y 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular actual del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema presenta el valor biométrico en tiempo real y clasifica el estado cardíaco como normal.<br><br><strong>Escenario 2: Detección de taquicardia o ritmo elevado</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca superior a 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema clasifica el valor como elevado y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 3: Detección de bradicardia o ritmo bajo</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca inferior a 50 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema clasifica el valor como bajo y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 4: Interrupción en la transmisión de telemetría</strong><br>- <strong>Dado que</strong> la transmisión de telemetría desde el dispositivo wearable no responde o pierde sincronización.<br>- <strong>Cuando</strong> el cuidador intenta consultar el ritmo cardíaco actual.<br>- <strong>Entonces</strong> el sistema expone el último valor histórico registrado indicando la ausencia de señal en vivo.</td>
   </tr>
 </table>
 
@@ -197,13 +196,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar los valores estimados de presión arterial sistólica y diastólica del adulto mayor para evaluar su condición hemodinámica y prevenir descompensaciones.</td>
+    <td colspan="4">Como cuidador, deseo consultar los valores estimados de presión arterial sistólica y diastólica del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar su condición hemodinámica y prevenir descompensaciones.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Presión arterial dentro del umbral normotenso</strong><br>- <strong>Dado que</strong> el sensor registra valores de presión arterial dentro de 90/60 mmHg y 120/80 mmHg.<br>- <strong>Cuando</strong> el cuidador consulta las mediciones de presión arterial del adulto mayor.<br>- <strong>Entonces</strong> el sistema expone los valores sistólicos y diastólicos indicando un estado estable sin generar alertas.<br><br><strong>Escenario 2: Detección de pico hipertensivo</strong><br>- <strong>Dado que</strong> el sensor registra un valor sistólico superior a 140 mmHg o diastólico superior a 90 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema categoriza la lectura como valor fuera de rango y activa una marca de observación clínica.<br><br><strong>Escenario 3: Detección de hipotensión</strong><br>- <strong>Dado que</strong> el sensor registra una presión arterial inferior a 90/60 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema clasifica la condición como presión baja y notifica el valor fuera de umbral de seguridad.<br><br><strong>Escenario 4: Lectura fallida o no concluyente</strong><br>- <strong>Dado que</strong> las señales hemodinámicas obtenidas por el sensor presentan ruido excesivo o artefactos de movimiento.<br>- <strong>Cuando</strong> el cuidador consulta la presión arterial.<br>- <strong>Entonces</strong> el sistema descarta la medición errónea y reporta la lectura como inválida sin alterar los umbrales de alerta.</td>
+    <td colspan="4"><strong>Escenario 1: Presión arterial dentro del umbral normotenso</strong><br>- <strong>Dado que</strong> el sensor registra valores de presión arterial dentro de 90/60 mmHg y 120/80 mmHg.<br>- <strong>Cuando</strong> el cuidador consulta las mediciones de presión arterial del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema expone los valores sistólicos y diastólicos indicando un estado estable sin generar alertas.<br><br><strong>Escenario 2: Detección de pico hipertensivo</strong><br>- <strong>Dado que</strong> el sensor registra un valor sistólico superior a 140 mmHg o diastólico superior a 90 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema categoriza la lectura como valor fuera de rango y activa una marca de observación clínica.<br><br><strong>Escenario 3: Detección de hipotensión</strong><br>- <strong>Dado que</strong> el sensor registra una presión arterial inferior a 90/60 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema clasifica la condición como presión baja y notifica el valor fuera de umbral de seguridad.<br><br><strong>Escenario 4: Lectura fallida o no concluyente</strong><br>- <strong>Dado que</strong> las señales hemodinámicas obtenidas por el sensor presentan ruido excesivo o artefactos de movimiento.<br>- <strong>Cuando</strong> el cuidador consulta la presión arterial.<br>- <strong>Entonces</strong> el sistema descarta la medición errónea y reporta la lectura como inválida sin alterar los umbrales de alerta.</td>
   </tr>
 </table>
 
@@ -230,13 +229,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar el porcentaje de saturación de oxígeno en sangre del adulto mayor para identificar posibles cuadros de hipoxemia o dificultad respiratoria.</td>
+    <td colspan="4">Como cuidador, deseo consultar el porcentaje de saturación de oxígeno en sangre del adulto mayor, persona con discapacidad o en situación de dependencia para identificar posibles cuadros de hipoxemia o dificultad respiratoria.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Saturación de oxígeno en nivel óptimo</strong><br>- <strong>Dado que</strong> la pulsera registra una saturación de oxígeno SpO₂ igual o superior al 95%.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno del adulto mayor.<br>- <strong>Entonces</strong> el sistema confirma el porcentaje en tiempo real catalogándolo en estado normal.<br><br><strong>Escenario 2: Hipoxemia o saturación por debajo de umbral seguro</strong><br>- <strong>Dado que</strong> el sensor de oximetría registra un valor inferior al 90% de SpO₂.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno o el sistema procesa la telemetría.<br>- <strong>Entonces</strong> el sistema clasifica inmediatamente el estado como crítico y reporta la anomalía de oxigenación.<br><br><strong>Escenario 3: Artefacto de censado por desconexión</strong><br>- <strong>Dado que</strong> la pulsera pierde contacto cutáneo continuo durante la captura fotopletismográfica.<br>- <strong>Cuando</strong> se procesa la lectura de saturación de oxígeno.<br>- <strong>Entonces</strong> el sistema suspende el cálculo de SpO₂ y registra una condición de lectura incompleta conservando el último registro válido.</td>
+    <td colspan="4"><strong>Escenario 1: Saturación de oxígeno en nivel óptimo</strong><br>- <strong>Dado que</strong> la pulsera registra una saturación de oxígeno SpO₂ igual o superior al 95%.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema confirma el porcentaje en tiempo real catalogándolo en estado normal.<br><br><strong>Escenario 2: Hipoxemia o saturación por debajo de umbral seguro</strong><br>- <strong>Dado que</strong> el sensor de oximetría registra un valor inferior al 90% de SpO₂.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno o el sistema procesa la telemetría.<br>- <strong>Entonces</strong> el sistema clasifica inmediatamente el estado como crítico y reporta la anomalía de oxigenación.<br><br><strong>Escenario 3: Artefacto de censado por desconexión</strong><br>- <strong>Dado que</strong> la pulsera pierde contacto cutáneo continuo durante la captura fotopletismográfica.<br>- <strong>Cuando</strong> se procesa la lectura de saturación de oxígeno.<br>- <strong>Entonces</strong> el sistema suspende el cálculo de SpO₂ y registra una condición de lectura incompleta conservando el último registro válido.</td>
   </tr>
 </table>
 
@@ -263,13 +262,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo supervisar las mediciones de temperatura corporal del adulto mayor para alertar de forma oportuna episodios febriles o cuadros de hipotermia.</td>
+    <td colspan="4">Como cuidador, deseo supervisar las mediciones de temperatura corporal del adulto mayor, persona con discapacidad o en situación de dependencia para alertar de forma oportuna episodios febriles o cuadros de hipotermia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Registro de normotermia</strong><br>- <strong>Dado que</strong> el sensor infrarrojo reporta una temperatura cutánea normal entre 36.0 °C y 37.2 °C.<br>- <strong>Cuando</strong> el cuidador revisa la telemetría térmica del adulto mayor.<br>- <strong>Entonces</strong> el sistema valida el estado térmico como normal y registra la serie temporal.<br><br><strong>Escenario 2: Detección de estado febril</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal que excede los 37.8 °C de manera sostenida.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el evento como fiebre y marca visualmente la anomalía en el perfil del usuario.<br><br><strong>Escenario 3: Detección de hipotermia</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal inferior a 35.0 °C.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el registro como hipotermia y genera un aviso de control inmediato.</td>
+    <td colspan="4"><strong>Escenario 1: Registro de normotermia</strong><br>- <strong>Dado que</strong> el sensor infrarrojo reporta una temperatura cutánea normal entre 36.0 °C y 37.2 °C.<br>- <strong>Cuando</strong> el cuidador revisa la telemetría térmica del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema valida el estado térmico como normal y registra la serie temporal.<br><br><strong>Escenario 2: Detección de estado febril</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal que excede los 37.8 °C de manera sostenida.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el evento como fiebre y marca visualmente la anomalía en el perfil del usuario.<br><br><strong>Escenario 3: Detección de hipotermia</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal inferior a 35.0 °C.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el registro como hipotermia y genera un aviso de control inmediato.</td>
   </tr>
 </table>
 
@@ -296,7 +295,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo examinar la frecuencia respiratoria del adulto mayor para monitorear su ritmo ventilatorio e identificar taquipnea o bradipnea.</td>
+    <td colspan="4">Como cuidador, deseo examinar la frecuencia respiratoria del adulto mayor, persona con discapacidad o en situación de dependencia para monitorear su ritmo ventilatorio e identificar taquipnea o bradipnea.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -317,7 +316,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US06</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>High</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -329,13 +328,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo recibir avisos hápticos y sonoros en mi pulsera en los horarios exactos de mis medicamentos para no olvidar mis dosis prescritas.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo recibir avisos hápticos y sonoros en mi pulsera en los horarios exactos de mis medicamentos para no olvidar mis dosis prescritas.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> existe una toma de medicamento registrada para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el adulto mayor ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y sincroniza el evento con el cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y el adulto mayor no envía confirmación dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> existe una toma de medicamento registrada para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y sincroniza el evento con el cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y el adulto mayor, persona con discapacidad o en situación de dependencia no envía confirmación dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
   </tr>
 </table>
 
@@ -395,13 +394,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como familiar o cuidador, deseo recibir una alerta crítica inmediata cuando la pulsera detecte un patrón de caída del adulto mayor para gestionar auxilio oportuno.</td>
+    <td colspan="4">Como familiar o cuidador, deseo recibir una alerta crítica inmediata cuando la pulsera detecte un patrón de caída del adulto mayor, persona con discapacidad o en situación de dependencia para gestionar auxilio oportuno.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Identificación cinemática de caída no mitigada</strong><br>- <strong>Dado que</strong> el microcontrolador detecta una aceleración brusca seguida de impacto e inmovilidad relativa.<br>- <strong>Cuando</strong> concluye el ciclo de evaluación cinemática en el firmware.<br>- <strong>Entonces</strong> el sistema despacha una notificación de emergencia de máxima prioridad en un lapso menor a 5 segundos.<br><br><strong>Escenario 2: Cancelación por falsa alarma efectuada por el usuario</strong><br>- <strong>Dado que</strong> el sistema clasifica una caída y activa una ventana de cancelación local de 20 segundos.<br>- <strong>Cuando</strong> el adulto mayor activa la opción de confirmación de bienestar antes del vencimiento del temporizador.<br>- <strong>Entonces</strong> el sistema interrumpe el despacho a contactos de emergencia y clasifica el evento como falso positivo resuelto.<br><br><strong>Escenario 3: Escalamiento por falta de respuesta del usuario</strong><br>- <strong>Dado que</strong> se dispara el temporizador de alerta local por caída.<br>- <strong>Cuando</strong> el temporizador de 20 segundos culmina sin interacción del adulto mayor.<br>- <strong>Entonces</strong> el sistema confirma la emergencia, envía la telemetría con coordenadas GPS y activa el flujo de auxilio.</td>
+    <td colspan="4"><strong>Escenario 1: Identificación cinemática de caída no mitigada</strong><br>- <strong>Dado que</strong> el microcontrolador detecta una aceleración brusca seguida de impacto e inmovilidad relativa.<br>- <strong>Cuando</strong> concluye el ciclo de evaluación cinemática en el firmware.<br>- <strong>Entonces</strong> el sistema despacha una notificación de emergencia de máxima prioridad en un lapso menor a 5 segundos.<br><br><strong>Escenario 2: Cancelación por falsa alarma efectuada por el usuario</strong><br>- <strong>Dado que</strong> el sistema clasifica una caída y activa una ventana de cancelación local de 20 segundos.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia activa la opción de confirmación de bienestar antes del vencimiento del temporizador.<br>- <strong>Entonces</strong> el sistema interrumpe el despacho a contactos de emergencia y clasifica el evento como falso positivo resuelto.<br><br><strong>Escenario 3: Escalamiento por falta de respuesta del usuario</strong><br>- <strong>Dado que</strong> se dispara el temporizador de alerta local por caída.<br>- <strong>Cuando</strong> el temporizador de 20 segundos culmina sin interacción del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema confirma la emergencia, envía la telemetría con coordenadas GPS y activa el flujo de auxilio.</td>
   </tr>
 </table>
 
@@ -428,7 +427,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del adulto mayor excedan los rangos seguros configurados para intervenir preventivamente.</td>
+    <td colspan="4">Como cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del adulto mayor, persona con discapacidad o en situación de dependencia excedan los rangos seguros configurados para intervenir preventivamente.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -449,7 +448,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US10</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -461,13 +460,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo validar manualmente desde mi pulsera que me encuentro a salvo tras dispararse una advertencia para evitar movilizaciones innecesarias de mis familiares.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo validar manualmente desde mi pulsera que me encuentro a salvo tras dispararse una advertencia para evitar movilizaciones innecesarias de mis familiares.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del adulto mayor</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el adulto mayor confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado por el propio usuario.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del adulto mayor, persona con discapacidad o en situación de dependencia</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado por el propio usuario.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
   </tr>
 </table>
 
@@ -494,7 +493,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el adulto mayor reciba atención de emergencia.</td>
+    <td colspan="4">Como cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el adulto mayor, persona con discapacidad o en situación de dependencia reciba atención de emergencia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -560,13 +559,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo agendar los controles y citas médicas del adulto mayor para recibir avisos preventivos y evitar inasistencias a los centros de salud.</td>
+    <td colspan="4">Como cuidador, deseo agendar los controles y citas médicas del adulto mayor, persona con discapacidad o en situación de dependencia para recibir avisos preventivos y evitar inasistencias a los centros de salud.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Generación de recordatorio previo a la cita</strong><br>- <strong>Dado que</strong> existe una cita médica registrada en el calendario del paciente.<br>- <strong>Cuando</strong> el tiempo restante coincide con la antelación configurada por el cuidador (por ejemplo, 1 hora antes).<br>- <strong>Entonces</strong> el sistema genera una notificación preventiva tanto en el dispositivo del adulto mayor como en el del cuidador.<br><br><strong>Escenario 2: Cancelación de evento programado</strong><br>- <strong>Dado que</strong> una cita médica agendada es anulada por el cuidador en el sistema.<br>- <strong>Cuando</strong> se confirma la cancelación de la cita.<br>- <strong>Entonces</strong> el sistema desactiva los temporizadores asociados y purga los recordatorios pendientes correspondientes.</td>
+    <td colspan="4"><strong>Escenario 1: Generación de recordatorio previo a la cita</strong><br>- <strong>Dado que</strong> existe una cita médica registrada en el calendario del paciente.<br>- <strong>Cuando</strong> el tiempo restante coincide con la antelación configurada por el cuidador (por ejemplo, 1 hora antes).<br>- <strong>Entonces</strong> el sistema genera una notificación preventiva tanto en el dispositivo del adulto mayor, persona con discapacidad o en situación de dependencia como en el del cuidador.<br><br><strong>Escenario 2: Cancelación de evento programado</strong><br>- <strong>Dado que</strong> una cita médica agendada es anulada por el cuidador en el sistema.<br>- <strong>Cuando</strong> se confirma la cancelación de la cita.<br>- <strong>Entonces</strong> el sistema desactiva los temporizadores asociados y purga los recordatorios pendientes correspondientes.</td>
   </tr>
 </table>
 
@@ -581,7 +580,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US14</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -593,13 +592,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo que mi pulsera me recuerde realizar pausas activas o ejercicios de movilidad suave para mantener mi autonomía funcional.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo que mi pulsera me recuerde realizar pausas activas o ejercicios de movilidad suave para mantener mi autonomía funcional.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> se ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al adulto mayor.<br>- <strong>Cuando</strong> el usuario confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> se ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Cuando</strong> el usuario confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario.</td>
   </tr>
 </table>
 
@@ -614,7 +613,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US15</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>Highest</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -626,13 +625,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo pulsar un botón SOS físico en la pulsera ante cualquier peligro para pedir asistencia inmediata a mis familiares sin depender del teléfono móvil.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo pulsar un botón SOS físico en la pulsera ante cualquier peligro para pedir asistencia inmediata a mis familiares sin depender del teléfono móvil.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el adulto mayor presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el usuario presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el usuario presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
   </tr>
 </table>
 
@@ -692,7 +691,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo acceder al registro de descanso nocturno del adulto mayor para evaluar la calidad del sueño e identificar patrones de insomnio o agitación.</td>
+    <td colspan="4">Como cuidador, deseo acceder al registro de descanso nocturno del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar la calidad del sueño e identificar patrones de insomnio o agitación.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -725,13 +724,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar las coordenadas de ubicación en tiempo real del adulto mayor para verificar su paradero y actuar rápidamente si sufre una desorientación.</td>
+    <td colspan="4">Como cuidador, deseo consultar las coordenadas de ubicación en tiempo real del adulto mayor, persona con discapacidad o en situación de dependencia para verificar su paradero y actuar rápidamente si sufre una desorientación.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Transmisión de coordenadas en condiciones normales</strong><br>- <strong>Dado que</strong> el receptor GNSS de la pulsera dispone de cobertura satelital activa.<br>- <strong>Cuando</strong> el cuidador solicita la posición actual del adulto mayor.<br>- <strong>Entonces</strong> el sistema entrega las coordenadas de latitud y longitud con una marca de tiempo actualizada dentro de los últimos 30 segundos.<br><br><strong>Escenario 2: Degradación de señal satelital en interiores</strong><br>- <strong>Dado que</strong> la pulsera entra en una zona subterránea o sin cobertura GNSS.<br>- <strong>Cuando</strong> se solicita la localización geográfica del paciente.<br>- <strong>Entonces</strong> el sistema expone el último punto geográfico válido conocido indicando explícitamente la pérdida momentánea de fijación satelital.</td>
+    <td colspan="4"><strong>Escenario 1: Transmisión de coordenadas en condiciones normales</strong><br>- <strong>Dado que</strong> el receptor GNSS de la pulsera dispone de cobertura satelital activa.<br>- <strong>Cuando</strong> el cuidador solicita la posición actual del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema entrega las coordenadas de latitud y longitud con una marca de tiempo actualizada dentro de los últimos 30 segundos.<br><br><strong>Escenario 2: Degradación de señal satelital en interiores</strong><br>- <strong>Dado que</strong> la pulsera entra en una zona subterránea o sin cobertura GNSS.<br>- <strong>Cuando</strong> se solicita la localización geográfica del paciente.<br>- <strong>Entonces</strong> el sistema expone el último punto geográfico válido conocido indicando explícitamente la pérdida momentánea de fijación satelital.</td>
   </tr>
 </table>
 
@@ -779,7 +778,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US20</strong></td>
-    <td>Adulto Mayor / Cuidador</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia / Cuidador</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -791,7 +790,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor o cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera descienda del 20% para recargarla y evitar la suspensión del monitoreo.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, o cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera descienda del 20% para recargarla y evitar la suspensión del monitoreo.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -845,7 +844,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US22</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>Low</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -857,7 +856,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo habilitar un modo de vibración táctil silenciosa para recibir mis notificaciones sin perturbar mi entorno en espacios públicos o eventos sociales.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo habilitar un modo de vibración táctil silenciosa para recibir mis notificaciones sin perturbar mi entorno en espacios públicos o eventos sociales.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -890,13 +889,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como familiar, deseo iniciar un canal de comunicación rápida con el adulto mayor para verificar su condición ante cualquier sospecha o inquietud cotidiana.</td>
+    <td colspan="4">Como familiar, deseo iniciar un canal de comunicación rápida con el adulto mayor, persona con discapacidad o en situación de dependencia para verificar su condición ante cualquier sospecha o inquietud cotidiana.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Enlace de comunicación exitoso</strong><br>- <strong>Dado que</strong> el adulto mayor y el familiar cuentan con dispositivos vinculados y conexión de datos activa.<br>- <strong>Cuando</strong> el familiar solicita la apertura de un canal de voz o videollamada.<br>- <strong>Entonces</strong> el sistema establece la sesión interactiva y confirma la conexión entre ambas partes.<br><br><strong>Escenario 2: Llamada no contestada</strong><br>- <strong>Dado que</strong> se emite la señal de comunicación hacia el dispositivo receptor.<br>- <strong>Cuando</strong> transcurren 30 segundos sin que el receptor atienda la solicitud.<br>- <strong>Entonces</strong> el sistema cierra el intento de conexión y genera un registro de llamada no atendida en el historial del cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Enlace de comunicación exitoso</strong><br>- <strong>Dado que</strong> el adulto mayor, persona con discapacidad o en situación de dependencia y el familiar cuentan con dispositivos vinculados y conexión de datos activa.<br>- <strong>Cuando</strong> el familiar solicita la apertura de un canal de voz o videollamada.<br>- <strong>Entonces</strong> el sistema establece la sesión interactiva y confirma la conexión entre ambas partes.<br><br><strong>Escenario 2: Llamada no contestada</strong><br>- <strong>Dado que</strong> se emite la señal de comunicación hacia el dispositivo receptor.<br>- <strong>Cuando</strong> transcurren 30 segundos sin que el receptor atienda la solicitud.<br>- <strong>Entonces</strong> el sistema cierra el intento de conexión y genera un registro de llamada no atendida en el historial del cuidador.</td>
   </tr>
 </table>
 
@@ -923,7 +922,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo recibir una síntesis semanal automatizada del estado de salud del adulto mayor para evaluar su evolución global sin revisar telemetría segundo a segundo.</td>
+    <td colspan="4">Como cuidador, deseo recibir una síntesis semanal automatizada del estado de salud del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar su evolución global sin revisar telemetría segundo a segundo.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -977,7 +976,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US26</strong></td>
-    <td>Adulto Mayor</td>
+    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -989,7 +988,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, deseo que la pulsera me avise periódicamente cuándo tomar agua o levantarme para evitar la deshidratación y la rigidez articular.</td>
+    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo que la pulsera me avise periódicamente cuándo tomar agua o levantarme para evitar la deshidratación y la rigidez articular.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -1022,7 +1021,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo ser alertado si el adulto mayor permanece inmóvil por un período anómalo durante el día para descartar episodios de desvanecimiento o auxilio retenido.</td>
+    <td colspan="4">Como cuidador, deseo ser alertado si el adulto mayor, persona con discapacidad o en situación de dependencia permanece inmóvil por un período anómalo durante el día para descartar episodios de desvanecimiento o auxilio retenido.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -1055,7 +1054,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo delimitar zonas geográficas seguras (hogar, parque, club) para ser alertado oportunamente si el adulto mayor cruza los perímetros autorizados.</td>
+    <td colspan="4">Como cuidador, deseo delimitar zonas geográficas seguras (hogar, parque, club) para ser alertado oportunamente si el adulto mayor, persona con discapacidad o en situación de dependencia cruza los perímetros autorizados.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -1358,7 +1357,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Análisis de compatibilidad de flujos Checkout y Payment Intents</strong><br>- <strong>Dado que</strong> el equipo requiere determinar la arquitectura más segura y costo-eficiente para gestionar planes de suscripción mensual.<br>- <strong>Cuando</strong> el desarrollador analiza la integración de Stripe Billing mediante webhooks y componentes móviles.<br>- <strong>Entonces</strong> el desarrollador documenta el flujo de autenticación, cumplimiento PCI-DSS y gestión de estados de pago en un reporte técnico compartido.<br><br><strong>Escenario 2: Prueba de concepto funcional en entorno Sandbox</strong><br>- <strong>Dado que</strong> se dispone de credenciales de prueba de la API de Stripe y un endpoint webhook en el backend.<br>- **Cuando** se ejecuta una transacción simulada de suscripción mensual con tarjetas de prueba.<br>- **Entonces** el backend procesa el evento <code>invoice.paid</code>, actualiza el estado de la suscripción y registra el ciclo de facturación exitosamente.<br><br><strong>Definition of Done (DoD):</strong><br>- Prueba de concepto (PoC) operativa en rama de desarrollo probada en entorno Sandbox.<br>- Diagrama de secuencia de integración y reporte de comisiones y consideraciones legales documentado.<br>- Historias de usuario para el módulo de facturación refinadas y estimadas en el Product Backlog.<br>- Límite de tiempo (Timebox): 12 horas de investigación y prototipado.</td>
+    <td colspan="4"><strong>Escenario 1: Análisis de compatibilidad de flujos Checkout y Payment Intents</strong><br>- <strong>Dado que</strong> el equipo requiere determinar la arquitectura más segura y costo-eficiente para gestionar planes de suscripción mensual.<br>- <strong>Cuando</strong> el desarrollador analiza la integración de Stripe Billing mediante webhooks y componentes móviles.<br>- <strong>Entonces</strong> el desarrollador documenta el flujo de autenticación, cumplimiento PCI-DSS y gestión de estados de pago en un reporte técnico compartido.<br><br><strong>Escenario 2: Prueba de concepto funcional en entorno Sandbox</strong><br>- <strong>Dado que</strong> se dispone de credenciales de prueba de la API de Stripe y un endpoint webhook en el backend.<br>- <strong>Cuando</strong> se ejecuta una transacción simulada de suscripción mensual con tarjetas de prueba.<br>- <strong>Entonces</strong> el backend procesa el evento <code>invoice.paid</code>, actualiza el estado de la suscripción y registra el ciclo de facturación exitosamente.<br><br><strong>Definition of Done (DoD):</strong><br>- Prueba de concepto (PoC) operativa en rama de desarrollo probada en entorno Sandbox.<br>- Diagrama de secuencia de integración y reporte de comisiones y consideraciones legales documentado.<br>- Historias de usuario para el módulo de facturación refinadas y estimadas en el Product Backlog.<br>- Límite de tiempo (Timebox): 12 horas de investigación y prototipado.</td>
   </tr>
 </table>
 
