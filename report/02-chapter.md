@@ -125,11 +125,15 @@ Los journeys se construyen a partir de la información obtenida durante las entr
 
 ##### User Journey Map - Familiar
 
-[Pendiente de incorporar artefacto elaborado en UXPressia y análisis.]
+El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior.
+
+![User Journey Map - Familiares](../assets/images/chapterII/user-journey-mapping/journeyMappFamiliar.png)
 
 ##### User Journey Map - Cuidador
 
-[Pendiente de incorporar artefacto elaborado en UXPressia y análisis.]
+El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables.
+
+![User Journey Map - Cuidadores](../assets/images/chapterII/user-journey-mapping/journeyMappCuidador.png)
 
 #### 2.3.4. Empathy Mapping
 
