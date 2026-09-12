@@ -93,6 +93,66 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 #### 2.2.2. Registro de entrevistas
 
+## Primer segmento: Familiares
+
+### Entrevista 1
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+### Entrevista 2
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+### Entrevista 3
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+## Segundo segmento: Cuidadores
+
+### Entrevista 1
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+### Entrevista 2
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+### Entrevista 3
+
+**Datos del entrevistado**
+
+- **Nombres:** 
+- **Apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+
+
 #### 2.2.3. Análisis de entrevistas
 
 ### 2.3. Needfinding
