@@ -119,6 +119,18 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 | Supervisar rutinas diarias | Baja | Alta | Alta | Alta |
 #### 2.3.3. User Journey Mapping
 
+En esta sección se presentan los User Journey Maps As-Is elaborados para los User Personas correspondientes a los segmentos objetivo de Guardian+. Estos artefactos permiten representar el recorrido actual que realizan los usuarios para cumplir sus objetivos de cuidado y supervisión, antes de la existencia de la solución Guardian+.
+
+Los journeys se construyen a partir de la información obtenida durante las entrevistas, su análisis y los User Personas previamente definidos. Para cada recorrido se identifican las principales etapas, acciones, puntos de contacto, pensamientos, emociones, dificultades y oportunidades encontradas durante la experiencia.
+
+##### User Journey Map - Familiar
+
+[Pendiente de incorporar artefacto elaborado en UXPressia y análisis.]
+
+##### User Journey Map - Cuidador
+
+[Pendiente de incorporar artefacto elaborado en UXPressia y análisis.]
+
 #### 2.3.4. Empathy Mapping
 
 #### 2.3.5. Big Picture EventStorming
