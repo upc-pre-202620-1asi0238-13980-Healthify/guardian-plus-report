@@ -117,10 +117,20 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 **Datos del entrevistado**
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres:** Rocío Miranda
+- **Apellidos:** Alvarado Silva
+- **Edad:** 22
+- **Distrito:** Jesus María
+
+![entrevista-familiar](../assets/images/chapterII/interviews/interview-3-family.png)
+
+- **Resumen:** 
+
+De la entrevista realizada a Rocío Alvarado, familiar de una persona con necesidades especiales, se identificó que ella y su madre son las responsables directas del cuidado de su hermano, quien padece esquizofrenia y otros trastornos asociados, y con quien conviven en la misma vivienda. Ambas se turnan para acompañarlo durante el día, aunque existen lapsos de entre 40 minutos y una hora en los que él permanece solo debido a los horarios de trabajo y estudio, situación que le genera preocupación constante ante el riesgo de brotes psicóticos. La entrevistada relató un episodio reciente en el que, tras ausentarse cerca de dos horas, vecinos les informaron que su hermano se alteró y gritó sin que ellas pudieran enterarse en el momento, lo que evidencia la falta de un canal de supervisión inmediata. Para el manejo de crisis más severas, la familia recurre a un centro de salud mental cercano a su domicilio, y el control de la medicación depende completamente de ellas, ya que su hermano no se automedica; su madre lleva un registro manual en papel, mientras que Rocío utiliza notas en su celular para llevar el control de horarios y citas.
+
+En cuanto a su relación con la tecnología, Rocío se mostró cómoda usando aplicaciones, relojes inteligentes y pulseras para temas de salud, calificándose como parte de "esta era digital", y mencionó que se mantiene informada principalmente a través de comunidades y grupos de WhatsApp, además de Facebook y TikTok. Su hermano, por su parte, cuenta con un celular que usa únicamente para llamadas, y aunque su condición ha reducido su nivel de actividad —pasando de salir a caminar y socializar con amigos a un estilo de vida actualmente sedentario, con dolores en las piernas, cansancio y mareos—, la entrevistada indicó que él sí está familiarizado con el manejo básico de dispositivos electrónicos por ser joven. Respecto a un posible dispositivo de monitoreo, Rocío priorizó claramente el control del ritmo cardíaco como la funcionalidad más importante, dado el deterioro de salud de su hermano, seguido de la medición de otros indicadores como la glucosa, y enfatizó que preferiría prevenir problemas de salud antes que solo reaccionar ante ellos; también propuso la idea de integrar cámaras conectadas a una app para monitoreo en tiempo real con notificaciones.
+
+Sobre las marcas y servicios en los que confía, mencionó a Rimac Seguros, Mifarma e Inkafarma, destacando que estas dos últimas cuentan con páginas web que le permiten informarse y contactarse fácilmente. En cuanto a un dispositivo dedicado al cuidado de su hermano, señaló que la facilidad de uso es un requisito indispensable, evitando configuraciones complicadas o con demasiadas indicaciones, y se mostró dispuesta a pagar por un servicio de este tipo hasta S/. 100 mensuales, resaltando que le brindaría tranquilidad frente a la preocupación constante que le genera el cuidado de su hermano.  
 
 ## Segundo segmento: Cuidadores
 
