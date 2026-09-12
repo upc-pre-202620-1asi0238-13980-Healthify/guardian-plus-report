@@ -1365,6 +1365,50 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
 
 #### 2.4.3. Product Backlog
 
+El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
+
+La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog.
+
+**Tablero público en ClickUp:** `<pendiente>`
+
+`<pendiente — insertar captura de pantalla del Product Backlog en ClickUp>`
+
+| # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+|---|---|---|---|---|
+| 1 | US15 | Activación de auxilio mediante botón SOS en pulsera | 5 | Sprint 1 |
+| 2 | US08 | Detección automática de caídas y despacho de emergencia | 8 | Sprint 1 |
+| 3 | US09 | Generación de alertas por transgresión de umbrales biomédicos | 5 | Sprint 1 |
+| 4 | US11 | Escalamiento automatizado de alertas críticas no atendidas | 5 | Sprint 1 |
+| 5 | US16 | Administración de agenda de contactos de auxilio | 2 | Sprint 1 |
+| 6 | US18 | Telemetría de geolocalización en tiempo real | 5 | Sprint 1 |
+| 7 | US30 | Navegación entre secciones informativas de la Landing Page | 1 | Sprint 1 |
+| 8 | US31 | Presentación de características y beneficios clave del sistema | 2 | Sprint 1 |
+| 9 | US32 | Captura y procesamiento de solicitudes de contacto institucional | 3 | Sprint 1 |
+| 10 | US33 | Visualización comparativa de planes de suscripción Guardian+ | 3 | Sprint 1 |
+| 11 | US01 | Visualización de ritmo cardíaco en tiempo real | 3 | Sprint 2 |
+| 12 | US02 | Visualización de presión arterial estimada | 3 | Sprint 2 |
+| 13 | US03 | Visualización de saturación de oxígeno periférico (SpO₂) | 3 | Sprint 2 |
+| 14 | US04 | Supervisión de temperatura corporal continua | 3 | Sprint 2 |
+| 15 | US05 | Visualización de frecuencia respiratoria estimada | 3 | Sprint 2 |
+| 16 | US10 | Confirmación manual de estado de bienestar tras incidente | 3 | Sprint 2 |
+| 17 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Sprint 2 |
+| 18 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Sprint 2 |
+| 19 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Sprint 2 |
+| 20 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
+| 21 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
+| 22 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
+| 23 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
+| 24 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
+| 25 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
+| 26 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
+| 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
+| 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
+| 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
+| 30 | US22 | Activación de modo discreto y silencioso en wearable | 2 | Sprint 4 |
+| 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
+| 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
+| 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
+
 ### 2.5. Strategic-Level Domain-Driven Design
 
 #### 2.5.1. EventStorming
