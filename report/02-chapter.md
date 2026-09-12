@@ -93,6 +93,98 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 #### 2.2.2. Registro de entrevistas
 
+A continuación se presenta el registro de las entrevistas realizadas a los segmentos de Familiares y Cuidadores, incluyendo la ficha de cada entrevistado y la captura de pantalla correspondiente.
+
+**Enlace a la grabación de todas las entrevistas:** `<pendiente>`
+
+##### Segmento 1: Familiares
+
+**Entrevistado 1**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
+**Entrevistado 2**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
+**Entrevistado 3**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
+##### Segmento 2: Cuidadores
+
+**Entrevistado 1**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
+**Entrevistado 2**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
+**Entrevistado 3**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Fernanda Llanos |
+| Edad | 59 |
+| Distrito | San Borja |
+| Timing (inicio en la grabación) | `<pendiente>` |
+| Duración | 12:19 |
+
+`<pendiente — insertar captura de pantalla>`
+
+**Entrevistado 4**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | |
+| Duración | |
+
+`<pendiente — insertar captura de pantalla>`
+
 #### 2.2.3. Análisis de entrevistas
 
 ### 2.3. Needfinding
