@@ -1411,7 +1411,105 @@ Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Pr
 
 #### 2.5.1. EventStorming
 
-##### 2.5.1.1. Candidate Context Discovery
+### 2.5.1.1. Candidate Context Discovery
+
+Una vez detallados los flujos mediante Design-Level EventStorming, se procedió con la actividad de Candidate Context Discovery. Esta etapa representa la transición entre el análisis del comportamiento del dominio y la definición de su arquitectura estratégica. El objetivo fue identificar agrupaciones de funcionalidades que comparten un mismo Lenguaje Ubicuo, reglas de negocio relacionadas y responsabilidades cohesivas.
+
+A partir del análisis de los eventos, comandos, actores, políticas, agregados y sistemas externos identificados durante el EventStorming, fue posible reconocer límites naturales dentro del dominio de Guardian+. Estas agrupaciones permitieron proponer contextos candidatos que posteriormente servirán como base para la descomposición del sistema en módulos independientes y con responsabilidades claramente diferenciadas.
+
+Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto.
+
+---
+
+#### Emergency & Alerting Bounded Context (Core Domain)
+
+![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStroming/Emergency.png)
+
+Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
+
+Su Lenguaje Ubicuo se encuentra asociado a conceptos como advertencia preventiva, detección de caídas, SOS, alerta crítica, reconocimiento de alerta, escalamiento, contacto de emergencia y estabilización de incidentes.
+
+Se clasificó como parte del **Core Domain** debido a que representa una de las capacidades de mayor valor diferencial de Guardian+: permitir que familiares y cuidadores reaccionen oportunamente ante eventos que puedan comprometer el bienestar de una persona vulnerable.
+
+---
+
+#### Health Monitoring Bounded Context (Core Domain)
+
+![Health Monitoring EventStorming](../assets/images/chapterII/EventStroming/HEALTH.png)
+
+Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
+
+Dentro de su Lenguaje Ubicuo se encuentran conceptos como bioseñales, telemetría, umbral biométrico, indicadores de salud, métricas en tiempo real, reportes de salud y resúmenes semanales.
+
+Se clasificó como parte del **Core Domain** porque el monitoreo continuo del estado de la persona bajo cuidado constituye una de las funcionalidades centrales de Guardian+ y proporciona información fundamental para detectar posibles anomalías y alimentar posteriormente los procesos de prevención y emergencia.
+
+---
+
+#### Care Routines & Wellness Bounded Context (Supporting Domain)
+
+![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStroming/careRoutine.png)
+
+Este contexto candidato agrupa las capacidades destinadas a apoyar las actividades cotidianas de cuidado y bienestar. Entre ellas se encuentran la programación, emisión, confirmación, reemisión y cancelación de recordatorios, así como el seguimiento del stock de medicamentos, ciclos de sueño, periodos prolongados de inactividad y reanudación de actividad.
+
+Su Lenguaje Ubicuo incluye conceptos como recordatorio, rutina, medicación, stock, sueño, actividad, inactividad y bienestar.
+
+Fue clasificado como **Supporting Domain**, ya que complementa las capacidades principales de monitoreo y atención de emergencias, mejorando la continuidad del cuidado diario, pero sin constituir por sí mismo el principal diferenciador estratégico de Guardian+.
+
+---
+
+#### Mobility & Geofencing Bounded Context (Supporting Domain)
+
+![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStroming/MOBILITY.png)
+
+Este contexto candidato reúne las funcionalidades relacionadas con el seguimiento de ubicación y la definición de zonas seguras para la persona bajo cuidado. Incluye la creación y actualización de geocercas, la recepción de ubicaciones y la evaluación de si la persona permanece dentro o fuera de los límites configurados.
+
+Su Lenguaje Ubicuo se encuentra compuesto por conceptos como geocerca, zona segura, ubicación, seguimiento, estado de ubicación y violación de zona segura.
+
+Se clasificó como **Supporting Domain**, debido a que aporta información contextual importante para la seguridad de la persona bajo cuidado y puede originar situaciones que requieran atención, aunque su funcionamiento complementa a los contextos principales de monitoreo y alertamiento.
+
+---
+
+#### IAM Bounded Context (Generic Domain)
+
+![IAM EventStorming](../assets/images/chapterII/EventStroming/IAM.png)
+
+Este contexto candidato agrupa los procesos relacionados con la gestión de identidad y acceso a Guardian+. Incluye el registro de credenciales, verificación de correo electrónico, autenticación, uso de códigos OTP y recuperación de contraseña.
+
+Su Lenguaje Ubicuo comprende conceptos como credenciales, autenticación, verificación, OTP, contraseña, inicio de sesión y usuario autenticado.
+
+Se clasificó como **Generic Domain** porque representa una capacidad necesaria para garantizar el acceso seguro a la plataforma, pero corresponde a una problemática común en numerosos sistemas de software y no constituye un elemento diferenciador propio del negocio de Guardian+.
+
+---
+
+#### Profile Bounded Context (Generic Domain)
+
+![Profile EventStorming](../assets/images/chapterII/EventStroming/PROFILE.png)
+
+Este contexto candidato gestiona la información asociada a los perfiles de los usuarios y de las personas bajo cuidado, así como las relaciones existentes entre familiares, cuidadores y Care Recipients. También contempla la gestión de información de contacto y preferencias de uso de la aplicación.
+
+Su Lenguaje Ubicuo incluye conceptos como perfil de usuario, perfil de persona bajo cuidado, relación de cuidado, información de contacto, preferencias de aplicación, idioma y accesibilidad.
+
+Se clasificó como **Generic Domain** debido a que proporciona información fundamental para que otros contextos puedan operar correctamente, pero sus capacidades corresponden principalmente a gestión de perfiles y relaciones, y no constituyen el núcleo diferenciador de Guardian+.
+
+---
+
+#### Subscriptions Bounded Context (Generic Domain)
+
+![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStroming/subscription1.png)
+
+![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStroming/Subscription2.png)
+
+Este contexto candidato concentra las reglas relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Incluye la solicitud y activación de suscripciones, cambios de plan, renovación, cancelación, expiración y administración de los beneficios asociados a cada plan.
+
+Su Lenguaje Ubicuo se encuentra relacionado con conceptos como suscripción, plan, pago, renovación, cancelación, expiración y entitlement.
+
+Se clasificó como **Generic Domain** porque permite implementar el modelo comercial y controlar los beneficios disponibles para los usuarios, pero no representa la principal fuente de innovación o diferenciación de Guardian+.
+
+---
+
+Como resultado del Candidate Context Discovery, el equipo estableció una primera descomposición estratégica del dominio de Guardian+. Los contextos **Emergency & Alerting** y **Health Monitoring** fueron reconocidos como parte del Core Domain debido a su relación directa con la propuesta de valor principal de la solución. **Care Routines & Wellness** y **Mobility & Geofencing** fueron clasificados como Supporting Domains debido a que complementan y fortalecen las capacidades centrales de cuidado. Finalmente, **IAM**, **Profile** y **Subscriptions** fueron identificados como Generic Domains al representar capacidades necesarias para el funcionamiento de la plataforma, pero comunes a otros tipos de sistemas.
+
+Esta descomposición servirá como base para las siguientes actividades de Strategic-Level Domain-Driven Design, donde se analizarán los mensajes intercambiados entre contextos, sus responsabilidades y las relaciones de integración mediante Domain Message Flows, Bounded Context Canvases y Context Mapping.
 
 ##### 2.5.1.2. Domain Message Flows Modeling
 
