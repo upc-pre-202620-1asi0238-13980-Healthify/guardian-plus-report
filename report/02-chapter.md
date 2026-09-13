@@ -2097,5 +2097,3 @@ Implementa el mecanismo técnico utilizado para activar evaluaciones temporales 
 
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-=======
->>>>>>> origin/develop
