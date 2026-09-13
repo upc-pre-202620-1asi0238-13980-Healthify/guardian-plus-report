@@ -93,75 +93,103 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 #### 2.2.2. Registro de entrevistas
 
-## Primer segmento: Familiares
+A continuación se presenta el registro de las entrevistas realizadas a los segmentos de Familiares y Cuidadores, incluyendo la ficha de cada entrevistado y la captura de pantalla correspondiente.
 
-### Entrevista 1
+**Enlace a la grabación de las entrevistas:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202421866_upc_edu_pe/IQACcQNLkvZqQpHQRm3if26lAffXgxwl4EZcZ-_CvP5Vc0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xXF12j)
 
-**Datos del entrevistado**
+##### Segmento 1: Familiares
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+**Entrevistado 1**
 
-### Entrevista 2
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Rocío Miranda Alvarado Silva |
+| Edad | 22 |
+| Distrito | Jesús María |
+| Timing (inicio en la grabación) | 00:04 |
+| Duración | 12:35 |
 
-**Datos del entrevistado**
+![Captura Entrevista Familiar 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_1.png)
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+**Resumen de la entrevista:** Rocío Alvarado, junto a su madre, es responsable directa del cuidado de su hermano (quien padece esquizofrenia y otros trastornos asociados y convive con ambas). Se turnan para acompañarlo durante el día, aunque existen lapsos de 40 minutos a una hora en los que él queda solo por motivos laborales o académicos, lo que le genera preocupación constante ante el riesgo de brotes psicóticos; relató un episodio en el que, tras ausentarse cerca de dos horas, vecinos les informaron que su hermano se había alterado sin que ellas pudieran enterarse a tiempo, evidenciando la falta de un canal de supervisión inmediata. El control de la medicación depende completamente de ellas mediante registros manuales. Rocío se mostró cómoda con la tecnología (apps, relojes y pulseras de salud) y priorizó el monitoreo del ritmo cardíaco como la funcionalidad más importante de un dispositivo de este tipo, seguido de otros indicadores como la glucosa, prefiriendo la prevención antes que solo reaccionar ante emergencias. Destacó que la facilidad de uso es un requisito indispensable y se mostró dispuesta a pagar hasta S/. 100 mensuales por un servicio que le brinde tranquilidad frente al cuidado de su hermano.
 
-### Entrevista 3
+**Entrevistado 2**
 
-**Datos del entrevistado**
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Lucía Infante |
+| Edad | 27 |
+| Distrito | Santiago de Surco |
+| Timing (inicio en la grabación) | 12:39 |
+| Duración | 12:32 |
 
-- **Nombres:** Rocío Miranda
-- **Apellidos:** Alvarado Silva
-- **Edad:** 22
-- **Distrito:** Jesus María
+![Captura Entrevista Familiar 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_2.png)
 
-![entrevista-familiar](../assets/images/chapterII/interviews/interview-3-family.png)
+**Resumen de la entrevista:** Lucía Infante vive sola con un adulto mayor bajo su cuidado y comentó que debe dejarlo solo durante sus jornadas laborales, lo que le genera preocupación al tener como único medio de comunicación con él los mensajes o llamadas telefónicas. Consideró que una propuesta como Guardian+ sería de gran alivio, ya que le permitiría saber en todo momento dónde se encuentra su familiar, acceder a información sobre sus signos vitales y recibir alertas ante emergencias. Entre las funcionalidades adicionales que le gustaría encontrar en la aplicación, mencionó opciones para organizar citas médicas y chequeos del adulto mayor, así como recomendaciones o sugerencias sobre su alimentación. Indicó que estaría dispuesta a pagar entre S/. 50 y S/. 100 mensuales por el servicio (aparte del costo del equipo), y sugirió que sería interesante manejar distintos planes según los servicios o necesidades específicas del adulto mayor a su cuidado.
 
-- **Resumen:** 
+**Entrevistado 3**
 
-De la entrevista realizada a Rocío Alvarado, familiar de una persona con necesidades especiales, se identificó que ella y su madre son las responsables directas del cuidado de su hermano, quien padece esquizofrenia y otros trastornos asociados, y con quien conviven en la misma vivienda. Ambas se turnan para acompañarlo durante el día, aunque existen lapsos de entre 40 minutos y una hora en los que él permanece solo debido a los horarios de trabajo y estudio, situación que le genera preocupación constante ante el riesgo de brotes psicóticos. La entrevistada relató un episodio reciente en el que, tras ausentarse cerca de dos horas, vecinos les informaron que su hermano se alteró y gritó sin que ellas pudieran enterarse en el momento, lo que evidencia la falta de un canal de supervisión inmediata. Para el manejo de crisis más severas, la familia recurre a un centro de salud mental cercano a su domicilio, y el control de la medicación depende completamente de ellas, ya que su hermano no se automedica; su madre lleva un registro manual en papel, mientras que Rocío utiliza notas en su celular para llevar el control de horarios y citas.
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | 25:11 |
+| Duración | 13:06 |
 
-En cuanto a su relación con la tecnología, Rocío se mostró cómoda usando aplicaciones, relojes inteligentes y pulseras para temas de salud, calificándose como parte de "esta era digital", y mencionó que se mantiene informada principalmente a través de comunidades y grupos de WhatsApp, además de Facebook y TikTok. Su hermano, por su parte, cuenta con un celular que usa únicamente para llamadas, y aunque su condición ha reducido su nivel de actividad —pasando de salir a caminar y socializar con amigos a un estilo de vida actualmente sedentario, con dolores en las piernas, cansancio y mareos—, la entrevistada indicó que él sí está familiarizado con el manejo básico de dispositivos electrónicos por ser joven. Respecto a un posible dispositivo de monitoreo, Rocío priorizó claramente el control del ritmo cardíaco como la funcionalidad más importante, dado el deterioro de salud de su hermano, seguido de la medición de otros indicadores como la glucosa, y enfatizó que preferiría prevenir problemas de salud antes que solo reaccionar ante ellos; también propuso la idea de integrar cámaras conectadas a una app para monitoreo en tiempo real con notificaciones.
+![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
 
-Sobre las marcas y servicios en los que confía, mencionó a Rimac Seguros, Mifarma e Inkafarma, destacando que estas dos últimas cuentan con páginas web que le permiten informarse y contactarse fácilmente. En cuanto a un dispositivo dedicado al cuidado de su hermano, señaló que la facilidad de uso es un requisito indispensable, evitando configuraciones complicadas o con demasiadas indicaciones, y se mostró dispuesta a pagar por un servicio de este tipo hasta S/. 100 mensuales, resaltando que le brindaría tranquilidad frente a la preocupación constante que le genera el cuidado de su hermano.  
+##### Segmento 2: Cuidadores
 
-## Segundo segmento: Cuidadores
+**Entrevistado 1**
 
-### Entrevista 1
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | 38:21 |
+| Duración | 11:16 |
 
-**Datos del entrevistado**
+![Captura Entrevista Cuidador 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_1.png)
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+**Entrevistado 2**
 
-### Entrevista 2
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | 49:37 |
+| Duración | 5:10 |
 
-**Datos del entrevistado**
+![Captura Entrevista Cuidador 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_2.png)
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+**Entrevistado 3**
 
-### Entrevista 3
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Fernanda Llanos |
+| Edad | 59 |
+| Distrito | San Borja |
+| Timing (inicio en la grabación) | 54:47 |
+| Duración | 12:19 |
 
-**Datos del entrevistado**
+![Captura Entrevista Cuidador 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_3.png)
 
-- **Nombres:** 
-- **Apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+**Resumen de la entrevista:** La Sra. Fernanda Llanos trabaja como cuidadora de una señora de 88 años. Comentó que, al no estar siempre presentes los familiares, en varios momentos del día se ve en la necesidad de dejar sola a la señora, lo cual le genera preocupación: teme que se dirija a zonas de la casa que puedan representar un peligro (como escaleras o la cocina) o que sufra algún incidente de salud sin que nadie esté cerca para asistirla a tiempo. Frente a este escenario, considera útil la implementación de una tecnología de supervisión como la que propone Guardian+, ya que le permitiría conocer el estado y la ubicación de la señora incluso en su ausencia, y manifestó que apoyaría y utilizaría una solución de este tipo si estuviera disponible.
 
+**Entrevistado 4**
 
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | |
+| Edad | |
+| Distrito | |
+| Timing (inicio en la grabación) | 01:06:58 |
+| Duración | 8:53 |
+
+![Captura Entrevista Cuidador 4](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_4.png)
 
 #### 2.2.3. Análisis de entrevistas
 
