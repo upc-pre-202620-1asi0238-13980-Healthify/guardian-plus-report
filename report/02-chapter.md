@@ -131,23 +131,24 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | |
-| Edad | |
-| Distrito | |
+| Nombre y apellido | Junio Antenor Ayala |
+| Edad | 32 |
+| Distrito | San Juan Baustista |
 | Timing (inicio en la grabación) | 25:11 |
 | Duración | 13:06 |
 
 ![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
 
+**Resumen de la entrevista:** El entrevistado Junior Ayala de 32 años y soldador, vive con su pareja y su hijo y manifiesta preocupación principalmente por la seguridad y el bienestar de su familia cuando no puede estar presente debido al trabajo u otras actividades. Señala que, ante emergencias o problemas de salud, suele experimentar preocupación y desesperación, recurriendo a familiares cercanos o a servicios de emergencia. Considera que una solución tecnológica, como una pulsera o dispositivo inteligente, podría ayudar a monitorear el estado de salud, las actividades y la seguridad de sus familiares, además de recordar medicamentos y citas médicas. Actualmente no utiliza herramientas de monitoreo ni lleva un control preventivo de la salud, ya que normalmente acuden a un centro de salud cuando los síntomas se vuelven graves. Está dispuesto a utilizar tecnología de este tipo, aunque considera importantes factores como el costo, la duración de la batería y la conectividad, especialmente en zonas rurales. Finalmente, estaría dispuesto a pagar por un dispositivo que realmente aporte seguridad y bienestar a su familia, realizando un esfuerzo económico si considera que el producto es útil y de buena calidad.
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | |
-| Edad | |
-| Distrito | |
+| Nombre y apellido | Roxana Paola Diana|
+| Edad | 39 |
+| Distrito | Surco |
 | Timing (inicio en la grabación) | 38:21 |
 | Duración | 11:16 |
 
@@ -161,13 +162,15 @@ Ante todo lo mencionado, se puede evidenciar que algunas de las features proporc
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | |
-| Edad | |
-| Distrito | |
+| Nombre y apellido | Piero Segura|
+| Edad | 22 |
+| Distrito | Callao |
 | Timing (inicio en la grabación) | 49:37 |
 | Duración | 5:10 |
 
 ![Captura Entrevista Cuidador 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_2.png)
+
+**Resumen de la entrevista:** Piero Segura Cárdenas, de 22 años, del distrito del Callao y estudiante de psicología, cuenta con experiencia como voluntario en un asilo, donde apoyaba a los adultos mayores en su alimentación, medicamentos, higiene, movilidad y atención ante posibles emergencias. Cuando debía dejar solo a un paciente, su principal preocupación era que pudiera sufrir una caída, descompensarse o necesitar ayuda urgente sin poder comunicarlo. Considera que recibir alertas en su celular con información sobre lo ocurrido sería una solución útil, especialmente cuando se encuentra estudiando, fuera del lugar o durante la noche. Le interesa monitorear aspectos como caídas, presión, ritmo cardíaco, estado de ánimo, sueño, medicación y actividad física. Considera que una aplicación o pulsera sería útil siempre que sea sencilla, cómoda para el paciente y muestre información clara. Además, señala que la supervisión constante le genera carga, por lo que un sistema de monitoreo le permitiría sentirse más tranquilo y organizar mejor su tiempo. Para confiar en el servicio, considera importantes la precisión, rapidez de las alertas, buena duración de la batería y protección de la información del paciente. Finalmente, estaría dispuesto a comprar el servicio si el precio es razonable, ya que considera que facilitaría el cuidado y brindaría mayor seguridad tanto al paciente como al cuidador.
 
 **Entrevistado 3**
 
@@ -187,13 +190,15 @@ Ante todo lo mencionado, se puede evidenciar que algunas de las features proporc
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | |
-| Edad | |
-| Distrito | |
+| Nombre y apellido | Gabriela Cuadros Curihuaman |
+| Edad | 21 |
+| Distrito | Santa Anita |
 | Timing (inicio en la grabación) | 01:06:58 |
 | Duración | 8:53 |
 
 ![Captura Entrevista Cuidador 4](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_4.png)
+
+**Resumen de la entrevista:** Gabriela Cuadro Curihuamán, de 21 años, es enfermera y trabaja en la Casa del Adulto Mayor de Santa Anita, donde se encarga de acompañar y supervisar a pacientes adultos mayores, apoyándolos en su alimentación, higiene, medicamentos y actividades diarias. Su principal preocupación cuando debe dejar solo a un paciente es que pueda sufrir una caída, sentirse mal o tener alguna emergencia sin recibir ayuda inmediata. Considera que un sistema de monitoreo mediante una aplicación y una pulsera sería muy útil para recibir alertas en su celular, conocer la ubicación, actividad, calidad del sueño y detectar caídas o comportamientos fuera de lo normal. También destaca la importancia de contar con recordatorios de medicamentos y un historial del estado del paciente. Señala que la supervisión constante puede ser agotadora y generar preocupación, por lo que la tecnología podría reducir su carga y brindarle mayor tranquilidad. Para confiar en el sistema, considera fundamental que sea preciso, confiable, fácil de usar, con botones grandes, información clara, poco peso, alertas rápidas y una batería que dure todo el día. Finalmente, estaría dispuesta a adquirir el servicio siempre que tenga un precio accesible y cumpla adecuadamente con estas funciones.
 
 #### 2.2.3. Análisis de entrevistas
 
