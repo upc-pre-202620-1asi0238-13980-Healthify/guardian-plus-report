@@ -117,13 +117,15 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | |
-| Edad | |
-| Distrito | |
+| Nombre y apellido | Lucía Infante |
+| Edad | 27 |
+| Distrito | Santiago de Surco |
 | Timing (inicio en la grabación) | 12:39 |
 | Duración | 12:32 |
 
 ![Captura Entrevista Familiar 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_2.png)
+
+**Resumen de la entrevista:** Lucía Infante vive sola con un adulto mayor bajo su cuidado y comentó que debe dejarlo solo durante sus jornadas laborales, lo que le genera preocupación al tener como único medio de comunicación con él los mensajes o llamadas telefónicas. Consideró que una propuesta como Guardian+ sería de gran alivio, ya que le permitiría saber en todo momento dónde se encuentra su familiar, acceder a información sobre sus signos vitales y recibir alertas ante emergencias. Entre las funcionalidades adicionales que le gustaría encontrar en la aplicación, mencionó opciones para organizar citas médicas y chequeos del adulto mayor, así como recomendaciones o sugerencias sobre su alimentación. Indicó que estaría dispuesta a pagar entre S/. 50 y S/. 100 mensuales por el servicio (aparte del costo del equipo), y sugirió que sería interesante manejar distintos planes según los servicios o necesidades específicas del adulto mayor a su cuidado.
 
 **Entrevistado 3**
 
