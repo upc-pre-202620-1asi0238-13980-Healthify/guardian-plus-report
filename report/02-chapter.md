@@ -1836,11 +1836,11 @@ La selección definitiva del proveedor permanece desacoplada del dominio. Stripe
 
 Implementa el mecanismo técnico utilizado para activar evaluaciones temporales del ciclo de vida de las suscripciones, como renovación y expiración.
 
-##### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+##### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
+###### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-###### 2.6.x.6.2. Bounded Context Database Design Diagram
+###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
