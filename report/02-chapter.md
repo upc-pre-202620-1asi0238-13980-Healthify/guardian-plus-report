@@ -95,7 +95,7 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 
 A continuación se presenta el registro de las entrevistas realizadas a los segmentos de Familiares y Cuidadores, incluyendo la ficha de cada entrevistado y la captura de pantalla correspondiente.
 
-**Enlace a la grabación de todas las entrevistas:** `<pendiente>`
+**Enlace a la grabación de las entrevistas:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202421866_upc_edu_pe/IQACcQNLkvZqQpHQRm3if26lAffXgxwl4EZcZ-_CvP5Vc0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xXF12j)
 
 ##### Segmento 1: Familiares
 
@@ -106,10 +106,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 00:04 |
+| Duración | 12:35 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Familiar 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_1.png)
 
 **Entrevistado 2**
 
@@ -118,10 +118,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 12:39 |
+| Duración | 12:32 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Familiar 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_2.png)
 
 **Entrevistado 3**
 
@@ -130,10 +130,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 25:11 |
+| Duración | 13:06 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
 
 ##### Segmento 2: Cuidadores
 
@@ -144,10 +144,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 38:21 |
+| Duración | 11:16 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Cuidador 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_1.png)
 
 **Entrevistado 2**
 
@@ -156,10 +156,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 49:37 |
+| Duración | 5:10 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Cuidador 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_2.png)
 
 **Entrevistado 3**
 
@@ -168,10 +168,12 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | Fernanda Llanos |
 | Edad | 59 |
 | Distrito | San Borja |
-| Timing (inicio en la grabación) | `<pendiente>` |
+| Timing (inicio en la grabación) | 54:47 |
 | Duración | 12:19 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Cuidador 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_3.png)
+
+**Resumen de la entrevista:** La Sra. Fernanda Llanos trabaja como cuidadora de una señora de 88 años. Comentó que, al no estar siempre presentes los familiares, en varios momentos del día se ve en la necesidad de dejar sola a la señora, lo cual le genera preocupación: teme que se dirija a zonas de la casa que puedan representar un peligro (como escaleras o la cocina) o que sufra algún incidente de salud sin que nadie esté cerca para asistirla a tiempo. Frente a este escenario, considera útil la implementación de una tecnología de supervisión como la que propone Guardian+, ya que le permitiría conocer el estado y la ubicación de la señora incluso en su ausencia, y manifestó que apoyaría y utilizaría una solución de este tipo si estuviera disponible.
 
 **Entrevistado 4**
 
@@ -180,10 +182,10 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 | Nombre y apellido | |
 | Edad | |
 | Distrito | |
-| Timing (inicio en la grabación) | |
-| Duración | |
+| Timing (inicio en la grabación) | 01:06:58 |
+| Duración | 8:53 |
 
-`<pendiente — insertar captura de pantalla>`
+![Captura Entrevista Cuidador 4](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_4.png)
 
 #### 2.2.3. Análisis de entrevistas
 
