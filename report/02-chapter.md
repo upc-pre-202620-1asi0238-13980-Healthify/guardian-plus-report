@@ -1613,7 +1613,7 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 #### Emergency & Alerting Bounded Context (Core Domain)
 
-![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStroming/Emergency.png)
+![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.png)
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
@@ -1625,7 +1625,7 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 #### Health Monitoring Bounded Context (Core Domain)
 
-![Health Monitoring EventStorming](../assets/images/chapterII/EventStroming/HEALTH.png)
+![Health Monitoring EventStorming](../assets/images/chapterII/EventStorming/HEALTH.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
 
@@ -1637,7 +1637,7 @@ Se clasificó como parte del **Core Domain** porque el monitoreo continuo del es
 
 #### Care Routines & Wellness Bounded Context (Supporting Domain)
 
-![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStroming/careRoutine.png)
+![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStorming/careRoutine.png)
 
 Este contexto candidato agrupa las capacidades destinadas a apoyar las actividades cotidianas de cuidado y bienestar. Entre ellas se encuentran la programación, emisión, confirmación, reemisión y cancelación de recordatorios, así como el seguimiento del stock de medicamentos, ciclos de sueño, periodos prolongados de inactividad y reanudación de actividad.
 
@@ -1649,7 +1649,7 @@ Fue clasificado como **Supporting Domain**, ya que complementa las capacidades p
 
 #### Mobility & Geofencing Bounded Context (Supporting Domain)
 
-![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStroming/MOBILITY.png)
+![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStorming/MOBILITY.png)
 
 Este contexto candidato reúne las funcionalidades relacionadas con el seguimiento de ubicación y la definición de zonas seguras para la persona bajo cuidado. Incluye la creación y actualización de geocercas, la recepción de ubicaciones y la evaluación de si la persona permanece dentro o fuera de los límites configurados.
 
@@ -1661,7 +1661,7 @@ Se clasificó como **Supporting Domain**, debido a que aporta información conte
 
 #### IAM Bounded Context (Generic Domain)
 
-![IAM EventStorming](../assets/images/chapterII/EventStroming/IAM.png)
+![IAM EventStorming](../assets/images/chapterII/EventStorming/IAM.png)
 
 Este contexto candidato agrupa los procesos relacionados con la gestión de identidad y acceso a Guardian+. Incluye el registro de credenciales, verificación de correo electrónico, autenticación, uso de códigos OTP y recuperación de contraseña.
 
@@ -1673,7 +1673,7 @@ Se clasificó como **Generic Domain** porque representa una capacidad necesaria 
 
 #### Profile Bounded Context (Generic Domain)
 
-![Profile EventStorming](../assets/images/chapterII/EventStroming/PROFILE.png)
+![Profile EventStorming](../assets/images/chapterII/EventStorming/PROFILE.png)
 
 Este contexto candidato gestiona la información asociada a los perfiles de los usuarios y de las personas bajo cuidado, así como las relaciones existentes entre familiares, cuidadores y Care Recipients. También contempla la gestión de información de contacto y preferencias de uso de la aplicación.
 
@@ -1685,9 +1685,9 @@ Se clasificó como **Generic Domain** debido a que proporciona información fund
 
 #### Subscriptions Bounded Context (Generic Domain)
 
-![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStroming/subscription1.png)
+![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStorming/subscription1.png)
 
-![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStroming/Subscription2.png)
+![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStorming/Subscription2.png)
 
 Este contexto candidato concentra las reglas relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Incluye la solicitud y activación de suscripciones, cambios de plan, renovación, cancelación, expiración y administración de los beneficios asociados a cada plan.
 
