@@ -31,7 +31,7 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 | **Estrategias de Marketing** | Enfoque en la tranquilidad familiar, alianzas con instituciones de salud y seguros, comunicación en redes sociales y campañas educativas. | Marketing en tiendas online y marketplaces (ej. MercadoLibre, Linio). | Marketing digital especializado en cuidado de mayores, distribuidores autorizados. | Orientado a familias en Europa, con campañas web y distribuidores de teleasistencia. | Facebook y web informativa; poca inversión en publicidad. |
 | **Productos & Servicios** | Pulsera IoT con sensores (FC, SpO2, movimiento, caídas) + app móvil con alertas, reportes, comunicación y soporte. | Wearable fitness (ritmo cardíaco, sueño, oxígeno, presión, podómetro, ejercicio). | Smartwatch senior con caídas, tensión arterial, podómetro y recordatorio de medicación. | Pulsera SOS con GPS, llamadas y caídas, protección permanente. | Reloj con GPS, botón SOS, detección de caídas, llamada automática, sin necesidad de pulsar pantalla. |
 | **Canales de Distribución (Web y/o Móvil)** | App móvil, página web, redes sociales, WhatsApp, alianzas con EPS y seguros. | Marketplaces online, tiendas minoristas. | Distribuidores online especializados y página web. | Distribución online y teleasistencia en Europa; importadores en LatAm. | Sitio web oficial MovilTecno, tiendas online (global), marketing web. |
-| **Fortalezas** | Solución integral de cuidado físico, emocional y familiar; interfaz simplificada para las personas con necesidades especiales. | Precio bajo, multifuncional, fácil acceso. | Orientado específicamente a seniors, con medición integral de salud. | Seguridad y geolocalización permanente, SOS en tiempo real. | Tecnología probada en seguridad, facilidad de uso para situaciones de desorientación (respuesta automática). |
+| **Fortalezas** | Solución integral de cuidado físico, emocional y familiar; interfaz simplificada para las personas vulnerables que requieren cuidado. | Precio bajo, multifuncional, fácil acceso. | Orientado específicamente a seniors, con medición integral de salud. | Seguridad y geolocalización permanente, SOS en tiempo real. | Tecnología probada en seguridad, facilidad de uso para situaciones de desorientación (respuesta automática). |
 | **Oportunidades** | Integración con servicios de telemedicina, expansión en provincias, modelo escalable con cuidadores y clínicas, integración con seguros. | Ampliar mercado hacia adultos mayores, añadir alertas familiares. | Mejorar accesibilidad y simplicidad de configuración. | Complementar con app de acompañamiento y reportes familiares. | Complementar funcionalidades con monitoreo de salud y comunicación familiar para ofrecer mayor valor añadido. |
 | **Debilidades** | En fase de validación y crecimiento, aún sin base de usuarios consolidada. | No enfocado en adultos mayores, sin alertas familiares. | Requiere configuración técnica más compleja, carece de "lazo de cuidado" bidireccional. | Sin acompañamiento emocional, no incluye reportes médicos ni monitoreo integral. | Enfoque limitado a la seguridad física y localización; sin capacidad de monitoreo médico ni reportes de salud. |
 | **Amenazas** | Competidores globales con mayor capital y alcance comercial. | Sustitución por otros relojes fitness más económicos. | Aparición de apps con pulseras más intuitivas. | Competencia tecnológica que combine seguridad + monitoreo de salud. | Competidores con plataforma más robusta o integración con servicios de salud podrían desplazarlo. |
@@ -40,9 +40,9 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 Estrategias y tácticas frente a competidores
 Nuestra solución contará con compatibilidad completa con dispositivos móviles Android e iOS, así como con servicios de geolocalización en tiempo real, lo que permitirá a las familias localizar a sus adultos mayores en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
-A diferencia de dispositivos genéricos como LifeWatch o SeniorDomo, nuestra propuesta incorpora el concepto de “lazo de cuidado” bidireccional, en el que tanto el adulto mayor como el familiar/cuidador están conectados entre sí. Esto permite comunicación directa, envío de alertas y generación de confianza mutua en tiempo real.
+A diferencia de dispositivos genéricos como LifeWatch o SeniorDomo, nuestra propuesta incorpora el concepto de “lazo de cuidado” bidireccional, en el que tanto la persona vulnerable que requiere cuidado como el familiar/cuidador están conectados entre sí. Esto permite comunicación directa, envío de alertas y generación de confianza mutua en tiempo real.
 La plataforma contará con un registro digital de incidentes y alertas previas, lo que permitirá a los familiares conocer antecedentes de salud, historial de caídas y cambios en los signos vitales. Esto ofrece mayor capacidad de prevención y facilita la consulta médica posterior.
-Hemos identificado una oportunidad clave en las familias que actualmente dependen de dispositivos importados o genéricos, los cuales suelen estar orientados al fitness o a la seguridad básica. Nuestra propuesta integra seguridad, salud y acompañamiento emocional en un solo dispositivo, diferenciándonos por ofrecer un servicio más integral y enfocado en el adulto mayor.
+Hemos identificado una oportunidad clave en las familias que actualmente dependen de dispositivos importados o genéricos, los cuales suelen estar orientados al fitness o a la seguridad básica. Nuestra propuesta integra seguridad, salud y acompañamiento emocional en un solo dispositivo, diferenciándonos por ofrecer un servicio más integral y enfocado en las personas vulnerables que requieren cuidado.
 La aplicación contará con pagos seguros e integración con servicios adicionales (como telemedicina, seguros o planes premium), lo que permitirá a los usuarios acceder a un ecosistema completo desde la misma plataforma, generando valor agregado y fidelización.
 
 ### 2.2. Entrevistas
@@ -50,7 +50,7 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 #### 2.2.1. Diseño de entrevistas
 
 **Preguntas para segmento 1**
-**(Familiares de personas con necesidades especiales)**
+**(Familiares de personas vulnerables que requieren cuidado)**
 
 - ¿Qué relación tiene con la persona que cuida o acompaña, y vive usted con ella o de forma independiente?
 - ¿Su familiar suele estar solo o con poca compañía en algunos momentos del día? Si es así, ¿qué es lo que más le preocupa a usted en esa situación?
@@ -73,27 +73,197 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 - ¿Estaría dispuesto/a a pagar por un servicio de este tipo? ¿Qué precio consideraría razonable?
 
 **Preguntas para segmento 2**
-**(Cuidadores responsables del bienestar de personas con necesidades especiales)**
+**(Cuidadores responsables del bienestar de personas vulnerables que requieren cuidado)**
 
-- ¿Cómo es un día típico en el cuidado de su paciente, qué tareas debe hacer normalmente?
-- ¿En algún momento ha tenido que dejar al paciente bajo su cuidado solo en casa?
-- ¿Qué es lo que más le preocupa cuando su paciente está solo en casa?
+- ¿Cómo es un día típico en el cuidado de la persona a su cargo, qué tareas debe hacer normalmente?
+- ¿En algún momento ha tenido que dejar a la persona a su cargo sola en casa?
+- ¿Qué es lo que más le preocupa cuando la persona a su cargo está sola en casa?
 - ¿Cómo le gustaría enterarse si ocurre algo mientras usted no está?
-- ¿En qué momentos del día siente mayor necesidad de monitorear su paciente?
-- ¿Qué aspectos de la salud de su paciente considera más difíciles de vigilar constantemente?
-- ¿Qué tan cómodo cree que sería usar tecnologías (apps, pulseras, dispositivos) para apoyar el cuidado de su paciente?
-- ¿Qué información cree que sería útil que le muestre nuestro servicio sobre el estado de su paciente, aparte de los signos vitales básicos?
+- ¿En qué momentos del día siente mayor necesidad de monitorear a la persona a su cargo?
+- ¿Qué aspectos de la salud de la persona a su cargo considera más difíciles de vigilar constantemente?
+- ¿Qué tan cómodo cree que sería usar tecnologías (apps, pulseras, dispositivos) para apoyar el cuidado de la persona a su cargo?
+- ¿Qué información cree que sería útil que le muestre nuestro servicio sobre el estado de la persona a su cargo, aparte de los signos vitales básicos?
 - ¿Piensa usted que la supervisión constante que debe realizar le genera carga? De ser así, ¿de qué manera cree que nuestro servicio le ayudaría a reducir la carga?
-- ¿Qué funciones cree que serían más útiles en una aplicación de monitoreo para personas con necesidades especiales?
+- ¿Qué funciones cree que serían más útiles en una aplicación de monitoreo para personas vulnerables que requieren cuidado?
 - ¿Cómo le gustaría que se vieran estas funciones en la aplicación o la pulsera, en relación a la facilidad de uso de estas?
-- ¿Qué situaciones de emergencia ha tenido que enfrentar con el paciente y cómo las resolvió?
-- ¿Alguna vez ha sentido que la supervisión manual sobre el paciente bajo su cuidado fue insuficiente?
+- ¿Qué situaciones de emergencia ha tenido que enfrentar con la persona a su cargo y cómo las resolvió?
+- ¿Alguna vez ha sentido que la supervisión manual sobre la persona a su cargo fue insuficiente?
 - ¿Qué características harían que usted confíe en un sistema de monitoreo para complementar su trabajo?
 - ¿Usted compraría el servicio que le ofrecemos si es a un precio razonable?
 
 #### 2.2.2. Registro de entrevistas
 
+A continuación se presenta el registro de las entrevistas realizadas a los segmentos de Familiares y Cuidadores, incluyendo la ficha de cada entrevistado y la captura de pantalla correspondiente.
+
+**Enlace a la grabación de las entrevistas:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202421866_upc_edu_pe/IQACcQNLkvZqQpHQRm3if26lAffXgxwl4EZcZ-_CvP5Vc0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xXF12j)
+
+##### Segmento 1: Familiares
+
+**Entrevistado 1**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Rocío Miranda Alvarado Silva |
+| Edad | 22 |
+| Distrito | Jesús María |
+| Timing (inicio en la grabación) | 00:04 |
+| Duración | 12:35 |
+
+![Captura Entrevista Familiar 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_1.png)
+
+**Resumen de la entrevista:** Rocío Alvarado, junto a su madre, es responsable directa del cuidado de su hermano (quien padece esquizofrenia y otros trastornos asociados y convive con ambas). Se turnan para acompañarlo durante el día, aunque existen lapsos de 40 minutos a una hora en los que él queda solo por motivos laborales o académicos, lo que le genera preocupación constante ante el riesgo de brotes psicóticos; relató un episodio en el que, tras ausentarse cerca de dos horas, vecinos les informaron que su hermano se había alterado sin que ellas pudieran enterarse a tiempo, evidenciando la falta de un canal de supervisión inmediata. El control de la medicación depende completamente de ellas mediante registros manuales. Rocío se mostró cómoda con la tecnología (apps, relojes y pulseras de salud) y priorizó el monitoreo del ritmo cardíaco como la funcionalidad más importante de un dispositivo de este tipo, seguido de otros indicadores como la glucosa, prefiriendo la prevención antes que solo reaccionar ante emergencias. Destacó que la facilidad de uso es un requisito indispensable y se mostró dispuesta a pagar hasta S/. 100 mensuales por un servicio que le brinde tranquilidad frente al cuidado de su hermano.
+
+**Entrevistado 2**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Lucía Infante |
+| Edad | 27 |
+| Distrito | Santiago de Surco |
+| Timing (inicio en la grabación) | 12:39 |
+| Duración | 12:32 |
+
+![Captura Entrevista Familiar 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_2.png)
+
+**Resumen de la entrevista:** Lucía Infante vive sola con un adulto mayor bajo su cuidado y comentó que debe dejarlo solo durante sus jornadas laborales, lo que le genera preocupación al tener como único medio de comunicación con él los mensajes o llamadas telefónicas. Consideró que una propuesta como Guardian+ sería de gran alivio, ya que le permitiría saber en todo momento dónde se encuentra su familiar, acceder a información sobre sus signos vitales y recibir alertas ante emergencias. Entre las funcionalidades adicionales que le gustaría encontrar en la aplicación, mencionó opciones para organizar citas médicas y chequeos del adulto mayor, así como recomendaciones o sugerencias sobre su alimentación. Indicó que estaría dispuesta a pagar entre S/. 50 y S/. 100 mensuales por el servicio (aparte del costo del equipo), y sugirió que sería interesante manejar distintos planes según los servicios o necesidades específicas del adulto mayor a su cuidado.
+
+**Entrevistado 3**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Junio Antenor Ayala |
+| Edad | 32 |
+| Distrito | San Juan Baustista |
+| Timing (inicio en la grabación) | 25:11 |
+| Duración | 13:06 |
+
+![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
+
+**Resumen de la entrevista:** El entrevistado Junior Ayala de 32 años y soldador, vive con su pareja y su hijo y manifiesta preocupación principalmente por la seguridad y el bienestar de su familia cuando no puede estar presente debido al trabajo u otras actividades. Señala que, ante emergencias o problemas de salud, suele experimentar preocupación y desesperación, recurriendo a familiares cercanos o a servicios de emergencia. Considera que una solución tecnológica, como una pulsera o dispositivo inteligente, podría ayudar a monitorear el estado de salud, las actividades y la seguridad de sus familiares, además de recordar medicamentos y citas médicas. Actualmente no utiliza herramientas de monitoreo ni lleva un control preventivo de la salud, ya que normalmente acuden a un centro de salud cuando los síntomas se vuelven graves. Está dispuesto a utilizar tecnología de este tipo, aunque considera importantes factores como el costo, la duración de la batería y la conectividad, especialmente en zonas rurales. Finalmente, estaría dispuesto a pagar por un dispositivo que realmente aporte seguridad y bienestar a su familia, realizando un esfuerzo económico si considera que el producto es útil y de buena calidad.
+##### Segmento 2: Cuidadores
+
+**Entrevistado 1**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Roxana Paola Diana|
+| Edad | 39 |
+| Distrito | Surco |
+| Timing (inicio en la grabación) | 38:21 |
+| Duración | 11:16 |
+
+![Captura Entrevista Cuidador 1](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_1.png)
+
+**Resumen de la entrevista:** De la entrevista realizada a Roxana Paola Diana Ramírez se pudieron obtener datos que favorecen a la implementación de nuevas features. En primer lugar, el usuario menciona un poco sobre la rutina que debe seguir, en este caso, hace mayor énfasis en el suministro de las pastillas que debe controlar. En segundo lugar, menciona que hay ciertos signos precisos que el usuario debe rastrear los cuales son la presión, saturación y la temperatura.  Entre estos, el primero destaca más en el caso particular de este usuario. En tercer lugar, en relación al manejo de situaciones críticas, el usuario generalmente toma medidas generales (llamado a emergencia o sacar citas médicas).
+Ante todo lo mencionado, se puede evidenciar que algunas de las features proporcionadas pueden ser aplicables, como los recordatorios de medicación (especialmente en este caso), contacto directo a emergencias o médicos especializados y la medición de signos vitales.
+
+
+**Entrevistado 2**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Piero Segura|
+| Edad | 22 |
+| Distrito | Callao |
+| Timing (inicio en la grabación) | 49:37 |
+| Duración | 5:10 |
+
+![Captura Entrevista Cuidador 2](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_2.png)
+
+**Resumen de la entrevista:** Piero Segura Cárdenas, de 22 años, del distrito del Callao y estudiante de psicología, cuenta con experiencia como voluntario en un asilo, donde apoyaba a los adultos mayores en su alimentación, medicamentos, higiene, movilidad y atención ante posibles emergencias. Cuando debía dejar solo a un paciente, su principal preocupación era que pudiera sufrir una caída, descompensarse o necesitar ayuda urgente sin poder comunicarlo. Considera que recibir alertas en su celular con información sobre lo ocurrido sería una solución útil, especialmente cuando se encuentra estudiando, fuera del lugar o durante la noche. Le interesa monitorear aspectos como caídas, presión, ritmo cardíaco, estado de ánimo, sueño, medicación y actividad física. Considera que una aplicación o pulsera sería útil siempre que sea sencilla, cómoda para el paciente y muestre información clara. Además, señala que la supervisión constante le genera carga, por lo que un sistema de monitoreo le permitiría sentirse más tranquilo y organizar mejor su tiempo. Para confiar en el servicio, considera importantes la precisión, rapidez de las alertas, buena duración de la batería y protección de la información del paciente. Finalmente, estaría dispuesto a comprar el servicio si el precio es razonable, ya que considera que facilitaría el cuidado y brindaría mayor seguridad tanto al paciente como al cuidador.
+
+**Entrevistado 3**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Fernanda Llanos |
+| Edad | 59 |
+| Distrito | San Borja |
+| Timing (inicio en la grabación) | 54:47 |
+| Duración | 12:19 |
+
+![Captura Entrevista Cuidador 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_3.png)
+
+**Resumen de la entrevista:** La Sra. Fernanda Llanos trabaja como cuidadora de una señora de 88 años. Comentó que, al no estar siempre presentes los familiares, en varios momentos del día se ve en la necesidad de dejar sola a la señora, lo cual le genera preocupación: teme que se dirija a zonas de la casa que puedan representar un peligro (como escaleras o la cocina) o que sufra algún incidente de salud sin que nadie esté cerca para asistirla a tiempo. Frente a este escenario, considera útil la implementación de una tecnología de supervisión como la que propone Guardian+, ya que le permitiría conocer el estado y la ubicación de la señora incluso en su ausencia, y manifestó que apoyaría y utilizaría una solución de este tipo si estuviera disponible.
+
+**Entrevistado 4**
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Gabriela Cuadros Curihuaman |
+| Edad | 21 |
+| Distrito | Santa Anita |
+| Timing (inicio en la grabación) | 01:06:58 |
+| Duración | 8:53 |
+
+![Captura Entrevista Cuidador 4](../assets/images/chapterII/screenshots-entrevistas/entrevista_cuidador_4.png)
+
+**Resumen de la entrevista:** Gabriela Cuadro Curihuamán, de 21 años, es enfermera y trabaja en la Casa del Adulto Mayor de Santa Anita, donde se encarga de acompañar y supervisar a pacientes adultos mayores, apoyándolos en su alimentación, higiene, medicamentos y actividades diarias. Su principal preocupación cuando debe dejar solo a un paciente es que pueda sufrir una caída, sentirse mal o tener alguna emergencia sin recibir ayuda inmediata. Considera que un sistema de monitoreo mediante una aplicación y una pulsera sería muy útil para recibir alertas en su celular, conocer la ubicación, actividad, calidad del sueño y detectar caídas o comportamientos fuera de lo normal. También destaca la importancia de contar con recordatorios de medicamentos y un historial del estado del paciente. Señala que la supervisión constante puede ser agotadora y generar preocupación, por lo que la tecnología podría reducir su carga y brindarle mayor tranquilidad. Para confiar en el sistema, considera fundamental que sea preciso, confiable, fácil de usar, con botones grandes, información clara, poco peso, alertas rápidas y una batería que dure todo el día. Finalmente, estaría dispuesta a adquirir el servicio siempre que tenga un precio accesible y cumpla adecuadamente con estas funciones.
+
 #### 2.2.3. Análisis de entrevistas
+
+* En la entrevista con Rocío Alvarado es una familiar cuidadora que vive con su hermano y su madre, quienes se turnan para supervisarlo debido a sus necesidades de atención. Su principal preocupación es que su hermano atraviese una crisis mientras se encuentra solo, ya que en una ocasión reciente ocurrió una situación de este tipo sin que ellas pudieran enterarse hasta regresar a casa. Valora especialmente una solución tecnológica que permita monitorear su estado a distancia, recibir notificaciones y controlar indicadores como el ritmo cardíaco y la actividad física. Se muestra cómoda utilizando tecnología y considera importante que el dispositivo sea sencillo. Su principal motivación es reducir la preocupación y tener mayor tranquilidad, mostrando además una alta disposición de pago, de hasta S/100 mensuales, por un servicio que considere útil.
+* La entrevista con Lucía Infante, de 27 años, es diseñadora gráfica y vive con su padre adulto mayor, quien todavía mantiene cierta autonomía. Su principal dificultad aparece cuando se encuentra fuera de casa y no puede saber qué está ocurriendo con él, especialmente cuando no responde sus llamadas. Considera que una aplicación de monitoreo debe ser sencilla, intuitiva y poco recargada, debido a las posibles dificultades de los adultos mayores con la tecnología. Valora la seguridad, la facilidad de uso y la confianza en el manejo de los datos. Está dispuesta a pagar aproximadamente entre S/30 y S/40 mensuales, siempre que el servicio ofrezca beneficios claros y se adapte al nivel de cuidado que requiere cada usuario.
+* En la entrevista con Junior Antenor, de 32 años y soldador, vive con su pareja y su hijo, y su principal preocupación es conocer la seguridad y bienestar de su familia cuando se encuentra trabajando o fuera de casa. Ha experimentado situaciones en las que su hijo necesitó la presencia de un adulto debido a accidentes o problemas repentinos, generándole preocupación y la necesidad de recurrir rápidamente a familiares cercanos. Actualmente no utiliza sistemas de monitoreo ni realiza un seguimiento preventivo constante de la salud familiar. Considera atractiva una solución tecnológica que permita monitorear el estado de sus familiares, facilitar la atención ante emergencias y recordar medicamentos o citas. Está dispuesto a realizar un esfuerzo económico por adquirirla, aunque considera importantes el precio, la duración de la batería y la conectividad, especialmente en zonas con poca cobertura.
+
+* La entrevistada Roxana Paola tiene a su cargo el cuidado diario de una adulta mayor y realiza actividades como higiene, alimentación, administración de medicamentos, control de presión y saturación, además de acompañarla durante sus actividades cotidianas. Su principal preocupación está relacionada con el cumplimiento de la medicación, ya que la adulta mayor puede olvidar si tomó sus pastillas, así como con la supervisión durante la noche, cuando existe mayor riesgo de caídas o accidentes al levantarse para ir al baño. Considera que una pulsera vinculada a una aplicación sería útil para automatizar el control de signos vitales como presión, temperatura y saturación, además de generar alertas ante situaciones anormales. Valora especialmente que la solución sea sencilla, funcional y fácil de utilizar, con información precisa y confiable. También reconoce que la tecnología podría reducir la carga que genera la supervisión constante y facilitar el seguimiento del estado de salud de la adulta mayor. Aunque actualmente siempre existe otra persona acompañándola, muestra interés en adquirir el dispositivo si identifica una necesidad concreta y percibe que realmente puede ser útil para el cuidado.
+* La entrevista Gabriela Cuadros, de 21 años, es enfermera y trabaja cuidando adultos mayores, por lo que tiene experiencia directa en tareas de alimentación, higiene, medicación y supervisión. Su principal preocupación cuando no puede estar presente es que el paciente pueda sufrir una caída, presentar un problema de salud o tener una emergencia sin recibir ayuda inmediata. Considera que un dispositivo conectado a una aplicación sería una herramienta útil para complementar el cuidado y reducir la carga que genera la supervisión constante. Valora funciones como alertas de emergencia, ubicación, monitoreo de actividad, sueño y medicamentos. Para confiar en el servicio, espera que sea preciso, confiable, sencillo, ligero, con botones grandes, alertas rápidas y batería de larga duración. Además, estaría dispuesta a adquirirlo si el precio es accesible.
+* Piero, de 22 años, estudiante de psicología y voluntario en un asilo, cuenta con experiencia apoyando a adultos mayores en su alimentación, higiene, movilidad y medicación. Su principal preocupación son las caídas, descompensaciones y situaciones en las que el paciente pueda necesitar ayuda urgente mientras él se encuentra estudiando o fuera del lugar. Considera útil recibir alertas en el celular y acceder a información sobre signos vitales, medicamentos, sueño, actividad física y posibles comportamientos inusuales. La solución ideal para él debe ser simple, cómoda y fácil de comprender. También considera fundamentales la precisión, rapidez de las alertas, duración de la batería y protección de los datos del paciente. Está dispuesto a comprar el servicio si este facilita el cuidado y proporciona mayor seguridad tanto al paciente como al cuidador.
+* En la entrevista con Fernanda Llanos, de 59 años, residente de San Borja y cuidadora de una adulta mayor de 88 años, realiza labores de acompañamiento y supervisión, pero enfrenta dificultades cuando debe dejarla sola debido a la ausencia de los familiares. Su principal preocupación es que la adulta mayor pueda desplazarse hacia lugares peligrosos de la vivienda, como las escaleras o la cocina, o sufrir algún problema de salud sin recibir asistencia inmediata. Esta situación evidencia una necesidad de supervisión a distancia que le permita conocer tanto la ubicación como el estado de la adulta mayor cuando no se encuentra presente. Fernanda muestra una actitud favorable hacia el uso de tecnología para complementar el cuidado y considera que una solución como Guardian+ podría brindarle mayor tranquilidad y seguridad. Su perfil representa a un cuidador con experiencia que busca reducir los riesgos asociados a la ausencia física y contar con información oportuna para actuar ante posibles incidentes.
+
+##### 1. Segmento: familiares de personas que requieren atención especial
+
+En este segmento identificamos a **Rocío Alvarado**, **Junior Ayala Miranda**, **Lucia Infante** por lo que la muestra es de **3 entrevistados**.
+
+| Característica identificada                                      | Entrevistados que la mencionan | %    |
+| ---------------------------------------------------------------- | ------------------------------ | ---- |
+| Preocupación por la seguridad del familiar cuando está solo      | 3/3                            | 100% |
+| Necesidad de recibir alertas o información a distancia           | 3/3                            | 100% |
+| Interés en monitorear la salud mediante tecnología               | 3/3                            | 100% |
+| Preocupación ante emergencias o problemas repentinos             | 3/3                            | 100% |
+| Consideran importante una respuesta rápida ante emergencias      | 3/3                            | 100% |
+| No utilizan actualmente un sistema tecnológico especializado de monitoreo | 3/3                       | 100% |
+| Valoran la facilidad de uso del dispositivo                      | 3/3                            | 100% |
+| Consideran importante la conectividad                            | 2/3                            | 67%  |
+| Consideran importante una buena duración de batería              | 2/3                            | 67%  |
+| Están dispuestos a pagar por una solución útil                   | 3/3                            | 100% |
+
+**Análisis:** Los familiares entrevistados presentan como principal necesidad la seguridad y supervisión de sus seres queridos cuando no pueden estar físicamente presentes. El 100% manifestó preocupación por posibles emergencias, accidentes o problemas de salud durante los períodos en los que el familiar permanece solo. Rocío, por ejemplo, relató una situación en la que su hermano tuvo una crisis mientras ella y su madre se encontraban fuera de casa y no tuvieron conocimiento de lo ocurrido hasta regresar. Por su parte, Junior señaló que cuando se encuentra trabajando o realizando sus actividades diarias le preocupa no saber qué está haciendo su hijo o si se encuentra bien al igual que Lucia. Los entrevistados mostraron interés en una solución tecnológica que permita monitorear el estado del familiar y enviar alertas a distancia, evidenciando una necesidad de mayor tranquilidad y control. Asimismo, el 100% indicó estar dispuesto a utilizar o adquirir una solución de este tipo si resulta útil. Entre las características más valoradas aparecen la facilidad de uso, el monitoreo de indicadores de salud y la posibilidad de recibir asistencia rápida ante una emergencia. Rocío incluso manifestó una disposición de pago de hasta S/100 mensuales, mientras que Junior indicó que realizaría un esfuerzo económico si la tecnología realmente aporta seguridad y salud a su familia.
+
+##### 2. Segmento: cuidadores de adultos mayores
+
+En este segmento podemos considerar a **Roxana Paola**, **Fernanda Llanos**, **Gabriela Curihuamán** y **Piero Segura**, por lo que tenemos una muestra de **4 entrevistados**.
+
+| Característica identificada                                      | Entrevistados que la mencionan | %    |
+| ---------------------------------------------------------------- | ------------------------------ | ---- |
+| Preocupación por caídas o emergencias                            | 4/4                            | 100% |
+| Consideran útil recibir alertas en el celular                    | 4/4                            | 100% |
+| Interés en monitorear al adulto mayor a distancia                | 4/4                            | 100% |
+| Valoran la facilidad de uso                                      | 4/4                            | 100% |
+| Consideran importante monitorear medicamentos                    | 2/4                            | 50%  |
+| Interés en conocer actividad/sueño del adulto mayor              | 3/4                            | 67%  |
+| Consideran que el monitoreo reduce la carga del cuidador         | 3/4                            | 67%  |
+| Consideran importantes las alertas rápidas                       | 4/4                            | 67%  |
+| Consideran importante una buena duración de batería              | 3/4                            | 67%  |
+| Están dispuestos a pagar por el servicio                         | 4/4                            | 100% |
+
+**Analisis:** Los entrevistados de este segmento coinciden principalmente en que el cuidado del adulto mayor requiere una supervisión constante, lo que puede generar preocupación y carga para el cuidador. El 100% identifica las caídas y las emergencias como situaciones críticas y considera útil recibir alertas cuando no se encuentra junto al adulto mayor. Gabriela menciona que la supervisión constante es agotadora y que una aplicación podría ayudarla a sentirse más tranquila, mientras que Piero señala que el monitoreo le permitiría organizar mejor su tiempo cuando debe estudiar o atender otras actividades. Asimismo, existe una alta valoración de funciones relacionadas con la medicación, ubicación, actividad física, sueño y signos vitales. El 100% de los entrevistados considera importante que la solución sea sencilla y fácil de utilizar, especialmente debido a las posibles dificultades que pueden presentar los adultos mayores frente a la tecnología. En cuanto a la disposición de pago, los tres entrevistados estarían dispuestos a adquirir el servicio si el precio resulta razonable; Lucía estima un rango de S/30 a S/40 mensuales, mientras Gabriela y Piero también condicionan su compra a que el precio sea accesible y que el sistema realmente aporte seguridad y utilidad.
+
+##### 3. Características para la construcción de los arquetipos
+
+A partir del análisis, podemos resumir los principales elementos que deberían formar parte de los arquetipos:
+
+| Variable                | Familiares                                | Cuidadores de adultos mayores                          |
+| ----------------------- | ----------------------------------------- | ------------------------------------------------------ |
+| Principal preocupación  | Seguridad y bienestar del familiar        | Caídas, emergencias y estado de salud                  |
+| Necesidad principal     | Saber qué ocurre cuando están lejos        | Supervisar sin estar constantemente presentes          |
+| Emoción predominante    | Preocupación / desesperación              | Preocupación / agotamiento                             |
+| Solución esperada       | Monitoreo y alertas a distancia           | Monitoreo, alertas y seguimiento                       |
+| Funciones más valoradas | Salud, seguridad, ubicación y emergencias | Caídas, medicamentos, ubicación, signos vitales, sueño |
+| Diseño esperado         | Fácil de utilizar                         | Simple, intuitivo y cómodo                             |
+| Problema actual         | Falta de información cuando están ausentes| Supervisión manual constante                           |
+| Barreras                | Precio y conectividad                     | Precio, batería y facilidad de uso                     |
+| Disposición de pago     | Sí                                        | Sí                                                     |
 
 ### 2.3. Needfinding
 
@@ -143,7 +313,7 @@ El Big Picture EventStorming permitió explorar el dominio de Guardian+ desde un
 
 A diferencia de un EventStorming detallado orientado al diseño interno de un contexto específico, en esta etapa se priorizó la visualización general del comportamiento del dominio. Por ello, se representaron los actores involucrados, los sistemas externos relevantes y los eventos significativos organizados de manera cronológica aproximada, desde la configuración inicial del ecosistema de cuidado hasta los eventos de monitoreo, prevención y respuesta ante incidentes.
 
-Entre los actores identificados se encuentran el usuario de Guardian+, el suscriptor, el cuidador, la persona bajo cuidado y los familiares o cuidadores responsables de responder ante alertas. Asimismo, se consideraron sistemas externos como el wearable y el sistema de tracking de ubicación, ya que forman parte esencial del funcionamiento de la solución. A partir de esta exploración fue posible reconocer eventos importantes como la creación de perfiles, el establecimiento de relaciones de cuidado, la activación de suscripciones, la programación y confirmación de recordatorios, la recepción de ubicaciones, la detección de anomalías biométricas, la emisión de advertencias preventivas, la detección de caídas, la activación de SOS y la atención de alertas críticas.
+Entre los actores identificados se encuentran el usuario de Guardian+, el suscriptor, el cuidador, el Fragile Citizen y los familiares o cuidadores responsables de responder ante alertas. Asimismo, se consideraron sistemas externos como el wearable y el sistema de tracking de ubicación, ya que forman parte esencial del funcionamiento de la solución. A partir de esta exploración fue posible reconocer eventos importantes como la creación de perfiles, el establecimiento de relaciones de cuidado, la activación de suscripciones, la programación y confirmación de recordatorios, la recepción de ubicaciones, la detección de anomalías biométricas, la emisión de advertencias preventivas, la detección de caídas, la activación de SOS y la atención de alertas críticas.
 
 Este artefacto sirvió como base para construir una visión compartida del dominio, alinear el lenguaje del equipo y preparar el análisis posterior de Strategic Domain-Driven Design, especialmente las actividades de Candidate Context Discovery y Context Mapping.
 
@@ -152,6 +322,45 @@ Este artefacto sirvió como base para construir una visión compartida del domin
 
 
 #### 2.3.6. Ubiquitous Language
+
+## Ubiquitous Language
+
+Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto delimitado, donde se identifican los términos y conceptos del dominio del negocio, y no debe existir ambigüedad¹. A continuación, se presenta el glosario de términos del dominio de negocio de Guardian+, construido a partir del análisis de segmentos, entrevistas y arquetipos elaborados.
+
+- **Fragile Citizen (Ciudadano frágil):** Persona con necesidades especiales —adulto mayor, paciente con movilidad reducida, condición crónica o de salud mental, entre otras— que requiere supervisión y monitoreo constante para garantizar su seguridad y bienestar.
+
+- **Family (Familiar):** Persona con un vínculo familiar directo con el Fragile Citizen, que asume la responsabilidad principal o compartida de su cuidado, aunque no lo haga como labor remunerada.
+
+- **Caregiver (Cuidador):** Persona contratada o designada para brindar atención directa y cotidiana al Fragile Citizen, encargándose de tareas como el suministro de medicación, la vigilancia de signos vitales y el acompañamiento diario.
+
+- **Care Circle (Círculo de cuidado):** Conjunto de personas —familiares y/o cuidadores— vinculadas a un mismo Fragile Citizen, que coordinan y comparten la responsabilidad de su cuidado.
+
+- **Bidirectional Care Bond (Lazo de cuidado bidireccional):** Vínculo de comunicación y monitoreo constante entre el Fragile Citizen y su Care Circle, que permite a ambas partes mantenerse informadas y conectadas en tiempo real.
+
+- **Vital Signs (Signos vitales):** Conjunto de indicadores fisiológicos del Fragile Citizen —como frecuencia cardíaca, saturación de oxígeno, presión arterial y temperatura corporal— utilizados para evaluar su estado de salud.
+
+- **Fall Detection (Detección de caídas):** Identificación automática de una caída sufrida por el Fragile Citizen, a partir de la cual se genera una alerta hacia su Care Circle.
+
+- **Emergency Alert (Alerta de emergencia):** Notificación inmediata enviada al Care Circle o a servicios de emergencia ante una situación crítica en la salud o seguridad del Fragile Citizen, como una caída, un signo vital anormal o un episodio de crisis.
+
+- **Crisis Episode (Episodio de crisis):** Situación en la que el Fragile Citizen presenta una alteración repentina y severa de su condición de salud física o mental, que puede requerir intervención inmediata de su Care Circle o de un centro de salud.
+
+- **Safe Zone (Zona segura):** Área geográfica predefinida dentro de la cual se espera que el Fragile Citizen permanezca, cuyo abandono genera una notificación al Care Circle.
+
+- **Medication Reminder (Recordatorio de medicación):** Aviso relacionado con los horarios en que el Fragile Citizen debe recibir su medicación, orientado a evitar olvidos o retrasos en su administración.
+
+- **Care Routine (Rutina de cuidado):** Conjunto de actividades cotidianas relacionadas con la atención del Fragile Citizen, como la administración de medicamentos, el control de signos vitales y el acompañamiento diario.
+
+- **Wellness Recommendation (Recomendación de bienestar):** Sugerencia orientada a mejorar la calidad de vida del Fragile Citizen, como pautas de alimentación o actividad física adaptadas a su condición.
+
+- **Medical Appointment (Cita médica):** Encuentro programado entre el Fragile Citizen y un profesional de la salud, cuya organización y seguimiento suele estar a cargo de su Care Circle.
+
+- **Health History (Historial de salud):** Registro acumulado de signos vitales, alertas e incidentes del Fragile Citizen, utilizado como referencia para consultas médicas y toma de decisiones de cuidado.
+
+- **Peace of Mind (Tranquilidad):** Estado de confianza y bienestar emocional que experimenta el Care Circle al saber que el Fragile Citizen se encuentra seguro y monitoreado, incluso en su ausencia.
+
+- **Care Plan (Plan de cuidado):** Modalidad de servicio contratada por el Care Circle, que define el nivel de funcionalidades y monitoreo disponibles según las necesidades específicas del Fragile Citizen.
+
 # 2.4. Requirements specification
 
 ## 2.4.1. User Stories
@@ -191,13 +400,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar la lectura actual del ritmo cardíaco del adulto mayor, persona con discapacidad o en situación de dependencia para monitorear su estabilidad cardiovascular e identificar irregularidades de manera oportuna.</td>
+    <td colspan="4">Como cuidador, deseo consultar la lectura actual del ritmo cardíaco del Fragile Citizen para monitorear su estabilidad cardiovascular e identificar irregularidades de manera oportuna.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Lectura de ritmo cardíaco en rango normal</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite lecturas de frecuencia cardíaca entre 60 y 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular actual del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema presenta el valor biométrico en tiempo real y clasifica el estado cardíaco como normal.<br><br><strong>Escenario 2: Detección de taquicardia o ritmo elevado</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca superior a 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema clasifica el valor como elevado y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 3: Detección de bradicardia o ritmo bajo</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca inferior a 50 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema clasifica el valor como bajo y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 4: Interrupción en la transmisión de telemetría</strong><br>- <strong>Dado que</strong> la transmisión de telemetría desde el dispositivo wearable no responde o pierde sincronización.<br>- <strong>Cuando</strong> el cuidador intenta consultar el ritmo cardíaco actual.<br>- <strong>Entonces</strong> el sistema expone el último valor histórico registrado indicando la ausencia de señal en vivo.</td>
+    <td colspan="4"><strong>Escenario 1: Lectura de ritmo cardíaco en rango normal</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite lecturas de frecuencia cardíaca entre 60 y 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular actual del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema presenta el valor biométrico en tiempo real y clasifica el estado cardíaco como normal.<br><br><strong>Escenario 2: Detección de taquicardia o ritmo elevado</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca superior a 100 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema clasifica el valor como elevado y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 3: Detección de bradicardia o ritmo bajo</strong><br>- <strong>Dado que</strong> el dispositivo wearable transmite una frecuencia cardíaca inferior a 50 lpm.<br>- <strong>Cuando</strong> el cuidador consulta el estado cardiovascular del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema clasifica el valor como bajo y genera un indicador de advertencia sobre la lectura.<br><br><strong>Escenario 4: Interrupción en la transmisión de telemetría</strong><br>- <strong>Dado que</strong> la transmisión de telemetría desde el dispositivo wearable no responde o pierde sincronización.<br>- <strong>Cuando</strong> el cuidador intenta consultar el ritmo cardíaco actual.<br>- <strong>Entonces</strong> el sistema expone el último valor histórico registrado indicando la ausencia de señal en vivo.</td>
   </tr>
 </table>
 
@@ -224,13 +433,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar los valores estimados de presión arterial sistólica y diastólica del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar su condición hemodinámica y prevenir descompensaciones.</td>
+    <td colspan="4">Como cuidador, deseo consultar los valores estimados de presión arterial sistólica y diastólica del Fragile Citizen para evaluar su condición hemodinámica y prevenir descompensaciones.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Presión arterial dentro del umbral normotenso</strong><br>- <strong>Dado que</strong> el sensor registra valores de presión arterial dentro de 90/60 mmHg y 120/80 mmHg.<br>- <strong>Cuando</strong> el cuidador consulta las mediciones de presión arterial del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema expone los valores sistólicos y diastólicos indicando un estado estable sin generar alertas.<br><br><strong>Escenario 2: Detección de pico hipertensivo</strong><br>- <strong>Dado que</strong> el sensor registra un valor sistólico superior a 140 mmHg o diastólico superior a 90 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema categoriza la lectura como valor fuera de rango y activa una marca de observación clínica.<br><br><strong>Escenario 3: Detección de hipotensión</strong><br>- <strong>Dado que</strong> el sensor registra una presión arterial inferior a 90/60 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema clasifica la condición como presión baja y notifica el valor fuera de umbral de seguridad.<br><br><strong>Escenario 4: Lectura fallida o no concluyente</strong><br>- <strong>Dado que</strong> las señales hemodinámicas obtenidas por el sensor presentan ruido excesivo o artefactos de movimiento.<br>- <strong>Cuando</strong> el cuidador consulta la presión arterial.<br>- <strong>Entonces</strong> el sistema descarta la medición errónea y reporta la lectura como inválida sin alterar los umbrales de alerta.</td>
+    <td colspan="4"><strong>Escenario 1: Presión arterial dentro del umbral normotenso</strong><br>- <strong>Dado que</strong> el sensor registra valores de presión arterial dentro de 90/60 mmHg y 120/80 mmHg.<br>- <strong>Cuando</strong> el cuidador consulta las mediciones de presión arterial del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema expone los valores sistólicos y diastólicos indicando un estado estable sin generar alertas.<br><br><strong>Escenario 2: Detección de pico hipertensivo</strong><br>- <strong>Dado que</strong> el sensor registra un valor sistólico superior a 140 mmHg o diastólico superior a 90 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema categoriza la lectura como valor fuera de rango y activa una marca de observación clínica.<br><br><strong>Escenario 3: Detección de hipotensión</strong><br>- <strong>Dado que</strong> el sensor registra una presión arterial inferior a 90/60 mmHg.<br>- <strong>Cuando</strong> el cuidador solicita los valores actuales de presión arterial.<br>- <strong>Entonces</strong> el sistema clasifica la condición como presión baja y notifica el valor fuera de umbral de seguridad.<br><br><strong>Escenario 4: Lectura fallida o no concluyente</strong><br>- <strong>Dado que</strong> las señales hemodinámicas obtenidas por el sensor presentan ruido excesivo o artefactos de movimiento.<br>- <strong>Cuando</strong> el cuidador consulta la presión arterial.<br>- <strong>Entonces</strong> el sistema descarta la medición errónea y reporta la lectura como inválida sin alterar los umbrales de alerta.</td>
   </tr>
 </table>
 
@@ -257,13 +466,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar el porcentaje de saturación de oxígeno en sangre del adulto mayor, persona con discapacidad o en situación de dependencia para identificar posibles cuadros de hipoxemia o dificultad respiratoria.</td>
+    <td colspan="4">Como cuidador, deseo consultar el porcentaje de saturación de oxígeno en sangre del Fragile Citizen para identificar posibles cuadros de hipoxemia o dificultad respiratoria.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Saturación de oxígeno en nivel óptimo</strong><br>- <strong>Dado que</strong> la pulsera registra una saturación de oxígeno SpO₂ igual o superior al 95%.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema confirma el porcentaje en tiempo real catalogándolo en estado normal.<br><br><strong>Escenario 2: Hipoxemia o saturación por debajo de umbral seguro</strong><br>- <strong>Dado que</strong> el sensor de oximetría registra un valor inferior al 90% de SpO₂.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno o el sistema procesa la telemetría.<br>- <strong>Entonces</strong> el sistema clasifica inmediatamente el estado como crítico y reporta la anomalía de oxigenación.<br><br><strong>Escenario 3: Artefacto de censado por desconexión</strong><br>- <strong>Dado que</strong> la pulsera pierde contacto cutáneo continuo durante la captura fotopletismográfica.<br>- <strong>Cuando</strong> se procesa la lectura de saturación de oxígeno.<br>- <strong>Entonces</strong> el sistema suspende el cálculo de SpO₂ y registra una condición de lectura incompleta conservando el último registro válido.</td>
+    <td colspan="4"><strong>Escenario 1: Saturación de oxígeno en nivel óptimo</strong><br>- <strong>Dado que</strong> la pulsera registra una saturación de oxígeno SpO₂ igual o superior al 95%.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema confirma el porcentaje en tiempo real catalogándolo en estado normal.<br><br><strong>Escenario 2: Hipoxemia o saturación por debajo de umbral seguro</strong><br>- <strong>Dado que</strong> el sensor de oximetría registra un valor inferior al 90% de SpO₂.<br>- <strong>Cuando</strong> el cuidador consulta el nivel de oxígeno o el sistema procesa la telemetría.<br>- <strong>Entonces</strong> el sistema clasifica inmediatamente el estado como crítico y reporta la anomalía de oxigenación.<br><br><strong>Escenario 3: Artefacto de censado por desconexión</strong><br>- <strong>Dado que</strong> la pulsera pierde contacto cutáneo continuo durante la captura fotopletismográfica.<br>- <strong>Cuando</strong> se procesa la lectura de saturación de oxígeno.<br>- <strong>Entonces</strong> el sistema suspende el cálculo de SpO₂ y registra una condición de lectura incompleta conservando el último registro válido.</td>
   </tr>
 </table>
 
@@ -290,13 +499,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo supervisar las mediciones de temperatura corporal del adulto mayor, persona con discapacidad o en situación de dependencia para alertar de forma oportuna episodios febriles o cuadros de hipotermia.</td>
+    <td colspan="4">Como cuidador, deseo supervisar las mediciones de temperatura corporal del Fragile Citizen para alertar de forma oportuna episodios febriles o cuadros de hipotermia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Registro de normotermia</strong><br>- <strong>Dado que</strong> el sensor infrarrojo reporta una temperatura cutánea normal entre 36.0 °C y 37.2 °C.<br>- <strong>Cuando</strong> el cuidador revisa la telemetría térmica del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema valida el estado térmico como normal y registra la serie temporal.<br><br><strong>Escenario 2: Detección de estado febril</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal que excede los 37.8 °C de manera sostenida.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el evento como fiebre y marca visualmente la anomalía en el perfil del usuario.<br><br><strong>Escenario 3: Detección de hipotermia</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal inferior a 35.0 °C.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el registro como hipotermia y genera un aviso de control inmediato.</td>
+    <td colspan="4"><strong>Escenario 1: Registro de normotermia</strong><br>- <strong>Dado que</strong> el sensor infrarrojo reporta una temperatura cutánea normal entre 36.0 °C y 37.2 °C.<br>- <strong>Cuando</strong> el cuidador revisa la telemetría térmica del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema valida el estado térmico como normal y registra la serie temporal.<br><br><strong>Escenario 2: Detección de estado febril</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal que excede los 37.8 °C de manera sostenida.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el evento como fiebre y marca visualmente la anomalía en el perfil del usuario.<br><br><strong>Escenario 3: Detección de hipotermia</strong><br>- <strong>Dado que</strong> el sensor reporta una temperatura corporal inferior a 35.0 °C.<br>- <strong>Cuando</strong> el sistema procesa la medición térmica recibida.<br>- <strong>Entonces</strong> el sistema cataloga el registro como hipotermia y genera un aviso de control inmediato.</td>
   </tr>
 </table>
 
@@ -323,13 +532,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo examinar la frecuencia respiratoria del adulto mayor, persona con discapacidad o en situación de dependencia para monitorear su ritmo ventilatorio e identificar taquipnea o bradipnea.</td>
+    <td colspan="4">Como cuidador, deseo examinar la frecuencia respiratoria del Fragile Citizen para monitorear su ritmo ventilatorio e identificar taquipnea o bradipnea.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Frecuencia ventilatoria normal</strong><br>- <strong>Dado que</strong> el algoritmo biomédico procesa entre 12 y 20 respiraciones por minuto (rpm).<br>- <strong>Cuando</strong> el cuidador consulta la frecuencia respiratoria del paciente.<br>- <strong>Entonces</strong> el sistema muestra la métrica actual catalogándola dentro de los estándares fisiológicos seguros.<br><br><strong>Escenario 2: Detección de frecuencia respiratoria alterada</strong><br>- <strong>Dado que</strong> el algoritmo estima una frecuencia respiratoria superior a 24 rpm o menor a 10 rpm.<br>- <strong>Cuando</strong> el sistema procesa el flujo continuo de datos respiratorios.<br>- <strong>Entonces</strong> el sistema destaca el valor como anómalo y actualiza la condición de alerta respiratoria del paciente.</td>
+    <td colspan="4"><strong>Escenario 1: Frecuencia ventilatoria normal</strong><br>- <strong>Dado que</strong> el algoritmo biomédico procesa entre 12 y 20 respiraciones por minuto (rpm).<br>- <strong>Cuando</strong> el cuidador consulta la frecuencia respiratoria del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema muestra la métrica actual catalogándola dentro de los estándares fisiológicos seguros.<br><br><strong>Escenario 2: Detección de frecuencia respiratoria alterada</strong><br>- <strong>Dado que</strong> el algoritmo estima una frecuencia respiratoria superior a 24 rpm o menor a 10 rpm.<br>- <strong>Cuando</strong> el sistema procesa el flujo continuo de datos respiratorios.<br>- <strong>Entonces</strong> el sistema destaca el valor como anómalo y actualiza la condición de alerta respiratoria del Fragile Citizen.</td>
   </tr>
 </table>
 
@@ -344,7 +553,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US06</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>High</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -356,13 +565,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo recibir avisos hápticos y sonoros en mi pulsera en los horarios exactos de mis medicamentos para no olvidar mis dosis prescritas.</td>
+    <td colspan="4">Como Fragile Citizen, deseo recibir avisos hápticos y sonoros en mi pulsera en los horarios exactos de mis medicamentos para no olvidar mis dosis prescritas.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> existe una toma de medicamento registrada para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y sincroniza el evento con el cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y el adulto mayor, persona con discapacidad o en situación de dependencia no envía confirmación dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> existe una toma de medicamento registrada para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el Fragile Citizen ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y sincroniza el evento con el cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y el Fragile Citizen no envía confirmación dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
   </tr>
 </table>
 
@@ -422,13 +631,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como familiar o cuidador, deseo recibir una alerta crítica inmediata cuando la pulsera detecte un patrón de caída del adulto mayor, persona con discapacidad o en situación de dependencia para gestionar auxilio oportuno.</td>
+    <td colspan="4">Como familiar o cuidador, deseo recibir una alerta crítica inmediata cuando la pulsera detecte un patrón de caída del Fragile Citizen para gestionar auxilio oportuno.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Identificación cinemática de caída no mitigada</strong><br>- <strong>Dado que</strong> el microcontrolador detecta una aceleración brusca seguida de impacto e inmovilidad relativa.<br>- <strong>Cuando</strong> concluye el ciclo de evaluación cinemática en el firmware.<br>- <strong>Entonces</strong> el sistema despacha una notificación de emergencia de máxima prioridad en un lapso menor a 5 segundos.<br><br><strong>Escenario 2: Cancelación por falsa alarma efectuada por el usuario</strong><br>- <strong>Dado que</strong> el sistema clasifica una caída y activa una ventana de cancelación local de 20 segundos.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia activa la opción de confirmación de bienestar antes del vencimiento del temporizador.<br>- <strong>Entonces</strong> el sistema interrumpe el despacho a contactos de emergencia y clasifica el evento como falso positivo resuelto.<br><br><strong>Escenario 3: Escalamiento por falta de respuesta del usuario</strong><br>- <strong>Dado que</strong> se dispara el temporizador de alerta local por caída.<br>- <strong>Cuando</strong> el temporizador de 20 segundos culmina sin interacción del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema confirma la emergencia, envía la telemetría con coordenadas GPS y activa el flujo de auxilio.</td>
+    <td colspan="4"><strong>Escenario 1: Identificación cinemática de caída no mitigada</strong><br>- <strong>Dado que</strong> el microcontrolador detecta una aceleración brusca seguida de impacto e inmovilidad relativa.<br>- <strong>Cuando</strong> concluye el ciclo de evaluación cinemática en el firmware.<br>- <strong>Entonces</strong> el sistema despacha una notificación de emergencia de máxima prioridad en un lapso menor a 5 segundos.<br><br><strong>Escenario 2: Cancelación por falsa alarma efectuada por el usuario</strong><br>- <strong>Dado que</strong> el sistema clasifica una caída y activa una ventana de cancelación local de 20 segundos.<br>- <strong>Cuando</strong> el Fragile Citizen activa la opción de confirmación de bienestar antes del vencimiento del temporizador.<br>- <strong>Entonces</strong> el sistema interrumpe el despacho a contactos de emergencia y clasifica el evento como falso positivo resuelto.<br><br><strong>Escenario 3: Escalamiento por falta de respuesta del usuario</strong><br>- <strong>Dado que</strong> se dispara el temporizador de alerta local por caída.<br>- <strong>Cuando</strong> el temporizador de 20 segundos culmina sin interacción del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema confirma la emergencia, envía la telemetría con coordenadas GPS y activa el flujo de auxilio.</td>
   </tr>
 </table>
 
@@ -455,7 +664,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del adulto mayor, persona con discapacidad o en situación de dependencia excedan los rangos seguros configurados para intervenir preventivamente.</td>
+    <td colspan="4">Como cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del Fragile Citizen excedan los rangos seguros configurados para intervenir preventivamente.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -476,7 +685,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US10</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -488,13 +697,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo validar manualmente desde mi pulsera que me encuentro a salvo tras dispararse una advertencia para evitar movilizaciones innecesarias de mis familiares.</td>
+    <td colspan="4">Como Fragile Citizen, deseo validar manualmente desde mi pulsera que me encuentro a salvo tras dispararse una advertencia para evitar movilizaciones innecesarias de mis familiares.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del adulto mayor, persona con discapacidad o en situación de dependencia</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado por el propio usuario.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del Fragile Citizen</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el Fragile Citizen confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado por el propio usuario.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
   </tr>
 </table>
 
@@ -521,7 +730,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el adulto mayor, persona con discapacidad o en situación de dependencia reciba atención de emergencia.</td>
+    <td colspan="4">Como cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el Fragile Citizen reciba atención de emergencia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -554,13 +763,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo personalizar los canales y umbrales de severidad de las notificaciones para adaptar el comportamiento del sistema a los requerimientos clínicos específicos del paciente.</td>
+    <td colspan="4">Como cuidador, deseo personalizar los canales y umbrales de severidad de las notificaciones para adaptar el comportamiento del sistema a los requerimientos clínicos específicos del Fragile Citizen.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Modificación de canales de notificación por severidad</strong><br>- <strong>Dado que</strong> el cuidador dispone de permisos de administración sobre el perfil del paciente.<br>- <strong>Cuando</strong> el cuidador asigna canales específicos (vibración, notificación prioritaria, SMS) a un tipo de alerta.<br>- <strong>Entonces</strong> el sistema persiste la configuración y la aplica de forma inmediata a los eventos generados a partir de ese momento.<br><br><strong>Escenario 2: Restablecimiento de umbrales clínicos predeterminados</strong><br>- <strong>Dado que</strong> existen parámetros de alerta modificados respecto a la configuración original.<br>- <strong>Cuando</strong> el cuidador opta por restablecer los valores de fábrica.<br>- <strong>Entonces</strong> el sistema reasigna los rangos estándar definidos por las guías clínicas preconfiguradas.</td>
+    <td colspan="4"><strong>Escenario 1: Modificación de canales de notificación por severidad</strong><br>- <strong>Dado que</strong> el cuidador dispone de permisos de administración sobre el perfil del Fragile Citizen.<br>- <strong>Cuando</strong> el cuidador asigna canales específicos (vibración, notificación prioritaria, SMS) a un tipo de alerta.<br>- <strong>Entonces</strong> el sistema persiste la configuración y la aplica de forma inmediata a los eventos generados a partir de ese momento.<br><br><strong>Escenario 2: Restablecimiento de umbrales clínicos predeterminados</strong><br>- <strong>Dado que</strong> existen parámetros de alerta modificados respecto a la configuración original.<br>- <strong>Cuando</strong> el cuidador opta por restablecer los valores de fábrica.<br>- <strong>Entonces</strong> el sistema reasigna los rangos estándar definidos por las guías clínicas preconfiguradas.</td>
   </tr>
 </table>
 
@@ -587,13 +796,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo agendar los controles y citas médicas del adulto mayor, persona con discapacidad o en situación de dependencia para recibir avisos preventivos y evitar inasistencias a los centros de salud.</td>
+    <td colspan="4">Como cuidador, deseo agendar los controles y citas médicas del Fragile Citizen para recibir avisos preventivos y evitar inasistencias a los centros de salud.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Generación de recordatorio previo a la cita</strong><br>- <strong>Dado que</strong> existe una cita médica registrada en el calendario del paciente.<br>- <strong>Cuando</strong> el tiempo restante coincide con la antelación configurada por el cuidador (por ejemplo, 1 hora antes).<br>- <strong>Entonces</strong> el sistema genera una notificación preventiva tanto en el dispositivo del adulto mayor, persona con discapacidad o en situación de dependencia como en el del cuidador.<br><br><strong>Escenario 2: Cancelación de evento programado</strong><br>- <strong>Dado que</strong> una cita médica agendada es anulada por el cuidador en el sistema.<br>- <strong>Cuando</strong> se confirma la cancelación de la cita.<br>- <strong>Entonces</strong> el sistema desactiva los temporizadores asociados y purga los recordatorios pendientes correspondientes.</td>
+    <td colspan="4"><strong>Escenario 1: Generación de recordatorio previo a la cita</strong><br>- <strong>Dado que</strong> existe una cita médica registrada en el calendario del Fragile Citizen.<br>- <strong>Cuando</strong> el tiempo restante coincide con la antelación configurada por el cuidador (por ejemplo, 1 hora antes).<br>- <strong>Entonces</strong> el sistema genera una notificación preventiva tanto en el dispositivo del Fragile Citizen como en el del cuidador.<br><br><strong>Escenario 2: Cancelación de evento programado</strong><br>- <strong>Dado que</strong> una cita médica agendada es anulada por el cuidador en el sistema.<br>- <strong>Cuando</strong> se confirma la cancelación de la cita.<br>- <strong>Entonces</strong> el sistema desactiva los temporizadores asociados y purga los recordatorios pendientes correspondientes.</td>
   </tr>
 </table>
 
@@ -608,7 +817,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US14</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -620,13 +829,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo que mi pulsera me recuerde realizar pausas activas o ejercicios de movilidad suave para mantener mi autonomía funcional.</td>
+    <td colspan="4">Como Fragile Citizen, deseo que mi pulsera me recuerde realizar pausas activas o ejercicios de movilidad suave para mantener mi autonomía funcional.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> se ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Cuando</strong> el usuario confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> se ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al Fragile Citizen.<br>- <strong>Cuando</strong> el usuario confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario.</td>
   </tr>
 </table>
 
@@ -641,7 +850,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US15</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>Highest</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -653,13 +862,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo pulsar un botón SOS físico en la pulsera ante cualquier peligro para pedir asistencia inmediata a mis familiares sin depender del teléfono móvil.</td>
+    <td colspan="4">Como Fragile Citizen, deseo pulsar un botón SOS físico en la pulsera ante cualquier peligro para pedir asistencia inmediata a mis familiares sin depender del teléfono móvil.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el adulto mayor, persona con discapacidad o en situación de dependencia presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el usuario presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el Fragile Citizen presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el usuario presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
   </tr>
 </table>
 
@@ -692,7 +901,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Incorporación de nuevo contacto de auxilio válido</strong><br>- <strong>Dado que</strong> el cuidador ingresa nombre completo, parentesco y número telefónico con código internacional válido.<br>- <strong>Cuando</strong> se solicita el guardado del nuevo contacto.<br>- <strong>Entonces</strong> el sistema valida la integridad de los datos, almacena el registro y lo asocia a la cadena de alertas.<br><br><strong>Escenario 2: Retiro de contacto de emergencia obsoleto</strong><br>- <strong>Dado que</strong> un contacto de emergencia existe en el directorio del paciente.<br>- <strong>Cuando</strong> el cuidador elimina dicho contacto y la lista mantiene al menos un contacto primario.<br>- <strong>Entonces</strong> el sistema actualiza la lista de distribución excluyendo al contacto removido de futuros eventos.</td>
+    <td colspan="4"><strong>Escenario 1: Incorporación de nuevo contacto de auxilio válido</strong><br>- <strong>Dado que</strong> el cuidador ingresa nombre completo, parentesco y número telefónico con código internacional válido.<br>- <strong>Cuando</strong> se solicita el guardado del nuevo contacto.<br>- <strong>Entonces</strong> el sistema valida la integridad de los datos, almacena el registro y lo asocia a la cadena de alertas.<br><br><strong>Escenario 2: Retiro de contacto de emergencia obsoleto</strong><br>- <strong>Dado que</strong> un contacto de emergencia existe en el directorio del Fragile Citizen.<br>- <strong>Cuando</strong> el cuidador elimina dicho contacto y la lista mantiene al menos un contacto primario.<br>- <strong>Entonces</strong> el sistema actualiza la lista de distribución excluyendo al contacto removido de futuros eventos.</td>
   </tr>
 </table>
 
@@ -719,13 +928,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo acceder al registro de descanso nocturno del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar la calidad del sueño e identificar patrones de insomnio o agitación.</td>
+    <td colspan="4">Como cuidador, deseo acceder al registro de descanso nocturno del Fragile Citizen para evaluar la calidad del sueño e identificar patrones de insomnio o agitación.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Procesamiento consolidado de descanso nocturno</strong><br>- <strong>Dado que</strong> la pulsera recopila datos de micromovimientos y frecuencia cardíaca durante la ventana nocturna.<br>- <strong>Cuando</strong> el sistema procesa el intervalo al inicio de la mañana.<br>- <strong>Entonces</strong> el sistema computa el total de horas de sueño, la continuidad del descanso y el número de despertares.<br><br><strong>Escenario 2: Identificación de descanso interrumpido atípico</strong><br>- <strong>Dado que</strong> el análisis de telemetría detecta más de 4 interrupciones prolongadas en una sola noche.<br>- <strong>Cuando</strong> se consolida el reporte matutino.<br>- <strong>Entonces</strong> el sistema cataloga la sesión de descanso como sueño fragmentado y lo registra en el historial del paciente.</td>
+    <td colspan="4"><strong>Escenario 1: Procesamiento consolidado de descanso nocturno</strong><br>- <strong>Dado que</strong> la pulsera recopila datos de micromovimientos y frecuencia cardíaca durante la ventana nocturna.<br>- <strong>Cuando</strong> el sistema procesa el intervalo al inicio de la mañana.<br>- <strong>Entonces</strong> el sistema computa el total de horas de sueño, la continuidad del descanso y el número de despertares.<br><br><strong>Escenario 2: Identificación de descanso interrumpido atípico</strong><br>- <strong>Dado que</strong> el análisis de telemetría detecta más de 4 interrupciones prolongadas en una sola noche.<br>- <strong>Cuando</strong> se consolida el reporte matutino.<br>- <strong>Entonces</strong> el sistema cataloga la sesión de descanso como sueño fragmentado y lo registra en el historial del Fragile Citizen.</td>
   </tr>
 </table>
 
@@ -752,13 +961,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo consultar las coordenadas de ubicación en tiempo real del adulto mayor, persona con discapacidad o en situación de dependencia para verificar su paradero y actuar rápidamente si sufre una desorientación.</td>
+    <td colspan="4">Como cuidador, deseo consultar las coordenadas de ubicación en tiempo real del Fragile Citizen para verificar su paradero y actuar rápidamente si sufre una desorientación.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Transmisión de coordenadas en condiciones normales</strong><br>- <strong>Dado que</strong> el receptor GNSS de la pulsera dispone de cobertura satelital activa.<br>- <strong>Cuando</strong> el cuidador solicita la posición actual del adulto mayor, persona con discapacidad o en situación de dependencia.<br>- <strong>Entonces</strong> el sistema entrega las coordenadas de latitud y longitud con una marca de tiempo actualizada dentro de los últimos 30 segundos.<br><br><strong>Escenario 2: Degradación de señal satelital en interiores</strong><br>- <strong>Dado que</strong> la pulsera entra en una zona subterránea o sin cobertura GNSS.<br>- <strong>Cuando</strong> se solicita la localización geográfica del paciente.<br>- <strong>Entonces</strong> el sistema expone el último punto geográfico válido conocido indicando explícitamente la pérdida momentánea de fijación satelital.</td>
+    <td colspan="4"><strong>Escenario 1: Transmisión de coordenadas en condiciones normales</strong><br>- <strong>Dado que</strong> el receptor GNSS de la pulsera dispone de cobertura satelital activa.<br>- <strong>Cuando</strong> el cuidador solicita la posición actual del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema entrega las coordenadas de latitud y longitud con una marca de tiempo actualizada dentro de los últimos 30 segundos.<br><br><strong>Escenario 2: Degradación de señal satelital en interiores</strong><br>- <strong>Dado que</strong> la pulsera entra en una zona subterránea o sin cobertura GNSS.<br>- <strong>Cuando</strong> se solicita la localización geográfica del Fragile Citizen.<br>- <strong>Entonces</strong> el sistema expone el último punto geográfico válido conocido indicando explícitamente la pérdida momentánea de fijación satelital.</td>
   </tr>
 </table>
 
@@ -791,7 +1000,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Exportación exitosa de expediente de telemetría</strong><br>- <strong>Dado que</strong> el paciente cuenta con mediciones registradas durante un intervalo de 30 días.<br>- <strong>Cuando</strong> el cuidador selecciona el rango y solicita la exportación documental.<br>- <strong>Entonces</strong> el sistema compila un reporte estructurado en formato PDF conteniendo tablas y resúmenes de las anomalías detectadas.<br><br><strong>Escenario 2: Solicitud de exportación en rango vacío</strong><br>- <strong>Dado que</strong> no existen lecturas de signos vitales dentro del período seleccionado.<br>- <strong>Cuando</strong> el cuidador intenta ejecutar la exportación documental.<br>- <strong>Entonces</strong> el sistema bloquea la generación del archivo y notifica que no existen registros en el rango indicado.</td>
+    <td colspan="4"><strong>Escenario 1: Exportación exitosa de expediente de telemetría</strong><br>- <strong>Dado que</strong> el Fragile Citizen cuenta con mediciones registradas durante un intervalo de 30 días.<br>- <strong>Cuando</strong> el cuidador selecciona el rango y solicita la exportación documental.<br>- <strong>Entonces</strong> el sistema compila un reporte estructurado en formato PDF conteniendo tablas y resúmenes de las anomalías detectadas.<br><br><strong>Escenario 2: Solicitud de exportación en rango vacío</strong><br>- <strong>Dado que</strong> no existen lecturas de signos vitales dentro del período seleccionado.<br>- <strong>Cuando</strong> el cuidador intenta ejecutar la exportación documental.<br>- <strong>Entonces</strong> el sistema bloquea la generación del archivo y notifica que no existen registros en el rango indicado.</td>
   </tr>
 </table>
 
@@ -806,7 +1015,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US20</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia / Cuidador</td>
+    <td>Fragile Citizen / Cuidador</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -818,7 +1027,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, o cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera descienda del 20% para recargarla y evitar la suspensión del monitoreo.</td>
+    <td colspan="4">Como Fragile Citizen, o cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera descienda del 20% para recargarla y evitar la suspensión del monitoreo.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -872,7 +1081,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US22</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>Low</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -884,7 +1093,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo habilitar un modo de vibración táctil silenciosa para recibir mis notificaciones sin perturbar mi entorno en espacios públicos o eventos sociales.</td>
+    <td colspan="4">Como Fragile Citizen, deseo habilitar un modo de vibración táctil silenciosa para recibir mis notificaciones sin perturbar mi entorno en espacios públicos o eventos sociales.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -917,13 +1126,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como familiar, deseo iniciar un canal de comunicación rápida con el adulto mayor, persona con discapacidad o en situación de dependencia para verificar su condición ante cualquier sospecha o inquietud cotidiana.</td>
+    <td colspan="4">Como familiar, deseo iniciar un canal de comunicación rápida con el Fragile Citizen para verificar su condición ante cualquier sospecha o inquietud cotidiana.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Enlace de comunicación exitoso</strong><br>- <strong>Dado que</strong> el adulto mayor, persona con discapacidad o en situación de dependencia y el familiar cuentan con dispositivos vinculados y conexión de datos activa.<br>- <strong>Cuando</strong> el familiar solicita la apertura de un canal de voz o videollamada.<br>- <strong>Entonces</strong> el sistema establece la sesión interactiva y confirma la conexión entre ambas partes.<br><br><strong>Escenario 2: Llamada no contestada</strong><br>- <strong>Dado que</strong> se emite la señal de comunicación hacia el dispositivo receptor.<br>- <strong>Cuando</strong> transcurren 30 segundos sin que el receptor atienda la solicitud.<br>- <strong>Entonces</strong> el sistema cierra el intento de conexión y genera un registro de llamada no atendida en el historial del cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Enlace de comunicación exitoso</strong><br>- <strong>Dado que</strong> el Fragile Citizen y el familiar cuentan con dispositivos vinculados y conexión de datos activa.<br>- <strong>Cuando</strong> el familiar solicita la apertura de un canal de voz o videollamada.<br>- <strong>Entonces</strong> el sistema establece la sesión interactiva y confirma la conexión entre ambas partes.<br><br><strong>Escenario 2: Llamada no contestada</strong><br>- <strong>Dado que</strong> se emite la señal de comunicación hacia el dispositivo receptor.<br>- <strong>Cuando</strong> transcurren 30 segundos sin que el receptor atienda la solicitud.<br>- <strong>Entonces</strong> el sistema cierra el intento de conexión y genera un registro de llamada no atendida en el historial del cuidador.</td>
   </tr>
 </table>
 
@@ -950,13 +1159,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo recibir una síntesis semanal automatizada del estado de salud del adulto mayor, persona con discapacidad o en situación de dependencia para evaluar su evolución global sin revisar telemetría segundo a segundo.</td>
+    <td colspan="4">Como cuidador, deseo recibir una síntesis semanal automatizada del estado de salud del Fragile Citizen para evaluar su evolución global sin revisar telemetría segundo a segundo.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Compilación automática al cierre de ciclo semanal</strong><br>- <strong>Dado que</strong> culmina el ciclo operativo de 7 días del paciente.<br>- <strong>Cuando</strong> el servicio de reportes ejecuta su tarea programada de cierre.<br>- <strong>Entonces</strong> el sistema genera una síntesis agregando estabilidad de signos vitales, alertas disparadas y porcentaje de adherencia a medicación.<br><br><strong>Escenario 2: Resaltado de incidentes recurrentes</strong><br>- <strong>Dado que</strong> el paciente experimentó más de 3 anomalías del mismo tipo a lo largo de la semana.<br>- <strong>Cuando</strong> se genera la síntesis semanal.<br>- <strong>Entonces</strong> el sistema marca el parámetro como recurrente e incluye una recomendación de revisión médica preventiva.</td>
+    <td colspan="4"><strong>Escenario 1: Compilación automática al cierre de ciclo semanal</strong><br>- <strong>Dado que</strong> culmina el ciclo operativo de 7 días del Fragile Citizen.<br>- <strong>Cuando</strong> el servicio de reportes ejecuta su tarea programada de cierre.<br>- <strong>Entonces</strong> el sistema genera una síntesis agregando estabilidad de signos vitales, alertas disparadas y porcentaje de adherencia a medicación.<br><br><strong>Escenario 2: Resaltado de incidentes recurrentes</strong><br>- <strong>Dado que</strong> el Fragile Citizen experimentó más de 3 anomalías del mismo tipo a lo largo de la semana.<br>- <strong>Cuando</strong> se genera la síntesis semanal.<br>- <strong>Entonces</strong> el sistema marca el parámetro como recurrente e incluye una recomendación de revisión médica preventiva.</td>
   </tr>
 </table>
 
@@ -983,13 +1192,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como familiar, deseo que las alertas de máxima criticidad se remitan simultáneamente a todo el círculo familiar registrado para maximizar la velocidad de respuesta.</td>
+    <td colspan="4">Como familiar, deseo que las alertas de máxima criticidad se remitan simultáneamente a todo el Care Circle registrado para maximizar la velocidad de respuesta.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Difusión simultánea ante evento crítico</strong><br>- <strong>Dado que</strong> se confirma una emergencia crítica (como caída o SOS manual).<br>- <strong>Cuando</strong> el motor de despacho procesa el incidente.<br>- <strong>Entonces</strong> el sistema emite notificaciones simultáneas a todos los contactos registrados en el círculo familiar activo.<br><br><strong>Escenario 2: Notificación colaborativa de atención confirmada</strong><br>- <strong>Dado que</strong> múltiples familiares recibieron la notificación de emergencia en paralelo.<br>- <strong>Cuando</strong> el primer familiar pulsa la opción de acudir al auxilio.<br>- <strong>Entonces</strong> el sistema distribuye una actualización al resto de los contactos informando que dicho integrante ya asumió la respuesta.</td>
+    <td colspan="4"><strong>Escenario 1: Difusión simultánea ante evento crítico</strong><br>- <strong>Dado que</strong> se confirma una emergencia crítica (como caída o SOS manual).<br>- <strong>Cuando</strong> el motor de despacho procesa el incidente.<br>- <strong>Entonces</strong> el sistema emite notificaciones simultáneas a todos los contactos registrados en el Care Circle activo.<br><br><strong>Escenario 2: Notificación colaborativa de atención confirmada</strong><br>- <strong>Dado que</strong> múltiples familiares recibieron la notificación de emergencia en paralelo.<br>- <strong>Cuando</strong> el primer familiar pulsa la opción de acudir al auxilio.<br>- <strong>Entonces</strong> el sistema distribuye una actualización al resto de los contactos informando que dicho integrante ya asumió la respuesta.</td>
   </tr>
 </table>
 
@@ -1004,7 +1213,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
   </tr>
   <tr>
     <td><strong>US26</strong></td>
-    <td>Adulto mayor, persona con discapacidad o en situación de dependencia</td>
+    <td>Fragile Citizen</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -1016,13 +1225,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como adulto mayor, persona con discapacidad o en situación de dependencia, deseo que la pulsera me avise periódicamente cuándo tomar agua o levantarme para evitar la deshidratación y la rigidez articular.</td>
+    <td colspan="4">Como Fragile Citizen, deseo que la pulsera me avise periódicamente cuándo tomar agua o levantarme para evitar la deshidratación y la rigidez articular.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Notificación de intervalo de hidratación</strong><br>- <strong>Dado que</strong> transcurren 120 minutos consecutivos sin registro de confirmación de ingesta hídrica.<br>- <strong>Cuando</strong> se cumple la ventana de tiempo establecida.<br>- <strong>Entonces</strong> el dispositivo emite un patrón de vibración indicando el recordatorio de hidratación.<br><br><strong>Escenario 2: Supresión durante horas de descanso</strong><br>- <strong>Dado que</strong> el sistema identifica que el usuario se encuentra dentro del rango horario de sueño nocturno.<br>- <strong>Cuando</strong> vence el ciclo de hidratación periódica.<br>- <strong>Entonces</strong> el sistema inhibe la emisión del recordatorio para resguardar el descanso del paciente.</td>
+    <td colspan="4"><strong>Escenario 1: Notificación de intervalo de hidratación</strong><br>- <strong>Dado que</strong> transcurren 120 minutos consecutivos sin registro de confirmación de ingesta hídrica.<br>- <strong>Cuando</strong> se cumple la ventana de tiempo establecida.<br>- <strong>Entonces</strong> el dispositivo emite un patrón de vibración indicando el recordatorio de hidratación.<br><br><strong>Escenario 2: Supresión durante horas de descanso</strong><br>- <strong>Dado que</strong> el sistema identifica que el usuario se encuentra dentro del rango horario de sueño nocturno.<br>- <strong>Cuando</strong> vence el ciclo de hidratación periódica.<br>- <strong>Entonces</strong> el sistema inhibe la emisión del recordatorio para resguardar el descanso del Fragile Citizen.</td>
   </tr>
 </table>
 
@@ -1049,13 +1258,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo ser alertado si el adulto mayor, persona con discapacidad o en situación de dependencia permanece inmóvil por un período anómalo durante el día para descartar episodios de desvanecimiento o auxilio retenido.</td>
+    <td colspan="4">Como cuidador, deseo ser alertado si el Fragile Citizen permanece inmóvil por un período anómalo durante el día para descartar episodios de desvanecimiento o auxilio retenido.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Superación de umbral de inmovilidad en horas diurnas</strong><br>- <strong>Dado que</strong> el paciente no presenta movimiento articular durante más de 60 minutos en su jornada activa.<br>- <strong>Cuando</strong> se evalúa el contador de inactividad física.<br>- <strong>Entonces</strong> el sistema despacha un aviso preventivo de inactividad prolongada al cuidador.<br><br><strong>Escenario 2: Restablecimiento de conteo por detección motriz</strong><br>- <strong>Dado que</strong> el contador de inactividad acumula 45 minutos continuos.<br>- <strong>Cuando</strong> los acelerómetros del dispositivo detectan patrones de marcha o desplazamiento físico.<br>- <strong>Entonces</strong> el sistema reinicia el contador a cero sin generar ningún tipo de alarma.</td>
+    <td colspan="4"><strong>Escenario 1: Superación de umbral de inmovilidad en horas diurnas</strong><br>- <strong>Dado que</strong> el Fragile Citizen no presenta movimiento articular durante más de 60 minutos en su jornada activa.<br>- <strong>Cuando</strong> se evalúa el contador de inactividad física.<br>- <strong>Entonces</strong> el sistema despacha un aviso preventivo de inactividad prolongada al cuidador.<br><br><strong>Escenario 2: Restablecimiento de conteo por detección motriz</strong><br>- <strong>Dado que</strong> el contador de inactividad acumula 45 minutos continuos.<br>- <strong>Cuando</strong> los acelerómetros del dispositivo detectan patrones de marcha o desplazamiento físico.<br>- <strong>Entonces</strong> el sistema reinicia el contador a cero sin generar ningún tipo de alarma.</td>
   </tr>
 </table>
 
@@ -1082,13 +1291,13 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo delimitar zonas geográficas seguras (hogar, parque, club) para ser alertado oportunamente si el adulto mayor, persona con discapacidad o en situación de dependencia cruza los perímetros autorizados.</td>
+    <td colspan="4">Como cuidador, deseo delimitar zonas geográficas seguras (hogar, parque, club) para ser alertado oportunamente si el Fragile Citizen cruza los perímetros autorizados.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Detección de salida de zona segura autorizada</strong><br>- <strong>Dado que</strong> el paciente dispone de una o más geocercas activas configuradas con coordenadas y radio métrico.<br>- <strong>Cuando</strong> las coordenadas del receptor GPS se posicionan de forma sostenida fuera de todas las zonas seguras activas.<br>- <strong>Entonces</strong> el sistema genera una alerta de egreso de perímetro seguro y la remite de inmediato al cuidador.<br><br><strong>Escenario 2: Reingreso automático al perímetro seguro</strong><br>- <strong>Dado que</strong> el paciente se encuentra registrado fuera del perímetro seguro.<br>- <strong>Cuando</strong> las coordenadas actualizadas confirman su retorno al interior del área delimitada.<br>- <strong>Entonces</strong> el sistema notifica el reingreso a la zona de seguridad y restablece la condición de vigilancia regular.</td>
+    <td colspan="4"><strong>Escenario 1: Detección de salida de zona segura autorizada</strong><br>- <strong>Dado que</strong> el Fragile Citizen dispone de una o más geocercas activas configuradas con coordenadas y radio métrico.<br>- <strong>Cuando</strong> las coordenadas del receptor GPS se posicionan de forma sostenida fuera de todas las zonas seguras activas.<br>- <strong>Entonces</strong> el sistema genera una alerta de egreso de perímetro seguro y la remite de inmediato al cuidador.<br><br><strong>Escenario 2: Reingreso automático al perímetro seguro</strong><br>- <strong>Dado que</strong> el Fragile Citizen se encuentra registrada fuera del perímetro seguro.<br>- <strong>Cuando</strong> las coordenadas actualizadas confirman su retorno al interior del área delimitada.<br>- <strong>Entonces</strong> el sistema notifica el reingreso a la zona de seguridad y restablece la condición de vigilancia regular.</td>
   </tr>
 </table>
 
@@ -1286,7 +1495,7 @@ Requisitos definidos junto con el conjunto de User Stories y Epics para los requ
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Consulta de incidentes autorizada y exitosa</strong><br>- <strong>Dado que</strong> la base de datos de telemetría está operativa y el cliente HTTP remite un token JWT de autorización válido.<br>- <strong>Cuando</strong> el Developer envía una petición <code>GET /api/v1/incidents?patientId={id}&page=1&size=20</code>.<br>- <strong>Entonces</strong> la API retorna el código de estado HTTP 200 OK junto con una carga JSON paginada con los incidentes requeridos.<br><br><strong>Escenario 2: Petición sin cabecera de autenticación válida</strong><br>- <strong>Dado que</strong> la solicitud HTTP no incluye un token de autorización o este ha expirado.<br>- <strong>Cuando</strong> el cliente realiza un requerimiento <code>GET /api/v1/incidents</code>.<br>- <strong>Entonces</strong> la API intercepta la petición y responde con el código de estado HTTP 401 Unauthorized y un cuerpo de error descriptivo.<br><br><strong>Escenario 3: Filtro por severidad crítica sin resultados asociados</strong><br>- <strong>Dado que</strong> un paciente no posee registros clasificados bajo el nivel de criticidad solicitado.<br>- <strong>Cuando</strong> el Developer envía una petición <code>GET /api/v1/incidents?patientId={id}&severity=CRITICAL</code>.<br>- <strong>Entonces</strong> la API devuelve el código HTTP 200 OK conteniendo un arreglo JSON vacío y metadatos de paginación en cero.</td>
+    <td colspan="4"><strong>Escenario 1: Consulta de incidentes autorizada y exitosa</strong><br>- <strong>Dado que</strong> la base de datos de telemetría está operativa y el cliente HTTP remite un token JWT de autorización válido.<br>- <strong>Cuando</strong> el Developer envía una petición <code>GET /api/v1/incidents?patientId={id}&page=1&size=20</code>.<br>- <strong>Entonces</strong> la API retorna el código de estado HTTP 200 OK junto con una carga JSON paginada con los incidentes requeridos.<br><br><strong>Escenario 2: Petición sin cabecera de autenticación válida</strong><br>- <strong>Dado que</strong> la solicitud HTTP no incluye un token de autorización o este ha expirado.<br>- <strong>Cuando</strong> el cliente realiza un requerimiento <code>GET /api/v1/incidents</code>.<br>- <strong>Entonces</strong> la API intercepta la petición y responde con el código de estado HTTP 401 Unauthorized y un cuerpo de error descriptivo.<br><br><strong>Escenario 3: Filtro por severidad crítica sin resultados asociados</strong><br>- <strong>Dado que</strong> una persona monitoreada no posee registros clasificados bajo el nivel de criticidad solicitado.<br>- <strong>Cuando</strong> el Developer envía una petición <code>GET /api/v1/incidents?patientId={id}&severity=CRITICAL</code>.<br>- <strong>Entonces</strong> la API devuelve el código HTTP 200 OK conteniendo un arreglo JSON vacío y metadatos de paginación en cero.</td>
   </tr>
 </table>
 
@@ -1407,6 +1616,50 @@ Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Pr
 
 #### 2.4.3. Product Backlog
 
+El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
+
+La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog.
+
+**Tablero público en ClickUp:** `<pendiente>`
+
+`<pendiente — insertar captura de pantalla del Product Backlog en ClickUp>`
+
+| # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+|---|---|---|---|---|
+| 1 | US15 | Activación de auxilio mediante botón SOS en pulsera | 5 | Sprint 1 |
+| 2 | US08 | Detección automática de caídas y despacho de emergencia | 8 | Sprint 1 |
+| 3 | US09 | Generación de alertas por transgresión de umbrales biomédicos | 5 | Sprint 1 |
+| 4 | US11 | Escalamiento automatizado de alertas críticas no atendidas | 5 | Sprint 1 |
+| 5 | US16 | Administración de agenda de contactos de auxilio | 2 | Sprint 1 |
+| 6 | US18 | Telemetría de geolocalización en tiempo real | 5 | Sprint 1 |
+| 7 | US30 | Navegación entre secciones informativas de la Landing Page | 1 | Sprint 1 |
+| 8 | US31 | Presentación de características y beneficios clave del sistema | 2 | Sprint 1 |
+| 9 | US32 | Captura y procesamiento de solicitudes de contacto institucional | 3 | Sprint 1 |
+| 10 | US33 | Visualización comparativa de planes de suscripción Guardian+ | 3 | Sprint 1 |
+| 11 | US01 | Visualización de ritmo cardíaco en tiempo real | 3 | Sprint 2 |
+| 12 | US02 | Visualización de presión arterial estimada | 3 | Sprint 2 |
+| 13 | US03 | Visualización de saturación de oxígeno periférico (SpO₂) | 3 | Sprint 2 |
+| 14 | US04 | Supervisión de temperatura corporal continua | 3 | Sprint 2 |
+| 15 | US05 | Visualización de frecuencia respiratoria estimada | 3 | Sprint 2 |
+| 16 | US10 | Confirmación manual de estado de bienestar tras incidente | 3 | Sprint 2 |
+| 17 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Sprint 2 |
+| 18 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Sprint 2 |
+| 19 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Sprint 2 |
+| 20 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
+| 21 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
+| 22 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
+| 23 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
+| 24 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
+| 25 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
+| 26 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
+| 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
+| 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
+| 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
+| 30 | US22 | Activación de modo discreto y silencioso en wearable | 2 | Sprint 4 |
+| 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
+| 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
+| 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
+
 ### 2.5. Strategic-Level Domain-Driven Design
 
 #### 2.5.1. EventStorming
@@ -1419,11 +1672,11 @@ A partir del análisis de los eventos, comandos, actores, políticas, agregados 
 
 Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto.
 
----
+
 
 #### Emergency & Alerting Bounded Context (Core Domain)
 
-![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStroming/Emergency.png)
+![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.png)
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
@@ -1431,11 +1684,11 @@ Su Lenguaje Ubicuo se encuentra asociado a conceptos como advertencia preventiva
 
 Se clasificó como parte del **Core Domain** debido a que representa una de las capacidades de mayor valor diferencial de Guardian+: permitir que familiares y cuidadores reaccionen oportunamente ante eventos que puedan comprometer el bienestar de una persona vulnerable.
 
----
+
 
 #### Health Monitoring Bounded Context (Core Domain)
 
-![Health Monitoring EventStorming](../assets/images/chapterII/EventStroming/HEALTH.png)
+![Health Monitoring EventStorming](../assets/images/chapterII/EventStorming/HEALTH.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
 
@@ -1443,11 +1696,11 @@ Dentro de su Lenguaje Ubicuo se encuentran conceptos como bioseñales, telemetr�
 
 Se clasificó como parte del **Core Domain** porque el monitoreo continuo del estado de la persona bajo cuidado constituye una de las funcionalidades centrales de Guardian+ y proporciona información fundamental para detectar posibles anomalías y alimentar posteriormente los procesos de prevención y emergencia.
 
----
+
 
 #### Care Routines & Wellness Bounded Context (Supporting Domain)
 
-![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStroming/careRoutine.png)
+![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStorming/careRoutine.png)
 
 Este contexto candidato agrupa las capacidades destinadas a apoyar las actividades cotidianas de cuidado y bienestar. Entre ellas se encuentran la programación, emisión, confirmación, reemisión y cancelación de recordatorios, así como el seguimiento del stock de medicamentos, ciclos de sueño, periodos prolongados de inactividad y reanudación de actividad.
 
@@ -1455,11 +1708,11 @@ Su Lenguaje Ubicuo incluye conceptos como recordatorio, rutina, medicación, sto
 
 Fue clasificado como **Supporting Domain**, ya que complementa las capacidades principales de monitoreo y atención de emergencias, mejorando la continuidad del cuidado diario, pero sin constituir por sí mismo el principal diferenciador estratégico de Guardian+.
 
----
+
 
 #### Mobility & Geofencing Bounded Context (Supporting Domain)
 
-![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStroming/MOBILITY.png)
+![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStorming/MOBILITY.png)
 
 Este contexto candidato reúne las funcionalidades relacionadas con el seguimiento de ubicación y la definición de zonas seguras para la persona bajo cuidado. Incluye la creación y actualización de geocercas, la recepción de ubicaciones y la evaluación de si la persona permanece dentro o fuera de los límites configurados.
 
@@ -1467,11 +1720,11 @@ Su Lenguaje Ubicuo se encuentra compuesto por conceptos como geocerca, zona segu
 
 Se clasificó como **Supporting Domain**, debido a que aporta información contextual importante para la seguridad de la persona bajo cuidado y puede originar situaciones que requieran atención, aunque su funcionamiento complementa a los contextos principales de monitoreo y alertamiento.
 
----
+
 
 #### IAM Bounded Context (Generic Domain)
 
-![IAM EventStorming](../assets/images/chapterII/EventStroming/IAM.png)
+![IAM EventStorming](../assets/images/chapterII/EventStorming/IAM.png)
 
 Este contexto candidato agrupa los procesos relacionados con la gestión de identidad y acceso a Guardian+. Incluye el registro de credenciales, verificación de correo electrónico, autenticación, uso de códigos OTP y recuperación de contraseña.
 
@@ -1479,11 +1732,10 @@ Su Lenguaje Ubicuo comprende conceptos como credenciales, autenticación, verifi
 
 Se clasificó como **Generic Domain** porque representa una capacidad necesaria para garantizar el acceso seguro a la plataforma, pero corresponde a una problemática común en numerosos sistemas de software y no constituye un elemento diferenciador propio del negocio de Guardian+.
 
----
 
 #### Profile Bounded Context (Generic Domain)
 
-![Profile EventStorming](../assets/images/chapterII/EventStroming/PROFILE.png)
+![Profile EventStorming](../assets/images/chapterII/EventStorming/PROFILE.png)
 
 Este contexto candidato gestiona la información asociada a los perfiles de los usuarios y de las personas bajo cuidado, así como las relaciones existentes entre familiares, cuidadores y Care Recipients. También contempla la gestión de información de contacto y preferencias de uso de la aplicación.
 
@@ -1491,13 +1743,13 @@ Su Lenguaje Ubicuo incluye conceptos como perfil de usuario, perfil de persona b
 
 Se clasificó como **Generic Domain** debido a que proporciona información fundamental para que otros contextos puedan operar correctamente, pero sus capacidades corresponden principalmente a gestión de perfiles y relaciones, y no constituyen el núcleo diferenciador de Guardian+.
 
----
+
 
 #### Subscriptions Bounded Context (Generic Domain)
 
-![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStroming/subscription1.png)
+![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStorming/subscription1.png)
 
-![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStroming/Subscription2.png)
+![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStorming/Subscription2.png)
 
 Este contexto candidato concentra las reglas relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Incluye la solicitud y activación de suscripciones, cambios de plan, renovación, cancelación, expiración y administración de los beneficios asociados a cada plan.
 
@@ -1505,7 +1757,7 @@ Su Lenguaje Ubicuo se encuentra relacionado con conceptos como suscripción, pla
 
 Se clasificó como **Generic Domain** porque permite implementar el modelo comercial y controlar los beneficios disponibles para los usuarios, pero no representa la principal fuente de innovación o diferenciación de Guardian+.
 
----
+
 
 Como resultado del Candidate Context Discovery, el equipo estableció una primera descomposición estratégica del dominio de Guardian+. Los contextos **Emergency & Alerting** y **Health Monitoring** fueron reconocidos como parte del Core Domain debido a su relación directa con la propuesta de valor principal de la solución. **Care Routines & Wellness** y **Mobility & Geofencing** fueron clasificados como Supporting Domains debido a que complementan y fortalecen las capacidades centrales de cuidado. Finalmente, **IAM**, **Profile** y **Subscriptions** fueron identificados como Generic Domains al representar capacidades necesarias para el funcionamiento de la plataforma, pero comunes a otros tipos de sistemas.
 
@@ -1544,6 +1796,7 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 ###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
 
 ###### 2.6.x.6.2. Bounded Context Database Design Diagram
+<<<<<<< HEAD
 
 
 ### 2.6.3. Bounded Context: Subscriptions
@@ -1844,3 +2097,5 @@ Implementa el mecanismo técnico utilizado para activar evaluaciones temporales 
 
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
+=======
+>>>>>>> origin/develop
