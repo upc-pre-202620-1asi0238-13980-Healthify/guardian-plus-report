@@ -1796,7 +1796,6 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 ###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
 
 ###### 2.6.x.6.2. Bounded Context Database Design Diagram
-<<<<<<< HEAD
 
 
 ### 2.6.3. Bounded Context: Subscriptions
@@ -2091,9 +2090,14 @@ Implementa el mecanismo técnico utilizado para activar evaluaciones temporales 
 
 ##### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+pendiente
 ##### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
+Pendiente 
 ###### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+pendiente
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+pendiente
 
