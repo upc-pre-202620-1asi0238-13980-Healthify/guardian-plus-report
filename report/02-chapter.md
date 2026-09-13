@@ -1609,7 +1609,7 @@ A partir del análisis de los eventos, comandos, actores, políticas, agregados 
 
 Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto.
 
----
+
 
 #### Emergency & Alerting Bounded Context (Core Domain)
 
@@ -1621,7 +1621,7 @@ Su Lenguaje Ubicuo se encuentra asociado a conceptos como advertencia preventiva
 
 Se clasificó como parte del **Core Domain** debido a que representa una de las capacidades de mayor valor diferencial de Guardian+: permitir que familiares y cuidadores reaccionen oportunamente ante eventos que puedan comprometer el bienestar de una persona vulnerable.
 
----
+
 
 #### Health Monitoring Bounded Context (Core Domain)
 
@@ -1633,7 +1633,7 @@ Dentro de su Lenguaje Ubicuo se encuentran conceptos como bioseñales, telemetr�
 
 Se clasificó como parte del **Core Domain** porque el monitoreo continuo del estado de la persona bajo cuidado constituye una de las funcionalidades centrales de Guardian+ y proporciona información fundamental para detectar posibles anomalías y alimentar posteriormente los procesos de prevención y emergencia.
 
----
+
 
 #### Care Routines & Wellness Bounded Context (Supporting Domain)
 
@@ -1645,7 +1645,7 @@ Su Lenguaje Ubicuo incluye conceptos como recordatorio, rutina, medicación, sto
 
 Fue clasificado como **Supporting Domain**, ya que complementa las capacidades principales de monitoreo y atención de emergencias, mejorando la continuidad del cuidado diario, pero sin constituir por sí mismo el principal diferenciador estratégico de Guardian+.
 
----
+
 
 #### Mobility & Geofencing Bounded Context (Supporting Domain)
 
@@ -1657,7 +1657,7 @@ Su Lenguaje Ubicuo se encuentra compuesto por conceptos como geocerca, zona segu
 
 Se clasificó como **Supporting Domain**, debido a que aporta información contextual importante para la seguridad de la persona bajo cuidado y puede originar situaciones que requieran atención, aunque su funcionamiento complementa a los contextos principales de monitoreo y alertamiento.
 
----
+
 
 #### IAM Bounded Context (Generic Domain)
 
@@ -1669,7 +1669,6 @@ Su Lenguaje Ubicuo comprende conceptos como credenciales, autenticación, verifi
 
 Se clasificó como **Generic Domain** porque representa una capacidad necesaria para garantizar el acceso seguro a la plataforma, pero corresponde a una problemática común en numerosos sistemas de software y no constituye un elemento diferenciador propio del negocio de Guardian+.
 
----
 
 #### Profile Bounded Context (Generic Domain)
 
@@ -1681,7 +1680,7 @@ Su Lenguaje Ubicuo incluye conceptos como perfil de usuario, perfil de persona b
 
 Se clasificó como **Generic Domain** debido a que proporciona información fundamental para que otros contextos puedan operar correctamente, pero sus capacidades corresponden principalmente a gestión de perfiles y relaciones, y no constituyen el núcleo diferenciador de Guardian+.
 
----
+
 
 #### Subscriptions Bounded Context (Generic Domain)
 
@@ -1695,7 +1694,7 @@ Su Lenguaje Ubicuo se encuentra relacionado con conceptos como suscripción, pla
 
 Se clasificó como **Generic Domain** porque permite implementar el modelo comercial y controlar los beneficios disponibles para los usuarios, pero no representa la principal fuente de innovación o diferenciación de Guardian+.
 
----
+
 
 Como resultado del Candidate Context Discovery, el equipo estableció una primera descomposición estratégica del dominio de Guardian+. Los contextos **Emergency & Alerting** y **Health Monitoring** fueron reconocidos como parte del Core Domain debido a su relación directa con la propuesta de valor principal de la solución. **Care Routines & Wellness** y **Mobility & Geofencing** fueron clasificados como Supporting Domains debido a que complementan y fortalecen las capacidades centrales de cuidado. Finalmente, **IAM**, **Profile** y **Subscriptions** fueron identificados como Generic Domains al representar capacidades necesarias para el funcionamiento de la plataforma, pero comunes a otros tipos de sistemas.
 
