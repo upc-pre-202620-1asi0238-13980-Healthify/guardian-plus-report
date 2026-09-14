@@ -2327,11 +2327,12 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 ![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
-##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+![alt text](../assets/images/chapterII/classDiagrams/HelathMonitoringDomainClassDiagram.png)
 
-###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
+###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-###### 2.6.x.6.2. Bounded Context Database Design Diagram
+###### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 
 ### 2.6.3. Bounded Context: Subscriptions
