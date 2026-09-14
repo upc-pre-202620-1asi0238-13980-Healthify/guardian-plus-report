@@ -1889,7 +1889,145 @@ Ingesta, procesa y almacena la telemetría continua de Vital Signs, evaluando um
 </td>
 </tr>
 </table>
+
 #### 2.5.2. Context Mapping
+#### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
+
+El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proceso de cuestionamiento heurístico recomendado por Domain-Driven Design (DDD Crew y Nick Tune) para validar la ubicación de cada capability y evitar dependencias cíclicas o acoplamiento innecesario:
+
+*   **¿Qué pasaría si movemos el capability de evaluación de umbrales clínicos (`EvaluateClinicalThresholds`) de *Health Monitoring* a *Emergency & Alerting*?**
+    *   *Evaluación:* Si la evaluación clínica se traslada a Emergencias, *Health Monitoring* se degradaría a un almacén pasivo de telemetría (CRUD). Además, obligaría a *Emergency & Alerting* a conocer la semántica médica de rangos basales, tolerancias fisiológicas y filtros de ruido. Se descarta: la evaluación médica permanece en *Health Monitoring*, y este solo notifica a emergencias cuando una anomalía clínica ha sido confirmada.
+*   **¿Qué pasaría si descomponemos el capability de alertas en *Emergency & Alerting* y movemos el despacho de recordatorios de medicación desde *Care Routines & Wellness* hacia este?**
+    *   *Evaluación:* Aunque ambos implican notificar al usuario, sus invariantes y acuerdos de nivel de servicio (SLA) son divergentes. Una alerta de emergencia exige despacho de máxima prioridad en menos de 5 segundos con escalamiento jerárquico no bloqueante, mientras que un recordatorio de medicación es un aviso programado con tolerancia a reintentos lentos. Mezclarlos en el mismo contexto generaría contención y riesgo de saturación en el bus de emergencias críticas. Se mantiene la separación.
+*   **¿Qué pasaría si tomamos el capability de despacho de notificaciones (Push/SMS) de *Emergency & Alerting*, *Care Routines & Wellness* y *Health Monitoring* para formar un nuevo Bounded Context (*Notification Service*)?**
+    *   *Evaluación:* Crear un contexto de dominio para enviar notificaciones introduce una sobrecarga transaccional y de red innecesaria para una función que es netamente técnica y de infraestructura. En su lugar, cada contexto interactúa de manera aislada con pasarelas de mensajería externas a través de puertos y adaptadores (`Infrastructure Layer`).
+*   **¿Qué pasaría si duplicamos la información de relaciones de cuidado (`CareCircle`) en *Emergency & Alerting* para romper la dependencia en tiempo real con *Profile*?**
+    *   *Evaluación:* Durante un incidente crítico (como una caída con pérdida de conocimiento), una falla de red o una consulta lenta hacia *Profile* bloquearía el auxilio al paciente. Se decidió aplicar desnormalización eventual: *Emergency & Alerting* almacena una copia local optimizada de la agenda y jerarquía de contactos del *Care Circle*, sincronizada de manera reactiva mediante eventos de integración emitidos por *Profile* (`CareRelationshipEstablished`, `CareRelationshipEnded`).
+*   **¿Qué pasaría si unificamos *IAM*, *Profile* y *Subscriptions* en un único gran Bounded Context genérico?**
+    *   *Evaluación:* Aunque los tres pertenecen al Generic Domain, operan con ciclos de vida y razones de cambio dispares. *IAM* maneja autenticación, credenciales efímeras y seguridad criptográfica; *Profile* gestiona la semántica de lazos familiares y preferencias de accesibilidad; y *Subscriptions* gobierna la facturación recurrente, planes comerciales y pasarelas de pago. Mantenerlos como tres contextos genéricos separados protege la pureza de sus modelos y minimiza el radio de impacto ante auditorías de seguridad o cambios en proveedores comerciales.
+*   **¿Qué pasaría si aislamos el cálculo de transgresión de zonas seguras en *Mobility & Geofencing* y emitimos solo eventos de brecha a *Emergency & Alerting*?**
+    *   *Evaluación:* Es la decisión óptima. *Mobility & Geofencing* ingesta la señal de posicionamiento GPS y calcula polígonos/radios geográficos de manera continua. *Emergency & Alerting* no necesita conocer latitud ni longitud en cada segundo, únicamente consume el evento de negocio `SafeZoneBreached` cuando la persona abandona su perímetro seguro autorizado.
+
+---
+
+#### 2.5.2.2. Discusión de Alternativas de Context Mapping Global
+
+| Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
+| :--- | :--- | :--- | :--- | :--- |
+| **Alternativa 1:** Modelo Monolítico con *Shared Kernel* | Todos los contextos de negocio comparten un núcleo común de librerías (`Shared Kernel`) que contiene los modelos de `User`, `Patient` y `Biometrics`. | Reduce el código duplicado y evita la necesidad de mappers entre módulos en etapas tempranas. | Fuerte acoplamiento bidireccional; cualquier cambio en el modelo del paciente obliga a recompilar y desplegar todos los módulos. Alto riesgo de corrupción conceptual. | **Rechazada:** Destruye la autonomía de los Bounded Contexts y viola los principios del diseño táctico de DDD. |
+| **Alternativa 2:** Orquestación Centralizada y *Conformist* | *Emergency & Alerting* actúa como orquestador síncrono mediante llamadas directas REST, conformándose con los esquemas de *Health Monitoring*, *Mobility* y *Profile*. | Trazabilidad directa y centralizada de flujos de control en un único punto. | Efecto dominó: si *Health Monitoring* se congestiona por ráfagas de telemetría IoT, bloquea el hilo de ejecución de *Emergency & Alerting*. Viola los SLAs de tiempo real. | **Rechazada:** Compromete la seguridad física del Fragile Citizen ante contingencias de infraestructura. |
+| **Alternativa 3:** Desacoplamiento Basado en Eventos con OHS/PL y ACL | Core Domains consumen eventos de dominio asíncronos vía *Customer/Supplier*; Generic Domains ofrecen contratos abiertos (*Open Host Service*); se usan *Anti-Corruption Layers* para hardware IoT y pasarelas externas. | Aislamiento frente a fallos, procesamiento no bloqueante de telemetría en tiempo real, independencia evolutiva de esquemas y resiliencia ante cortes de servicios externos. | Requiere diseñar y versionar contratos de eventos de integración (*Published Language*) y adaptadores de traducción para cada contexto. | **Aprobada:** Proporciona la resiliencia y el aislamiento de dominio requeridos por la plataforma Guardian+. |
+
+---
+
+#### 2.5.2.3. Context Map Global de Guardian+
+
+A continuación se presenta la topología integral de integración que interconecta la totalidad de los Bounded Contexts y sistemas externos del ecosistema:
+
+```
+                 +---------------------------------------------------------+
+                  |               EXTERNAL ACTORS & HARDWARE                |
+                  +--------------+---------------------------+--------------+
+                                 |                           |
+                 (Raw Vital Signs Telemetry)      (Fall Pattern / SOS / Bat)
+                   [MQTT Topic: /vitals]             [MQTT Topic: /alerts]
+                                 |                           |
+                                 v [In]                      v [In]
+                  +--------------------------+  +---------------------------+
+                  |    Health Monitoring     |  |   Mobility & Geofencing   |
+                  |         (Core)           |  |       (Supporting)        |
+                  |          [ACL]           |  |           [ACL]           |
+                  +--------------+-----------+  +-------------+-------------+
+                                 |                            |
+                                 | [U] (Supplier)             | [U] (Supplier)
+                                 | Integration Event:         | Integration Event:
+                                 | 3 Consecutive Threshold    | SafeZoneBreached
+                                 | Violations Confirmed       |
+                                 v [D] (Customer)             v [D] (Customer)
+               +-----------------+----------------------------+---------------+
+               |                 Emergency & Alerting (Core)                  |
+               |                                                              |
+               | - Biometric alert raiser (Raise Biometric Alert)             |
+               | - Fall confirmation timeout / SOS Triage Engine              |
+               | - Multi-tier Escalation (Primary ack timeout / Broadcast)    |
+               | - Emergency Contacts & Alert Channels Governance             |
+               +-----------------+----------------------------+---------------+
+                                 ^                            ^
+                                 | [D] (Customer)             | [D] (Customer)
+                                 | Integration Event:         | Integration Event:
+                                 | ProlongedInactivity        | CareRelationshipEstablished
+                                 | Detected                   | CareRelationshipEnded
+                                 |                            |
+                  +--------------+-----------+  +-------------+-------------+
+                  | Care Routines & Wellness |  |          Profile          |
+                  |       (Supporting)       |  |         (Generic)         |
+                  +--------------+-----------+  +-------------+-------------+
+                                 ^                            ^
+                                 | [D]                        | [D]
+                                 |                            |
+                                 |            [U]             |
+                                 | [Open Host Service (OHS)]  |
+                                 | [Published Language (PL)]  |
+                                 | (Identity Tokens / Claims) |
+                                 +-------------+--------------+
+                                               |
+                                               |
+                                +--------------v-------------+
+                                |            IAM             |
+                                |         (Generic)          |
+                                +--------------+-------------+
+                                               |
+                                               | [U] (OHS / PL)
+                                               v [D]
+                                +--------------+-------------+
+                                |       Subscriptions        |
+                                |         (Generic)          |
+                                |           [ACL]            |
+                                +--------------+-------------+
+                                               |
+                                               | [D] (Conformist / SDK Adapter)
+                                               v [U]
+                                +--------------+-------------+
+                                |  External Stripe Gateway   |
+                                +----------------------------+
+
+```
+
+#### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
+
+*   **Wearable Hardware -> Health Monitoring (Anti-Corruption Layer - ACL):**
+    *   *Tipo:* External -> Internal Downstream.
+    *   *Patrón:* **Anti-Corruption Layer (ACL)**.
+    *   *Justificación:* El wearable físico es un productor externo que emite tramas crudas serializadas y optimizadas para restricciones energéticas del microcontrolador (ESP32-S3). Aunque el canal de transporte subyacente es un bus Pub/Sub, el Bounded Context de Health Monitoring implementa una Anti-Corruption Layer (ACL) en su capa de infraestructura (compuesta por un MQTT Inbound Adapter y un Telemetry Payload Translator/Assembler). Esta capa intercepta las tramas crudas, valida la integridad de los paquetes y traduce las variables de hardware a los Value Objects y Comandos propios del Lenguaje Ubicuo del dominio (`VitalSignTelemetryBatch`, `HeartRate`, `BloodPressure`), garantizando que las particularidades del firmware no contaminen ni acoplen el modelo clínico interno.
+
+*   **GNSS Module -> Mobility & Geofencing (Anti-Corruption Layer - ACL):**
+    *   *Tipo:* External -> Internal Downstream.
+    *   *Patrón:* **Anti-Corruption Layer (ACL)**.
+    *   *Justificación:* El hardware de rastreo emite sentencias geográficas crudas (formato NMEA / coordenadas en latitud y longitud flotantes). La ACL filtra la degradación de señal satelital y transforma la posición en el Value Object `GeographicCoordinate`.
+*   **Health Monitoring -> Emergency & Alerting (Customer / Supplier con Published Language):**
+    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
+    *   *Patrón:* **Customer/Supplier** con **Published Language (PL)**.
+    *   *Justificación:* *Health Monitoring* actúa como proveedor notificando desviaciones clínicas. Para evitar acoplamiento, expone un contrato estandarizado de evento de integración (`VitalSignAnomalyDetected`) con el payload mínimo necesario (identificador de paciente, parámetro violado y severidad), permitiendo que Emergencias opere como cliente consumidor sin conocer cómo se calcularon los umbrales basales.
+*   **Mobility & Geofencing -> Emergency & Alerting (Customer / Supplier):**
+    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
+    *   *Patrón:* **Customer/Supplier**.
+    *   *Justificación:* Cuando un Fragile Citizen cruza los límites de una geocerca activa sin retorno inmediato, este contexto emite de forma asíncrona el evento `SafeZoneBreached`. *Emergency & Alerting* consume este evento para catalogar un nuevo incidente de desorientación y activar el despacho al Care Circle.
+*   **Care Routines & Wellness -> Emergency & Alerting (Customer / Supplier):**
+    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
+    *   *Patrón:* **Customer/Supplier**.
+    *   *Justificación:* El contexto de rutinas monitorea la actividad diaria del paciente. Si los sensores cinemáticos registran una inactividad prolongada no justificada en horas diurnas (US27), se emite el evento `ProlongedInactivityDetected`, consumido por Emergencias para ejecutar la verificación de bienestar del paciente.
+*   **Profile -> Emergency & Alerting (Event-Carried State Transfer / Customer-Supplier):**
+    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
+    *   *Patrón:* **Customer/Supplier con replicación eventual**.
+    *   *Justificación:* *Emergency & Alerting* requiere conocer la jerarquía de teléfonos y canales de contacto del *Care Circle* para el escalamiento a 60 segundos. Para no depender síncronamente de la base de datos de *Profile*, Emergencias escucha los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` y actualiza una tabla de lectura interna desnormalizada.
+*   **IAM -> Profile, Subscriptions, Health Monitoring, Emergency & Alerting (Open Host Service / Published Language):**
+    *   *Tipo:* Upstream -> Downstream.
+    *   *Patrón:* **Open Host Service (OHS)** con **Published Language (PL)**.
+    *   *Justificación:* *IAM* provee autenticación y autorización mediante un mecanismo estándar de tokens de acceso (JSON Web Tokens firmados) con un Published Language documentado. Todos los contextos descendentes validan las firmas criptográficas de los tokens y extraen el `UserId` y roles sin consultar síncronamente a la base de datos de identidad en cada petición.
+*   **Subscriptions -> Stripe (Conformist / ACL Adapter):**
+    *   *Tipo:* External Upstream -> Downstream.
+    *   *Patrón:* **Anti-Corruption Layer Adapter**.
+    *   *Justificación:* La gestión de pagos depende de las librerías oficiales del proveedor externo. *Subscriptions* implementa adaptadores de webhook (`PaymentWebhookController` y `PaymentProviderAdapter`) para conformarse a los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) y traducirlos a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`).
 
 #### 2.5.3. Software Architecture
 
