@@ -1766,7 +1766,129 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 ##### 2.5.1.2. Domain Message Flows Modeling
 
 ##### 2.5.1.3. Bounded Context Canvases
+En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
+#### Bounded Context: Health Monitoring (Core Domain)
+
+<!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Health Monitoring</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Core - </strong> Esencial para habilitar el monitoreo clínico continuo y la prevención de crisis.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Ingesta, procesa y almacena la telemetría continua de Vital Signs, evaluando umbrales clínicos en tiempo real para proveer vistas en vivo y consolidar Health Reports preventivos.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Validación de Integridad de Vital Signs</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Regla de Tolerancia (3 lecturas consecutivas)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Política de Compilación Semanal</td>
+</tr>
+</table>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+<tr>
+<td width="50%" valign="top">
+• Vital Signs<br>
+• VitalSignStream
+</td>
+<td width="50%" valign="top">
+• Health Report<br>
+</td>
+</tr>
+</table>
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+<div align="center">
+<strong style="font-size: 1em;">Capabilities & Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+<tr>
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Live Vital Signs</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Historical Health Report</td></tr>
+</table>
+</td>
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Detect Vital Signs</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Evaluate Vital Sign Thresholds</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Compile Weekly Summary</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+<div style="padding: 12px;">
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
+</div>
+<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+<tr>
+<td>Wearable Device</td>
+<td>Provee datos biométricos crudos</td>
+<td>External</td>
+<td>In (ACL)</td>
+</tr>
+<tr>
+<td>Emergency & Alerting</td>
+<td>Consume anomalías de signos vitales (eventos)</td>
+<td>Internal</td>
+<td>Out (Supplier)</td>
+</tr>
+<tr>
+<td>Profile / IAM</td>
+<td>Resuelve estado de suscripción y perfiles</td>
+<td>Internal</td>
+<td>In (OHS)</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 #### 2.5.2. Context Mapping
 
 #### 2.5.3. Software Architecture
