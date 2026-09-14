@@ -2097,18 +2097,236 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 ###### 2.6.x.6.2. Bounded Context Database Design Diagram
 
 
-#### 2.6.x. Bounded Context: <Nombre del Bounded Context>
+#### 2.6.2. Bounded Context: Health Monitoring
 
-##### 2.6.x.1. Domain Layer
+El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su responsabilidad consiste en la captura, ingestión, evaluación de umbrales clínicos y persistencia de telemetría de signos vitales (frecuencia cardíaca, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria) proveniente de dispositivos wearables asignados a un Fragile Citizen, así como la consolidación y compilación de Health Reports periódicos.
 
-##### 2.6.x.2. Interface Layer
+La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
-##### 2.6.x.3. Application Layer
+com.guardianplus.platform.healthmonitoring/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── entities/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   └── repositories/
+├── interfaces/
+│   ├── acl/
+│   ├── events/
+│   └── rest/
+│       ├── controllers/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── acl/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── embeddables/
+    │       ├── entities/
+    │       └── repositories/
+    └── scheduling/
 
-##### 2.6.x.4. Infrastructure Layer
+##### 2.6.2.1. Domain Layer
 
-##### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y las reglas de evaluación clínica embebidas en los propios agregados y Value Objects.
+
+###### Aggregates
+
+*   **VitalSignTelemetry**
+    *   Agregado raíz principal que representa la captura puntual de signos vitales de un Fragile Citizen.
+    *   Hereda de `AbstractDomainAggregateRoot<VitalSignTelemetry>` para registrar y publicar eventos de dominio.
+    *   Valida de forma autónoma la transgresión de umbrales clínicos sobre cada uno de sus Value Objects constitutivos sin depender de entidades externas.
+    *   *Atributos:*
+        *   `id: VitalSignTelemetryId`
+        *   `fragileCitizenId: FragileCitizenId`
+        *   `heartRate: HeartRate`
+        *   `bloodPressure: BloodPressure`
+        *   `oxygenSaturation: OxygenSaturation`
+        *   `bodyTemperature: BodyTemperature`
+        *   `respiratoryRate: RespiratoryRate`
+        *   `integrityStatus: TelemetryIntegrityStatus`
+        *   `hasClinicalDeviation: Boolean`
+        *   `recordedAt: Instant`
+        *   `createdAt: Instant`
+    *   *Métodos:*
+        *   `VitalSignTelemetry(RecordVitalSignTelemetryCommand command)`
+        *   `evaluateThresholds(): boolean`
+        *   `markAsCorrupted(String reason): void`
+        *   `hasClinicalDeviation(): Boolean`
+
+*   **HealthReport**
+    *   Agregado raíz que consolida y sintetiza series temporales de signos vitales dentro de un rango temporal.
+    *   *Atributos:*
+        *   `id: HealthReportId`
+        *   `fragileCitizenId: FragileCitizenId`
+        *   `period: DateRange`
+        *   `summaries: List<VitalSignSummary>`
+        *   `recurrentAnomaliesCount: Integer`
+        *   `generatedAt: Instant`
+    *   *Métodos:*
+        *   `HealthReport(GenerateHealthReportCommand command, List<VitalSignTelemetry> telemetries)`
+        *   `isClinicallyStable(): boolean`
+
+###### Entities
+
+*   **VitalSignSummary**
+    *   Entidad interna que compone el reporte médico agregado (`HealthReport`).
+    *   *Atributos:*
+        *   `id: Long`
+        *   `metricType: String`
+        *   `averageValue: Double`
+        *   `minValue: Double`
+        *   `maxValue: Double`
+        *   `stabilityIndex: String`
+
+###### Value Objects
+
+*   **HeartRate:** Encapsula la frecuencia cardíaca en pulsaciones por minuto (`beatsPerMinute: Integer`). Invariante: $20 - 300\\text{ BPM}$. Métodos: `isBradycardia()`, `isTachycardia()`, `isAbnormal()`.
+*   **BloodPressure:** Encapsula los valores hemodinámicos sistólico y diastólico (`systolic: Integer`, `diastolic: Integer`) en $\\text{mmHg}$. Invariante: valores mayores a 0. Métodos: `isHypertensive()`, `isHypotensive()`, `isAbnormal()`.
+*   **OxygenSaturation:** Encapsula la saturación de oxígeno periférico $\\text{SpO}_2$ (`percentage: Double`). Invariante: $0.0 - 100.0\\%$. Métodos: `isHypoxemia()`, `isAbnormal()`.
+*   **BodyTemperature:** Encapsula la temperatura cutánea (`celsius: Double`). Invariante: $25.0 - 45.0^{\\circ}\\text{C}$. Métodos: `isFebrile()`, `isHypothermic()`, `isAbnormal()`.
+*   **RespiratoryRate:** Encapsula la frecuencia respiratoria (`breathsPerMinute: Integer`). Invariante: valor mayor a 0. Métodos: `isBradypnea()`, `isTachypnea()`, `isAbnormal()`.
+*   **DateRange:** Intervalo temporal inmutable (`startDate: Instant`, `endDate: Instant`). Método: `contains(Instant timestamp)`.
+*   **VitalSignTelemetryId:** Identificador inmutable tipo UUID.
+*   **HealthReportId:** Identificador inmutable tipo UUID.
+*   **FragileCitizenId:** Identificador de referencia inmutable al paciente monitoreado.
+*   **TelemetryIntegrityStatus:** Enum (`VALID`, `CORRUPTED`, `INCOMPLETE`).
+
+###### Commands & Queries (Domain Model)
+
+*   `RecordVitalSignTelemetryCommand(UUID fragileCitizenId, Integer heartRate, Integer systolicBp, Integer diastolicBp, Double oxygenSaturation, Double temperature, Integer respiratoryRate, Instant recordedAt)`
+*   `EvaluateVitalSignThresholdsCommand(UUID telemetryId)`
+*   `GenerateHealthReportCommand(UUID fragileCitizenId, Instant periodStart, Instant periodEnd)`
+*   `CompileWeeklySummaryCommand(UUID fragileCitizenId)`
+*   `GetLiveVitalSignsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
+*   `GetVitalSignTelemetriesByCitizenAndDateRangeQuery(FragileCitizenId fragileCitizenId, DateRange dateRange)`
+*   `GetHealthReportByIdQuery(HealthReportId healthReportId)`
+*   `GetAllHealthReportsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
+
+###### Domain Events
+
+*   `VitalSignsDetectedEvent`: Emitido tras validar e instanciar una captura de signos vitales.
+*   `VitalSignThresholdsEvaluatedEvent`: Emitido al concluir la validación de umbrales del agregado, portando el estado de desviación (`hasDeviation: boolean`).
+*   `HealthReportGeneratedEvent`: Emitido tras la compilación de un reporte longitudinal.
+*   `WeeklySummaryCompiledEvent`: Emitido por la tarea programada dominical.
+
+###### Repositories (Domain Interfaces)
+
+*   **VitalSignTelemetryRepository:**
+    *   `save(VitalSignTelemetry telemetry): VitalSignTelemetry`
+    *   `saveAll(List<VitalSignTelemetry> telemetries): List<VitalSignTelemetry>`
+    *   `findLatestByFragileCitizenId(FragileCitizenId citizenId): Optional<VitalSignTelemetry>`
+    *   `findRecentByFragileCitizenId(FragileCitizenId citizenId, int count): List<VitalSignTelemetry>`
+    *   `findByFragileCitizenIdAndPeriod(FragileCitizenId citizenId, DateRange period): List<VitalSignTelemetry>`
+*   **HealthReportRepository:**
+    *   `save(HealthReport report): HealthReport`
+    *   `findById(HealthReportId id): Optional<HealthReport>`
+    *   `findByFragileCitizenId(FragileCitizenId citizenId): List<HealthReport>`
+
+---
+
+##### 2.6.2.2. Interface Layer
+
+Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
+
+###### REST Controllers
+
+*   **VitalSignsController** (`/api/v1/vital-signs`):
+    *   `POST /`: Registra una lectura individual de signos vitales.
+    *   `POST /batches`: Ingesta por lotes para sincronización de telemetría offline.
+    *   `GET /live/{citizenId}`: Consulta el último estado biométrico para visualización en tiempo real.
+    *   `GET /history/{citizenId}`: Retorna lecturas históricas filtradas por rango temporal.
+*   **HealthReportsController** (`/api/v1/health-reports`):
+    *   `POST /`: Dispara la generación bajo demanda de un reporte de salud.
+    *   `GET /{reportId}`: Recupera un reporte específico compilado.
+    *   `GET /citizen/{citizenId}`: Lista los reportes emitidos de un Fragile Citizen.
+
+###### Resources & Assemblers
+
+*   *Resources (DTOs):* `RecordVitalSignTelemetryResource`, `VitalSignTelemetryResource`, `LiveVitalSignsResource`, `GenerateHealthReportResource`, `HealthReportResource`.
+*   *Assemblers (Mappers):* `RecordVitalSignCommandFromResourceAssembler`, `VitalSignResourceFromEntityAssembler`, `LiveVitalSignsResourceFromEntityAssembler`, `GenerateHealthReportCommandFromResourceAssembler`, `HealthReportResourceFromEntityAssembler`.
+
+###### Integration Events & ACL Facade
+
+*   `VitalSignAnomalyDetectedIntegrationEvent`: Evento publicado hacia el bus de mensajería cuando se confirman 3 transgresiones basales consecutivas, consumido por `Emergency & Alerting`.
+*   `HealthReportCompiledIntegrationEvent`: Notifica a contextos de soporte la disponibilidad de un nuevo reporte estructurado.
+*   `HealthMonitoringContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos.
+
+---
+
+##### 2.6.2.3. Application Layer
+
+Orquesta los flujos de casos de uso delegando las reglas clínicas en los agregados correspondientes.
+
+###### Command Services
+
+*   **VitalSignTelemetryCommandService & VitalSignTelemetryCommandServiceImpl:**
+    *   `handle(RecordVitalSignTelemetryCommand command): Optional<VitalSignTelemetry>`: Construye y persiste `VitalSignTelemetry`, activando internamente la validación de umbrales del aggregate root.
+    *   `handle(EvaluateVitalSignThresholdsCommand command): void`: Evalúa el agregado; recupera las últimas lecturas del repositorio y comprueba la política de 3 violaciones consecutivas para disparar la alerta de integración si corresponde.
+*   **HealthReportCommandService & HealthReportCommandServiceImpl:**
+    *   `handle(GenerateHealthReportCommand command): Optional<HealthReport>`: Extrae telemetrías del período y construye y persiste el aggregate `HealthReport`.
+    *   `handle(CompileWeeklySummaryCommand command): void`: Orquesta la síntesis semanal programada.
+
+###### Query Services
+
+*   **VitalSignTelemetryQueryService & VitalSignTelemetryQueryServiceImpl:** Resuelve `GetLiveVitalSignsByFragileCitizenIdQuery` y `GetVitalSignTelemetriesByCitizenAndDateRangeQuery`.
+*   **HealthReportQueryService & HealthReportQueryServiceImpl:** Resuelve `GetHealthReportByIdQuery` y `GetAllHealthReportsByFragileCitizenIdQuery`.
+
+###### Event Handlers
+
+*   `VitalSignsDetectedEventHandler`: Reacciona a `VitalSignsDetectedEvent` y ejecuta inmediatamente `EvaluateVitalSignThresholdsCommand`.
+*   `VitalSignThresholdsEvaluatedEventHandler`: Si el aggregate reporta desviación clínica (`hasClinicalDeviation == true`), consulta las 2 lecturas inmediatamente anteriores en `VitalSignTelemetryRepository`. Si las 3 lecturas violan umbrales, despacha `VitalSignAnomalyDetectedIntegrationEvent`.
+*   `WeeklySummaryCompiledEventHandler`: Gestiona la indexación y caché de los resúmenes médicos compilados.
+
+###### Application ACL Implementation
+
+*   `HealthMonitoringContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
+
+---
+
+##### 2.6.2.4. Infrastructure Layer
+
+Implementa la persistencia técnica en PostgreSQL, la comunicación con el broker MQTT y los componentes de programación temporal.
+
+###### Persistence JPA Entities
+
+*   `VitalSignTelemetryPersistenceEntity`: Mapea la tabla `vital_sign_telemetries`. Columnas: `id`, `fragile_citizen_id`, `heart_rate_bpm`, `bp_systolic_mmhg`, `bp_diastolic_mmhg`, `spo2_percentage`, `temperature_celsius`, `respiratory_rate_rpm`, `has_clinical_deviation`, `integrity_status`, `recorded_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `HealthReportPersistenceEntity`: Mapea la tabla `health_reports`. Contiene el período embebido y la relación `@OneToMany` hacia `ReportSummaryPersistenceEntity`.
+*   `ReportSummaryPersistenceEntity`: Mapea la tabla `report_summaries`.
+
+###### Spring Data Repositories & Adapters
+
+*   `VitalSignTelemetryPersistenceRepository`: Extiende `JpaRepository<VitalSignTelemetryPersistenceEntity, UUID>`.
+*   `HealthReportPersistenceRepository`: Extiende `JpaRepository<HealthReportPersistenceEntity, UUID>`.
+*   `VitalSignTelemetryRepositoryImpl`: Implementa `VitalSignTelemetryRepository` usando `VitalSignTelemetryPersistenceAssembler` para traducir bidireccionalmente entre entidades JPA y agregados de dominio.
+*   `HealthReportRepositoryImpl`: Implementa `HealthReportRepository`.
+
+###### Persistence Assemblers
+
+*   `VitalSignTelemetryPersistenceAssembler`: Traduce los tipos primitivos de `VitalSignTelemetryPersistenceEntity` hacia las instancias de los Value Objects (`HeartRate`, `BloodPressure`, etc.) y recompone el agregado `VitalSignTelemetry`.
+*   `HealthReportPersistenceAssembler`: Traduce entre `HealthReportPersistenceEntity` y `HealthReport`.
+
+###### Scheduling
+
+*   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
+
+---
+##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 ![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
+
 ##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
