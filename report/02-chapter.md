@@ -2097,6 +2097,25 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 ###### 2.6.x.6.2. Bounded Context Database Design Diagram
 
 
+#### 2.6.x. Bounded Context: <Nombre del Bounded Context>
+
+##### 2.6.x.1. Domain Layer
+
+##### 2.6.x.2. Interface Layer
+
+##### 2.6.x.3. Application Layer
+
+##### 2.6.x.4. Infrastructure Layer
+
+##### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
+![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
+##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
+
+###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
+
+###### 2.6.x.6.2. Bounded Context Database Design Diagram
+
+
 ### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
