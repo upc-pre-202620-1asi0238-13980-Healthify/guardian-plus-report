@@ -2929,3 +2929,257 @@ pendiente
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
 pendiente
+
+### 2.6.5. Bounded Context: Care Routines & Wellness
+
+El Bounded Context Care Routines & Wellness pertenece al Supporting Domain de Guardian+ y es responsable de asegurar que las rutinas de bienestar del adulto mayor, persona con discapacidad o en situación de dependencia se cumplan: recordatorios de medicación, citas médicas, actividad física e hidratación; registro y clasificación de ciclos de sueño; detección de inactividad física prolongada; y control del stock de medicamentos con sugerencia de reabastecimiento.
+
+##### 2.6.5.1. Domain Layer
+
+Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vida de cada recordatorio y las decisiones de programación temporal embebidas en los propios agregados, Value Objects y Domain Services.
+
+###### Aggregates
+
+*   **Reminder**
+    *   Agregado raíz principal que representa un recordatorio individual de rutina (medicación, cita médica, actividad física o hidratación) y su ciclo de vida completo.
+    *   Hereda de `AbstractDomainAggregateRoot<Reminder>` para registrar y publicar eventos de dominio.
+    *   Protege las transiciones válidas de estado; delega en `ReminderIssuancePolicy` y `ReminderReissuePolicy` la decisión de cuándo emitir, suprimir o reemitir, sin evaluar dichas condiciones por sí mismo.
+    *   *Atributos:*
+        *   `id: ReminderId`
+        *   `personUnderCareId: PersonUnderCareId`
+        *   `type: ReminderType`
+        *   `scheduledTime: Instant`
+        *   `issuedAt: Instant`
+        *   `status: ReminderStatus`
+        *   `reissueCount: Integer`
+    *   *Métodos:*
+        *   `Reminder(ScheduleReminderCommand command)`
+        *   `issue(IssuanceOutcome outcome, Instant currentTime): void`
+        *   `confirm(): void`
+        *   `cancel(): void`
+        *   `reissue(): void`
+        *   `isActive(): Boolean`
+
+*   **SleepCycleRecord**
+    *   Agregado raíz que representa un ciclo de sueño cerrado del adulto mayor, persona con discapacidad o en situación de dependencia.
+    *   *Atributos:*
+        *   `id: SleepCycleRecordId`
+        *   `personUnderCareId: PersonUnderCareId`
+        *   `startTime: Instant`
+        *   `endTime: Instant`
+        *   `interruptionCount: Integer`
+        *   `classification: SleepClassification`
+    *   *Métodos:*
+        *   `SleepCycleRecord(RecordSleepCycleCommand command)`
+        *   `classify(): SleepClassification`
+
+*   **ActivityMonitor**
+    *   Agregado raíz que representa el estado de actividad física de una persona bajo cuidado a lo largo del día.
+    *   *Atributos:*
+        *   `id: ActivityMonitorId`
+        *   `personUnderCareId: PersonUnderCareId`
+        *   `status: ActivityStatus`
+        *   `inactivitySince: Instant`
+    *   *Métodos:*
+        *   `recordProlongedInactivity(Instant detectedAt): void`
+        *   `recordActivityResumed(Instant resumedAt): void`
+        *   `isInactive(): Boolean`
+
+*   **MedicationStock**
+    *   Agregado raíz que representa el balance de dosis restantes de un tratamiento de medicación y determina, junto a `MedicationStockPolicy`, cuándo corresponde sugerir su reabastecimiento.
+    *   *Atributos:*
+        *   `id: MedicationStockId`
+        *   `personUnderCareId: PersonUnderCareId`
+        *   `remainingDoses: Integer`
+        *   `dailyConsumption: Decimal`
+        *   `lastAcquisitionDate: Instant`
+    *   *Métodos:*
+        *   `registerConsumption(Integer dosesConsumed): void`
+        *   `confirmAcquisition(Integer dosesAdded): void`
+        *   `remainingDaysOfSupply(): Decimal`
+
+###### Value Objects
+
+*   **ReminderId:** Identificador inmutable de un recordatorio.
+*   **SleepCycleRecordId:** Identificador inmutable de un ciclo de sueño registrado.
+*   **ActivityMonitorId:** Identificador inmutable de un monitor de actividad.
+*   **MedicationStockId:** Identificador inmutable de un control de stock de medicación.
+*   **PersonUnderCareId:** Identificador de referencia inmutable a la persona bajo cuidado; evita incorporar directamente el modelo del contexto Profile dentro de Care Routines & Wellness.
+*   **ReminderType:** Enum (`MEDICATION`, `APPOINTMENT`, `PHYSICAL_ACTIVITY`, `HYDRATION`).
+*   **ReminderStatus:** Enum (`SCHEDULED`, `ISSUED`, `CONFIRMED`, `CANCELLED`, `REISSUED`, `SUPPRESSED`).
+*   **ActivityStatus:** Enum (`NORMAL`, `INACTIVITY_DETECTED`).
+*   **SleepClassification:** Enum (`REGULAR`, `FRAGMENTED`).
+*   **IssuanceOutcome:** Enum (`ISSUE`, `SUPPRESS`). Resultado de `ReminderIssuancePolicy` que el aggregate `Reminder` aplica en `issue()`.
+*   **SleepWindow:** Intervalo horario inmutable configurado para la persona bajo cuidado, utilizado por `ReminderIssuancePolicy` para determinar la supresión de recordatorios de hidratación.
+
+###### Domain Services
+
+*   **ReminderIssuancePolicy:** Evalúa si un recordatorio debe emitirse normalmente o suprimirse al cumplirse su horario programado, considerando el tipo de recordatorio y la ventana de sueño configurada.
+    *   `determineIssuanceOutcome(Reminder reminder, Instant currentTime, SleepWindow sleepWindow): IssuanceOutcome`
+*   **ReminderReissuePolicy:** Determina si un recordatorio de medicación emitido requiere reemisión por falta de confirmación dentro del tiempo de tolerancia definido (10 minutos).
+    *   `requiresReissue(Reminder reminder, Instant currentTime): Boolean`
+*   **MedicationStockPolicy:** Determina si el balance vigente de un control de stock amerita sugerir reabastecimiento.
+    *   `requiresRestockSuggestion(MedicationStock stock): Boolean`
+
+###### Commands & Queries (Domain Model)
+
+*   `ScheduleReminderCommand(UUID personUnderCareId, ReminderType type, Instant scheduledTime)`
+*   `IssueReminderCommand(UUID reminderId)`
+*   `ConfirmReminderCommand(UUID reminderId)`
+*   `CancelReminderCommand(UUID reminderId)`
+*   `ReissueReminderCommand(UUID reminderId)`
+*   `RecordSleepCycleCommand(UUID personUnderCareId, Instant startTime, Instant endTime, Integer interruptionCount)`
+*   `RecordProlongedInactivityCommand(UUID personUnderCareId, Instant detectedAt)`
+*   `RecordActivityResumedCommand(UUID personUnderCareId, Instant resumedAt)`
+*   `SuggestMedicationRestockCommand(UUID personUnderCareId)`
+*   `ConfirmMedicationAcquisitionCommand(UUID personUnderCareId, Integer dosesAdded)`
+*   `GetReminderStatusByIdQuery(ReminderId reminderId)`
+*   `GetRemindersByPersonUnderCareIdQuery(PersonUnderCareId personUnderCareId)`
+*   `GetMedicationStockStatusQuery(PersonUnderCareId personUnderCareId)`
+
+###### Domain Events
+
+*   `ReminderScheduledEvent`: Emitido al programarse un nuevo recordatorio.
+*   `ReminderIssuedEvent`: Emitido cuando `ReminderIssuancePolicy` determina que el recordatorio debe emitirse.
+*   `ReminderConfirmedEvent`: Emitido cuando la persona bajo cuidado confirma el recordatorio.
+*   `ReminderCancelledEvent`: Emitido al cancelarse un recordatorio.
+*   `ReminderReissuedEvent`: Emitido cuando `ReminderReissuePolicy` determina que corresponde una reemisión.
+*   `ReminderSuppressedEvent`: Emitido cuando `ReminderIssuancePolicy` determina que el recordatorio debe suprimirse (recordatorio de hidratación dentro de la ventana de sueño).
+*   `SleepCycleRecordedEvent`: Emitido tras registrar y clasificar un ciclo de sueño.
+*   `ProlongedInactivityDetectedEvent`: Emitido al transicionar `ActivityMonitor` de `NORMAL` a `INACTIVITY_DETECTED`.
+*   `ActivityResumedEvent`: Emitido al resetear `ActivityMonitor` a `NORMAL`.
+*   `MedicationRestockSuggestedEvent`: Emitido cuando `MedicationStockPolicy` determina que corresponde sugerir reabastecimiento.
+*   `MedicationStockUpdatedEvent`: Emitido tras confirmarse la adquisición de un nuevo envase.
+
+###### Repositories (Domain Interfaces)
+
+*   **ReminderRepository:**
+    *   `findById(ReminderId id): Optional<Reminder>`
+    *   `findDueForIssuance(Instant currentTime): List<Reminder>`
+    *   `findOverdueForReissue(Instant currentTime): List<Reminder>`
+    *   `save(Reminder reminder): Reminder`
+*   **SleepCycleRecordRepository:**
+    *   `findByPersonUnderCareId(PersonUnderCareId personUnderCareId): List<SleepCycleRecord>`
+    *   `save(SleepCycleRecord record): SleepCycleRecord`
+*   **ActivityMonitorRepository:**
+    *   `findByPersonUnderCareId(PersonUnderCareId personUnderCareId): Optional<ActivityMonitor>`
+    *   `save(ActivityMonitor monitor): ActivityMonitor`
+*   **MedicationStockRepository:**
+    *   `findByPersonUnderCareId(PersonUnderCareId personUnderCareId): Optional<MedicationStock>`
+    *   `save(MedicationStock stock): MedicationStock`
+
+---
+
+##### 2.6.5.2. Interface Layer
+
+Traduce estímulos externos (solicitudes HTTP de cuidadores/familiares y telemetría del dispositivo wearable) hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
+
+###### REST Controllers
+
+*   **RemindersController** (`/api/v1/reminders`):
+    *   `POST /`: Programa un nuevo recordatorio.
+    *   `PUT /{reminderId}/confirm`: Confirma un recordatorio emitido.
+    *   `DELETE /{reminderId}`: Cancela un recordatorio programado o emitido.
+    *   `GET /citizen/{personUnderCareId}`: Lista los recordatorios de una persona bajo cuidado.
+*   **MedicationStockController** (`/api/v1/medication-stock`):
+    *   `PUT /{stockId}/acquisition`: Confirma la adquisición de un nuevo envase de medicamento.
+    *   `GET /citizen/{personUnderCareId}`: Consulta el estado vigente del stock.
+
+###### Message Consumers
+
+*   **ActivityTelemetryConsumer:** Recibe la telemetría de movimiento e inactividad enviada por el dispositivo wearable y la traduce en `RecordProlongedInactivityCommand` o `RecordActivityResumedCommand`.
+*   **SleepTelemetryConsumer:** Recibe la telemetría de ciclos de sueño enviada por el dispositivo wearable y la traduce en `RecordSleepCycleCommand`.
+
+###### Resources & Assemblers
+
+*   *Resources (DTOs):* `ScheduleReminderResource`, `ReminderResource`, `ConfirmMedicationAcquisitionResource`, `MedicationStockResource`.
+*   *Assemblers (Mappers):* `ScheduleReminderCommandFromResourceAssembler`, `ReminderResourceFromEntityAssembler`, `ConfirmMedicationAcquisitionCommandFromResourceAssembler`, `MedicationStockResourceFromEntityAssembler`.
+
+###### Integration Events
+
+*   `ProlongedInactivityDetectedIntegrationEvent`: Publicado cuando se detecta inactividad prolongada, consumido por `Emergency & Alerting`.
+*   `ReminderReissuedIntegrationEvent`: Publicado cuando un recordatorio de medicación es reemitido, consumido por `Emergency & Alerting` para notificar al cuidador.
+*   `MedicationRestockSuggestedIntegrationEvent`: Publicado cuando se sugiere un reabastecimiento, consumido por `Emergency & Alerting` para notificar al familiar.
+
+---
+
+##### 2.6.5.3. Application Layer
+
+Orquesta los flujos de casos de uso de rutina y bienestar delegando las reglas de negocio en los agregados y Domain Services correspondientes.
+
+###### Command Services
+
+*   **ReminderCommandService & ReminderCommandServiceImpl:**
+    *   `handle(ScheduleReminderCommand command): Result<Reminder, ApplicationError>`: Construye y persiste `Reminder` en estado `SCHEDULED`.
+    *   `handle(IssueReminderCommand command): Result<Reminder, ApplicationError>`: Recupera el agregado, consulta `ReminderIssuancePolicy` y aplica el resultado mediante `issue()`.
+    *   `handle(ConfirmReminderCommand command): Result<Reminder, ApplicationError>`: Confirma el recordatorio si su estado lo permite.
+    *   `handle(CancelReminderCommand command): Result<Reminder, ApplicationError>`: Cancela el recordatorio.
+    *   `handle(ReissueReminderCommand command): Result<Reminder, ApplicationError>`: Reemite el recordatorio de medicación.
+*   **SleepCycleRecordCommandService & SleepCycleRecordCommandServiceImpl:**
+    *   `handle(RecordSleepCycleCommand command): Result<SleepCycleRecord, ApplicationError>`: Construye y persiste el ciclo de sueño clasificado.
+*   **ActivityMonitorCommandService & ActivityMonitorCommandServiceImpl:**
+    *   `handle(RecordProlongedInactivityCommand command): Result<ActivityMonitor, ApplicationError>`.
+    *   `handle(RecordActivityResumedCommand command): Result<ActivityMonitor, ApplicationError>`.
+*   **MedicationStockCommandService & MedicationStockCommandServiceImpl:**
+    *   `handle(SuggestMedicationRestockCommand command): Result<Void, ApplicationError>`: Evalúa `MedicationStockPolicy` y registra la sugerencia.
+    *   `handle(ConfirmMedicationAcquisitionCommand command): Result<MedicationStock, ApplicationError>`: Actualiza el balance tras la adquisición.
+
+###### Query Services
+
+*   **ReminderQueryService & ReminderQueryServiceImpl:** Resuelve `GetReminderStatusByIdQuery` y `GetRemindersByPersonUnderCareIdQuery`.
+*   **MedicationStockQueryService & MedicationStockQueryServiceImpl:** Resuelve `GetMedicationStockStatusQuery`.
+
+###### Event Handlers
+
+*   `ReminderConfirmedEventHandler`: Reacciona a `ReminderConfirmedEvent` cuando `type == MEDICATION`, registrando el consumo correspondiente en `MedicationStock` y evaluando `MedicationStockPolicy`.
+*   `ProlongedInactivityDetectedEventHandler`: Reacciona a `ProlongedInactivityDetectedEvent` (interno) republicándolo como `ProlongedInactivityDetectedIntegrationEvent` hacia `Emergency & Alerting`.
+*   `ReminderReissuedEventHandler`: Reacciona a `ReminderReissuedEvent` (interno) republicándolo como `ReminderReissuedIntegrationEvent` hacia `Emergency & Alerting`.
+*   `MedicationRestockSuggestedEventHandler`: Reacciona a `MedicationRestockSuggestedEvent` (interno) republicándolo como `MedicationRestockSuggestedIntegrationEvent` hacia `Emergency & Alerting`.
+
+---
+
+##### 2.6.5.4. Infrastructure Layer
+
+Implementa la persistencia técnica en PostgreSQL, la comunicación con el broker MQTT del dispositivo wearable y los componentes de programación temporal que traducen las políticas de tiempo del dominio.
+
+###### Persistence JPA Entities
+
+*   `ReminderPersistenceEntity`: Mapea la tabla `reminders`. Columnas: `id`, `person_under_care_id`, `type`, `scheduled_time`, `issued_at`, `status`, `reissue_count`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `SleepCycleRecordPersistenceEntity`: Mapea la tabla `sleep_cycle_records`. Columnas: `id`, `person_under_care_id`, `start_time`, `end_time`, `interruption_count`, `classification`.
+*   `ActivityMonitorPersistenceEntity`: Mapea la tabla `activity_monitors`. Columnas: `id`, `person_under_care_id`, `status`, `inactivity_since`.
+*   `MedicationStockPersistenceEntity`: Mapea la tabla `medication_stocks`. Columnas: `id`, `person_under_care_id`, `remaining_doses`, `daily_consumption`, `last_acquisition_date`.
+
+###### Spring Data Repositories & Adapters
+
+*   `ReminderPersistenceRepository`: Extiende `JpaRepository<ReminderPersistenceEntity, UUID>`.
+*   `SleepCycleRecordPersistenceRepository`: Extiende `JpaRepository<SleepCycleRecordPersistenceEntity, UUID>`.
+*   `ActivityMonitorPersistenceRepository`: Extiende `JpaRepository<ActivityMonitorPersistenceEntity, UUID>`.
+*   `MedicationStockPersistenceRepository`: Extiende `JpaRepository<MedicationStockPersistenceEntity, UUID>`.
+*   `ReminderRepositoryImpl`: Implementa `ReminderRepository` usando `ReminderPersistenceAssembler` para traducir bidireccionalmente entre entidad JPA y aggregate.
+*   `SleepCycleRecordRepositoryImpl`, `ActivityMonitorRepositoryImpl`, `MedicationStockRepositoryImpl`: Implementan sus respectivos puertos de dominio siguiendo el mismo patrón.
+
+###### Persistence Assemblers
+
+*   `ReminderPersistenceAssembler`: Traduce los tipos primitivos de `ReminderPersistenceEntity` hacia los Value Objects del aggregate (`ReminderType`, `ReminderStatus`, etc.) y recompone `Reminder`.
+*   `SleepCycleRecordPersistenceAssembler`, `ActivityMonitorPersistenceAssembler`, `MedicationStockPersistenceAssembler`: Traducen entre su entidad JPA correspondiente y su aggregate de dominio.
+
+###### Messaging
+
+*   `WearableTelemetryBrokerAdapter`: Implementa la conexión técnica con el broker MQTT, suscribiéndose a los tópicos de telemetría de actividad/inactividad y de sueño, y entregando los mensajes a `ActivityTelemetryConsumer` y `SleepTelemetryConsumer` respectivamente.
+
+###### Scheduling
+
+*   `ReminderDueCheckScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 30000)` que consulta `ReminderRepository.findDueForIssuance(Instant.now())` e invoca `IssueReminderCommand` por cada resultado.
+*   `ReminderReissueScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 60000)` que consulta `ReminderRepository.findOverdueForReissue(Instant.now())` e invoca `ReissueReminderCommand` por cada resultado.
+
+##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+![components-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
+
+###### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+![class-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
+
+###### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+pendiente
