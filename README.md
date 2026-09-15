@@ -30,7 +30,7 @@ u202411310 - Azama Fukuda, Juan Pablo
 u20241b843 - Mechan Montenegro, Luciana Carolina  
 u20241d185 - Luis Miranda, Diego Andres  
 u202421866 - López Monroy, Rodrigo Alfredo  
-
+u202419494 - Sanchez Cuadrado, Juan Antonio
 ---
 
 *Abril, 2026*
