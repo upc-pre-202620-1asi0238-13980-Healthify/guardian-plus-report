@@ -1676,7 +1676,7 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 #### Emergency & Alerting Bounded Context (Core Domain)
 
-![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.png)
+![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.jpg)
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
