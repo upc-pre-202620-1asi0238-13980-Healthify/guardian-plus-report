@@ -1676,7 +1676,7 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 #### Emergency & Alerting Bounded Context (Core Domain)
 
-![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.png)
+![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.jpg)
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
@@ -1765,8 +1765,189 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 
 ##### 2.5.1.2. Domain Message Flows Modeling
 
+En esta sección se documentan los principales flujos de mensajes (comandos, eventos y policies) del Bounded Context **Emergency & Alerting**, modelados como diagramas de secuencia a partir del Design-Level EventStorming. Se seleccionaron los tres flujos de mayor valor de negocio, correspondientes a los tres agregados centrales del contexto (INCIDENT, ALERT y ESCALATION CHAIN).
+
+#### Bounded Context: Emergency & Alerting
+
+**Flujo 1 — Caída confirmada**
+
+![Domain Message Flow - Caída confirmada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow1-fall-confirmed.png)
+
+**Flujo 2 — SOS manual**
+
+![Domain Message Flow - SOS manual](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow2-sos-triggered.png)
+
+**Flujo 3 — Anomalía biométrica escalada**
+
+![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
+
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
+
+#### Bounded Context: Emergency & Alerting (Core Domain)
+
+<!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Emergency &amp; Alerting</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Core - </strong> Principal diferenciador de Guardian+: garantiza una respuesta humana oportuna ante eventos que comprometen la seguridad del Fragile Citizen.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citizen, deriva de ellos las Alerts correspondientes, selecciona la estrategia de despacho según la severidad y gobierna el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (CRITICAL difunde / HIGH escala)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ventana de Confirmación de Caída (20 s)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout por Eslabón (60 s)</td>
+</tr>
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Escalation Stopper &amp; Resolver</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Critical Broadcast Fallback ante cadena agotada</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Override de Silent Mode solo en severidad CRITICAL</td>
+</tr>
+</table>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+<tr>
+<td width="50%" valign="top">
+• Incident<br>
+• Alert<br>
+• Escalation Chain<br>
+• Alert Settings
+</td>
+<td width="50%" valign="top">
+• Severity<br>
+• Acknowledgment<br>
+• Preventive Warning<br>
+• Silent Mode
+</td>
+</tr>
+</table>
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+<div align="center">
+<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+<tr>
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Active Incidents</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Incident History</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Pending Alerts</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Alert Settings</td></tr>
+</table>
+</td>
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register Incident</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Dismiss Incident</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Broadcast Critical Alert</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Escalate To Next Contact</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Acknowledge Alert</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Configure Alert Settings</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+<div style="padding: 12px;">
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
+</div>
+<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+<tr>
+<td>Health Monitoring</td>
+<td>Consume anomalías biométricas confirmadas</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Mobility &amp; Geofencing</td>
+<td>Consume salidas de zona segura y resuelve coordenadas del incidente</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Care Routines &amp; Wellness</td>
+<td>Consume eventos de inactividad prolongada</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Profile</td>
+<td>Proyecta localmente el Care Circle y el orden de contactos</td>
+<td>Internal</td>
+<td>In (ECST)</td>
+</tr>
+<tr>
+<td>IAM</td>
+<td>Valida identidad y autorización de cada comando</td>
+<td>Internal</td>
+<td>In (OHS)</td>
+</tr>
+<tr>
+<td>Notification Providers</td>
+<td>Despacha las notificaciones push y SMS al Care Circle</td>
+<td>External</td>
+<td>Out (ACL)</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 
 #### Bounded Context: Health Monitoring (Core Domain)
 
@@ -2095,6 +2276,429 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 ###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
 
 ###### 2.6.x.6.2. Bounded Context Database Design Diagram
+
+
+#### 2.6.1. Bounded Context: Emergency & Alerting
+
+El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en registrar y clasificar los incidentes que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, salidas de zona segura e inactividad prolongada), derivar de ellos las alertas correspondientes, seleccionar la estrategia de despacho según la severidad y gobernar el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+
+A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna.
+
+La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
+
+```
+com.guardianplus.platform.emergencyalerting/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── entities/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   └── repositories/
+├── interfaces/
+│   ├── acl/
+│   ├── events/
+│   └── rest/
+│       ├── controllers/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── acl/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── notifications/
+    │   └── adapters/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── embeddables/
+    │       ├── entities/
+    │       └── repositories/
+    └── scheduling/
+```
+
+##### 2.6.1.1. Domain Layer
+
+Encapsula las reglas de reacción ante emergencias, las invariantes del ciclo de vida de incidentes y alertas, y las políticas de escalamiento embebidas en los propios agregados y Value Objects. La separación entre `Incident` (la situación real) y `Alert` (el artefacto de notificación derivado) es la decisión de modelado central del contexto: un incidente puede originar múltiples alertas (primaria, escalada y de difusión), pero solo el incidente persiste en el historial de salud del Fragile Citizen.
+
+###### Aggregates
+
+*   **Incident**
+    *   Agregado raíz que representa la situación real que compromete la seguridad del Fragile Citizen, independientemente de cuántas notificaciones se deriven de ella.
+    *   Hereda de `AbstractDomainAggregateRoot<Incident>` para registrar y publicar eventos de dominio.
+    *   Gobierna de forma autónoma su ciclo de vida (`DETECTED → CONFIRMED | DISMISSED → IN_ATTENTION → RESOLVED`), rechazando transiciones inválidas sin depender de servicios externos.
+    *   *Atributos:*
+        *   `id: IncidentId`
+        *   `fragileCitizenId: FragileCitizenId`
+        *   `type: IncidentType`
+        *   `severity: Severity`
+        *   `status: IncidentStatus`
+        *   `geoSnapshot: GeoSnapshot`
+        *   `confirmationWindow: ConfirmationWindow`
+        *   `detectedAt: Instant`
+        *   `confirmedAt: Instant`
+        *   `resolvedAt: Instant`
+    *   *Métodos:*
+        *   `Incident(RegisterIncidentCommand command)`
+        *   `confirm(): void`
+        *   `dismissAsFalsePositive(String reason): void`
+        *   `markInAttention(ResponderId responderId): void`
+        *   `resolve(): void`
+        *   `requiresBroadcast(): boolean`
+        *   `isConfirmationWindowExpired(Instant now): boolean`
+
+*   **Alert**
+    *   Agregado raíz que representa el artefacto de notificación derivado de un incidente, dirigido a un destinatario específico del Care Circle.
+    *   Ciclo de vida: `ISSUED → DELIVERED → ACKNOWLEDGED | EXPIRED`.
+    *   *Atributos:*
+        *   `id: AlertId`
+        *   `incidentId: IncidentId`
+        *   `recipientId: ContactId`
+        *   `severity: Severity`
+        *   `dispatchMode: DispatchMode`
+        *   `channels: Set<NotificationChannel>`
+        *   `status: AlertStatus`
+        *   `issuedAt: Instant`
+        *   `deliveredAt: Instant`
+        *   `acknowledgedAt: Instant`
+    *   *Métodos:*
+        *   `Alert(IssueAlertCommand command)`
+        *   `markAsDelivered(): void`
+        *   `acknowledge(ContactId contactId): void`
+        *   `claimResponse(ContactId contactId): void`
+        *   `expire(): void`
+        *   `isPending(): boolean`
+
+*   **EscalationChain**
+    *   Agregado raíz que materializa el plan ordenado de destinatarios y temporizadores asociado a un incidente confirmado. Se instancia únicamente tras la confirmación, nunca antes.
+    *   Encapsula la política de avance secuencial y la condición de agotamiento de la cadena.
+    *   *Atributos:*
+        *   `id: EscalationChainId`
+        *   `incidentId: IncidentId`
+        *   `steps: List<EscalationStep>`
+        *   `currentStepIndex: Integer`
+        *   `ackTimeout: AckTimeout`
+        *   `status: EscalationStatus`
+        *   `startedAt: Instant`
+        *   `stoppedAt: Instant`
+    *   *Métodos:*
+        *   `EscalationChain(InstantiateEscalationChainCommand command, List<EmergencyContact> orderedContacts)`
+        *   `advanceToNextStep(): Optional<EscalationStep>`
+        *   `stop(): void`
+        *   `exhaust(): void`
+        *   `hasRemainingSteps(): boolean`
+        *   `isStepTimedOut(Instant now): boolean`
+
+*   **AlertSettings**
+    *   Agregado raíz que concentra la configuración de alertamiento por Fragile Citizen: canales por severidad, umbrales personalizados, modo silencioso y el orden de los contactos de emergencia que alimenta la cadena de escalamiento.
+    *   *Atributos:*
+        *   `id: AlertSettingsId`
+        *   `fragileCitizenId: FragileCitizenId`
+        *   `channelPolicy: ChannelPolicy`
+        *   `thresholds: List<AlertThreshold>`
+        *   `emergencyContacts: List<EmergencyContact>`
+        *   `silentMode: SilentMode`
+        *   `updatedAt: Instant`
+    *   *Métodos:*
+        *   `configureChannels(ChannelPolicy policy): void`
+        *   `configureThresholds(List<AlertThreshold> thresholds): void`
+        *   `resetThresholdsToClinicalDefaults(): void`
+        *   `addEmergencyContact(EmergencyContact contact): void`
+        *   `removeEmergencyContact(ContactId contactId): void`
+        *   `reorderEmergencyContacts(List<ContactId> orderedIds): void`
+        *   `activateSilentMode(): void`
+        *   `deactivateSilentMode(): void`
+        *   `resolveChannelsFor(Severity severity): Set<NotificationChannel>`
+
+###### Entities
+
+*   **EscalationStep**
+    *   Entidad interna que representa un eslabón ordenado de la cadena de escalamiento (`EscalationChain`).
+    *   *Atributos:*
+        *   `id: Long`
+        *   `stepOrder: Integer`
+        *   `contactId: ContactId`
+        *   `role: ContactRole`
+        *   `status: StepStatus`
+        *   `notifiedAt: Instant`
+*   **EmergencyContact**
+    *   Entidad interna de `AlertSettings` que referencia por identidad a un contacto gobernado por el contexto Profile, añadiendo el rol y la prioridad que solo tienen sentido dentro del alertamiento.
+    *   *Atributos:*
+        *   `id: Long`
+        *   `contactId: ContactId`
+        *   `priorityOrder: Integer`
+        *   `role: ContactRole`
+        *   `isPrimary: Boolean`
+*   **AlertThreshold**
+    *   Entidad interna de `AlertSettings` que registra la personalización de un umbral respecto del valor clínico predeterminado.
+    *   *Atributos:*
+        *   `id: Long`
+        *   `metricType: String`
+        *   `minValue: Double`
+        *   `maxValue: Double`
+        *   `isClinicalDefault: Boolean`
+
+###### Value Objects
+
+*   **Severity:** Enum (`CRITICAL`, `HIGH`, `MEDIUM`) que gobierna la estrategia de despacho. Métodos: `requiresBroadcast()`, `overridesSilentMode()`.
+*   **IncidentType:** Enum (`FALL`, `SOS`, `BIOMETRIC_ANOMALY`, `SAFE_ZONE_BREACH`, `PROLONGED_INACTIVITY`).
+*   **IncidentStatus:** Enum (`DETECTED`, `CONFIRMED`, `DISMISSED`, `IN_ATTENTION`, `RESOLVED`). Método: `canTransitionTo(IncidentStatus target)`.
+*   **AlertStatus:** Enum (`ISSUED`, `DELIVERED`, `ACKNOWLEDGED`, `EXPIRED`).
+*   **DispatchMode:** Enum (`BROADCAST`, `SEQUENTIAL`), derivado de la severidad por la política de despacho.
+*   **NotificationChannel:** Enum (`PUSH`, `SMS`, `IN_APP`, `HAPTIC`).
+*   **EscalationStatus:** Enum (`ACTIVE`, `STOPPED`, `EXHAUSTED`).
+*   **StepStatus:** Enum (`PENDING`, `NOTIFIED`, `SKIPPED`).
+*   **ContactRole:** Enum (`PRIMARY_CAREGIVER`, `FAMILY_MEMBER`, `SECONDARY_CONTACT`).
+*   **ConfirmationWindow:** Encapsula la ventana de cancelación local del Fragile Citizen (`seconds: Integer`). Invariante: $5 - 120\\text{ s}$. Método: `hasExpired(Instant detectedAt, Instant now)`.
+*   **AckTimeout:** Encapsula el tiempo de espera de reconocimiento por eslabón (`seconds: Integer`). Invariante: valor mayor a 0; valor por defecto $60\\text{ s}$.
+*   **SilentMode:** Encapsula el estado del modo discreto (`active: Boolean`, `activatedAt: Instant`). Método: `allows(Severity severity)`, que retorna `false` salvo que la severidad sea `CRITICAL`.
+*   **ChannelPolicy:** Mapa inmutable de severidad hacia el conjunto de canales habilitados. Método: `channelsFor(Severity severity)`.
+*   **GeoSnapshot:** Captura geográfica inmutable del momento del incidente (`latitude: Double`, `longitude: Double`, `capturedAt: Instant`). Se obtiene por consulta puntual al contexto Mobility & Geofencing.
+*   **IncidentId / AlertId / EscalationChainId / AlertSettingsId:** Identificadores inmutables tipo UUID.
+*   **FragileCitizenId / ContactId / ResponderId:** Identificadores de referencia inmutables hacia entidades gobernadas por otros contextos.
+
+###### Commands & Queries (Domain Model)
+
+*   `RegisterIncidentCommand(UUID fragileCitizenId, String incidentType, String severity, Double latitude, Double longitude, Instant detectedAt)`
+*   `ConfirmIncidentCommand(UUID incidentId)`
+*   `DismissIncidentCommand(UUID incidentId, String reason)`
+*   `MarkIncidentInAttentionCommand(UUID incidentId, UUID responderId)`
+*   `ResolveIncidentCommand(UUID incidentId)`
+*   `IssueAlertCommand(UUID incidentId, UUID recipientId, String severity, String dispatchMode)`
+*   `BroadcastCriticalAlertCommand(UUID incidentId)`
+*   `AcknowledgeAlertCommand(UUID alertId, UUID contactId)`
+*   `ClaimAlertResponseCommand(UUID alertId, UUID contactId)`
+*   `InstantiateEscalationChainCommand(UUID incidentId, UUID fragileCitizenId)`
+*   `EscalateToNextContactCommand(UUID escalationChainId)`
+*   `StopEscalationCommand(UUID escalationChainId)`
+*   `ExhaustEscalationChainCommand(UUID escalationChainId)`
+*   `ConfigureAlertChannelsCommand(UUID fragileCitizenId, Map<String, Set<String>> channelsBySeverity)`
+*   `ConfigureAlertThresholdsCommand(UUID fragileCitizenId, List<ThresholdDefinition> thresholds)`
+*   `ResetAlertThresholdsCommand(UUID fragileCitizenId)`
+*   `AddEmergencyContactCommand(UUID fragileCitizenId, UUID contactId, String role, Boolean isPrimary)`
+*   `RemoveEmergencyContactCommand(UUID fragileCitizenId, UUID contactId)`
+*   `ReorderEmergencyContactsCommand(UUID fragileCitizenId, List<UUID> orderedContactIds)`
+*   `ActivateSilentModeCommand(UUID fragileCitizenId)`
+*   `DeactivateSilentModeCommand(UUID fragileCitizenId)`
+*   `GetIncidentByIdQuery(IncidentId incidentId)`
+*   `GetActiveIncidentsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
+*   `GetIncidentHistoryByCitizenAndDateRangeQuery(FragileCitizenId fragileCitizenId, DateRange dateRange, Severity severityFilter)`
+*   `GetAlertsByIncidentIdQuery(IncidentId incidentId)`
+*   `GetPendingAlertsByContactIdQuery(ContactId contactId)`
+*   `GetEscalationChainByIncidentIdQuery(IncidentId incidentId)`
+*   `GetAlertSettingsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
+
+###### Domain Events
+
+*   `IncidentDetectedEvent`: Emitido al registrar un incidente, portando tipo y severidad inicial.
+*   `IncidentConfirmedEvent`: Emitido cuando vence la ventana de confirmación sin cancelación del Fragile Citizen, o cuando la naturaleza del incidente (SOS) lo confirma de inmediato.
+*   `IncidentDismissedEvent`: Emitido cuando el Fragile Citizen cancela dentro de la ventana, clasificando el evento como falso positivo resuelto.
+*   `IncidentMarkedInAttentionEvent`: Emitido cuando un responsable asume la atención del incidente.
+*   `IncidentResolvedEvent`: Emitido al cierre definitivo del incidente, ya sea por estabilización automática o por confirmación manual del cuidador.
+*   `AlertIssuedEvent`: Emitido al derivar una alerta de un incidente hacia un destinatario concreto.
+*   `AlertDeliveredEvent`: Emitido tras la confirmación de entrega por parte del proveedor de notificaciones.
+*   `AlertAcknowledgedEvent`: Emitido cuando un destinatario reconoce la alerta.
+*   `AlertResponseClaimedEvent`: Emitido cuando un destinatario declara que asumirá la respuesta, habilitando la notificación al resto del Care Circle.
+*   `EscalationChainInstantiatedEvent`: Emitido al materializar la cadena de escalamiento de un incidente confirmado.
+*   `EscalationAdvancedEvent`: Emitido al avanzar al siguiente eslabón por vencimiento del `AckTimeout`.
+*   `EscalationStoppedEvent`: Emitido al detener la cadena tras un reconocimiento efectivo.
+*   `EscalationChainExhaustedEvent`: Emitido cuando se agotan todos los eslabones sin reconocimiento, habilitando la difusión de último recurso.
+*   `AlertSettingsUpdatedEvent`: Emitido ante cualquier modificación de canales, umbrales, contactos o modo silencioso.
+
+###### Repositories (Domain Interfaces)
+
+*   **IncidentRepository:**
+    *   `save(Incident incident): Incident`
+    *   `findById(IncidentId id): Optional<Incident>`
+    *   `findActiveByFragileCitizenId(FragileCitizenId citizenId): List<Incident>`
+    *   `findByCitizenAndPeriod(FragileCitizenId citizenId, DateRange period, Severity severity): List<Incident>`
+    *   `findPendingConfirmation(Instant threshold): List<Incident>`
+*   **AlertRepository:**
+    *   `save(Alert alert): Alert`
+    *   `saveAll(List<Alert> alerts): List<Alert>`
+    *   `findById(AlertId id): Optional<Alert>`
+    *   `findByIncidentId(IncidentId incidentId): List<Alert>`
+    *   `findPendingByContactId(ContactId contactId): List<Alert>`
+*   **EscalationChainRepository:**
+    *   `save(EscalationChain chain): EscalationChain`
+    *   `findByIncidentId(IncidentId incidentId): Optional<EscalationChain>`
+    *   `findActiveWithExpiredTimeout(Instant now): List<EscalationChain>`
+*   **AlertSettingsRepository:**
+    *   `save(AlertSettings settings): AlertSettings`
+    *   `findByFragileCitizenId(FragileCitizenId citizenId): Optional<AlertSettings>`
+
+---
+
+##### 2.6.1.2. Interface Layer
+
+Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful para la app móvil y canaliza los eventos de integración provenientes de los contextos proveedores de señales.
+
+###### REST Controllers
+
+*   **IncidentsController** (`/api/v1/incidents`):
+    *   `POST /`: Registra un incidente detectado por el gateway del dispositivo wearable.
+    *   `GET /`: Lista paginada y filtrable por `citizenId`, `severity`, `page` y `size`.
+    *   `GET /{incidentId}`: Recupera el detalle de un incidente específico.
+    *   `POST /{incidentId}/confirm`: Confirma manualmente la emergencia.
+    *   `POST /{incidentId}/dismiss`: Cancela el incidente dentro de la ventana de confirmación (falso positivo).
+    *   `POST /{incidentId}/resolve`: Cierra definitivamente el incidente.
+*   **AlertsController** (`/api/v1/alerts`):
+    *   `GET /pending/{contactId}`: Lista las alertas pendientes de reconocimiento de un destinatario.
+    *   `GET /incident/{incidentId}`: Lista las alertas derivadas de un incidente.
+    *   `POST /{alertId}/acknowledge`: Registra el reconocimiento de la alerta por parte del destinatario.
+    *   `POST /{alertId}/claim`: Declara que el destinatario asumirá la respuesta al incidente.
+*   **AlertSettingsController** (`/api/v1/alert-settings`):
+    *   `GET /citizen/{citizenId}`: Recupera la configuración vigente de alertamiento.
+    *   `PUT /citizen/{citizenId}/channels`: Personaliza los canales de notificación por severidad.
+    *   `PUT /citizen/{citizenId}/thresholds`: Configura umbrales personalizados.
+    *   `POST /citizen/{citizenId}/thresholds/reset`: Restablece los umbrales clínicos predeterminados.
+    *   `POST /citizen/{citizenId}/silent-mode`: Activa el modo discreto.
+    *   `DELETE /citizen/{citizenId}/silent-mode`: Desactiva el modo discreto.
+*   **EmergencyContactsController** (`/api/v1/emergency-contacts`):
+    *   `GET /citizen/{citizenId}`: Lista la agenda ordenada de contactos de auxilio.
+    *   `POST /`: Incorpora un contacto de emergencia a la cadena.
+    *   `DELETE /{contactId}`: Retira un contacto, validando la permanencia de al menos un contacto primario.
+    *   `PUT /reorder`: Reordena la prioridad de los contactos dentro de la cadena.
+
+###### Resources & Assemblers
+
+*   *Resources (DTOs):* `RegisterIncidentResource`, `IncidentResource`, `IncidentSummaryResource`, `AlertResource`, `AcknowledgeAlertResource`, `AlertSettingsResource`, `ConfigureAlertChannelsResource`, `ConfigureAlertThresholdsResource`, `EmergencyContactResource`, `ReorderEmergencyContactsResource`.
+*   *Assemblers (Mappers):* `RegisterIncidentCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `AlertSettingsResourceFromEntityAssembler`, `ConfigureAlertChannelsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`.
+
+###### Integration Events & ACL Facade
+
+*   *Eventos consumidos (inbound):*
+    *   `VitalSignAnomalyDetectedIntegrationEvent`: Proveniente de `Health Monitoring`; origina un incidente de tipo `BIOMETRIC_ANOMALY` con severidad `HIGH`.
+    *   `SafeZoneBreachedIntegrationEvent`: Proveniente de `Mobility & Geofencing`; origina un incidente de tipo `SAFE_ZONE_BREACH`.
+    *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; origina un incidente de tipo `PROLONGED_INACTIVITY`.
+    *   `CareRelationshipEstablishedIntegrationEvent` y `CareRelationshipEndedIntegrationEvent`: Provenientes de `Profile`; actualizan la proyección local de contactos del Care Circle mediante Event-Carried State Transfer.
+*   *Eventos publicados (outbound):*
+    *   `EmergencyDispatchedIntegrationEvent`: Notifica a contextos de soporte que un incidente confirmado entró en despacho.
+    *   `IncidentResolvedIntegrationEvent`: Notifica el cierre de un incidente para su incorporación al historial de salud.
+*   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (estado de incidentes activos por Fragile Citizen).
+
+---
+
+##### 2.6.1.3. Application Layer
+
+Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados correspondientes. Los Event Handlers de esta capa son la materialización directa de las policies identificadas en el Design-Level EventStorming.
+
+###### Command Services
+
+*   **IncidentCommandService & IncidentCommandServiceImpl:**
+    *   `handle(RegisterIncidentCommand command): Optional<Incident>`: Construye y persiste el agregado `Incident`, resolviendo la ventana de confirmación aplicable según el tipo de incidente.
+    *   `handle(ConfirmIncidentCommand command): void`: Confirma la emergencia y habilita la selección de estrategia de despacho.
+    *   `handle(DismissIncidentCommand command): void`: Clasifica el incidente como falso positivo resuelto e interrumpe cualquier despacho pendiente.
+    *   `handle(MarkIncidentInAttentionCommand command): void`: Transiciona el incidente a `IN_ATTENTION` tras un reconocimiento efectivo.
+    *   `handle(ResolveIncidentCommand command): void`: Cierra el incidente y publica el evento de integración correspondiente.
+*   **AlertCommandService & AlertCommandServiceImpl:**
+    *   `handle(IssueAlertCommand command): Optional<Alert>`: Deriva una alerta del incidente resolviendo los canales habilitados desde `AlertSettings`.
+    *   `handle(BroadcastCriticalAlertCommand command): List<Alert>`: Emite alertas simultáneas hacia todos los contactos del Care Circle.
+    *   `handle(AcknowledgeAlertCommand command): void`: Registra el reconocimiento del destinatario.
+    *   `handle(ClaimAlertResponseCommand command): void`: Registra la asunción de respuesta y notifica al resto de destinatarios.
+*   **EscalationChainCommandService & EscalationChainCommandServiceImpl:**
+    *   `handle(InstantiateEscalationChainCommand command): Optional<EscalationChain>`: Construye la cadena a partir del orden de contactos vigente en `AlertSettings`.
+    *   `handle(EscalateToNextContactCommand command): void`: Avanza al siguiente eslabón y emite la alerta correspondiente.
+    *   `handle(StopEscalationCommand command): void`: Detiene la cadena tras un reconocimiento efectivo.
+    *   `handle(ExhaustEscalationChainCommand command): void`: Marca la cadena como agotada al no quedar eslabones disponibles.
+*   **AlertSettingsCommandService & AlertSettingsCommandServiceImpl:**
+    *   `handle(ConfigureAlertChannelsCommand command): void`
+    *   `handle(ConfigureAlertThresholdsCommand command): void`
+    *   `handle(ResetAlertThresholdsCommand command): void`
+    *   `handle(AddEmergencyContactCommand command): void`
+    *   `handle(RemoveEmergencyContactCommand command): void`
+    *   `handle(ReorderEmergencyContactsCommand command): void`
+    *   `handle(ActivateSilentModeCommand command): void`
+    *   `handle(DeactivateSilentModeCommand command): void`
+
+###### Query Services
+
+*   **IncidentQueryService & IncidentQueryServiceImpl:** Resuelve `GetIncidentByIdQuery`, `GetActiveIncidentsByFragileCitizenIdQuery` y `GetIncidentHistoryByCitizenAndDateRangeQuery`.
+*   **AlertQueryService & AlertQueryServiceImpl:** Resuelve `GetAlertsByIncidentIdQuery` y `GetPendingAlertsByContactIdQuery`.
+*   **EscalationChainQueryService & EscalationChainQueryServiceImpl:** Resuelve `GetEscalationChainByIncidentIdQuery`.
+*   **AlertSettingsQueryService & AlertSettingsQueryServiceImpl:** Resuelve `GetAlertSettingsByFragileCitizenIdQuery`.
+
+###### Event Handlers
+
+*   `IncidentDetectedEventHandler`: Implementa la policy **Fall Confirmation Timeout**. Programa el vencimiento de la ventana de cancelación local; si el Fragile Citizen no cancela, despacha `ConfirmIncidentCommand`.
+*   `IncidentConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector**. Evalúa la severidad del incidente: si es `CRITICAL` despacha `BroadcastCriticalAlertCommand`; si es `HIGH` despacha `InstantiateEscalationChainCommand` seguido de `EscalateToNextContactCommand`.
+*   `AlertAcknowledgedEventHandler`: Implementa la policy **Escalation Stopper**. Despacha `StopEscalationCommand` sobre la cadena asociada al incidente.
+*   `EscalationStoppedEventHandler`: Implementa la policy **Escalation Resolver**. Despacha `MarkIncidentInAttentionCommand`, cerrando la separación transaccional entre `EscalationChain` e `Incident`.
+*   `EscalationChainExhaustedEventHandler`: Implementa la policy **Critical Broadcast Fallback**. Ante el agotamiento de la cadena sin reconocimiento, despacha `BroadcastCriticalAlertCommand` como último recurso.
+*   `AlertResponseClaimedEventHandler`: Notifica al resto de destinatarios que un integrante del Care Circle ya asumió la respuesta.
+*   `VitalSignAnomalyDetectedEventHandler`: Implementa la policy **Biometric Alert Raiser**. Traduce el evento de integración de `Health Monitoring` en un `RegisterIncidentCommand` de severidad `HIGH`.
+*   `SafeZoneBreachedEventHandler` y `ProlongedInactivityDetectedEventHandler`: Traducen los eventos de integración de `Mobility & Geofencing` y `Care Routines & Wellness` en incidentes del tipo correspondiente.
+*   `CareRelationshipChangedEventHandler`: Actualiza la proyección local desnormalizada del Care Circle ante altas y bajas de relaciones de cuidado en `Profile`.
+
+###### Application ACL Implementation
+
+*   `EmergencyAlertingContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
+*   `ProfileContextAcl`: Traduce los identificadores y estructuras de contacto provenientes de `Profile` hacia los Value Objects propios (`ContactId`, `ContactRole`), evitando el acoplamiento directo con su modelo.
+*   `MobilityContextAcl`: Resuelve la consulta puntual de coordenadas para componer el `GeoSnapshot` de un incidente confirmado.
+
+---
+
+##### 2.6.1.4. Infrastructure Layer
+
+Implementa la persistencia técnica en PostgreSQL, la integración con los proveedores externos de notificación y los componentes de programación temporal que sostienen las políticas de temporización del contexto.
+
+###### Persistence JPA Entities
+
+*   `IncidentPersistenceEntity`: Mapea la tabla `incidents`. Columnas: `id`, `fragile_citizen_id`, `incident_type`, `severity`, `status`, `latitude`, `longitude`, `geo_captured_at`, `confirmation_window_seconds`, `detected_at`, `confirmed_at`, `resolved_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `incident_id`, `recipient_id`, `severity`, `dispatch_mode`, `channels`, `status`, `issued_at`, `delivered_at`, `acknowledged_at`.
+*   `EscalationChainPersistenceEntity`: Mapea la tabla `escalation_chains`, con relación `@OneToMany` hacia `EscalationStepPersistenceEntity`.
+*   `EscalationStepPersistenceEntity`: Mapea la tabla `escalation_steps`.
+*   `AlertSettingsPersistenceEntity`: Mapea la tabla `alert_settings`, con el `ChannelPolicy` embebido y relaciones `@OneToMany` hacia contactos y umbrales.
+*   `EmergencyContactPersistenceEntity`: Mapea la tabla `emergency_contacts`.
+*   `AlertThresholdPersistenceEntity`: Mapea la tabla `alert_thresholds`.
+*   `CareCircleProjectionPersistenceEntity`: Mapea la tabla de lectura desnormalizada `care_circle_projection`, alimentada por los eventos de integración de `Profile`.
+
+###### Spring Data Repositories & Adapters
+
+*   `IncidentPersistenceRepository`, `AlertPersistenceRepository`, `EscalationChainPersistenceRepository` y `AlertSettingsPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `IncidentRepositoryImpl`, `AlertRepositoryImpl`, `EscalationChainRepositoryImpl` y `AlertSettingsRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+
+###### Persistence Assemblers
+
+*   `IncidentPersistenceAssembler`: Traduce los tipos primitivos de `IncidentPersistenceEntity` hacia los Value Objects (`Severity`, `IncidentStatus`, `GeoSnapshot`, `ConfirmationWindow`) y recompone el agregado `Incident`.
+*   `AlertPersistenceAssembler`, `EscalationChainPersistenceAssembler` y `AlertSettingsPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio.
+
+###### Notification Adapters
+
+*   `NotificationDispatcher`: Puerto de salida del dominio para el despacho efectivo de alertas, independiente del proveedor.
+*   `PushNotificationProviderAdapter`: Implementación sobre Firebase Cloud Messaging para el canal `PUSH`.
+*   `SmsProviderAdapter`: Implementación sobre proveedor SMS para el canal `SMS`, utilizado como canal de respaldo en severidad `CRITICAL`.
+
+###### Scheduling
+
+*   `FallConfirmationTimeoutScheduler`: Tarea de alta frecuencia que recupera los incidentes en estado `DETECTED` con ventana de confirmación vencida y despacha `ConfirmIncidentCommand`.
+*   `EscalationAckTimeoutScheduler`: Tarea que identifica las cadenas activas cuyo `AckTimeout` ha expirado y despacha `EscalateToNextContactCommand` o `ExhaustEscalationChainCommand` según queden o no eslabones disponibles.
+*   `AlertExpirationScheduler`: Tarea de mantenimiento que transiciona a `EXPIRED` las alertas sin reconocimiento una vez cerrado el incidente asociado.
+
+---
+
+##### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Emergency & Alerting Component Diagram](../assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
+
+##### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+###### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Emergency & Alerting Domain Class Diagram](../assets/images/chapterII/classDiagrams/EmergencyAlertingDomainClassDiagram.png)
+
+###### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+![Emergency & Alerting Database Design Diagram](../assets/images/chapterII/databaseDiagrams/EmergencyAlertingDatabaseDiagram.png)
 
 
 #### 2.6.2. Bounded Context: Health Monitoring
