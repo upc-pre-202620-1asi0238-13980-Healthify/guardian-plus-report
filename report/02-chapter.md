@@ -307,6 +307,22 @@ El recorrido del segmento de cuidadores representa una jornada habitual de super
 
 #### 2.3.4. Empathy Mapping
 
+En esta sección se presentan los Empathy Maps elaborados para los User Personas de cada segmento objetivo de Guardian+. Estos artefactos permiten profundizar en la perspectiva de los usuarios, identificando lo que necesitan hacer, lo que ven, dicen, hacen, escuchan, piensan y sienten durante su labor de cuidado, así como sus principales dolores (pains) y beneficios esperados (gains).
+
+Los mapas se construyen a partir de la información obtenida en las entrevistas, su análisis, los User Personas y los User Journey Maps previamente definidos, consolidando los hallazgos comunes de cada segmento.
+
+##### Empathy Map - Familiar
+
+El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia.
+
+![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar.png)
+
+##### Empathy Map - Cuidador
+
+El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia.
+
+![Empathy Map - Cuidador](../assets/images/chapterII/empathy-mapping/empathyMapCuidador.png)
+
 #### 2.3.5. Big Picture EventStorming
 
 El Big Picture EventStorming permitió explorar el dominio de Guardian+ desde una perspectiva integral, identificando los principales Domain Events que ocurren a lo largo del ciclo de uso de la solución. Este artefacto fue utilizado para comprender de manera global cómo interactúan los actores principales, los sistemas externos y los eventos relevantes del negocio antes de profundizar en la identificación formal de Bounded Contexts.
@@ -360,6 +376,22 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 - **Peace of Mind (Tranquilidad):** Estado de confianza y bienestar emocional que experimenta el Care Circle al saber que el Fragile Citizen se encuentra seguro y monitoreado, incluso en su ausencia.
 
 - **Care Plan (Plan de cuidado):** Modalidad de servicio contratada por el Care Circle, que define el nivel de funcionalidades y monitoreo disponibles según las necesidades específicas del Fragile Citizen.
+
+- **Incident (Incidente):** Situación real que compromete la seguridad del Fragile Citizen —como una caída, una activación de SOS, una anomalía biométrica o la salida de una Safe Zone—, registrada con su tipo, severidad y estado, y que forma parte de su Health History.
+
+- **Alert (Alerta):** Notificación derivada de un Incident y dirigida a un integrante específico del Care Circle a través de uno o más canales. Un mismo Incident puede originar varias Alerts; cuando su severidad es crítica, constituye una Emergency Alert.
+
+- **Escalation Chain (Cadena de escalamiento):** Secuencia ordenada de contactos del Care Circle y tiempos de espera que se activa ante un Incident confirmado, notificando al siguiente contacto cuando el anterior no reconoce la Alert a tiempo.
+
+- **Alert Settings (Configuración de alertas):** Preferencias de alertamiento definidas para cada Fragile Citizen: canales de notificación por severidad, umbrales personalizados, orden de los contactos de emergencia y estado del Silent Mode.
+
+- **Severity (Severidad):** Nivel de criticidad de un Incident —crítica, alta o media— que determina la estrategia de notificación: difusión simultánea a todo el Care Circle o escalamiento secuencial mediante la Escalation Chain.
+
+- **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y marca el Incident como en atención.
+
+- **Preventive Warning (Advertencia preventiva):** Aviso de menor criticidad emitido ante señales tempranas de riesgo, que el Fragile Citizen puede confirmar como situación controlada y que escala a Alert si no obtiene respuesta.
+
+- **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Incidents de severidad crítica.
 
 # 2.4. Requirements specification
 
