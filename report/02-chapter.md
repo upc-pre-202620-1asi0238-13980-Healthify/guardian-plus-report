@@ -4650,6 +4650,173 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
 
 ##### 2.6.6.4. Infrastructure Layer
 
+Implementa los mecanismos técnicos que permiten persistir la información del Bounded Context Mobility & Geofencing, recibir ubicaciones desde el Wearable Device y publicar eventos hacia otros Bounded Contexts. Esta capa contiene las implementaciones concretas de los puertos definidos por las capas Domain y Application, sin introducir reglas de negocio propias.
+
+###### Persistence Implementations (Repositories)
+
+*   **SafeZoneRepositoryImpl**
+    *   Implementación concreta de `SafeZoneRepository`.
+    *   Utiliza Spring Data JPA para persistir y recuperar agregados `SafeZone`.
+    *   *Métodos:*
+        *   save(SafeZone safeZone): SafeZone
+        *   findById(SafeZoneId id): Optional<SafeZone>
+        *   findActiveByFragileCitizenId(FragileCitizenId citizenId): Optional<SafeZone>
+        *   findAllByFragileCitizenId(FragileCitizenId citizenId): List<SafeZone>
+
+*   **LocationTrackingRepositoryImpl**
+    *   Implementación concreta de `LocationTrackingRepository`.
+    *   Gestiona la persistencia del estado actual y el historial de ubicaciones.
+    *   *Métodos:*
+        *   save(LocationTracking tracking): LocationTracking
+        *   findByFragileCitizenId(FragileCitizenId citizenId): Optional<LocationTracking>
+        *   findHistoryByFragileCitizenId(FragileCitizenId citizenId, Instant periodStart, Instant periodEnd): List<Location>
+
+*   **ZoneViolationRepositoryImpl**
+    *   Implementación concreta de `ZoneViolationRepository`.
+    *   Persiste las violaciones de zonas seguras detectadas por el dominio.
+    *   *Métodos:*
+        *   save(ZoneViolation violation): ZoneViolation
+        *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
+        *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
+
+###### JPA Entities
+
+*   **SafeZoneJpaEntity**
+    *   Representación persistente del agregado SafeZone en base de datos relacional.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   name: String
+        *   latitude: Double
+        *   longitude: Double
+        *   radiusInMeters: Double
+        *   status: String
+        *   createdAt: Instant
+        *   updatedAt: Instant
+
+*   **LocationTrackingJpaEntity**
+    *   Representación persistente del seguimiento actual de un Fragile Citizen.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   currentLatitude: Double
+        *   currentLongitude: Double
+        *   accuracyInMeters: Double
+        *   currentStatus: String
+        *   lastUpdatedAt: Instant
+
+*   **LocationRecordJpaEntity**
+    *   Representa un registro individual e inmutable del historial de ubicaciones.
+    *   *Atributos:*
+        *   id: UUID
+        *   locationTrackingId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+*   **ZoneViolationJpaEntity**
+    *   Representación persistente de una violación de zona segura detectada.
+    *   *Atributos:*
+        *   id: UUID
+        *   safeZoneId: UUID
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   detectedAt: Instant
+
+###### Spring Data JPA Repositories
+
+*   **SafeZoneJpaRepository**
+    *   Repositorio Spring Data utilizado por `SafeZoneRepositoryImpl`.
+    *   *Métodos:*
+        *   findById(UUID id)
+        *   findByFragileCitizenIdAndStatus(UUID fragileCitizenId, String status)
+        *   findAllByFragileCitizenId(UUID fragileCitizenId)
+
+*   **LocationTrackingJpaRepository**
+    *   Repositorio Spring Data utilizado para acceder al seguimiento actual.
+    *   *Métodos:*
+        *   findByFragileCitizenId(UUID fragileCitizenId)
+
+*   **LocationRecordJpaRepository**
+    *   Repositorio Spring Data utilizado para consultar el historial de telemetría de ubicaciones.
+    *   *Métodos:*
+        *   findByLocationTrackingIdAndRecordedAtBetween(UUID trackingId, Instant start, Instant end)
+
+*   **ZoneViolationJpaRepository**
+    *   Repositorio Spring Data utilizado para consultar las violaciones registradas.
+    *   *Métodos:*
+        *   findByFragileCitizenId(UUID fragileCitizenId)
+        *   findBySafeZoneId(UUID safeZoneId)
+
+###### Assemblers & Converters
+
+*   **SafeZonePersistenceAssembler**
+    *   Convierte bidireccionalmente entre el agregado de dominio `SafeZone` y `SafeZoneJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(SafeZone safeZone): SafeZoneJpaEntity
+        *   toDomain(SafeZoneJpaEntity entity): SafeZone
+
+*   **LocationTrackingPersistenceAssembler**
+    *   Convierte bidireccionalmente entre `LocationTracking` y `LocationTrackingJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(LocationTracking tracking): LocationTrackingJpaEntity
+        *   toDomain(LocationTrackingJpaEntity entity): LocationTracking
+
+*   **ZoneViolationPersistenceAssembler**
+    *   Convierte bidireccionalmente entre `ZoneViolation` y `ZoneViolationJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(ZoneViolation violation): ZoneViolationJpaEntity
+        *   toDomain(ZoneViolationJpaEntity entity): ZoneViolation
+
+*   **CoordinatesConverter**
+    *   Convierte el Value Object `Coordinates` a los campos persistentes `latitude` y `longitude`, y viceversa.
+
+###### Inbound Infrastructure Adapters
+
+*   **WearableLocationAdapter**
+    *   Implementa el mecanismo técnico utilizado para recibir las ubicaciones provenientes del Wearable Device (mediante HTTP, MQTT u otro protocolo IoT).
+    *   Convierte el mensaje externo recibido en `WearableLocationMessage` y lo entrega al `WearableLocationInputPort`.
+    *   No contiene lógica de evaluación de geocercas.
+
+###### Outbound Infrastructure Adapters (Messaging)
+
+*   **MobilityEventPublisherAdapter**
+    *   Implementa el puerto de salida `MobilityEventOutputPort`.
+    *   Publica eventos de integración mediante el mecanismo de mensajería (Message Broker: RabbitMQ/Kafka).
+    *   Publica principalmente `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+    *   *Métodos:*
+        *   publish(SafeZoneViolationDetectedEvent event): void
+
+*   **SafeZoneViolationIntegrationEvent**
+    *   Representación serializable del evento de integración enviado fuera del Bounded Context.
+    *   *Atributos:*
+        *   eventId: UUID
+        *   fragileCitizenId: UUID
+        *   safeZoneId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   detectedAt: Instant
+
+###### Infrastructure Configuration
+
+*   **MobilityPersistenceConfiguration:** Configura los componentes de persistencia JPA, conexiones al pool de base de datos y gestión de transacciones.
+*   **MobilityMessagingConfiguration:** Configura el broker de mensajería, exchanges/topics, serialización JSON y canales de publicación de eventos.
+*   **WearableIntegrationConfiguration:** Configura el conector y los endpoints del protocolo técnico de comunicación con el Wearable Device.
+
+###### Responsabilidades de la Infrastructure Layer
+
+*   Implementar técnicamente los repositorios definidos por el Domain Layer.
+*   Persistir de forma consistente `SafeZone`, `LocationTracking`, `LocationRecord` y `ZoneViolation`.
+*   Implementar la capa técnica de transporte y comunicación con el Wearable Device.
+*   Publicar eventos de integración hacia el broker para el consumo de Emergency & Alerting.
+*   Configurar los beans de Spring para JPA, base de datos y mensajería asíncrona.
+*   Transformar objetos de dominio a entidades de persistencia y viceversa (aislando la base de datos).
+*   Mantener los detalles tecnológicos y dependencias de frameworks fuera del Domain y Application Layer.
+*   No implementar reglas de negocio como la evaluación de geocercas o la determinación de violaciones; estas responsabilidades pertenecen estrictamente al Domain Layer.
+
 ##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 ##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
