@@ -1765,6 +1765,22 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 
 ##### 2.5.1.2. Domain Message Flows Modeling
 
+En esta sección se documentan los principales flujos de mensajes (comandos, eventos y policies) del Bounded Context **Emergency & Alerting**, modelados como diagramas de secuencia a partir del Design-Level EventStorming. Se seleccionaron los tres flujos de mayor valor de negocio, correspondientes a los tres agregados centrales del contexto (INCIDENT, ALERT y ESCALATION CHAIN).
+
+#### Bounded Context: Emergency & Alerting
+
+**Flujo 1 — Caída confirmada**
+
+![Domain Message Flow - Caída confirmada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow1-fall-confirmed.png)
+
+**Flujo 2 — SOS manual**
+
+![Domain Message Flow - SOS manual](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow2-sos-triggered.png)
+
+**Flujo 3 — Anomalía biométrica escalada**
+
+![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
+
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
