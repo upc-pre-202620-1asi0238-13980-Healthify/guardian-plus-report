@@ -3098,12 +3098,12 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
 ##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
-![alt text](../assets/images/chapterII/classDiagrams/HelathMonitoringDomainClassDiagram.png)
 
 ###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+![alt text](../assets/images/chapterII/classDiagrams/HelathMonitoringDomainClassDiagram.png)
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
-
+![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
 
 ### 2.6.3. Bounded Context: Subscriptions
 
