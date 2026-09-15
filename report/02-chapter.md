@@ -4278,6 +4278,8 @@ El Bounded Context Mobility & Geofencing pertenece al Supportig Domain. Su respo
 El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
 
 A diferencia de Health Monitoring, este contexto no interpreta signos vitales ni realiza evaluaciones clínicas. Asimismo, no es responsable de generar o gestionar alertas de emergencia; su responsabilidad termina en la detección y registro de eventos relacionados con la ubicación y las zonas seguras.
+
+```
 com.guardianplus.platform.mobilitygeofencing/
 ├── domain/
 │   ├── model/
@@ -4319,9 +4321,120 @@ com.guardianplus.platform.mobilitygeofencing/
     │       └── repositories/
     └── wearable/
         └── adapters/
-      
-    
+```
 ##### 2.6.6.1. Domain Layer
+
+Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
+
+###### Aggregates
+
+*   **SafeZone**
+    *   Agregado raíz que representa una zona geográfica segura configurada para un Fragile Citizen.
+    *   Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
+    *   Es responsable de preservar la consistencia de la configuración de la zona, incluyendo su estado activo.
+    *   *Atributos:*
+        *   id: SafeZoneId
+        *   fragileCitizenId: FragileCitizenId
+        *   name: String
+        *   boundary: SafeZoneBoundary
+        *   status: SafeZoneStatus
+        *   createdAt: Instant
+        *   updatedAt: Instant
+    *   *Métodos:*
+        *   SafeZone(CreateSafeZoneCommand command)
+        *   updateBoundary(SafeZoneBoundary boundary): void
+        *   activate(): void
+        *   deactivate(): void
+        *   contains(Location location): boolean
+        *   isActive(): boolean
+
+*   **LocationTracking**
+    *   Agregado raíz que representa el registro de seguimiento de ubicación de un Fragile Citizen.
+    *   Cada ubicación recibida se procesa y conserva como parte del historial de seguimiento, evitando que el agregado SafeZone tenga que mantener una colección potencialmente ilimitada de ubicaciones.
+    *   *Atributos:*
+        *   id: LocationTrackingId
+        *   fragileCitizenId: FragileCitizenId
+        *   currentLocation: Location
+        *   currentStatus: LocationStatus
+        *   lastUpdatedAt: Instant
+    *   *Métodos:*
+        *   LocationTracking(FragileCitizenId fragileCitizenId)
+        *   recordLocation(Location location, LocationStatus status): void
+        *   getCurrentLocation(): Location
+        *   getCurrentStatus(): LocationStatus
+
+###### Entities
+
+*   **ZoneViolation**
+    *   Entidad que representa el registro de una ubicación que fue determinada como externa a una SafeZone activa.
+    *   Su propósito es conservar la ocurrencia de la violación dentro del contexto de movilidad. La generación y gestión de la alerta correspondiente pertenece a Emergency & Alerting.
+    *   *Atributos:*
+        *   id: ZoneViolationId
+        *   safeZoneId: SafeZoneId
+        *   fragileCitizenId: FragileCitizenId
+        *   location: Location
+        *   detectedAt: Instant
+    *   *Métodos:*
+        *   ZoneViolation(SafeZoneId safeZoneId, FragileCitizenId fragileCitizenId, Location location)
+        *   getLocation(): Location
+        *   getDetectedAt(): Instant
+
+###### Value Objects
+
+*   **Coordinates:** Encapsula las coordenadas geográficas de una ubicación (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
+*   **Location:** Representa una ubicación capturada por el wearable (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Es inmutable y representa el valor recibido para un instante determinado.
+*   **SafeZoneBoundary:** Encapsula los límites geográficos de una SafeZone mediante un centro y un radio (center: Coordinates, radiusInMeters: Double). Invariante: radio mayor que 0. Método: contains(Coordinates coordinates).
+*   **LocationStatus:** Representa el resultado de la evaluación de una ubicación respecto a una zona segura. Valores: WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE.
+*   **SafeZoneStatus:** Representa el estado de una zona segura. Valores: ACTIVE, INACTIVE.
+*   **SafeZoneId:** Identificador inmutable de una zona segura, basado en UUID.
+*   **LocationTrackingId:** Identificador inmutable del agregado de seguimiento, basado en UUID.
+*   **ZoneViolationId:** Identificador inmutable de una violación de zona, basado en UUID.
+*   **FragileCitizenId:** Identificador de referencia inmutable del Fragile Citizen monitoreado.
+
+###### Domain Services
+
+*   **GeofenceEvaluationService**
+    *   Servicio de dominio encargado de evaluar una ubicación contra los límites de una SafeZone.
+    *   Se utiliza porque la evaluación geográfica no representa una responsabilidad exclusiva de una única entidad y requiere aplicar una regla espacial del dominio.
+    *   *Métodos:*
+        *   evaluate(Location location, SafeZoneBoundary boundary): LocationStatus
+        *   isInside(Location location, SafeZoneBoundary boundary): boolean
+
+###### Commands & Queries (Domain Model)
+
+*   CreateSafeZoneCommand(UUID fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
+*   UpdateSafeZoneCommand(UUID safeZoneId, String name, Coordinates center, Double radiusInMeters)
+*   ActivateSafeZoneCommand(UUID safeZoneId)
+*   DeactivateSafeZoneCommand(UUID safeZoneId)
+*   ReceiveLocationCommand(UUID fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
+*   EvaluateLocationCommand(UUID fragileCitizenId, UUID locationTrackingId)
+*   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
+*   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationStatusQuery(FragileCitizenId fragileCitizenId)
+
+###### Domain Events
+
+*   SafeZoneCreatedEvent: Emitido después de crear correctamente una nueva SafeZone.
+*   LocationReceivedEvent: Emitido después de validar y registrar una ubicación proveniente del wearable.
+*   LocationStatusUpdatedEvent: Emitido después de evaluar una ubicación y determinar su estado respecto a la SafeZone.
+*   SafeZoneViolationDetectedEvent: Emitido cuando una ubicación válida es evaluada como OUTSIDE_SAFE_ZONE. Este evento puede ser publicado hacia Emergency & Alerting, que se encarga de iniciar el flujo correspondiente de alertamiento.
+
+###### Repositories (Domain Interfaces)
+
+*   **SafeZoneRepository:**
+    *   save(SafeZone safeZone): SafeZone
+    *   findById(SafeZoneId id): Optional<SafeZone>
+    *   findActiveByFragileCitizenId(FragileCitizenId citizenId): Optional<SafeZone>
+    *   findAllByFragileCitizenId(FragileCitizenId citizenId): List<SafeZone>
+*   **LocationTrackingRepository:**
+    *   save(LocationTracking tracking): LocationTracking
+    *   findByFragileCitizenId(FragileCitizenId citizenId): Optional<LocationTracking>
+    *   findHistoryByFragileCitizenId(FragileCitizenId citizenId, Instant periodStart, Instant periodEnd): List<Location>
+*   **ZoneViolationRepository:**
+    *   save(ZoneViolation violation): ZoneViolation
+    *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
+    *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
 
 ##### 2.6.6.2. Interface Layer
 
