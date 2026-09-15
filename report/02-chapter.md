@@ -2864,7 +2864,7 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 ###### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-![Emergency & Alerting Database Design Diagram](../assets/images/chapterII/databaseDiagrams/EmergencyAlertingDatabaseDiagram.png)
+![Emergency & Alerting Database Design Diagram](../assets/images/chapterII/databaseDiagrams/emergency-alerting-db-diagram.png)
 
 
 #### 2.6.2. Bounded Context: Health Monitoring
