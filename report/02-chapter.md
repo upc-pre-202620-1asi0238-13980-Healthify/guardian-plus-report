@@ -4550,6 +4550,104 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
 
 ##### 2.6.6.3. Application Layer
 
+Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando comandos, consultas, agregados, repositorios y eventos de dominio. Esta capa define los flujos de aplicación, pero delega las reglas de negocio y las invariantes al Domain Layer.
+
+###### Command Services
+
+*   **SafeZoneCommandService**
+    *   Coordina los casos de uso relacionados con la administración del ciclo de vida de SafeZone.
+    *   *Métodos:*
+        *   createSafeZone(CreateSafeZoneCommand command): SafeZone
+        *   updateSafeZone(UpdateSafeZoneCommand command): SafeZone
+        *   activateSafeZone(ActivateSafeZoneCommand command): void
+        *   deactivateSafeZone(DeactivateSafeZoneCommand command): void
+
+*   **LocationTrackingCommandService**
+    *   Coordina la recepción y procesamiento de las ubicaciones provenientes del wearable.
+    *   Utiliza `GeofenceEvaluationService` para determinar si la ubicación se encuentra dentro o fuera de la zona segura.
+    *   Cuando se detecta una salida de la zona, coordina el registro de la `ZoneViolation` y la publicación del evento correspondiente.
+    *   *Métodos:*
+        *   receiveLocation(ReceiveLocationCommand command): void
+        *   evaluateLocation(EvaluateLocationCommand command): LocationStatus
+
+###### Query Services
+
+*   **SafeZoneQueryService**
+    *   Proporciona consultas de solo lectura relacionadas con las zonas seguras configuradas.
+    *   *Métodos:*
+        *   getActiveSafeZone(GetActiveSafeZoneQuery query): Optional<SafeZone>
+        *   getSafeZonesByFragileCitizen(FragileCitizenId fragileCitizenId): List<SafeZone>
+
+*   **LocationTrackingQueryService**
+    *   Proporciona información de seguimiento sin modificar el estado del dominio.
+    *   *Métodos:*
+        *   getCurrentLocation(GetCurrentLocationQuery query): Optional<Location>
+        *   getLocationHistory(GetLocationHistoryQuery query): List<Location>
+        *   getLocationStatus(GetLocationStatusQuery query): Optional<LocationStatus>
+
+###### Command Handlers
+
+*   **CreateSafeZoneCommandHandler**
+    *   Recibe `CreateSafeZoneCommand` y delega la creación al `SafeZoneCommandService`.
+*   **UpdateSafeZoneCommandHandler**
+    *   Procesa `UpdateSafeZoneCommand` y coordina la actualización de los límites de una zona existente.
+*   **ActivateSafeZoneCommandHandler**
+    *   Procesa `ActivateSafeZoneCommand` y activa la zona segura correspondiente.
+*   **DeactivateSafeZoneCommandHandler**
+    *   Procesa `DeactivateSafeZoneCommand` y desactiva la zona segura correspondiente.
+*   **ReceiveLocationCommandHandler**
+    *   Recibe `ReceiveLocationCommand` y valida que la ubicación pueda ser procesada.
+    *   Obtiene la SafeZone activa del Fragile Citizen y coordina la evaluación espacial de la ubicación.
+    *   Actualiza el seguimiento de ubicación (`LocationTracking`).
+    *   Si la ubicación se encuentra fuera de la zona segura, coordina el registro de la `ZoneViolation`.
+
+###### Event Handlers
+
+*   **LocationReceivedEventHandler**
+    *   Procesa `LocationReceivedEvent`.
+    *   Coordina la evaluación de la ubicación recibida respecto a la SafeZone activa.
+*   **LocationStatusUpdatedEventHandler**
+    *   Procesa `LocationStatusUpdatedEvent`.
+    *   Si el resultado es `OUTSIDE_SAFE_ZONE`, coordina el registro de la violación y la generación de `SafeZoneViolationDetectedEvent`.
+*   **SafeZoneViolationDetectedEventHandler**
+    *   Responsable de preparar la publicación del evento de integración hacia Emergency & Alerting a través del puerto de salida correspondiente.
+    *   No genera una alerta ni determina su severidad; su responsabilidad se limita a comunicar que se detectó una violación de zona.
+
+###### Internal Application Services
+
+*   **LocationEvaluationApplicationService**
+    *   Coordina el flujo de extremo a extremo en la evaluación de una ubicación:
+        1. Recupera la SafeZone activa.
+        2. Invoca el `GeofenceEvaluationService`.
+        3. Actualiza el agregado `LocationTracking`.
+        4. Registra una `ZoneViolation` cuando corresponde.
+        5. Publica los eventos de dominio resultantes.
+    *   *Flujo principal:*
+        *   `ReceiveLocationCommand` $\rightarrow$ `LocationTrackingCommandService` $\rightarrow$ `SafeZoneRepository` $\rightarrow$ `GeofenceEvaluationService` $\rightarrow$ `LocationTrackingRepository` $\rightarrow$ `ZoneViolationRepository` $\rightarrow$ `SafeZoneViolationDetectedEvent`
+
+###### Application Ports
+
+*   **Inbound Ports:**
+    *   **WearableLocationInputPort:** Puerto de entrada utilizado para recibir ubicaciones provenientes del adaptador del wearable.
+        *   *Métodos:*
+            *   receiveLocation(ReceiveLocationCommand command): void
+*   **Outbound Ports:**
+    *   **MobilityEventOutputPort:** Puerto de salida utilizado para publicar eventos de integración hacia otros Bounded Contexts.
+        *   *Métodos:*
+            *   publish(SafeZoneViolationDetectedEvent event): void
+
+###### Responsabilidades de la Application Layer
+
+*   Orquestar los casos de uso del Bounded Context.
+*   Coordinar Commands, Queries y Domain Events.
+*   Invocar los agregados y servicios del dominio.
+*   Utilizar las interfaces de repositorio definidas en el Domain Layer.
+*   Coordinar la recepción y evaluación de ubicaciones.
+*   Coordinar el registro de `ZoneViolation`.
+*   Publicar `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+*   Mantener la lógica de negocio compleja fuera de esta capa.
+*   No gestionar alertas, incidentes, severidad ni escalamiento, ya que esas responsabilidades pertenecen a Emergency & Alerting.
+
 ##### 2.6.6.4. Infrastructure Layer
 
 ##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
