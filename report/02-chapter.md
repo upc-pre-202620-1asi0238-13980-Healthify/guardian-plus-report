@@ -4438,6 +4438,116 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 
 ##### 2.6.6.2. Interface Layer
 
+Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes externos y sistemas con los que se integra. Esta capa transforma las solicitudes externas en comandos del dominio y adapta los eventos de dominio para su publicación hacia otros contextos, sin contener reglas propias de negocio.
+
+###### REST Controllers
+
+*   **SafeZoneController**
+    *   Expone las operaciones relacionadas con la administración de SafeZone.
+    *   Permite crear, actualizar, activar y desactivar zonas seguras.
+    *   *Endpoints:*
+        *   `POST /api/v1/safe-zones`
+        *   `PUT /api/v1/safe-zones/{safeZoneId}`
+        *   `PATCH /api/v1/safe-zones/{safeZoneId}/activate`
+        *   `PATCH /api/v1/safe-zones/{safeZoneId}/deactivate`
+        *   `GET /api/v1/safe-zones/fragile-citizen/{fragileCitizenId}/active`
+
+*   **LocationTrackingController**
+    *   Expone las operaciones relacionadas con la consulta del seguimiento de ubicación.
+    *   Permite consultar la ubicación actual, el estado actual y el historial de ubicaciones de un Fragile Citizen.
+    *   *Endpoints:*
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/current`
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/status`
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/history`
+
+###### Inbound Adapters (Wearable Integration)
+
+*   **WearableLocationConsumer**
+    *   Adaptador de entrada responsable de recibir las ubicaciones enviadas por el Wearable Device.
+    *   Convierte el mensaje externo del dispositivo en un `ReceiveLocationCommand`.
+    *   No realiza directamente la evaluación de la geocerca; delega el procesamiento al Application Layer.
+    *   *Métodos:*
+        *   consumeLocation(WearableLocationMessage message): void
+        *   toCommand(WearableLocationMessage message): ReceiveLocationCommand
+
+*   **WearableLocationMessage**
+    *   Representa el mensaje externo recibido desde el dispositivo wearable.
+    *   *Atributos:*
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   recordedAt: Instant
+
+###### REST Resources
+
+*   **SafeZoneResource**
+    *   Representa la respuesta HTTP asociada a una SafeZone.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   name: String
+        *   latitude: Double
+        *   longitude: Double
+        *   radiusInMeters: Double
+        *   status: String
+
+*   **CurrentLocationResource**
+    *   Representa la ubicación actual del Fragile Citizen.
+    *   *Atributos:*
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+*   **LocationHistoryResource**
+    *   Representa un elemento individual del historial de ubicaciones.
+    *   *Atributos:*
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+###### Transformers & Assemblers
+
+*   **SafeZoneResourceAssembler**
+    *   Transforma entidades del dominio SafeZone en `SafeZoneResource` para respuestas REST.
+    *   *Métodos:*
+        *   toResource(SafeZone safeZone): SafeZoneResource
+
+*   **LocationResourceAssembler**
+    *   Transforma objetos del dominio Location y LocationTracking en recursos REST.
+    *   *Métodos:*
+        *   toCurrentResource(LocationTracking tracking): CurrentLocationResource
+        *   toHistoryResource(Location location): LocationHistoryResource
+
+*   **WearableLocationTransformer**
+    *   Convierte la carga útil del wearable en el comando ejecutable por el Application Layer.
+    *   *Métodos:*
+        *   toCommand(WearableLocationMessage message): ReceiveLocationCommand
+
+###### Outbound Adapters (Event Publishers)
+
+*   **MobilityEventPublisher**
+    *   Adaptador de salida responsable de publicar eventos de integración hacia otros Bounded Contexts.
+    *   Publica principalmente `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+    *   No crea ni gestiona alertas; únicamente comunica el hecho ocurrido en Mobility & Geofencing.
+    *   *Métodos:*
+        *   publish(SafeZoneViolationDetectedEvent event): void
+
+###### Responsabilidades de la Interface Layer
+
+*   Recibir solicitudes HTTP provenientes de clientes autorizados.
+*   Recibir mensajes de telemetría de ubicación provenientes del Wearable Device.
+*   Validar el formato y estructura básica de los datos de entrada.
+*   Transformar DTOs y mensajes externos en comandos de aplicación.
+*   Transformar resultados del dominio en recursos de respuesta normalizados.
+*   Publicar eventos de integración hacia otros Bounded Contexts.
+*   Mantener desacoplada la infraestructura de transporte respecto a la lógica de negocio del dominio.
+
 ##### 2.6.6.3. Application Layer
 
 ##### 2.6.6.4. Infrastructure Layer
