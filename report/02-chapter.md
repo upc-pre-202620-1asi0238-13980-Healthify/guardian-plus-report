@@ -1784,6 +1784,171 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
+#### Bounded Context: Emergency & Alerting (Core Domain)
+
+<!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Emergency &amp; Alerting</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Core - </strong> Principal diferenciador de Guardian+: garantiza una respuesta humana oportuna ante eventos que comprometen la seguridad del Fragile Citizen.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citizen, deriva de ellos las Alerts correspondientes, selecciona la estrategia de despacho según la severidad y gobierna el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (CRITICAL difunde / HIGH escala)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ventana de Confirmación de Caída (20 s)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout por Eslabón (60 s)</td>
+</tr>
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Escalation Stopper &amp; Resolver</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Critical Broadcast Fallback ante cadena agotada</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Override de Silent Mode solo en severidad CRITICAL</td>
+</tr>
+</table>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+<tr>
+<td width="50%" valign="top">
+• Incident<br>
+• Alert<br>
+• Escalation Chain<br>
+• Alert Settings
+</td>
+<td width="50%" valign="top">
+• Severity<br>
+• Acknowledgment<br>
+• Preventive Warning<br>
+• Silent Mode
+</td>
+</tr>
+</table>
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+<div align="center">
+<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+<tr>
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Active Incidents</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Incident History</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Pending Alerts</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Alert Settings</td></tr>
+</table>
+</td>
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register Incident</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Dismiss Incident</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Broadcast Critical Alert</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Escalate To Next Contact</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Acknowledge Alert</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Configure Alert Settings</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+<div style="padding: 12px;">
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
+</div>
+<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+<tr>
+<td>Health Monitoring</td>
+<td>Consume anomalías biométricas confirmadas</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Mobility &amp; Geofencing</td>
+<td>Consume salidas de zona segura y resuelve coordenadas del incidente</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Care Routines &amp; Wellness</td>
+<td>Consume eventos de inactividad prolongada</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+<tr>
+<td>Profile</td>
+<td>Proyecta localmente el Care Circle y el orden de contactos</td>
+<td>Internal</td>
+<td>In (ECST)</td>
+</tr>
+<tr>
+<td>IAM</td>
+<td>Valida identidad y autorización de cada comando</td>
+<td>Internal</td>
+<td>In (OHS)</td>
+</tr>
+<tr>
+<td>Notification Providers</td>
+<td>Despacha las notificaciones push y SMS al Care Circle</td>
+<td>External</td>
+<td>Out (ACL)</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+
 #### Bounded Context: Health Monitoring (Core Domain)
 
 <!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
