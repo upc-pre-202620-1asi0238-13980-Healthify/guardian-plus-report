@@ -2090,16 +2090,43 @@ Implementa el mecanismo técnico utilizado para activar evaluaciones temporales 
 
 ##### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-pendiente
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
+
+La **Interface Layer** se encuentra representada por los controladores REST de suscripciones y el controlador de webhooks de pagos. La **Application Layer** coordina los casos de uso mediante `Subscription Application Service` y `Payment Application Service`. La lógica central del dominio se concentra en los aggregates `Subscription` y `Entitlement Set`, junto con las políticas de suscripción. Finalmente, la **Infrastructure Layer** implementa los adaptadores de repositorio, publicación de eventos e integración con Stripe.
+
+![Subscriptions Component Level Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsComponents.png)
+
+El componente `Subscriptions REST Controllers` recibe las solicitudes relacionadas con activación, renovación, cambio de plan, cancelación y consulta del estado de la suscripción, delegando su procesamiento a la capa de aplicación.
+
+`Subscription Application Service` coordina las operaciones sobre el ciclo de vida de las suscripciones y utiliza los aggregates y políticas del dominio para mantener las reglas de negocio. Asimismo, utiliza los adaptadores de persistencia y el publicador de eventos para almacenar los cambios producidos y comunicar eventos relevantes hacia otros bounded contexts.
+
+Para las operaciones que requieren pagos, `Payment Application Service` utiliza `Stripe Adapter`, que encapsula la comunicación con el proveedor externo Stripe. Las confirmaciones o fallos de pago regresan hacia Guardian+ mediante el `Payment Webhook Controller`.
+
 ##### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
-Pendiente 
+En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado como referencia para la implementación del contexto.
+
 ###### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-pendiente
+El siguiente diagrama UML representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
+
+![Subscriptions Domain Layer Class Diagram](../assets/images/chapterII/Subscriptions/SubscriptionCodeLevelDiagrams.png)
+
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración. Dentro de su modelo participan entidades como `Plan`, `PaymentAttempt`, `RenewalOrder` y `CancellationRequest`.
+
+`EntitlementSet` administra la colección de `EntitlementItem` habilitados para una suscripción. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `Money`, `Period` y `RenewalPolicy` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
+
+Los estados principales de las suscripciones y los pagos se representan mediante las enumeraciones `SubscriptionStatus` y `PaymentStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
+
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-pendiente
+El siguiente diagrama presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
+
+![Subscriptions Database Design Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
+
+La tabla `subscriptions` constituye el elemento central del modelo de persistencia y relaciona al usuario suscriptor con el plan contratado. `subscription_plans` almacena la configuración comercial de los planes disponibles, mientras que `payments` registra las operaciones de pago asociadas al ciclo de vida de cada suscripción.
+
+Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
 ### 2.6.4. Bounded Context: Profile
 
@@ -2382,13 +2409,38 @@ El contexto Profile únicamente utiliza `UserId` como referencia externa y no al
 
 ##### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-pendiente
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Profile**. La vista muestra la descomposición del backend y las dependencias necesarias para administrar perfiles de usuario, información de personas bajo cuidado, relaciones de cuidado y preferencias de la aplicación.
+
+![Profile Component Level Diagram](../assets/images/chapterII/Profile/ProofileComponents.png)
+
+La **Interface Layer** está representada por `Profile REST Controllers`, encargado de exponer las operaciones disponibles hacia los clientes de Guardian+. Las solicitudes son delegadas a `Profile Application Service`, componente responsable de coordinar los diferentes casos de uso del contexto.
+
+La lógica del dominio se concentra en el aggregate `Profile` y en `Profile Completeness Policy`, que valida si la información disponible cumple con los requisitos necesarios para considerar un perfil completo.
+
+La **Infrastructure Layer** está compuesta por `Profile Repository Adapter`, `IAM Query Adapter` y `Event Publisher`. El repositorio administra la persistencia del contexto mediante `Profile Database`, mientras que `IAM Query Adapter` proporciona acceso de solo lectura a la información de identidad administrada por el Bounded Context IAM. De esta forma, Profile puede asociar la información descriptiva con un usuario autenticado sin asumir responsabilidades relacionadas con credenciales o autenticación.
+
 ##### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-Pendiente 
+En esta sección se documenta la estructura interna del Bounded Context **Profile** a nivel de código, incluyendo el modelo de clases de la Domain Layer y el diseño de persistencia utilizado como referencia para su implementación.
+
 ###### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-pendiente
+El siguiente diagrama UML presenta los elementos principales de la Domain Layer de **Profile**. El modelo se organiza alrededor del Aggregate Root `Profile`, encargado de mantener la información descriptiva correspondiente al usuario y de controlar los elementos asociados a su perfil.
+
+![Profile Domain Layer Class Diagram](../assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
+
+El Aggregate Root `Profile` contiene entidades como `Address`, `EmergencyContact` y `CareProfile`. Estas entidades representan respectivamente la información de ubicación del usuario, sus contactos asociados y la información necesaria para establecer su perfil dentro de una relación de cuidado.
+
+El dominio utiliza los Value Objects `ProfileId`, `PersonName`, `Email`, `Phone`, `DocumentId` y `BirthDate` para representar conceptos que poseen validaciones y comportamiento propios.
+
+Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determinar si un perfil contiene la información necesaria para ser considerado completo, manteniendo esta regla dentro de la Domain Layer y evitando trasladarla hacia las capas de aplicación o infraestructura.
+
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-pendiente
+El siguiente diagrama representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
+
+![Profile Database Design Diagram](../assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
+
+`user_profiles` almacena la información descriptiva asociada a las cuentas administradas por IAM, mientras que `care_recipient_profiles` representa las personas bajo cuidado registradas en Guardian+.
+
+La relación entre usuarios y personas bajo cuidado se representa mediante `care_relationships`, permitiendo establecer asociaciones entre familiares o cuidadores y los perfiles correspondientes. Finalmente, `user_preferences` mantiene las configuraciones de idioma, accesibilidad y experiencia de uso asociadas a cada usuario.
