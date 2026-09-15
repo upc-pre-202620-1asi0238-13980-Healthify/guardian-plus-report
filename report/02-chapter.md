@@ -3744,7 +3744,6 @@ Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determin
 
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-<<<<<<< HEAD
 El siguiente diagrama representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
 
 ![Profile Database Design Diagram](../assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
@@ -3752,7 +3751,6 @@ El siguiente diagrama representa el diseño de persistencia correspondiente al B
 `user_profiles` almacena la información descriptiva asociada a las cuentas administradas por IAM, mientras que `care_recipient_profiles` representa las personas bajo cuidado registradas en Guardian+.
 
 La relación entre usuarios y personas bajo cuidado se representa mediante `care_relationships`, permitiendo establecer asociaciones entre familiares o cuidadores y los perfiles correspondientes. Finalmente, `user_preferences` mantiene las configuraciones de idioma, accesibilidad y experiencia de uso asociadas a cada usuario.
-=======
 pendiente
 
 ### 2.6.5. Bounded Context: Care Routines & Wellness
@@ -4008,4 +4006,3 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 ![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
->>>>>>> origin/develop
