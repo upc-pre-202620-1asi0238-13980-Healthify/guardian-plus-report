@@ -361,6 +361,22 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 - **Care Plan (Plan de cuidado):** Modalidad de servicio contratada por el Care Circle, que define el nivel de funcionalidades y monitoreo disponibles según las necesidades específicas del Fragile Citizen.
 
+- **Incident (Incidente):** Situación real que compromete la seguridad del Fragile Citizen —como una caída, una activación de SOS, una anomalía biométrica o la salida de una Safe Zone—, registrada con su tipo, severidad y estado, y que forma parte de su Health History.
+
+- **Alert (Alerta):** Notificación derivada de un Incident y dirigida a un integrante específico del Care Circle a través de uno o más canales. Un mismo Incident puede originar varias Alerts; cuando su severidad es crítica, constituye una Emergency Alert.
+
+- **Escalation Chain (Cadena de escalamiento):** Secuencia ordenada de contactos del Care Circle y tiempos de espera que se activa ante un Incident confirmado, notificando al siguiente contacto cuando el anterior no reconoce la Alert a tiempo.
+
+- **Alert Settings (Configuración de alertas):** Preferencias de alertamiento definidas para cada Fragile Citizen: canales de notificación por severidad, umbrales personalizados, orden de los contactos de emergencia y estado del Silent Mode.
+
+- **Severity (Severidad):** Nivel de criticidad de un Incident —crítica, alta o media— que determina la estrategia de notificación: difusión simultánea a todo el Care Circle o escalamiento secuencial mediante la Escalation Chain.
+
+- **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y marca el Incident como en atención.
+
+- **Preventive Warning (Advertencia preventiva):** Aviso de menor criticidad emitido ante señales tempranas de riesgo, que el Fragile Citizen puede confirmar como situación controlada y que escala a Alert si no obtiene respuesta.
+
+- **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Incidents de severidad crítica.
+
 # 2.4. Requirements specification
 
 ## 2.4.1. User Stories
