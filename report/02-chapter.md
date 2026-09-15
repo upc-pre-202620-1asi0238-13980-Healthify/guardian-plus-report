@@ -4273,6 +4273,54 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.6. Bounded Context: Mobility & Geofencing
 
+El Bounded Context Mobility & Geofencing pertenece al Supportig Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
+
+El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
+
+A diferencia de Health Monitoring, este contexto no interpreta signos vitales ni realiza evaluaciones clínicas. Asimismo, no es responsable de generar o gestionar alertas de emergencia; su responsabilidad termina en la detección y registro de eventos relacionados con la ubicación y las zonas seguras.
+com.guardianplus.platform.mobilitygeofencing/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── entities/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   └── repositories/
+│
+├── interfaces/
+│   ├── acl/
+│   ├── events/
+│   └── rest/
+│       ├── controllers/
+│       ├── resources/
+│       └── transform/
+│
+├── application/
+│   ├── acl/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+│
+└── infrastructure/
+    ├── messaging/
+    │   └── adapters/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── embeddables/
+    │       ├── entities/
+    │       └── repositories/
+    └── wearable/
+        └── adapters/
+      
+    
 ##### 2.6.6.1. Domain Layer
 
 ##### 2.6.6.2. Interface Layer
