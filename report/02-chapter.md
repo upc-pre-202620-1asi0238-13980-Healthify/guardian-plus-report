@@ -3952,4 +3952,4 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-pendiente
+![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
