@@ -2238,15 +2238,13 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 </table>
 
 #### Bounded Context: Mobility & Geofencing (Supporting Domain)
-<!-- CANVAS: MOBILITY & GEOFENCING -->
+<!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
 <table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
-
 <tr>
 
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-
 <div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
 Mobility &amp; Geofencing
 </div>
@@ -2254,14 +2252,13 @@ Mobility &amp; Geofencing
 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
 
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-
 <div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
 core/supportive/generic/other
 </div>
 
 <div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
 <strong>Supporting - </strong>
-Proporciona las capacidades de seguimiento de ubicación y geofencing que complementan los contextos principales de Guardian+, permitiendo detectar cuando el adulto mayor abandona una zona segura configurada.
+Proporciona capacidades de seguimiento de ubicación y control de zonas seguras que complementan las funciones principales de monitoreo y respuesta ante emergencias de Guardian+.
 </div>
 
 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
@@ -2273,7 +2270,7 @@ Summary of purpose and responsibilities - not implementation
 </div>
 
 <div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona las zonas seguras asociadas al adulto mayor, recibe las ubicaciones provenientes del wearable, evalúa la posición respecto a los límites geográficos configurados y detecta las transgresiones de dichas zonas. Cuando se detecta una salida de la zona segura, publica un evento de negocio para que Emergency &amp; Alerting gestione la respuesta correspondiente.
+Gestiona el seguimiento de ubicación de la persona bajo cuidado, administra las Safe Zones configuradas y evalúa las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una violación de dicha zona.
 </div>
 
 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
@@ -2289,15 +2286,15 @@ Key business rules and policies
 <tr>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Safe Zone Boundary Rule
+Safe Zone Boundary Policy
 </td>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Location Validation Rule
+Location Validation Policy
 </td>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Active Safe Zone Rule
+Zone Violation Detection Policy
 </td>
 
 </tr>
@@ -2305,15 +2302,15 @@ Active Safe Zone Rule
 <tr>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-GPS Noise Filtering
+La ubicación se evalúa respecto a la zona segura activa configurada.
 </td>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Safe Zone Breach Detection
+Solo se procesan ubicaciones que contengan coordenadas válidas y una marca temporal válida.
 </td>
 
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Repeated Breach Prevention
+Una salida de la zona segura genera un evento de violación para iniciar el flujo de atención correspondiente.
 </td>
 
 </tr>
@@ -2342,106 +2339,68 @@ Key domain terminology
 </td>
 
 <td width="50%" valign="top">
-• Safe Zone Breach<br>
 • Location Status<br>
-• Geographic Boundary<br>
-• Breach Detection
+• Zone Violation<br>
+• Coordinates<br>
+• Safe Zone Boundary
 </td>
-
 </tr>
-
 </table>
-
 </td>
-
-
 <td width="58%" valign="top" style="padding: 0;">
-
 <div style="padding: 12px; border-bottom: 2px solid #333;">
-
 <div align="center">
-
 <strong style="font-size: 1em;">
 Capabilities &amp; Responsibilities
 </strong>
-
 <br>
-
 <span style="font-size: 0.75em; color: #777;">
 Services provided to consumers
 </span>
-
 </div>
-
-
 <table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
-
 <tr>
-
 <td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-
 <strong style="font-size: 0.85em;">
 Informational
 </strong>
-
 <br>
-
 <span style="font-size: 0.7em; color: #777;">
 Queries, reports, etc.
 </span>
-
 <br><br>
 
 
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Safe Zone
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
 Get Current Location
 </td>
 </tr>
-
 </table>
-
-
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
 
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Location Status
+Get Location History
 </td>
 </tr>
-
 </table>
 
 
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Safe Zone History
+Get Active Safe Zone
 </td>
 </tr>
 
 </table>
-
-
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
 
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Active Geofences
+Get Location Status
 </td>
 </tr>
 
@@ -2463,8 +2422,6 @@ Invokable commands, scheduled tasks, etc.
 </span>
 
 <br><br>
-
-
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 
 <tr>
@@ -2474,10 +2431,7 @@ Create Safe Zone
 </tr>
 
 </table>
-
-
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
 Update Safe Zone
@@ -2485,19 +2439,6 @@ Update Safe Zone
 </tr>
 
 </table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Deactivate Safe Zone
-</td>
-</tr>
-
-</table>
-
-
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 
 <tr>
@@ -2520,7 +2461,7 @@ Evaluate Location
 </table>
 
 
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
@@ -2530,156 +2471,86 @@ Record Location Status
 
 </table>
 
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Record Safe Zone Violation
 </td>
-
 </tr>
-
 </table>
-
+</td>
+</tr>
+</table>
 </div>
-
-
 <div style="padding: 12px;">
-
 <div align="center" style="margin-bottom: 8px;">
-
 <strong style="font-size: 1em;">
 Dependencies
 </strong>
-
 <br>
-
 <span style="font-size: 0.75em; color: #777;">
 Interactions with other bounded contexts and services
 </span>
-
 </div>
-
-
 <table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
 
 <tr bgcolor="#f5f5f5">
-
 <th>Name</th>
 <th>Reason</th>
 <th>System</th>
 <th>Relationship</th>
-
 </tr>
 
-
 <tr>
-
+<td>Wearable Device / Location Provider</td>
 <td>
-Emergency &amp; Alerting
+Proporciona las coordenadas de ubicación utilizadas
+para evaluar la posición del adulto mayor respecto
+a las zonas seguras configuradas.
 </td>
-
-<td>
-Consume el evento de salida de zona segura para iniciar el procesamiento de una alerta.
-</td>
-
-<td>
-Internal
-</td>
-
-<td>
-Out (Published Language)
-</td>
-
+<td>External</td>
+<td>In (ACL)</td>
 </tr>
 
-
 <tr>
-
+<td>Profile</td>
 <td>
-Profile
+Permite asociar las geocercas con el adulto mayor
+y resolver la información contextual necesaria
+para su configuración.
 </td>
-
-<td>
-Consulta la información del adulto mayor y las relaciones necesarias para asociar las zonas seguras.
-</td>
-
-<td>
-Internal
-</td>
-
-<td>
-In (Customer/Supplier)
-</td>
-
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
 </tr>
 
-
 <tr>
-
+<td>IAM</td>
 <td>
-IAM
+Valida la autenticación y autorización de las
+operaciones de creación, actualización y gestión
+de geocercas.
 </td>
-
-<td>
-Valida la identidad y autorización de las operaciones de configuración y consulta de ubicación.
-</td>
-
-<td>
-Internal
-</td>
-
-<td>
-In (OHS)
-</td>
-
+<td>Internal</td>
+<td>In (OHS)</td>
 </tr>
 
-
 <tr>
-
+<td>Emergency &amp; Alerting</td>
 <td>
-Wearable / Location Provider
+Consume el evento SafeZoneBreached generado cuando
+la ubicación del adulto mayor se encuentra fuera
+de los límites de una zona segura.
 </td>
-
-<td>
-Proporciona las coordenadas y datos de posicionamiento utilizados para el seguimiento.
-</td>
-
-<td>
-External
-</td>
-
-<td>
-In (ACL)
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-Health Monitoring
-</td>
-
-<td>
-Puede consumir información contextual de ubicación cuando sea necesaria para complementar la interpretación de indicadores de salud.
-</td>
-
-<td>
-Internal
-</td>
-
-<td>
-Out (Published Language)
-</td>
-
+<td>Internal</td>
+<td>Out (Published Language)</td>
 </tr>
 
 </table>
-
 </div>
-
 </td>
-
 </tr>
-
 </table>
 
 #### 2.5.2. Context Mapping
@@ -4398,3 +4269,22 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 ![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
+
+
+#### 2.6.6. Bounded Context: Mobility & Geofencing
+
+##### 2.6.6.1. Domain Layer
+
+##### 2.6.6.2. Interface Layer
+
+##### 2.6.6.3. Application Layer
+
+##### 2.6.6.4. Infrastructure Layer
+
+##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
+
+##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+###### 2.6.6.6.2. Bounded Context Database Design Diagram
