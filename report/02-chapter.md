@@ -2237,6 +2237,451 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 </tr>
 </table>
 
+#### Bounded Context: Mobility & Geofencing (Supporting Domain)
+<!-- CANVAS: MOBILITY & GEOFENCING -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+
+<tr>
+
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
+Mobility &amp; Geofencing
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+core/supportive/generic/other
+</div>
+
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Supporting - </strong>
+Proporciona las capacidades de seguimiento de ubicación y geofencing que complementan los contextos principales de Guardian+, permitiendo detectar cuando el adulto mayor abandona una zona segura configurada.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+Summary of purpose and responsibilities - not implementation
+</div>
+
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Gestiona las zonas seguras asociadas al adulto mayor, recibe las ubicaciones provenientes del wearable, evalúa la posición respecto a los límites geográficos configurados y detecta las transgresiones de dichas zonas. Cuando se detecta una salida de la zona segura, publica un evento de negocio para que Emergency &amp; Alerting gestione la respuesta correspondiente.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
+Key business rules and policies
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+
+<tr>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Safe Zone Boundary Rule
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Location Validation Rule
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Active Safe Zone Rule
+</td>
+
+</tr>
+
+<tr>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+GPS Noise Filtering
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Safe Zone Breach Detection
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Repeated Breach Prevention
+</td>
+
+</tr>
+
+</table>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">
+Ubiquitous Language
+</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
+Key domain terminology
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+
+<tr>
+
+<td width="50%" valign="top">
+• Geofence<br>
+• Safe Zone<br>
+• Location<br>
+• Location Tracking
+</td>
+
+<td width="50%" valign="top">
+• Safe Zone Breach<br>
+• Location Status<br>
+• Geographic Boundary<br>
+• Breach Detection
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+
+<td width="58%" valign="top" style="padding: 0;">
+
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+
+<div align="center">
+
+<strong style="font-size: 1em;">
+Capabilities &amp; Responsibilities
+</strong>
+
+<br>
+
+<span style="font-size: 0.75em; color: #777;">
+Services provided to consumers
+</span>
+
+</div>
+
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+
+<tr>
+
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+
+<strong style="font-size: 0.85em;">
+Informational
+</strong>
+
+<br>
+
+<span style="font-size: 0.7em; color: #777;">
+Queries, reports, etc.
+</span>
+
+<br><br>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Current Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Location Status
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Safe Zone History
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Active Geofences
+</td>
+</tr>
+
+</table>
+
+</td>
+
+
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+
+<strong style="font-size: 0.85em;">
+Actions
+</strong>
+
+<br>
+
+<span style="font-size: 0.7em; color: #777;">
+Invokable commands, scheduled tasks, etc.
+</span>
+
+<br><br>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Create Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Deactivate Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Receive Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Evaluate Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Record Location Status
+</td>
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div style="padding: 12px;">
+
+<div align="center" style="margin-bottom: 8px;">
+
+<strong style="font-size: 1em;">
+Dependencies
+</strong>
+
+<br>
+
+<span style="font-size: 0.75em; color: #777;">
+Interactions with other bounded contexts and services
+</span>
+
+</div>
+
+
+<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+
+<tr bgcolor="#f5f5f5">
+
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Emergency &amp; Alerting
+</td>
+
+<td>
+Consume el evento de salida de zona segura para iniciar el procesamiento de una alerta.
+</td>
+
+<td>
+Internal
+</td>
+
+<td>
+Out (Published Language)
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Profile
+</td>
+
+<td>
+Consulta la información del adulto mayor y las relaciones necesarias para asociar las zonas seguras.
+</td>
+
+<td>
+Internal
+</td>
+
+<td>
+In (Customer/Supplier)
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+IAM
+</td>
+
+<td>
+Valida la identidad y autorización de las operaciones de configuración y consulta de ubicación.
+</td>
+
+<td>
+Internal
+</td>
+
+<td>
+In (OHS)
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Wearable / Location Provider
+</td>
+
+<td>
+Proporciona las coordenadas y datos de posicionamiento utilizados para el seguimiento.
+</td>
+
+<td>
+External
+</td>
+
+<td>
+In (ACL)
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Health Monitoring
+</td>
+
+<td>
+Puede consumir información contextual de ubicación cuando sea necesaria para complementar la interpretación de indicadores de salud.
+</td>
+
+<td>
+Internal
+</td>
+
+<td>
+Out (Published Language)
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
 #### 2.5.2. Context Mapping
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
