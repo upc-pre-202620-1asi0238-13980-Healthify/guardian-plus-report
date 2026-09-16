@@ -55,10 +55,20 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 ## Student Outcome
 
+Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video *About The Team*.
+
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET - EAC - Student Outcome 7**
+
+Criterio: *La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.*
+
+En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
+
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. |  |  |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. |  |  |
+| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. | **Azama Fukuda, Juan Pablo**<br>*TB1:* Investigué y apliqué el patrón Bounded Context Canvas (Nick Tune V1) y el enfoque táctico de Domain-Driven Design (agregados, value objects, domain services y repositorios) para diseñar desde cero el Bounded Context IAM: registro y verificación de credenciales, autenticación con segundo factor (OTP) y recuperación de contraseña. También diseñé y documenté el Bounded Context Health Monitoring, contrastando mi propio modelo de dominio contra el diagrama de clases que ya habíamos elaborado como equipo para asegurarme de que ambos coincidieran. Redacté y prioricé las User Stories del proyecto, documenté el User Task Matrix y elaboré el análisis competitivo con las estrategias frente a nuestros competidores. Para terminar de documentar IAM aprendí por mi cuenta dos notaciones que no vimos en clase, Structurizr DSL para el diagrama de componentes C4 y PlantUML para el diagrama de clases, y las apliqué directamente sobre mi propio diseño. | Como equipo notamos que avanzar con Guardian+ nos obligó a reforzar conceptos que no dominábamos del todo, sobre todo en Domain-Driven Design estratégico y táctico, y en notaciones de arquitectura (C4, Structurizr, PlantUML) que terminamos aplicando directamente sobre nuestro propio backend en vez de quedarnos solo con la teoría vista en clase. |
+| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | **Azama Fukuda, Juan Pablo**<br>*TB1:* Como team leader revisé la coherencia entre los artefactos de DDD que ya teníamos (EventStorming, Bounded Context Canvases y diseño táctico) y esto me forzó a aprender nuevos conceptos relacionados a DDD. De la misma manera, al diseñar los bounded context de IAM, tuve que investigar sobre los conceptos de OTP y servicios de envío de correos electróncios, actualmente es una primera iteración de diseño pero con el tiempo todo se irá refinando poco a poco. Esto me da a comprender que, obviamente, a lo largo de mi carrera siempre tendré que aprender conocimiento técnicos nuevos, al igual que mejorar mis habilidades blandas |
 
 ## Objetivos SMART
 
