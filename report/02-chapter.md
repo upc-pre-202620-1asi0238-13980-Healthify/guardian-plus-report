@@ -4819,6 +4819,8 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
+![alt text](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
+
 ##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
