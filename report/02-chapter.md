@@ -3173,6 +3173,166 @@ de los límites de una zona segura.
 
 </table>
 
+#### Bounded Context: IAM (Generic Domain)
+
+<!-- CANVAS: IAM (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">IAM</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Generic - </strong> Provee acceso seguro a la plataforma mediante un problema común a cualquier sistema de software (identidad y autenticación), sin constituir un diferenciador propio de Guardian+.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Gestiona el ciclo de vida completo de la identidad digital de cuidadores y familiares registrados en Guardian+: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña. Actúa como el Open Host Service que emite y valida la identidad autenticada consumida por el resto de los Bounded Contexts.
+</div>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Credentials Uniqueness Policy (email/username)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Mandatory Email Verification Policy</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Two-Factor OTP Authentication Policy</td>
+</tr>
+</table>
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+<tr>
+<td width="50%" valign="top">
+• UserAccount<br>
+• Credentials<br>
+• Email Verification<br>
+• One-Time Password (OTP)
+</td>
+<td width="50%" valign="top">
+• Password Reset Token<br>
+• Authenticated User<br>
+• Login Session<br>
+• Two-Factor Authentication (2FA)
+</td>
+</tr>
+</table>
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+<div align="center">
+<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+<tr>
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Id</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Email</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email/Username Availability</td></tr>
+</table>
+</td>
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register User Credentials</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Send Email Verification Request</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Verify Email</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Login (Validate Credentials)</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Trigger / Verify OTP (2FA)</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Request Password Reset</td></tr>
+</table>
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Reset Password</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+<div style="padding: 12px;">
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
+</div>
+<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+<tr>
+<td>Email Provider</td>
+<td>Envía los correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña</td>
+<td>External</td>
+<td>Out (ACL)</td>
+</tr>
+<tr>
+<td>Profile</td>
+<td>Provee identidad autenticada (UserId) para que Profile asocie la información descriptiva del usuario</td>
+<td>Internal</td>
+<td>Out (OHS/PL)</td>
+</tr>
+<tr>
+<td>Subscriptions</td>
+<td>Provee identidad autenticada (UserId) para resolver el titular de la suscripción</td>
+<td>Internal</td>
+<td>Out (OHS/PL)</td>
+</tr>
+<tr>
+<td>Health Monitoring</td>
+<td>Provee identidad autenticada (UserId) para autorizar el acceso a la telemetría del Fragile Citizen</td>
+<td>Internal</td>
+<td>Out (OHS/PL)</td>
+</tr>
+<tr>
+<td>Emergency &amp; Alerting</td>
+<td>Valida identidad y autorización de cada comando de incidentes, alertas y escalamiento</td>
+<td>Internal</td>
+<td>Out (OHS/PL)</td>
+</tr>
+<tr>
+<td>Mobility &amp; Geofencing</td>
+<td>Valida la autenticación y autorización de las operaciones de creación y gestión de geocercas</td>
+<td>Internal</td>
+<td>Out (OHS/PL)</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+
 #### 2.5.2. Context Mapping
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
@@ -3197,7 +3357,7 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 
 | Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
 | :--- | :--- | :--- | :--- | :--- |
-| **Alternativa 1:** Modelo Monolítico con *Shared Kernel* | Todos los contextos de negocio comparten un núcleo común de librerías (`Shared Kernel`) que contiene los modelos de `User`, `Patient` y `Biometrics`. | Reduce el código duplicado y evita la necesidad de mappers entre módulos en etapas tempranas. | Fuerte acoplamiento bidireccional; cualquier cambio en el modelo del paciente obliga a recompilar y desplegar todos los módulos. Alto riesgo de corrupción conceptual. | **Rechazada:** Destruye la autonomía de los Bounded Contexts y viola los principios del diseño táctico de DDD. |
+| **Alternativa 1:** Modelo Monolítico con *Shared Kernel* | Todos los contextos de negocio comparten un núcleo común de librerías (`Shared Kernel`) que contiene los modelos de `User`, `Patient` y `Biometrics`. | Reduce el código duplicado y  evita la necesidad de mappers entre módulos en etapas tempranas. | Fuerte acoplamiento bidireccional; cualquier cambio en el modelo del paciente obliga a recompilar y desplegar todos los módulos. Alto riesgo de corrupción conceptual. | **Rechazada:** Destruye la autonomía de los Bounded Contexts y viola los principios del diseño táctico de DDD. |
 | **Alternativa 2:** Orquestación Centralizada y *Conformist* | *Emergency & Alerting* actúa como orquestador síncrono mediante llamadas directas REST, conformándose con los esquemas de *Health Monitoring*, *Mobility* y *Profile*. | Trazabilidad directa y centralizada de flujos de control en un único punto. | Efecto dominó: si *Health Monitoring* se congestiona por ráfagas de telemetría IoT, bloquea el hilo de ejecución de *Emergency & Alerting*. Viola los SLAs de tiempo real. | **Rechazada:** Compromete la seguridad física del Fragile Citizen ante contingencias de infraestructura. |
 | **Alternativa 3:** Desacoplamiento Basado en Eventos con OHS/PL y ACL | Core Domains consumen eventos de dominio asíncronos vía *Customer/Supplier*; Generic Domains ofrecen contratos abiertos (*Open Host Service*); se usan *Anti-Corruption Layers* para hardware IoT y pasarelas externas. | Aislamiento frente a fallos, procesamiento no bloqueante de telemetría en tiempo real, independencia evolutiva de esquemas y resiliencia ante cortes de servicios externos. | Requiere diseñar y versionar contratos de eventos de integración (*Published Language*) y adaptadores de traducción para cada contexto. | **Aprobada:** Proporciona la resiliencia y el aislamiento de dominio requeridos por la plataforma Guardian+. |
 
@@ -5494,6 +5654,352 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
 ![class-diagram](../assets/images/chapterII/databaseDiagrams/database_diagram.png)
+
+#### 2.6.7. Bounded Context: IAM
+
+El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña.
+
+A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS) publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados, validado localmente por cada contexto descendente sin consultas síncronas a la base de datos de identidad.
+
+La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
+
+```
+com.guardianplus.platform.iam/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   ├── services/
+│   │   └── valueobjects/
+│   └── repositories/
+├── interfaces/
+│   ├── acl/
+│   ├── events/
+│   └── rest/
+│       ├── controllers/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── acl/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── notifications/
+    │   └── adapters/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── entities/
+    │       └── repositories/
+    ├── security/
+    │   └── adapters/
+    └── scheduling/
+```
+
+##### 2.6.7.1. Domain Layer
+
+Encapsula las reglas de identidad y acceso: la unicidad de credenciales, la obligatoriedad de verificación de correo, la vigencia del segundo factor (OTP) y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: el segundo factor de autenticación (`OneTimePassword`) se separa de `UserAccount` en un agregado propio, ya que posee un ciclo de vida corto e independiente (generación, verificación, expiración) que no debe acoplarse a las invariantes permanentes de la cuenta.
+
+###### Aggregates
+
+*   **UserAccount**
+    *   Agregado raíz que representa la identidad digital de un cuidador o familiar registrado en Guardian+.
+    *   Hereda de `AbstractDomainAggregateRoot<UserAccount>` para registrar y publicar eventos de dominio.
+    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_EMAIL_VERIFICATION → ACTIVE`), rechazando la autenticación mientras el correo no haya sido verificado.
+    *   *Atributos:*
+        *   `id: UserAccountId`
+        *   `email: Email`
+        *   `username: Username`
+        *   `passwordHash: HashedPassword`
+        *   `status: UserAccountStatus`
+        *   `emailVerificationToken: EmailVerificationToken`
+        *   `passwordResetToken: PasswordResetToken`
+        *   `createdAt: Instant`
+        *   `verifiedAt: Instant`
+        *   `updatedAt: Instant`
+    *   *Métodos:*
+        *   `UserAccount(RegisterUserCredentialsCommand command, HashedPassword passwordHash, EmailVerificationToken token)`
+        *   `verifyEmail(String token): void`
+        *   `validateCredentials(String rawPassword, PasswordHasher hasher): boolean`
+        *   `issuePasswordResetToken(TokenGenerator generator): PasswordResetToken`
+        *   `resetPassword(String token, HashedPassword newPasswordHash): void`
+        *   `isEmailVerified(): boolean`
+
+*   **OneTimePassword**
+    *   Agregado raíz que representa el segundo factor de autenticación (OTP) emitido durante un intento de login.
+    *   Ciclo de vida: `PENDING → VERIFIED | EXPIRED`.
+    *   *Atributos:*
+        *   `id: OtpId`
+        *   `userAccountId: UserAccountId`
+        *   `code: OtpCode`
+        *   `status: OtpStatus`
+        *   `generatedAt: Instant`
+        *   `expiresAt: Instant`
+        *   `verifiedAt: Instant`
+    *   *Métodos:*
+        *   `OneTimePassword(GenerateOtpCommand command, OtpCode code)`
+        *   `verify(String candidateCode): boolean`
+        *   `expire(): void`
+        *   `isExpired(Instant now): boolean`
+
+Este contexto no requiere entidades internas adicionales: ambos agregados son de único nivel, sin objetos hijos con identidad propia.
+
+###### Value Objects
+
+*   **Email:** Encapsula el correo electrónico (`value: String`). Invariante: formato RFC 5322 válido. Método: `matches(String other)`.
+*   **Username:** Encapsula el nombre de usuario (`value: String`). Invariante: 3-30 caracteres alfanuméricos.
+*   **HashedPassword:** Encapsula el hash irreversible de la contraseña (`hash: String`). Nunca expone ni acepta la contraseña en texto plano fuera del `PasswordHasher`.
+*   **OtpCode:** Encapsula el código numérico de un solo uso (`value: String`, 6 dígitos). Método: `matches(String candidate)`.
+*   **EmailVerificationToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
+*   **PasswordResetToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
+*   **UserAccountStatus:** Enum (`PENDING_EMAIL_VERIFICATION`, `ACTIVE`). Método: `canAuthenticate()`.
+*   **OtpStatus:** Enum (`PENDING`, `VERIFIED`, `EXPIRED`).
+*   **UserAccountId / OtpId:** Identificadores inmutables tipo UUID.
+
+###### Domain Services (Puertos)
+
+*   **PasswordHasher:** `hash(String rawPassword): HashedPassword`; `matches(String rawPassword, HashedPassword hash): boolean`. Implementado en infraestructura mediante BCrypt.
+*   **OtpCodeGenerator:** `generate(): OtpCode`. Genera un código numérico aleatorio criptográficamente seguro.
+*   **TokenGenerator:** `generateOpaqueToken(): String`. Genera los tokens de verificación de correo y de recuperación de contraseña.
+
+###### Commands & Queries (Domain Model)
+
+*   `RegisterUserCredentialsCommand(String email, String username, String rawPassword)`
+*   `SendEmailVerificationRequestCommand(UUID userAccountId)`
+*   `VerifyEmailCommand(UUID userAccountId, String token)`
+*   `LoginCommand(String emailOrUsername, String rawPassword)`
+*   `GenerateOtpCommand(UUID userAccountId)`
+*   `VerifyOtpCommand(UUID otpId, String code)`
+*   `AuthenticateUserCommand(UUID userAccountId, UUID otpId)`
+*   `RequestPasswordResetCommand(String email)`
+*   `ResetPasswordCommand(String token, String newRawPassword)`
+*   `GetUserAccountByIdQuery(UserAccountId userAccountId)`
+*   `GetUserAccountByEmailQuery(Email email)`
+*   `GetUserAccountAvailabilityQuery(String email, String username)`
+
+###### Domain Events
+
+*   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, portando el `EmailVerificationToken` generado.
+*   `EmailVerificationRequestedEvent`: Emitido para disparar el envío del correo de verificación.
+*   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo dentro de la vigencia del token; transiciona la cuenta a `ACTIVE`.
+*   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo/usuario y la contraseña.
+*   `OtpGeneratedEvent`: Emitido tras generar el segundo factor, portando el destino de envío y su vencimiento.
+*   `OtpVerifiedEvent`: Emitido cuando el código ingresado coincide dentro de la ventana de vigencia.
+*   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
+*   `PasswordResetRequestedEvent`: Emitido al solicitar la recuperación de contraseña, portando el `PasswordResetToken` generado.
+*   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente.
+
+###### Repositories (Domain Interfaces)
+
+*   **UserAccountRepository:**
+    *   `save(UserAccount account): UserAccount`
+    *   `findById(UserAccountId id): Optional<UserAccount>`
+    *   `findByEmail(Email email): Optional<UserAccount>`
+    *   `findByUsername(Username username): Optional<UserAccount>`
+    *   `existsByEmailOrUsername(Email email, Username username): boolean`
+*   **OneTimePasswordRepository:**
+    *   `save(OneTimePassword otp): OneTimePassword`
+    *   `findById(OtpId id): Optional<OneTimePassword>`
+    *   `findLatestPendingByUserAccountId(UserAccountId userAccountId): Optional<OneTimePassword>`
+
+---
+
+##### 2.6.7.2. Interface Layer
+
+Traduce estímulos externos hacia comandos y consultas de aplicación y expone contratos HTTP RESTful para la app móvil. Al ser el contexto más upstream del dominio, no canaliza eventos de integración entrantes.
+
+###### REST Controllers
+
+*   **AuthController** (`/api/v1/auth`):
+    *   `POST /register`: Registra nuevas credenciales de usuario.
+    *   `POST /verify-email`: Confirma el correo electrónico mediante el token enviado.
+    *   `POST /login`: Valida correo/usuario y contraseña, y dispara el desafío OTP.
+    *   `POST /otp/verify`: Verifica el código OTP y, de ser correcto, emite el JWT de sesión.
+    *   `POST /password-reset/request`: Genera y envía el token de recuperación de contraseña.
+    *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir del token vigente.
+*   **UserAccountsController** (`/api/v1/user-accounts`):
+    *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
+    *   `GET /availability`: Consulta la disponibilidad de un correo o nombre de usuario (`Email/Username Available?`).
+
+###### Resources & Assemblers
+
+*   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
+*   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
+
+###### Integration Events & ACL Facade
+
+*   *Eventos publicados (outbound):*
+    *   `UserAccountRegisteredIntegrationEvent`: Notifica a `Profile` el alta de una nueva identidad, mediante Event-Carried State Transfer, para la creación del perfil asociado.
+    *   `UserAccountVerifiedIntegrationEvent`: Notifica la activación definitiva de la cuenta.
+*   *Eventos consumidos (inbound):* Ninguno. IAM no depende de señales de negocio de otros contextos.
+*   `IamContextFacade`: Interfaz expuesta para la validación síncrona de tokens y la consulta puntual de existencia de una `UserAccount` desde otros contextos, sin exponer el modelo interno de credenciales.
+
+---
+
+##### 2.6.7.3. Application Layer
+
+Orquesta los flujos de registro, verificación, autenticación y recuperación de contraseña delegando las reglas de negocio en los agregados correspondientes. Los Event Handlers materializan directamente las policies identificadas en el Design-Level EventStorming.
+
+###### Command Services
+
+*   **UserAccountCommandService & UserAccountCommandServiceImpl:**
+    *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad de correo/usuario, aplica `PasswordHasher` y `TokenGenerator`, y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`.
+    *   `handle(VerifyEmailCommand command): void`: Verifica el token vigente y transiciona la cuenta a `ACTIVE`.
+    *   `handle(RequestPasswordResetCommand command): void`: Genera y asocia un `PasswordResetToken` a la cuenta encontrada por correo.
+    *   `handle(ResetPasswordCommand command): void`: Valida el token vigente y reemplaza el `HashedPassword`.
+*   **AuthenticationCommandService & AuthenticationCommandServiceImpl:**
+    *   `handle(LoginCommand command): void`: Valida credenciales mediante `PasswordHasher.matches()` y publica `CredentialsValidatedEvent`.
+    *   `handle(GenerateOtpCommand command): Optional<OneTimePassword>`: Construye y persiste el agregado `OneTimePassword` mediante `OtpCodeGenerator`.
+    *   `handle(VerifyOtpCommand command): void`: Verifica el código ingresado dentro de la vigencia.
+    *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la verificación exitosa del OTP.
+
+###### Query Services
+
+*   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetUserAccountAvailabilityQuery`.
+
+###### Event Handlers
+
+*   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `SendEmailVerificationRequestCommand` tras el registro.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` tras validar correo/usuario y contraseña.
+*   `OtpGeneratedEventHandler`: Despacha el envío del código OTP por correo mediante el adaptador de notificaciones.
+*   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand`, cerrando el flujo de login.
+*   `PasswordResetRequestedEventHandler`: Despacha el envío del correo con el enlace/token de recuperación.
+
+###### Application ACL Implementation
+
+*   `IamContextFacadeImpl`: Implementa la fachada de acceso público del contexto (validación de tokens y existencia de cuentas).
+
+---
+
+##### 2.6.7.4. Infrastructure Layer
+
+Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, la firma/validación de JWT, la integración con el proveedor de correo electrónico y los componentes de programación temporal que sostienen la vigencia de tokens y códigos OTP.
+
+###### Persistence JPA Entities
+
+*   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email`, `username`, `password_hash`, `status`, `email_verification_token`, `email_verification_expires_at`, `password_reset_token`, `password_reset_expires_at`, `created_at`, `verified_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `OneTimePasswordPersistenceEntity`: Mapea la tabla `one_time_passwords`. Columnas: `id`, `user_account_id`, `code_hash`, `status`, `generated_at`, `expires_at`, `verified_at`.
+
+###### Spring Data Repositories & Adapters
+
+*   `UserAccountPersistenceRepository` y `OneTimePasswordPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `UserAccountRepositoryImpl` y `OneTimePasswordRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+
+###### Persistence Assemblers
+
+*   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `Username`, `HashedPassword` y los tokens vigentes.
+*   `OneTimePasswordPersistenceAssembler`: Traduce entre `OneTimePasswordPersistenceEntity` y el agregado `OneTimePassword`.
+
+###### Security Adapters
+
+*   `BCryptPasswordHasherAdapter`: Implementa `PasswordHasher` sobre el algoritmo BCrypt.
+*   `JwtTokenProviderAdapter`: Implementa la emisión y validación de JWT firmados (RS256) con `UserId` y roles como claims; materializa el Published Language del Open Host Service de IAM.
+*   `SecureRandomOtpCodeGeneratorAdapter` y `SecureRandomTokenGeneratorAdapter`: Implementan `OtpCodeGenerator` y `TokenGenerator` sobre un generador criptográficamente seguro.
+
+###### Notification Adapters
+
+*   `EmailProviderAdapter`: Envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña.
+
+###### Scheduling
+
+*   `OtpExpirationScheduler`: Tarea periódica que transiciona a `EXPIRED` los OTP pendientes cuya vigencia venció sin verificación.
+*   `TokenExpirationScheduler`: Tarea periódica que invalida los tokens de verificación de correo y de recuperación de contraseña vencidos.
+
+---
+
+##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
+
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **IAM**, siguiendo la misma vista C4 de componentes utilizada para Health Monitoring: la app móvil y el proveedor externo de correo interactúan con la **Interface Layer**, que delega en la **Application Layer**; esta orquesta los casos de uso contra la **Domain Layer** e invoca los puertos de salida implementados por la **Infrastructure Layer**, la cual persiste en `Guardian+ Database` y expone el JWT firmado (Published Language del Open Host Service) hacia los Bounded Contexts descendentes. Se modela con Structurizr DSL:
+
+```dsl
+workspace "Guardian+ - IAM" "Component view of the IAM Bounded Context within the Guardian+ platform" {
+
+    model {
+        mobileApp = softwareSystem "Guardian+ Mobile Application" "Aplicación móvil utilizada por cuidadores y familiares para registrarse, iniciar sesión, verificar el OTP y recuperar su contraseña." "Mobile App"
+
+        emailProvider = softwareSystem "Email Provider" "Servicio externo de envío de correos: verificación de cuenta, código OTP y recuperación de contraseña." "External System"
+
+        downstreamContexts = softwareSystem "Downstream Bounded Contexts" "Profile, Subscriptions, Health Monitoring, Emergency & Alerting y Mobility & Geofencing: validan localmente el JWT emitido por IAM." "Bounded Context"
+
+        guardianPlus = softwareSystem "Guardian+ Platform" {
+
+            iam = container "IAM (Bounded Context)" "Gestiona identidad, credenciales, autenticación de dos factores (OTP) y recuperación de contraseña." "Java / Spring Boot" {
+
+                interfaceLayer = component "Interface Layer" "Expone AuthController y UserAccountsController (API REST) y traduce las peticiones HTTP a comandos y consultas." "Spring MVC / REST Controllers"
+
+                applicationLayer = component "Application Layer" "Orquesta los casos de uso de registro, verificación de correo, login, OTP y reseteo de contraseña mediante Command/Query Services y Event Handlers." "Application Services / Handlers"
+
+                domainLayer = component "Domain Layer" "Encapsula los agregados UserAccount y OneTimePassword, sus Value Objects y las políticas de unicidad de credenciales, verificación de correo y autenticación de dos factores." "Plain Java Domain Objects"
+
+                infrastructureLayer = component "Infrastructure Layer" "Implementa los repositorios JPA, el hashing de contraseñas (BCrypt), la firma/validación de JWT y el adaptador de envío de correo." "Spring Data JPA / Security Adapters"
+            }
+
+            database = container "Guardian+ Database" "Persiste las tablas user_accounts y one_time_passwords." "PostgreSQL" "Database"
+        }
+
+        mobileApp -> interfaceLayer "Se registra, inicia sesión, verifica el OTP y recupera su contraseña" "JSON / HTTPS"
+        interfaceLayer -> applicationLayer "Invoca casos de uso (comandos y consultas)" "In-process"
+        applicationLayer -> domainLayer "Ejecuta la lógica de negocio y aplica las políticas de identidad sobre los agregados" "In-process"
+        applicationLayer -> infrastructureLayer "Invoca puertos de salida para persistencia, hashing, JWT y envío de correo" "In-process"
+        infrastructureLayer -> domainLayer "Implementa las interfaces de repositorio del dominio" "In-process"
+        infrastructureLayer -> database "Lee y escribe UserAccount y OneTimePassword" "JDBC / PostgreSQL"
+        infrastructureLayer -> emailProvider "Envía correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña" "SMTP / API"
+        infrastructureLayer -> downstreamContexts "Publica el JWT firmado (Published Language) validado en cada petición" "JWT / HTTPS Header"
+    }
+
+    views {
+        component iam "IAM_Components" "Component View: Guardian+ Platform - IAM (Bounded Context)" {
+            include *
+            autoLayout lr
+        }
+
+        styles {
+            element "Mobile App" {
+                background #2b2b52
+                color #ffffff
+                shape MobileDevicePortrait
+            }
+            element "External System" {
+                background #f4b400
+                color #000000
+            }
+            element "Bounded Context" {
+                background #c62828
+                color #ffffff
+                shape Hexagon
+            }
+            element "Database" {
+                background #2e7d32
+                color #ffffff
+                shape Cylinder
+            }
+            element "Component" {
+                background #1565c0
+                color #ffffff
+            }
+        }
+    }
+}
+```
+
+La `Interface Layer` recibe las solicitudes de registro, verificación de correo, login, verificación de OTP y recuperación de contraseña provenientes de la app móvil, delegando su procesamiento a la `Application Layer`. Esta coordina los `Command Services` y `Query Services` sobre los agregados `UserAccount` y `OneTimePassword` de la `Domain Layer`, y utiliza la `Infrastructure Layer` para persistir el estado, hashear/validar contraseñas, emitir/validar el JWT y despachar los correos de verificación, OTP y recuperación mediante `EmailProviderAdapter`. Finalmente, el JWT firmado constituye el Published Language que los Bounded Contexts descendentes consumen para autorizar sus propias operaciones sin consultar síncronamente la base de datos de identidad.
+
+##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
+
+###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
+![alt text](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
+
+###### 2.6.7.6.2. Bounded Context Database Design Diagram
+
+![alt text](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 #### Guardian+ Physical Database Schema
 
