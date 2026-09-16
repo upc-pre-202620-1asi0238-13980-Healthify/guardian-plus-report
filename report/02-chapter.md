@@ -5917,13 +5917,85 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-*(Diagrama de componentes pendiente de elaboración.)*
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **IAM**, siguiendo la misma vista C4 de componentes utilizada para Health Monitoring: la app móvil y el proveedor externo de correo interactúan con la **Interface Layer**, que delega en la **Application Layer**; esta orquesta los casos de uso contra la **Domain Layer** e invoca los puertos de salida implementados por la **Infrastructure Layer**, la cual persiste en `Guardian+ Database` y expone el JWT firmado (Published Language del Open Host Service) hacia los Bounded Contexts descendentes. Se modela con Structurizr DSL:
+
+```dsl
+workspace "Guardian+ - IAM" "Component view of the IAM Bounded Context within the Guardian+ platform" {
+
+    model {
+        mobileApp = softwareSystem "Guardian+ Mobile Application" "Aplicación móvil utilizada por cuidadores y familiares para registrarse, iniciar sesión, verificar el OTP y recuperar su contraseña." "Mobile App"
+
+        emailProvider = softwareSystem "Email Provider" "Servicio externo de envío de correos: verificación de cuenta, código OTP y recuperación de contraseña." "External System"
+
+        downstreamContexts = softwareSystem "Downstream Bounded Contexts" "Profile, Subscriptions, Health Monitoring, Emergency & Alerting y Mobility & Geofencing: validan localmente el JWT emitido por IAM." "Bounded Context"
+
+        guardianPlus = softwareSystem "Guardian+ Platform" {
+
+            iam = container "IAM (Bounded Context)" "Gestiona identidad, credenciales, autenticación de dos factores (OTP) y recuperación de contraseña." "Java / Spring Boot" {
+
+                interfaceLayer = component "Interface Layer" "Expone AuthController y UserAccountsController (API REST) y traduce las peticiones HTTP a comandos y consultas." "Spring MVC / REST Controllers"
+
+                applicationLayer = component "Application Layer" "Orquesta los casos de uso de registro, verificación de correo, login, OTP y reseteo de contraseña mediante Command/Query Services y Event Handlers." "Application Services / Handlers"
+
+                domainLayer = component "Domain Layer" "Encapsula los agregados UserAccount y OneTimePassword, sus Value Objects y las políticas de unicidad de credenciales, verificación de correo y autenticación de dos factores." "Plain Java Domain Objects"
+
+                infrastructureLayer = component "Infrastructure Layer" "Implementa los repositorios JPA, el hashing de contraseñas (BCrypt), la firma/validación de JWT y el adaptador de envío de correo." "Spring Data JPA / Security Adapters"
+            }
+
+            database = container "Guardian+ Database" "Persiste las tablas user_accounts y one_time_passwords." "PostgreSQL" "Database"
+        }
+
+        mobileApp -> interfaceLayer "Se registra, inicia sesión, verifica el OTP y recupera su contraseña" "JSON / HTTPS"
+        interfaceLayer -> applicationLayer "Invoca casos de uso (comandos y consultas)" "In-process"
+        applicationLayer -> domainLayer "Ejecuta la lógica de negocio y aplica las políticas de identidad sobre los agregados" "In-process"
+        applicationLayer -> infrastructureLayer "Invoca puertos de salida para persistencia, hashing, JWT y envío de correo" "In-process"
+        infrastructureLayer -> domainLayer "Implementa las interfaces de repositorio del dominio" "In-process"
+        infrastructureLayer -> database "Lee y escribe UserAccount y OneTimePassword" "JDBC / PostgreSQL"
+        infrastructureLayer -> emailProvider "Envía correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña" "SMTP / API"
+        infrastructureLayer -> downstreamContexts "Publica el JWT firmado (Published Language) validado en cada petición" "JWT / HTTPS Header"
+    }
+
+    views {
+        component iam "IAM_Components" "Component View: Guardian+ Platform - IAM (Bounded Context)" {
+            include *
+            autoLayout lr
+        }
+
+        styles {
+            element "Mobile App" {
+                background #2b2b52
+                color #ffffff
+                shape MobileDevicePortrait
+            }
+            element "External System" {
+                background #f4b400
+                color #000000
+            }
+            element "Bounded Context" {
+                background #c62828
+                color #ffffff
+                shape Hexagon
+            }
+            element "Database" {
+                background #2e7d32
+                color #ffffff
+                shape Cylinder
+            }
+            element "Component" {
+                background #1565c0
+                color #ffffff
+            }
+        }
+    }
+}
+```
+
+La `Interface Layer` recibe las solicitudes de registro, verificación de correo, login, verificación de OTP y recuperación de contraseña provenientes de la app móvil, delegando su procesamiento a la `Application Layer`. Esta coordina los `Command Services` y `Query Services` sobre los agregados `UserAccount` y `OneTimePassword` de la `Domain Layer`, y utiliza la `Infrastructure Layer` para persistir el estado, hashear/validar contraseñas, emitir/validar el JWT y despachar los correos de verificación, OTP y recuperación mediante `EmailProviderAdapter`. Finalmente, el JWT firmado constituye el Published Language que los Bounded Contexts descendentes consumen para autorizar sus propias operaciones sin consultar síncronamente la base de datos de identidad.
 
 ##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
-
-*(Diagrama de clases pendiente de elaboración.)*
+![alt text](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
 
 ###### 2.6.7.6.2. Bounded Context Database Design Diagram
 
