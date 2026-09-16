@@ -1821,6 +1821,10 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 
 ![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
 
+#### Bounded Context: Mobility & Geofencing
+**Flujo - Salida de zona segura**
+![Domain Message Flow - exit the safe zone](../assets/images/chapterII/domain-message-flows/Exit%20from%20the%20safe%20zone_Geofecing.png)
+
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
