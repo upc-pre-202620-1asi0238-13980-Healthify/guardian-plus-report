@@ -2237,6 +2237,540 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 </tr>
 </table>
 
+#### Bounded Context: Subscriptions (Generic Domain)
+
+<!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
+Subscriptions
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+core/supportive/generic/other
+</div>
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Generic - </strong>
+Gestiona el modelo comercial de Guardian+, controlando el ciclo de vida de las suscripciones, planes y beneficios disponibles para cada usuario.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+Summary of purpose and responsibilities - not implementation
+</div>
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Gestiona el ciclo de vida de una Subscription desde su solicitud y activación hasta su renovación, cambio de Plan, cancelación y expiración. Coordina los pagos requeridos con el Payment Provider y mantiene sincronizados los Entitlements que determinan las capacidades disponibles para el Subscriber.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
+Key business rules and policies
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Payment Verification Policy
+</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Renewal Scheduler Policy
+</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Entitlement Synchronization Policy
+</td>
+</tr>
+<tr>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Subscription Activation Requirements
+</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Cancellation Effective Date Policy
+</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Plan Change Conditions Policy
+</td>
+</tr>
+</table>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
+Key domain terminology
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"
+       style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+<tr>
+<td width="50%" valign="top">
+• Subscription<br>
+• Plan<br>
+• Subscriber<br>
+• Renewal
+</td>
+<td width="50%" valign="top">
+• Entitlement<br>
+• Payment Attempt<br>
+• Cancellation<br>
+• Expiration
+</td>
+</tr>
+</table>
+
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+
+<div align="center">
+<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+<tr>
+
+<td width="50%" valign="top" align="center"
+    style="border-right: 1px solid #ddd; padding-right: 10px;">
+
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Subscription Status
+</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Current Plan
+</td>
+</tr>
+</table>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center;">
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Check Available Entitlements
+</td>
+</tr>
+</table>
+
+</td>
+
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Request / Activate Subscription
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Renew Subscription
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Request / Apply Plan Change
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Request / Execute Cancellation
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Process Payment Result
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Entitlements
+</td></tr>
+</table>
+
+</td>
+</tr>
+</table>
+</div>
+
+<div style="padding: 12px;">
+
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">
+Interactions with other bounded contexts and services
+</span>
+</div>
+
+<table width="100%" border="1" cellpadding="6" cellspacing="0"
+       style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+
+<tr>
+<td>IAM</td>
+<td>Provee la identidad autenticada y el UserId del Subscriber</td>
+<td>Internal</td>
+<td>In (OHS / PL)</td>
+</tr>
+
+<tr>
+<td>Stripe</td>
+<td>Procesa pagos de activación y renovación y devuelve confirmaciones o fallos mediante webhooks</td>
+<td>External</td>
+<td>In / Out (ACL)</td>
+</tr>
+
+<tr>
+<td>Guardian+ Feature Contexts</td>
+<td>Consumen el estado de los Entitlements para habilitar capacidades asociadas al plan activo</td>
+<td>Internal</td>
+<td>Out (OHS / PL)</td>
+</tr>
+
+</table>
+</div>
+
+</td>
+</tr>
+</table>
+
+#### Bounded Context: Profile (Generic Domain)
+
+<!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+
+<td width="42%" valign="top"
+    style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
+Profile
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+core/supportive/generic/other
+</div>
+
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Generic - </strong>
+Proporciona la identidad descriptiva, las relaciones de cuidado y las preferencias necesarias para que los demás contextos de Guardian+ operen sobre usuarios y personas bajo cuidado.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+Summary of purpose and responsibilities - not implementation
+</div>
+
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Gestiona los User Profiles y Care Recipient Profiles de Guardian+, mantiene la información personal y de contacto, establece y finaliza Care Relationships entre usuarios y personas bajo cuidado, y administra las preferencias de idioma, accesibilidad y experiencia de uso.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
+Key business rules and policies
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+
+<tr>
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Profile Completeness Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Care Relationship Lifecycle Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+IAM Identity Ownership Boundary
+</td>
+</tr>
+
+<tr>
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Emergency Contact Consistency Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Care Recipient Linking Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6"
+    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Preference Validation Policy
+</td>
+</tr>
+
+</table>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
+Key domain terminology
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"
+       style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+
+<tr>
+<td width="50%" valign="top">
+• User Profile<br>
+• Care Recipient Profile<br>
+• Care Relationship<br>
+• Emergency Contact
+</td>
+
+<td width="50%" valign="top">
+• User Preferences<br>
+• Contact Information<br>
+• Language Preference<br>
+• Accessibility Preference
+</td>
+</tr>
+
+</table>
+
+</td>
+
+<td width="58%" valign="top" style="padding: 0;">
+
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+
+<div align="center">
+<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
+<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+</div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+
+<tr>
+
+<td width="50%" valign="top" align="center"
+    style="border-right: 1px solid #ddd; padding-right: 10px;">
+
+<strong style="font-size: 0.85em;">Informational</strong><br>
+<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get User Profile
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Care Recipient Profile
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Care Relationships
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0"
+       bgcolor="#e8f5e9"
+       style="border: 1px solid #2e7d32; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get User Preferences
+</td></tr>
+</table>
+
+</td>
+
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+
+<strong style="font-size: 0.85em;">Actions</strong><br>
+<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Create / Update Profile
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Contact Information
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Create Care Recipient Profile
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Establish / End Care Relationship
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Emergency Contacts
+</td></tr>
+</table>
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0"
+       bgcolor="#e3f2fd"
+       style="border: 1px solid #1565c0; text-align: center;">
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Application Preferences
+</td></tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<div style="padding: 12px;">
+
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">
+Interactions with other bounded contexts and services
+</span>
+</div>
+
+<table width="100%" border="1" cellpadding="6" cellspacing="0"
+       style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+
+<tr>
+<td>IAM</td>
+<td>Provee la identidad autenticada y el UserId asociado al Profile sin transferir la propiedad de credenciales</td>
+<td>Internal</td>
+<td>In (OHS / PL)</td>
+</tr>
+
+<tr>
+<td>Emergency &amp; Alerting</td>
+<td>Consume cambios en Care Relationships y contactos para mantener una proyección local del Care Circle</td>
+<td>Internal</td>
+<td>Out (Customer / Supplier + ECST)</td>
+</tr>
+
+<tr>
+<td>Health Monitoring</td>
+<td>Consume la identidad del Care Recipient necesaria para asociar información de monitoreo</td>
+<td>Internal</td>
+<td>Out (Supplier)</td>
+</tr>
+
+<tr>
+<td>Care Routines &amp; Wellness</td>
+<td>Consume la identidad del Care Recipient y sus relaciones de cuidado para asignar rutinas</td>
+<td>Internal</td>
+<td>Out (Supplier)</td>
+</tr>
+
+<tr>
+<td>Mobility &amp; Geofencing</td>
+<td>Consume la identidad de la persona bajo cuidado para asociar zonas seguras y seguimiento</td>
+<td>Internal</td>
+<td>Out (Supplier)</td>
+</tr>
+
+</table>
+
+</div>
+
+</td>
+</tr>
+</table>
+
 #### Bounded Context: Mobility & Geofencing (Supporting Domain)
 <!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
 <table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2344,11 +2878,18 @@ Key domain terminology
 • Coordinates<br>
 • Safe Zone Boundary
 </td>
+
 </tr>
+
 </table>
+
 </td>
+
+
 <td width="58%" valign="top" style="padding: 0;">
+
 <div style="padding: 12px; border-bottom: 2px solid #333;">
+
 <div align="center">
 <strong style="font-size: 1em;">
 Capabilities &amp; Responsibilities
@@ -2358,26 +2899,37 @@ Capabilities &amp; Responsibilities
 Services provided to consumers
 </span>
 </div>
+
 <table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+
 <tr>
+
 <td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+
 <strong style="font-size: 0.85em;">
 Informational
 </strong>
+
 <br>
+
 <span style="font-size: 0.7em; color: #777;">
 Queries, reports, etc.
 </span>
+
 <br><br>
 
 
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
 Get Current Location
 </td>
 </tr>
+
 </table>
+
+
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
 
 <tr>
@@ -2385,10 +2937,12 @@ Get Current Location
 Get Location History
 </td>
 </tr>
+
 </table>
 
 
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
 Get Active Safe Zone
@@ -2396,6 +2950,8 @@ Get Active Safe Zone
 </tr>
 
 </table>
+
+
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
 
 <tr>
@@ -2422,6 +2978,8 @@ Invokable commands, scheduled tasks, etc.
 </span>
 
 <br><br>
+
+
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 
 <tr>
@@ -2431,7 +2989,10 @@ Create Safe Zone
 </tr>
 
 </table>
+
+
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
 <tr>
 <td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
 Update Safe Zone
@@ -2439,6 +3000,8 @@ Update Safe Zone
 </tr>
 
 </table>
+
+
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 
 <tr>
@@ -2479,22 +3042,27 @@ Record Location Status
 Record Safe Zone Violation
 </td>
 </tr>
+
 </table>
+
 </td>
+
 </tr>
+
 </table>
+
 </div>
+
 <div style="padding: 12px;">
 <div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">
-Dependencies
-</strong>
-<br>
+<strong style="font-size: 1em;">Dependencies</strong><br>
 <span style="font-size: 0.75em; color: #777;">
 Interactions with other bounded contexts and services
 </span>
 </div>
-<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+
+<table width="100%" border="1" cellpadding="6" cellspacing="0"
+style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
 
 <tr bgcolor="#f5f5f5">
 <th>Name</th>
@@ -2550,7 +3118,9 @@ de los límites de una zona segura.
 </table>
 </div>
 </td>
+
 </tr>
+
 </table>
 
 #### 2.5.2. Context Mapping
@@ -3713,16 +4283,43 @@ Implementa el mecanismo técnico utilizado para activar evaluaciones temporales 
 
 ##### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-pendiente
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
+
+La **Interface Layer** se encuentra representada por los controladores REST de suscripciones y el controlador de webhooks de pagos. La **Application Layer** coordina los casos de uso mediante `Subscription Application Service` y `Payment Application Service`. La lógica central del dominio se concentra en los aggregates `Subscription` y `Entitlement Set`, junto con las políticas de suscripción. Finalmente, la **Infrastructure Layer** implementa los adaptadores de repositorio, publicación de eventos e integración con Stripe.
+
+![Subscriptions Component Level Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsComponents.png)
+
+El componente `Subscriptions REST Controllers` recibe las solicitudes relacionadas con activación, renovación, cambio de plan, cancelación y consulta del estado de la suscripción, delegando su procesamiento a la capa de aplicación.
+
+`Subscription Application Service` coordina las operaciones sobre el ciclo de vida de las suscripciones y utiliza los aggregates y políticas del dominio para mantener las reglas de negocio. Asimismo, utiliza los adaptadores de persistencia y el publicador de eventos para almacenar los cambios producidos y comunicar eventos relevantes hacia otros bounded contexts.
+
+Para las operaciones que requieren pagos, `Payment Application Service` utiliza `Stripe Adapter`, que encapsula la comunicación con el proveedor externo Stripe. Las confirmaciones o fallos de pago regresan hacia Guardian+ mediante el `Payment Webhook Controller`.
+
 ##### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
-Pendiente 
+En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado como referencia para la implementación del contexto.
+
 ###### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-pendiente
+El siguiente diagrama UML representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
+
+![Subscriptions Domain Layer Class Diagram](../assets/images/chapterII/Subscriptions/SubscriptionCodeLevelDiagrams.png)
+
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración. Dentro de su modelo participan entidades como `Plan`, `PaymentAttempt`, `RenewalOrder` y `CancellationRequest`.
+
+`EntitlementSet` administra la colección de `EntitlementItem` habilitados para una suscripción. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `Money`, `Period` y `RenewalPolicy` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
+
+Los estados principales de las suscripciones y los pagos se representan mediante las enumeraciones `SubscriptionStatus` y `PaymentStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
+
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-pendiente
+El siguiente diagrama presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
+
+![Subscriptions Database Design Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
+
+La tabla `subscriptions` constituye el elemento central del modelo de persistencia y relaciona al usuario suscriptor con el plan contratado. `subscription_plans` almacena la configuración comercial de los planes disponibles, mientras que `payments` registra las operaciones de pago asociadas al ciclo de vida de cada suscripción.
+
+Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
 ### 2.6.4. Bounded Context: Profile
 
@@ -4005,15 +4602,41 @@ El contexto Profile únicamente utiliza `UserId` como referencia externa y no al
 
 ##### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-pendiente
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Profile**. La vista muestra la descomposición del backend y las dependencias necesarias para administrar perfiles de usuario, información de personas bajo cuidado, relaciones de cuidado y preferencias de la aplicación.
+
+![Profile Component Level Diagram](../assets/images/chapterII/Profile/ProofileComponents.png)
+
+La **Interface Layer** está representada por `Profile REST Controllers`, encargado de exponer las operaciones disponibles hacia los clientes de Guardian+. Las solicitudes son delegadas a `Profile Application Service`, componente responsable de coordinar los diferentes casos de uso del contexto.
+
+La lógica del dominio se concentra en el aggregate `Profile` y en `Profile Completeness Policy`, que valida si la información disponible cumple con los requisitos necesarios para considerar un perfil completo.
+
+La **Infrastructure Layer** está compuesta por `Profile Repository Adapter`, `IAM Query Adapter` y `Event Publisher`. El repositorio administra la persistencia del contexto mediante `Profile Database`, mientras que `IAM Query Adapter` proporciona acceso de solo lectura a la información de identidad administrada por el Bounded Context IAM. De esta forma, Profile puede asociar la información descriptiva con un usuario autenticado sin asumir responsabilidades relacionadas con credenciales o autenticación.
+
 ##### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-Pendiente 
+En esta sección se documenta la estructura interna del Bounded Context **Profile** a nivel de código, incluyendo el modelo de clases de la Domain Layer y el diseño de persistencia utilizado como referencia para su implementación.
+
 ###### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-pendiente
+El siguiente diagrama UML presenta los elementos principales de la Domain Layer de **Profile**. El modelo se organiza alrededor del Aggregate Root `Profile`, encargado de mantener la información descriptiva correspondiente al usuario y de controlar los elementos asociados a su perfil.
+
+![Profile Domain Layer Class Diagram](../assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
+
+El Aggregate Root `Profile` contiene entidades como `Address`, `EmergencyContact` y `CareProfile`. Estas entidades representan respectivamente la información de ubicación del usuario, sus contactos asociados y la información necesaria para establecer su perfil dentro de una relación de cuidado.
+
+El dominio utiliza los Value Objects `ProfileId`, `PersonName`, `Email`, `Phone`, `DocumentId` y `BirthDate` para representar conceptos que poseen validaciones y comportamiento propios.
+
+Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determinar si un perfil contiene la información necesaria para ser considerado completo, manteniendo esta regla dentro de la Domain Layer y evitando trasladarla hacia las capas de aplicación o infraestructura.
+
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
+El siguiente diagrama representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
+
+![Profile Database Design Diagram](../assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
+
+`user_profiles` almacena la información descriptiva asociada a las cuentas administradas por IAM, mientras que `care_recipient_profiles` representa las personas bajo cuidado registradas en Guardian+.
+
+La relación entre usuarios y personas bajo cuidado se representa mediante `care_relationships`, permitiendo establecer asociaciones entre familiares o cuidadores y los perfiles correspondientes. Finalmente, `user_preferences` mantiene las configuraciones de idioma, accesibilidad y experiencia de uso asociadas a cada usuario.
 pendiente
 
 ### 2.6.5. Bounded Context: Care Routines & Wellness
@@ -4269,7 +4892,6 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 ![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
-
 
 #### 2.6.6. Bounded Context: Mobility & Geofencing
 
@@ -4826,3 +5448,4 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 ###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
+
