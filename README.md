@@ -8,19 +8,17 @@
 
 ## 1ACC0238
 
+Aplicaciones para Dispositivos Móviles
+
 12980
+
+Docente: **Mayta Guillermo, Jorge Luis**
 
 Informe del Trabajo Final
 
-Docente
+Equipo: Healthify
 
-**Mayta Guillermo, Jorge Luis**
-
-
-Equipo
-
-
-Proyecto  
+Proyecto: Guardian+
 
 ---
 
@@ -32,8 +30,8 @@ u20241d185 - Luis Miranda, Diego Andres
 u202421866 - López Monroy, Rodrigo Alfredo  
 u202419494 - Sanchez Cuadrado, Juan Antonio
 ---
-
-*Abril, 2026*
+2026 - 2
+*Septiembre, 2026*
 
 </div>
 
@@ -46,8 +44,8 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 ## Project Report Collaboration Insights
 
 **URL del repositorio:** 
-
-(Explicar cómo se desarrollaron las actividades de elaboración del informe, e incluir capturas de los analíticos de colaboración y commits en GitHub del repositorio del informe)
+![alt text](<assets/images/Insights/chapter 1/report-insights-cover.png>)
+https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.git
 
 ## Contenido
 
