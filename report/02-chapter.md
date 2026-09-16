@@ -1867,10 +1867,6 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 
 ![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
 
-#### Bounded Context: Mobility & Geofencing
-**Flujo - Salida de zona segura**
-![Domain Message Flow - exit the safe zone](../assets/images/chapterII/domain-message-flows/Exit%20from%20the%20safe%20zone_Geofecing.png)
-
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
@@ -5156,12 +5152,14 @@ com.guardianplus.platform.mobilitygeofencing/
 ```
 ##### 2.6.6.1. Domain Layer
 
-Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable.
+Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
 
 ###### Aggregates
 
 *   **SafeZone**
-    *   Responsabilidad: Representa una zona geográfica segura configurada para un Fragile Citizen. Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
+    *   Agregado raíz que representa una zona geográfica segura configurada para un Fragile Citizen.
+    *   Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
+    *   Es responsable de preservar la consistencia de la configuración de la zona, incluyendo su estado activo.
     *   *Atributos:*
         *   id: SafeZoneId
         *   fragileCitizenId: FragileCitizenId
@@ -5171,7 +5169,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   createdAt: Instant
         *   updatedAt: Instant
     *   *Métodos:*
-        *   SafeZone(SafeZoneId id, FragileCitizenId fragileCitizenId, String name, SafeZoneBoundary boundary)
+        *   SafeZone(CreateSafeZoneCommand command)
         *   updateBoundary(SafeZoneBoundary boundary): void
         *   activate(): void
         *   deactivate(): void
@@ -5179,7 +5177,8 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   isActive(): boolean
 
 *   **LocationTracking**
-    *   Responsabilidad: Representa el estado actual de seguimiento de ubicación de un Fragile Citizen. Mantiene únicamente el último punto conocido para optimizar el rendimiento transaccional.
+    *   Agregado raíz que representa el registro de seguimiento de ubicación de un Fragile Citizen.
+    *   Cada ubicación recibida se procesa y conserva como parte del historial de seguimiento, evitando que el agregado SafeZone tenga que mantener una colección potencialmente ilimitada de ubicaciones.
     *   *Atributos:*
         *   id: LocationTrackingId
         *   fragileCitizenId: FragileCitizenId
@@ -5187,7 +5186,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   currentStatus: LocationStatus
         *   lastUpdatedAt: Instant
     *   *Métodos:*
-        *   LocationTracking(LocationTrackingId id, FragileCitizenId fragileCitizenId)
+        *   LocationTracking(FragileCitizenId fragileCitizenId)
         *   recordLocation(Location location, LocationStatus status): void
         *   getCurrentLocation(): Location
         *   getCurrentStatus(): LocationStatus
@@ -5196,6 +5195,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 
 *   **ZoneViolation**
     *   Entidad que representa el registro de una ubicación que fue determinada como externa a una SafeZone activa.
+    *   Su propósito es conservar la ocurrencia de la violación dentro del contexto de movilidad. La generación y gestión de la alerta correspondiente pertenece a Emergency & Alerting.
     *   *Atributos:*
         *   id: ZoneViolationId
         *   safeZoneId: SafeZoneId
@@ -5209,34 +5209,37 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 
 ###### Value Objects
 
-*   **Coordinates:** Encapsula las coordenadas geográficas (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
-*   **Location:** Ubicaión capturada (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Inmutable
-*   **SafeZoneBoundary:** Límites geográficos (center: Coordinates, radiusInMeters: Double). Invariante: radio > 0. Método: contains(Coordinates coordinates).
-*   **LocationStatus:** ENUM( WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE).
-*   **SafeZoneStatus:** ENUM( ACTIVE, INACTIVE).
-*   **SafeZoneId**,**LocationTrackingId**, **ZoneViolationId**,  **FragileCitizenId:** Strongly Typed Identifiers basados en UUID
+*   **Coordinates:** Encapsula las coordenadas geográficas de una ubicación (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
+*   **Location:** Representa una ubicación capturada por el wearable (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Es inmutable y representa el valor recibido para un instante determinado.
+*   **SafeZoneBoundary:** Encapsula los límites geográficos de una SafeZone mediante un centro y un radio (center: Coordinates, radiusInMeters: Double). Invariante: radio mayor que 0. Método: contains(Coordinates coordinates).
+*   **LocationStatus:** Representa el resultado de la evaluación de una ubicación respecto a una zona segura. Valores: WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE.
+*   **SafeZoneStatus:** Representa el estado de una zona segura. Valores: ACTIVE, INACTIVE.
+*   **SafeZoneId:** Identificador inmutable de una zona segura, basado en UUID.
+*   **LocationTrackingId:** Identificador inmutable del agregado de seguimiento, basado en UUID.
+*   **ZoneViolationId:** Identificador inmutable de una violación de zona, basado en UUID.
+*   **FragileCitizenId:** Identificador de referencia inmutable del Fragile Citizen monitoreado.
 
 ###### Domain Services
 
 *   **GeofenceEvaluationService**
-    *   Responsabilidad: Servicio de dominio que evalúa una ubicación contra los límites de una SafeZoneBoundary.
+    *   Servicio de dominio encargado de evaluar una ubicación contra los límites de una SafeZone.
+    *   Se utiliza porque la evaluación geográfica no representa una responsabilidad exclusiva de una única entidad y requiere aplicar una regla espacial del dominio.
     *   *Métodos:*
         *   evaluate(Location location, SafeZoneBoundary boundary): LocationStatus
         *   isInside(Location location, SafeZoneBoundary boundary): boolean
 
 ###### Commands & Queries (Domain Model)
 
- *  **Commands**
-      *   CreateSafeZoneCommand(FragileCitizenId fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
-      *   UpdateSafeZoneCommand(SafeZoneId safeZoneId, String name, Coordinates center, Double radiusInMeters)
-      *   ActivateSafeZoneCommand(UUID safeZoneId)
-      *   DeactivateSafeZoneCommand(UUID safeZoneId)
-      *   ReceiveLocationCommand(FragileCitizenId fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
-
-    **Queries**
-      *   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
-      *   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
-      *   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
+*   CreateSafeZoneCommand(UUID fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
+*   UpdateSafeZoneCommand(UUID safeZoneId, String name, Coordinates center, Double radiusInMeters)
+*   ActivateSafeZoneCommand(UUID safeZoneId)
+*   DeactivateSafeZoneCommand(UUID safeZoneId)
+*   ReceiveLocationCommand(UUID fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
+*   EvaluateLocationCommand(UUID fragileCitizenId, UUID locationTrackingId)
+*   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
+*   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationStatusQuery(FragileCitizenId fragileCitizenId)
 
 ###### Domain Events
 
@@ -5650,10 +5653,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-![class-diagram](../assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
-
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
-![class-diagram](../assets/images/chapterII/databaseDiagrams/database_diagram.png)
 
 #### 2.6.7. Bounded Context: IAM
 
@@ -5916,81 +5916,7 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 ---
 
 ##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
-
-El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **IAM**, siguiendo la misma vista C4 de componentes utilizada para Health Monitoring: la app móvil y el proveedor externo de correo interactúan con la **Interface Layer**, que delega en la **Application Layer**; esta orquesta los casos de uso contra la **Domain Layer** e invoca los puertos de salida implementados por la **Infrastructure Layer**, la cual persiste en `Guardian+ Database` y expone el JWT firmado (Published Language del Open Host Service) hacia los Bounded Contexts descendentes. Se modela con Structurizr DSL:
-
-```dsl
-workspace "Guardian+ - IAM" "Component view of the IAM Bounded Context within the Guardian+ platform" {
-
-    model {
-        mobileApp = softwareSystem "Guardian+ Mobile Application" "Aplicación móvil utilizada por cuidadores y familiares para registrarse, iniciar sesión, verificar el OTP y recuperar su contraseña." "Mobile App"
-
-        emailProvider = softwareSystem "Email Provider" "Servicio externo de envío de correos: verificación de cuenta, código OTP y recuperación de contraseña." "External System"
-
-        downstreamContexts = softwareSystem "Downstream Bounded Contexts" "Profile, Subscriptions, Health Monitoring, Emergency & Alerting y Mobility & Geofencing: validan localmente el JWT emitido por IAM." "Bounded Context"
-
-        guardianPlus = softwareSystem "Guardian+ Platform" {
-
-            iam = container "IAM (Bounded Context)" "Gestiona identidad, credenciales, autenticación de dos factores (OTP) y recuperación de contraseña." "Java / Spring Boot" {
-
-                interfaceLayer = component "Interface Layer" "Expone AuthController y UserAccountsController (API REST) y traduce las peticiones HTTP a comandos y consultas." "Spring MVC / REST Controllers"
-
-                applicationLayer = component "Application Layer" "Orquesta los casos de uso de registro, verificación de correo, login, OTP y reseteo de contraseña mediante Command/Query Services y Event Handlers." "Application Services / Handlers"
-
-                domainLayer = component "Domain Layer" "Encapsula los agregados UserAccount y OneTimePassword, sus Value Objects y las políticas de unicidad de credenciales, verificación de correo y autenticación de dos factores." "Plain Java Domain Objects"
-
-                infrastructureLayer = component "Infrastructure Layer" "Implementa los repositorios JPA, el hashing de contraseñas (BCrypt), la firma/validación de JWT y el adaptador de envío de correo." "Spring Data JPA / Security Adapters"
-            }
-
-            database = container "Guardian+ Database" "Persiste las tablas user_accounts y one_time_passwords." "PostgreSQL" "Database"
-        }
-
-        mobileApp -> interfaceLayer "Se registra, inicia sesión, verifica el OTP y recupera su contraseña" "JSON / HTTPS"
-        interfaceLayer -> applicationLayer "Invoca casos de uso (comandos y consultas)" "In-process"
-        applicationLayer -> domainLayer "Ejecuta la lógica de negocio y aplica las políticas de identidad sobre los agregados" "In-process"
-        applicationLayer -> infrastructureLayer "Invoca puertos de salida para persistencia, hashing, JWT y envío de correo" "In-process"
-        infrastructureLayer -> domainLayer "Implementa las interfaces de repositorio del dominio" "In-process"
-        infrastructureLayer -> database "Lee y escribe UserAccount y OneTimePassword" "JDBC / PostgreSQL"
-        infrastructureLayer -> emailProvider "Envía correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña" "SMTP / API"
-        infrastructureLayer -> downstreamContexts "Publica el JWT firmado (Published Language) validado en cada petición" "JWT / HTTPS Header"
-    }
-
-    views {
-        component iam "IAM_Components" "Component View: Guardian+ Platform - IAM (Bounded Context)" {
-            include *
-            autoLayout lr
-        }
-
-        styles {
-            element "Mobile App" {
-                background #2b2b52
-                color #ffffff
-                shape MobileDevicePortrait
-            }
-            element "External System" {
-                background #f4b400
-                color #000000
-            }
-            element "Bounded Context" {
-                background #c62828
-                color #ffffff
-                shape Hexagon
-            }
-            element "Database" {
-                background #2e7d32
-                color #ffffff
-                shape Cylinder
-            }
-            element "Component" {
-                background #1565c0
-                color #ffffff
-            }
-        }
-    }
-}
-```
-
-La `Interface Layer` recibe las solicitudes de registro, verificación de correo, login, verificación de OTP y recuperación de contraseña provenientes de la app móvil, delegando su procesamiento a la `Application Layer`. Esta coordina los `Command Services` y `Query Services` sobre los agregados `UserAccount` y `OneTimePassword` de la `Domain Layer`, y utiliza la `Infrastructure Layer` para persistir el estado, hashear/validar contraseñas, emitir/validar el JWT y despachar los correos de verificación, OTP y recuperación mediante `EmailProviderAdapter`. Finalmente, el JWT firmado constituye el Published Language que los Bounded Contexts descendentes consumen para autorizar sus propias operaciones sin consultar síncronamente la base de datos de identidad.
+![alt text](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
 ##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
