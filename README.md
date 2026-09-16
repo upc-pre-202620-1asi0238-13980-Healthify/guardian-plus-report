@@ -159,7 +159,6 @@ https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.
         - [2.6.7.6.1. Bounded Context Domain Layer Class Diagrams](report/02-chapter.md#26761-bounded-context-domain-layer-class-diagrams)
         - [2.6.7.6.2. Bounded Context Database Design Diagram](report/02-chapter.md#26762-bounded-context-database-design-diagram)
 
-
 ## Student Outcome
 
 Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video *About The Team*.
