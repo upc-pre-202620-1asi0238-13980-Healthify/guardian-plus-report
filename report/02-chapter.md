@@ -4192,7 +4192,8 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
-![alt text](../assets/images/chapterII/classDiagrams/HelathMonitoringDomainClassDiagram.png)
+
+![alt text](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
 ![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
