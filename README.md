@@ -171,10 +171,41 @@ Criterio: *La capacidad de adquirir y aplicar nuevos conocimientos según sea ne
 
 En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
-| Criterio específico | Acciones realizadas | Conclusiones |
-|---|---|---|
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. | **Azama Fukuda, Juan Pablo**<br>*TB1:* Investigué y apliqué el patrón Bounded Context Canvas (Nick Tune V1) y el enfoque táctico de Domain-Driven Design (agregados, value objects, domain services y repositorios) para diseñar desde cero el Bounded Context IAM: registro y verificación de credenciales, autenticación con segundo factor (OTP) y recuperación de contraseña. También diseñé y documenté el Bounded Context Health Monitoring, contrastando mi propio modelo de dominio contra el diagrama de clases que ya habíamos elaborado como equipo para asegurarme de que ambos coincidieran. Redacté y prioricé las User Stories del proyecto, documenté el User Task Matrix y elaboré el análisis competitivo con las estrategias frente a nuestros competidores. Para terminar de documentar IAM aprendí por mi cuenta dos notaciones que no vimos en clase, Structurizr DSL para el diagrama de componentes C4 y PlantUML para el diagrama de clases, y las apliqué directamente sobre mi propio diseño. | Como equipo notamos que avanzar con Guardian+ nos obligó a reforzar conceptos que no dominábamos del todo, sobre todo en Domain-Driven Design estratégico y táctico, y en notaciones de arquitectura (C4, Structurizr, PlantUML) que terminamos aplicando directamente sobre nuestro propio backend en vez de quedarnos solo con la teoría vista en clase. |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | **Azama Fukuda, Juan Pablo**<br>*TB1:* Como team leader revisé la coherencia entre los artefactos de DDD que ya teníamos (EventStorming, Bounded Context Canvases y diseño táctico) y esto me forzó a aprender nuevos conceptos relacionados a DDD. De la misma manera, al diseñar los bounded context de IAM, tuve que investigar sobre los conceptos de OTP y servicios de envío de correos electróncios, actualmente es una primera iteración de diseño pero con el tiempo todo se irá refinando poco a poco. Esto me da a comprender que, obviamente, a lo largo de mi carrera siempre tendré que aprender conocimiento técnicos nuevos, al igual que mejorar mis habilidades blandas |
+<table>
+<thead>
+<tr>
+<th>Criterio específico</th>
+<th>Acciones realizadas</th>
+<th>Conclusiones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td>
+<td><strong>Azama Fukuda, Juan Pablo</strong><br><em>TB1:</em> Investigué y apliqué el patrón Bounded Context Canvas (Nick Tune V1) y el enfoque táctico de Domain-Driven Design (agregados, value objects, domain services y repositorios) para diseñar desde cero el Bounded Context IAM: registro y verificación de credenciales, autenticación con segundo factor (OTP) y recuperación de contraseña. También diseñé y documenté el Bounded Context Health Monitoring, contrastando mi propio modelo de dominio contra el diagrama de clases que ya habíamos elaborado como equipo para asegurarme de que ambos coincidieran. Redacté y prioricé las User Stories del proyecto, documenté el User Task Matrix y elaboré el análisis competitivo con las estrategias frente a nuestros competidores. Para terminar de documentar IAM aprendí por mi cuenta dos notaciones que no vimos en clase, Structurizr DSL para el diagrama de componentes C4 y PlantUML para el diagrama de clases, y las apliqué directamente sobre mi propio diseño. 
+
+<br>
+<strong>Mechan Montenegro, Luciana Carolina</strong><br><em>TB1:</em> Reforcé el concepto de Análisis Competitivo como herramienta estratégica para contrastar la propuesta de valor de una solución frente al mercado, aplicándolo dentro del contexto específico de este proyecto. Amplié y actualicé mis conocimientos sobre User Personas dentro del proceso de Needfinding, afinando la forma en que sintetizo información cualitativa en arquetipos de usuario. Profundicé en Domain-Driven Design (DDD) a nivel estratégico, reforzando el uso de Event Storming como técnica colaborativa para el descubrimiento del dominio, así como el Bounded Context Canvas para delimitar responsabilidades entre subdominios. De igual forma, actualicé mi manejo del C4 Model para la representación de arquitectura de software en distintos niveles de abstracción, y reforcé el concepto de Ubiquitous Language como práctica para establecer un vocabulario común entre el equipo técnico y los stakeholders del negocio.
+</td>
+
+
+
+<td>Como equipo notamos que avanzar con Guardian+ nos obligó a reforzar conceptos que no dominábamos del todo, sobre todo en Domain-Driven Design estratégico y táctico, y en notaciones de arquitectura (C4, Structurizr, PlantUML) que terminamos aplicando directamente sobre nuestro propio backend en vez de quedarnos solo con la teoría vista en clase.</td>
+</tr>
+<tr>
+<td>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td>
+<td><strong>Azama Fukuda, Juan Pablo</strong><br><em>TB1:</em> Como team leader revisé la coherencia entre los artefactos de DDD que ya teníamos (EventStorming, Bounded Context Canvases y diseño táctico) y esto me forzó a aprender nuevos conceptos relacionados a DDD. De la misma manera, al diseñar los bounded context de IAM, tuve que investigar sobre los conceptos de OTP y servicios de envío de correos electrónicos, actualmente es una primera iteración de diseño pero con el tiempo todo se irá refinando poco a poco. Esto me da a comprender que, obviamente, a lo largo de mi carrera siempre tendré que aprender conocimientos técnicos nuevos, al igual que mejorar mis habilidades blandas.
+
+<br>
+<strong>Mechan Montenegro, Luciana Carolina</strong><br><em>TB1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez. 
+
+
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Objetivos SMART
 
@@ -198,3 +229,21 @@ Objetivo SMART 2 — Contribución medible de valor:
 - A: realista para un ingeniero que busca responsabilidad propia activamente desde el inicio.
 - R: responde directamente a "crear valor" y "contribuciones significativas", algo que considero que es importante para mi crecimiento.
 - T: 2 años desde el inicio de la carrera profesional.
+
+### <Mechan Montenegro, Luciana Carolina>
+
+**Objetivo SMART 1:**
+Durante los primeros 18 meses después de graduarme, me desempeñaré como desarrolladora backend en una empresa de tecnología, consolidando experiencia práctica en el diseño e implementación de servicios backend y arquitecturas escalables en proyectos reales de producción. Para ello, comenzaré desde ahora a prepararme para obtener una certificación relacionada a arquitectura de software en la nube (por ejemplo, AWS Certified Solutions Architect – Associate o equivalente), la cual buscaré tener lista como máximo dentro de los primeros meses tras egresar.
+- *Specific:* Desempeñarme como desarrolladora backend consolidando experiencia en diseño de servicios y arquitecturas escalables, y obtener una certificación en arquitectura cloud.
+- *Measurable:* Un puesto laboral formal como backend developer y una certificación obtenida.
+- *Achievable:* Cuento con base técnica previa en desarrollo backend y arquitectura de software desarrollada durante la carrera, y ya puedo empezar a prepararme para la certificación desde ahora.
+- *Relevant:* Sienta las bases técnicas necesarias para avanzar hacia roles de mayor responsabilidad en arquitectura de software.
+- *Time-bound:* Certificación lista a más tardar en los primeros meses tras la graduación; consolidación en el rol backend dentro de los 18 meses posteriores.
+
+**Objetivo SMART 2:**
+En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad técnica (Senior Backend Developer o Software Architect Jr.) en el que participe activamente en la toma de decisiones de arquitectura de software, como definición de bounded contexts, patrones de integración entre servicios y selección de tecnologías, habiendo liderado o co-liderado al menos dos proyectos de diseño o migración de arquitectura de software dentro de ese periodo.
+- *Specific:* Asumir un rol donde participe en decisiones de arquitectura de software, con al menos dos proyectos liderados o co-liderados en ese ámbito.
+- *Measurable:* Cargo formal alcanzado y número de proyectos de arquitectura en los que haya participado activamente.
+- *Achievable:* Es una progresión natural desde un rol de desarrollo backend, apoyada en la experiencia técnica acumulada desde la universidad.
+- *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
+- *Time-bound:* 4 años después de la graduación.
