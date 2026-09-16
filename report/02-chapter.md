@@ -5440,5 +5440,8 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
+![class-diagram](../assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
+
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
+![class-diagram](../assets/images/chapterII/databaseDiagrams/database_diagram.png)
 
