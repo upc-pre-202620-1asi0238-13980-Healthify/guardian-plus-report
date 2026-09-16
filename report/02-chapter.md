@@ -5449,3 +5449,12 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
 
+#### Guardian+ Physical Database Schema
+
+Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, el siguiente diagrama presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
+
+El Physical Schema ERD integra las principales tablas utilizadas por los distintos contextos del sistema y permite visualizar de manera conjunta sus claves primarias, claves foráneas y relaciones. Esta representación facilita la comprensión de cómo los datos persistentes de identidad, perfiles, suscripciones, monitoreo de salud, alertas, rutinas de cuidado y demás capacidades de Guardian+ se relacionan dentro de la infraestructura de almacenamiento.
+
+![Guardian+ Physical Schema ERD](../assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
+
+El modelo mantiene la separación lógica definida mediante los Bounded Contexts, mientras que las referencias necesarias entre sus datos persistentes se representan mediante identificadores y relaciones explícitas. De esta manera, el esquema físico proporciona una visión integral de la persistencia sin sustituir los Database Design Diagrams particulares documentados previamente para cada contexto.
