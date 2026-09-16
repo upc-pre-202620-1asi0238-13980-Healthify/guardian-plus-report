@@ -41,7 +41,7 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 | Versión | Fecha | Autor | Descripción de modificación |
 |---|---|---|---|
-| 1.0 |  |  |  |
+| 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo  u20241b843 - Mechan Montenegro, Luciana Carolina  u20241d185 - Luis Miranda Diego Andres  u202421866 - López Monroy, Rodrigo Alfredo  u202419494 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 
 ## Project Report Collaboration Insights
 
