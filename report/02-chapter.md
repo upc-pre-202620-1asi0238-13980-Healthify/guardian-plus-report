@@ -4946,14 +4946,12 @@ com.guardianplus.platform.mobilitygeofencing/
 ```
 ##### 2.6.6.1. Domain Layer
 
-Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
+Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable.
 
 ###### Aggregates
 
 *   **SafeZone**
-    *   Agregado raíz que representa una zona geográfica segura configurada para un Fragile Citizen.
-    *   Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
-    *   Es responsable de preservar la consistencia de la configuración de la zona, incluyendo su estado activo.
+    *   Responsabilidad: Representa una zona geográfica segura configurada para un Fragile Citizen. Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
     *   *Atributos:*
         *   id: SafeZoneId
         *   fragileCitizenId: FragileCitizenId
@@ -4963,7 +4961,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   createdAt: Instant
         *   updatedAt: Instant
     *   *Métodos:*
-        *   SafeZone(CreateSafeZoneCommand command)
+        *   SafeZone(SafeZoneId id, FragileCitizenId fragileCitizenId, String name, SafeZoneBoundary boundary)
         *   updateBoundary(SafeZoneBoundary boundary): void
         *   activate(): void
         *   deactivate(): void
@@ -4971,8 +4969,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   isActive(): boolean
 
 *   **LocationTracking**
-    *   Agregado raíz que representa el registro de seguimiento de ubicación de un Fragile Citizen.
-    *   Cada ubicación recibida se procesa y conserva como parte del historial de seguimiento, evitando que el agregado SafeZone tenga que mantener una colección potencialmente ilimitada de ubicaciones.
+    *   Responsabilidad: Representa el estado actual de seguimiento de ubicación de un Fragile Citizen. Mantiene únicamente el último punto conocido para optimizar el rendimiento transaccional.
     *   *Atributos:*
         *   id: LocationTrackingId
         *   fragileCitizenId: FragileCitizenId
@@ -4980,7 +4977,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   currentStatus: LocationStatus
         *   lastUpdatedAt: Instant
     *   *Métodos:*
-        *   LocationTracking(FragileCitizenId fragileCitizenId)
+        *   LocationTracking(LocationTrackingId id, FragileCitizenId fragileCitizenId)
         *   recordLocation(Location location, LocationStatus status): void
         *   getCurrentLocation(): Location
         *   getCurrentStatus(): LocationStatus
@@ -4989,7 +4986,6 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 
 *   **ZoneViolation**
     *   Entidad que representa el registro de una ubicación que fue determinada como externa a una SafeZone activa.
-    *   Su propósito es conservar la ocurrencia de la violación dentro del contexto de movilidad. La generación y gestión de la alerta correspondiente pertenece a Emergency & Alerting.
     *   *Atributos:*
         *   id: ZoneViolationId
         *   safeZoneId: SafeZoneId
@@ -5003,37 +4999,34 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 
 ###### Value Objects
 
-*   **Coordinates:** Encapsula las coordenadas geográficas de una ubicación (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
-*   **Location:** Representa una ubicación capturada por el wearable (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Es inmutable y representa el valor recibido para un instante determinado.
-*   **SafeZoneBoundary:** Encapsula los límites geográficos de una SafeZone mediante un centro y un radio (center: Coordinates, radiusInMeters: Double). Invariante: radio mayor que 0. Método: contains(Coordinates coordinates).
-*   **LocationStatus:** Representa el resultado de la evaluación de una ubicación respecto a una zona segura. Valores: WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE.
-*   **SafeZoneStatus:** Representa el estado de una zona segura. Valores: ACTIVE, INACTIVE.
-*   **SafeZoneId:** Identificador inmutable de una zona segura, basado en UUID.
-*   **LocationTrackingId:** Identificador inmutable del agregado de seguimiento, basado en UUID.
-*   **ZoneViolationId:** Identificador inmutable de una violación de zona, basado en UUID.
-*   **FragileCitizenId:** Identificador de referencia inmutable del Fragile Citizen monitoreado.
+*   **Coordinates:** Encapsula las coordenadas geográficas (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
+*   **Location:** Ubicaión capturada (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Inmutable
+*   **SafeZoneBoundary:** Límites geográficos (center: Coordinates, radiusInMeters: Double). Invariante: radio > 0. Método: contains(Coordinates coordinates).
+*   **LocationStatus:** ENUM( WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE).
+*   **SafeZoneStatus:** ENUM( ACTIVE, INACTIVE).
+*   **SafeZoneId**,**LocationTrackingId**, **ZoneViolationId**,  **FragileCitizenId:** Strongly Typed Identifiers basados en UUID
 
 ###### Domain Services
 
 *   **GeofenceEvaluationService**
-    *   Servicio de dominio encargado de evaluar una ubicación contra los límites de una SafeZone.
-    *   Se utiliza porque la evaluación geográfica no representa una responsabilidad exclusiva de una única entidad y requiere aplicar una regla espacial del dominio.
+    *   Responsabilidad: Servicio de dominio que evalúa una ubicación contra los límites de una SafeZoneBoundary.
     *   *Métodos:*
         *   evaluate(Location location, SafeZoneBoundary boundary): LocationStatus
         *   isInside(Location location, SafeZoneBoundary boundary): boolean
 
 ###### Commands & Queries (Domain Model)
 
-*   CreateSafeZoneCommand(UUID fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
-*   UpdateSafeZoneCommand(UUID safeZoneId, String name, Coordinates center, Double radiusInMeters)
-*   ActivateSafeZoneCommand(UUID safeZoneId)
-*   DeactivateSafeZoneCommand(UUID safeZoneId)
-*   ReceiveLocationCommand(UUID fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
-*   EvaluateLocationCommand(UUID fragileCitizenId, UUID locationTrackingId)
-*   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
-*   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
-*   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
-*   GetLocationStatusQuery(FragileCitizenId fragileCitizenId)
+ *  **Commands**
+      *   CreateSafeZoneCommand(FragileCitizenId fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
+      *   UpdateSafeZoneCommand(SafeZoneId safeZoneId, String name, Coordinates center, Double radiusInMeters)
+      *   ActivateSafeZoneCommand(UUID safeZoneId)
+      *   DeactivateSafeZoneCommand(UUID safeZoneId)
+      *   ReceiveLocationCommand(FragileCitizenId fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
+
+    **Queries**
+      *   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
+      *   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
+      *   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
 
 ###### Domain Events
 
