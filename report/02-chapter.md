@@ -5927,7 +5927,7 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ###### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-*(Diagrama de base de datos pendiente de elaboración.)*
+![alt text](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 #### Guardian+ Physical Database Schema
 
