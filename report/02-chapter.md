@@ -286,7 +286,22 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 ![user-persona-2](../assets/images/chapterII/user-persona-2.png)
 
 #### 2.3.2. User Task Matrix
-| Task (Adaptado para supervisión) | Familiares – Frecuencia | Familiares – Importancia | Cuidadores – Frecuencia | Cuidadores – Importancia |
+
+##### Introducción
+
+El User Task Matrix que se presenta a continuación concentra las tareas que cada User Persona realiza para cumplir sus objetivos de cuidado y supervisión. Es fundamental distinguir entre **tareas** (actividades realizadas por los usuarios independientemente de la existencia de Guardian+) y **características de software** (funcionalidades que la solución proporciona). Las tareas aquí identificadas representan actividades que los usuarios realizan actualmente mediante métodos manuales, informales o tradicionales para garantizar el bienestar y la seguridad del ciudadano frágil.
+
+Los User Personas analizados son:
+- **María Fernanda Rojas Ibáñez**: Representa a familiares que asumen la responsabilidad del cuidado y supervisión a distancia.
+- **Roxana Paola Diana Ramírez**: Representa a cuidadores que brindan atención directa y cotidiana.
+
+Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
+- **Frecuencia**: Regularidad con que realiza la tarea (Baja, Media, Alta).
+- **Importancia**: Criticidad de la tarea para cumplir objetivos de cuidado (Baja, Media, Alta).
+
+##### Matriz de Tareas de Usuario
+
+| Tarea | María Fernanda – Frecuencia | María Fernanda – Importancia | Roxana Paola – Frecuencia | Roxana Paola – Importancia |
 |---|---|---|---|---|
 | Supervisar toma de medicamentos | Media | Alta | Alta | Alta |
 | Monitorear signos vitales | Media | Alta | Alta | Alta |
@@ -295,6 +310,37 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 | Revisar reportes médicos | Alta | Alta | Media | Media |
 | Acompañar en citas médicas | Baja | Media | Alta | Alta |
 | Supervisar rutinas diarias | Baja | Alta | Alta | Alta |
+| Coordinar acciones de cuidado | Baja | Alta | Media | Alta |
+| Registrar cambios en el estado de salud | Media | Alta | Alta | Alta |
+| Comunicar información a otros miembros del círculo de cuidado | Media | Alta | Alta | Alta |
+
+##### Análisis de Resultados
+
+**Tareas de Mayor Frecuencia e Importancia:**
+
+- **Roxana Paola (Cuidadora)**: Las tareas con mayor impacto son la supervisión de medicamentos, el monitoreo de signos vitales, el conocimiento del estado general de salud, el acompañamiento en citas médicas, la supervisión de rutinas diarias y el registro de cambios en el estado de salud. Todas estas se realizan con alta frecuencia y son consideradas de alta importancia. Esto refleja que la responsabilidad cotidiana y directa del cuidador requiere una vigilancia continua y sistemática del Fragile Citizen.
+
+- **María Fernanda (Familiar)**: La revisión de reportes médicos es la única tarea que realiza con alta frecuencia; sin embargo, tareas como supervisar medicamentos, monitorear signos vitales, conocer el estado general de salud, registrar cambios y comunicar información con el círculo de cuidado son consideradas de alta importancia aunque se realicen con frecuencia media. Esta combinación refleja que María Fernanda requiere información periódica y resumida que le permita mantener la tranquilidad sin necesidad de supervisión continua.
+
+**Principales Diferencias entre User Personas:**
+
+1. **Proximidad y Naturaleza del Contacto**: Roxana Paola, como cuidadora, está físicamente presente y realiza tareas de supervisión con alta frecuencia. María Fernanda, como familiar a distancia, realiza tareas principalmente a través de información indirecta (reportes, alertas, comunicación con otros cuidadores).
+
+2. **Responsabilidad en Actividades Médicas**: Roxana Paola acompaña frecuentemente al ciudadano frágil en citas médicas (Alta, Alta), siendo una tarea operativa clave. María Fernanda participa ocasionalmente (Baja, Media), coordinando de forma puntual.
+
+3. **Tipo de Información Requerida**: Roxana Paola necesita información operativa detallada para ejecutar el cuidado día a día (medicamentos específicos, horarios, signos vitales actuales). María Fernanda requiere información estratégica y tendencias (reportes periódicos, cambios generales en el estado de salud).
+
+4. **Frecuencia en Monitoreo de Reportes**: María Fernanda revisa reportes médicos con alta frecuencia, lo que constituye su principal fuente de información verificable. Roxana Paola lo hace con frecuencia media, ya que está en contacto directo con cambios que puede observar en tiempo real.
+
+**Principales Coincidencias entre User Personas:**
+
+1. **Importancia Crítica de Alertas de Emergencia**: Ambas personas, a pesar de diferencias en frecuencia (ambas Baja), consideran de alta importancia atender alertas de emergencia. Esta coincidencia refleja una preocupación compartida: estar preparadas para responder rápidamente ante situaciones críticas.
+
+2. **Monitoreo de Salud como Tarea Central**: La supervisión de medicamentos y el monitoreo de signos vitales son tareas de alta importancia para ambas. En Roxana Paola es operativo (Alta frecuencia); en María Fernanda es verificador (Media frecuencia), pero ambas reconocen que estos indicadores son fundamentales.
+
+3. **Necesidad de Comunicación en el Círculo de Cuidado**: Ambas valoran la comunicación con otros miembros del círculo de cuidado como tarea importante. Para Roxana Paola es un deber operativo (Media-Alta); para María Fernanda es un mecanismo de coordinación y control.
+
+4. **Registro y Seguimiento**: Tanto María Fernanda como Roxana Paola reconocen la importancia de registrar cambios en el estado de salud. Para la cuidadora es operativo y diario; para la familiar es analítico y periódico, pero ambas usan esta información para tomar decisiones.
 #### 2.3.3. User Journey Mapping
 
 En esta sección se presentan los User Journey Maps As-Is elaborados para los User Personas correspondientes a los segmentos objetivo de Guardian+. Estos artefactos permiten representar el recorrido actual que realizan los usuarios para cumplir sus objetivos de cuidado y supervisión, antes de la existencia de la solución Guardian+.
