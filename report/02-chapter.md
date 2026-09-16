@@ -2236,6 +2236,7 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 </td>
 </tr>
 </table>
+
 #### Bounded Context: Subscriptions (Generic Domain)
 
 <!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
@@ -2482,6 +2483,7 @@ Interactions with other bounded contexts and services
 </td>
 </tr>
 </table>
+
 #### Bounded Context: Profile (Generic Domain)
 
 <!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
@@ -2511,6 +2513,7 @@ Proporciona la identidad descriptiva, las relaciones de cuidado y las preferenci
 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
 
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+
 <div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
 Summary of purpose and responsibilities - not implementation
 </div>
@@ -2767,6 +2770,359 @@ Interactions with other bounded contexts and services
 </td>
 </tr>
 </table>
+
+#### Bounded Context: Mobility & Geofencing (Supporting Domain)
+<!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
+<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<tr>
+
+<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
+<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
+Mobility &amp; Geofencing
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+core/supportive/generic/other
+</div>
+
+<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
+<strong>Supporting - </strong>
+Proporciona capacidades de seguimiento de ubicación y control de zonas seguras que complementan las funciones principales de monitoreo y respuesta ante emergencias de Guardian+.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
+Summary of purpose and responsibilities - not implementation
+</div>
+
+<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
+Gestiona el seguimiento de ubicación de la persona bajo cuidado, administra las Safe Zones configuradas y evalúa las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una violación de dicha zona.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
+Key business rules and policies
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
+
+<tr>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Safe Zone Boundary Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Location Validation Policy
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Zone Violation Detection Policy
+</td>
+
+</tr>
+
+<tr>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+La ubicación se evalúa respecto a la zona segura activa configurada.
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Solo se procesan ubicaciones que contengan coordenadas válidas y una marca temporal válida.
+</td>
+
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
+Una salida de la zona segura genera un evento de violación para iniciar el flujo de atención correspondiente.
+</td>
+
+</tr>
+
+</table>
+
+<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+
+<div style="font-size: 0.9em; font-weight: bold; color: #222;">
+Ubiquitous Language
+</div>
+
+<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
+Key domain terminology
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
+
+<tr>
+
+<td width="50%" valign="top">
+• Geofence<br>
+• Safe Zone<br>
+• Location<br>
+• Location Tracking
+</td>
+
+<td width="50%" valign="top">
+• Location Status<br>
+• Zone Violation<br>
+• Coordinates<br>
+• Safe Zone Boundary
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+
+<td width="58%" valign="top" style="padding: 0;">
+
+<div style="padding: 12px; border-bottom: 2px solid #333;">
+
+<div align="center">
+<strong style="font-size: 1em;">
+Capabilities &amp; Responsibilities
+</strong>
+<br>
+<span style="font-size: 0.75em; color: #777;">
+Services provided to consumers
+</span>
+</div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+
+<tr>
+
+<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
+
+<strong style="font-size: 0.85em;">
+Informational
+</strong>
+
+<br>
+
+<span style="font-size: 0.7em; color: #777;">
+Queries, reports, etc.
+</span>
+
+<br><br>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Current Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Location History
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Active Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
+Get Location Status
+</td>
+</tr>
+
+</table>
+
+</td>
+
+
+<td width="50%" valign="top" align="center" style="padding-left: 10px;">
+
+<strong style="font-size: 0.85em;">
+Actions
+</strong>
+
+<br>
+
+<span style="font-size: 0.7em; color: #777;">
+Invokable commands, scheduled tasks, etc.
+</span>
+
+<br><br>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Create Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Update Safe Zone
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Receive Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Evaluate Location
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Record Location Status
+</td>
+</tr>
+
+</table>
+
+
+<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
+
+<tr>
+<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
+Record Safe Zone Violation
+</td>
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div style="padding: 12px;">
+<div align="center" style="margin-bottom: 8px;">
+<strong style="font-size: 1em;">Dependencies</strong><br>
+<span style="font-size: 0.75em; color: #777;">
+Interactions with other bounded contexts and services
+</span>
+</div>
+
+<table width="100%" border="1" cellpadding="6" cellspacing="0"
+style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
+
+<tr bgcolor="#f5f5f5">
+<th>Name</th>
+<th>Reason</th>
+<th>System</th>
+<th>Relationship</th>
+</tr>
+
+<tr>
+<td>Wearable Device / Location Provider</td>
+<td>
+Proporciona las coordenadas de ubicación utilizadas
+para evaluar la posición del adulto mayor respecto
+a las zonas seguras configuradas.
+</td>
+<td>External</td>
+<td>In (ACL)</td>
+</tr>
+
+<tr>
+<td>Profile</td>
+<td>
+Permite asociar las geocercas con el adulto mayor
+y resolver la información contextual necesaria
+para su configuración.
+</td>
+<td>Internal</td>
+<td>In (Customer/Supplier)</td>
+</tr>
+
+<tr>
+<td>IAM</td>
+<td>
+Valida la autenticación y autorización de las
+operaciones de creación, actualización y gestión
+de geocercas.
+</td>
+<td>Internal</td>
+<td>In (OHS)</td>
+</tr>
+
+<tr>
+<td>Emergency &amp; Alerting</td>
+<td>
+Consume el evento SafeZoneBreached generado cuando
+la ubicación del adulto mayor se encuentra fuera
+de los límites de una zona segura.
+</td>
+<td>Internal</td>
+<td>Out (Published Language)</td>
+</tr>
+
+</table>
+</div>
+</td>
+
+</tr>
+
+</table>
+
 #### 2.5.2. Context Mapping
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
@@ -4536,3 +4892,560 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 ![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
+
+#### 2.6.6. Bounded Context: Mobility & Geofencing
+
+El Bounded Context Mobility & Geofencing pertenece al Supportig Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
+
+El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
+
+A diferencia de Health Monitoring, este contexto no interpreta signos vitales ni realiza evaluaciones clínicas. Asimismo, no es responsable de generar o gestionar alertas de emergencia; su responsabilidad termina en la detección y registro de eventos relacionados con la ubicación y las zonas seguras.
+
+```
+com.guardianplus.platform.mobilitygeofencing/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── entities/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   └── repositories/
+│
+├── interfaces/
+│   ├── acl/
+│   ├── events/
+│   └── rest/
+│       ├── controllers/
+│       ├── resources/
+│       └── transform/
+│
+├── application/
+│   ├── acl/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+│
+└── infrastructure/
+    ├── messaging/
+    │   └── adapters/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── embeddables/
+    │       ├── entities/
+    │       └── repositories/
+    └── wearable/
+        └── adapters/
+```
+##### 2.6.6.1. Domain Layer
+
+Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
+
+###### Aggregates
+
+*   **SafeZone**
+    *   Agregado raíz que representa una zona geográfica segura configurada para un Fragile Citizen.
+    *   Mantiene las reglas y límites necesarios para determinar si una ubicación pertenece a la zona.
+    *   Es responsable de preservar la consistencia de la configuración de la zona, incluyendo su estado activo.
+    *   *Atributos:*
+        *   id: SafeZoneId
+        *   fragileCitizenId: FragileCitizenId
+        *   name: String
+        *   boundary: SafeZoneBoundary
+        *   status: SafeZoneStatus
+        *   createdAt: Instant
+        *   updatedAt: Instant
+    *   *Métodos:*
+        *   SafeZone(CreateSafeZoneCommand command)
+        *   updateBoundary(SafeZoneBoundary boundary): void
+        *   activate(): void
+        *   deactivate(): void
+        *   contains(Location location): boolean
+        *   isActive(): boolean
+
+*   **LocationTracking**
+    *   Agregado raíz que representa el registro de seguimiento de ubicación de un Fragile Citizen.
+    *   Cada ubicación recibida se procesa y conserva como parte del historial de seguimiento, evitando que el agregado SafeZone tenga que mantener una colección potencialmente ilimitada de ubicaciones.
+    *   *Atributos:*
+        *   id: LocationTrackingId
+        *   fragileCitizenId: FragileCitizenId
+        *   currentLocation: Location
+        *   currentStatus: LocationStatus
+        *   lastUpdatedAt: Instant
+    *   *Métodos:*
+        *   LocationTracking(FragileCitizenId fragileCitizenId)
+        *   recordLocation(Location location, LocationStatus status): void
+        *   getCurrentLocation(): Location
+        *   getCurrentStatus(): LocationStatus
+
+###### Entities
+
+*   **ZoneViolation**
+    *   Entidad que representa el registro de una ubicación que fue determinada como externa a una SafeZone activa.
+    *   Su propósito es conservar la ocurrencia de la violación dentro del contexto de movilidad. La generación y gestión de la alerta correspondiente pertenece a Emergency & Alerting.
+    *   *Atributos:*
+        *   id: ZoneViolationId
+        *   safeZoneId: SafeZoneId
+        *   fragileCitizenId: FragileCitizenId
+        *   location: Location
+        *   detectedAt: Instant
+    *   *Métodos:*
+        *   ZoneViolation(SafeZoneId safeZoneId, FragileCitizenId fragileCitizenId, Location location)
+        *   getLocation(): Location
+        *   getDetectedAt(): Instant
+
+###### Value Objects
+
+*   **Coordinates:** Encapsula las coordenadas geográficas de una ubicación (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
+*   **Location:** Representa una ubicación capturada por el wearable (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Es inmutable y representa el valor recibido para un instante determinado.
+*   **SafeZoneBoundary:** Encapsula los límites geográficos de una SafeZone mediante un centro y un radio (center: Coordinates, radiusInMeters: Double). Invariante: radio mayor que 0. Método: contains(Coordinates coordinates).
+*   **LocationStatus:** Representa el resultado de la evaluación de una ubicación respecto a una zona segura. Valores: WITHIN_SAFE_ZONE, OUTSIDE_SAFE_ZONE.
+*   **SafeZoneStatus:** Representa el estado de una zona segura. Valores: ACTIVE, INACTIVE.
+*   **SafeZoneId:** Identificador inmutable de una zona segura, basado en UUID.
+*   **LocationTrackingId:** Identificador inmutable del agregado de seguimiento, basado en UUID.
+*   **ZoneViolationId:** Identificador inmutable de una violación de zona, basado en UUID.
+*   **FragileCitizenId:** Identificador de referencia inmutable del Fragile Citizen monitoreado.
+
+###### Domain Services
+
+*   **GeofenceEvaluationService**
+    *   Servicio de dominio encargado de evaluar una ubicación contra los límites de una SafeZone.
+    *   Se utiliza porque la evaluación geográfica no representa una responsabilidad exclusiva de una única entidad y requiere aplicar una regla espacial del dominio.
+    *   *Métodos:*
+        *   evaluate(Location location, SafeZoneBoundary boundary): LocationStatus
+        *   isInside(Location location, SafeZoneBoundary boundary): boolean
+
+###### Commands & Queries (Domain Model)
+
+*   CreateSafeZoneCommand(UUID fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
+*   UpdateSafeZoneCommand(UUID safeZoneId, String name, Coordinates center, Double radiusInMeters)
+*   ActivateSafeZoneCommand(UUID safeZoneId)
+*   DeactivateSafeZoneCommand(UUID safeZoneId)
+*   ReceiveLocationCommand(UUID fragileCitizenId, Coordinates coordinates, Double accuracyInMeters, Instant recordedAt)
+*   EvaluateLocationCommand(UUID fragileCitizenId, UUID locationTrackingId)
+*   GetCurrentLocationQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationHistoryQuery(FragileCitizenId fragileCitizenId, Instant periodStart, Instant periodEnd)
+*   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
+*   GetLocationStatusQuery(FragileCitizenId fragileCitizenId)
+
+###### Domain Events
+
+*   SafeZoneCreatedEvent: Emitido después de crear correctamente una nueva SafeZone.
+*   LocationReceivedEvent: Emitido después de validar y registrar una ubicación proveniente del wearable.
+*   LocationStatusUpdatedEvent: Emitido después de evaluar una ubicación y determinar su estado respecto a la SafeZone.
+*   SafeZoneViolationDetectedEvent: Emitido cuando una ubicación válida es evaluada como OUTSIDE_SAFE_ZONE. Este evento puede ser publicado hacia Emergency & Alerting, que se encarga de iniciar el flujo correspondiente de alertamiento.
+
+###### Repositories (Domain Interfaces)
+
+*   **SafeZoneRepository:**
+    *   save(SafeZone safeZone): SafeZone
+    *   findById(SafeZoneId id): Optional<SafeZone>
+    *   findActiveByFragileCitizenId(FragileCitizenId citizenId): Optional<SafeZone>
+    *   findAllByFragileCitizenId(FragileCitizenId citizenId): List<SafeZone>
+*   **LocationTrackingRepository:**
+    *   save(LocationTracking tracking): LocationTracking
+    *   findByFragileCitizenId(FragileCitizenId citizenId): Optional<LocationTracking>
+    *   findHistoryByFragileCitizenId(FragileCitizenId citizenId, Instant periodStart, Instant periodEnd): List<Location>
+*   **ZoneViolationRepository:**
+    *   save(ZoneViolation violation): ZoneViolation
+    *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
+    *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
+
+##### 2.6.6.2. Interface Layer
+
+Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes externos y sistemas con los que se integra. Esta capa transforma las solicitudes externas en comandos del dominio y adapta los eventos de dominio para su publicación hacia otros contextos, sin contener reglas propias de negocio.
+
+###### REST Controllers
+
+*   **SafeZoneController**
+    *   Expone las operaciones relacionadas con la administración de SafeZone.
+    *   Permite crear, actualizar, activar y desactivar zonas seguras.
+    *   *Endpoints:*
+        *   `POST /api/v1/safe-zones`
+        *   `PUT /api/v1/safe-zones/{safeZoneId}`
+        *   `PATCH /api/v1/safe-zones/{safeZoneId}/activate`
+        *   `PATCH /api/v1/safe-zones/{safeZoneId}/deactivate`
+        *   `GET /api/v1/safe-zones/fragile-citizen/{fragileCitizenId}/active`
+
+*   **LocationTrackingController**
+    *   Expone las operaciones relacionadas con la consulta del seguimiento de ubicación.
+    *   Permite consultar la ubicación actual, el estado actual y el historial de ubicaciones de un Fragile Citizen.
+    *   *Endpoints:*
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/current`
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/status`
+        *   `GET /api/v1/location-tracking/{fragileCitizenId}/history`
+
+###### Inbound Adapters (Wearable Integration)
+
+*   **WearableLocationConsumer**
+    *   Adaptador de entrada responsable de recibir las ubicaciones enviadas por el Wearable Device.
+    *   Convierte el mensaje externo del dispositivo en un `ReceiveLocationCommand`.
+    *   No realiza directamente la evaluación de la geocerca; delega el procesamiento al Application Layer.
+    *   *Métodos:*
+        *   consumeLocation(WearableLocationMessage message): void
+        *   toCommand(WearableLocationMessage message): ReceiveLocationCommand
+
+*   **WearableLocationMessage**
+    *   Representa el mensaje externo recibido desde el dispositivo wearable.
+    *   *Atributos:*
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   recordedAt: Instant
+
+###### REST Resources
+
+*   **SafeZoneResource**
+    *   Representa la respuesta HTTP asociada a una SafeZone.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   name: String
+        *   latitude: Double
+        *   longitude: Double
+        *   radiusInMeters: Double
+        *   status: String
+
+*   **CurrentLocationResource**
+    *   Representa la ubicación actual del Fragile Citizen.
+    *   *Atributos:*
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+*   **LocationHistoryResource**
+    *   Representa un elemento individual del historial de ubicaciones.
+    *   *Atributos:*
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+###### Transformers & Assemblers
+
+*   **SafeZoneResourceAssembler**
+    *   Transforma entidades del dominio SafeZone en `SafeZoneResource` para respuestas REST.
+    *   *Métodos:*
+        *   toResource(SafeZone safeZone): SafeZoneResource
+
+*   **LocationResourceAssembler**
+    *   Transforma objetos del dominio Location y LocationTracking en recursos REST.
+    *   *Métodos:*
+        *   toCurrentResource(LocationTracking tracking): CurrentLocationResource
+        *   toHistoryResource(Location location): LocationHistoryResource
+
+*   **WearableLocationTransformer**
+    *   Convierte la carga útil del wearable en el comando ejecutable por el Application Layer.
+    *   *Métodos:*
+        *   toCommand(WearableLocationMessage message): ReceiveLocationCommand
+
+###### Outbound Adapters (Event Publishers)
+
+*   **MobilityEventPublisher**
+    *   Adaptador de salida responsable de publicar eventos de integración hacia otros Bounded Contexts.
+    *   Publica principalmente `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+    *   No crea ni gestiona alertas; únicamente comunica el hecho ocurrido en Mobility & Geofencing.
+    *   *Métodos:*
+        *   publish(SafeZoneViolationDetectedEvent event): void
+
+###### Responsabilidades de la Interface Layer
+
+*   Recibir solicitudes HTTP provenientes de clientes autorizados.
+*   Recibir mensajes de telemetría de ubicación provenientes del Wearable Device.
+*   Validar el formato y estructura básica de los datos de entrada.
+*   Transformar DTOs y mensajes externos en comandos de aplicación.
+*   Transformar resultados del dominio en recursos de respuesta normalizados.
+*   Publicar eventos de integración hacia otros Bounded Contexts.
+*   Mantener desacoplada la infraestructura de transporte respecto a la lógica de negocio del dominio.
+
+##### 2.6.6.3. Application Layer
+
+Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando comandos, consultas, agregados, repositorios y eventos de dominio. Esta capa define los flujos de aplicación, pero delega las reglas de negocio y las invariantes al Domain Layer.
+
+###### Command Services
+
+*   **SafeZoneCommandService**
+    *   Coordina los casos de uso relacionados con la administración del ciclo de vida de SafeZone.
+    *   *Métodos:*
+        *   createSafeZone(CreateSafeZoneCommand command): SafeZone
+        *   updateSafeZone(UpdateSafeZoneCommand command): SafeZone
+        *   activateSafeZone(ActivateSafeZoneCommand command): void
+        *   deactivateSafeZone(DeactivateSafeZoneCommand command): void
+
+*   **LocationTrackingCommandService**
+    *   Coordina la recepción y procesamiento de las ubicaciones provenientes del wearable.
+    *   Utiliza `GeofenceEvaluationService` para determinar si la ubicación se encuentra dentro o fuera de la zona segura.
+    *   Cuando se detecta una salida de la zona, coordina el registro de la `ZoneViolation` y la publicación del evento correspondiente.
+    *   *Métodos:*
+        *   receiveLocation(ReceiveLocationCommand command): void
+        *   evaluateLocation(EvaluateLocationCommand command): LocationStatus
+
+###### Query Services
+
+*   **SafeZoneQueryService**
+    *   Proporciona consultas de solo lectura relacionadas con las zonas seguras configuradas.
+    *   *Métodos:*
+        *   getActiveSafeZone(GetActiveSafeZoneQuery query): Optional<SafeZone>
+        *   getSafeZonesByFragileCitizen(FragileCitizenId fragileCitizenId): List<SafeZone>
+
+*   **LocationTrackingQueryService**
+    *   Proporciona información de seguimiento sin modificar el estado del dominio.
+    *   *Métodos:*
+        *   getCurrentLocation(GetCurrentLocationQuery query): Optional<Location>
+        *   getLocationHistory(GetLocationHistoryQuery query): List<Location>
+        *   getLocationStatus(GetLocationStatusQuery query): Optional<LocationStatus>
+
+###### Command Handlers
+
+*   **CreateSafeZoneCommandHandler**
+    *   Recibe `CreateSafeZoneCommand` y delega la creación al `SafeZoneCommandService`.
+*   **UpdateSafeZoneCommandHandler**
+    *   Procesa `UpdateSafeZoneCommand` y coordina la actualización de los límites de una zona existente.
+*   **ActivateSafeZoneCommandHandler**
+    *   Procesa `ActivateSafeZoneCommand` y activa la zona segura correspondiente.
+*   **DeactivateSafeZoneCommandHandler**
+    *   Procesa `DeactivateSafeZoneCommand` y desactiva la zona segura correspondiente.
+*   **ReceiveLocationCommandHandler**
+    *   Recibe `ReceiveLocationCommand` y valida que la ubicación pueda ser procesada.
+    *   Obtiene la SafeZone activa del Fragile Citizen y coordina la evaluación espacial de la ubicación.
+    *   Actualiza el seguimiento de ubicación (`LocationTracking`).
+    *   Si la ubicación se encuentra fuera de la zona segura, coordina el registro de la `ZoneViolation`.
+
+###### Event Handlers
+
+*   **LocationReceivedEventHandler**
+    *   Procesa `LocationReceivedEvent`.
+    *   Coordina la evaluación de la ubicación recibida respecto a la SafeZone activa.
+*   **LocationStatusUpdatedEventHandler**
+    *   Procesa `LocationStatusUpdatedEvent`.
+    *   Si el resultado es `OUTSIDE_SAFE_ZONE`, coordina el registro de la violación y la generación de `SafeZoneViolationDetectedEvent`.
+*   **SafeZoneViolationDetectedEventHandler**
+    *   Responsable de preparar la publicación del evento de integración hacia Emergency & Alerting a través del puerto de salida correspondiente.
+    *   No genera una alerta ni determina su severidad; su responsabilidad se limita a comunicar que se detectó una violación de zona.
+
+###### Internal Application Services
+
+*   **LocationEvaluationApplicationService**
+    *   Coordina el flujo de extremo a extremo en la evaluación de una ubicación:
+        1. Recupera la SafeZone activa.
+        2. Invoca el `GeofenceEvaluationService`.
+        3. Actualiza el agregado `LocationTracking`.
+        4. Registra una `ZoneViolation` cuando corresponde.
+        5. Publica los eventos de dominio resultantes.
+    *   *Flujo principal:*
+        *   `ReceiveLocationCommand` $\rightarrow$ `LocationTrackingCommandService` $\rightarrow$ `SafeZoneRepository` $\rightarrow$ `GeofenceEvaluationService` $\rightarrow$ `LocationTrackingRepository` $\rightarrow$ `ZoneViolationRepository` $\rightarrow$ `SafeZoneViolationDetectedEvent`
+
+###### Application Ports
+
+*   **Inbound Ports:**
+    *   **WearableLocationInputPort:** Puerto de entrada utilizado para recibir ubicaciones provenientes del adaptador del wearable.
+        *   *Métodos:*
+            *   receiveLocation(ReceiveLocationCommand command): void
+*   **Outbound Ports:**
+    *   **MobilityEventOutputPort:** Puerto de salida utilizado para publicar eventos de integración hacia otros Bounded Contexts.
+        *   *Métodos:*
+            *   publish(SafeZoneViolationDetectedEvent event): void
+
+###### Responsabilidades de la Application Layer
+
+*   Orquestar los casos de uso del Bounded Context.
+*   Coordinar Commands, Queries y Domain Events.
+*   Invocar los agregados y servicios del dominio.
+*   Utilizar las interfaces de repositorio definidas en el Domain Layer.
+*   Coordinar la recepción y evaluación de ubicaciones.
+*   Coordinar el registro de `ZoneViolation`.
+*   Publicar `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+*   Mantener la lógica de negocio compleja fuera de esta capa.
+*   No gestionar alertas, incidentes, severidad ni escalamiento, ya que esas responsabilidades pertenecen a Emergency & Alerting.
+
+##### 2.6.6.4. Infrastructure Layer
+
+Implementa los mecanismos técnicos que permiten persistir la información del Bounded Context Mobility & Geofencing, recibir ubicaciones desde el Wearable Device y publicar eventos hacia otros Bounded Contexts. Esta capa contiene las implementaciones concretas de los puertos definidos por las capas Domain y Application, sin introducir reglas de negocio propias.
+
+###### Persistence Implementations (Repositories)
+
+*   **SafeZoneRepositoryImpl**
+    *   Implementación concreta de `SafeZoneRepository`.
+    *   Utiliza Spring Data JPA para persistir y recuperar agregados `SafeZone`.
+    *   *Métodos:*
+        *   save(SafeZone safeZone): SafeZone
+        *   findById(SafeZoneId id): Optional<SafeZone>
+        *   findActiveByFragileCitizenId(FragileCitizenId citizenId): Optional<SafeZone>
+        *   findAllByFragileCitizenId(FragileCitizenId citizenId): List<SafeZone>
+
+*   **LocationTrackingRepositoryImpl**
+    *   Implementación concreta de `LocationTrackingRepository`.
+    *   Gestiona la persistencia del estado actual y el historial de ubicaciones.
+    *   *Métodos:*
+        *   save(LocationTracking tracking): LocationTracking
+        *   findByFragileCitizenId(FragileCitizenId citizenId): Optional<LocationTracking>
+        *   findHistoryByFragileCitizenId(FragileCitizenId citizenId, Instant periodStart, Instant periodEnd): List<Location>
+
+*   **ZoneViolationRepositoryImpl**
+    *   Implementación concreta de `ZoneViolationRepository`.
+    *   Persiste las violaciones de zonas seguras detectadas por el dominio.
+    *   *Métodos:*
+        *   save(ZoneViolation violation): ZoneViolation
+        *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
+        *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
+
+###### JPA Entities
+
+*   **SafeZoneJpaEntity**
+    *   Representación persistente del agregado SafeZone en base de datos relacional.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   name: String
+        *   latitude: Double
+        *   longitude: Double
+        *   radiusInMeters: Double
+        *   status: String
+        *   createdAt: Instant
+        *   updatedAt: Instant
+
+*   **LocationTrackingJpaEntity**
+    *   Representación persistente del seguimiento actual de un Fragile Citizen.
+    *   *Atributos:*
+        *   id: UUID
+        *   fragileCitizenId: UUID
+        *   currentLatitude: Double
+        *   currentLongitude: Double
+        *   accuracyInMeters: Double
+        *   currentStatus: String
+        *   lastUpdatedAt: Instant
+
+*   **LocationRecordJpaEntity**
+    *   Representa un registro individual e inmutable del historial de ubicaciones.
+    *   *Atributos:*
+        *   id: UUID
+        *   locationTrackingId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   accuracyInMeters: Double
+        *   status: String
+        *   recordedAt: Instant
+
+*   **ZoneViolationJpaEntity**
+    *   Representación persistente de una violación de zona segura detectada.
+    *   *Atributos:*
+        *   id: UUID
+        *   safeZoneId: UUID
+        *   fragileCitizenId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   detectedAt: Instant
+
+###### Spring Data JPA Repositories
+
+*   **SafeZoneJpaRepository**
+    *   Repositorio Spring Data utilizado por `SafeZoneRepositoryImpl`.
+    *   *Métodos:*
+        *   findById(UUID id)
+        *   findByFragileCitizenIdAndStatus(UUID fragileCitizenId, String status)
+        *   findAllByFragileCitizenId(UUID fragileCitizenId)
+
+*   **LocationTrackingJpaRepository**
+    *   Repositorio Spring Data utilizado para acceder al seguimiento actual.
+    *   *Métodos:*
+        *   findByFragileCitizenId(UUID fragileCitizenId)
+
+*   **LocationRecordJpaRepository**
+    *   Repositorio Spring Data utilizado para consultar el historial de telemetría de ubicaciones.
+    *   *Métodos:*
+        *   findByLocationTrackingIdAndRecordedAtBetween(UUID trackingId, Instant start, Instant end)
+
+*   **ZoneViolationJpaRepository**
+    *   Repositorio Spring Data utilizado para consultar las violaciones registradas.
+    *   *Métodos:*
+        *   findByFragileCitizenId(UUID fragileCitizenId)
+        *   findBySafeZoneId(UUID safeZoneId)
+
+###### Assemblers & Converters
+
+*   **SafeZonePersistenceAssembler**
+    *   Convierte bidireccionalmente entre el agregado de dominio `SafeZone` y `SafeZoneJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(SafeZone safeZone): SafeZoneJpaEntity
+        *   toDomain(SafeZoneJpaEntity entity): SafeZone
+
+*   **LocationTrackingPersistenceAssembler**
+    *   Convierte bidireccionalmente entre `LocationTracking` y `LocationTrackingJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(LocationTracking tracking): LocationTrackingJpaEntity
+        *   toDomain(LocationTrackingJpaEntity entity): LocationTracking
+
+*   **ZoneViolationPersistenceAssembler**
+    *   Convierte bidireccionalmente entre `ZoneViolation` y `ZoneViolationJpaEntity`.
+    *   *Métodos:*
+        *   toEntity(ZoneViolation violation): ZoneViolationJpaEntity
+        *   toDomain(ZoneViolationJpaEntity entity): ZoneViolation
+
+*   **CoordinatesConverter**
+    *   Convierte el Value Object `Coordinates` a los campos persistentes `latitude` y `longitude`, y viceversa.
+
+###### Inbound Infrastructure Adapters
+
+*   **WearableLocationAdapter**
+    *   Implementa el mecanismo técnico utilizado para recibir las ubicaciones provenientes del Wearable Device (mediante HTTP, MQTT u otro protocolo IoT).
+    *   Convierte el mensaje externo recibido en `WearableLocationMessage` y lo entrega al `WearableLocationInputPort`.
+    *   No contiene lógica de evaluación de geocercas.
+
+###### Outbound Infrastructure Adapters (Messaging)
+
+*   **MobilityEventPublisherAdapter**
+    *   Implementa el puerto de salida `MobilityEventOutputPort`.
+    *   Publica eventos de integración mediante el mecanismo de mensajería (Message Broker: RabbitMQ/Kafka).
+    *   Publica principalmente `SafeZoneViolationDetectedEvent` hacia Emergency & Alerting.
+    *   *Métodos:*
+        *   publish(SafeZoneViolationDetectedEvent event): void
+
+*   **SafeZoneViolationIntegrationEvent**
+    *   Representación serializable del evento de integración enviado fuera del Bounded Context.
+    *   *Atributos:*
+        *   eventId: UUID
+        *   fragileCitizenId: UUID
+        *   safeZoneId: UUID
+        *   latitude: Double
+        *   longitude: Double
+        *   detectedAt: Instant
+
+###### Infrastructure Configuration
+
+*   **MobilityPersistenceConfiguration:** Configura los componentes de persistencia JPA, conexiones al pool de base de datos y gestión de transacciones.
+*   **MobilityMessagingConfiguration:** Configura el broker de mensajería, exchanges/topics, serialización JSON y canales de publicación de eventos.
+*   **WearableIntegrationConfiguration:** Configura el conector y los endpoints del protocolo técnico de comunicación con el Wearable Device.
+
+###### Responsabilidades de la Infrastructure Layer
+
+*   Implementar técnicamente los repositorios definidos por el Domain Layer.
+*   Persistir de forma consistente `SafeZone`, `LocationTracking`, `LocationRecord` y `ZoneViolation`.
+*   Implementar la capa técnica de transporte y comunicación con el Wearable Device.
+*   Publicar eventos de integración hacia el broker para el consumo de Emergency & Alerting.
+*   Configurar los beans de Spring para JPA, base de datos y mensajería asíncrona.
+*   Transformar objetos de dominio a entidades de persistencia y viceversa (aislando la base de datos).
+*   Mantener los detalles tecnológicos y dependencias de frameworks fuera del Domain y Application Layer.
+*   No implementar reglas de negocio como la evaluación de geocercas o la determinación de violaciones; estas responsabilidades pertenecen estrictamente al Domain Layer.
+
+##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
+
+![alt text](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
+
+##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+###### 2.6.6.6.2. Bounded Context Database Design Diagram
+
