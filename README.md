@@ -213,7 +213,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 Objetivo SMART 1 — Arquitectura y liderazgo técnico:
 
-▎ Dentro de los 3 años posteriores a mi graduación, alcanzaré el rol de Ingeniero de Software Senmi Senior, liderando el diseño arquitectónico de al menos 2 aplicaciones web en producción (definición de arquitectura, ADRs y patrones de diseño), evidenciado por la propiedad técnica de al menos un módulo crítico en cada proyecto y la aprobación formal de mis decisiones de diseño en revisiones de arquitectura.
+▎ Dentro de los 3 años posteriores a mi graduación, alcanzaré el rol de Ingeniero de Software Semi Senior, liderando el diseño arquitectónico de al menos 2 aplicaciones web en producción (definición de arquitectura, ADRs y patrones de diseño), evidenciado por la propiedad técnica de al menos un módulo crítico en cada proyecto y la aprobación formal de mis decisiones de diseño en revisiones de arquitectura.
 - S: rol + entregable concreto (ownership arquitectónico de 2 apps).
 - M: se verifica con el cambio de título/rol y el conteo de ADRs/módulos bajo mi propiedad.
 - A: alcanzable en 3 años dado el ciclo típico junior a mid senior.
