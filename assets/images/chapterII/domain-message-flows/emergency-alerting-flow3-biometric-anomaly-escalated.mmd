@@ -1,0 +1,37 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontFamily: Helvetica
+---
+sequenceDiagram
+    participant H as Health Monitoring (externo)
+    participant A as ALERT
+    participant D as Dispatch Strategy Selector
+    participant S as Ack Timeout Scheduler
+    participant G as Caregiver
+    participant I as INCIDENT
+
+    H--)A: VitalSignAnomalyDetected (ACL)
+    Note over A: policy: Biometric Alert Raiser
+    A->>A: Trigger Alert (VITAL_SIGN_ANOMALY)
+    A-->>A: Alert Triggered
+    A-->>A: Alert Confirmed
+    A->>D: severity = HIGH
+    D->>A: Dispatch Alert
+    A-->>A: Alert Dispatched (PRIMARY)
+    alt el contacto primario responde a tiempo
+        G->>A: Acknowledge Alert
+        A-->>A: Alert Acknowledged
+        A->>I: Open Incident
+        I-->>I: Incident Opened (IN_ATTENTION)
+    else vence el Ack Timeout (60 s)
+        Note over S: policy: Ack Timeout Escalation
+        S->>A: Escalate Alert
+        A-->>A: Alert Escalated (SECONDARY)
+        opt vence nuevamente sin reconocimiento
+            Note over S: policy: Critical Broadcast Fallback
+            S->>A: Broadcast Alert
+            A-->>A: Alert Broadcasted (BROADCAST · SMS)
+        end
+    end
