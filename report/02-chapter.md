@@ -445,8 +445,6 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 - **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y abre el Incident en atención.
 
-- **Preventive Warning (Advertencia preventiva):** Aviso de menor criticidad emitido ante señales tempranas de riesgo, que el Fragile Citizen puede confirmar como situación controlada y que escala a Alert si no obtiene respuesta.
-
 - **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Alerts de severidad crítica.
 
 # 2.4. Requirements specification
@@ -1768,7 +1766,7 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
-Su Lenguaje Ubicuo se encuentra asociado a conceptos como advertencia preventiva, detección de caídas, SOS, alerta crítica, reconocimiento de alerta, escalamiento, contacto de emergencia y estabilización de incidentes.
+Su Lenguaje Ubicuo se encuentra asociado a conceptos como detección de caídas, SOS, alerta crítica, reconocimiento de alerta, escalamiento, contacto de emergencia y estabilización de incidentes.
 
 Se clasificó como parte del **Core Domain** debido a que representa una de las capacidades de mayor valor diferencial de Guardian+: permitir que familiares y cuidadores reaccionen oportunamente ante eventos que puedan comprometer el bienestar de una persona vulnerable.
 
@@ -1926,7 +1924,7 @@ Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citize
 <td width="50%" valign="top">
 • Severity<br>
 • Acknowledgment<br>
-• Preventive Warning<br>
+• Emergency Contact<br>
 • Silent Mode
 </td>
 </tr>
@@ -2612,7 +2610,7 @@ IAM Identity Ownership Boundary
 <tr>
 <td width="32%" bgcolor="#e8eaf6"
     style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Emergency Contact Consistency Policy
+Profile Completeness Policy
 </td>
 
 <td width="32%" bgcolor="#e8eaf6"
@@ -2643,7 +2641,7 @@ Key domain terminology
 • User Profile<br>
 • Care Recipient Profile<br>
 • Care Relationship<br>
-• Emergency Contact
+• Profile Completeness
 </td>
 
 <td width="50%" valign="top">
@@ -2752,7 +2750,7 @@ Establish / End Care Relationship
        bgcolor="#e3f2fd"
        style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Emergency Contacts
+Update Language &amp; Accessibility
 </td></tr>
 </table>
 
@@ -4610,6 +4608,38 @@ Determina los beneficios efectivos que deben mantenerse habilitados como consecu
 - `afterCancellation(subscription: Subscription): Set<EntitlementId>`
 - `afterExpiration(subscription: Subscription): Set<EntitlementId>`
 
+###### Commands & Queries (Domain Model)
+
+- `RequestSubscriptionCommand(UUID subscriberUserId, UUID planId)`
+- `ActivateSubscriptionCommand(UUID subscriptionId)`
+- `InitiateSubscriptionPaymentCommand(UUID subscriptionId)`
+- `RequestPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
+- `ApplyPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
+- `RequestSubscriptionCancellationCommand(UUID subscriptionId)`
+- `CancelSubscriptionCommand(UUID subscriptionId)`
+- `EvaluateSubscriptionRenewalCommand(UUID subscriptionId)`
+- `InitiateRenewalPaymentCommand(UUID subscriptionId)`
+- `RenewSubscriptionCommand(UUID subscriptionId, Period newPeriod)`
+- `EvaluateSubscriptionExpirationCommand(UUID subscriptionId)`
+- `ExpireSubscriptionCommand(UUID subscriptionId)`
+- `UpdateEntitlementsCommand(UUID subscriptionId)`
+- `GetSubscriptionStatusQuery(SubscriptionId subscriptionId)`
+- `GetCurrentPlanQuery(SubscriptionId subscriptionId)`
+- `GetAvailableEntitlementsQuery(SubscriptionId subscriptionId)`
+
+###### Domain Events
+
+- `SubscriptionActivated`: Emitido cuando una suscripción cumple las condiciones de activación definidas por `SubscriptionActivationPolicy`.
+- `SubscriptionPlanChanged`: Emitido al aplicarse efectivamente un cambio de plan sobre una suscripción vigente.
+- `SubscriptionCancelled`: Emitido cuando la cancelación se hace efectiva según la fecha determinada por `SubscriptionLifecyclePolicy`.
+- `SubscriptionRenewed`: Emitido al establecerse el nuevo periodo de vigencia de una suscripción renovada.
+- `SubscriptionExpired`: Emitido cuando una suscripción finaliza su vigencia sin renovación.
+- `PaymentConfirmed`: Emitido al confirmarse el pago inicial requerido para la activación.
+- `PaymentFailed`: Emitido cuando el pago inicial no pudo completarse, sin activar la suscripción.
+- `RenewalPaymentConfirmed`: Emitido al confirmarse el pago de una renovación.
+- `RenewalPaymentFailed`: Emitido cuando el pago de renovación falla, sin extender el periodo vigente.
+- `EntitlementsUpdated`: Emitido cuando `EntitlementPolicy` determina un nuevo conjunto de beneficios efectivos y el `EntitlementSet` se sincroniza.
+
 ###### Repository Interfaces
 
 **`SubscriptionRepository`**
@@ -5106,6 +5136,32 @@ Evalúa las condiciones necesarias para establecer una relación entre un usuari
 
 - `canEstablishRelationship(userId: UserId, careRecipientProfileId: CareRecipientProfileId): Boolean`
 - `validateRelationshipType(type: RelationshipType): void`
+
+###### Commands & Queries (Domain Model)
+
+- `CreateUserProfileCommand(UUID userId, String firstName, String lastName, String phoneNumber)`
+- `UpdateUserProfileCommand(UUID userProfileId, String firstName, String lastName)`
+- `UpdateContactInformationCommand(UUID userProfileId, String phoneNumber)`
+- `CreateCareRecipientProfileCommand(UUID createdByUserId, String firstName, String lastName, LocalDate birthDate)`
+- `EstablishCareRelationshipCommand(UUID userId, UUID careRecipientProfileId, String relationshipType)`
+- `EndCareRelationshipCommand(UUID careRelationshipId)`
+- `UpdateApplicationPreferencesCommand(UUID userId, Boolean notificationsEnabled)`
+- `UpdateLanguageAndAccessibilityPreferencesCommand(UUID userId, String language, Boolean highContrastEnabled, Boolean voiceAssistanceEnabled, Decimal fontScale)`
+- `GetUserProfileQuery(UserId userId)`
+- `GetCareRecipientProfileQuery(CareRecipientProfileId careRecipientProfileId)`
+- `GetCareRelationshipsQuery(UserId userId, CareRecipientProfileId careRecipientProfileId)`
+- `GetUserPreferencesQuery(UserId userId)`
+
+###### Domain Events
+
+- `UserProfileCreated`: Emitido al registrarse el perfil descriptivo asociado a una cuenta administrada por IAM.
+- `UserProfileUpdated`: Emitido al modificarse la información personal de un perfil existente.
+- `ContactInformationUpdated`: Emitido al actualizarse la información de contacto del usuario.
+- `CareRecipientProfileCreated`: Emitido al registrarse una nueva persona bajo cuidado.
+- `CareRelationshipEstablished`: Emitido al establecerse una relación de cuidado; se publica hacia los contextos interesados mediante Event-Carried State Transfer.
+- `CareRelationshipEnded`: Emitido al finalizar una relación de cuidado; permite a los contextos descendentes retirar los accesos y las notificaciones asociadas.
+- `ApplicationPreferencesUpdated`: Emitido al modificarse las preferencias generales del usuario.
+- `LanguageAndAccessibilityPreferencesUpdated`: Emitido al modificarse el idioma o las preferencias de accesibilidad.
 
 ###### Repository Interfaces
 
