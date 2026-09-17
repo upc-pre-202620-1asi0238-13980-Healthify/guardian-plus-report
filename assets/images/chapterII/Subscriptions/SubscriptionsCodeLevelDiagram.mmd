@@ -1,0 +1,245 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+---
+classDiagram
+    direction TB
+
+    class Subscription {
+        <<Aggregate Root>>
+        -SubscriptionId id
+        -UserId subscriberUserId
+        -PlanId planId
+        -SubscriptionStatus status
+        -Period currentPeriod
+        -Boolean cancelAtPeriodEnd
+        -Instant cancelledAt
+        -Instant createdAt
+        -Instant updatedAt
+        -List~PaymentAttempt~ paymentAttempts
+        +activate() void
+        +renew(Period) void
+        +changePlan(PlanId) void
+        +requestCancellation() void
+        +cancel() void
+        +expire() void
+        +isActive() Boolean
+    }
+
+    class PaymentAttempt {
+        <<Entity>>
+        -UUID id
+        -PaymentType paymentType
+        -Money amount
+        -String provider
+        -String providerReference
+        -PaymentStatus status
+        -Instant createdAt
+        -Instant paidAt
+        +markConfirmed(String) void
+        +markFailed() void
+        +isSuccessful() Boolean
+    }
+
+    class Plan {
+        <<Aggregate Root>>
+        -PlanId id
+        -String name
+        -String description
+        -Money price
+        -BillingCycle billingCycle
+        -Boolean active
+        -Instant createdAt
+        -Instant updatedAt
+        +activate() void
+        +deactivate() void
+        +changePrice(Money) void
+    }
+
+    class Entitlement {
+        <<Aggregate Root>>
+        -EntitlementId id
+        -String code
+        -String name
+        -String description
+        +matches(String) Boolean
+    }
+
+    class EntitlementSet {
+        <<Aggregate Root>>
+        -SubscriptionId subscriptionId
+        -List~SubscriptionEntitlement~ items
+        -Instant updatedAt
+        +replaceWith(Set~EntitlementId~, Instant) void
+        +revoke(EntitlementId, Instant) void
+        +revokeAll(Instant) void
+        +contains(EntitlementId) Boolean
+        +activeItems() List~SubscriptionEntitlement~
+    }
+
+    class SubscriptionEntitlement {
+        <<Entity>>
+        -UUID id
+        -EntitlementId entitlementId
+        -SubscriptionEntitlementStatus status
+        -Period effectivePeriod
+        +revoke(Instant) void
+        +isEffectiveAt(Instant) Boolean
+    }
+
+    class SubscriptionActivationPolicy {
+        <<Domain Policy>>
+        +requiresPayment(Plan) Boolean
+        +canActivate(Plan) Boolean
+    }
+
+    class SubscriptionLifecyclePolicy {
+        <<Domain Policy>>
+        +canChangePlan(Subscription, Plan) Boolean
+        +determineCancellationEffectiveDate(Subscription) Instant
+        +canRenew(Subscription, Plan) Boolean
+        +canExpire(Subscription) Boolean
+    }
+
+    class EntitlementPolicy {
+        <<Domain Policy>>
+        +afterActivation(Subscription, Plan) Set~EntitlementId~
+        +afterPlanChange(Subscription, Plan) Set~EntitlementId~
+        +afterCancellation(Subscription) Set~EntitlementId~
+        +afterExpiration(Subscription) Set~EntitlementId~
+    }
+
+    class SubscriptionRepository {
+        <<interface>>
+        +findById(SubscriptionId) Optional~Subscription~
+        +findActiveBySubscriberUserId(UserId) Optional~Subscription~
+        +save(Subscription) Subscription
+    }
+
+    class PlanRepository {
+        <<interface>>
+        +findById(PlanId) Optional~Plan~
+        +findActivePlans() List~Plan~
+    }
+
+    class EntitlementRepository {
+        <<interface>>
+        +findById(EntitlementId) Optional~Entitlement~
+        +findByCode(String) Optional~Entitlement~
+        +findAll() List~Entitlement~
+        +findByPlanId(PlanId) List~Entitlement~
+    }
+
+    class EntitlementSetRepository {
+        <<interface>>
+        +findBySubscriptionId(SubscriptionId) Optional~EntitlementSet~
+        +save(EntitlementSet) EntitlementSet
+    }
+
+    class Money {
+        <<Value Object>>
+        -Decimal amount
+        -String currency
+        +isPositive() Boolean
+    }
+
+    class Period {
+        <<Value Object>>
+        -Instant start
+        -Instant end
+        +contains(Instant) Boolean
+        +durationInDays() Long
+    }
+
+    class SubscriptionId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class PlanId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class EntitlementId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class UserId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class SubscriptionStatus {
+        <<enumeration>>
+        PENDING
+        ACTIVE
+        CANCELLED
+        EXPIRED
+    }
+
+    class PaymentStatus {
+        <<enumeration>>
+        PENDING
+        CONFIRMED
+        FAILED
+    }
+
+    class PaymentType {
+        <<enumeration>>
+        INITIAL
+        RENEWAL
+    }
+
+    class BillingCycle {
+        <<enumeration>>
+        MONTHLY
+        YEARLY
+    }
+
+    class SubscriptionEntitlementStatus {
+        <<enumeration>>
+        ACTIVE
+        REVOKED
+    }
+
+    Subscription "1" *-- "0..*" PaymentAttempt : registra
+    Subscription *-- SubscriptionStatus
+    Subscription *-- Period : currentPeriod
+    Subscription *-- SubscriptionId
+    Subscription --> PlanId : contrata
+    Subscription --> UserId : suscriptor
+
+    Plan *-- PlanId
+    Plan *-- Money : price
+    Plan *-- BillingCycle
+    Plan "0..*" -- "0..*" Entitlement : plan_entitlements
+
+    Entitlement *-- EntitlementId
+
+    EntitlementSet "1" *-- "0..*" SubscriptionEntitlement : contiene
+    EntitlementSet --> SubscriptionId : pertenece a
+    SubscriptionEntitlement --> EntitlementId : referencia
+    SubscriptionEntitlement *-- SubscriptionEntitlementStatus
+    SubscriptionEntitlement *-- Period : effectivePeriod
+
+    PaymentAttempt *-- PaymentStatus
+    PaymentAttempt *-- PaymentType
+    PaymentAttempt *-- Money : amount
+
+    SubscriptionActivationPolicy ..> Plan : evalúa
+    SubscriptionLifecyclePolicy ..> Subscription : evalúa
+    EntitlementPolicy ..> Plan : resuelve beneficios
+    EntitlementPolicy ..> EntitlementSet : actualiza
+
+    SubscriptionRepository ..> Subscription : gestiona
+    PlanRepository ..> Plan : gestiona
+    EntitlementRepository ..> Entitlement : gestiona
+    EntitlementSetRepository ..> EntitlementSet : gestiona

@@ -4355,7 +4355,7 @@ Representa una suscripción de Guardian+ y constituye el Aggregate Root principa
 - Una `Subscription` puede registrar múltiples `PaymentAttempt`.
 - Una `Subscription` puede disponer de un `EntitlementSet` con los beneficios efectivos habilitados.
 
-###### Plan
+**`Plan`**
 
 Representa una alternativa comercial disponible en Guardian+. Mantiene la configuración utilizada para determinar el precio, ciclo de facturación y beneficios asociados a una suscripción.
 
@@ -4367,6 +4367,8 @@ Representa una alternativa comercial disponible en Guardian+. Mantiene la config
 - `price: Money`
 - `billingCycle: BillingCycle`
 - `active: Boolean`
+- `createdAt: Instant`
+- `updatedAt: Instant`
 
 **Métodos principales:**
 
@@ -4380,30 +4382,53 @@ Representa una alternativa comercial disponible en Guardian+. Mantiene la config
 - Un `Plan` puede habilitar múltiples `Entitlement`.
 - Un mismo `Entitlement` puede formar parte de distintos planes.
 
-###### EntitlementSet
+**`EntitlementSet`**
 
-Representa el conjunto efectivo de beneficios habilitados para una suscripción. Permite mantener sincronizados los entitlements que corresponden según el plan contratado y el estado vigente de la suscripción.
+Representa el conjunto efectivo de beneficios habilitados para una suscripción. Permite mantener sincronizados los entitlements que corresponden según el plan contratado y el estado vigente de la suscripción. Cada beneficio efectivo se representa mediante un `SubscriptionEntitlement`, que conserva su estado y su periodo de vigencia en lugar de una simple pertenencia al conjunto.
 
 **Atributos principales:**
 
 - `subscriptionId: SubscriptionId`
-- `entitlements: Set<Entitlement>`
+- `items: List<SubscriptionEntitlement>`
 - `updatedAt: Instant`
 
 **Métodos principales:**
 
-- `replaceWith(entitlements: Set<Entitlement>): void`
-- `contains(code: String): Boolean`
-- `revokeAll(): void`
+- `replaceWith(entitlementIds: Set<EntitlementId>, effectiveFrom: Instant): void`
+- `revoke(entitlementId: EntitlementId, effectiveTo: Instant): void`
+- `revokeAll(effectiveTo: Instant): void`
+- `contains(entitlementId: EntitlementId): Boolean`
+- `activeItems(): List<SubscriptionEntitlement>`
 
 **Relaciones principales:**
 
 - Un `EntitlementSet` pertenece a una suscripción.
-- Un `EntitlementSet` puede contener múltiples `Entitlement`.
+- Un `EntitlementSet` puede contener múltiples `SubscriptionEntitlement`.
+- Cada `SubscriptionEntitlement` referencia por identidad a un `Entitlement` del catálogo.
 
-##### Entities
+**`Entitlement`**
 
-###### PaymentAttempt
+Representa un beneficio o capacidad comercial del catálogo de Guardian+, que puede estar habilitado por uno o más planes de suscripción. Constituye un Aggregate Root propio porque es un catálogo compartido entre planes y suscripciones, con identidad y ciclo de vida independientes de ambos.
+
+**Atributos principales:**
+
+- `id: EntitlementId`
+- `code: String`
+- `name: String`
+- `description: String`
+
+**Métodos principales:**
+
+- `matches(code: String): Boolean`
+
+**Relaciones principales:**
+
+- Un `Entitlement` puede formar parte de múltiples `Plan`, mediante la relación `plan_entitlements`.
+- Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`, mediante `SubscriptionEntitlement`.
+
+###### Entities
+
+**`PaymentAttempt`**
 
 Representa un intento de pago asociado a una suscripción, ya sea para su activación inicial o para una renovación.
 
@@ -4429,29 +4454,30 @@ Representa un intento de pago asociado a una suscripción, ya sea para su activa
 
 - Cada `PaymentAttempt` se encuentra asociado a una `Subscription`.
 
-###### Entitlement
+**`SubscriptionEntitlement`**
 
-Representa un beneficio o capacidad comercial que puede estar habilitado por uno o más planes de suscripción.
+Representa un beneficio efectivo habilitado para una suscripción durante un periodo determinado. Es la entidad interna de `EntitlementSet` y conserva el estado y la vigencia que no pueden expresarse mediante la simple pertenencia a un conjunto.
 
 **Atributos principales:**
 
-- `id: EntitlementId`
-- `code: String`
-- `name: String`
-- `description: String`
+- `id: UUID`
+- `entitlementId: EntitlementId`
+- `status: SubscriptionEntitlementStatus`
+- `effectivePeriod: Period`
 
 **Métodos principales:**
 
-- `matches(code: String): Boolean`
+- `revoke(effectiveTo: Instant): void`
+- `isEffectiveAt(date: Instant): Boolean`
 
 **Relaciones principales:**
 
-- Un `Entitlement` puede formar parte de múltiples `Plan`.
-- Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`.
+- Cada `SubscriptionEntitlement` pertenece a un `EntitlementSet`.
+- Cada `SubscriptionEntitlement` referencia un `Entitlement` del catálogo mediante `EntitlementId`.
 
-##### Value Objects
+###### Value Objects
 
-###### SubscriptionId
+**`SubscriptionId`**
 
 Identificador inmutable utilizado para distinguir una suscripción.
 
@@ -4459,7 +4485,7 @@ Identificador inmutable utilizado para distinguir una suscripción.
 
 - `value: UUID`
 
-###### PlanId
+**`PlanId`**
 
 Identificador inmutable utilizado para distinguir un plan comercial.
 
@@ -4467,7 +4493,7 @@ Identificador inmutable utilizado para distinguir un plan comercial.
 
 - `value: UUID`
 
-###### UserId
+**`UserId`**
 
 Identificador externo utilizado para referenciar al usuario propietario de una suscripción sin incorporar el modelo interno del Bounded Context IAM.
 
@@ -4475,7 +4501,7 @@ Identificador externo utilizado para referenciar al usuario propietario de una s
 
 - `value: UUID`
 
-###### EntitlementId
+**`EntitlementId`**
 
 Identificador inmutable utilizado para distinguir un entitlement.
 
@@ -4483,7 +4509,7 @@ Identificador inmutable utilizado para distinguir un entitlement.
 
 - `value: UUID`
 
-###### Money
+**`Money`**
 
 Representa un monto monetario junto con su moneda.
 
@@ -4496,7 +4522,7 @@ Representa un monto monetario junto con su moneda.
 
 - `isPositive(): Boolean`
 
-###### Period
+**`Period`**
 
 Representa el intervalo temporal vigente de una suscripción.
 
@@ -4510,9 +4536,9 @@ Representa el intervalo temporal vigente de una suscripción.
 - `contains(date: Instant): Boolean`
 - `durationInDays(): Long`
 
-##### Enumerations
+###### Enumerations
 
-###### SubscriptionStatus
+**`SubscriptionStatus`**
 
 Representa el estado vigente de una suscripción.
 
@@ -4521,7 +4547,7 @@ Representa el estado vigente de una suscripción.
 - `CANCELLED`
 - `EXPIRED`
 
-###### PaymentStatus
+**`PaymentStatus`**
 
 Representa el resultado o estado de un intento de pago.
 
@@ -4529,23 +4555,30 @@ Representa el resultado o estado de un intento de pago.
 - `CONFIRMED`
 - `FAILED`
 
-###### PaymentType
+**`PaymentType`**
 
 Permite distinguir el propósito de una operación de pago.
 
 - `INITIAL`
 - `RENEWAL`
 
-###### BillingCycle
+**`BillingCycle`**
 
 Representa la periodicidad comercial configurada para un plan.
 
 - `MONTHLY`
 - `YEARLY`
 
-##### Domain Policies
+**`SubscriptionEntitlementStatus`**
 
-###### SubscriptionActivationPolicy
+Representa el estado de un beneficio efectivo dentro de una suscripción.
+
+- `ACTIVE`
+- `REVOKED`
+
+###### Domain Policies
+
+**`SubscriptionActivationPolicy`**
 
 Evalúa las condiciones necesarias para iniciar y activar una suscripción de acuerdo con el plan seleccionado.
 
@@ -4554,7 +4587,7 @@ Evalúa las condiciones necesarias para iniciar y activar una suscripción de ac
 - `requiresPayment(plan: Plan): Boolean`
 - `canActivate(plan: Plan): Boolean`
 
-###### SubscriptionLifecyclePolicy
+**`SubscriptionLifecyclePolicy`**
 
 Agrupa las reglas de negocio relacionadas con los cambios de plan, cancelación, renovación y expiración de una suscripción.
 
@@ -4565,20 +4598,20 @@ Agrupa las reglas de negocio relacionadas con los cambios de plan, cancelación,
 - `canRenew(subscription: Subscription, plan: Plan): Boolean`
 - `canExpire(subscription: Subscription): Boolean`
 
-###### EntitlementPolicy
+**`EntitlementPolicy`**
 
 Determina los beneficios efectivos que deben mantenerse habilitados como consecuencia de los cambios producidos durante el ciclo de vida de una suscripción.
 
 **Operaciones principales:**
 
-- `afterActivation(subscription: Subscription, plan: Plan): Set<Entitlement>`
-- `afterPlanChange(subscription: Subscription, plan: Plan): Set<Entitlement>`
-- `afterCancellation(subscription: Subscription): Set<Entitlement>`
-- `afterExpiration(subscription: Subscription): Set<Entitlement>`
+- `afterActivation(subscription: Subscription, plan: Plan): Set<EntitlementId>`
+- `afterPlanChange(subscription: Subscription, plan: Plan): Set<EntitlementId>`
+- `afterCancellation(subscription: Subscription): Set<EntitlementId>`
+- `afterExpiration(subscription: Subscription): Set<EntitlementId>`
 
-##### Repository Interfaces
+###### Repository Interfaces
 
-###### SubscriptionRepository
+**`SubscriptionRepository`**
 
 Abstracción utilizada para recuperar y persistir el Aggregate Root `Subscription`.
 
@@ -4588,7 +4621,7 @@ Abstracción utilizada para recuperar y persistir el Aggregate Root `Subscriptio
 - `findActiveBySubscriberUserId(userId: UserId): Optional<Subscription>`
 - `save(subscription: Subscription): Subscription`
 
-###### PlanRepository
+**`PlanRepository`**
 
 Abstracción utilizada para consultar y persistir los planes comerciales administrados por Subscriptions.
 
@@ -4597,7 +4630,18 @@ Abstracción utilizada para consultar y persistir los planes comerciales adminis
 - `findById(id: PlanId): Optional<Plan>`
 - `findActivePlans(): List<Plan>`
 
-###### EntitlementSetRepository
+**`EntitlementRepository`**
+
+Abstracción utilizada para consultar el catálogo de beneficios comerciales de Guardian+.
+
+**Operaciones principales:**
+
+- `findById(id: EntitlementId): Optional<Entitlement>`
+- `findByCode(code: String): Optional<Entitlement>`
+- `findAll(): List<Entitlement>`
+- `findByPlanId(planId: PlanId): List<Entitlement>`
+
+**`EntitlementSetRepository`**
 
 Abstracción utilizada para recuperar y persistir los beneficios efectivos asociados a una suscripción.
 
@@ -4608,13 +4652,13 @@ Abstracción utilizada para recuperar y persistir los beneficios efectivos asoci
 
 El modelo de persistencia no replica de manera uno a uno todos los objetos del dominio. Los Value Objects se almacenan como parte de las entidades correspondientes, mientras que las asociaciones entre planes y entitlements y los beneficios efectivos de una suscripción se representan mediante las relaciones definidas en el modelo de base de datos.
 
-#### 2.6.3.2. Interface Layer
+##### 2.6.3.2. Interface Layer
 
 La Interface Layer expone las capacidades del Bounded Context **Subscriptions** hacia los clientes de Guardian+ y recibe mensajes provenientes de integraciones externas. Su responsabilidad es transformar solicitudes HTTP, notificaciones externas y señales temporales en comandos o consultas que serán procesados por la Application Layer, sin incorporar reglas de negocio ni acceder directamente a la persistencia.
 
-##### Backend API
+###### Backend API
 
-###### SubscriptionController
+**`SubscriptionController`**
 
 Expone las operaciones relacionadas con el ciclo de vida y consulta de las suscripciones.
 
@@ -4632,7 +4676,7 @@ Expone las operaciones relacionadas con el ciclo de vida y consulta de las suscr
 - delega comandos y consultas a los handlers correspondientes de la Application Layer;
 - no accede directamente a los repositories ni a la base de datos.
 
-###### PaymentWebhookController
+**`PaymentWebhookController`**
 
 Recibe las notificaciones enviadas por el proveedor externo de pagos y las transforma en acciones de aplicación relacionadas con la confirmación o fallo de pagos de activación y renovación.
 
@@ -4647,9 +4691,9 @@ Recibe las notificaciones enviadas por el proveedor externo de pagos y las trans
 - delega el procesamiento de los resultados de pago a la Application Layer;
 - no modifica directamente el estado de `Subscription` ni de `PaymentAttempt`.
 
-##### Message Consumers
+###### Message Consumers
 
-###### BillingSchedulerConsumer
+**`BillingSchedulerConsumer`**
 
 Recibe las señales temporales utilizadas para iniciar la evaluación de renovaciones y expiraciones de suscripciones.
 
@@ -4664,13 +4708,13 @@ Recibe las señales temporales utilizadas para iniciar la evaluación de renovac
 - delega las evaluaciones correspondientes a la Application Layer;
 - no contiene reglas para decidir si una suscripción debe renovarse o expirar.
 
-#### 2.6.3.3. Application Layer
+##### 2.6.3.3. Application Layer
 
 La Application Layer coordina los casos de uso del Bounded Context **Subscriptions** utilizando los Aggregate Roots, Domain Policies y Repository Interfaces definidos en la Domain Layer. Esta capa organiza el flujo de cada operación, pero delega las reglas de negocio al modelo de dominio.
 
 Los handlers no mantienen estado de negocio propio. Sus principales dependencias corresponden a los repositories y políticas necesarias para recuperar los aggregates, ejecutar las reglas del dominio y persistir los cambios resultantes.
 
-##### Command Handlers
+###### Command Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4688,7 +4732,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `ExpireSubscriptionHandler` | Cambia una suscripción al estado expirado cuando se cumplen las condiciones del dominio. | `handle(ExpireSubscriptionCommand)` |
 | `UpdateEntitlementsHandler` | Actualiza los beneficios efectivos de una suscripción después de cambios relevantes en su ciclo de vida. | `handle(UpdateEntitlementsCommand)` |
 
-##### Query Handlers
+###### Query Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4696,7 +4740,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `GetCurrentPlanHandler` | Recupera el plan actualmente asociado a una suscripción. | `handle(GetCurrentPlanQuery)` |
 | `GetAvailableEntitlementsHandler` | Recupera los entitlements efectivos habilitados para una suscripción. | `handle(GetAvailableEntitlementsQuery)` |
 
-##### Event Handlers
+###### Event Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4710,13 +4754,23 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `RenewalPaymentFailedHandler` | Procesa el fallo de un pago de renovación sin extender el periodo de la suscripción. | `handle(RenewalPaymentFailed)` |
 
 
-#### 2.6.3.4. Infrastructure Layer
+##### 2.6.3.4. Infrastructure Layer
 
 La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir el estado del Bounded Context **Subscriptions** y comunicarse con servicios externos. Esta capa implementa las abstracciones utilizadas por las capas internas sin incorporar reglas propias del dominio.
 
-##### Repository Implementations
+###### Persistence JPA Entities
 
-###### SubscriptionRepositoryImpl
+*   `SubscriptionPersistenceEntity`: Mapea la tabla `subscriptions`. Columnas: `id`, `subscriber_user_id`, `plan_id`, `status`, `current_period_start`, `current_period_end`, `cancel_at_period_end`, `cancelled_at`, `created_at`, `updated_at`. Mantiene una relación `@OneToMany` hacia `PaymentPersistenceEntity`.
+*   `PaymentPersistenceEntity`: Mapea la tabla `payments`. Columnas: `id`, `subscription_id`, `payment_type`, `amount`, `currency`, `provider`, `provider_reference`, `status`, `paid_at`, `created_at`. Las columnas `amount` y `currency` componen el Value Object `Money`.
+*   `SubscriptionPlanPersistenceEntity`: Mapea la tabla `subscription_plans`. Columnas: `id`, `name`, `description`, `price`, `currency`, `billing_cycle`, `active`, `created_at`, `updated_at`.
+*   `EntitlementPersistenceEntity`: Mapea la tabla `entitlements`. Columnas: `id`, `code`, `name`, `description`.
+*   `PlanEntitlementPersistenceEntity`: Mapea la tabla de relación `plan_entitlements`. Columnas: `id`, `plan_id`, `entitlement_id`. Resuelve la asociación muchos a muchos entre planes y beneficios del catálogo.
+*   `SubscriptionEntitlementPersistenceEntity`: Mapea la tabla `subscription_entitlements`. Columnas: `id`, `subscription_id`, `entitlement_id`, `status`, `effective_from`, `effective_to`. Las columnas `effective_from` y `effective_to` componen el Value Object `Period`.
+*   *Converters:* `SubscriptionStatusConverter`, `PaymentStatusConverter`, `PaymentTypeConverter`, `BillingCycleConverter` y `SubscriptionEntitlementStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
+
+###### Repository Implementations
+
+**`SubscriptionRepositoryImpl`**
 
 Implementa `SubscriptionRepository` y gestiona la persistencia del Aggregate Root `Subscription`.
 
@@ -4732,7 +4786,7 @@ Implementa `SubscriptionRepository` y gestiona la persistencia del Aggregate Roo
 - implementa `SubscriptionRepository`;
 - persiste información mediante las tablas `subscriptions` y `payments`.
 
-###### PlanRepositoryImpl
+**`PlanRepositoryImpl`**
 
 Implementa `PlanRepository` y permite consultar la configuración comercial de los planes disponibles.
 
@@ -4746,23 +4800,23 @@ Implementa `PlanRepository` y permite consultar la configuración comercial de l
 - implementa `PlanRepository`;
 - utiliza la información almacenada en `subscription_plans` y su asociación con `plan_entitlements`.
 
-###### EntitlementSetRepositoryImpl
+**`EntitlementSetRepositoryImpl`**
 
 Implementa `EntitlementSetRepository` y gestiona la persistencia de los beneficios efectivos asociados a cada suscripción.
 
 **Responsabilidades principales:**
 
-- recuperar el `EntitlementSet` asociado a una suscripción;
-- persistir los entitlements efectivos habilitados para una suscripción.
+- recuperar el `EntitlementSet` asociado a una suscripción, con el estado y la vigencia de cada `SubscriptionEntitlement`;
+- persistir los beneficios efectivos habilitados para una suscripción, registrando su revocación sin eliminar el historial.
 
 **Relaciones principales:**
 
-- implementa `EntitlementSetRepository`;
-- utiliza `entitlements` y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
+- implementa `EntitlementSetRepository` y `EntitlementRepository`;
+- utiliza `entitlements` como catálogo y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
 
-##### External Service Adapters
+###### External Service Adapters
 
-###### PaymentProviderAdapter
+**`PaymentProviderAdapter`**
 
 Encapsula la comunicación con el proveedor externo encargado de procesar los pagos requeridos para activaciones y renovaciones.
 
@@ -4779,7 +4833,7 @@ Encapsula la comunicación con el proveedor externo encargado de procesar los pa
 
 La selección del proveedor permanece desacoplada del dominio. Stripe se mantiene como candidato de implementación mientras no se haya definido de manera definitiva el proveedor externo.
 
-###### BillingSchedulerAdapter
+**`BillingSchedulerAdapter`**
 
 Implementa el mecanismo técnico utilizado para generar las señales temporales necesarias para evaluar renovaciones y expiraciones.
 
@@ -4793,9 +4847,9 @@ Implementa el mecanismo técnico utilizado para generar las señales temporales 
 - genera las señales consumidas por `BillingSchedulerConsumer`;
 - no contiene las reglas que determinan si una suscripción debe renovarse o expirar.
 
-##### Event Publishing
+###### Event Publishing
 
-###### EventPublisher
+**`EventPublisher`**
 
 Publica los eventos producidos por el ciclo de vida de las suscripciones para que puedan ser consumidos por otros Bounded Contexts de Guardian+.
 
@@ -4833,11 +4887,11 @@ El siguiente diagrama UML representa los principales elementos que conforman la 
 
 ![Subscriptions Domain Layer Class Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
-`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración. Dentro de su modelo participan entidades como `Plan`, `PaymentAttempt`, `RenewalOrder` y `CancellationRequest`.
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración, y contiene la entidad `PaymentAttempt`, que registra cada intento de pago de su ciclo de vida. `Plan` y `Entitlement` son Aggregate Roots propios: el primero concentra la configuración comercial y el segundo actúa como catálogo de beneficios compartido entre planes y suscripciones.
 
-`EntitlementSet` administra la colección de `EntitlementItem` habilitados para una suscripción. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `Money`, `Period` y `RenewalPolicy` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
+`EntitlementSet` administra los `SubscriptionEntitlement` habilitados para una suscripción, cada uno con su estado y su periodo de vigencia. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `EntitlementId`, `Money` y `Period` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
 
-Los estados principales de las suscripciones y los pagos se representan mediante las enumeraciones `SubscriptionStatus` y `PaymentStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
+Los estados principales de las suscripciones, los pagos y los beneficios efectivos se representan mediante las enumeraciones `SubscriptionStatus`, `PaymentStatus` y `SubscriptionEntitlementStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
 
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
@@ -4849,19 +4903,19 @@ La tabla `subscriptions` constituye el elemento central del modelo de persistenc
 
 Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
-### 2.6.4. Bounded Context: Profile
+#### 2.6.4. Bounded Context: Profile
 
 El Bounded Context **Profile** pertenece al Generic Domain de Guardian+ y es responsable de gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado y las preferencias asociadas al uso de la aplicación.
 
 Este contexto mantiene separadas las responsabilidades relacionadas con identidad y autenticación, pertenecientes al Bounded Context IAM, de aquellas relacionadas con la información de perfil y las relaciones entre usuarios y personas bajo cuidado. De esta manera, Profile administra información necesaria para personalizar la experiencia de Guardian+ sin asumir responsabilidades de seguridad o autenticación.
 
-#### 2.6.4.1. Domain Layer
+##### 2.6.4.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con los perfiles de usuario, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de Guardian+. El contexto utiliza referencias a usuarios administrados por IAM mediante `UserId`, sin incorporar credenciales, autenticación ni información interna de dicho Bounded Context.
 
-##### Aggregate Roots
+###### Aggregate Roots
 
-###### UserProfile
+**`UserProfile`**
 
 Representa la información descriptiva asociada a un usuario de Guardian+. Mantiene los datos personales y de contacto utilizados por la aplicación sin asumir responsabilidades de identidad o autenticación.
 
@@ -4887,7 +4941,7 @@ Representa la información descriptiva asociada a un usuario de Guardian+. Manti
 - Cada `UserProfile` se encuentra asociado a un `UserId` administrado por IAM.
 - La existencia del perfil no implica que Profile administre las credenciales del usuario.
 
-###### CareRecipientProfile
+**`CareRecipientProfile`**
 
 Representa el perfil de una persona bajo cuidado registrada en Guardian+. Mantiene la información descriptiva necesaria para identificarla dentro de las capacidades de cuidado y supervisión.
 
