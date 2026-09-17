@@ -1,0 +1,75 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+  flowchart:
+    curve: linear
+    nodeSpacing: 55
+    rankSpacing: 70
+---
+flowchart TB
+    client["<b>Guardian+ Mobile App</b><br/>[Container: Flutter]<br/>Familiares y cuidadores administran<br/>perfiles y preferencias."]
+    consumers["<b>Consumer Bounded Contexts</b><br/>[Container: Spring Boot]<br/>Emergency &amp; Alerting, Health Monitoring,<br/>Care Routines y Mobility."]
+
+    subgraph platform["Guardian+ Platform [Software System]"]
+        subgraph bc["Profile [Container: Spring Boot]"]
+            subgraph interfaces["Interface Layer"]
+                rest["<b>Profile REST Controllers</b><br/>[Component]<br/>User Profiles, Care Recipient Profiles,<br/>Care Relationships y User Preferences."]
+            end
+            subgraph application["Application Layer"]
+                appsvc["<b>Profile Application Service</b><br/>[Component]<br/>Coordina los command handlers,<br/>query handlers y event handlers."]
+            end
+            subgraph domain["Domain Layer"]
+                userprofile["<b>UserProfile</b><br/>[Component]<br/>Agregado raíz: información<br/>descriptiva del usuario."]
+                recipient["<b>CareRecipientProfile</b><br/>[Component]<br/>Agregado raíz: persona<br/>bajo cuidado."]
+                relationship["<b>CareRelationship</b><br/>[Component]<br/>Agregado raíz: vínculo de cuidado<br/>y su vigencia."]
+                prefs["<b>UserPreferences</b><br/>[Component]<br/>Agregado raíz: idioma<br/>y accesibilidad."]
+                policies["<b>Domain Policies</b><br/>[Component]<br/>ProfileCompletenessPolicy<br/>y CareRelationshipPolicy."]
+            end
+            subgraph infrastructure["Infrastructure Layer"]
+                repo["<b>Profile Repository Adapter</b><br/>[Component]<br/>Implementa las interfaces de<br/>dominio sobre JPA."]
+                iamacl["<b>IAM Query Adapter</b><br/>[Component]<br/>Acceso de solo lectura a la<br/>identidad administrada por IAM."]
+                publisher["<b>Event Publisher</b><br/>[Component]<br/>Publica CareRelationshipEstablished<br/>y CareRelationshipEnded."]
+            end
+        end
+    end
+
+    iam["<b>IAM</b><br/>[Container: Spring Boot]<br/>Cuentas de usuario<br/>y autenticación."]
+    db[("<b>Profile Database</b><br/>[Container: PostgreSQL]<br/>Perfiles, personas bajo cuidado,<br/>relaciones y preferencias.")]
+
+    client -.->|"HTTPS / JSON"| rest
+    rest -.->|"Despacha comandos y consultas"| appsvc
+
+    appsvc -.->|"Instancia y muta"| userprofile
+    appsvc -.->|"Instancia y muta"| recipient
+    appsvc -.->|"Instancia y muta"| relationship
+    appsvc -.->|"Instancia y muta"| prefs
+    appsvc -.->|"Aplica"| policies
+
+    appsvc -.->|"Persiste y consulta"| repo
+    appsvc -.->|"Consulta identidad"| iamacl
+    appsvc -.->|"Publica eventos"| publisher
+    repo -.->|"JDBC"| db
+    iamacl -.->|"Open Host Service"| iam
+    publisher -.->|"Event-Carried State Transfer"| consumers
+
+    classDef person fill:#0f4c81,stroke:#0a3459,color:#ffffff
+    classDef iface fill:#1868b8,stroke:#0f4c81,color:#ffffff
+    classDef app fill:#6b2fa0,stroke:#4a1f70,color:#ffffff
+    classDef dom fill:#1f7a37,stroke:#155526,color:#ffffff
+    classDef infra fill:#d9741a,stroke:#a35512,color:#ffffff
+    classDef plain fill:#ffffff,stroke:#8c8c8c,color:#1a1a1a
+    classDef store fill:#1868b8,stroke:#0f4c81,color:#ffffff
+
+    class client person
+    class consumers,iam plain
+    class rest iface
+    class appsvc app
+    class userprofile,recipient,relationship,prefs,policies dom
+    class repo,iamacl,publisher infra
+    class db store
