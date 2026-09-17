@@ -4308,8 +4308,7 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
-![Health Monitoring Database Design Diagram](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
-
+![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 #### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
