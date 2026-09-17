@@ -1773,8 +1773,7 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 
 #### Health Monitoring Bounded Context (Core Domain)
-
-![Health Monitoring EventStorming](../assets/images/chapterII/EventStorming/HEALTH.png)
+![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
 
