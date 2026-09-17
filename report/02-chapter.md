@@ -3533,30 +3533,11 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 
 ### 2.6. Tactical-Level Domain-Driven Design
 
-#### 2.6.x. Bounded Context: <Nombre del Bounded Context>
-
-##### 2.6.x.1. Domain Layer
-
-##### 2.6.x.2. Interface Layer
-
-##### 2.6.x.3. Application Layer
-
-##### 2.6.x.4. Infrastructure Layer
-
-##### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
-
-##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
-
-###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
-
-###### 2.6.x.6.2. Bounded Context Database Design Diagram
-
-
 #### 2.6.1. Bounded Context: Emergency & Alerting
 
-El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en registrar y clasificar los incidentes que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, salidas de zona segura e inactividad prolongada), derivar de ellos las alertas correspondientes, seleccionar la estrategia de despacho según la severidad y gobernar el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en disparar las alertas ante señales que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, violaciones de zona segura, inactividad prolongada y avisos de rutina), despacharlas hacia sus contactos de emergencia según la severidad, gobernar el escalamiento hasta obtener un reconocimiento efectivo y registrar la atención del incidente hasta su cierre.
 
-A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna.
+A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna. El Fragile Citizen se referencia mediante `CareRecipientProfileId` y los integrantes del Care Circle mediante `UserId`, ambos gobernados por otros contextos.
 
 La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
@@ -4016,6 +3997,7 @@ El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su r
 
 La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
+```
 com.guardianplus.platform.healthmonitoring/
 ├── domain/
 │   ├── model/
@@ -4051,6 +4033,7 @@ com.guardianplus.platform.healthmonitoring/
     │       ├── entities/
     │       └── repositories/
     └── scheduling/
+```
 
 ##### 2.6.2.1. Domain Layer
 
@@ -4317,18 +4300,18 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 ---
 ##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
-![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
+![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
 ##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
-![alt text](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
+![Health Monitoring Domain Class Diagram](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
-![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
+![Health Monitoring Database Design Diagram](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
 
-### 2.6.3. Bounded Context: Subscriptions
+#### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
 
@@ -4338,9 +4321,9 @@ Este contexto mantiene aisladas las reglas comerciales de Guardian+ respecto de 
 
 La Domain Layer concentra las reglas de negocio relacionadas con el ciclo de vida de las suscripciones, la definición de planes comerciales, el procesamiento de pagos y la determinación de los entitlements habilitados para cada suscripción. Esta capa se mantiene independiente de proveedores de pago, tecnologías de persistencia y mecanismos externos de programación.
 
-##### Aggregate Roots
+###### Aggregate Roots
 
-###### Subscription
+**`Subscription`**
 
 Representa una suscripción de Guardian+ y constituye el Aggregate Root principal del ciclo de vida comercial. Controla su activación, renovación, cambio de plan, cancelación y expiración.
 
@@ -5598,21 +5581,23 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 *   `ReminderDueCheckScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 30000)` que consulta `ReminderRepository.findDueForIssuance(Instant.now())` e invoca `IssueReminderCommand` por cada resultado.
 *   `ReminderReissueScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 60000)` que consulta `ReminderRepository.findOverdueForReissue(Instant.now())` e invoca `ReissueReminderCommand` por cada resultado.
 
-##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-![components-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
+![Care Routines & Wellness Component Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
+
+##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-![class-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
+![Care Routines & Wellness Domain Class Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
+![Care Routines & Wellness Database Design Diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
 #### 2.6.6. Bounded Context: Mobility & Geofencing
 
-El Bounded Context Mobility & Geofencing pertenece al Supportig Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
+El Bounded Context Mobility & Geofencing pertenece al Supporting Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
 
 El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
 
@@ -6158,7 +6143,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-![alt text](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
+![Mobility & Geofencing Component Diagram](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
 ##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -6427,16 +6412,16 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 ---
 
 ##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
-![alt text](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
+![IAM Component Diagram](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
 ##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
-![alt text](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
+![IAM Domain Class Diagram](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
 
 ###### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-![alt text](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
+![IAM Database Design Diagram](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 #### Guardian+ Physical Database Schema
 
