@@ -3212,7 +3212,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
 <tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Credentials Uniqueness Policy (email/username)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Email Uniqueness Policy</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Mandatory Email Verification Policy</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Two-Factor OTP Authentication Policy</td>
 </tr>
@@ -3227,7 +3227,8 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 • UserAccount<br>
 • Credentials<br>
 • Email Verification<br>
-• One-Time Password (OTP)
+• One-Time Password (OTP)<br>
+• Password Reset Token
 </td>
 <td width="50%" valign="top">
 • Password Reset Token<br>
@@ -3257,7 +3258,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Email</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email/Username Availability</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email Availability</td></tr>
 </table>
 </td>
 <td width="50%" valign="top" align="center" style="padding-left: 10px;">
@@ -3268,7 +3269,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register User Credentials</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Send Email Verification Request</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Issue Email Verification Code</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Verify Email</td></tr>
@@ -6218,7 +6219,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 #### 2.6.7. Bounded Context: IAM
 
-El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña.
+El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales mediante correo electrónico, autenticación reforzada con un segundo factor opcional (OTP) y recuperación segura de contraseña.
 
 A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS) publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados, validado localmente por cada contexto descendente sin consultas síncronas a la base de datos de identidad.
 
@@ -6267,96 +6268,117 @@ com.guardianplus.platform.iam/
 
 ##### 2.6.7.1. Domain Layer
 
-Encapsula las reglas de identidad y acceso: la unicidad de credenciales, la obligatoriedad de verificación de correo, la vigencia del segundo factor (OTP) y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: el segundo factor de autenticación (`OneTimePassword`) se separa de `UserAccount` en un agregado propio, ya que posee un ciclo de vida corto e independiente (generación, verificación, expiración) que no debe acoplarse a las invariantes permanentes de la cuenta.
+Encapsula las reglas de identidad y acceso: la unicidad del correo electrónico, la obligatoriedad de verificación de la cuenta, la vigencia y el consumo de un solo uso de los códigos de segundo factor y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: los secretos de vida corta se separan de `UserAccount` en agregados propios (`OneTimePassword` y `PasswordResetToken`), ya que poseen un ciclo de vida independiente —emisión, vigencia, consumo— que no debe acoplarse a las invariantes permanentes de la cuenta. Esta separación es la que el diseño de base de datos refleja mediante las tablas `otp_codes` y `password_reset_tokens`.
+
+Ninguno de los secretos se conserva en claro: el dominio almacena únicamente su hash (`code_hash` y `token_hash`), de modo que una filtración de la base de datos no permite reconstruir el código enviado al usuario.
 
 ###### Aggregates
 
 *   **UserAccount**
     *   Agregado raíz que representa la identidad digital de un cuidador o familiar registrado en Guardian+.
     *   Hereda de `AbstractDomainAggregateRoot<UserAccount>` para registrar y publicar eventos de dominio.
-    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_EMAIL_VERIFICATION → ACTIVE`), rechazando la autenticación mientras el correo no haya sido verificado.
+    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_EMAIL_VERIFICATION → ACTIVE`), rechazando la autenticación mientras el correo no haya sido verificado. El indicador `emailVerified` registra el hecho de la verificación y `status` gobierna la habilitación para autenticarse; la cuenta transiciona a `ACTIVE` únicamente cuando el correo queda verificado.
+    *   El correo electrónico es la única credencial de identificación: la autenticación no admite nombre de usuario.
     *   *Atributos:*
         *   `id: UserAccountId`
         *   `email: Email`
-        *   `username: Username`
         *   `passwordHash: HashedPassword`
+        *   `emailVerified: Boolean`
+        *   `twoFactorEnabled: Boolean`
         *   `status: UserAccountStatus`
-        *   `emailVerificationToken: EmailVerificationToken`
-        *   `passwordResetToken: PasswordResetToken`
         *   `createdAt: Instant`
-        *   `verifiedAt: Instant`
         *   `updatedAt: Instant`
     *   *Métodos:*
-        *   `UserAccount(RegisterUserCredentialsCommand command, HashedPassword passwordHash, EmailVerificationToken token)`
-        *   `verifyEmail(String token): void`
+        *   `UserAccount(RegisterUserCredentialsCommand command, HashedPassword passwordHash)`
+        *   `confirmEmailVerification(): void`
         *   `validateCredentials(String rawPassword, PasswordHasher hasher): boolean`
-        *   `issuePasswordResetToken(TokenGenerator generator): PasswordResetToken`
-        *   `resetPassword(String token, HashedPassword newPasswordHash): void`
+        *   `changePassword(HashedPassword newPasswordHash): void`
+        *   `enableTwoFactor(): void`
+        *   `disableTwoFactor(): void`
+        *   `requiresSecondFactor(): boolean`
+        *   `canAuthenticate(): boolean`
         *   `isEmailVerified(): boolean`
 
 *   **OneTimePassword**
-    *   Agregado raíz que representa el segundo factor de autenticación (OTP) emitido durante un intento de login.
-    *   Ciclo de vida: `PENDING → VERIFIED | EXPIRED`.
+    *   Agregado raíz que representa un código de un solo uso emitido hacia el correo del usuario, ya sea como segundo factor de un intento de login o como confirmación de la verificación de la cuenta. El propósito de la emisión se declara en `purpose`.
+    *   Su estado no se persiste como columna: se deriva de `usedAt` y `expiresAt`, de modo que un código es utilizable únicamente mientras no haya sido consumido ni haya vencido.
     *   *Atributos:*
         *   `id: OtpId`
         *   `userAccountId: UserAccountId`
-        *   `code: OtpCode`
-        *   `status: OtpStatus`
-        *   `generatedAt: Instant`
+        *   `codeHash: HashedSecret`
+        *   `purpose: OtpPurpose`
         *   `expiresAt: Instant`
-        *   `verifiedAt: Instant`
+        *   `usedAt: Instant`
+        *   `createdAt: Instant`
     *   *Métodos:*
-        *   `OneTimePassword(GenerateOtpCommand command, OtpCode code)`
-        *   `verify(String candidateCode): boolean`
-        *   `expire(): void`
+        *   `OneTimePassword(GenerateOtpCommand command, HashedSecret codeHash, Instant expiresAt)`
+        *   `verify(String candidateCode, SecretHasher hasher, Instant now): boolean`
+        *   `markAsUsed(Instant now): void`
+        *   `isUsable(Instant now): boolean`
+        *   `isExpired(Instant now): boolean`
+        *   `isUsed(): boolean`
+
+*   **PasswordResetToken**
+    *   Agregado raíz que representa un token opaco de un solo uso emitido para restablecer la contraseña de una cuenta. Se modela como agregado propio porque una cuenta puede acumular varios tokens a lo largo del tiempo, cada uno con su vigencia y su consumo independiente.
+    *   *Atributos:*
+        *   `id: PasswordResetTokenId`
+        *   `userAccountId: UserAccountId`
+        *   `tokenHash: HashedSecret`
+        *   `expiresAt: Instant`
+        *   `usedAt: Instant`
+        *   `createdAt: Instant`
+    *   *Métodos:*
+        *   `PasswordResetToken(RequestPasswordResetCommand command, UserAccountId userAccountId, HashedSecret tokenHash, Instant expiresAt)`
+        *   `matches(String rawToken, SecretHasher hasher): boolean`
+        *   `markAsUsed(Instant now): void`
+        *   `isUsable(Instant now): boolean`
         *   `isExpired(Instant now): boolean`
 
-Este contexto no requiere entidades internas adicionales: ambos agregados son de único nivel, sin objetos hijos con identidad propia.
+Este contexto no requiere entidades internas: los tres agregados son de único nivel, sin objetos hijos con identidad propia.
 
 ###### Value Objects
 
 *   **Email:** Encapsula el correo electrónico (`value: String`). Invariante: formato RFC 5322 válido. Método: `matches(String other)`.
-*   **Username:** Encapsula el nombre de usuario (`value: String`). Invariante: 3-30 caracteres alfanuméricos.
 *   **HashedPassword:** Encapsula el hash irreversible de la contraseña (`hash: String`). Nunca expone ni acepta la contraseña en texto plano fuera del `PasswordHasher`.
-*   **OtpCode:** Encapsula el código numérico de un solo uso (`value: String`, 6 dígitos). Método: `matches(String candidate)`.
-*   **EmailVerificationToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
-*   **PasswordResetToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
+*   **HashedSecret:** Encapsula el hash irreversible de un secreto de vida corta (`hash: String`), utilizado tanto para los códigos OTP (`code_hash`) como para los tokens de recuperación (`token_hash`).
 *   **UserAccountStatus:** Enum (`PENDING_EMAIL_VERIFICATION`, `ACTIVE`). Método: `canAuthenticate()`.
-*   **OtpStatus:** Enum (`PENDING`, `VERIFIED`, `EXPIRED`).
-*   **UserAccountId / OtpId:** Identificadores inmutables tipo UUID.
+*   **OtpPurpose:** Enum (`LOGIN`, `EMAIL_VERIFICATION`) que declara para qué fue emitido un código de un solo uso.
+*   **UserAccountId / OtpId / PasswordResetTokenId:** Identificadores inmutables tipo UUID.
 
 ###### Domain Services (Puertos)
 
 *   **PasswordHasher:** `hash(String rawPassword): HashedPassword`; `matches(String rawPassword, HashedPassword hash): boolean`. Implementado en infraestructura mediante BCrypt.
-*   **OtpCodeGenerator:** `generate(): OtpCode`. Genera un código numérico aleatorio criptográficamente seguro.
-*   **TokenGenerator:** `generateOpaqueToken(): String`. Genera los tokens de verificación de correo y de recuperación de contraseña.
+*   **SecretGenerator:** `generateNumericCode(int digits): String`; `generateOpaqueToken(): String`. Genera los códigos OTP y los tokens de recuperación mediante un generador criptográficamente seguro.
+*   **SecretHasher:** `hash(String rawSecret): HashedSecret`; `matches(String rawSecret, HashedSecret hash): boolean`. Permite verificar un código o token sin conservarlo en claro.
 
 ###### Commands & Queries (Domain Model)
 
-*   `RegisterUserCredentialsCommand(String email, String username, String rawPassword)`
-*   `SendEmailVerificationRequestCommand(UUID userAccountId)`
-*   `VerifyEmailCommand(UUID userAccountId, String token)`
-*   `LoginCommand(String emailOrUsername, String rawPassword)`
-*   `GenerateOtpCommand(UUID userAccountId)`
-*   `VerifyOtpCommand(UUID otpId, String code)`
-*   `AuthenticateUserCommand(UUID userAccountId, UUID otpId)`
+*   `RegisterUserCredentialsCommand(String email, String rawPassword)`
+*   `GenerateOtpCommand(UUID userAccountId, String purpose)`
+*   `VerifyEmailCommand(UUID userAccountId, String code)`
+*   `LoginCommand(String email, String rawPassword)`
+*   `VerifyOtpCommand(UUID userAccountId, String code)`
+*   `AuthenticateUserCommand(UUID userAccountId)`
+*   `EnableTwoFactorCommand(UUID userAccountId)`
+*   `DisableTwoFactorCommand(UUID userAccountId)`
 *   `RequestPasswordResetCommand(String email)`
 *   `ResetPasswordCommand(String token, String newRawPassword)`
 *   `GetUserAccountByIdQuery(UserAccountId userAccountId)`
 *   `GetUserAccountByEmailQuery(Email email)`
-*   `GetUserAccountAvailabilityQuery(String email, String username)`
+*   `GetEmailAvailabilityQuery(String email)`
+*   `GetUsableOtpByUserAccountIdAndPurposeQuery(UserAccountId userAccountId, OtpPurpose purpose)`
 
 ###### Domain Events
 
-*   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, portando el `EmailVerificationToken` generado.
-*   `EmailVerificationRequestedEvent`: Emitido para disparar el envío del correo de verificación.
-*   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo dentro de la vigencia del token; transiciona la cuenta a `ACTIVE`.
-*   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo/usuario y la contraseña.
-*   `OtpGeneratedEvent`: Emitido tras generar el segundo factor, portando el destino de envío y su vencimiento.
-*   `OtpVerifiedEvent`: Emitido cuando el código ingresado coincide dentro de la ventana de vigencia.
+*   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, con la cuenta en estado `PENDING_EMAIL_VERIFICATION`.
+*   `OtpGeneratedEvent`: Emitido tras emitir un código de un solo uso, portando su propósito y su vencimiento; el código en claro viaja únicamente hacia el adaptador de notificaciones y nunca se persiste.
+*   `OtpVerifiedEvent`: Emitido cuando el código ingresado coincide con el hash almacenado dentro de la ventana de vigencia.
+*   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo con un código de propósito `EMAIL_VERIFICATION`; transiciona la cuenta a `ACTIVE`.
+*   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo y la contraseña.
 *   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
-*   `PasswordResetRequestedEvent`: Emitido al solicitar la recuperación de contraseña, portando el `PasswordResetToken` generado.
-*   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente.
+*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta.
+*   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
+*   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
 ###### Repositories (Domain Interfaces)
 
@@ -6364,12 +6386,17 @@ Este contexto no requiere entidades internas adicionales: ambos agregados son de
     *   `save(UserAccount account): UserAccount`
     *   `findById(UserAccountId id): Optional<UserAccount>`
     *   `findByEmail(Email email): Optional<UserAccount>`
-    *   `findByUsername(Username username): Optional<UserAccount>`
-    *   `existsByEmailOrUsername(Email email, Username username): boolean`
+    *   `existsByEmail(Email email): boolean`
 *   **OneTimePasswordRepository:**
     *   `save(OneTimePassword otp): OneTimePassword`
     *   `findById(OtpId id): Optional<OneTimePassword>`
-    *   `findLatestPendingByUserAccountId(UserAccountId userAccountId): Optional<OneTimePassword>`
+    *   `findLatestUsableByUserAccountIdAndPurpose(UserAccountId userAccountId, OtpPurpose purpose, Instant now): Optional<OneTimePassword>`
+    *   `deleteExpiredUnusedBefore(Instant threshold): int`
+*   **PasswordResetTokenRepository:**
+    *   `save(PasswordResetToken token): PasswordResetToken`
+    *   `findById(PasswordResetTokenId id): Optional<PasswordResetToken>`
+    *   `findUsableByTokenHash(HashedSecret tokenHash, Instant now): Optional<PasswordResetToken>`
+    *   `deleteExpiredUnusedBefore(Instant threshold): int`
 
 ---
 
@@ -6381,19 +6408,23 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
 
 *   **AuthController** (`/api/v1/auth`):
     *   `POST /register`: Registra nuevas credenciales de usuario.
-    *   `POST /verify-email`: Confirma el correo electrónico mediante el token enviado.
-    *   `POST /login`: Valida correo/usuario y contraseña, y dispara el desafío OTP.
-    *   `POST /otp/verify`: Verifica el código OTP y, de ser correcto, emite el JWT de sesión.
-    *   `POST /password-reset/request`: Genera y envía el token de recuperación de contraseña.
-    *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir del token vigente.
+    *   `POST /verify-email`: Confirma el correo electrónico mediante el código de propósito `EMAIL_VERIFICATION` enviado.
+    *   `POST /verify-email/resend`: Reemite el código de verificación de correo.
+    *   `POST /login`: Valida correo y contraseña y, si la cuenta tiene el segundo factor habilitado, dispara el desafío OTP.
+    *   `POST /otp/verify`: Verifica el código OTP de propósito `LOGIN` y, de ser correcto, emite el JWT de sesión.
+    *   `POST /password-reset/request`: Emite y envía el token de recuperación de contraseña.
+    *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir de un token vigente y no consumido.
 *   **UserAccountsController** (`/api/v1/user-accounts`):
     *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
-    *   `GET /availability`: Consulta la disponibilidad de un correo o nombre de usuario (`Email/Username Available?`).
+    *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
+    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
 
 ###### Resources & Assemblers
 
-*   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
-*   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
+*   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `TwoFactorSettingResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
+*   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `TwoFactorCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
+
+Los recursos de salida nunca exponen el hash de la contraseña ni el de un código o token: `UserAccountResource` publica únicamente el identificador, el correo, el estado, la verificación del correo y la habilitación del segundo factor.
 
 ###### Integration Events & ACL Facade
 
@@ -6412,27 +6443,31 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 ###### Command Services
 
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
-    *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad de correo/usuario, aplica `PasswordHasher` y `TokenGenerator`, y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`.
-    *   `handle(VerifyEmailCommand command): void`: Verifica el token vigente y transiciona la cuenta a `ACTIVE`.
-    *   `handle(RequestPasswordResetCommand command): void`: Genera y asocia un `PasswordResetToken` a la cuenta encontrada por correo.
-    *   `handle(ResetPasswordCommand command): void`: Valida el token vigente y reemplaza el `HashedPassword`.
+    *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
+    *   `handle(VerifyEmailCommand command): void`: Recupera el código utilizable de propósito `EMAIL_VERIFICATION`, lo verifica contra su hash, lo marca como usado y transiciona la cuenta a `ACTIVE`.
+    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta.
+    *   `handle(ResetPasswordCommand command): void`: Recupera el token utilizable por su hash, lo marca como usado y reemplaza el `HashedPassword` de la cuenta asociada.
+*   **PasswordResetCommandService & PasswordResetCommandServiceImpl:**
+    *   `handle(RequestPasswordResetCommand command): Optional<PasswordResetToken>`: Emite un token opaco mediante `SecretGenerator`, persiste únicamente su hash y publica `PasswordResetTokenIssuedEvent`. Si el correo no corresponde a ninguna cuenta, la operación no revela esa condición al solicitante.
 *   **AuthenticationCommandService & AuthenticationCommandServiceImpl:**
-    *   `handle(LoginCommand command): void`: Valida credenciales mediante `PasswordHasher.matches()` y publica `CredentialsValidatedEvent`.
-    *   `handle(GenerateOtpCommand command): Optional<OneTimePassword>`: Construye y persiste el agregado `OneTimePassword` mediante `OtpCodeGenerator`.
-    *   `handle(VerifyOtpCommand command): void`: Verifica el código ingresado dentro de la vigencia.
-    *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la verificación exitosa del OTP.
+    *   `handle(LoginCommand command): void`: Valida credenciales mediante `PasswordHasher.matches()`, verifica que la cuenta pueda autenticarse y publica `CredentialsValidatedEvent`.
+    *   `handle(GenerateOtpCommand command): Optional<OneTimePassword>`: Construye y persiste el agregado `OneTimePassword` con el hash del código generado por `SecretGenerator`, según el propósito recibido.
+    *   `handle(VerifyOtpCommand command): void`: Recupera el código utilizable del propósito `LOGIN` y lo verifica dentro de su vigencia, marcándolo como usado.
+    *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la validación exitosa del flujo de autenticación.
 
 ###### Query Services
 
-*   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetUserAccountAvailabilityQuery`.
+*   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetEmailAvailabilityQuery`.
+*   **OneTimePasswordQueryService & OneTimePasswordQueryServiceImpl:** Resuelve `GetUsableOtpByUserAccountIdAndPurposeQuery`.
 
 ###### Event Handlers
 
-*   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `SendEmailVerificationRequestCommand` tras el registro.
-*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` tras validar correo/usuario y contraseña.
-*   `OtpGeneratedEventHandler`: Despacha el envío del código OTP por correo mediante el adaptador de notificaciones.
-*   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand`, cerrando el flujo de login.
-*   `PasswordResetRequestedEventHandler`: Despacha el envío del correo con el enlace/token de recuperación.
+*   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
+*   `OtpGeneratedEventHandler`: Despacha el envío del código por correo mediante el adaptador de notificaciones, según el propósito de la emisión.
+*   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand` cuando el propósito es `LOGIN`, cerrando el flujo de autenticación.
+*   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.
+*   `PasswordResetTokenIssuedEventHandler`: Despacha el envío del correo con el enlace de recuperación, que porta el token en claro una única vez.
 
 ###### Application ACL Implementation
 
@@ -6446,24 +6481,27 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ###### Persistence JPA Entities
 
-*   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email`, `username`, `password_hash`, `status`, `email_verification_token`, `email_verification_expires_at`, `password_reset_token`, `password_reset_expires_at`, `created_at`, `verified_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
-*   `OneTimePasswordPersistenceEntity`: Mapea la tabla `one_time_passwords`. Columnas: `id`, `user_account_id`, `code_hash`, `status`, `generated_at`, `expires_at`, `verified_at`.
+*   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email` (única), `password_hash`, `email_verified`, `two_factor_enabled`, `status`, `created_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `OneTimePasswordPersistenceEntity`: Mapea la tabla `otp_codes`. Columnas: `id`, `user_id`, `code_hash`, `purpose`, `expires_at`, `used_at`, `created_at`.
+*   `PasswordResetTokenPersistenceEntity`: Mapea la tabla `password_reset_tokens`. Columnas: `id`, `user_id`, `token_hash`, `expires_at`, `used_at`, `created_at`.
+*   *Converters:* `UserAccountStatusConverter` y `OtpPurposeConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
 
 ###### Spring Data Repositories & Adapters
 
-*   `UserAccountPersistenceRepository` y `OneTimePasswordPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
-*   `UserAccountRepositoryImpl` y `OneTimePasswordRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+*   `UserAccountPersistenceRepository`, `OneTimePasswordPersistenceRepository` y `PasswordResetTokenPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `UserAccountRepositoryImpl`, `OneTimePasswordRepositoryImpl` y `PasswordResetTokenRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
 
 ###### Persistence Assemblers
 
-*   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `Username`, `HashedPassword` y los tokens vigentes.
-*   `OneTimePasswordPersistenceAssembler`: Traduce entre `OneTimePasswordPersistenceEntity` y el agregado `OneTimePassword`.
+*   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `HashedPassword` y `UserAccountStatus`.
+*   `OneTimePasswordPersistenceAssembler` y `PasswordResetTokenPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados, recomponiendo `HashedSecret` y, en el caso del OTP, `OtpPurpose`.
 
 ###### Security Adapters
 
 *   `BCryptPasswordHasherAdapter`: Implementa `PasswordHasher` sobre el algoritmo BCrypt.
+*   `BCryptSecretHasherAdapter`: Implementa `SecretHasher` para el hashing y la comparación de los códigos OTP y de los tokens de recuperación.
+*   `SecureRandomSecretGeneratorAdapter`: Implementa `SecretGenerator` sobre un generador criptográficamente seguro, produciendo códigos numéricos de seis dígitos y tokens opacos.
 *   `JwtTokenProviderAdapter`: Implementa la emisión y validación de JWT firmados (RS256) con `UserId` y roles como claims; materializa el Published Language del Open Host Service de IAM.
-*   `SecureRandomOtpCodeGeneratorAdapter` y `SecureRandomTokenGeneratorAdapter`: Implementan `OtpCodeGenerator` y `TokenGenerator` sobre un generador criptográficamente seguro.
 
 ###### Notification Adapters
 
@@ -6471,8 +6509,7 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ###### Scheduling
 
-*   `OtpExpirationScheduler`: Tarea periódica que transiciona a `EXPIRED` los OTP pendientes cuya vigencia venció sin verificación.
-*   `TokenExpirationScheduler`: Tarea periódica que invalida los tokens de verificación de correo y de recuperación de contraseña vencidos.
+*   `ExpiredSecretsCleanupScheduler`: Tarea periódica que purga de `otp_codes` y `password_reset_tokens` los secretos vencidos y no consumidos, invocando `deleteExpiredUnusedBefore`. La invalidación no requiere una transición de estado persistida: un secreto deja de ser utilizable en cuanto vence su `expires_at` o se registra su `used_at`.
 
 ---
 
@@ -6482,7 +6519,7 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 ##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
-![IAM Domain Class Diagram](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
+![IAM Domain Class Diagram](../assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ###### 2.6.7.6.2. Bounded Context Database Design Diagram
 

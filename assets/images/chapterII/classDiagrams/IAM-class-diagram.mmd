@@ -1,0 +1,172 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+---
+classDiagram
+    direction TB
+
+    class UserAccount {
+        <<Aggregate Root>>
+        -UserAccountId id
+        -Email email
+        -HashedPassword passwordHash
+        -Boolean emailVerified
+        -Boolean twoFactorEnabled
+        -UserAccountStatus status
+        -Instant createdAt
+        -Instant updatedAt
+        +confirmEmailVerification() void
+        +validateCredentials(String, PasswordHasher) boolean
+        +changePassword(HashedPassword) void
+        +enableTwoFactor() void
+        +disableTwoFactor() void
+        +requiresSecondFactor() boolean
+        +canAuthenticate() boolean
+        +isEmailVerified() boolean
+    }
+
+    class OneTimePassword {
+        <<Aggregate Root>>
+        -OtpId id
+        -UserAccountId userAccountId
+        -HashedSecret codeHash
+        -OtpPurpose purpose
+        -Instant expiresAt
+        -Instant usedAt
+        -Instant createdAt
+        +verify(String, SecretHasher, Instant) boolean
+        +markAsUsed(Instant) void
+        +isUsable(Instant) boolean
+        +isExpired(Instant) boolean
+        +isUsed() boolean
+    }
+
+    class PasswordResetToken {
+        <<Aggregate Root>>
+        -PasswordResetTokenId id
+        -UserAccountId userAccountId
+        -HashedSecret tokenHash
+        -Instant expiresAt
+        -Instant usedAt
+        -Instant createdAt
+        +matches(String, SecretHasher) boolean
+        +markAsUsed(Instant) void
+        +isUsable(Instant) boolean
+        +isExpired(Instant) boolean
+    }
+
+    class PasswordHasher {
+        <<interface>>
+        +hash(String) HashedPassword
+        +matches(String, HashedPassword) boolean
+    }
+
+    class SecretGenerator {
+        <<interface>>
+        +generateNumericCode(int) String
+        +generateOpaqueToken() String
+    }
+
+    class SecretHasher {
+        <<interface>>
+        +hash(String) HashedSecret
+        +matches(String, HashedSecret) boolean
+    }
+
+    class UserAccountRepository {
+        <<interface>>
+        +save(UserAccount) UserAccount
+        +findById(UserAccountId) Optional~UserAccount~
+        +findByEmail(Email) Optional~UserAccount~
+        +existsByEmail(Email) boolean
+    }
+
+    class OneTimePasswordRepository {
+        <<interface>>
+        +save(OneTimePassword) OneTimePassword
+        +findById(OtpId) Optional~OneTimePassword~
+        +findLatestUsableByUserAccountIdAndPurpose(UserAccountId, OtpPurpose, Instant) Optional~OneTimePassword~
+        +deleteExpiredUnusedBefore(Instant) int
+    }
+
+    class PasswordResetTokenRepository {
+        <<interface>>
+        +save(PasswordResetToken) PasswordResetToken
+        +findById(PasswordResetTokenId) Optional~PasswordResetToken~
+        +findUsableByTokenHash(HashedSecret, Instant) Optional~PasswordResetToken~
+        +deleteExpiredUnusedBefore(Instant) int
+    }
+
+    class Email {
+        <<Value Object>>
+        -String value
+        +matches(String) boolean
+    }
+
+    class HashedPassword {
+        <<Value Object>>
+        -String hash
+    }
+
+    class HashedSecret {
+        <<Value Object>>
+        -String hash
+    }
+
+    class UserAccountId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class OtpId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class PasswordResetTokenId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class UserAccountStatus {
+        <<enumeration>>
+        PENDING_EMAIL_VERIFICATION
+        ACTIVE
+        +canAuthenticate() boolean
+    }
+
+    class OtpPurpose {
+        <<enumeration>>
+        LOGIN
+        EMAIL_VERIFICATION
+    }
+
+    UserAccount *-- UserAccountId
+    UserAccount *-- Email
+    UserAccount *-- HashedPassword
+    UserAccount *-- UserAccountStatus
+    UserAccount ..> PasswordHasher : valida credenciales
+
+    OneTimePassword *-- OtpId
+    OneTimePassword *-- HashedSecret : codeHash
+    OneTimePassword *-- OtpPurpose
+    OneTimePassword --> UserAccountId : emitido para
+    OneTimePassword ..> SecretHasher : verifica
+
+    PasswordResetToken *-- PasswordResetTokenId
+    PasswordResetToken *-- HashedSecret : tokenHash
+    PasswordResetToken --> UserAccountId : emitido para
+    PasswordResetToken ..> SecretHasher : verifica
+
+    UserAccountRepository ..> UserAccount : gestiona
+    OneTimePasswordRepository ..> OneTimePassword : gestiona
+    PasswordResetTokenRepository ..> PasswordResetToken : gestiona
+
+    SecretGenerator ..> OneTimePassword : provee el código
+    SecretGenerator ..> PasswordResetToken : provee el token
