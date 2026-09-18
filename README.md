@@ -189,6 +189,9 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reforcé el concepto de Análisis Competitivo como herramienta estratégica para contrastar la propuesta de valor de una solución frente al mercado, aplicándolo dentro del contexto específico de este proyecto. Amplié y actualicé mis conocimientos sobre User Personas dentro del proceso de Needfinding, afinando la forma en que sintetizo información cualitativa en arquetipos de usuario. Profundicé en Domain-Driven Design (DDD) a nivel estratégico, reforzando el uso de Event Storming como técnica colaborativa para el descubrimiento del dominio, así como el Bounded Context Canvas para delimitar responsabilidades entre subdominios. De igual forma, actualicé mi manejo del C4 Model para la representación de arquitectura de software en distintos niveles de abstracción, y reforcé el concepto de Ubiquitous Language como práctica para establecer un vocabulario común entre el equipo técnico y los stakeholders del negocio.
 
 <br>
+<br>
+<strong>López Monroy, Rodrigo Alfredo</strong><br><em>AV1:</em> Apliqué Domain-Driven Design en sus dos niveles para diseñar el Bounded Context Emergency & Alerting, que es el Core Domain de Guardian+. En lo estratégico partí del EventStorming para delimitar el contexto y armar su Bounded Context Canvas, y en lo táctico definí sus agregados, value objects y eventos de dominio sobre una arquitectura de cuatro capas. Modelé el recorrido completo de una emergencia, desde la señal de riesgo hasta la respuesta del cuidador, con sus reglas de despacho y escalamiento. Para documentarlo aprendí por mi cuenta Mermaid y Graphviz, que no vimos en clase, y me permitieron mantener los diagramas como código versionado junto al informe.
+
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.
 
@@ -206,6 +209,9 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez. 
 
 <br><br>
+
+<br>
+<strong>López Monroy, Rodrigo Alfredo</strong><br><em>AV1:</em> Aunque ya había trabajado Domain-Driven Design antes, este proyecto me mostró que cada dominio nuevo obliga a volver a estudiarlo. Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.
 
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.
@@ -259,6 +265,24 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Achievable:* Es una progresión natural desde un rol de desarrollo backend, apoyada en la experiencia técnica acumulada desde la universidad.
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
+
+### <López Monroy, Rodrigo Alfredo>
+
+**Objetivo SMART 1:**
+Dentro de los primeros 18 meses posteriores a mi graduación, me incorporaré como ingeniero de software embebido o de firmware, programando en C y C++ sobre sistemas operativos de tiempo real, y consolidaré esa base con al menos 3 proyectos propios documentados en un repositorio público y un curso o certificación formal en sistemas embebidos.
+- *Specific:* Incorporarme a un rol de software embebido o firmware con C/C++ y RTOS, con 3 proyectos documentados y una certificación del área.
+- *Measurable:* Un puesto formal en el rubro, 3 repositorios públicos con su documentación y el certificado obtenido.
+- *Achievable:* Parte de la base en programación de bajo nivel y protocolos de comunicación la trabajé durante la carrera, y los proyectos propios puedo iniciarlos desde ahora sin depender de un empleador.
+- *Relevant:* Es la puerta de entrada al diseño de software de bajo nivel, que es el campo en el que quiero especializarme.
+- *Time-bound:* 18 meses desde la graduación, con la certificación lista durante el primer año.
+
+**Objetivo SMART 2:**
+En un plazo de 4 años tras graduarme, cursaré una especialización de posgrado en sistemas embebidos o software automotriz en el extranjero y daré el paso a la industria automotriz, habiendo postulado a al menos 4 programas con financiamiento o beca, obtenido admisión en uno de ellos, y acreditado formación en los estándares del sector, como AUTOSAR para la arquitectura de software automotriz, MISRA C como estándar de codificación e ISO 26262 de seguridad funcional, para contribuir en al menos un proyecto de software vehicular en desarrollo o en producción.
+- *Specific:* Cursar un posgrado en el extranjero en sistemas embebidos o software automotriz y entrar a la industria automotriz con formación acreditada en AUTOSAR, MISRA C e ISO 26262.
+- *Measurable:* 4 postulaciones enviadas, una carta de admisión, los certificados de los tres estándares y la participación verificable en un proyecto de software vehicular.
+- *Achievable:* Los 18 meses previos de experiencia en firmware y el portafolio del primer objetivo sostienen tanto la postulación al posgrado como el cambio de industria.
+- *Relevant:* Reúne mis tres metas profesionales: especializarme en el extranjero, trabajar en software de bajo nivel y hacerlo en el sector automotriz.
+- *Time-bound:* 4 años desde la graduación, con las postulaciones enviadas antes del segundo año.
 
 ### <Sanchez Cuadrado, Juan Antonio>
 
