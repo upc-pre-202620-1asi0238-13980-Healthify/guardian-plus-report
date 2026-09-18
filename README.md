@@ -10,7 +10,7 @@
 
 Aplicaciones para Dispositivos Móviles
 
-12980
+13980
 
 Docente: **Mayta Guillermo, Jorge Luis**
 
@@ -29,6 +29,7 @@ u20241b843 - Mechan Montenegro, Luciana Carolina
 u20241d185 - Luis Miranda, Diego Andres  
 u202421866 - López Monroy, Rodrigo Alfredo  
 u202419494 - Sanchez Cuadrado, Juan Antonio
+
 ---
 2026 - 2
 *Septiembre, 2026*
@@ -247,3 +248,20 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Achievable:* Es una progresión natural desde un rol de desarrollo backend, apoyada en la experiencia técnica acumulada desde la universidad.
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
+
+### <Luis Miranda, Diego Andres>
+**Objetivo SMART 1:**
+Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software."
+- *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
+- *Measurable:* Participar en al menos 2 proyectos académicos o personales donde asuma el rol de arquitecto o líder técnico, documentando las decisiones de diseño y resultados.
+- *Achievable:* Aprovechar cursos de la carrera y proyectos extracurriculares para aplicar patrones de arquitectura y buenas prácticas.
+- *Relevant:* Fortalecer mi perfil profesional AI Engineer para roles de liderazgo en desarrollo de software.
+- *Lograrlo:* antes de 2 años posteriores a mi graduación.
+
+**Objetivo SMART 2:**
+En los próximos 2 años después de graduarme, contribuiré con al menos 5 funcionalidades clave en proyectos de software (académicos, open source o laborales), asegurando que generen valor medible para usuarios o equipos, consolidando mi especialización en AI Engineer o full stack developer."
+- *Specific:* Generar impacto directo en proyectos de desarrollo mediante aportes técnicos en AI, full stack o Dev.
+- *Measurable:* Contribuir con al menos 5 funcionalidades clave en proyectos académicos, open source o laborales, que sean utilizadas por otros usuarios o equipos.
+- *Achievable:* Usar mis conocimientos adquiridos en .NET, Spring Boot, Node.js y bases de datos para implementar soluciones completas.
+- *Relevant:* Alinear mi crecimiento profesional con la especialización en AI Engineer o full stack developer.
+- *Lograrlo:* Alcanzar este objetivo dentro de los 2 años posteriores a mi graduación.
