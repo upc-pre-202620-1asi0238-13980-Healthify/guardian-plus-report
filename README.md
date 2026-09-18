@@ -211,7 +211,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <br><br>
 
 <br>
-<strong>López Monroy, Rodrigo Alfredo</strong><br><em>AV1:</em> Aunque ya había trabajado Domain-Driven Design antes, este proyecto me mostró que cada dominio nuevo obliga a volver a estudiarlo. Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.
+<strong>López Monroy, Rodrigo Alfredo</strong><br><em>AV1:</em> Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.
 
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.
@@ -227,7 +227,7 @@ Como equipo reconocimos que, incluso contando con experiencia previa en DDD y en
 
 ## Objetivos SMART
 
-### <Azama Fukuda, Juan Pablo>
+### Azama Fukuda, Juan Pablo
 
 Objetivo SMART 1 — Arquitectura y liderazgo técnico:
 
@@ -248,7 +248,7 @@ Objetivo SMART 2 — Contribución medible de valor:
 - R: responde directamente a "crear valor" y "contribuciones significativas", algo que considero que es importante para mi crecimiento.
 - T: 2 años desde el inicio de la carrera profesional.
 
-### <Mechan Montenegro, Luciana Carolina>
+### Mechan Montenegro, Luciana Carolina
 
 **Objetivo SMART 1:**
 Durante los primeros 18 meses después de graduarme, me desempeñaré como desarrolladora backend en una empresa de tecnología, consolidando experiencia práctica en el diseño e implementación de servicios backend y arquitecturas escalables en proyectos reales de producción. Para ello, comenzaré desde ahora a prepararme para obtener una certificación relacionada a arquitectura de software en la nube (por ejemplo, AWS Certified Solutions Architect – Associate o equivalente), la cual buscaré tener lista como máximo dentro de los primeros meses tras egresar.
@@ -266,7 +266,7 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
 
-### <López Monroy, Rodrigo Alfredo>
+### López Monroy, Rodrigo Alfredo
 
 **Objetivo SMART 1:**
 Dentro de los primeros 18 meses posteriores a mi graduación, me incorporaré como ingeniero de software embebido o de firmware, programando en C y C++ sobre sistemas operativos de tiempo real, y consolidaré esa base con al menos 3 proyectos propios documentados en un repositorio público y un curso o certificación formal en sistemas embebidos.
@@ -284,7 +284,7 @@ En un plazo de 4 años tras graduarme, cursaré una especialización de posgrado
 - *Relevant:* Reúne mis tres metas profesionales: especializarme en el extranjero, trabajar en software de bajo nivel y hacerlo en el sector automotriz.
 - *Time-bound:* 4 años desde la graduación, con las postulaciones enviadas antes del segundo año.
 
-### <Sanchez Cuadrado, Juan Antonio>
+### Sanchez Cuadrado, Juan Antonio
 
 **Objetivo SMART 1 — Desarrollo móvil con responsabilidad integral:**
 
