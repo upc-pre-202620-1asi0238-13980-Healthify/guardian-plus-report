@@ -162,10 +162,6 @@ https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.
 
 ## Student Outcome
 
-Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video *About The Team*.
-
-El curso contribuye al cumplimiento del Student Outcome ABET:
-
 **ABET - EAC - Student Outcome 7**
 
 Criterio: *La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.*
@@ -194,6 +190,8 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.
+<br><br>
+<strong>Luis Miranda, Diego Andres</strong><br><em>AV1:</em> Identifique a nuestro público objetivo a quienes van dirigido el producto cuidadores y familiares. Al realizar las entrevistas me permitieron transformar sus necesidades en requerimientos funcionales. Además, elaboré la descripción de la startup y diseñé un bounded context de Mobility & Geofencing, complementado con sesiones de event storming, canvas estratégico y la aplicación de Tactical Domain Driven Design dividido en capas (interface, domain, application, infrastructure). Finalmente, desarrollé diagramas de base de datos y modelos arquitectónicos C4, lo que me exigió investigar y aplicar herramientas de modelado avanzadas. Estas actividades reflejan mi capacidad de aprender de manera autónoma y aplicar ese aprendizaje en la práctica. 
 
 </td>
 
@@ -209,12 +207,13 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez. 
 
 <br><br>
-
 <br>
 <strong>López Monroy, Rodrigo Alfredo</strong><br><em>AV1:</em> Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.
-
+<br><br>
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.
+<br><br>
+<strong>Luis Miranda, Diego Andres</strong><br><em>AV1:</em> Desde la perpectiva de identificación del público objetivo y la realización de entrevistas con cuidadores y familiares, hasta la elaboración de la propuesta de la startup y el diseño del bounded context de Mobility & Geofencing, tuve que incorporar metodologías de análisis de usuarios, técnicas de Domain Driven Design, hacer correcion y herramientas de modelado arquitectónico como diagramas de base de datos y C4. Este proceso evidenció que el desempeño en soluciones de software requiere una actitud constante de aprendizaje, exploración de nuevas prácticas y adaptación a contextos cambiantes, lo cual fortalece mi capacidad de crecer profesionalmente.
 
 </td>
 <td>
