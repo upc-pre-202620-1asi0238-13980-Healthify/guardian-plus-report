@@ -29,6 +29,7 @@ u20241b843 - Mechan Montenegro, Luciana Carolina
 u20241d185 - Luis Miranda, Diego Andres  
 u202421866 - López Monroy, Rodrigo Alfredo  
 u202419494 - Sanchez Cuadrado, Juan Antonio
+
 ---
 2026 - 2
 *Septiembre, 2026*
