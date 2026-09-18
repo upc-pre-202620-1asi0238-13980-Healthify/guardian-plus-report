@@ -187,6 +187,11 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 <br>
 <strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reforcé el concepto de Análisis Competitivo como herramienta estratégica para contrastar la propuesta de valor de una solución frente al mercado, aplicándolo dentro del contexto específico de este proyecto. Amplié y actualicé mis conocimientos sobre User Personas dentro del proceso de Needfinding, afinando la forma en que sintetizo información cualitativa en arquetipos de usuario. Profundicé en Domain-Driven Design (DDD) a nivel estratégico, reforzando el uso de Event Storming como técnica colaborativa para el descubrimiento del dominio, así como el Bounded Context Canvas para delimitar responsabilidades entre subdominios. De igual forma, actualicé mi manejo del C4 Model para la representación de arquitectura de software en distintos niveles de abstracción, y reforcé el concepto de Ubiquitous Language como práctica para establecer un vocabulario común entre el equipo técnico y los stakeholders del negocio.
+
+<br>
+<strong>Sanchez Cuadrado, Juan Antonio</strong><br>
+<em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.
+
 </td>
 
 
@@ -200,6 +205,10 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <br>
 <strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez. 
 
+<br><br>
+
+<strong>Sanchez Cuadrado, Juan Antonio</strong><br>
+<em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.
 
 </td>
 <td>
@@ -250,3 +259,25 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Achievable:* Es una progresión natural desde un rol de desarrollo backend, apoyada en la experiencia técnica acumulada desde la universidad.
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
+
+### <Sanchez Cuadrado, Juan Antonio>
+
+**Objetivo SMART 1 — Desarrollo móvil con responsabilidad integral:**
+
+▎ Dentro de los primeros 2 años posteriores a mi graduación, participaré en el desarrollo y publicación de al menos 2 aplicaciones móviles Android en producción utilizando Kotlin e integración con servicios backend, asumiendo responsabilidad directa sobre al menos un módulo funcional completo en cada proyecto y alcanzando una cobertura mínima de pruebas automatizadas del 70% en dichos módulos.
+
+- **S:** Desarrollar aplicaciones Android reales y asumir responsabilidad completa sobre módulos funcionales.
+- **M:** 2 aplicaciones en producción, al menos 1 módulo funcional bajo mi responsabilidad por aplicación y una cobertura mínima de pruebas del 70% en dichos módulos.
+- **A:** Es alcanzable considerando mi formación en Ingeniería de Software y la experiencia que estoy desarrollando actualmente en Android, arquitectura de aplicaciones e integración con APIs.
+- **R:** Está alineado con mi interés profesional en desarrollo móvil y en la construcción de soluciones de software completas y mantenibles.
+- **T:** Dentro de los primeros 2 años posteriores a mi graduación.
+
+**Objetivo SMART 2 — Arquitectura e integración de soluciones backend:**
+
+▎ Durante los primeros 3 años de mi carrera profesional, diseñaré e implementaré al menos 3 módulos backend aplicando principios de arquitectura modular o Domain-Driven Design, integrando en cada uno como mínimo una base de datos y un servicio externo, y documentando sus principales decisiones mediante diagramas C4, UML o ADRs antes de su puesta en producción.
+
+- **S:** Diseñar e implementar módulos backend con arquitectura modular o DDD, persistencia e integración con servicios externos.
+- **M:** Al menos 3 módulos completados, cada uno con base de datos, una integración externa y documentación arquitectónica.
+- **A:** Es una meta progresiva y alcanzable a partir de los conocimientos que estoy desarrollando en diseño de Bounded Contexts, APIs, repositories, C4 y modelado de dominio.
+- **R:** Complementa mi perfil de desarrollo móvil con capacidades de backend, integración y diseño arquitectónico de soluciones.
+- **T:** Dentro de los primeros 3 años de mi carrera profesional.
