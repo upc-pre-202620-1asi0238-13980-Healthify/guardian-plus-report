@@ -292,7 +292,7 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 El User Task Matrix que se presenta a continuación concentra las tareas que cada User Persona realiza para cumplir sus objetivos de cuidado y supervisión. Es fundamental distinguir entre **tareas** (actividades realizadas por los usuarios independientemente de la existencia de Guardian+) y **características de software** (funcionalidades que la solución proporciona). Las tareas aquí identificadas representan actividades que los usuarios realizan actualmente mediante métodos manuales, informales o tradicionales para garantizar el bienestar y la seguridad del ciudadano frágil.
 
 Los User Personas analizados son:
-- **María Fernanda Rojas Ibáñez**: Representa a familiares que asumen la responsabilidad del cuidado y supervisión a distancia.
+- **María Fernanda Llanos Ibáñes**: Representa a familiares que asumen la responsabilidad del cuidado y supervisión a distancia.
 - **Roxana Paola Diana Ramírez**: Representa a cuidadores que brindan atención directa y cotidiana.
 
 Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
