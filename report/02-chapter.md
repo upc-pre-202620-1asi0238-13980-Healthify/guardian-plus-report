@@ -369,7 +369,7 @@ Los mapas se construyen a partir de la información obtenida en las entrevistas,
 
 El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia.
 
-![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar.png)
+![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar-fix.png)
 
 ##### Empathy Map - Cuidador
 
