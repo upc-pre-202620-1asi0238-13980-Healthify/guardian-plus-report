@@ -279,7 +279,7 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 
 ## Primer segmento: Familiares 
 
-![user-persona-1](../assets/images/chapterII/user-persona-1.png)
+![user-persona-1](../assets/images/chapterII/user-persona-1-fix.png)
 
 ## Segundo segmento: Cuidadores
 
