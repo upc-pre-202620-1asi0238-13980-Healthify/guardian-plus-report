@@ -162,10 +162,6 @@ https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.
 
 ## Student Outcome
 
-Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video *About The Team*.
-
-El curso contribuye al cumplimiento del Student Outcome ABET:
-
 **ABET - EAC - Student Outcome 7**
 
 Criterio: *La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.*
@@ -255,7 +251,7 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 
 ### <Luis Miranda, Diego Andres>
 **Objetivo SMART 1:**
-Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software."
+Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software.
 - *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
 - *Measurable:* Participar en al menos 2 proyectos académicos o personales donde asuma el rol de arquitecto o líder técnico, documentando las decisiones de diseño y resultados.
 - *Achievable:* Aprovechar cursos de la carrera y proyectos extracurriculares para aplicar patrones de arquitectura y buenas prácticas.
@@ -263,7 +259,7 @@ Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engi
 - *Lograrlo:* antes de 2 años posteriores a mi graduación.
 
 **Objetivo SMART 2:**
-En los próximos 2 años después de graduarme, contribuiré con al menos 5 funcionalidades clave en proyectos de software (académicos, open source o laborales), asegurando que generen valor medible para usuarios o equipos, consolidando mi especialización en AI Engineer o full stack developer."
+En los próximos 2 años después de graduarme, contribuiré con al menos 5 funcionalidades clave en proyectos de software (académicos, open source o laborales), asegurando que generen valor medible para usuarios o equipos, consolidando mi especialización en AI Engineer o full stack developer.
 - *Specific:* Generar impacto directo en proyectos de desarrollo mediante aportes técnicos en AI, full stack o Dev.
 - *Measurable:* Contribuir con al menos 5 funcionalidades clave en proyectos académicos, open source o laborales, que sean utilizadas por otros usuarios o equipos.
 - *Achievable:* Usar mis conocimientos adquiridos en .NET, Spring Boot, Node.js y bases de datos para implementar soluciones completas.
