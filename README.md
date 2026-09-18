@@ -202,7 +202,9 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 
 </td>
-<td></td>
+<td>
+Como equipo reconocimos que, incluso contando con experiencia previa en DDD y en herramientas de arquitectura, cada nuevo dominio de negocio nos exige volver a investigar, adaptar y refinar esos conceptos en lugar de aplicarlos de forma mecánica, ya sea al diseñar bounded contexts desde cero, al mantener coherencia entre los artefactos elaborados como equipo o al actualizar el Ubiquitous Language conforme avanza el proyecto. Esto nos confirma que el aprendizaje técnico no termina al dominar una herramienta por primera vez, sino que es un proceso continuo que se repite en cada proyecto, y que a lo largo de nuestra carrera profesional deberemos seguir actualizando tanto nuestros conocimientos técnicos como nuestras habilidades blandas.  
+</td>
 </tr>
 </tbody>
 </table>
