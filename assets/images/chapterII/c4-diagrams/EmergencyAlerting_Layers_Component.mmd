@@ -1,0 +1,92 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+  flowchart:
+    curve: linear
+    nodeSpacing: 55
+    rankSpacing: 70
+---
+flowchart TB
+    citizen["<b>Fragile Citizen</b><br/>[Person]<br/>Activa SOS y cancela falsos positivos."]
+    circle["<b>Caregiver / Family Member</b><br/>[Person]<br/>Recibe, reconoce y atiende alertas."]
+    suppliers["<b>Supplier Bounded Contexts</b><br/>[Container: Spring Boot]<br/>Health Monitoring, Mobility &amp; Geofencing,<br/>Care Routines y Profile."]
+
+    subgraph platform["Guardian+ Platform [Software System]"]
+        subgraph bc["Emergency &amp; Alerting [Container: Spring Boot]"]
+            subgraph interfaces["Interface Layer"]
+                rest["<b>REST Controllers</b><br/>[Component]<br/>Alerts, Incidents, Alert Settings,<br/>Emergency Contacts y Alert Channels."]
+                consumer["<b>Integration Event Consumer</b><br/>[Component]<br/>Consume los eventos de los<br/>contextos proveedores."]
+                webhook["<b>Notification Delivery Webhook</b><br/>[Component]<br/>Recibe confirmaciones de entrega<br/>del proveedor."]
+            end
+            subgraph application["Application Layer"]
+                handlers["<b>Event Handlers (Policies)</b><br/>[Component]<br/>Dispatch Strategy Selector,<br/>Escalation Stopper, Biometric Alert Raiser<br/>y Critical Broadcast Fallback."]
+                schedulers["<b>Schedulers</b><br/>[Component]<br/>Fall Confirmation Timeout<br/>y Ack Timeout Escalation."]
+                cmd["<b>Command Services</b><br/>[Component]<br/>Orquestan el ciclo de vida de alertas,<br/>incidentes, configuración y contactos."]
+                qry["<b>Query Services</b><br/>[Component]<br/>Resuelven las consultas de alertas,<br/>incidentes y configuración."]
+                acl["<b>ACL &amp; Context Facade</b><br/>[Component]<br/>Profile y Mobility ACL;<br/>fachada pública del contexto."]
+            end
+            subgraph domain["Domain Layer"]
+                alert["<b>Alert</b><br/>[Component]<br/>Agregado raíz: la alerta, sus entregas<br/>y las respuestas del Care Circle."]
+                incident["<b>Incident</b><br/>[Component]<br/>Agregado raíz: la atención<br/>de una alerta reconocida."]
+                settings["<b>AlertSettings</b><br/>[Component]<br/>Agregado raíz: ack timeout,<br/>escalamiento y modo silencioso."]
+                contacts["<b>EmergencyContact / AlertChannelSetting</b><br/>[Component]<br/>Agregados raíz: contactos por prioridad<br/>y canales por usuario."]
+                policies["<b>Domain Services</b><br/>[Component]<br/>DispatchStrategyPolicy<br/>y EscalationPolicy."]
+            end
+            subgraph infrastructure["Infrastructure Layer"]
+                repos["<b>Repository Adapters</b><br/>[Component]<br/>Implementan las interfaces de<br/>dominio sobre JPA."]
+                dispatcher["<b>Notification Dispatcher</b><br/>[Component]<br/>Puerto de salida hacia<br/>los proveedores."]
+            end
+        end
+    end
+
+    providers["<b>Notification Providers</b><br/>[Software System]<br/>Firebase Cloud Messaging<br/>y proveedor SMS."]
+    db[("<b>Emergency Database</b><br/>[Container: PostgreSQL]<br/>Alertas, entregas, respuestas,<br/>incidentes y configuración.")]
+
+    citizen -.->|"Activa SOS / cancela"| rest
+    circle -.->|"Reconoce y atiende alertas"| rest
+    suppliers -.->|"Eventos de integración"| consumer
+    providers -.->|"Confirmación de entrega"| webhook
+
+    consumer -.->|"Delega traducción"| handlers
+    handlers -.->|"Despacha comandos de reacción"| cmd
+    schedulers -.->|"Confirma y escala alertas"| cmd
+    rest -.->|"Despacha comandos"| cmd
+    rest -.->|"Resuelve consultas"| qry
+    webhook -.->|"Registra resultado de entrega"| cmd
+    cmd -.->|"Consulta otros contextos"| acl
+
+    cmd -.->|"Instancia y muta"| alert
+    cmd -.->|"Instancia y muta"| incident
+    cmd -.->|"Instancia y muta"| settings
+    cmd -.->|"Instancia y muta"| contacts
+    cmd -.->|"Aplica"| policies
+
+    cmd -.->|"Persiste"| repos
+    qry -.->|"Lee"| repos
+    cmd -.->|"Despacha notificación"| dispatcher
+    repos -.->|"JDBC"| db
+    dispatcher -.->|"Push / SMS"| providers
+
+    classDef person fill:#0f4c81,stroke:#0a3459,color:#ffffff
+    classDef iface fill:#1868b8,stroke:#0f4c81,color:#ffffff
+    classDef app fill:#6b2fa0,stroke:#4a1f70,color:#ffffff
+    classDef dom fill:#1f7a37,stroke:#155526,color:#ffffff
+    classDef infra fill:#d9741a,stroke:#a35512,color:#ffffff
+    classDef ext fill:#8c8c8c,stroke:#6b6b6b,color:#ffffff
+    classDef store fill:#1868b8,stroke:#0f4c81,color:#ffffff
+    classDef plain fill:#ffffff,stroke:#8c8c8c,color:#1a1a1a
+
+    class citizen,circle person
+    class suppliers plain
+    class rest,consumer,webhook iface
+    class handlers,schedulers,cmd,qry,acl app
+    class alert,incident,settings,contacts,policies dom
+    class repos,dispatcher infra
+    class providers ext
+    class db store

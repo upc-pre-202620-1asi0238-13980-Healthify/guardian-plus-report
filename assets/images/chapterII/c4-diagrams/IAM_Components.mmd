@@ -1,0 +1,50 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+  flowchart:
+    curve: linear
+    nodeSpacing: 55
+    rankSpacing: 70
+---
+flowchart LR
+    app["<b>Guardian+ Mobile Application</b><br/>[Software System]<br/>Cuidadores y familiares se registran, inician sesión,<br/>verifican el OTP y recuperan su contraseña."]
+
+    subgraph platform["Guardian+ Platform [Software System]"]
+        subgraph bc["IAM [Container: Spring Boot]"]
+            iface["<b>Interface Layer</b><br/>[Component: Spring MVC / REST Controllers]<br/>Expone AuthController y UserAccountsController<br/>y traduce las peticiones HTTP a comandos y consultas."]
+            appl["<b>Application Layer</b><br/>[Component: Application Services / Handlers]<br/>Orquesta el registro, la verificación de correo, el login,<br/>el segundo factor y el reseteo de contraseña mediante<br/>Command/Query Services y Event Handlers."]
+            dom["<b>Domain Layer</b><br/>[Component: Plain Java Domain Objects]<br/>Encapsula los agregados UserAccount, OneTimePassword<br/>y PasswordResetToken, sus Value Objects y las políticas de<br/>unicidad del correo, verificación de cuenta y segundo factor."]
+            infra["<b>Infrastructure Layer</b><br/>[Component: Spring Data JPA / Security Adapters / ACL]<br/>Implementa los repositorios JPA, el hashing de contraseñas<br/>y secretos (BCrypt), la firma y validación de JWT<br/>y el adaptador de envío de correo."]
+        end
+    end
+
+    db[("<b>Guardian+ Database</b><br/>[Container: PostgreSQL]<br/>Persiste las tablas user_accounts,<br/>otp_codes y password_reset_tokens.")]
+    email["<b>Email Provider</b><br/>[Software System]<br/>Servicio externo de envío de correos:<br/>verificación de cuenta, código OTP<br/>y recuperación de contraseña."]
+    downstream{{"<b>Downstream Bounded Contexts</b><br/>[Software System]<br/>Profile, Subscriptions, Health Monitoring,<br/>Emergency &amp; Alerting, Care Routines y Mobility:<br/>validan localmente el JWT emitido por IAM."}}
+
+    app -.->|"JSON / HTTPS"| iface
+    iface -.->|"Invoca casos de uso (comandos y consultas)<br/>[In-process]"| appl
+    appl -.->|"Ejecuta la lógica de negocio y aplica las políticas<br/>de identidad sobre los agregados [In-process]"| dom
+    appl -.->|"Invoca puertos de salida para persistencia,<br/>hashing, JWT y envío de correo [In-process]"| infra
+    infra -.->|"Implementa las interfaces de repositorio<br/>del dominio [In-process]"| dom
+    infra -.->|"Lee y escribe cuentas, códigos OTP<br/>y tokens de recuperación [JDBC / PostgreSQL]"| db
+    infra -.->|"Envía correos de verificación, códigos OTP<br/>y enlaces de recuperación [SMTP / API]"| email
+    infra -.->|"Publica el JWT firmado (Published Language)<br/>validado en cada petición [JWT / HTTPS Header]"| downstream
+
+    classDef external fill:#1f2a5a,stroke:#141c3d,color:#ffffff
+    classDef layer fill:#1868b8,stroke:#0f4c81,color:#ffffff
+    classDef store fill:#1f7a37,stroke:#155526,color:#ffffff
+    classDef provider fill:#e0a010,stroke:#a8780b,color:#1a1a1a
+    classDef consumer fill:#b3222b,stroke:#801820,color:#ffffff
+
+    class app external
+    class iface,appl,dom,infra layer
+    class db store
+    class email provider
+    class downstream consumer

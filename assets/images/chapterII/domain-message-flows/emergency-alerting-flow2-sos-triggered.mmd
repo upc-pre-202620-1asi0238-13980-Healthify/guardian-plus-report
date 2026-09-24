@@ -1,0 +1,19 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontFamily: Helvetica
+---
+sequenceDiagram
+    participant C as Fragile Citizen
+    participant A as ALERT
+    participant D as Dispatch Strategy Selector
+
+    C->>A: Trigger Alert (SOS_TRIGGERED)
+    A-->>A: Alert Triggered
+    Note over A: SOS no requiere ventana de confirmación
+    A-->>A: Alert Confirmed
+    A->>D: severity = CRITICAL siempre
+    D->>A: Broadcast Alert
+    A-->>A: Alert Broadcasted
+    Note over A: continúa igual que en el Flujo 1

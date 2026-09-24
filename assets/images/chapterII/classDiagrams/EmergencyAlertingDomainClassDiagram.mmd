@@ -1,0 +1,233 @@
+---
+config:
+  theme: neutral
+  layout: elk
+---
+classDiagram
+    direction TB
+
+    class Alert {
+        -AlertId id
+        -CareRecipientProfileId careRecipientProfileId
+        -AlertSource source
+        -Severity severity
+        -AlertStatus status
+        -List~AlertDelivery~ deliveries
+        -List~AlertResponse~ responses
+        -Instant triggeredAt
+        -Instant acknowledgedAt
+        +confirm() void
+        +dismissAsFalsePositive() void
+        +dispatchTo(UserId, RecipientLevel, NotificationChannel) AlertDelivery
+        +escalate() void
+        +broadcast() void
+        +registerDeliveryResult(AlertDeliveryId, DeliveryStatus, Instant) void
+        +acknowledge(UserId userId) void
+        +claimResponse(UserId responderUserId) AlertResponse
+        +completeResponse(AlertResponseId, String) void
+        +resolve() void
+        +currentRecipientLevel() RecipientLevel
+        +isAwaitingAcknowledgement() boolean
+        +isAckTimeoutExpired(AckTimeout, Instant) boolean
+    }
+
+    class AlertDelivery {
+        -AlertDeliveryId id
+        -UserId recipientUserId
+        -RecipientLevel recipientLevel
+        -NotificationChannel channel
+        -DeliveryStatus deliveryStatus
+        -Instant sentAt
+        -Instant deliveredAt
+        +markAsSent(Instant sentAt) void
+        +markAsDelivered(Instant deliveredAt) void
+        +markAsFailed() void
+    }
+
+    class AlertResponse {
+        -AlertResponseId id
+        -UserId responderUserId
+        -ResponseStatus responseStatus
+        -Instant claimedAt
+        -Instant completedAt
+        -String notes
+        +complete(String notes) void
+        +cancel() void
+    }
+
+    class Incident {
+        -IncidentId id
+        -AlertId alertId
+        -IncidentStatus status
+        -Instant markedInAttentionAt
+        -Instant stabilizedAt
+        -Instant closedAt
+        -String notes
+        -Instant createdAt
+        +stabilize(String notes) void
+        +close(String notes) void
+        +isClosed() boolean
+    }
+
+    class AlertSettings {
+        -AlertSettingsId id
+        -CareRecipientProfileId careRecipientProfileId
+        -AckTimeout primaryAckTimeout
+        -Boolean escalationEnabled
+        -Boolean silentModeEnabled
+        -Instant updatedAt
+        +update(AckTimeout, Boolean) void
+        +activateSilentMode() void
+        +deactivateSilentMode() void
+        +allowsAudibleNotificationFor(Severity severity) boolean
+    }
+
+    class EmergencyContact {
+        -EmergencyContactId id
+        -CareRecipientProfileId careRecipientProfileId
+        -UserId userId
+        -PriorityOrder priorityOrder
+        -Boolean active
+        -Instant createdAt
+        -Instant updatedAt
+        +changePriority(PriorityOrder priorityOrder) void
+        +activate() void
+        +deactivate() void
+        +isPrimary() boolean
+    }
+
+    class AlertChannelSetting {
+        -AlertChannelSettingId id
+        -UserId userId
+        -NotificationChannel channel
+        -Boolean enabled
+        -Instant createdAt
+        -Instant updatedAt
+        +enable() void
+        +disable() void
+    }
+
+    class AlertSource {
+        -AlertSourceType sourceType
+        -UUID sourceReferenceId
+        +requiresConfirmationWindow() boolean
+    }
+
+    class AckTimeout {
+        -Integer seconds
+        +hasExpired(Instant since, Instant now) boolean
+    }
+
+    class FallConfirmationWindow {
+        -Integer seconds = 20
+        +hasExpired(Instant triggeredAt, Instant now) boolean
+    }
+
+    class PriorityOrder {
+        -Integer value
+        +isPrimary() boolean
+    }
+
+    class DispatchStrategyPolicy {
+        <<domain service>>
+        +resolveInitialLevel(Severity, AlertSettings) RecipientLevel
+    }
+
+    class EscalationPolicy {
+        <<domain service>>
+        +resolveRecipients(RecipientLevel, Severity, List~EmergencyContact~, List~AlertChannelSetting~) List~DeliveryTarget~
+    }
+
+    class AlertSourceType {
+        <<enumeration>>
+        FALL_DETECTED
+        SOS_TRIGGERED
+        VITAL_SIGN_ANOMALY
+        SAFE_ZONE_VIOLATION
+        PROLONGED_INACTIVITY
+        REMINDER_REISSUED
+        MEDICATION_RESTOCK_SUGGESTED
+    }
+
+    class Severity {
+        <<enumeration>>
+        CRITICAL
+        HIGH
+        MEDIUM
+        +requiresBroadcast() boolean
+        +allowsEscalation() boolean
+        +overridesSilentMode() boolean
+    }
+
+    class AlertStatus {
+        <<enumeration>>
+        PENDING_CONFIRMATION
+        TRIGGERED
+        ESCALATED
+        ACKNOWLEDGED
+        DISMISSED
+        RESOLVED
+        +canTransitionTo(AlertStatus target) boolean
+    }
+
+    class IncidentStatus {
+        <<enumeration>>
+        IN_ATTENTION
+        STABILIZED
+        CLOSED
+    }
+
+    class RecipientLevel {
+        <<enumeration>>
+        PRIMARY
+        SECONDARY
+        BROADCAST
+        +next() RecipientLevel
+    }
+
+    class NotificationChannel {
+        <<enumeration>>
+        PUSH
+        SMS
+        IN_APP
+    }
+
+    class DeliveryStatus {
+        <<enumeration>>
+        PENDING
+        SENT
+        DELIVERED
+        FAILED
+    }
+
+    class ResponseStatus {
+        <<enumeration>>
+        CLAIMED
+        COMPLETED
+        CANCELLED
+    }
+
+    Alert "1" *-- "0..*" AlertDelivery : entrega
+    Alert "1" *-- "0..*" AlertResponse : registra
+    Alert *-- AlertSource
+    Alert *-- Severity
+    Alert *-- AlertStatus
+    AlertSource *-- AlertSourceType
+    AlertDelivery *-- RecipientLevel
+    AlertDelivery *-- NotificationChannel
+    AlertDelivery *-- DeliveryStatus
+    AlertResponse *-- ResponseStatus
+
+    Incident "0..1" --> "1" Alert : atiende (AlertId)
+    Incident *-- IncidentStatus
+
+    AlertSettings *-- AckTimeout
+    EmergencyContact *-- PriorityOrder
+    AlertChannelSetting *-- NotificationChannel
+
+    DispatchStrategyPolicy ..> AlertSettings : consulta
+    DispatchStrategyPolicy ..> Severity : evalúa
+    EscalationPolicy ..> EmergencyContact : ordena por prioridad
+    EscalationPolicy ..> AlertChannelSetting : resuelve canales
+    Alert ..> AckTimeout : evalúa vencimiento
+    Alert ..> FallConfirmationWindow : evalúa vencimiento

@@ -140,6 +140,7 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 ![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
 
 **Resumen de la entrevista:** El entrevistado Junior Ayala de 32 años y soldador, vive con su pareja y su hijo y manifiesta preocupación principalmente por la seguridad y el bienestar de su familia cuando no puede estar presente debido al trabajo u otras actividades. Señala que, ante emergencias o problemas de salud, suele experimentar preocupación y desesperación, recurriendo a familiares cercanos o a servicios de emergencia. Considera que una solución tecnológica, como una pulsera o dispositivo inteligente, podría ayudar a monitorear el estado de salud, las actividades y la seguridad de sus familiares, además de recordar medicamentos y citas médicas. Actualmente no utiliza herramientas de monitoreo ni lleva un control preventivo de la salud, ya que normalmente acuden a un centro de salud cuando los síntomas se vuelven graves. Está dispuesto a utilizar tecnología de este tipo, aunque considera importantes factores como el costo, la duración de la batería y la conectividad, especialmente en zonas rurales. Finalmente, estaría dispuesto a pagar por un dispositivo que realmente aporte seguridad y bienestar a su familia, realizando un esfuerzo económico si considera que el producto es útil y de buena calidad.
+
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**
@@ -279,7 +280,7 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 
 ## Primer segmento: Familiares 
 
-![user-persona-1](../assets/images/chapterII/user-persona-1.png)
+![user-persona-1](../assets/images/chapterII/user-persona-1-fix.png)
 
 ## Segundo segmento: Cuidadores
 
@@ -292,7 +293,7 @@ Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los
 El User Task Matrix que se presenta a continuación concentra las tareas que cada User Persona realiza para cumplir sus objetivos de cuidado y supervisión. Es fundamental distinguir entre **tareas** (actividades realizadas por los usuarios independientemente de la existencia de Guardian+) y **características de software** (funcionalidades que la solución proporciona). Las tareas aquí identificadas representan actividades que los usuarios realizan actualmente mediante métodos manuales, informales o tradicionales para garantizar el bienestar y la seguridad del ciudadano frágil.
 
 Los User Personas analizados son:
-- **María Fernanda Rojas Ibáñez**: Representa a familiares que asumen la responsabilidad del cuidado y supervisión a distancia.
+- **María Fernanda Llanos Ibáñes**: Representa a familiares que asumen la responsabilidad del cuidado y supervisión a distancia.
 - **Roxana Paola Diana Ramírez**: Representa a cuidadores que brindan atención directa y cotidiana.
 
 Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
@@ -341,6 +342,7 @@ Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
 3. **Necesidad de Comunicación en el Círculo de Cuidado**: Ambas valoran la comunicación con otros miembros del círculo de cuidado como tarea importante. Para Roxana Paola es un deber operativo (Media-Alta); para María Fernanda es un mecanismo de coordinación y control.
 
 4. **Registro y Seguimiento**: Tanto María Fernanda como Roxana Paola reconocen la importancia de registrar cambios en el estado de salud. Para la cuidadora es operativo y diario; para la familiar es analítico y periódico, pero ambas usan esta información para tomar decisiones.
+
 #### 2.3.3. User Journey Mapping
 
 En esta sección se presentan los User Journey Maps As-Is elaborados para los User Personas correspondientes a los segmentos objetivo de Guardian+. Estos artefactos permiten representar el recorrido actual que realizan los usuarios para cumplir sus objetivos de cuidado y supervisión, antes de la existencia de la solución Guardian+.
@@ -369,7 +371,7 @@ Los mapas se construyen a partir de la información obtenida en las entrevistas,
 
 El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia.
 
-![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar.png)
+![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar-fix.png)
 
 ##### Empathy Map - Cuidador
 
@@ -431,27 +433,25 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 - **Care Plan (Plan de cuidado):** Modalidad de servicio contratada por el Care Circle, que define el nivel de funcionalidades y monitoreo disponibles según las necesidades específicas del Fragile Citizen.
 
-- **Incident (Incidente):** Situación real que compromete la seguridad del Fragile Citizen —como una caída, una activación de SOS, una anomalía biométrica o la salida de una Safe Zone—, registrada con su tipo, severidad y estado, y que forma parte de su Health History.
+- **Alert (Alerta):** Aviso disparado ante una señal que compromete la seguridad del Fragile Citizen —como una caída, una activación de SOS, una anomalía biométrica, la salida de una Safe Zone o una inactividad prolongada—, registrado con su origen, severidad y estado, y entregado a los Emergency Contacts a través de uno o más canales. Cuando su severidad es crítica, constituye una Emergency Alert.
 
-- **Alert (Alerta):** Notificación derivada de un Incident y dirigida a un integrante específico del Care Circle a través de uno o más canales. Un mismo Incident puede originar varias Alerts; cuando su severidad es crítica, constituye una Emergency Alert.
+- **Incident (Incidente):** Registro de la atención de una Alert reconocida por un integrante del Care Circle, desde que se marca en atención hasta su estabilización y cierre. Cada Alert origina como máximo un Incident, que forma parte del Health History del Fragile Citizen.
 
-- **Escalation Chain (Cadena de escalamiento):** Secuencia ordenada de contactos del Care Circle y tiempos de espera que se activa ante un Incident confirmado, notificando al siguiente contacto cuando el anterior no reconoce la Alert a tiempo.
+- **Emergency Contact (Contacto de emergencia):** Integrante del Care Circle designado para recibir las Alerts de un Fragile Citizen, con un orden de prioridad que define quién es el contacto primario y a quién se escala después.
 
-- **Alert Settings (Configuración de alertas):** Preferencias de alertamiento definidas para cada Fragile Citizen: canales de notificación por severidad, umbrales personalizados, orden de los contactos de emergencia y estado del Silent Mode.
+- **Escalation Chain (Cadena de escalamiento):** Secuencia de niveles de notificación —contacto primario, contactos secundarios y difusión a todos los Emergency Contacts— que avanza cuando la Alert no es reconocida dentro del tiempo de espera configurado.
 
-- **Severity (Severidad):** Nivel de criticidad de un Incident —crítica, alta o media— que determina la estrategia de notificación: difusión simultánea a todo el Care Circle o escalamiento secuencial mediante la Escalation Chain.
+- **Alert Settings (Configuración de alertas):** Preferencias de alertamiento definidas para cada Fragile Citizen: tiempo de espera del reconocimiento del contacto primario, habilitación del escalamiento y estado del Silent Mode. Los canales de notificación se configuran por cada integrante del Care Circle.
 
-- **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y marca el Incident como en atención.
+- **Severity (Severidad):** Nivel de criticidad de una Alert —crítica, alta o media— que determina la estrategia de notificación: difusión simultánea a todos los Emergency Contacts, escalamiento secuencial mediante la Escalation Chain o aviso únicamente al contacto primario.
 
-- **Preventive Warning (Advertencia preventiva):** Aviso de menor criticidad emitido ante señales tempranas de riesgo, que el Fragile Citizen puede confirmar como situación controlada y que escala a Alert si no obtiene respuesta.
+- **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y abre el Incident en atención.
 
-- **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Incidents de severidad crítica.
+- **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Alerts de severidad crítica.
 
 # 2.4. Requirements specification
 
 ## 2.4.1. User Stories
-
-Requisitos definidos junto con el conjunto de User Stories y Epics para los requisitos identificados. Los User Stories incluyen Acceptance Criteria. En esta sección el equipo redacta una introducción, identifica todas las Epics y presenta un cuadro con la estructura especificada a continuación para cada User Storie.
 
 ### Epics Identificadas
 
@@ -1706,9 +1706,6 @@ El Product Backlog se construyó a partir de las 33 User Stories definidas en la
 
 La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog.
 
-**Tablero público en ClickUp:** `<pendiente>`
-
-`<pendiente — insertar captura de pantalla del Product Backlog en ClickUp>`
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 |---|---|---|---|---|
@@ -1766,15 +1763,14 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 Este contexto candidato agrupa los comportamientos relacionados con la detección y gestión de situaciones de emergencia, la generación y escalamiento de alertas, el reconocimiento de incidentes y la coordinación de la respuesta por parte de familiares y cuidadores.
 
-Su Lenguaje Ubicuo se encuentra asociado a conceptos como advertencia preventiva, detección de caídas, SOS, alerta crítica, reconocimiento de alerta, escalamiento, contacto de emergencia y estabilización de incidentes.
+Su Lenguaje Ubicuo se encuentra asociado a conceptos como detección de caídas, SOS, alerta crítica, reconocimiento de alerta, escalamiento, contacto de emergencia y estabilización de incidentes.
 
 Se clasificó como parte del **Core Domain** debido a que representa una de las capacidades de mayor valor diferencial de Guardian+: permitir que familiares y cuidadores reaccionen oportunamente ante eventos que puedan comprometer el bienestar de una persona vulnerable.
 
 
 
 #### Health Monitoring Bounded Context (Core Domain)
-
-![Health Monitoring EventStorming](../assets/images/chapterII/EventStorming/HEALTH.png)
+![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
 
@@ -1851,13 +1847,14 @@ Esta descomposición servirá como base para las siguientes actividades de Strat
 
 ##### 2.5.1.2. Domain Message Flows Modeling
 
-En esta sección se documentan los principales flujos de mensajes (comandos, eventos y policies) del Bounded Context **Emergency & Alerting**, modelados como diagramas de secuencia a partir del Design-Level EventStorming. Se seleccionaron los tres flujos de mayor valor de negocio, correspondientes a los tres agregados centrales del contexto (INCIDENT, ALERT y ESCALATION CHAIN).
+En esta sección se documentan los principales flujos de mensajes (comandos, eventos y policies) del Bounded Context **Emergency & Alerting**, modelados como diagramas de secuencia a partir del Design-Level EventStorming. Se seleccionaron los tres flujos de mayor valor de negocio, que recorren los dos agregados centrales del contexto (ALERT e INCIDENT) y las policies de despacho y escalamiento que los conectan.
 
 #### Bounded Context: Emergency & Alerting
 
 **Flujo 1 — Caída confirmada**
 
 ![Domain Message Flow - Caída confirmada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow1-fall-confirmed.png)
+![alt text](../assets/images/chapterII/domain-message-flows/fall-storytelling.png)
 
 **Flujo 2 — SOS manual**
 
@@ -1866,6 +1863,15 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 **Flujo 3 — Anomalía biométrica escalada**
 
 ![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
+![alt text](../assets/images/chapterII/domain-message-flows/vitalsign-anomaly-storytelling.png)
+
+**Flujo 4 - Reminder sent**
+![alt text](../assets/images/chapterII/domain-message-flows/reminder-storytelling.png)
+
+
+**Flujo 5 - Inactivity**
+![alt text](../assets/images/chapterII/domain-message-flows/inactivity-storytelling.png)
+
 
 ##### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
@@ -1873,7 +1879,7 @@ En esta sección se detallan los diseños de los Bounded Contexts candidatos ide
 #### Bounded Context: Emergency & Alerting (Core Domain)
 
 <!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -1890,7 +1896,7 @@ En esta sección se detallan los diseños de los Bounded Contexts candidatos ide
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
 <div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
 <div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citizen, deriva de ellos las Alerts correspondientes, selecciona la estrategia de despacho según la severidad y gobierna el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citizen, las despacha a sus Emergency Contacts según la severidad, gobierna el escalamiento progresivo hasta obtener un reconocimiento efectivo y registra la atención del Incident hasta su cierre.
 </div>
 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
 
@@ -1900,10 +1906,10 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 <tr>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (CRITICAL difunde / HIGH escala)</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ventana de Confirmación de Caída (20 s)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout por Eslabón (60 s)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout del contacto primario (60 s por defecto)</td>
 </tr>
 <tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Escalation Stopper &amp; Resolver</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Escalation Stopper (el reconocimiento abre el Incident)</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Critical Broadcast Fallback ante cadena agotada</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Override de Silent Mode solo en severidad CRITICAL</td>
 </tr>
@@ -1915,15 +1921,16 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
 <tr>
 <td width="50%" valign="top">
-• Incident<br>
 • Alert<br>
+• Incident<br>
+• Emergency Contact<br>
 • Escalation Chain<br>
 • Alert Settings
 </td>
 <td width="50%" valign="top">
 • Severity<br>
 • Acknowledgment<br>
-• Preventive Warning<br>
+• Emergency Contact<br>
 • Silent Mode
 </td>
 </tr>
@@ -1942,10 +1949,10 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 <strong style="font-size: 0.85em;">Informational</strong><br>
 <span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Active Incidents</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Active Alerts</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Incident History</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Alert History</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Pending Alerts</td></tr>
@@ -1959,22 +1966,22 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 <span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
 
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register Incident</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Trigger Alert</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Dismiss Incident</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Dismiss Alert</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Broadcast Critical Alert</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Dispatch / Broadcast Alert</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Escalate To Next Contact</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Escalate Alert</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Acknowledge Alert</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Acknowledge Alert / Close Incident</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Configure Alert Settings</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Manage Settings &amp; Emergency Contacts</td></tr>
 </table>
 </td>
 </tr>
@@ -2001,19 +2008,19 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 </tr>
 <tr>
 <td>Mobility &amp; Geofencing</td>
-<td>Consume salidas de zona segura y resuelve coordenadas del incidente</td>
+<td>Consume violaciones de zona segura y consulta la última ubicación para la notificación</td>
 <td>Internal</td>
 <td>In (Customer/Supplier)</td>
 </tr>
 <tr>
 <td>Care Routines &amp; Wellness</td>
-<td>Consume eventos de inactividad prolongada</td>
+<td>Consume inactividad prolongada, recordatorios reemitidos y sugerencias de reabastecimiento</td>
 <td>Internal</td>
 <td>In (Customer/Supplier)</td>
 </tr>
 <tr>
 <td>Profile</td>
-<td>Proyecta localmente el Care Circle y el orden de contactos</td>
+<td>Sincroniza los Emergency Contacts con las relaciones de cuidado</td>
 <td>Internal</td>
 <td>In (ECST)</td>
 </tr>
@@ -2038,7 +2045,7 @@ Registra y clasifica los Incidents que comprometen la seguridad del Fragile Citi
 #### Bounded Context: Health Monitoring (Core Domain)
 
 <!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -2172,7 +2179,7 @@ Administra los Wearable Devices asignados a un Care Recipient, ingesta y emite e
 #### Bounded Context: Care Routines & Wellness (Supporting Domain)
 
 <!-- CANVAS: CARE ROUTINES & WELLNESS (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -2298,7 +2305,7 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 #### Bounded Context: Subscriptions (Generic Domain)
 
 <!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 
@@ -2545,7 +2552,7 @@ Interactions with other bounded contexts and services
 #### Bounded Context: Profile (Generic Domain)
 
 <!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 
 <td width="42%" valign="top"
@@ -2609,7 +2616,7 @@ IAM Identity Ownership Boundary
 <tr>
 <td width="32%" bgcolor="#e8eaf6"
     style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Emergency Contact Consistency Policy
+Profile Completeness Policy
 </td>
 
 <td width="32%" bgcolor="#e8eaf6"
@@ -2640,7 +2647,7 @@ Key domain terminology
 • User Profile<br>
 • Care Recipient Profile<br>
 • Care Relationship<br>
-• Emergency Contact
+• Profile Completeness
 </td>
 
 <td width="50%" valign="top">
@@ -2749,7 +2756,7 @@ Establish / End Care Relationship
        bgcolor="#e3f2fd"
        style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Emergency Contacts
+Update Language &amp; Accessibility
 </td></tr>
 </table>
 
@@ -2831,7 +2838,7 @@ Interactions with other bounded contexts and services
 
 #### Bounded Context: Mobility & Geofencing (Supporting Domain)
 <!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
@@ -3184,7 +3191,7 @@ de los límites de una zona segura.
 #### Bounded Context: IAM (Generic Domain)
 
 <!-- CANVAS: IAM (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -3209,7 +3216,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
 <tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Credentials Uniqueness Policy (email/username)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Email Uniqueness Policy</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Mandatory Email Verification Policy</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Two-Factor OTP Authentication Policy</td>
 </tr>
@@ -3224,7 +3231,8 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 • UserAccount<br>
 • Credentials<br>
 • Email Verification<br>
-• One-Time Password (OTP)
+• One-Time Password (OTP)<br>
+• Password Reset Token
 </td>
 <td width="50%" valign="top">
 • Password Reset Token<br>
@@ -3254,7 +3262,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Email</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email/Username Availability</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email Availability</td></tr>
 </table>
 </td>
 <td width="50%" valign="top" align="center" style="padding-left: 10px;">
@@ -3265,7 +3273,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register User Credentials</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Send Email Verification Request</td></tr>
+<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Issue Email Verification Code</td></tr>
 </table>
 <table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
 <tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Verify Email</td></tr>
@@ -3346,7 +3354,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 
 El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proceso de cuestionamiento heurístico recomendado por Domain-Driven Design (DDD Crew y Nick Tune) para validar la ubicación de cada capability y evitar dependencias cíclicas o acoplamiento innecesario:
 
-*   **¿Qué pasaría si movemos el capability de evaluación de umbrales clínicos (`EvaluateClinicalThresholds`) de *Health Monitoring* a *Emergency & Alerting*?**
+*   **¿Qué pasaría si movemos el capability de evaluación de umbrales clínicos (`EvaluateVitalSignsThresholds`) de *Health Monitoring* a *Emergency & Alerting*?**
     *   *Evaluación:* Si la evaluación clínica se traslada a Emergencias, *Health Monitoring* se degradaría a un almacén pasivo de telemetría (CRUD). Además, obligaría a *Emergency & Alerting* a conocer la semántica médica de rangos basales, tolerancias fisiológicas y filtros de ruido. Se descarta: la evaluación médica permanece en *Health Monitoring*, y este solo notifica a emergencias cuando una anomalía clínica ha sido confirmada.
 *   **¿Qué pasaría si descomponemos el capability de alertas en *Emergency & Alerting* y movemos el despacho de recordatorios de medicación desde *Care Routines & Wellness* hacia este?**
     *   *Evaluación:* Aunque ambos implican notificar al usuario, sus invariantes y acuerdos de nivel de servicio (SLA) son divergentes. Una alerta de emergencia exige despacho de máxima prioridad en menos de 5 segundos con escalamiento jerárquico no bloqueante, mientras que un recordatorio de medicación es un aviso programado con tolerancia a reintentos lentos. Mezclarlos en el mismo contexto generaría contención y riesgo de saturación en el bus de emergencias críticas. Se mantiene la separación.
@@ -3392,7 +3400,7 @@ A continuación se presenta la topología integral de integración que intercone
                                  |                            |
                                  | [U] (Supplier)             | [U] (Supplier)
                                  | Integration Event:         | Integration Event:
-                                 | 3 Consecutive Threshold    | SafeZoneBreached
+                                 | 3 Consecutive Threshold    | SafeZoneViolation
                                  | Violations Confirmed       |
                                  v [D] (Customer)             v [D] (Customer)
                +-----------------+----------------------------+---------------+
@@ -3407,7 +3415,8 @@ A continuación se presenta la topología integral de integración que intercone
                                  | [D] (Customer)             | [D] (Customer)
                                  | Integration Event:         | Integration Event:
                                  | ProlongedInactivity        | CareRelationshipEstablished
-                                 | Detected                   | CareRelationshipEnded
+                                 | Detected / ReminderReissued| CareRelationshipEnded
+                                 | MedicationRestockSuggested |
                                  |                            |
                   +--------------+-----------+  +-------------+-------------+
                   | Care Routines & Wellness |  |          Profile          |
@@ -3462,15 +3471,15 @@ A continuación se presenta la topología integral de integración que intercone
 *   **Mobility & Geofencing -> Emergency & Alerting (Customer / Supplier):**
     *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
     *   *Patrón:* **Customer/Supplier**.
-    *   *Justificación:* Cuando un Fragile Citizen cruza los límites de una geocerca activa sin retorno inmediato, este contexto emite de forma asíncrona el evento `SafeZoneBreached`. *Emergency & Alerting* consume este evento para catalogar un nuevo incidente de desorientación y activar el despacho al Care Circle.
+    *   *Justificación:* Cuando un Fragile Citizen cruza los límites de una geocerca activa sin retorno inmediato, este contexto emite de forma asíncrona el evento `SafeZoneViolation`. *Emergency & Alerting* consume este evento para disparar una alerta de severidad alta y activar el despacho a los contactos de emergencia.
 *   **Care Routines & Wellness -> Emergency & Alerting (Customer / Supplier):**
     *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
     *   *Patrón:* **Customer/Supplier**.
-    *   *Justificación:* El contexto de rutinas monitorea la actividad diaria del paciente. Si los sensores cinemáticos registran una inactividad prolongada no justificada en horas diurnas (US27), se emite el evento `ProlongedInactivityDetected`, consumido por Emergencias para ejecutar la verificación de bienestar del paciente.
+    *   *Justificación:* El contexto de rutinas monitorea la actividad diaria del paciente. Si los sensores cinemáticos registran una inactividad prolongada no justificada en horas diurnas (US27), se emite el evento `ProlongedInactivityDetected`, consumido por Emergencias para ejecutar la verificación de bienestar del paciente. Del mismo modo, `ReminderReissued` y `MedicationRestockSuggested` se consumen como alertas de severidad media dirigidas al contacto primario.
 *   **Profile -> Emergency & Alerting (Event-Carried State Transfer / Customer-Supplier):**
     *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
     *   *Patrón:* **Customer/Supplier con replicación eventual**.
-    *   *Justificación:* *Emergency & Alerting* requiere conocer la jerarquía de teléfonos y canales de contacto del *Care Circle* para el escalamiento a 60 segundos. Para no depender síncronamente de la base de datos de *Profile*, Emergencias escucha los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` y actualiza una tabla de lectura interna desnormalizada.
+    *   *Justificación:* *Emergency & Alerting* requiere conocer qué integrantes del *Care Circle* pueden recibir alertas para el escalamiento a 60 segundos. Para no depender síncronamente de la base de datos de *Profile*, Emergencias escucha los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` y mantiene sincronizada su propia tabla `emergency_contacts`, activando o desactivando al contacto correspondiente.
 *   **IAM -> Profile, Subscriptions, Health Monitoring, Emergency & Alerting (Open Host Service / Published Language):**
     *   *Tipo:* Upstream -> Downstream.
     *   *Patrón:* **Open Host Service (OHS)** con **Published Language (PL)**.
@@ -3529,30 +3538,11 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 
 ### 2.6. Tactical-Level Domain-Driven Design
 
-#### 2.6.x. Bounded Context: <Nombre del Bounded Context>
-
-##### 2.6.x.1. Domain Layer
-
-##### 2.6.x.2. Interface Layer
-
-##### 2.6.x.3. Application Layer
-
-##### 2.6.x.4. Infrastructure Layer
-
-##### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
-
-##### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
-
-###### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
-
-###### 2.6.x.6.2. Bounded Context Database Design Diagram
-
-
 #### 2.6.1. Bounded Context: Emergency & Alerting
 
-El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en registrar y clasificar los incidentes que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, salidas de zona segura e inactividad prolongada), derivar de ellos las alertas correspondientes, seleccionar la estrategia de despacho según la severidad y gobernar el escalamiento progresivo hacia el Care Circle hasta obtener un reconocimiento efectivo.
+El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en disparar las alertas ante señales que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, violaciones de zona segura, inactividad prolongada y avisos de rutina), despacharlas hacia sus contactos de emergencia según la severidad, gobernar el escalamiento hasta obtener un reconocimiento efectivo y registrar la atención del incidente hasta su cierre.
 
-A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna.
+A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna. El Fragile Citizen se referencia mediante `CareRecipientProfileId` y los integrantes del Care Circle mediante `UserId`, ambos gobernados por otros contextos.
 
 La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
@@ -3566,7 +3556,8 @@ com.guardianplus.platform.emergencyalerting/
 │   │   ├── events/
 │   │   ├── queries/
 │   │   └── valueobjects/
-│   └── repositories/
+│   ├── repositories/
+│   └── services/
 ├── interfaces/
 │   ├── acl/
 │   ├── events/
@@ -3598,213 +3589,235 @@ com.guardianplus.platform.emergencyalerting/
 
 ##### 2.6.1.1. Domain Layer
 
-Encapsula las reglas de reacción ante emergencias, las invariantes del ciclo de vida de incidentes y alertas, y las políticas de escalamiento embebidas en los propios agregados y Value Objects. La separación entre `Incident` (la situación real) y `Alert` (el artefacto de notificación derivado) es la decisión de modelado central del contexto: un incidente puede originar múltiples alertas (primaria, escalada y de difusión), pero solo el incidente persiste en el historial de salud del Fragile Citizen.
+Encapsula las reglas de reacción ante emergencias, las invariantes del ciclo de vida de alertas e incidentes y las políticas de despacho y escalamiento. La decisión de modelado central del contexto es la separación entre `Alert` e `Incident`: `Alert` es el agregado raíz que nace de una señal, se entrega a los contactos de emergencia (`AlertDelivery`) y recoge sus respuestas (`AlertResponse`); `Incident` solo existe cuando un integrante del Care Circle reconoce la alerta y asume la atención, registrando su estabilización y cierre. Por ello, una alerta origina como máximo un incidente, mientras que las alertas descartadas como falso positivo nunca llegan a generar uno.
+
+El escalamiento no se modela como un agregado independiente: se expresa mediante el nivel de destinatario (`RecipientLevel`) de cada entrega, el orden de prioridad de los `EmergencyContact` y el tiempo de espera configurado en `AlertSettings`.
 
 ###### Aggregates
 
-*   **Incident**
-    *   Agregado raíz que representa la situación real que compromete la seguridad del Fragile Citizen, independientemente de cuántas notificaciones se deriven de ella.
-    *   Hereda de `AbstractDomainAggregateRoot<Incident>` para registrar y publicar eventos de dominio.
-    *   Gobierna de forma autónoma su ciclo de vida (`DETECTED → CONFIRMED | DISMISSED → IN_ATTENTION → RESOLVED`), rechazando transiciones inválidas sin depender de servicios externos.
-    *   *Atributos:*
-        *   `id: IncidentId`
-        *   `fragileCitizenId: FragileCitizenId`
-        *   `type: IncidentType`
-        *   `severity: Severity`
-        *   `status: IncidentStatus`
-        *   `geoSnapshot: GeoSnapshot`
-        *   `confirmationWindow: ConfirmationWindow`
-        *   `detectedAt: Instant`
-        *   `confirmedAt: Instant`
-        *   `resolvedAt: Instant`
-    *   *Métodos:*
-        *   `Incident(RegisterIncidentCommand command)`
-        *   `confirm(): void`
-        *   `dismissAsFalsePositive(String reason): void`
-        *   `markInAttention(ResponderId responderId): void`
-        *   `resolve(): void`
-        *   `requiresBroadcast(): boolean`
-        *   `isConfirmationWindowExpired(Instant now): boolean`
-
 *   **Alert**
-    *   Agregado raíz que representa el artefacto de notificación derivado de un incidente, dirigido a un destinatario específico del Care Circle.
-    *   Ciclo de vida: `ISSUED → DELIVERED → ACKNOWLEDGED | EXPIRED`.
+    *   Agregado raíz que representa la alerta disparada por una señal de riesgo sobre un Fragile Citizen, junto con sus entregas a los contactos de emergencia y las respuestas del Care Circle.
+    *   Hereda de `AbstractDomainAggregateRoot<Alert>` para registrar y publicar eventos de dominio.
+    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_CONFIRMATION → TRIGGERED → ESCALATED → ACKNOWLEDGED → RESOLVED`, con `DISMISSED` como salida de un falso positivo), rechazando transiciones inválidas sin depender de servicios externos.
     *   *Atributos:*
         *   `id: AlertId`
-        *   `incidentId: IncidentId`
-        *   `recipientId: ContactId`
+        *   `careRecipientProfileId: CareRecipientProfileId`
+        *   `source: AlertSource`
         *   `severity: Severity`
-        *   `dispatchMode: DispatchMode`
-        *   `channels: Set<NotificationChannel>`
         *   `status: AlertStatus`
-        *   `issuedAt: Instant`
-        *   `deliveredAt: Instant`
+        *   `deliveries: List<AlertDelivery>`
+        *   `responses: List<AlertResponse>`
+        *   `triggeredAt: Instant`
         *   `acknowledgedAt: Instant`
     *   *Métodos:*
-        *   `Alert(IssueAlertCommand command)`
-        *   `markAsDelivered(): void`
-        *   `acknowledge(ContactId contactId): void`
-        *   `claimResponse(ContactId contactId): void`
-        *   `expire(): void`
-        *   `isPending(): boolean`
+        *   `Alert(TriggerAlertCommand command)`
+        *   `confirm(): void`
+        *   `dismissAsFalsePositive(): void`
+        *   `dispatchTo(UserId recipientUserId, RecipientLevel level, NotificationChannel channel): AlertDelivery`
+        *   `escalate(): void`
+        *   `broadcast(): void`
+        *   `registerDeliveryResult(AlertDeliveryId deliveryId, DeliveryStatus status, Instant occurredAt): void`
+        *   `acknowledge(UserId userId): void`
+        *   `claimResponse(UserId responderUserId): AlertResponse`
+        *   `completeResponse(AlertResponseId responseId, String notes): void`
+        *   `resolve(): void`
+        *   `currentRecipientLevel(): RecipientLevel`
+        *   `isAwaitingAcknowledgement(): boolean`
+        *   `isAckTimeoutExpired(AckTimeout ackTimeout, Instant now): boolean`
 
-*   **EscalationChain**
-    *   Agregado raíz que materializa el plan ordenado de destinatarios y temporizadores asociado a un incidente confirmado. Se instancia únicamente tras la confirmación, nunca antes.
-    *   Encapsula la política de avance secuencial y la condición de agotamiento de la cadena.
+*   **Incident**
+    *   Agregado raíz que representa la atención humana de una alerta reconocida. Referencia a su alerta por identidad (`AlertId`), con una relación de uno a cero o uno.
+    *   Ciclo de vida: `IN_ATTENTION → STABILIZED → CLOSED`.
     *   *Atributos:*
-        *   `id: EscalationChainId`
-        *   `incidentId: IncidentId`
-        *   `steps: List<EscalationStep>`
-        *   `currentStepIndex: Integer`
-        *   `ackTimeout: AckTimeout`
-        *   `status: EscalationStatus`
-        *   `startedAt: Instant`
-        *   `stoppedAt: Instant`
+        *   `id: IncidentId`
+        *   `alertId: AlertId`
+        *   `status: IncidentStatus`
+        *   `markedInAttentionAt: Instant`
+        *   `stabilizedAt: Instant`
+        *   `closedAt: Instant`
+        *   `notes: String`
+        *   `createdAt: Instant`
     *   *Métodos:*
-        *   `EscalationChain(InstantiateEscalationChainCommand command, List<EmergencyContact> orderedContacts)`
-        *   `advanceToNextStep(): Optional<EscalationStep>`
-        *   `stop(): void`
-        *   `exhaust(): void`
-        *   `hasRemainingSteps(): boolean`
-        *   `isStepTimedOut(Instant now): boolean`
+        *   `Incident(OpenIncidentCommand command)`
+        *   `stabilize(String notes): void`
+        *   `close(String notes): void`
+        *   `isClosed(): boolean`
 
 *   **AlertSettings**
-    *   Agregado raíz que concentra la configuración de alertamiento por Fragile Citizen: canales por severidad, umbrales personalizados, modo silencioso y el orden de los contactos de emergencia que alimenta la cadena de escalamiento.
+    *   Agregado raíz que concentra la configuración de alertamiento por Fragile Citizen: tiempo de espera del reconocimiento del contacto primario, habilitación del escalamiento y modo silencioso. Existe como máximo una configuración por `CareRecipientProfileId`.
     *   *Atributos:*
         *   `id: AlertSettingsId`
-        *   `fragileCitizenId: FragileCitizenId`
-        *   `channelPolicy: ChannelPolicy`
-        *   `thresholds: List<AlertThreshold>`
-        *   `emergencyContacts: List<EmergencyContact>`
-        *   `silentMode: SilentMode`
+        *   `careRecipientProfileId: CareRecipientProfileId`
+        *   `primaryAckTimeout: AckTimeout`
+        *   `escalationEnabled: Boolean`
+        *   `silentModeEnabled: Boolean`
         *   `updatedAt: Instant`
     *   *Métodos:*
-        *   `configureChannels(ChannelPolicy policy): void`
-        *   `configureThresholds(List<AlertThreshold> thresholds): void`
-        *   `resetThresholdsToClinicalDefaults(): void`
-        *   `addEmergencyContact(EmergencyContact contact): void`
-        *   `removeEmergencyContact(ContactId contactId): void`
-        *   `reorderEmergencyContacts(List<ContactId> orderedIds): void`
+        *   `AlertSettings(CareRecipientProfileId careRecipientProfileId)`: crea la configuración con valores por defecto (60 s, escalamiento habilitado, modo silencioso desactivado).
+        *   `update(AckTimeout primaryAckTimeout, Boolean escalationEnabled): void`
         *   `activateSilentMode(): void`
         *   `deactivateSilentMode(): void`
-        *   `resolveChannelsFor(Severity severity): Set<NotificationChannel>`
+        *   `allowsAudibleNotificationFor(Severity severity): boolean`
+
+*   **EmergencyContact**
+    *   Agregado raíz que registra a un integrante del Care Circle como contacto de auxilio de un Fragile Citizen, con su prioridad dentro del escalamiento. El contacto con `priorityOrder = 1` es el contacto primario.
+    *   *Atributos:*
+        *   `id: EmergencyContactId`
+        *   `careRecipientProfileId: CareRecipientProfileId`
+        *   `userId: UserId`
+        *   `priorityOrder: PriorityOrder`
+        *   `active: Boolean`
+        *   `createdAt: Instant`
+        *   `updatedAt: Instant`
+    *   *Métodos:*
+        *   `EmergencyContact(AddEmergencyContactCommand command)`
+        *   `changePriority(PriorityOrder priorityOrder): void`
+        *   `activate(): void`
+        *   `deactivate(): void`
+        *   `isPrimary(): boolean`
+
+*   **AlertChannelSetting**
+    *   Agregado raíz que registra si un canal de notificación está habilitado para un integrante del Care Circle. Existe un registro por combinación de `UserId` y `NotificationChannel`.
+    *   *Atributos:*
+        *   `id: AlertChannelSettingId`
+        *   `userId: UserId`
+        *   `channel: NotificationChannel`
+        *   `enabled: Boolean`
+        *   `createdAt: Instant`
+        *   `updatedAt: Instant`
+    *   *Métodos:*
+        *   `AlertChannelSetting(ConfigureAlertChannelCommand command)`
+        *   `enable(): void`
+        *   `disable(): void`
 
 ###### Entities
 
-*   **EscalationStep**
-    *   Entidad interna que representa un eslabón ordenado de la cadena de escalamiento (`EscalationChain`).
+*   **AlertDelivery**
+    *   Entidad interna de `Alert` que representa la entrega de la alerta a un destinatario concreto, por un canal y en un nivel de escalamiento determinado.
     *   *Atributos:*
-        *   `id: Long`
-        *   `stepOrder: Integer`
-        *   `contactId: ContactId`
-        *   `role: ContactRole`
-        *   `status: StepStatus`
-        *   `notifiedAt: Instant`
-*   **EmergencyContact**
-    *   Entidad interna de `AlertSettings` que referencia por identidad a un contacto gobernado por el contexto Profile, añadiendo el rol y la prioridad que solo tienen sentido dentro del alertamiento.
+        *   `id: AlertDeliveryId`
+        *   `recipientUserId: UserId`
+        *   `recipientLevel: RecipientLevel`
+        *   `channel: NotificationChannel`
+        *   `deliveryStatus: DeliveryStatus`
+        *   `sentAt: Instant`
+        *   `deliveredAt: Instant`
+    *   *Métodos:* `markAsSent(Instant sentAt)`, `markAsDelivered(Instant deliveredAt)`, `markAsFailed()`.
+*   **AlertResponse**
+    *   Entidad interna de `Alert` que registra que un integrante del Care Circle asumió la respuesta a la alerta y el resultado de su intervención.
     *   *Atributos:*
-        *   `id: Long`
-        *   `contactId: ContactId`
-        *   `priorityOrder: Integer`
-        *   `role: ContactRole`
-        *   `isPrimary: Boolean`
-*   **AlertThreshold**
-    *   Entidad interna de `AlertSettings` que registra la personalización de un umbral respecto del valor clínico predeterminado.
-    *   *Atributos:*
-        *   `id: Long`
-        *   `metricType: String`
-        *   `minValue: Double`
-        *   `maxValue: Double`
-        *   `isClinicalDefault: Boolean`
+        *   `id: AlertResponseId`
+        *   `responderUserId: UserId`
+        *   `responseStatus: ResponseStatus`
+        *   `claimedAt: Instant`
+        *   `completedAt: Instant`
+        *   `notes: String`
+    *   *Métodos:* `complete(String notes)`, `cancel()`.
 
 ###### Value Objects
 
-*   **Severity:** Enum (`CRITICAL`, `HIGH`, `MEDIUM`) que gobierna la estrategia de despacho. Métodos: `requiresBroadcast()`, `overridesSilentMode()`.
-*   **IncidentType:** Enum (`FALL`, `SOS`, `BIOMETRIC_ANOMALY`, `SAFE_ZONE_BREACH`, `PROLONGED_INACTIVITY`).
-*   **IncidentStatus:** Enum (`DETECTED`, `CONFIRMED`, `DISMISSED`, `IN_ATTENTION`, `RESOLVED`). Método: `canTransitionTo(IncidentStatus target)`.
-*   **AlertStatus:** Enum (`ISSUED`, `DELIVERED`, `ACKNOWLEDGED`, `EXPIRED`).
-*   **DispatchMode:** Enum (`BROADCAST`, `SEQUENTIAL`), derivado de la severidad por la política de despacho.
-*   **NotificationChannel:** Enum (`PUSH`, `SMS`, `IN_APP`, `HAPTIC`).
-*   **EscalationStatus:** Enum (`ACTIVE`, `STOPPED`, `EXHAUSTED`).
-*   **StepStatus:** Enum (`PENDING`, `NOTIFIED`, `SKIPPED`).
-*   **ContactRole:** Enum (`PRIMARY_CAREGIVER`, `FAMILY_MEMBER`, `SECONDARY_CONTACT`).
-*   **ConfirmationWindow:** Encapsula la ventana de cancelación local del Fragile Citizen (`seconds: Integer`). Invariante: $5 - 120\\text{ s}$. Método: `hasExpired(Instant detectedAt, Instant now)`.
-*   **AckTimeout:** Encapsula el tiempo de espera de reconocimiento por eslabón (`seconds: Integer`). Invariante: valor mayor a 0; valor por defecto $60\\text{ s}$.
-*   **SilentMode:** Encapsula el estado del modo discreto (`active: Boolean`, `activatedAt: Instant`). Método: `allows(Severity severity)`, que retorna `false` salvo que la severidad sea `CRITICAL`.
-*   **ChannelPolicy:** Mapa inmutable de severidad hacia el conjunto de canales habilitados. Método: `channelsFor(Severity severity)`.
-*   **GeoSnapshot:** Captura geográfica inmutable del momento del incidente (`latitude: Double`, `longitude: Double`, `capturedAt: Instant`). Se obtiene por consulta puntual al contexto Mobility & Geofencing.
-*   **IncidentId / AlertId / EscalationChainId / AlertSettingsId:** Identificadores inmutables tipo UUID.
-*   **FragileCitizenId / ContactId / ResponderId:** Identificadores de referencia inmutables hacia entidades gobernadas por otros contextos.
+*   **AlertSource:** Origen de la alerta (`sourceType: AlertSourceType`, `sourceReferenceId: UUID`). `sourceReferenceId` identifica el registro del contexto proveedor que originó la señal (lectura biométrica, violación de zona segura, monitor de actividad, recordatorio, balance de stock de medicación o dispositivo wearable). Método: `requiresConfirmationWindow()`, verdadero únicamente para `FALL_DETECTED`.
+*   **AlertSourceType:** Enum (`FALL_DETECTED`, `SOS_TRIGGERED`, `VITAL_SIGN_ANOMALY`, `SAFE_ZONE_VIOLATION`, `PROLONGED_INACTIVITY`, `REMINDER_REISSUED`, `MEDICATION_RESTOCK_SUGGESTED`).
+*   **Severity:** Enum (`CRITICAL`, `HIGH`, `MEDIUM`) que gobierna la estrategia de despacho. Métodos: `requiresBroadcast()`, `allowsEscalation()`, `overridesSilentMode()`.
+*   **AlertStatus:** Enum (`PENDING_CONFIRMATION`, `TRIGGERED`, `ESCALATED`, `ACKNOWLEDGED`, `DISMISSED`, `RESOLVED`). Método: `canTransitionTo(AlertStatus target)`.
+*   **IncidentStatus:** Enum (`IN_ATTENTION`, `STABILIZED`, `CLOSED`).
+*   **RecipientLevel:** Enum (`PRIMARY`, `SECONDARY`, `BROADCAST`) que indica en qué nivel del escalamiento se entregó la alerta. Método: `next()`.
+*   **NotificationChannel:** Enum (`PUSH`, `SMS`, `IN_APP`).
+*   **DeliveryStatus:** Enum (`PENDING`, `SENT`, `DELIVERED`, `FAILED`).
+*   **ResponseStatus:** Enum (`CLAIMED`, `COMPLETED`, `CANCELLED`).
+*   **AckTimeout:** Encapsula el tiempo de espera del reconocimiento antes de escalar (`seconds: Integer`). Invariante: valor entre $15$ y $300\text{ s}$; valor por defecto $60\text{ s}$. Método: `hasExpired(Instant since, Instant now)`.
+*   **FallConfirmationWindow:** Ventana de cancelación local del Fragile Citizen ante una caída detectada. Valor fijo de política de $20\text{ s}$, no persistido. Método: `hasExpired(Instant triggeredAt, Instant now)`.
+*   **PriorityOrder:** Posición del contacto dentro del escalamiento (`value: Integer`). Invariante: valor mayor o igual a 1. Método: `isPrimary()`.
+*   **AlertId / AlertDeliveryId / AlertResponseId / IncidentId / AlertSettingsId / EmergencyContactId / AlertChannelSettingId:** Identificadores inmutables tipo UUID.
+*   **CareRecipientProfileId:** Identificador de referencia inmutable al Fragile Citizen, gobernado por el Bounded Context Profile.
+*   **UserId:** Identificador de referencia inmutable a un integrante del Care Circle, gobernado por el Bounded Context IAM.
+
+###### Domain Services
+
+*   **DispatchStrategyPolicy:** Determina la estrategia de despacho de una alerta confirmada a partir de su `Severity` y de `AlertSettings`: `CRITICAL` difunde a todos los contactos activos (`BROADCAST`); `HIGH` notifica al contacto primario (`PRIMARY`) y habilita el escalamiento, o difunde directamente si el escalamiento está deshabilitado; `MEDIUM` notifica únicamente al contacto primario sin escalar. Método: `resolveInitialLevel(Severity severity, AlertSettings settings): RecipientLevel`.
+*   **EscalationPolicy:** Resuelve los destinatarios de cada nivel a partir de los `EmergencyContact` activos ordenados por prioridad (`PRIMARY`: prioridad 1; `SECONDARY`: prioridades siguientes; `BROADCAST`: todos los contactos activos) y los canales habilitados en `AlertChannelSetting`, añadiendo `SMS` como respaldo obligatorio en severidad `CRITICAL` y en el nivel `BROADCAST`. Método: `resolveRecipients(RecipientLevel level, Severity severity, List<EmergencyContact> contacts, List<AlertChannelSetting> channelSettings): List<DeliveryTarget>`.
 
 ###### Commands & Queries (Domain Model)
 
-*   `RegisterIncidentCommand(UUID fragileCitizenId, String incidentType, String severity, Double latitude, Double longitude, Instant detectedAt)`
-*   `ConfirmIncidentCommand(UUID incidentId)`
-*   `DismissIncidentCommand(UUID incidentId, String reason)`
-*   `MarkIncidentInAttentionCommand(UUID incidentId, UUID responderId)`
-*   `ResolveIncidentCommand(UUID incidentId)`
-*   `IssueAlertCommand(UUID incidentId, UUID recipientId, String severity, String dispatchMode)`
-*   `BroadcastCriticalAlertCommand(UUID incidentId)`
-*   `AcknowledgeAlertCommand(UUID alertId, UUID contactId)`
-*   `ClaimAlertResponseCommand(UUID alertId, UUID contactId)`
-*   `InstantiateEscalationChainCommand(UUID incidentId, UUID fragileCitizenId)`
-*   `EscalateToNextContactCommand(UUID escalationChainId)`
-*   `StopEscalationCommand(UUID escalationChainId)`
-*   `ExhaustEscalationChainCommand(UUID escalationChainId)`
-*   `ConfigureAlertChannelsCommand(UUID fragileCitizenId, Map<String, Set<String>> channelsBySeverity)`
-*   `ConfigureAlertThresholdsCommand(UUID fragileCitizenId, List<ThresholdDefinition> thresholds)`
-*   `ResetAlertThresholdsCommand(UUID fragileCitizenId)`
-*   `AddEmergencyContactCommand(UUID fragileCitizenId, UUID contactId, String role, Boolean isPrimary)`
-*   `RemoveEmergencyContactCommand(UUID fragileCitizenId, UUID contactId)`
-*   `ReorderEmergencyContactsCommand(UUID fragileCitizenId, List<UUID> orderedContactIds)`
-*   `ActivateSilentModeCommand(UUID fragileCitizenId)`
-*   `DeactivateSilentModeCommand(UUID fragileCitizenId)`
+*   `TriggerAlertCommand(UUID careRecipientProfileId, String sourceType, UUID sourceReferenceId, String severity, Instant triggeredAt)`
+*   `ConfirmAlertCommand(UUID alertId)`
+*   `DismissAlertCommand(UUID alertId)`
+*   `DispatchAlertCommand(UUID alertId)`
+*   `EscalateAlertCommand(UUID alertId)`
+*   `BroadcastAlertCommand(UUID alertId)`
+*   `RegisterDeliveryResultCommand(UUID alertId, UUID deliveryId, String deliveryStatus, Instant occurredAt)`
+*   `AcknowledgeAlertCommand(UUID alertId, UUID userId)`
+*   `ClaimAlertResponseCommand(UUID alertId, UUID responderUserId)`
+*   `CompleteAlertResponseCommand(UUID alertId, UUID responseId, String notes)`
+*   `ResolveAlertCommand(UUID alertId)`
+*   `OpenIncidentCommand(UUID alertId)`
+*   `StabilizeIncidentCommand(UUID incidentId, String notes)`
+*   `CloseIncidentCommand(UUID incidentId, String notes)`
+*   `UpdateAlertSettingsCommand(UUID careRecipientProfileId, Integer primaryAckTimeoutSec, Boolean escalationEnabled)`
+*   `ActivateSilentModeCommand(UUID careRecipientProfileId)`
+*   `DeactivateSilentModeCommand(UUID careRecipientProfileId)`
+*   `AddEmergencyContactCommand(UUID careRecipientProfileId, UUID userId, Integer priorityOrder)`
+*   `ReorderEmergencyContactsCommand(UUID careRecipientProfileId, List<UUID> orderedEmergencyContactIds)`
+*   `DeactivateEmergencyContactCommand(UUID emergencyContactId)`
+*   `ConfigureAlertChannelCommand(UUID userId, String channel, Boolean enabled)`
+*   `GetAlertByIdQuery(AlertId alertId)`
+*   `GetActiveAlertsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
+*   `GetAlertHistoryByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId, DateRange dateRange, Severity severityFilter)`
+*   `GetPendingAlertsByRecipientUserIdQuery(UserId recipientUserId)`
 *   `GetIncidentByIdQuery(IncidentId incidentId)`
-*   `GetActiveIncidentsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
-*   `GetIncidentHistoryByCitizenAndDateRangeQuery(FragileCitizenId fragileCitizenId, DateRange dateRange, Severity severityFilter)`
-*   `GetAlertsByIncidentIdQuery(IncidentId incidentId)`
-*   `GetPendingAlertsByContactIdQuery(ContactId contactId)`
-*   `GetEscalationChainByIncidentIdQuery(IncidentId incidentId)`
-*   `GetAlertSettingsByFragileCitizenIdQuery(FragileCitizenId fragileCitizenId)`
+*   `GetIncidentByAlertIdQuery(AlertId alertId)`
+*   `GetAlertSettingsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
+*   `GetEmergencyContactsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
+*   `GetAlertChannelSettingsByUserIdQuery(UserId userId)`
 
 ###### Domain Events
 
-*   `IncidentDetectedEvent`: Emitido al registrar un incidente, portando tipo y severidad inicial.
-*   `IncidentConfirmedEvent`: Emitido cuando vence la ventana de confirmación sin cancelación del Fragile Citizen, o cuando la naturaleza del incidente (SOS) lo confirma de inmediato.
-*   `IncidentDismissedEvent`: Emitido cuando el Fragile Citizen cancela dentro de la ventana, clasificando el evento como falso positivo resuelto.
-*   `IncidentMarkedInAttentionEvent`: Emitido cuando un responsable asume la atención del incidente.
-*   `IncidentResolvedEvent`: Emitido al cierre definitivo del incidente, ya sea por estabilización automática o por confirmación manual del cuidador.
-*   `AlertIssuedEvent`: Emitido al derivar una alerta de un incidente hacia un destinatario concreto.
-*   `AlertDeliveredEvent`: Emitido tras la confirmación de entrega por parte del proveedor de notificaciones.
-*   `AlertAcknowledgedEvent`: Emitido cuando un destinatario reconoce la alerta.
+*   `AlertTriggeredEvent`: Emitido al disparar una alerta, portando su origen, severidad y estado inicial.
+*   `AlertConfirmedEvent`: Emitido cuando vence la `FallConfirmationWindow` sin cancelación del Fragile Citizen, o de inmediato cuando el origen no requiere confirmación.
+*   `AlertDismissedEvent`: Emitido cuando el Fragile Citizen cancela dentro de la ventana, clasificando la alerta como falso positivo.
+*   `AlertDispatchedEvent`: Emitido al generar las entregas de un nivel (`PRIMARY`, `SECONDARY` o `BROADCAST`).
+*   `AlertEscalatedEvent`: Emitido al avanzar al nivel `SECONDARY` por vencimiento del `AckTimeout`.
+*   `AlertBroadcastedEvent`: Emitido al difundir la alerta a todos los contactos activos, ya sea por severidad crítica o como último recurso.
+*   `AlertDeliveryFailedEvent`: Emitido cuando el proveedor informa que una entrega no pudo completarse.
+*   `AlertAcknowledgedEvent`: Emitido cuando un destinatario reconoce la alerta, deteniendo el escalamiento.
 *   `AlertResponseClaimedEvent`: Emitido cuando un destinatario declara que asumirá la respuesta, habilitando la notificación al resto del Care Circle.
-*   `EscalationChainInstantiatedEvent`: Emitido al materializar la cadena de escalamiento de un incidente confirmado.
-*   `EscalationAdvancedEvent`: Emitido al avanzar al siguiente eslabón por vencimiento del `AckTimeout`.
-*   `EscalationStoppedEvent`: Emitido al detener la cadena tras un reconocimiento efectivo.
-*   `EscalationChainExhaustedEvent`: Emitido cuando se agotan todos los eslabones sin reconocimiento, habilitando la difusión de último recurso.
-*   `AlertSettingsUpdatedEvent`: Emitido ante cualquier modificación de canales, umbrales, contactos o modo silencioso.
+*   `AlertResponseCompletedEvent`: Emitido cuando el responsable registra el resultado de su intervención.
+*   `AlertResolvedEvent`: Emitido al cerrar definitivamente la alerta tras el cierre de su incidente.
+*   `IncidentOpenedEvent`: Emitido al registrar la atención de una alerta reconocida (`IN_ATTENTION`).
+*   `IncidentStabilizedEvent`: Emitido cuando el responsable declara estabilizada la situación del Fragile Citizen.
+*   `IncidentClosedEvent`: Emitido al cierre definitivo del incidente.
+*   `AlertSettingsUpdatedEvent`: Emitido ante cualquier modificación del tiempo de espera, del escalamiento o del modo silencioso.
+*   `EmergencyContactsChangedEvent`: Emitido al añadir, reordenar o desactivar contactos de emergencia.
+*   `AlertChannelSettingChangedEvent`: Emitido al habilitar o deshabilitar un canal de notificación.
 
 ###### Repositories (Domain Interfaces)
 
+*   **AlertRepository:**
+    *   `save(Alert alert): Alert`
+    *   `findById(AlertId id): Optional<Alert>`
+    *   `findActiveByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<Alert>`
+    *   `findByCareRecipientProfileIdAndPeriod(CareRecipientProfileId careRecipientProfileId, DateRange period, Severity severity): List<Alert>`
+    *   `findPendingByRecipientUserId(UserId recipientUserId): List<Alert>`
+    *   `findPendingConfirmationTriggeredBefore(Instant threshold): List<Alert>`
+    *   `findAwaitingAcknowledgement(): List<Alert>`
 *   **IncidentRepository:**
     *   `save(Incident incident): Incident`
     *   `findById(IncidentId id): Optional<Incident>`
-    *   `findActiveByFragileCitizenId(FragileCitizenId citizenId): List<Incident>`
-    *   `findByCitizenAndPeriod(FragileCitizenId citizenId, DateRange period, Severity severity): List<Incident>`
-    *   `findPendingConfirmation(Instant threshold): List<Incident>`
-*   **AlertRepository:**
-    *   `save(Alert alert): Alert`
-    *   `saveAll(List<Alert> alerts): List<Alert>`
-    *   `findById(AlertId id): Optional<Alert>`
-    *   `findByIncidentId(IncidentId incidentId): List<Alert>`
-    *   `findPendingByContactId(ContactId contactId): List<Alert>`
-*   **EscalationChainRepository:**
-    *   `save(EscalationChain chain): EscalationChain`
-    *   `findByIncidentId(IncidentId incidentId): Optional<EscalationChain>`
-    *   `findActiveWithExpiredTimeout(Instant now): List<EscalationChain>`
+    *   `findByAlertId(AlertId alertId): Optional<Incident>`
+    *   `existsByAlertId(AlertId alertId): boolean`
 *   **AlertSettingsRepository:**
     *   `save(AlertSettings settings): AlertSettings`
-    *   `findByFragileCitizenId(FragileCitizenId citizenId): Optional<AlertSettings>`
+    *   `findByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): Optional<AlertSettings>`
+*   **EmergencyContactRepository:**
+    *   `save(EmergencyContact contact): EmergencyContact`
+    *   `saveAll(List<EmergencyContact> contacts): List<EmergencyContact>`
+    *   `findById(EmergencyContactId id): Optional<EmergencyContact>`
+    *   `findActiveByCareRecipientProfileIdOrderByPriority(CareRecipientProfileId careRecipientProfileId): List<EmergencyContact>`
+    *   `findByCareRecipientProfileIdAndUserId(CareRecipientProfileId careRecipientProfileId, UserId userId): Optional<EmergencyContact>`
+*   **AlertChannelSettingRepository:**
+    *   `save(AlertChannelSetting setting): AlertChannelSetting`
+    *   `findByUserId(UserId userId): List<AlertChannelSetting>`
+    *   `findByUserIdAndChannel(UserId userId, NotificationChannel channel): Optional<AlertChannelSetting>`
 
 ---
 
@@ -3814,106 +3827,117 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
 
 ###### REST Controllers
 
-*   **IncidentsController** (`/api/v1/incidents`):
-    *   `POST /`: Registra un incidente detectado por el gateway del dispositivo wearable.
-    *   `GET /`: Lista paginada y filtrable por `citizenId`, `severity`, `page` y `size`.
-    *   `GET /{incidentId}`: Recupera el detalle de un incidente específico.
-    *   `POST /{incidentId}/confirm`: Confirma manualmente la emergencia.
-    *   `POST /{incidentId}/dismiss`: Cancela el incidente dentro de la ventana de confirmación (falso positivo).
-    *   `POST /{incidentId}/resolve`: Cierra definitivamente el incidente.
 *   **AlertsController** (`/api/v1/alerts`):
-    *   `GET /pending/{contactId}`: Lista las alertas pendientes de reconocimiento de un destinatario.
-    *   `GET /incident/{incidentId}`: Lista las alertas derivadas de un incidente.
+    *   `POST /`: Dispara una alerta reportada por el gateway del dispositivo wearable (caída detectada o SOS).
+    *   `GET /`: Historial paginado y filtrable por `careRecipientProfileId`, `severity`, `from`, `to`, `page` y `size`.
+    *   `GET /active/care-recipient/{careRecipientProfileId}`: Lista las alertas activas de un Fragile Citizen.
+    *   `GET /pending/recipient/{userId}`: Lista las alertas pendientes de reconocimiento de un destinatario.
+    *   `GET /{alertId}`: Recupera el detalle de una alerta con sus entregas y respuestas.
+    *   `POST /{alertId}/dismiss`: Cancela la alerta dentro de la ventana de confirmación (falso positivo).
     *   `POST /{alertId}/acknowledge`: Registra el reconocimiento de la alerta por parte del destinatario.
-    *   `POST /{alertId}/claim`: Declara que el destinatario asumirá la respuesta al incidente.
+    *   `POST /{alertId}/responses`: Declara que el destinatario asumirá la respuesta.
+    *   `POST /{alertId}/responses/{responseId}/complete`: Registra el resultado de la intervención.
+*   **IncidentsController** (`/api/v1/incidents`):
+    *   `GET /{incidentId}`: Recupera el detalle de un incidente.
+    *   `GET /alert/{alertId}`: Recupera el incidente asociado a una alerta.
+    *   `POST /{incidentId}/stabilize`: Declara estabilizada la situación.
+    *   `POST /{incidentId}/close`: Cierra definitivamente el incidente.
 *   **AlertSettingsController** (`/api/v1/alert-settings`):
-    *   `GET /citizen/{citizenId}`: Recupera la configuración vigente de alertamiento.
-    *   `PUT /citizen/{citizenId}/channels`: Personaliza los canales de notificación por severidad.
-    *   `PUT /citizen/{citizenId}/thresholds`: Configura umbrales personalizados.
-    *   `POST /citizen/{citizenId}/thresholds/reset`: Restablece los umbrales clínicos predeterminados.
-    *   `POST /citizen/{citizenId}/silent-mode`: Activa el modo discreto.
-    *   `DELETE /citizen/{citizenId}/silent-mode`: Desactiva el modo discreto.
+    *   `GET /care-recipient/{careRecipientProfileId}`: Recupera la configuración vigente de alertamiento.
+    *   `PUT /care-recipient/{careRecipientProfileId}`: Actualiza el tiempo de espera del contacto primario y la habilitación del escalamiento.
+    *   `POST /care-recipient/{careRecipientProfileId}/silent-mode`: Activa el modo silencioso.
+    *   `DELETE /care-recipient/{careRecipientProfileId}/silent-mode`: Desactiva el modo silencioso.
 *   **EmergencyContactsController** (`/api/v1/emergency-contacts`):
-    *   `GET /citizen/{citizenId}`: Lista la agenda ordenada de contactos de auxilio.
-    *   `POST /`: Incorpora un contacto de emergencia a la cadena.
-    *   `DELETE /{contactId}`: Retira un contacto, validando la permanencia de al menos un contacto primario.
-    *   `PUT /reorder`: Reordena la prioridad de los contactos dentro de la cadena.
+    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los contactos de emergencia ordenados por prioridad.
+    *   `POST /`: Incorpora un integrante del Care Circle como contacto de emergencia.
+    *   `PUT /care-recipient/{careRecipientProfileId}/order`: Reordena la prioridad de los contactos.
+    *   `DELETE /{emergencyContactId}`: Desactiva un contacto, validando que permanezca al menos un contacto activo.
+*   **AlertChannelSettingsController** (`/api/v1/alert-channel-settings`):
+    *   `GET /user/{userId}`: Lista los canales de notificación de un integrante del Care Circle.
+    *   `PUT /user/{userId}/channels/{channel}`: Habilita o deshabilita un canal.
+*   **NotificationDeliveryWebhookController** (`/api/v1/webhooks/notification-deliveries`):
+    *   `POST /`: Recibe la confirmación de entrega o fallo informada por el proveedor de notificaciones.
 
 ###### Resources & Assemblers
 
-*   *Resources (DTOs):* `RegisterIncidentResource`, `IncidentResource`, `IncidentSummaryResource`, `AlertResource`, `AcknowledgeAlertResource`, `AlertSettingsResource`, `ConfigureAlertChannelsResource`, `ConfigureAlertThresholdsResource`, `EmergencyContactResource`, `ReorderEmergencyContactsResource`.
-*   *Assemblers (Mappers):* `RegisterIncidentCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `AlertSettingsResourceFromEntityAssembler`, `ConfigureAlertChannelsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`.
+*   *Resources (DTOs):* `TriggerAlertResource`, `AlertResource`, `AlertSummaryResource`, `AlertDeliveryResource`, `AlertResponseResource`, `AcknowledgeAlertResource`, `CompleteAlertResponseResource`, `IncidentResource`, `CloseIncidentResource`, `AlertSettingsResource`, `UpdateAlertSettingsResource`, `EmergencyContactResource`, `AddEmergencyContactResource`, `ReorderEmergencyContactsResource`, `AlertChannelSettingResource`, `DeliveryStatusCallbackResource`.
+*   *Assemblers (Mappers):* `TriggerAlertCommandFromResourceAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertSettingsResourceFromEntityAssembler`, `UpdateAlertSettingsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`, `AddEmergencyContactCommandFromResourceAssembler`, `AlertChannelSettingResourceFromEntityAssembler`, `RegisterDeliveryResultCommandFromResourceAssembler`.
 
 ###### Integration Events & ACL Facade
 
 *   *Eventos consumidos (inbound):*
-    *   `VitalSignAnomalyDetectedIntegrationEvent`: Proveniente de `Health Monitoring`; origina un incidente de tipo `BIOMETRIC_ANOMALY` con severidad `HIGH`.
-    *   `SafeZoneBreachedIntegrationEvent`: Proveniente de `Mobility & Geofencing`; origina un incidente de tipo `SAFE_ZONE_BREACH`.
-    *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; origina un incidente de tipo `PROLONGED_INACTIVITY`.
-    *   `CareRelationshipEstablishedIntegrationEvent` y `CareRelationshipEndedIntegrationEvent`: Provenientes de `Profile`; actualizan la proyección local de contactos del Care Circle mediante Event-Carried State Transfer.
+    *   `VitalSignAnomalyDetectedIntegrationEvent`: Proveniente de `Health Monitoring`; dispara una alerta `VITAL_SIGN_ANOMALY` con severidad `HIGH`.
+    *   `SafeZoneViolationIntegrationEvent`: Proveniente de `Mobility & Geofencing`; dispara una alerta `SAFE_ZONE_VIOLATION` con severidad `HIGH`.
+    *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `PROLONGED_INACTIVITY` con severidad `HIGH`.
+    *   `ReminderReissuedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `REMINDER_REISSUED` con severidad `MEDIUM` dirigida al contacto primario.
+    *   `MedicationRestockSuggestedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `MEDICATION_RESTOCK_SUGGESTED` con severidad `MEDIUM` dirigida al contacto primario.
+    *   `CareRelationshipEstablishedIntegrationEvent` y `CareRelationshipEndedIntegrationEvent`: Provenientes de `Profile`; mantienen sincronizados los contactos de emergencia con las relaciones de cuidado vigentes mediante Event-Carried State Transfer.
 *   *Eventos publicados (outbound):*
-    *   `EmergencyDispatchedIntegrationEvent`: Notifica a contextos de soporte que un incidente confirmado entró en despacho.
-    *   `IncidentResolvedIntegrationEvent`: Notifica el cierre de un incidente para su incorporación al historial de salud.
-*   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (estado de incidentes activos por Fragile Citizen).
+    *   `EmergencyDispatchedIntegrationEvent`: Notifica que una alerta confirmada de severidad `CRITICAL` o `HIGH` entró en despacho.
+    *   `IncidentClosedIntegrationEvent`: Notifica el cierre de un incidente para su incorporación al historial de salud.
+*   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (existencia de alertas activas por `CareRecipientProfileId`).
 
 ---
 
 ##### 2.6.1.3. Application Layer
 
-Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados correspondientes. Los Event Handlers de esta capa son la materialización directa de las policies identificadas en el Design-Level EventStorming.
+Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados y servicios de dominio. Los Event Handlers y Schedulers de esta capa son la materialización directa de las policies identificadas en el Design-Level EventStorming.
 
 ###### Command Services
 
-*   **IncidentCommandService & IncidentCommandServiceImpl:**
-    *   `handle(RegisterIncidentCommand command): Optional<Incident>`: Construye y persiste el agregado `Incident`, resolviendo la ventana de confirmación aplicable según el tipo de incidente.
-    *   `handle(ConfirmIncidentCommand command): void`: Confirma la emergencia y habilita la selección de estrategia de despacho.
-    *   `handle(DismissIncidentCommand command): void`: Clasifica el incidente como falso positivo resuelto e interrumpe cualquier despacho pendiente.
-    *   `handle(MarkIncidentInAttentionCommand command): void`: Transiciona el incidente a `IN_ATTENTION` tras un reconocimiento efectivo.
-    *   `handle(ResolveIncidentCommand command): void`: Cierra el incidente y publica el evento de integración correspondiente.
 *   **AlertCommandService & AlertCommandServiceImpl:**
-    *   `handle(IssueAlertCommand command): Optional<Alert>`: Deriva una alerta del incidente resolviendo los canales habilitados desde `AlertSettings`.
-    *   `handle(BroadcastCriticalAlertCommand command): List<Alert>`: Emite alertas simultáneas hacia todos los contactos del Care Circle.
+    *   `handle(TriggerAlertCommand command): Optional<Alert>`: Construye y persiste el agregado `Alert` en estado `PENDING_CONFIRMATION` si el origen requiere ventana de confirmación, o en `TRIGGERED` en caso contrario.
+    *   `handle(ConfirmAlertCommand command): void`: Confirma la alerta tras vencer la ventana de confirmación.
+    *   `handle(DismissAlertCommand command): void`: Clasifica la alerta como falso positivo e impide cualquier despacho.
+    *   `handle(DispatchAlertCommand command): void`: Aplica `DispatchStrategyPolicy` y `EscalationPolicy` para generar las entregas del nivel inicial y enviarlas mediante `NotificationDispatcher`.
+    *   `handle(EscalateAlertCommand command): void`: Genera las entregas del nivel `SECONDARY`.
+    *   `handle(BroadcastAlertCommand command): void`: Genera las entregas del nivel `BROADCAST` hacia todos los contactos activos, incluyendo `SMS`.
+    *   `handle(RegisterDeliveryResultCommand command): void`: Actualiza el estado de una entrega según la respuesta del proveedor.
     *   `handle(AcknowledgeAlertCommand command): void`: Registra el reconocimiento del destinatario.
-    *   `handle(ClaimAlertResponseCommand command): void`: Registra la asunción de respuesta y notifica al resto de destinatarios.
-*   **EscalationChainCommandService & EscalationChainCommandServiceImpl:**
-    *   `handle(InstantiateEscalationChainCommand command): Optional<EscalationChain>`: Construye la cadena a partir del orden de contactos vigente en `AlertSettings`.
-    *   `handle(EscalateToNextContactCommand command): void`: Avanza al siguiente eslabón y emite la alerta correspondiente.
-    *   `handle(StopEscalationCommand command): void`: Detiene la cadena tras un reconocimiento efectivo.
-    *   `handle(ExhaustEscalationChainCommand command): void`: Marca la cadena como agotada al no quedar eslabones disponibles.
+    *   `handle(ClaimAlertResponseCommand command): void`: Registra la asunción de respuesta.
+    *   `handle(CompleteAlertResponseCommand command): void`: Registra el resultado de la intervención.
+    *   `handle(ResolveAlertCommand command): void`: Cierra la alerta.
+*   **IncidentCommandService & IncidentCommandServiceImpl:**
+    *   `handle(OpenIncidentCommand command): Optional<Incident>`: Crea el incidente en estado `IN_ATTENTION`, validando que la alerta no tenga ya un incidente asociado.
+    *   `handle(StabilizeIncidentCommand command): void`: Transiciona el incidente a `STABILIZED`.
+    *   `handle(CloseIncidentCommand command): void`: Cierra el incidente y publica el evento de integración correspondiente.
 *   **AlertSettingsCommandService & AlertSettingsCommandServiceImpl:**
-    *   `handle(ConfigureAlertChannelsCommand command): void`
-    *   `handle(ConfigureAlertThresholdsCommand command): void`
-    *   `handle(ResetAlertThresholdsCommand command): void`
-    *   `handle(AddEmergencyContactCommand command): void`
-    *   `handle(RemoveEmergencyContactCommand command): void`
-    *   `handle(ReorderEmergencyContactsCommand command): void`
+    *   `handle(UpdateAlertSettingsCommand command): void`
     *   `handle(ActivateSilentModeCommand command): void`
     *   `handle(DeactivateSilentModeCommand command): void`
+*   **EmergencyContactCommandService & EmergencyContactCommandServiceImpl:**
+    *   `handle(AddEmergencyContactCommand command): Optional<EmergencyContact>`: Valida mediante `ProfileContextAcl` que el usuario mantenga una relación de cuidado activa con el Fragile Citizen.
+    *   `handle(ReorderEmergencyContactsCommand command): void`: Reasigna prioridades consecutivas sin duplicados.
+    *   `handle(DeactivateEmergencyContactCommand command): void`: Rechaza la operación si dejaría al Fragile Citizen sin contactos activos.
+*   **AlertChannelSettingCommandService & AlertChannelSettingCommandServiceImpl:**
+    *   `handle(ConfigureAlertChannelCommand command): void`: Rechaza la operación si dejaría al usuario sin canales habilitados.
 
 ###### Query Services
 
-*   **IncidentQueryService & IncidentQueryServiceImpl:** Resuelve `GetIncidentByIdQuery`, `GetActiveIncidentsByFragileCitizenIdQuery` y `GetIncidentHistoryByCitizenAndDateRangeQuery`.
-*   **AlertQueryService & AlertQueryServiceImpl:** Resuelve `GetAlertsByIncidentIdQuery` y `GetPendingAlertsByContactIdQuery`.
-*   **EscalationChainQueryService & EscalationChainQueryServiceImpl:** Resuelve `GetEscalationChainByIncidentIdQuery`.
-*   **AlertSettingsQueryService & AlertSettingsQueryServiceImpl:** Resuelve `GetAlertSettingsByFragileCitizenIdQuery`.
+*   **AlertQueryService & AlertQueryServiceImpl:** Resuelve `GetAlertByIdQuery`, `GetActiveAlertsByCareRecipientProfileIdQuery`, `GetAlertHistoryByCareRecipientProfileIdQuery` y `GetPendingAlertsByRecipientUserIdQuery`.
+*   **IncidentQueryService & IncidentQueryServiceImpl:** Resuelve `GetIncidentByIdQuery` y `GetIncidentByAlertIdQuery`.
+*   **AlertSettingsQueryService & AlertSettingsQueryServiceImpl:** Resuelve `GetAlertSettingsByCareRecipientProfileIdQuery`.
+*   **EmergencyContactQueryService & EmergencyContactQueryServiceImpl:** Resuelve `GetEmergencyContactsByCareRecipientProfileIdQuery`.
+*   **AlertChannelSettingQueryService & AlertChannelSettingQueryServiceImpl:** Resuelve `GetAlertChannelSettingsByUserIdQuery`.
 
 ###### Event Handlers
 
-*   `IncidentDetectedEventHandler`: Implementa la policy **Fall Confirmation Timeout**. Programa el vencimiento de la ventana de cancelación local; si el Fragile Citizen no cancela, despacha `ConfirmIncidentCommand`.
-*   `IncidentConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector**. Evalúa la severidad del incidente: si es `CRITICAL` despacha `BroadcastCriticalAlertCommand`; si es `HIGH` despacha `InstantiateEscalationChainCommand` seguido de `EscalateToNextContactCommand`.
-*   `AlertAcknowledgedEventHandler`: Implementa la policy **Escalation Stopper**. Despacha `StopEscalationCommand` sobre la cadena asociada al incidente.
-*   `EscalationStoppedEventHandler`: Implementa la policy **Escalation Resolver**. Despacha `MarkIncidentInAttentionCommand`, cerrando la separación transaccional entre `EscalationChain` e `Incident`.
-*   `EscalationChainExhaustedEventHandler`: Implementa la policy **Critical Broadcast Fallback**. Ante el agotamiento de la cadena sin reconocimiento, despacha `BroadcastCriticalAlertCommand` como último recurso.
+*   `AlertTriggeredEventHandler`: Si la alerta no requiere ventana de confirmación (SOS, anomalía biométrica, zona segura, inactividad, rutina), despacha `ConfirmAlertCommand` de inmediato; en caso de caída, delega la espera en `FallConfirmationTimeoutScheduler`.
+*   `AlertConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector**. Despacha `DispatchAlertCommand`, que difunde (`CRITICAL`), notifica al contacto primario con escalamiento (`HIGH`) o solo al contacto primario (`MEDIUM`).
+*   `AlertAcknowledgedEventHandler`: Implementa la policy **Escalation Stopper**. Al pasar la alerta a `ACKNOWLEDGED` deja de ser candidata para los schedulers de escalamiento y despacha `OpenIncidentCommand`, marcando el incidente en atención.
 *   `AlertResponseClaimedEventHandler`: Notifica al resto de destinatarios que un integrante del Care Circle ya asumió la respuesta.
-*   `VitalSignAnomalyDetectedEventHandler`: Implementa la policy **Biometric Alert Raiser**. Traduce el evento de integración de `Health Monitoring` en un `RegisterIncidentCommand` de severidad `HIGH`.
-*   `SafeZoneBreachedEventHandler` y `ProlongedInactivityDetectedEventHandler`: Traducen los eventos de integración de `Mobility & Geofencing` y `Care Routines & Wellness` en incidentes del tipo correspondiente.
-*   `CareRelationshipChangedEventHandler`: Actualiza la proyección local desnormalizada del Care Circle ante altas y bajas de relaciones de cuidado en `Profile`.
+*   `AlertDeliveryFailedEventHandler`: Reintenta la entrega por `SMS` cuando la severidad es `CRITICAL`.
+*   `IncidentClosedEventHandler`: Despacha `ResolveAlertCommand` y publica `IncidentClosedIntegrationEvent`.
+*   `VitalSignAnomalyDetectedEventHandler`: Implementa la policy **Biometric Alert Raiser**. Traduce el evento de integración de `Health Monitoring` en un `TriggerAlertCommand` de severidad `HIGH`.
+*   `SafeZoneViolationEventHandler`, `ProlongedInactivityDetectedEventHandler`, `ReminderReissuedEventHandler` y `MedicationRestockSuggestedEventHandler`: Traducen los eventos de integración de `Mobility & Geofencing` y `Care Routines & Wellness` en alertas del tipo y severidad correspondientes.
+*   `CareRelationshipEstablishedEventHandler`: Registra al usuario vinculado como contacto de emergencia activo con la menor prioridad disponible.
+*   `CareRelationshipEndedEventHandler`: Desactiva el contacto de emergencia correspondiente.
 
 ###### Application ACL Implementation
 
 *   `EmergencyAlertingContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
-*   `ProfileContextAcl`: Traduce los identificadores y estructuras de contacto provenientes de `Profile` hacia los Value Objects propios (`ContactId`, `ContactRole`), evitando el acoplamiento directo con su modelo.
-*   `MobilityContextAcl`: Resuelve la consulta puntual de coordenadas para componer el `GeoSnapshot` de un incidente confirmado.
+*   `ProfileContextAcl`: Verifica que un `UserId` mantenga una relación de cuidado activa con un `CareRecipientProfileId` y obtiene el nombre del Fragile Citizen para componer el contenido de la notificación, evitando el acoplamiento directo con el modelo de Profile.
+*   `MobilityContextAcl`: Consulta la última ubicación conocida del Fragile Citizen para incluirla en el contenido de la notificación de alertas `CRITICAL` y `SAFE_ZONE_VIOLATION`; la ubicación no se persiste en este contexto.
 
 ---
 
@@ -3923,36 +3947,37 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 ###### Persistence JPA Entities
 
-*   `IncidentPersistenceEntity`: Mapea la tabla `incidents`. Columnas: `id`, `fragile_citizen_id`, `incident_type`, `severity`, `status`, `latitude`, `longitude`, `geo_captured_at`, `confirmation_window_seconds`, `detected_at`, `confirmed_at`, `resolved_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
-*   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `incident_id`, `recipient_id`, `severity`, `dispatch_mode`, `channels`, `status`, `issued_at`, `delivered_at`, `acknowledged_at`.
-*   `EscalationChainPersistenceEntity`: Mapea la tabla `escalation_chains`, con relación `@OneToMany` hacia `EscalationStepPersistenceEntity`.
-*   `EscalationStepPersistenceEntity`: Mapea la tabla `escalation_steps`.
-*   `AlertSettingsPersistenceEntity`: Mapea la tabla `alert_settings`, con el `ChannelPolicy` embebido y relaciones `@OneToMany` hacia contactos y umbrales.
-*   `EmergencyContactPersistenceEntity`: Mapea la tabla `emergency_contacts`.
-*   `AlertThresholdPersistenceEntity`: Mapea la tabla `alert_thresholds`.
-*   `CareCircleProjectionPersistenceEntity`: Mapea la tabla de lectura desnormalizada `care_circle_projection`, alimentada por los eventos de integración de `Profile`.
+*   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `care_recipient_profile_id`, `source_type`, `source_reference_id`, `severity`, `status`, `triggered_at`, `acknowledged_at`, `created_at`, `updated_at`. Mantiene relaciones `@OneToMany` hacia `AlertDeliveryPersistenceEntity` y `AlertResponsePersistenceEntity`.
+*   `AlertDeliveryPersistenceEntity`: Mapea la tabla `alert_deliveries`. Columnas: `id`, `alert_id`, `recipient_user_id`, `recipient_level`, `channel`, `delivery_status`, `sent_at`, `delivered_at`.
+*   `AlertResponsePersistenceEntity`: Mapea la tabla `alert_responses`. Columnas: `id`, `alert_id`, `responder_user_id`, `response_status`, `claimed_at`, `completed_at`, `notes`.
+*   `IncidentPersistenceEntity`: Mapea la tabla `incidents`. Columnas: `id`, `alert_id` (única), `status`, `marked_in_attention_at`, `stabilized_at`, `closed_at`, `notes`, `created_at`.
+*   `AlertSettingsPersistenceEntity`: Mapea la tabla `alert_settings`. Columnas: `id`, `care_recipient_profile_id` (única), `primary_ack_timeout_sec`, `escalation_enabled`, `silent_mode_enabled`, `updated_at`.
+*   `EmergencyContactPersistenceEntity`: Mapea la tabla `emergency_contacts`. Columnas: `id`, `care_recipient_profile_id`, `user_id`, `priority_order`, `active`, `created_at`, `updated_at`.
+*   `AlertChannelSettingPersistenceEntity`: Mapea la tabla `alert_channel_settings`. Columnas: `id`, `user_id`, `channel`, `enabled`, `created_at`, `updated_at`.
+*   `AlertSourceEmbeddable`: Agrupa `source_type` y `source_reference_id` dentro de `AlertPersistenceEntity`.
+*   *Converters:* `SeverityConverter`, `AlertStatusConverter`, `RecipientLevelConverter`, `NotificationChannelConverter`, `DeliveryStatusConverter`, `ResponseStatusConverter` e `IncidentStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
 
 ###### Spring Data Repositories & Adapters
 
-*   `IncidentPersistenceRepository`, `AlertPersistenceRepository`, `EscalationChainPersistenceRepository` y `AlertSettingsPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
-*   `IncidentRepositoryImpl`, `AlertRepositoryImpl`, `EscalationChainRepositoryImpl` y `AlertSettingsRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+*   `AlertPersistenceRepository`, `IncidentPersistenceRepository`, `AlertSettingsPersistenceRepository`, `EmergencyContactPersistenceRepository` y `AlertChannelSettingPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `AlertRepositoryImpl`, `IncidentRepositoryImpl`, `AlertSettingsRepositoryImpl`, `EmergencyContactRepositoryImpl` y `AlertChannelSettingRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
 
 ###### Persistence Assemblers
 
-*   `IncidentPersistenceAssembler`: Traduce los tipos primitivos de `IncidentPersistenceEntity` hacia los Value Objects (`Severity`, `IncidentStatus`, `GeoSnapshot`, `ConfirmationWindow`) y recompone el agregado `Incident`.
-*   `AlertPersistenceAssembler`, `EscalationChainPersistenceAssembler` y `AlertSettingsPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio.
+*   `AlertPersistenceAssembler`: Traduce `AlertPersistenceEntity` y sus entregas y respuestas hacia los Value Objects (`AlertSource`, `Severity`, `AlertStatus`, `RecipientLevel`) y recompone el agregado `Alert`.
+*   `IncidentPersistenceAssembler`, `AlertSettingsPersistenceAssembler`, `EmergencyContactPersistenceAssembler` y `AlertChannelSettingPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio.
 
 ###### Notification Adapters
 
-*   `NotificationDispatcher`: Puerto de salida del dominio para el despacho efectivo de alertas, independiente del proveedor.
+*   `NotificationDispatcher`: Puerto de salida del dominio para el envío efectivo de las entregas, independiente del proveedor.
 *   `PushNotificationProviderAdapter`: Implementación sobre Firebase Cloud Messaging para el canal `PUSH`.
-*   `SmsProviderAdapter`: Implementación sobre proveedor SMS para el canal `SMS`, utilizado como canal de respaldo en severidad `CRITICAL`.
+*   `SmsProviderAdapter`: Implementación sobre proveedor SMS para el canal `SMS`, utilizado como respaldo en severidad `CRITICAL` y en el nivel `BROADCAST`.
+*   `InAppNotificationAdapter`: Marca como enviadas las entregas del canal `IN_APP`, que la app móvil recupera mediante la consulta de alertas pendientes.
 
 ###### Scheduling
 
-*   `FallConfirmationTimeoutScheduler`: Tarea de alta frecuencia que recupera los incidentes en estado `DETECTED` con ventana de confirmación vencida y despacha `ConfirmIncidentCommand`.
-*   `EscalationAckTimeoutScheduler`: Tarea que identifica las cadenas activas cuyo `AckTimeout` ha expirado y despacha `EscalateToNextContactCommand` o `ExhaustEscalationChainCommand` según queden o no eslabones disponibles.
-*   `AlertExpirationScheduler`: Tarea de mantenimiento que transiciona a `EXPIRED` las alertas sin reconocimiento una vez cerrado el incidente asociado.
+*   `FallConfirmationTimeoutScheduler`: Tarea de alta frecuencia que recupera las alertas en `PENDING_CONFIRMATION` cuya `FallConfirmationWindow` venció y despacha `ConfirmAlertCommand`.
+*   `AckTimeoutEscalationScheduler`: Tarea que recupera las alertas en `TRIGGERED` o `ESCALATED` cuyo `primaryAckTimeout` venció desde la última entrega enviada. Despacha `EscalateAlertCommand` si la alerta está en el nivel `PRIMARY` y el escalamiento está habilitado, o `BroadcastAlertCommand` como último recurso (**Critical Broadcast Fallback**) cuando ya se notificó al nivel `SECONDARY` sin reconocimiento.
 
 ---
 
@@ -3977,6 +4002,7 @@ El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su r
 
 La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
+```
 com.guardianplus.platform.healthmonitoring/
 ├── domain/
 │   ├── model/
@@ -4012,6 +4038,7 @@ com.guardianplus.platform.healthmonitoring/
     │       ├── entities/
     │       └── repositories/
     └── scheduling/
+```
 
 ##### 2.6.2.1. Domain Layer
 
@@ -4276,20 +4303,19 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 *   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
 
----
 ##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
-![alt text](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
+![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
 ##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
-![alt text](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
+![Health Monitoring Domain Class Diagram](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
-![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-db.png)
+![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 
-### 2.6.3. Bounded Context: Subscriptions
+#### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
 
@@ -4299,9 +4325,9 @@ Este contexto mantiene aisladas las reglas comerciales de Guardian+ respecto de 
 
 La Domain Layer concentra las reglas de negocio relacionadas con el ciclo de vida de las suscripciones, la definición de planes comerciales, el procesamiento de pagos y la determinación de los entitlements habilitados para cada suscripción. Esta capa se mantiene independiente de proveedores de pago, tecnologías de persistencia y mecanismos externos de programación.
 
-##### Aggregate Roots
+###### Aggregate Roots
 
-###### Subscription
+**`Subscription`**
 
 Representa una suscripción de Guardian+ y constituye el Aggregate Root principal del ciclo de vida comercial. Controla su activación, renovación, cambio de plan, cancelación y expiración.
 
@@ -4333,7 +4359,7 @@ Representa una suscripción de Guardian+ y constituye el Aggregate Root principa
 - Una `Subscription` puede registrar múltiples `PaymentAttempt`.
 - Una `Subscription` puede disponer de un `EntitlementSet` con los beneficios efectivos habilitados.
 
-###### Plan
+**`Plan`**
 
 Representa una alternativa comercial disponible en Guardian+. Mantiene la configuración utilizada para determinar el precio, ciclo de facturación y beneficios asociados a una suscripción.
 
@@ -4345,6 +4371,8 @@ Representa una alternativa comercial disponible en Guardian+. Mantiene la config
 - `price: Money`
 - `billingCycle: BillingCycle`
 - `active: Boolean`
+- `createdAt: Instant`
+- `updatedAt: Instant`
 
 **Métodos principales:**
 
@@ -4358,30 +4386,53 @@ Representa una alternativa comercial disponible en Guardian+. Mantiene la config
 - Un `Plan` puede habilitar múltiples `Entitlement`.
 - Un mismo `Entitlement` puede formar parte de distintos planes.
 
-###### EntitlementSet
+**`EntitlementSet`**
 
-Representa el conjunto efectivo de beneficios habilitados para una suscripción. Permite mantener sincronizados los entitlements que corresponden según el plan contratado y el estado vigente de la suscripción.
+Representa el conjunto efectivo de beneficios habilitados para una suscripción. Permite mantener sincronizados los entitlements que corresponden según el plan contratado y el estado vigente de la suscripción. Cada beneficio efectivo se representa mediante un `SubscriptionEntitlement`, que conserva su estado y su periodo de vigencia en lugar de una simple pertenencia al conjunto.
 
 **Atributos principales:**
 
 - `subscriptionId: SubscriptionId`
-- `entitlements: Set<Entitlement>`
+- `items: List<SubscriptionEntitlement>`
 - `updatedAt: Instant`
 
 **Métodos principales:**
 
-- `replaceWith(entitlements: Set<Entitlement>): void`
-- `contains(code: String): Boolean`
-- `revokeAll(): void`
+- `replaceWith(entitlementIds: Set<EntitlementId>, effectiveFrom: Instant): void`
+- `revoke(entitlementId: EntitlementId, effectiveTo: Instant): void`
+- `revokeAll(effectiveTo: Instant): void`
+- `contains(entitlementId: EntitlementId): Boolean`
+- `activeItems(): List<SubscriptionEntitlement>`
 
 **Relaciones principales:**
 
 - Un `EntitlementSet` pertenece a una suscripción.
-- Un `EntitlementSet` puede contener múltiples `Entitlement`.
+- Un `EntitlementSet` puede contener múltiples `SubscriptionEntitlement`.
+- Cada `SubscriptionEntitlement` referencia por identidad a un `Entitlement` del catálogo.
 
-##### Entities
+**`Entitlement`**
 
-###### PaymentAttempt
+Representa un beneficio o capacidad comercial del catálogo de Guardian+, que puede estar habilitado por uno o más planes de suscripción. Constituye un Aggregate Root propio porque es un catálogo compartido entre planes y suscripciones, con identidad y ciclo de vida independientes de ambos.
+
+**Atributos principales:**
+
+- `id: EntitlementId`
+- `code: String`
+- `name: String`
+- `description: String`
+
+**Métodos principales:**
+
+- `matches(code: String): Boolean`
+
+**Relaciones principales:**
+
+- Un `Entitlement` puede formar parte de múltiples `Plan`, mediante la relación `plan_entitlements`.
+- Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`, mediante `SubscriptionEntitlement`.
+
+###### Entities
+
+**`PaymentAttempt`**
 
 Representa un intento de pago asociado a una suscripción, ya sea para su activación inicial o para una renovación.
 
@@ -4407,29 +4458,30 @@ Representa un intento de pago asociado a una suscripción, ya sea para su activa
 
 - Cada `PaymentAttempt` se encuentra asociado a una `Subscription`.
 
-###### Entitlement
+**`SubscriptionEntitlement`**
 
-Representa un beneficio o capacidad comercial que puede estar habilitado por uno o más planes de suscripción.
+Representa un beneficio efectivo habilitado para una suscripción durante un periodo determinado. Es la entidad interna de `EntitlementSet` y conserva el estado y la vigencia que no pueden expresarse mediante la simple pertenencia a un conjunto.
 
 **Atributos principales:**
 
-- `id: EntitlementId`
-- `code: String`
-- `name: String`
-- `description: String`
+- `id: UUID`
+- `entitlementId: EntitlementId`
+- `status: SubscriptionEntitlementStatus`
+- `effectivePeriod: Period`
 
 **Métodos principales:**
 
-- `matches(code: String): Boolean`
+- `revoke(effectiveTo: Instant): void`
+- `isEffectiveAt(date: Instant): Boolean`
 
 **Relaciones principales:**
 
-- Un `Entitlement` puede formar parte de múltiples `Plan`.
-- Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`.
+- Cada `SubscriptionEntitlement` pertenece a un `EntitlementSet`.
+- Cada `SubscriptionEntitlement` referencia un `Entitlement` del catálogo mediante `EntitlementId`.
 
-##### Value Objects
+###### Value Objects
 
-###### SubscriptionId
+**`SubscriptionId`**
 
 Identificador inmutable utilizado para distinguir una suscripción.
 
@@ -4437,7 +4489,7 @@ Identificador inmutable utilizado para distinguir una suscripción.
 
 - `value: UUID`
 
-###### PlanId
+**`PlanId`**
 
 Identificador inmutable utilizado para distinguir un plan comercial.
 
@@ -4445,7 +4497,7 @@ Identificador inmutable utilizado para distinguir un plan comercial.
 
 - `value: UUID`
 
-###### UserId
+**`UserId`**
 
 Identificador externo utilizado para referenciar al usuario propietario de una suscripción sin incorporar el modelo interno del Bounded Context IAM.
 
@@ -4453,7 +4505,7 @@ Identificador externo utilizado para referenciar al usuario propietario de una s
 
 - `value: UUID`
 
-###### EntitlementId
+**`EntitlementId`**
 
 Identificador inmutable utilizado para distinguir un entitlement.
 
@@ -4461,7 +4513,7 @@ Identificador inmutable utilizado para distinguir un entitlement.
 
 - `value: UUID`
 
-###### Money
+**`Money`**
 
 Representa un monto monetario junto con su moneda.
 
@@ -4474,7 +4526,7 @@ Representa un monto monetario junto con su moneda.
 
 - `isPositive(): Boolean`
 
-###### Period
+**`Period`**
 
 Representa el intervalo temporal vigente de una suscripción.
 
@@ -4488,9 +4540,9 @@ Representa el intervalo temporal vigente de una suscripción.
 - `contains(date: Instant): Boolean`
 - `durationInDays(): Long`
 
-##### Enumerations
+###### Enumerations
 
-###### SubscriptionStatus
+**`SubscriptionStatus`**
 
 Representa el estado vigente de una suscripción.
 
@@ -4499,7 +4551,7 @@ Representa el estado vigente de una suscripción.
 - `CANCELLED`
 - `EXPIRED`
 
-###### PaymentStatus
+**`PaymentStatus`**
 
 Representa el resultado o estado de un intento de pago.
 
@@ -4507,23 +4559,30 @@ Representa el resultado o estado de un intento de pago.
 - `CONFIRMED`
 - `FAILED`
 
-###### PaymentType
+**`PaymentType`**
 
 Permite distinguir el propósito de una operación de pago.
 
 - `INITIAL`
 - `RENEWAL`
 
-###### BillingCycle
+**`BillingCycle`**
 
 Representa la periodicidad comercial configurada para un plan.
 
 - `MONTHLY`
 - `YEARLY`
 
-##### Domain Policies
+**`SubscriptionEntitlementStatus`**
 
-###### SubscriptionActivationPolicy
+Representa el estado de un beneficio efectivo dentro de una suscripción.
+
+- `ACTIVE`
+- `REVOKED`
+
+###### Domain Policies
+
+**`SubscriptionActivationPolicy`**
 
 Evalúa las condiciones necesarias para iniciar y activar una suscripción de acuerdo con el plan seleccionado.
 
@@ -4532,7 +4591,7 @@ Evalúa las condiciones necesarias para iniciar y activar una suscripción de ac
 - `requiresPayment(plan: Plan): Boolean`
 - `canActivate(plan: Plan): Boolean`
 
-###### SubscriptionLifecyclePolicy
+**`SubscriptionLifecyclePolicy`**
 
 Agrupa las reglas de negocio relacionadas con los cambios de plan, cancelación, renovación y expiración de una suscripción.
 
@@ -4543,20 +4602,52 @@ Agrupa las reglas de negocio relacionadas con los cambios de plan, cancelación,
 - `canRenew(subscription: Subscription, plan: Plan): Boolean`
 - `canExpire(subscription: Subscription): Boolean`
 
-###### EntitlementPolicy
+**`EntitlementPolicy`**
 
 Determina los beneficios efectivos que deben mantenerse habilitados como consecuencia de los cambios producidos durante el ciclo de vida de una suscripción.
 
 **Operaciones principales:**
 
-- `afterActivation(subscription: Subscription, plan: Plan): Set<Entitlement>`
-- `afterPlanChange(subscription: Subscription, plan: Plan): Set<Entitlement>`
-- `afterCancellation(subscription: Subscription): Set<Entitlement>`
-- `afterExpiration(subscription: Subscription): Set<Entitlement>`
+- `afterActivation(subscription: Subscription, plan: Plan): Set<EntitlementId>`
+- `afterPlanChange(subscription: Subscription, plan: Plan): Set<EntitlementId>`
+- `afterCancellation(subscription: Subscription): Set<EntitlementId>`
+- `afterExpiration(subscription: Subscription): Set<EntitlementId>`
 
-##### Repository Interfaces
+###### Commands & Queries (Domain Model)
 
-###### SubscriptionRepository
+- `RequestSubscriptionCommand(UUID subscriberUserId, UUID planId)`
+- `ActivateSubscriptionCommand(UUID subscriptionId)`
+- `InitiateSubscriptionPaymentCommand(UUID subscriptionId)`
+- `RequestPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
+- `ApplyPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
+- `RequestSubscriptionCancellationCommand(UUID subscriptionId)`
+- `CancelSubscriptionCommand(UUID subscriptionId)`
+- `EvaluateSubscriptionRenewalCommand(UUID subscriptionId)`
+- `InitiateRenewalPaymentCommand(UUID subscriptionId)`
+- `RenewSubscriptionCommand(UUID subscriptionId, Period newPeriod)`
+- `EvaluateSubscriptionExpirationCommand(UUID subscriptionId)`
+- `ExpireSubscriptionCommand(UUID subscriptionId)`
+- `UpdateEntitlementsCommand(UUID subscriptionId)`
+- `GetSubscriptionStatusQuery(SubscriptionId subscriptionId)`
+- `GetCurrentPlanQuery(SubscriptionId subscriptionId)`
+- `GetAvailableEntitlementsQuery(SubscriptionId subscriptionId)`
+
+###### Domain Events
+
+- `SubscriptionActivated`: Emitido cuando una suscripción cumple las condiciones de activación definidas por `SubscriptionActivationPolicy`.
+- `SubscriptionPlanChanged`: Emitido al aplicarse efectivamente un cambio de plan sobre una suscripción vigente.
+- `SubscriptionCancelled`: Emitido cuando la cancelación se hace efectiva según la fecha determinada por `SubscriptionLifecyclePolicy`.
+- `SubscriptionRenewed`: Emitido al establecerse el nuevo periodo de vigencia de una suscripción renovada.
+- `SubscriptionExpired`: Emitido cuando una suscripción finaliza su vigencia sin renovación.
+- `PaymentConfirmed`: Emitido al confirmarse el pago inicial requerido para la activación.
+- `PaymentFailed`: Emitido cuando el pago inicial no pudo completarse, sin activar la suscripción.
+- `RenewalPaymentConfirmed`: Emitido al confirmarse el pago de una renovación.
+- `RenewalPaymentFailed`: Emitido cuando el pago de renovación falla, sin extender el periodo vigente.
+- `EntitlementsUpdated`: Emitido cuando `EntitlementPolicy` determina un nuevo conjunto de beneficios efectivos y el `EntitlementSet` se sincroniza.
+
+###### Repository Interfaces
+
+**`SubscriptionRepository`**
 
 Abstracción utilizada para recuperar y persistir el Aggregate Root `Subscription`.
 
@@ -4566,7 +4657,7 @@ Abstracción utilizada para recuperar y persistir el Aggregate Root `Subscriptio
 - `findActiveBySubscriberUserId(userId: UserId): Optional<Subscription>`
 - `save(subscription: Subscription): Subscription`
 
-###### PlanRepository
+**`PlanRepository`**
 
 Abstracción utilizada para consultar y persistir los planes comerciales administrados por Subscriptions.
 
@@ -4575,7 +4666,18 @@ Abstracción utilizada para consultar y persistir los planes comerciales adminis
 - `findById(id: PlanId): Optional<Plan>`
 - `findActivePlans(): List<Plan>`
 
-###### EntitlementSetRepository
+**`EntitlementRepository`**
+
+Abstracción utilizada para consultar el catálogo de beneficios comerciales de Guardian+.
+
+**Operaciones principales:**
+
+- `findById(id: EntitlementId): Optional<Entitlement>`
+- `findByCode(code: String): Optional<Entitlement>`
+- `findAll(): List<Entitlement>`
+- `findByPlanId(planId: PlanId): List<Entitlement>`
+
+**`EntitlementSetRepository`**
 
 Abstracción utilizada para recuperar y persistir los beneficios efectivos asociados a una suscripción.
 
@@ -4586,13 +4688,13 @@ Abstracción utilizada para recuperar y persistir los beneficios efectivos asoci
 
 El modelo de persistencia no replica de manera uno a uno todos los objetos del dominio. Los Value Objects se almacenan como parte de las entidades correspondientes, mientras que las asociaciones entre planes y entitlements y los beneficios efectivos de una suscripción se representan mediante las relaciones definidas en el modelo de base de datos.
 
-#### 2.6.3.2. Interface Layer
+##### 2.6.3.2. Interface Layer
 
 La Interface Layer expone las capacidades del Bounded Context **Subscriptions** hacia los clientes de Guardian+ y recibe mensajes provenientes de integraciones externas. Su responsabilidad es transformar solicitudes HTTP, notificaciones externas y señales temporales en comandos o consultas que serán procesados por la Application Layer, sin incorporar reglas de negocio ni acceder directamente a la persistencia.
 
-##### Backend API
+###### Backend API
 
-###### SubscriptionController
+**`SubscriptionController`**
 
 Expone las operaciones relacionadas con el ciclo de vida y consulta de las suscripciones.
 
@@ -4610,7 +4712,7 @@ Expone las operaciones relacionadas con el ciclo de vida y consulta de las suscr
 - delega comandos y consultas a los handlers correspondientes de la Application Layer;
 - no accede directamente a los repositories ni a la base de datos.
 
-###### PaymentWebhookController
+**`PaymentWebhookController`**
 
 Recibe las notificaciones enviadas por el proveedor externo de pagos y las transforma en acciones de aplicación relacionadas con la confirmación o fallo de pagos de activación y renovación.
 
@@ -4625,9 +4727,9 @@ Recibe las notificaciones enviadas por el proveedor externo de pagos y las trans
 - delega el procesamiento de los resultados de pago a la Application Layer;
 - no modifica directamente el estado de `Subscription` ni de `PaymentAttempt`.
 
-##### Message Consumers
+###### Message Consumers
 
-###### BillingSchedulerConsumer
+**`BillingSchedulerConsumer`**
 
 Recibe las señales temporales utilizadas para iniciar la evaluación de renovaciones y expiraciones de suscripciones.
 
@@ -4642,13 +4744,13 @@ Recibe las señales temporales utilizadas para iniciar la evaluación de renovac
 - delega las evaluaciones correspondientes a la Application Layer;
 - no contiene reglas para decidir si una suscripción debe renovarse o expirar.
 
-#### 2.6.3.3. Application Layer
+##### 2.6.3.3. Application Layer
 
 La Application Layer coordina los casos de uso del Bounded Context **Subscriptions** utilizando los Aggregate Roots, Domain Policies y Repository Interfaces definidos en la Domain Layer. Esta capa organiza el flujo de cada operación, pero delega las reglas de negocio al modelo de dominio.
 
 Los handlers no mantienen estado de negocio propio. Sus principales dependencias corresponden a los repositories y políticas necesarias para recuperar los aggregates, ejecutar las reglas del dominio y persistir los cambios resultantes.
 
-##### Command Handlers
+###### Command Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4666,7 +4768,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `ExpireSubscriptionHandler` | Cambia una suscripción al estado expirado cuando se cumplen las condiciones del dominio. | `handle(ExpireSubscriptionCommand)` |
 | `UpdateEntitlementsHandler` | Actualiza los beneficios efectivos de una suscripción después de cambios relevantes en su ciclo de vida. | `handle(UpdateEntitlementsCommand)` |
 
-##### Query Handlers
+###### Query Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4674,7 +4776,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `GetCurrentPlanHandler` | Recupera el plan actualmente asociado a una suscripción. | `handle(GetCurrentPlanQuery)` |
 | `GetAvailableEntitlementsHandler` | Recupera los entitlements efectivos habilitados para una suscripción. | `handle(GetAvailableEntitlementsQuery)` |
 
-##### Event Handlers
+###### Event Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4688,13 +4790,23 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `RenewalPaymentFailedHandler` | Procesa el fallo de un pago de renovación sin extender el periodo de la suscripción. | `handle(RenewalPaymentFailed)` |
 
 
-#### 2.6.3.4. Infrastructure Layer
+##### 2.6.3.4. Infrastructure Layer
 
 La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir el estado del Bounded Context **Subscriptions** y comunicarse con servicios externos. Esta capa implementa las abstracciones utilizadas por las capas internas sin incorporar reglas propias del dominio.
 
-##### Repository Implementations
+###### Persistence JPA Entities
 
-###### SubscriptionRepositoryImpl
+*   `SubscriptionPersistenceEntity`: Mapea la tabla `subscriptions`. Columnas: `id`, `subscriber_user_id`, `plan_id`, `status`, `current_period_start`, `current_period_end`, `cancel_at_period_end`, `cancelled_at`, `created_at`, `updated_at`. Mantiene una relación `@OneToMany` hacia `PaymentPersistenceEntity`.
+*   `PaymentPersistenceEntity`: Mapea la tabla `payments`. Columnas: `id`, `subscription_id`, `payment_type`, `amount`, `currency`, `provider`, `provider_reference`, `status`, `paid_at`, `created_at`. Las columnas `amount` y `currency` componen el Value Object `Money`.
+*   `SubscriptionPlanPersistenceEntity`: Mapea la tabla `subscription_plans`. Columnas: `id`, `name`, `description`, `price`, `currency`, `billing_cycle`, `active`, `created_at`, `updated_at`.
+*   `EntitlementPersistenceEntity`: Mapea la tabla `entitlements`. Columnas: `id`, `code`, `name`, `description`.
+*   `PlanEntitlementPersistenceEntity`: Mapea la tabla de relación `plan_entitlements`. Columnas: `id`, `plan_id`, `entitlement_id`. Resuelve la asociación muchos a muchos entre planes y beneficios del catálogo.
+*   `SubscriptionEntitlementPersistenceEntity`: Mapea la tabla `subscription_entitlements`. Columnas: `id`, `subscription_id`, `entitlement_id`, `status`, `effective_from`, `effective_to`. Las columnas `effective_from` y `effective_to` componen el Value Object `Period`.
+*   *Converters:* `SubscriptionStatusConverter`, `PaymentStatusConverter`, `PaymentTypeConverter`, `BillingCycleConverter` y `SubscriptionEntitlementStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
+
+###### Repository Implementations
+
+**`SubscriptionRepositoryImpl`**
 
 Implementa `SubscriptionRepository` y gestiona la persistencia del Aggregate Root `Subscription`.
 
@@ -4710,7 +4822,7 @@ Implementa `SubscriptionRepository` y gestiona la persistencia del Aggregate Roo
 - implementa `SubscriptionRepository`;
 - persiste información mediante las tablas `subscriptions` y `payments`.
 
-###### PlanRepositoryImpl
+**`PlanRepositoryImpl`**
 
 Implementa `PlanRepository` y permite consultar la configuración comercial de los planes disponibles.
 
@@ -4724,23 +4836,23 @@ Implementa `PlanRepository` y permite consultar la configuración comercial de l
 - implementa `PlanRepository`;
 - utiliza la información almacenada en `subscription_plans` y su asociación con `plan_entitlements`.
 
-###### EntitlementSetRepositoryImpl
+**`EntitlementSetRepositoryImpl`**
 
 Implementa `EntitlementSetRepository` y gestiona la persistencia de los beneficios efectivos asociados a cada suscripción.
 
 **Responsabilidades principales:**
 
-- recuperar el `EntitlementSet` asociado a una suscripción;
-- persistir los entitlements efectivos habilitados para una suscripción.
+- recuperar el `EntitlementSet` asociado a una suscripción, con el estado y la vigencia de cada `SubscriptionEntitlement`;
+- persistir los beneficios efectivos habilitados para una suscripción, registrando su revocación sin eliminar el historial.
 
 **Relaciones principales:**
 
-- implementa `EntitlementSetRepository`;
-- utiliza `entitlements` y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
+- implementa `EntitlementSetRepository` y `EntitlementRepository`;
+- utiliza `entitlements` como catálogo y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
 
-##### External Service Adapters
+###### External Service Adapters
 
-###### PaymentProviderAdapter
+**`PaymentProviderAdapter`**
 
 Encapsula la comunicación con el proveedor externo encargado de procesar los pagos requeridos para activaciones y renovaciones.
 
@@ -4757,7 +4869,7 @@ Encapsula la comunicación con el proveedor externo encargado de procesar los pa
 
 La selección del proveedor permanece desacoplada del dominio. Stripe se mantiene como candidato de implementación mientras no se haya definido de manera definitiva el proveedor externo.
 
-###### BillingSchedulerAdapter
+**`BillingSchedulerAdapter`**
 
 Implementa el mecanismo técnico utilizado para generar las señales temporales necesarias para evaluar renovaciones y expiraciones.
 
@@ -4771,9 +4883,9 @@ Implementa el mecanismo técnico utilizado para generar las señales temporales 
 - genera las señales consumidas por `BillingSchedulerConsumer`;
 - no contiene las reglas que determinan si una suscripción debe renovarse o expirar.
 
-##### Event Publishing
+###### Event Publishing
 
-###### EventPublisher
+**`EventPublisher`**
 
 Publica los eventos producidos por el ciclo de vida de las suscripciones para que puedan ser consumidos por otros Bounded Contexts de Guardian+.
 
@@ -4811,11 +4923,11 @@ El siguiente diagrama UML representa los principales elementos que conforman la 
 
 ![Subscriptions Domain Layer Class Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
-`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración. Dentro de su modelo participan entidades como `Plan`, `PaymentAttempt`, `RenewalOrder` y `CancellationRequest`.
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración, y contiene la entidad `PaymentAttempt`, que registra cada intento de pago de su ciclo de vida. `Plan` y `Entitlement` son Aggregate Roots propios: el primero concentra la configuración comercial y el segundo actúa como catálogo de beneficios compartido entre planes y suscripciones.
 
-`EntitlementSet` administra la colección de `EntitlementItem` habilitados para una suscripción. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `Money`, `Period` y `RenewalPolicy` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
+`EntitlementSet` administra los `SubscriptionEntitlement` habilitados para una suscripción, cada uno con su estado y su periodo de vigencia. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `EntitlementId`, `Money` y `Period` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
 
-Los estados principales de las suscripciones y los pagos se representan mediante las enumeraciones `SubscriptionStatus` y `PaymentStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
+Los estados principales de las suscripciones, los pagos y los beneficios efectivos se representan mediante las enumeraciones `SubscriptionStatus`, `PaymentStatus` y `SubscriptionEntitlementStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
 
 ###### 2.6.3.6.2. Bounded Context Database Design Diagram
 
@@ -4827,19 +4939,19 @@ La tabla `subscriptions` constituye el elemento central del modelo de persistenc
 
 Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
-### 2.6.4. Bounded Context: Profile
+#### 2.6.4. Bounded Context: Profile
 
 El Bounded Context **Profile** pertenece al Generic Domain de Guardian+ y es responsable de gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado y las preferencias asociadas al uso de la aplicación.
 
 Este contexto mantiene separadas las responsabilidades relacionadas con identidad y autenticación, pertenecientes al Bounded Context IAM, de aquellas relacionadas con la información de perfil y las relaciones entre usuarios y personas bajo cuidado. De esta manera, Profile administra información necesaria para personalizar la experiencia de Guardian+ sin asumir responsabilidades de seguridad o autenticación.
 
-#### 2.6.4.1. Domain Layer
+##### 2.6.4.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con los perfiles de usuario, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de Guardian+. El contexto utiliza referencias a usuarios administrados por IAM mediante `UserId`, sin incorporar credenciales, autenticación ni información interna de dicho Bounded Context.
 
-##### Aggregate Roots
+###### Aggregate Roots
 
-###### UserProfile
+**`UserProfile`**
 
 Representa la información descriptiva asociada a un usuario de Guardian+. Mantiene los datos personales y de contacto utilizados por la aplicación sin asumir responsabilidades de identidad o autenticación.
 
@@ -4865,7 +4977,7 @@ Representa la información descriptiva asociada a un usuario de Guardian+. Manti
 - Cada `UserProfile` se encuentra asociado a un `UserId` administrado por IAM.
 - La existencia del perfil no implica que Profile administre las credenciales del usuario.
 
-###### CareRecipientProfile
+**`CareRecipientProfile`**
 
 Representa el perfil de una persona bajo cuidado registrada en Guardian+. Mantiene la información descriptiva necesaria para identificarla dentro de las capacidades de cuidado y supervisión.
 
@@ -4890,7 +5002,7 @@ Representa el perfil de una persona bajo cuidado registrada en Guardian+. Mantie
 - Un `CareRecipientProfile` es registrado por un usuario identificado mediante `createdByUserId`.
 - Un `CareRecipientProfile` puede participar en múltiples `CareRelationship`.
 
-###### CareRelationship
+**`CareRelationship`**
 
 Representa la relación de cuidado existente entre un usuario de Guardian+ y una persona bajo cuidado. Permite identificar si el usuario participa como familiar, cuidador u otro tipo de responsable admitido por el dominio.
 
@@ -4916,7 +5028,7 @@ Representa la relación de cuidado existente entre un usuario de Guardian+ y una
 - Un usuario puede mantener relaciones de cuidado con diferentes personas bajo cuidado.
 - Un `CareRecipientProfile` puede mantener relaciones activas con distintos familiares o cuidadores.
 
-###### UserPreferences
+**`UserPreferences`**
 
 Representa las preferencias de experiencia y accesibilidad configuradas por un usuario dentro de Guardian+.
 
@@ -4941,9 +5053,9 @@ Representa las preferencias de experiencia y accesibilidad configuradas por un u
 
 - Cada conjunto de preferencias se encuentra asociado a un único `UserId`.
 
-##### Value Objects
+###### Value Objects
 
-###### UserProfileId
+**`UserProfileId`**
 
 Identificador inmutable utilizado para distinguir un perfil de usuario.
 
@@ -4951,7 +5063,7 @@ Identificador inmutable utilizado para distinguir un perfil de usuario.
 
 - `value: UUID`
 
-###### CareRecipientProfileId
+**`CareRecipientProfileId`**
 
 Identificador inmutable utilizado para distinguir el perfil de una persona bajo cuidado.
 
@@ -4959,7 +5071,7 @@ Identificador inmutable utilizado para distinguir el perfil de una persona bajo 
 
 - `value: UUID`
 
-###### CareRelationshipId
+**`CareRelationshipId`**
 
 Identificador inmutable utilizado para distinguir una relación de cuidado.
 
@@ -4967,7 +5079,7 @@ Identificador inmutable utilizado para distinguir una relación de cuidado.
 
 - `value: UUID`
 
-###### UserPreferencesId
+**`UserPreferencesId`**
 
 Identificador inmutable utilizado para distinguir el conjunto de preferencias de un usuario.
 
@@ -4975,7 +5087,7 @@ Identificador inmutable utilizado para distinguir el conjunto de preferencias de
 
 - `value: UUID`
 
-###### UserId
+**`UserId`**
 
 Referencia inmutable a un usuario administrado por el Bounded Context IAM.
 
@@ -4983,32 +5095,36 @@ Referencia inmutable a un usuario administrado por el Bounded Context IAM.
 
 - `value: UUID`
 
-##### Enumerations
+###### Enumerations
 
-###### RelationshipType
+**`RelationshipType`**
 
-Representa el tipo de relación existente entre un usuario y una persona bajo cuidado.
+Representa el tipo de relación existente entre un usuario y una persona bajo cuidado. Se persiste en la columna `relationship_type` de `care_relationships`.
 
-Los valores concretos deben corresponder con los tipos de relación admitidos por el dominio de Guardian+.
+- `FAMILY_MEMBER`
+- `CAREGIVER`
 
-###### CareRelationshipStatus
+**`CareRelationshipStatus`**
 
 Representa el estado actual de una relación de cuidado.
 
 - `ACTIVE`
 - `ENDED`
 
-###### Language
+**`Language`**
 
-Representa el idioma configurado como preferencia del usuario.
+Representa el idioma configurado como preferencia del usuario. Se persiste en la columna `language` de `user_preferences`.
 
-###### FontScale
+- `ES`
+- `EN`
 
-Representa la escala de fuente configurada como preferencia de accesibilidad.
+**`FontScale`**
 
-##### Domain Policies
+Representa la escala de fuente configurada como preferencia de accesibilidad. Encapsula el factor de escalado (`value: Decimal`) persistido en la columna `font_scale` (`DECIMAL(3,2)`). Invariante: valor entre $1.00$ y $2.00$.
 
-###### ProfileCompletenessPolicy
+###### Domain Policies
+
+**`ProfileCompletenessPolicy`**
 
 Evalúa si la información disponible en un perfil de usuario cumple con los datos requeridos por Guardian+ para considerarlo completo.
 
@@ -5017,7 +5133,7 @@ Evalúa si la información disponible en un perfil de usuario cumple con los dat
 - `isComplete(profile: UserProfile): Boolean`
 - `missingFields(profile: UserProfile): List<String>`
 
-###### CareRelationshipPolicy
+**`CareRelationshipPolicy`**
 
 Evalúa las condiciones necesarias para establecer una relación entre un usuario y una persona bajo cuidado.
 
@@ -5026,9 +5142,35 @@ Evalúa las condiciones necesarias para establecer una relación entre un usuari
 - `canEstablishRelationship(userId: UserId, careRecipientProfileId: CareRecipientProfileId): Boolean`
 - `validateRelationshipType(type: RelationshipType): void`
 
-##### Repository Interfaces
+###### Commands & Queries (Domain Model)
 
-###### UserProfileRepository
+- `CreateUserProfileCommand(UUID userId, String firstName, String lastName, String phoneNumber)`
+- `UpdateUserProfileCommand(UUID userProfileId, String firstName, String lastName)`
+- `UpdateContactInformationCommand(UUID userProfileId, String phoneNumber)`
+- `CreateCareRecipientProfileCommand(UUID createdByUserId, String firstName, String lastName, LocalDate birthDate)`
+- `EstablishCareRelationshipCommand(UUID userId, UUID careRecipientProfileId, String relationshipType)`
+- `EndCareRelationshipCommand(UUID careRelationshipId)`
+- `UpdateApplicationPreferencesCommand(UUID userId, Boolean notificationsEnabled)`
+- `UpdateLanguageAndAccessibilityPreferencesCommand(UUID userId, String language, Boolean highContrastEnabled, Boolean voiceAssistanceEnabled, Decimal fontScale)`
+- `GetUserProfileQuery(UserId userId)`
+- `GetCareRecipientProfileQuery(CareRecipientProfileId careRecipientProfileId)`
+- `GetCareRelationshipsQuery(UserId userId, CareRecipientProfileId careRecipientProfileId)`
+- `GetUserPreferencesQuery(UserId userId)`
+
+###### Domain Events
+
+- `UserProfileCreated`: Emitido al registrarse el perfil descriptivo asociado a una cuenta administrada por IAM.
+- `UserProfileUpdated`: Emitido al modificarse la información personal de un perfil existente.
+- `ContactInformationUpdated`: Emitido al actualizarse la información de contacto del usuario.
+- `CareRecipientProfileCreated`: Emitido al registrarse una nueva persona bajo cuidado.
+- `CareRelationshipEstablished`: Emitido al establecerse una relación de cuidado; se publica hacia los contextos interesados mediante Event-Carried State Transfer.
+- `CareRelationshipEnded`: Emitido al finalizar una relación de cuidado; permite a los contextos descendentes retirar los accesos y las notificaciones asociadas.
+- `ApplicationPreferencesUpdated`: Emitido al modificarse las preferencias generales del usuario.
+- `LanguageAndAccessibilityPreferencesUpdated`: Emitido al modificarse el idioma o las preferencias de accesibilidad.
+
+###### Repository Interfaces
+
+**`UserProfileRepository`**
 
 Abstracción utilizada para recuperar y persistir perfiles de usuario.
 
@@ -5038,7 +5180,7 @@ Abstracción utilizada para recuperar y persistir perfiles de usuario.
 - `findByUserId(userId: UserId): Optional<UserProfile>`
 - `save(profile: UserProfile): UserProfile`
 
-###### CareRecipientProfileRepository
+**`CareRecipientProfileRepository`**
 
 Abstracción utilizada para recuperar y persistir perfiles de personas bajo cuidado.
 
@@ -5048,7 +5190,7 @@ Abstracción utilizada para recuperar y persistir perfiles de personas bajo cuid
 - `findByCreatedByUserId(userId: UserId): List<CareRecipientProfile>`
 - `save(profile: CareRecipientProfile): CareRecipientProfile`
 
-###### CareRelationshipRepository
+**`CareRelationshipRepository`**
 
 Abstracción utilizada para recuperar y persistir las relaciones de cuidado.
 
@@ -5059,7 +5201,7 @@ Abstracción utilizada para recuperar y persistir las relaciones de cuidado.
 - `findActiveByCareRecipientId(careRecipientProfileId: CareRecipientProfileId): List<CareRelationship>`
 - `save(relationship: CareRelationship): CareRelationship`
 
-###### UserPreferencesRepository
+**`UserPreferencesRepository`**
 
 Abstracción utilizada para recuperar y persistir las preferencias de los usuarios.
 
@@ -5071,13 +5213,13 @@ Abstracción utilizada para recuperar y persistir las preferencias de los usuari
 
 El modelo de dominio mantiene una correspondencia clara con la información persistente del contexto sin replicar directamente la estructura relacional. Los identificadores se representan mediante Value Objects, mientras que `UserId` actúa únicamente como referencia hacia IAM. Profile no almacena contraseñas, tokens ni otras credenciales de autenticación.
 
-#### 2.6.4.2. Interface Layer
+##### 2.6.4.2. Interface Layer
 
 La Interface Layer expone las capacidades del Bounded Context **Profile** hacia los clientes de Guardian+ y transforma las solicitudes recibidas en comandos o consultas procesados por la Application Layer. Esta capa no contiene reglas de negocio ni accede directamente a la persistencia.
 
-##### Backend API
+###### Backend API
 
-###### UserProfileController
+**`UserProfileController`**
 
 Expone las operaciones relacionadas con el perfil descriptivo del usuario.
 
@@ -5095,7 +5237,7 @@ Expone las operaciones relacionadas con el perfil descriptivo del usuario.
 - utiliza el `UserId` del usuario autenticado como referencia hacia IAM;
 - no administra credenciales ni autenticación.
 
-###### CareRecipientProfileController
+**`CareRecipientProfileController`**
 
 Expone las operaciones relacionadas con las personas bajo cuidado registradas en Guardian+.
 
@@ -5110,7 +5252,7 @@ Expone las operaciones relacionadas con las personas bajo cuidado registradas en
 - utiliza `CareRecipientProfileId` para identificar a la persona bajo cuidado;
 - no accede directamente a `care_recipient_profiles`.
 
-###### CareRelationshipController
+**`CareRelationshipController`**
 
 Expone las operaciones utilizadas para administrar las relaciones de cuidado entre usuarios y personas bajo cuidado.
 
@@ -5126,7 +5268,7 @@ Expone las operaciones utilizadas para administrar las relaciones de cuidado ent
 - delega los comandos y consultas a la Application Layer;
 - no modifica directamente `care_relationships`.
 
-###### UserPreferencesController
+**`UserPreferencesController`**
 
 Expone las operaciones utilizadas para consultar y actualizar las preferencias del usuario.
 
@@ -5141,11 +5283,11 @@ Expone las operaciones utilizadas para consultar y actualizar las preferencias d
 - delega las operaciones a la Application Layer;
 - no modifica directamente `user_preferences`.
 
-#### 2.6.4.3. Application Layer
+##### 2.6.4.3. Application Layer
 
 La Application Layer coordina los casos de uso del Bounded Context **Profile** utilizando los Aggregate Roots, Domain Policies y Repository Interfaces definidos en la Domain Layer. Esta capa organiza el flujo de las operaciones, mientras que las reglas de negocio permanecen dentro del modelo de dominio.
 
-##### Command Handlers
+###### Command Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -5158,7 +5300,7 @@ La Application Layer coordina los casos de uso del Bounded Context **Profile** u
 | `UpdateApplicationPreferencesHandler` | Actualiza las preferencias generales configuradas por el usuario. | `handle(UpdateApplicationPreferencesCommand)` |
 | `UpdateLanguageAndAccessibilityPreferencesHandler` | Actualiza el idioma y las preferencias de accesibilidad del usuario. | `handle(UpdateLanguageAndAccessibilityPreferencesCommand)` |
 
-##### Query Handlers
+###### Query Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -5167,7 +5309,7 @@ La Application Layer coordina los casos de uso del Bounded Context **Profile** u
 | `GetCareRelationshipsHandler` | Recupera las relaciones de cuidado asociadas a un usuario o a una persona bajo cuidado. | `handle(GetCareRelationshipsQuery)` |
 | `GetUserPreferencesHandler` | Recupera las preferencias configuradas por un usuario. | `handle(GetUserPreferencesQuery)` |
 
-##### Event Handlers
+###### Event Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -5180,13 +5322,21 @@ La Application Layer coordina los casos de uso del Bounded Context **Profile** u
 | `ApplicationPreferencesUpdatedHandler` | Reacciona a la actualización de las preferencias generales del usuario. | `handle(ApplicationPreferencesUpdated)` |
 | `LanguageAndAccessibilityPreferencesUpdatedHandler` | Reacciona a cambios de idioma y accesibilidad. | `handle(LanguageAndAccessibilityPreferencesUpdated)` |
 
-#### 2.6.4.4. Infrastructure Layer
+##### 2.6.4.4. Infrastructure Layer
 
 La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir la información del Bounded Context **Profile** y comunicarse con dependencias externas. Esta capa implementa las abstracciones definidas por las capas internas, manteniendo el modelo de dominio independiente de bases de datos, mecanismos de mensajería y del Bounded Context IAM.
 
-##### Repository Implementations
+###### Persistence JPA Entities
 
-###### UserProfileRepositoryImpl
+*   `UserProfilePersistenceEntity`: Mapea la tabla `user_profiles`. Columnas: `id`, `user_id`, `first_name`, `last_name`, `phone_number`, `profile_image_url`, `created_at`, `updated_at`.
+*   `CareRecipientProfilePersistenceEntity`: Mapea la tabla `care_recipient_profiles`. Columnas: `id`, `created_by_user_id`, `first_name`, `last_name`, `birth_date`, `profile_image_url`, `created_at`, `updated_at`.
+*   `CareRelationshipPersistenceEntity`: Mapea la tabla `care_relationships`. Columnas: `id`, `user_id`, `care_recipient_profile_id`, `relationship_type`, `status`, `started_at`, `ended_at`.
+*   `UserPreferencesPersistenceEntity`: Mapea la tabla `user_preferences`. Columnas: `id`, `user_id` (única), `language`, `notifications_enabled`, `high_contrast_enabled`, `voice_assistance_enabled`, `font_scale`, `updated_at`.
+*   *Converters:* `RelationshipTypeConverter`, `CareRelationshipStatusConverter`, `LanguageConverter` y `FontScaleConverter` traducen los enums y Value Objects de dominio hacia columnas `VARCHAR(30)` y `DECIMAL(3,2)` respectivamente.
+
+###### Repository Implementations
+
+**`UserProfileRepositoryImpl`**
 
 Implementa `UserProfileRepository` y gestiona la persistencia del Aggregate Root `UserProfile`.
 
@@ -5201,7 +5351,7 @@ Implementa `UserProfileRepository` y gestiona la persistencia del Aggregate Root
 - implementa `UserProfileRepository`;
 - utiliza la tabla `user_profiles`.
 
-###### CareRecipientProfileRepositoryImpl
+**`CareRecipientProfileRepositoryImpl`**
 
 Implementa `CareRecipientProfileRepository` y gestiona la persistencia de los perfiles de personas bajo cuidado.
 
@@ -5216,7 +5366,7 @@ Implementa `CareRecipientProfileRepository` y gestiona la persistencia de los pe
 - implementa `CareRecipientProfileRepository`;
 - utiliza la tabla `care_recipient_profiles`.
 
-###### CareRelationshipRepositoryImpl
+**`CareRelationshipRepositoryImpl`**
 
 Implementa `CareRelationshipRepository` y gestiona la persistencia de las relaciones existentes entre usuarios y personas bajo cuidado.
 
@@ -5231,7 +5381,7 @@ Implementa `CareRelationshipRepository` y gestiona la persistencia de las relaci
 - implementa `CareRelationshipRepository`;
 - utiliza la tabla `care_relationships`.
 
-###### UserPreferencesRepositoryImpl
+**`UserPreferencesRepositoryImpl`**
 
 Implementa `UserPreferencesRepository` y gestiona las preferencias de aplicación y accesibilidad configuradas por cada usuario.
 
@@ -5245,9 +5395,9 @@ Implementa `UserPreferencesRepository` y gestiona las preferencias de aplicació
 - implementa `UserPreferencesRepository`;
 - utiliza la tabla `user_preferences`.
 
-##### External Context Adapters
+###### External Context Adapters
 
-###### IAMQueryAdapter
+**`IAMQueryAdapter`**
 
 Proporciona acceso de solo lectura a la información mínima necesaria para validar referencias a usuarios administrados por el Bounded Context **IAM**.
 
@@ -5261,9 +5411,9 @@ Proporciona acceso de solo lectura a la información mínima necesaria para vali
 - consulta IAM sin incorporar su modelo interno dentro de Profile;
 - Profile mantiene únicamente `UserId` como referencia y no almacena contraseñas, tokens ni credenciales de autenticación.
 
-##### Event Publishing
+###### Event Publishing
 
-###### ProfileEventPublisher
+**`ProfileEventPublisher`**
 
 Publica eventos del Bounded Context **Profile** que deben ser conocidos por otros contextos de Guardian+.
 
@@ -5286,7 +5436,7 @@ El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounde
 
 La **Interface Layer** está representada por `Profile REST Controllers`, encargado de exponer las operaciones disponibles hacia los clientes de Guardian+. Las solicitudes son delegadas a `Profile Application Service`, componente responsable de coordinar los diferentes casos de uso del contexto.
 
-La lógica del dominio se concentra en el aggregate `Profile` y en `Profile Completeness Policy`, que valida si la información disponible cumple con los requisitos necesarios para considerar un perfil completo.
+La lógica del dominio se concentra en los cuatro Aggregate Roots del contexto —`UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`— y en las políticas `ProfileCompletenessPolicy`, que valida si la información disponible cumple con los requisitos necesarios para considerar un perfil completo, y `CareRelationshipPolicy`, que evalúa si una relación de cuidado puede establecerse.
 
 La **Infrastructure Layer** está compuesta por `Profile Repository Adapter`, `IAM Query Adapter` y `Event Publisher`. El repositorio administra la persistencia del contexto mediante `Profile Database`, mientras que `IAM Query Adapter` proporciona acceso de solo lectura a la información de identidad administrada por el Bounded Context IAM. De esta forma, Profile puede asociar la información descriptiva con un usuario autenticado sin asumir responsabilidades relacionadas con credenciales o autenticación.
 
@@ -5296,15 +5446,15 @@ En esta sección se documenta la estructura interna del Bounded Context **Profil
 
 ###### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente diagrama UML presenta los elementos principales de la Domain Layer de **Profile**. El modelo se organiza alrededor del Aggregate Root `Profile`, encargado de mantener la información descriptiva correspondiente al usuario y de controlar los elementos asociados a su perfil.
+El siguiente diagrama UML presenta los elementos principales de la Domain Layer de **Profile**. El modelo se organiza alrededor de cuatro Aggregate Roots independientes, cada uno correspondiente a una de las tablas que el contexto gobierna en el diseño de base de datos.
 
 ![Profile Domain Layer Class Diagram](../assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
 
-El Aggregate Root `Profile` contiene entidades como `Address`, `EmergencyContact` y `CareProfile`. Estas entidades representan respectivamente la información de ubicación del usuario, sus contactos asociados y la información necesaria para establecer su perfil dentro de una relación de cuidado.
+`UserProfile` mantiene la información descriptiva de un usuario de Guardian+ y `CareRecipientProfile` la de una persona bajo cuidado. `CareRelationship` vincula a ambos indicando el tipo de relación y su vigencia, mientras que `UserPreferences` concentra las preferencias de idioma y accesibilidad de cada usuario. Los contactos de emergencia no pertenecen a este contexto: son gobernados por `Emergency & Alerting`, que los mantiene sincronizados a partir de los eventos de relación de cuidado.
 
-El dominio utiliza los Value Objects `ProfileId`, `PersonName`, `Email`, `Phone`, `DocumentId` y `BirthDate` para representar conceptos que poseen validaciones y comportamiento propios.
+El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, `CareRelationshipId`, `UserPreferencesId`, `FontScale` y `UserId` —este último como referencia a la identidad administrada por IAM— para representar conceptos que poseen validaciones y comportamiento propios.
 
-Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determinar si un perfil contiene la información necesaria para ser considerado completo, manteniendo esta regla dentro de la Domain Layer y evitando trasladarla hacia las capas de aplicación o infraestructura.
+Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determinar si un perfil contiene la información necesaria para ser considerado completo, y `CareRelationshipPolicy` las condiciones para establecer una relación de cuidado, manteniendo ambas reglas dentro de la Domain Layer y evitando trasladarlas hacia las capas de aplicación o infraestructura.
 
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
@@ -5315,9 +5465,8 @@ El siguiente diagrama representa el diseño de persistencia correspondiente al B
 `user_profiles` almacena la información descriptiva asociada a las cuentas administradas por IAM, mientras que `care_recipient_profiles` representa las personas bajo cuidado registradas en Guardian+.
 
 La relación entre usuarios y personas bajo cuidado se representa mediante `care_relationships`, permitiendo establecer asociaciones entre familiares o cuidadores y los perfiles correspondientes. Finalmente, `user_preferences` mantiene las configuraciones de idioma, accesibilidad y experiencia de uso asociadas a cada usuario.
-pendiente
 
-### 2.6.5. Bounded Context: Care Routines & Wellness
+#### 2.6.5. Bounded Context: Care Routines & Wellness
 
 El Bounded Context Care Routines & Wellness pertenece al Supporting Domain de Guardian+ y es responsable de asegurar que las rutinas de bienestar del adulto mayor, persona con discapacidad o en situación de dependencia se cumplan: recordatorios de medicación, citas médicas, actividad física e hidratación; registro y clasificación de ciclos de sueño; detección de inactividad física prolongada; y control del stock de medicamentos con sugerencia de reabastecimiento.
 
@@ -5559,21 +5708,27 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 *   `ReminderDueCheckScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 30000)` que consulta `ReminderRepository.findDueForIssuance(Instant.now())` e invoca `IssueReminderCommand` por cada resultado.
 *   `ReminderReissueScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 60000)` que consulta `ReminderRepository.findOverdueForReissue(Instant.now())` e invoca `ReissueReminderCommand` por cada resultado.
 
-##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+##### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-![components-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
+![Care Routines & Wellness Component Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
+
+##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-![class-diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
+![Care Routines & Wellness Domain Class Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
 ###### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-![db-diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
+El siguiente diagrama presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
+
+Las columnas `person_under_care_id` y `wearable_device_id` referencian, respectivamente, los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring, de modo que la telemetría registrada mantiene su trazabilidad hacia el dispositivo que la originó sin que este contexto administre ninguna de las dos entidades.
+
+![Care Routines & Wellness Database Design Diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
 #### 2.6.6. Bounded Context: Mobility & Geofencing
 
-El Bounded Context Mobility & Geofencing pertenece al Supportig Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
+El Bounded Context Mobility & Geofencing pertenece al Supporting Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
 
 El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
 
@@ -6119,17 +6274,27 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 ##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-![alt text](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
+![Mobility & Geofencing Component Diagram](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
 ##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
+El siguiente diagrama UML presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
+
+![Mobility & Geofencing Domain Class Diagram](../assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
+
 ###### 2.6.6.6.2. Bounded Context Database Design Diagram
+
+El siguiente diagrama presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
+
+Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring. La resolución de una violación no se persiste en este contexto: su responsabilidad termina en la detección y el registro, mientras que la atención y el cierre pertenecen a Emergency & Alerting.
+
+![Mobility & Geofencing Database Design Diagram](../assets/images/chapterII/databaseDiagrams/mobility-and-geofencing-db-diagram.png)
 
 #### 2.6.7. Bounded Context: IAM
 
-El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña.
+El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales mediante correo electrónico, autenticación reforzada con un segundo factor opcional (OTP) y recuperación segura de contraseña.
 
 A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS) publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados, validado localmente por cada contexto descendente sin consultas síncronas a la base de datos de identidad.
 
@@ -6178,96 +6343,117 @@ com.guardianplus.platform.iam/
 
 ##### 2.6.7.1. Domain Layer
 
-Encapsula las reglas de identidad y acceso: la unicidad de credenciales, la obligatoriedad de verificación de correo, la vigencia del segundo factor (OTP) y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: el segundo factor de autenticación (`OneTimePassword`) se separa de `UserAccount` en un agregado propio, ya que posee un ciclo de vida corto e independiente (generación, verificación, expiración) que no debe acoplarse a las invariantes permanentes de la cuenta.
+Encapsula las reglas de identidad y acceso: la unicidad del correo electrónico, la obligatoriedad de verificación de la cuenta, la vigencia y el consumo de un solo uso de los códigos de segundo factor y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: los secretos de vida corta se separan de `UserAccount` en agregados propios (`OneTimePassword` y `PasswordResetToken`), ya que poseen un ciclo de vida independiente —emisión, vigencia, consumo— que no debe acoplarse a las invariantes permanentes de la cuenta. Esta separación es la que el diseño de base de datos refleja mediante las tablas `otp_codes` y `password_reset_tokens`.
+
+Ninguno de los secretos se conserva en claro: el dominio almacena únicamente su hash (`code_hash` y `token_hash`), de modo que una filtración de la base de datos no permite reconstruir el código enviado al usuario.
 
 ###### Aggregates
 
 *   **UserAccount**
     *   Agregado raíz que representa la identidad digital de un cuidador o familiar registrado en Guardian+.
     *   Hereda de `AbstractDomainAggregateRoot<UserAccount>` para registrar y publicar eventos de dominio.
-    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_EMAIL_VERIFICATION → ACTIVE`), rechazando la autenticación mientras el correo no haya sido verificado.
+    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_EMAIL_VERIFICATION → ACTIVE`), rechazando la autenticación mientras el correo no haya sido verificado. El indicador `emailVerified` registra el hecho de la verificación y `status` gobierna la habilitación para autenticarse; la cuenta transiciona a `ACTIVE` únicamente cuando el correo queda verificado.
+    *   El correo electrónico es la única credencial de identificación: la autenticación no admite nombre de usuario.
     *   *Atributos:*
         *   `id: UserAccountId`
         *   `email: Email`
-        *   `username: Username`
         *   `passwordHash: HashedPassword`
+        *   `emailVerified: Boolean`
+        *   `twoFactorEnabled: Boolean`
         *   `status: UserAccountStatus`
-        *   `emailVerificationToken: EmailVerificationToken`
-        *   `passwordResetToken: PasswordResetToken`
         *   `createdAt: Instant`
-        *   `verifiedAt: Instant`
         *   `updatedAt: Instant`
     *   *Métodos:*
-        *   `UserAccount(RegisterUserCredentialsCommand command, HashedPassword passwordHash, EmailVerificationToken token)`
-        *   `verifyEmail(String token): void`
+        *   `UserAccount(RegisterUserCredentialsCommand command, HashedPassword passwordHash)`
+        *   `confirmEmailVerification(): void`
         *   `validateCredentials(String rawPassword, PasswordHasher hasher): boolean`
-        *   `issuePasswordResetToken(TokenGenerator generator): PasswordResetToken`
-        *   `resetPassword(String token, HashedPassword newPasswordHash): void`
+        *   `changePassword(HashedPassword newPasswordHash): void`
+        *   `enableTwoFactor(): void`
+        *   `disableTwoFactor(): void`
+        *   `requiresSecondFactor(): boolean`
+        *   `canAuthenticate(): boolean`
         *   `isEmailVerified(): boolean`
 
 *   **OneTimePassword**
-    *   Agregado raíz que representa el segundo factor de autenticación (OTP) emitido durante un intento de login.
-    *   Ciclo de vida: `PENDING → VERIFIED | EXPIRED`.
+    *   Agregado raíz que representa un código de un solo uso emitido hacia el correo del usuario, ya sea como segundo factor de un intento de login o como confirmación de la verificación de la cuenta. El propósito de la emisión se declara en `purpose`.
+    *   Su estado no se persiste como columna: se deriva de `usedAt` y `expiresAt`, de modo que un código es utilizable únicamente mientras no haya sido consumido ni haya vencido.
     *   *Atributos:*
         *   `id: OtpId`
         *   `userAccountId: UserAccountId`
-        *   `code: OtpCode`
-        *   `status: OtpStatus`
-        *   `generatedAt: Instant`
+        *   `codeHash: HashedSecret`
+        *   `purpose: OtpPurpose`
         *   `expiresAt: Instant`
-        *   `verifiedAt: Instant`
+        *   `usedAt: Instant`
+        *   `createdAt: Instant`
     *   *Métodos:*
-        *   `OneTimePassword(GenerateOtpCommand command, OtpCode code)`
-        *   `verify(String candidateCode): boolean`
-        *   `expire(): void`
+        *   `OneTimePassword(GenerateOtpCommand command, HashedSecret codeHash, Instant expiresAt)`
+        *   `verify(String candidateCode, SecretHasher hasher, Instant now): boolean`
+        *   `markAsUsed(Instant now): void`
+        *   `isUsable(Instant now): boolean`
+        *   `isExpired(Instant now): boolean`
+        *   `isUsed(): boolean`
+
+*   **PasswordResetToken**
+    *   Agregado raíz que representa un token opaco de un solo uso emitido para restablecer la contraseña de una cuenta. Se modela como agregado propio porque una cuenta puede acumular varios tokens a lo largo del tiempo, cada uno con su vigencia y su consumo independiente.
+    *   *Atributos:*
+        *   `id: PasswordResetTokenId`
+        *   `userAccountId: UserAccountId`
+        *   `tokenHash: HashedSecret`
+        *   `expiresAt: Instant`
+        *   `usedAt: Instant`
+        *   `createdAt: Instant`
+    *   *Métodos:*
+        *   `PasswordResetToken(RequestPasswordResetCommand command, UserAccountId userAccountId, HashedSecret tokenHash, Instant expiresAt)`
+        *   `matches(String rawToken, SecretHasher hasher): boolean`
+        *   `markAsUsed(Instant now): void`
+        *   `isUsable(Instant now): boolean`
         *   `isExpired(Instant now): boolean`
 
-Este contexto no requiere entidades internas adicionales: ambos agregados son de único nivel, sin objetos hijos con identidad propia.
+Este contexto no requiere entidades internas: los tres agregados son de único nivel, sin objetos hijos con identidad propia.
 
 ###### Value Objects
 
 *   **Email:** Encapsula el correo electrónico (`value: String`). Invariante: formato RFC 5322 válido. Método: `matches(String other)`.
-*   **Username:** Encapsula el nombre de usuario (`value: String`). Invariante: 3-30 caracteres alfanuméricos.
 *   **HashedPassword:** Encapsula el hash irreversible de la contraseña (`hash: String`). Nunca expone ni acepta la contraseña en texto plano fuera del `PasswordHasher`.
-*   **OtpCode:** Encapsula el código numérico de un solo uso (`value: String`, 6 dígitos). Método: `matches(String candidate)`.
-*   **EmailVerificationToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
-*   **PasswordResetToken:** Token opaco de un solo uso (`value: String`, `expiresAt: Instant`). Método: `isExpired(Instant now)`.
+*   **HashedSecret:** Encapsula el hash irreversible de un secreto de vida corta (`hash: String`), utilizado tanto para los códigos OTP (`code_hash`) como para los tokens de recuperación (`token_hash`).
 *   **UserAccountStatus:** Enum (`PENDING_EMAIL_VERIFICATION`, `ACTIVE`). Método: `canAuthenticate()`.
-*   **OtpStatus:** Enum (`PENDING`, `VERIFIED`, `EXPIRED`).
-*   **UserAccountId / OtpId:** Identificadores inmutables tipo UUID.
+*   **OtpPurpose:** Enum (`LOGIN`, `EMAIL_VERIFICATION`) que declara para qué fue emitido un código de un solo uso.
+*   **UserAccountId / OtpId / PasswordResetTokenId:** Identificadores inmutables tipo UUID.
 
 ###### Domain Services (Puertos)
 
 *   **PasswordHasher:** `hash(String rawPassword): HashedPassword`; `matches(String rawPassword, HashedPassword hash): boolean`. Implementado en infraestructura mediante BCrypt.
-*   **OtpCodeGenerator:** `generate(): OtpCode`. Genera un código numérico aleatorio criptográficamente seguro.
-*   **TokenGenerator:** `generateOpaqueToken(): String`. Genera los tokens de verificación de correo y de recuperación de contraseña.
+*   **SecretGenerator:** `generateNumericCode(int digits): String`; `generateOpaqueToken(): String`. Genera los códigos OTP y los tokens de recuperación mediante un generador criptográficamente seguro.
+*   **SecretHasher:** `hash(String rawSecret): HashedSecret`; `matches(String rawSecret, HashedSecret hash): boolean`. Permite verificar un código o token sin conservarlo en claro.
 
 ###### Commands & Queries (Domain Model)
 
-*   `RegisterUserCredentialsCommand(String email, String username, String rawPassword)`
-*   `SendEmailVerificationRequestCommand(UUID userAccountId)`
-*   `VerifyEmailCommand(UUID userAccountId, String token)`
-*   `LoginCommand(String emailOrUsername, String rawPassword)`
-*   `GenerateOtpCommand(UUID userAccountId)`
-*   `VerifyOtpCommand(UUID otpId, String code)`
-*   `AuthenticateUserCommand(UUID userAccountId, UUID otpId)`
+*   `RegisterUserCredentialsCommand(String email, String rawPassword)`
+*   `GenerateOtpCommand(UUID userAccountId, String purpose)`
+*   `VerifyEmailCommand(UUID userAccountId, String code)`
+*   `LoginCommand(String email, String rawPassword)`
+*   `VerifyOtpCommand(UUID userAccountId, String code)`
+*   `AuthenticateUserCommand(UUID userAccountId)`
+*   `EnableTwoFactorCommand(UUID userAccountId)`
+*   `DisableTwoFactorCommand(UUID userAccountId)`
 *   `RequestPasswordResetCommand(String email)`
 *   `ResetPasswordCommand(String token, String newRawPassword)`
 *   `GetUserAccountByIdQuery(UserAccountId userAccountId)`
 *   `GetUserAccountByEmailQuery(Email email)`
-*   `GetUserAccountAvailabilityQuery(String email, String username)`
+*   `GetEmailAvailabilityQuery(String email)`
+*   `GetUsableOtpByUserAccountIdAndPurposeQuery(UserAccountId userAccountId, OtpPurpose purpose)`
 
 ###### Domain Events
 
-*   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, portando el `EmailVerificationToken` generado.
-*   `EmailVerificationRequestedEvent`: Emitido para disparar el envío del correo de verificación.
-*   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo dentro de la vigencia del token; transiciona la cuenta a `ACTIVE`.
-*   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo/usuario y la contraseña.
-*   `OtpGeneratedEvent`: Emitido tras generar el segundo factor, portando el destino de envío y su vencimiento.
-*   `OtpVerifiedEvent`: Emitido cuando el código ingresado coincide dentro de la ventana de vigencia.
+*   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, con la cuenta en estado `PENDING_EMAIL_VERIFICATION`.
+*   `OtpGeneratedEvent`: Emitido tras emitir un código de un solo uso, portando su propósito y su vencimiento; el código en claro viaja únicamente hacia el adaptador de notificaciones y nunca se persiste.
+*   `OtpVerifiedEvent`: Emitido cuando el código ingresado coincide con el hash almacenado dentro de la ventana de vigencia.
+*   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo con un código de propósito `EMAIL_VERIFICATION`; transiciona la cuenta a `ACTIVE`.
+*   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo y la contraseña.
 *   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
-*   `PasswordResetRequestedEvent`: Emitido al solicitar la recuperación de contraseña, portando el `PasswordResetToken` generado.
-*   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente.
+*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta.
+*   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
+*   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
 ###### Repositories (Domain Interfaces)
 
@@ -6275,12 +6461,17 @@ Este contexto no requiere entidades internas adicionales: ambos agregados son de
     *   `save(UserAccount account): UserAccount`
     *   `findById(UserAccountId id): Optional<UserAccount>`
     *   `findByEmail(Email email): Optional<UserAccount>`
-    *   `findByUsername(Username username): Optional<UserAccount>`
-    *   `existsByEmailOrUsername(Email email, Username username): boolean`
+    *   `existsByEmail(Email email): boolean`
 *   **OneTimePasswordRepository:**
     *   `save(OneTimePassword otp): OneTimePassword`
     *   `findById(OtpId id): Optional<OneTimePassword>`
-    *   `findLatestPendingByUserAccountId(UserAccountId userAccountId): Optional<OneTimePassword>`
+    *   `findLatestUsableByUserAccountIdAndPurpose(UserAccountId userAccountId, OtpPurpose purpose, Instant now): Optional<OneTimePassword>`
+    *   `deleteExpiredUnusedBefore(Instant threshold): int`
+*   **PasswordResetTokenRepository:**
+    *   `save(PasswordResetToken token): PasswordResetToken`
+    *   `findById(PasswordResetTokenId id): Optional<PasswordResetToken>`
+    *   `findUsableByTokenHash(HashedSecret tokenHash, Instant now): Optional<PasswordResetToken>`
+    *   `deleteExpiredUnusedBefore(Instant threshold): int`
 
 ---
 
@@ -6292,19 +6483,23 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
 
 *   **AuthController** (`/api/v1/auth`):
     *   `POST /register`: Registra nuevas credenciales de usuario.
-    *   `POST /verify-email`: Confirma el correo electrónico mediante el token enviado.
-    *   `POST /login`: Valida correo/usuario y contraseña, y dispara el desafío OTP.
-    *   `POST /otp/verify`: Verifica el código OTP y, de ser correcto, emite el JWT de sesión.
-    *   `POST /password-reset/request`: Genera y envía el token de recuperación de contraseña.
-    *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir del token vigente.
+    *   `POST /verify-email`: Confirma el correo electrónico mediante el código de propósito `EMAIL_VERIFICATION` enviado.
+    *   `POST /verify-email/resend`: Reemite el código de verificación de correo.
+    *   `POST /login`: Valida correo y contraseña y, si la cuenta tiene el segundo factor habilitado, dispara el desafío OTP.
+    *   `POST /otp/verify`: Verifica el código OTP de propósito `LOGIN` y, de ser correcto, emite el JWT de sesión.
+    *   `POST /password-reset/request`: Emite y envía el token de recuperación de contraseña.
+    *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir de un token vigente y no consumido.
 *   **UserAccountsController** (`/api/v1/user-accounts`):
     *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
-    *   `GET /availability`: Consulta la disponibilidad de un correo o nombre de usuario (`Email/Username Available?`).
+    *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
+    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
 
 ###### Resources & Assemblers
 
-*   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
-*   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
+*   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `TwoFactorSettingResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
+*   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `TwoFactorCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
+
+Los recursos de salida nunca exponen el hash de la contraseña ni el de un código o token: `UserAccountResource` publica únicamente el identificador, el correo, el estado, la verificación del correo y la habilitación del segundo factor.
 
 ###### Integration Events & ACL Facade
 
@@ -6323,27 +6518,31 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 ###### Command Services
 
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
-    *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad de correo/usuario, aplica `PasswordHasher` y `TokenGenerator`, y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`.
-    *   `handle(VerifyEmailCommand command): void`: Verifica el token vigente y transiciona la cuenta a `ACTIVE`.
-    *   `handle(RequestPasswordResetCommand command): void`: Genera y asocia un `PasswordResetToken` a la cuenta encontrada por correo.
-    *   `handle(ResetPasswordCommand command): void`: Valida el token vigente y reemplaza el `HashedPassword`.
+    *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
+    *   `handle(VerifyEmailCommand command): void`: Recupera el código utilizable de propósito `EMAIL_VERIFICATION`, lo verifica contra su hash, lo marca como usado y transiciona la cuenta a `ACTIVE`.
+    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta.
+    *   `handle(ResetPasswordCommand command): void`: Recupera el token utilizable por su hash, lo marca como usado y reemplaza el `HashedPassword` de la cuenta asociada.
+*   **PasswordResetCommandService & PasswordResetCommandServiceImpl:**
+    *   `handle(RequestPasswordResetCommand command): Optional<PasswordResetToken>`: Emite un token opaco mediante `SecretGenerator`, persiste únicamente su hash y publica `PasswordResetTokenIssuedEvent`. Si el correo no corresponde a ninguna cuenta, la operación no revela esa condición al solicitante.
 *   **AuthenticationCommandService & AuthenticationCommandServiceImpl:**
-    *   `handle(LoginCommand command): void`: Valida credenciales mediante `PasswordHasher.matches()` y publica `CredentialsValidatedEvent`.
-    *   `handle(GenerateOtpCommand command): Optional<OneTimePassword>`: Construye y persiste el agregado `OneTimePassword` mediante `OtpCodeGenerator`.
-    *   `handle(VerifyOtpCommand command): void`: Verifica el código ingresado dentro de la vigencia.
-    *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la verificación exitosa del OTP.
+    *   `handle(LoginCommand command): void`: Valida credenciales mediante `PasswordHasher.matches()`, verifica que la cuenta pueda autenticarse y publica `CredentialsValidatedEvent`.
+    *   `handle(GenerateOtpCommand command): Optional<OneTimePassword>`: Construye y persiste el agregado `OneTimePassword` con el hash del código generado por `SecretGenerator`, según el propósito recibido.
+    *   `handle(VerifyOtpCommand command): void`: Recupera el código utilizable del propósito `LOGIN` y lo verifica dentro de su vigencia, marcándolo como usado.
+    *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la validación exitosa del flujo de autenticación.
 
 ###### Query Services
 
-*   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetUserAccountAvailabilityQuery`.
+*   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetEmailAvailabilityQuery`.
+*   **OneTimePasswordQueryService & OneTimePasswordQueryServiceImpl:** Resuelve `GetUsableOtpByUserAccountIdAndPurposeQuery`.
 
 ###### Event Handlers
 
-*   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `SendEmailVerificationRequestCommand` tras el registro.
-*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` tras validar correo/usuario y contraseña.
-*   `OtpGeneratedEventHandler`: Despacha el envío del código OTP por correo mediante el adaptador de notificaciones.
-*   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand`, cerrando el flujo de login.
-*   `PasswordResetRequestedEventHandler`: Despacha el envío del correo con el enlace/token de recuperación.
+*   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
+*   `OtpGeneratedEventHandler`: Despacha el envío del código por correo mediante el adaptador de notificaciones, según el propósito de la emisión.
+*   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand` cuando el propósito es `LOGIN`, cerrando el flujo de autenticación.
+*   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.
+*   `PasswordResetTokenIssuedEventHandler`: Despacha el envío del correo con el enlace de recuperación, que porta el token en claro una única vez.
 
 ###### Application ACL Implementation
 
@@ -6357,24 +6556,27 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ###### Persistence JPA Entities
 
-*   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email`, `username`, `password_hash`, `status`, `email_verification_token`, `email_verification_expires_at`, `password_reset_token`, `password_reset_expires_at`, `created_at`, `verified_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
-*   `OneTimePasswordPersistenceEntity`: Mapea la tabla `one_time_passwords`. Columnas: `id`, `user_account_id`, `code_hash`, `status`, `generated_at`, `expires_at`, `verified_at`.
+*   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email` (única), `password_hash`, `email_verified`, `two_factor_enabled`, `status`, `created_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
+*   `OneTimePasswordPersistenceEntity`: Mapea la tabla `otp_codes`. Columnas: `id`, `user_id`, `code_hash`, `purpose`, `expires_at`, `used_at`, `created_at`.
+*   `PasswordResetTokenPersistenceEntity`: Mapea la tabla `password_reset_tokens`. Columnas: `id`, `user_id`, `token_hash`, `expires_at`, `used_at`, `created_at`.
+*   *Converters:* `UserAccountStatusConverter` y `OtpPurposeConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
 
 ###### Spring Data Repositories & Adapters
 
-*   `UserAccountPersistenceRepository` y `OneTimePasswordPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
-*   `UserAccountRepositoryImpl` y `OneTimePasswordRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+*   `UserAccountPersistenceRepository`, `OneTimePasswordPersistenceRepository` y `PasswordResetTokenPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `UserAccountRepositoryImpl`, `OneTimePasswordRepositoryImpl` y `PasswordResetTokenRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
 
 ###### Persistence Assemblers
 
-*   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `Username`, `HashedPassword` y los tokens vigentes.
-*   `OneTimePasswordPersistenceAssembler`: Traduce entre `OneTimePasswordPersistenceEntity` y el agregado `OneTimePassword`.
+*   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `HashedPassword` y `UserAccountStatus`.
+*   `OneTimePasswordPersistenceAssembler` y `PasswordResetTokenPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados, recomponiendo `HashedSecret` y, en el caso del OTP, `OtpPurpose`.
 
 ###### Security Adapters
 
 *   `BCryptPasswordHasherAdapter`: Implementa `PasswordHasher` sobre el algoritmo BCrypt.
+*   `BCryptSecretHasherAdapter`: Implementa `SecretHasher` para el hashing y la comparación de los códigos OTP y de los tokens de recuperación.
+*   `SecureRandomSecretGeneratorAdapter`: Implementa `SecretGenerator` sobre un generador criptográficamente seguro, produciendo códigos numéricos de seis dígitos y tokens opacos.
 *   `JwtTokenProviderAdapter`: Implementa la emisión y validación de JWT firmados (RS256) con `UserId` y roles como claims; materializa el Published Language del Open Host Service de IAM.
-*   `SecureRandomOtpCodeGeneratorAdapter` y `SecureRandomTokenGeneratorAdapter`: Implementan `OtpCodeGenerator` y `TokenGenerator` sobre un generador criptográficamente seguro.
 
 ###### Notification Adapters
 
@@ -6382,22 +6584,21 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 ###### Scheduling
 
-*   `OtpExpirationScheduler`: Tarea periódica que transiciona a `EXPIRED` los OTP pendientes cuya vigencia venció sin verificación.
-*   `TokenExpirationScheduler`: Tarea periódica que invalida los tokens de verificación de correo y de recuperación de contraseña vencidos.
+*   `ExpiredSecretsCleanupScheduler`: Tarea periódica que purga de `otp_codes` y `password_reset_tokens` los secretos vencidos y no consumidos, invocando `deleteExpiredUnusedBefore`. La invalidación no requiere una transición de estado persistida: un secreto deja de ser utilizable en cuanto vence su `expires_at` o se registra su `used_at`.
 
 ---
 
 ##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
-![alt text](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
+![IAM Component Diagram](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
 ##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
 ###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
-![alt text](<../assets/images/chapterII/classDiagrams/IAM-class diagram.png>)
+![IAM Domain Class Diagram](../assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ###### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-![alt text](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
+![IAM Database Design Diagram](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 #### Guardian+ Physical Database Schema
 
@@ -6408,3 +6609,25 @@ El Physical Schema ERD integra las principales tablas utilizadas por los distint
 ![Guardian+ Physical Schema ERD](../assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
 
 El modelo mantiene la separación lógica definida mediante los Bounded Contexts, mientras que las referencias necesarias entre sus datos persistentes se representan mediante identificadores y relaciones explícitas. De esta manera, el esquema físico proporciona una visión integral de la persistencia sin sustituir los Database Design Diagrams particulares documentados previamente para cada contexto.
+
+## Conclusiones y recomendaciones
+
+A partir del trabajo realizado en este primer avance, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
+
+En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad
+
+## Bibliografía
+
+Barrera, M. (2022). Diseño de un sistema de supervisión y control de la salud en el hogar, para adultos mayores en la vereda "La Venta" del municipio de Belén-Boyacá, haciendo uso del internet de las cosas (IoT) [Tesis de licenciatura, Universidad Cooperativa de Colombia]. Repositorio Institucional. [Enlace](https://repository.ucc.edu.co/entities/publication/e41d1244-9d65-4fed-a5e1-177da2504ea8)
+
+Guerrero, J., & Pardo, G. (2024). Apoyo familiar y su incidencia en los adultos mayores del proyecto Envejeciendo Juntos, Paltas. Tesla Revista Científica, 7(15), 223-234. [Enlace](https://doi.org/10.56124/tj.v7i15ep.014)
+
+Instituto Nacional de Estadística e Informática. (2017). Perfil sociodemográfico de la población con discapacidad, 2017: Capítulo III. Resultados generales sobre la población con discapacidad. INEI. [Enlace](https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1675/cap03.pdf)
+
+Instituto Nacional de Estadística e Informática. (2014). En el Perú 1 millón 575 mil personas presentan algún tipo de discapacidad [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/en-el-peru-1-millon-575-mil-personas-presentan-alg/)
+
+Instituto Nacional de Estadística e Informática. (2017). 47 de cada 100 personas con discapacidad son adultos mayores [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/47-de-cada-100-personas-con-discapacidad-son-adultos-mayores-10226/)
+
+Ministerio de Salud. (2018, 13 de diciembre). Uno de cada tres adultos mayores de 65 años sufre una caída. Gob.pe. [Enlace](https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida)
+
+

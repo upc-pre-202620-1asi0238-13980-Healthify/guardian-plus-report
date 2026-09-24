@@ -1,0 +1,26 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontFamily: Helvetica
+---
+sequenceDiagram
+    participant W as Wearable Device
+    participant A as ALERT
+    participant D as Dispatch Strategy Selector
+    participant F as Family Member
+    participant I as INCIDENT
+
+    W->>A: Trigger Alert (FALL_DETECTED)
+    A-->>A: Alert Triggered (PENDING_CONFIRMATION)
+    Note over A: policy: Fall Confirmation Timeout (20 s)
+    A->>A: Confirm Alert
+    A-->>A: Alert Confirmed
+    A->>D: severity = CRITICAL
+    D->>A: Broadcast Alert
+    A-->>A: Alert Broadcasted (BROADCAST · PUSH + SMS)
+    F->>A: Acknowledge Alert
+    A-->>A: Alert Acknowledged
+    Note over A,I: policy: Escalation Stopper
+    A->>I: Open Incident
+    I-->>I: Incident Opened (IN_ATTENTION)

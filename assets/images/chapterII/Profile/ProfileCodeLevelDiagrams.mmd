@@ -1,0 +1,184 @@
+---
+config:
+  theme: neutral
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: BRANDES_KOEPF
+  themeVariables:
+    fontFamily: Helvetica
+---
+classDiagram
+    direction TB
+
+    class UserProfile {
+        <<Aggregate Root>>
+        -UserProfileId id
+        -UserId userId
+        -String firstName
+        -String lastName
+        -String phoneNumber
+        -String profileImageUrl
+        -Instant createdAt
+        -Instant updatedAt
+        +updatePersonalInformation(String, String) void
+        +updateContactInformation(String) void
+        +updateProfileImage(String) void
+    }
+
+    class CareRecipientProfile {
+        <<Aggregate Root>>
+        -CareRecipientProfileId id
+        -UserId createdByUserId
+        -String firstName
+        -String lastName
+        -LocalDate birthDate
+        -String profileImageUrl
+        -Instant createdAt
+        -Instant updatedAt
+        +updatePersonalInformation(String, String, LocalDate) void
+        +updateProfileImage(String) void
+    }
+
+    class CareRelationship {
+        <<Aggregate Root>>
+        -CareRelationshipId id
+        -UserId userId
+        -CareRecipientProfileId careRecipientProfileId
+        -RelationshipType relationshipType
+        -CareRelationshipStatus status
+        -Instant startedAt
+        -Instant endedAt
+        +establish() void
+        +end() void
+        +isActive() Boolean
+    }
+
+    class UserPreferences {
+        <<Aggregate Root>>
+        -UserPreferencesId id
+        -UserId userId
+        -Language language
+        -Boolean notificationsEnabled
+        -Boolean highContrastEnabled
+        -Boolean voiceAssistanceEnabled
+        -FontScale fontScale
+        -Instant updatedAt
+        +updateApplicationPreferences(Boolean) void
+        +updateLanguage(Language) void
+        +updateAccessibilityPreferences(Boolean, Boolean, FontScale) void
+    }
+
+    class ProfileCompletenessPolicy {
+        <<Domain Policy>>
+        +isComplete(UserProfile) Boolean
+        +missingFields(UserProfile) List~String~
+    }
+
+    class CareRelationshipPolicy {
+        <<Domain Policy>>
+        +canEstablishRelationship(UserId, CareRecipientProfileId) Boolean
+        +validateRelationshipType(RelationshipType) void
+    }
+
+    class UserProfileRepository {
+        <<interface>>
+        +findById(UserProfileId) Optional~UserProfile~
+        +findByUserId(UserId) Optional~UserProfile~
+        +save(UserProfile) UserProfile
+    }
+
+    class CareRecipientProfileRepository {
+        <<interface>>
+        +findById(CareRecipientProfileId) Optional~CareRecipientProfile~
+        +findByCreatedByUserId(UserId) List~CareRecipientProfile~
+        +save(CareRecipientProfile) CareRecipientProfile
+    }
+
+    class CareRelationshipRepository {
+        <<interface>>
+        +findById(CareRelationshipId) Optional~CareRelationship~
+        +findActiveByUserId(UserId) List~CareRelationship~
+        +findActiveByCareRecipientId(CareRecipientProfileId) List~CareRelationship~
+        +save(CareRelationship) CareRelationship
+    }
+
+    class UserPreferencesRepository {
+        <<interface>>
+        +findById(UserPreferencesId) Optional~UserPreferences~
+        +findByUserId(UserId) Optional~UserPreferences~
+        +save(UserPreferences) UserPreferences
+    }
+
+    class UserProfileId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class CareRecipientProfileId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class CareRelationshipId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class UserPreferencesId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class UserId {
+        <<Value Object>>
+        -UUID value
+    }
+
+    class FontScale {
+        <<Value Object>>
+        -Decimal value
+    }
+
+    class RelationshipType {
+        <<enumeration>>
+        FAMILY_MEMBER
+        CAREGIVER
+    }
+
+    class CareRelationshipStatus {
+        <<enumeration>>
+        ACTIVE
+        ENDED
+    }
+
+    class Language {
+        <<enumeration>>
+        ES
+        EN
+    }
+
+    UserProfile *-- UserProfileId
+    UserProfile --> UserId : identidad en IAM
+
+    CareRecipientProfile *-- CareRecipientProfileId
+    CareRecipientProfile --> UserId : createdByUserId
+
+    CareRelationship *-- CareRelationshipId
+    CareRelationship *-- RelationshipType
+    CareRelationship *-- CareRelationshipStatus
+    CareRelationship --> UserId : vincula
+    CareRelationship --> CareRecipientProfileId : vincula
+
+    UserPreferences *-- UserPreferencesId
+    UserPreferences *-- Language
+    UserPreferences *-- FontScale
+    UserPreferences --> UserId : pertenece a
+
+    ProfileCompletenessPolicy ..> UserProfile : evalúa
+    CareRelationshipPolicy ..> CareRelationship : evalúa
+
+    UserProfileRepository ..> UserProfile : gestiona
+    CareRecipientProfileRepository ..> CareRecipientProfile : gestiona
+    CareRelationshipRepository ..> CareRelationship : gestiona
+    UserPreferencesRepository ..> UserPreferences : gestiona
