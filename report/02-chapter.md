@@ -140,6 +140,7 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 ![Captura Entrevista Familiar 3](../assets/images/chapterII/screenshots-entrevistas/entrevista_familiar_3.png)
 
 **Resumen de la entrevista:** El entrevistado Junior Ayala de 32 años y soldador, vive con su pareja y su hijo y manifiesta preocupación principalmente por la seguridad y el bienestar de su familia cuando no puede estar presente debido al trabajo u otras actividades. Señala que, ante emergencias o problemas de salud, suele experimentar preocupación y desesperación, recurriendo a familiares cercanos o a servicios de emergencia. Considera que una solución tecnológica, como una pulsera o dispositivo inteligente, podría ayudar a monitorear el estado de salud, las actividades y la seguridad de sus familiares, además de recordar medicamentos y citas médicas. Actualmente no utiliza herramientas de monitoreo ni lleva un control preventivo de la salud, ya que normalmente acuden a un centro de salud cuando los síntomas se vuelven graves. Está dispuesto a utilizar tecnología de este tipo, aunque considera importantes factores como el costo, la duración de la batería y la conectividad, especialmente en zonas rurales. Finalmente, estaría dispuesto a pagar por un dispositivo que realmente aporte seguridad y bienestar a su familia, realizando un esfuerzo económico si considera que el producto es útil y de buena calidad.
+
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**
@@ -341,6 +342,7 @@ Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
 3. **Necesidad de Comunicación en el Círculo de Cuidado**: Ambas valoran la comunicación con otros miembros del círculo de cuidado como tarea importante. Para Roxana Paola es un deber operativo (Media-Alta); para María Fernanda es un mecanismo de coordinación y control.
 
 4. **Registro y Seguimiento**: Tanto María Fernanda como Roxana Paola reconocen la importancia de registrar cambios en el estado de salud. Para la cuidadora es operativo y diario; para la familiar es analítico y periódico, pero ambas usan esta información para tomar decisiones.
+
 #### 2.3.3. User Journey Mapping
 
 En esta sección se presentan los User Journey Maps As-Is elaborados para los User Personas correspondientes a los segmentos objetivo de Guardian+. Estos artefactos permiten representar el recorrido actual que realizan los usuarios para cumplir sus objetivos de cuidado y supervisión, antes de la existencia de la solución Guardian+.
@@ -450,8 +452,6 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 # 2.4. Requirements specification
 
 ## 2.4.1. User Stories
-
-Requisitos definidos junto con el conjunto de User Stories y Epics para los requisitos identificados. Los User Stories incluyen Acceptance Criteria. En esta sección el equipo redacta una introducción, identifica todas las Epics y presenta un cuadro con la estructura especificada a continuación para cada User Storie.
 
 ### Epics Identificadas
 
@@ -1706,9 +1706,6 @@ El Product Backlog se construyó a partir de las 33 User Stories definidas en la
 
 La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog.
 
-**Tablero público en ClickUp:** `<pendiente>`
-
-`<pendiente — insertar captura de pantalla del Product Backlog en ClickUp>`
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 |---|---|---|---|---|
@@ -1882,7 +1879,7 @@ En esta sección se detallan los diseños de los Bounded Contexts candidatos ide
 #### Bounded Context: Emergency & Alerting (Core Domain)
 
 <!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -2048,7 +2045,7 @@ Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citize
 #### Bounded Context: Health Monitoring (Core Domain)
 
 <!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -2182,7 +2179,7 @@ Administra los Wearable Devices asignados a un Care Recipient, ingesta y emite e
 #### Bounded Context: Care Routines & Wellness (Supporting Domain)
 
 <!-- CANVAS: CARE ROUTINES & WELLNESS (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -2308,7 +2305,7 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 #### Bounded Context: Subscriptions (Generic Domain)
 
 <!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 
@@ -2555,7 +2552,7 @@ Interactions with other bounded contexts and services
 #### Bounded Context: Profile (Generic Domain)
 
 <!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 
 <td width="42%" valign="top"
@@ -2841,7 +2838,7 @@ Interactions with other bounded contexts and services
 
 #### Bounded Context: Mobility & Geofencing (Supporting Domain)
 <!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
@@ -3194,7 +3191,7 @@ de los límites de una zona segura.
 #### Bounded Context: IAM (Generic Domain)
 
 <!-- CANVAS: IAM (NICK TUNE V1 TEMPLATE) -->
-<table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
 <td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
 <div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
@@ -3357,7 +3354,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 
 El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proceso de cuestionamiento heurístico recomendado por Domain-Driven Design (DDD Crew y Nick Tune) para validar la ubicación de cada capability y evitar dependencias cíclicas o acoplamiento innecesario:
 
-*   **¿Qué pasaría si movemos el capability de evaluación de umbrales clínicos (`EvaluateClinicalThresholds`) de *Health Monitoring* a *Emergency & Alerting*?**
+*   **¿Qué pasaría si movemos el capability de evaluación de umbrales clínicos (`EvaluateVitalSignsThresholds`) de *Health Monitoring* a *Emergency & Alerting*?**
     *   *Evaluación:* Si la evaluación clínica se traslada a Emergencias, *Health Monitoring* se degradaría a un almacén pasivo de telemetría (CRUD). Además, obligaría a *Emergency & Alerting* a conocer la semántica médica de rangos basales, tolerancias fisiológicas y filtros de ruido. Se descarta: la evaluación médica permanece en *Health Monitoring*, y este solo notifica a emergencias cuando una anomalía clínica ha sido confirmada.
 *   **¿Qué pasaría si descomponemos el capability de alertas en *Emergency & Alerting* y movemos el despacho de recordatorios de medicación desde *Care Routines & Wellness* hacia este?**
     *   *Evaluación:* Aunque ambos implican notificar al usuario, sus invariantes y acuerdos de nivel de servicio (SLA) son divergentes. Una alerta de emergencia exige despacho de máxima prioridad en menos de 5 segundos con escalamiento jerárquico no bloqueante, mientras que un recordatorio de medicación es un aviso programado con tolerancia a reintentos lentos. Mezclarlos en el mismo contexto generaría contención y riesgo de saturación en el bus de emergencias críticas. Se mantiene la separación.
@@ -3728,8 +3725,8 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   **NotificationChannel:** Enum (`PUSH`, `SMS`, `IN_APP`).
 *   **DeliveryStatus:** Enum (`PENDING`, `SENT`, `DELIVERED`, `FAILED`).
 *   **ResponseStatus:** Enum (`CLAIMED`, `COMPLETED`, `CANCELLED`).
-*   **AckTimeout:** Encapsula el tiempo de espera del reconocimiento antes de escalar (`seconds: Integer`). Invariante: valor entre $15$ y $300\\text{ s}$; valor por defecto $60\\text{ s}$. Método: `hasExpired(Instant since, Instant now)`.
-*   **FallConfirmationWindow:** Ventana de cancelación local del Fragile Citizen ante una caída detectada. Valor fijo de política de $20\\text{ s}$, no persistido. Método: `hasExpired(Instant triggeredAt, Instant now)`.
+*   **AckTimeout:** Encapsula el tiempo de espera del reconocimiento antes de escalar (`seconds: Integer`). Invariante: valor entre $15$ y $300\text{ s}$; valor por defecto $60\text{ s}$. Método: `hasExpired(Instant since, Instant now)`.
+*   **FallConfirmationWindow:** Ventana de cancelación local del Fragile Citizen ante una caída detectada. Valor fijo de política de $20\text{ s}$, no persistido. Método: `hasExpired(Instant triggeredAt, Instant now)`.
 *   **PriorityOrder:** Posición del contacto dentro del escalamiento (`value: Integer`). Invariante: valor mayor o igual a 1. Método: `isPrimary()`.
 *   **AlertId / AlertDeliveryId / AlertResponseId / IncidentId / AlertSettingsId / EmergencyContactId / AlertChannelSettingId:** Identificadores inmutables tipo UUID.
 *   **CareRecipientProfileId:** Identificador de referencia inmutable al Fragile Citizen, gobernado por el Bounded Context Profile.
@@ -4306,7 +4303,6 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 *   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
 
----
 ##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 ![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
@@ -4318,6 +4314,7 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 ###### 2.6.2.6.2. Bounded Context Database Design Diagram
 ![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
+
 #### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
@@ -6612,3 +6609,25 @@ El Physical Schema ERD integra las principales tablas utilizadas por los distint
 ![Guardian+ Physical Schema ERD](../assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
 
 El modelo mantiene la separación lógica definida mediante los Bounded Contexts, mientras que las referencias necesarias entre sus datos persistentes se representan mediante identificadores y relaciones explícitas. De esta manera, el esquema físico proporciona una visión integral de la persistencia sin sustituir los Database Design Diagrams particulares documentados previamente para cada contexto.
+
+## Conclusiones y recomendaciones
+
+A partir del trabajo realizado en este primer avance, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
+
+En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad
+
+## Bibliografía
+
+Barrera, M. (2022). Diseño de un sistema de supervisión y control de la salud en el hogar, para adultos mayores en la vereda "La Venta" del municipio de Belén-Boyacá, haciendo uso del internet de las cosas (IoT) [Tesis de licenciatura, Universidad Cooperativa de Colombia]. Repositorio Institucional. [Enlace](https://repository.ucc.edu.co/entities/publication/e41d1244-9d65-4fed-a5e1-177da2504ea8)
+
+Guerrero, J., & Pardo, G. (2024). Apoyo familiar y su incidencia en los adultos mayores del proyecto Envejeciendo Juntos, Paltas. Tesla Revista Científica, 7(15), 223-234. [Enlace](https://doi.org/10.56124/tj.v7i15ep.014)
+
+Instituto Nacional de Estadística e Informática. (2017). Perfil sociodemográfico de la población con discapacidad, 2017: Capítulo III. Resultados generales sobre la población con discapacidad. INEI. [Enlace](https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1675/cap03.pdf)
+
+Instituto Nacional de Estadística e Informática. (2014). En el Perú 1 millón 575 mil personas presentan algún tipo de discapacidad [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/en-el-peru-1-millon-575-mil-personas-presentan-alg/)
+
+Instituto Nacional de Estadística e Informática. (2017). 47 de cada 100 personas con discapacidad son adultos mayores [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/47-de-cada-100-personas-con-discapacidad-son-adultos-mayores-10226/)
+
+Ministerio de Salud. (2018, 13 de diciembre). Uno de cada tres adultos mayores de 65 años sufre una caída. Gob.pe. [Enlace](https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida)
+
+
