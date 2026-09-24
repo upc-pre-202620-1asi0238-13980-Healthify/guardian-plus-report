@@ -207,7 +207,10 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <td><strong>Azama Fukuda, Juan Pablo</strong><br><em>AV1:</em> Como team leader revisé la coherencia entre los artefactos de DDD que ya teníamos (EventStorming, Bounded Context Canvases y diseño táctico) y esto me forzó a aprender nuevos conceptos relacionados a DDD. De la misma manera, al diseñar los bounded context de IAM, tuve que investigar sobre los conceptos de OTP y servicios de envío de correos electrónicos, actualmente es una primera iteración de diseño pero con el tiempo todo se irá refinando poco a poco. Esto me da a comprender que, obviamente, a lo largo de mi carrera siempre tendré que aprender conocimientos técnicos nuevos, al igual que mejorar mis habilidades blandas.
 
 <br>
-<strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez. 
+<strong>Mechan Montenegro, Luciana Carolina</strong><br><em>AV1:</em> Reconocí que, pese a haber aplicado antes Event Storming, Bounded Context Canvas y C4 Model, cada nuevo dominio de negocio me exige volver a estudiar y adaptar estas técnicas, ya que su correcta aplicación depende de la comprensión particular del proyecto y no de un conocimiento memorizado. También identifiqué que un artefacto como el Ubiquitous Language necesita revisión y actualización constante a medida que el proyecto avanza, lo que confirma que el aprendizaje no se detiene una vez que se domina una herramienta por primera vez.
+<br><br>
+<strong>Luis Miranda, Diego Andres</strong><br><em>AV1:</em> Desde la perpectiva de identificación del público objetivo y la realización de entrevistas con cuidadores y familiares, hasta la elaboración de la propuesta de la startup y el diseño del bounded context de Mobility & Geofencing, tuve que incorporar metodologías de análisis de usuarios, técnicas de Domain Driven Design, hacer correcion y herramientas de modelado arquitectónico como diagramas de base de datos y C4. Este proceso evidenció que el desempeño en soluciones de software requiere una actitud constante de aprendizaje, exploración de nuevas prácticas y adaptación a contextos cambiantes, lo cual fortalece mi capacidad de crecer profesionalmente.
+</td>
 
 <br><br>
 <br>
@@ -268,8 +271,7 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
 
-### Luis Miranda, Diego Andres
-
+### <Luis Miranda, Diego Andres>
 **Objetivo SMART 1:**
 Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software.
 - *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
