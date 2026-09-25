@@ -185,6 +185,48 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 ##### 3.1.3.2. Landing Page Mock-up
 
+#### Mockup desktop - Cómo funciona
+
+![landing page mockup - Cómo funciona](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-1.png)
+
+#### Mockup desktop - Beneficios
+
+![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-2.png)
+
+#### Mockup desktop - Por qué guardian+
+
+![landing page mockup - Por qué guardian plus](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-3.png)
+
+#### Mockup desktop - Precios
+
+![landing page mockup - Precios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-4.png)
+
+#### Mockup desktop - Contacto
+
+![landing page mockup - Contacto](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-5.png)
+
+#### Landing page mockup mobile
+
+#### Mockup mobile - Cómo funciona
+
+![landing page mockup - Cómo funciona](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-1.png)
+
+#### Mockup mobile - Beneficios
+
+![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-2.png)
+
+#### Mockup mobile - Por qué guardian+
+
+![landing page mockup - Por qué guardian+](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-5.png)
+
+#### Mockup mobile - Precios
+
+![landing page mockup - Precios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-3.png)
+
+#### Mockup mobile - Contacto
+
+![landing page mockup - Contacto](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-4.png)
+
 #### 3.1.4. Mobile Applications UX/UI Design
 
 ##### 3.1.4.1. Mobile Applications Wireframes
