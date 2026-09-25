@@ -43,6 +43,8 @@ La paleta cromática se estructura bajo las especificaciones técnicas del desig
 | **Pastel Yellow (Notice)**| `#FFF4CC` | Alertas informativas de geocercas, recordatorios y revisiones programadas | AAA con `#665200` |
 | **Pastel Yellow Text** | `#806600` | Tipografía de notificaciones preventivas y estados de sincronización | AA (4.5:1 sobre fondo) |
 
+![style-guidelines-colors](../assets/images/chapterIII/general-style-guidelines/color-guidelines.png)
+
 ##### C. Tipografía
 
 La selección tipográfica maximiza la legibilidad en pantallas móviles de diversa densidad de píxeles y en paneles de visualización web:
@@ -63,6 +65,9 @@ Escala tipográfica normalizada:
 | **Caption / Meta**| Inter | Medium (500) | 12px | 12px | 1.4 |
 | **Data Metric** | JetBrains Mono | Medium (500) | 28px | 24px | 1.1 |
 
+![typography-guidelines](../assets/images/chapterIII/general-style-guidelines/typography-guidelines.png)
+
+
 ##### D. Espaciado, Bordes y Elevaciones (Effects)
 
 *   **Sistema de Espaciado:** Cuadrícula base de 8px (incrementos de 4px, 8px, 12px, 16px, 24px, 32px, 48px).
@@ -76,6 +81,13 @@ Escala tipográfica normalizada:
     *   *Low:* `0px 1px 3px rgba(18, 49, 40, 0.06), 0px 1px 2px rgba(18, 49, 40, 0.04)` para tarjetas estáticas.
     *   *Mid:* `0px 4px 6px -1px rgba(18, 49, 40, 0.08), 0px 2px 4px -1px rgba(18, 49, 40, 0.04)` para elementos interactivos en foco y barras flotantes.
     *   *High:* `0px 10px 15px -3px rgba(18, 49, 40, 0.1), 0px 4px 6px -2px rgba(18, 49, 40, 0.05)` para modales de emergencia crítica.
+
+    ![espaciado bordes y elevaciones](../assets/images/chapterIII/general-style-guidelines/elevations.png)
+
+
+![ejemplo de componentes](../assets/images/chapterIII/general-style-guidelines/example_1.png)
+
+![ejemplo de vista](../assets/images/chapterIII/general-style-guidelines/example.png)
 
 ### 3.1.2. Information Architecture
 
