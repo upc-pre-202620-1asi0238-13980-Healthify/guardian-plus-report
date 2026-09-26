@@ -116,6 +116,132 @@ Guardian+ organiza su información combinando estructuras visuales y esquemas de
 
 #### 3.1.2.2. Labelling Systems
 
+Guardian+ define un sistema de etiquetas breve y consistente para que familiares, cuidadores y visitantes identifiquen cada conjunto de información sin necesidad de interpretar términos técnicos. Las etiquetas parten del Ubiquitous Language definido en el Capítulo II, pero se expresan en un lenguaje cotidiano y sereno, coherente con el tono de comunicación establecido en las Style Guidelines. Una misma etiqueta representa siempre el mismo concepto, tanto en la Landing Page como en la aplicación móvil.
+
+##### Criterios de etiquetado
+
+| Criterio | Aplicación en Guardian+ |
+|---|---|
+| **Mínimo de palabras** | Las etiquetas de navegación y los botones utilizan entre una y tres palabras. Las acciones se expresan con verbos en infinitivo (*Reconocer*, *Llamar*, *Exportar reporte*). |
+| **Lenguaje cotidiano** | Los términos del dominio se traducen a palabras de uso común. Por ejemplo, *Fragile Citizen* se presenta como *Persona bajo cuidado* o directamente por su nombre. |
+| **Tono sereno** | Los estados se comunican sin alarmismo: se utiliza *Requiere atención* en lugar de expresiones como *¡Peligro!*, reservando el color rojo y la palabra *Crítica* para emergencias reales. |
+| **Ícono acompañado de texto** | Las opciones de navegación, los tipos de alerta y los estados combinan siempre ícono y texto. El color nunca es el único medio para transmitir un significado. |
+| **Unidades visibles** | Cada valor biométrico muestra su unidad junto al número: lpm, mmHg, %, °C y rpm. |
+| **Consistencia entre productos** | Las etiquetas compartidas entre la Landing Page y la aplicación (*Zonas seguras*, *Círculo de cuidado*, nombres de planes) se escriben exactamente igual en ambos productos. |
+
+##### Del Ubiquitous Language a las etiquetas de interfaz
+
+La siguiente tabla establece la correspondencia entre los términos del dominio y la etiqueta que el usuario visualiza, asegurando que la interfaz y el modelo de dominio hablen del mismo concepto.
+
+| Término del dominio | Etiqueta en la interfaz | Ubicación en la app |
+|---|---|---|
+| **Fragile Citizen** | Persona bajo cuidado (o su nombre, por ejemplo *Elena*) | Inicio, Perfil |
+| **Care Circle** | Círculo de cuidado | Perfil |
+| **Family / Caregiver** | Familiar / Cuidador | Registro, Círculo de cuidado |
+| **Vital Signs** | Signos vitales | Salud |
+| **Health History** | Historial | Salud, Alertas |
+| **Care Routine** | Rutinas | Navegación principal |
+| **Medication Reminder** | Medicación | Rutinas |
+| **Medical Appointment** | Citas médicas | Rutinas |
+| **Alert** | Alerta | Alertas |
+| **Incident** | Incidente | Alertas › Historial |
+| **Acknowledgment** | Reconocer | Detalle de alerta |
+| **Emergency Contact** | Contactos de emergencia | Alertas › Configuración |
+| **Escalation Chain** | Escalamiento | Alertas › Configuración |
+| **Alert Settings** | Configuración de alertas | Alertas › Configuración |
+| **Silent Mode** | Modo silencioso | Pulsera, Perfil › Pulsera |
+| **Safe Zone** | Zonas seguras | Ubicación |
+| **Care Plan** | Mi plan | Perfil |
+| **Wearable Device** | Pulsera | Perfil, Onboarding |
+
+##### Etiquetas del Landing Page
+
+Las etiquetas del Landing Page coinciden con las secciones presentadas en los wireframes y mock-ups. Cada una funciona como una promesa de contenido: el visitante asocia la etiqueta con la información que encontrará al seleccionarla, sin que toda la información se concentre en un mismo lugar.
+
+| Etiqueta | Tipo | Asociación (qué encuentra el visitante) |
+|---|---|---|
+| **Cómo funciona** | Menú principal | Proceso de uso de Guardian+ en tres pasos: pulsera, app y círculo de cuidado. |
+| **Beneficios** | Menú principal | Las seis funcionalidades principales del producto. |
+| **Por qué Guardian+** | Menú principal | Diferenciación frente a relojes fitness y botones SOS, junto con un testimonio. |
+| **Precios** | Menú principal | Comparación de los planes Esencial, Guardian+ y Cuidado Pro. |
+| **Contacto** | Menú principal | Formulario de contacto, teléfono y horario de atención. |
+| **Conocer los planes** | CTA primario | Desplaza al visitante a la sección Precios. |
+| **Ver cómo funciona** | CTA secundario | Desplaza al visitante a la sección Cómo funciona. |
+| **Saber más** | Enlace de tarjeta | Amplía la descripción de una funcionalidad específica. |
+| **Más elegido** | Distintivo | Identifica el plan recomendado para la mayoría de familias. |
+| **Comenzar gratis** | CTA de plan | Inicia el uso del plan Esencial. |
+| **Elegir este plan** | CTA de plan | Inicia la contratación de un plan de pago. |
+| **Quiero más información** | Botón de formulario | Envía la solicitud de contacto al equipo de Guardian+. |
+| **Privacidad · Términos** | Enlace de footer | Políticas de privacidad y términos de uso. |
+
+Los campos del formulario de contacto utilizan etiquetas visibles sobre cada campo: *Nombre*, *Teléfono*, *Correo electrónico*, *¿A quién deseas cuidar?* y *Cuéntanos qué necesitas*.
+
+Asimismo, las funcionalidades presentadas en la sección Beneficios anticipan las secciones que el usuario encontrará dentro de la aplicación, reforzando la asociación entre ambos productos:
+
+| Funcionalidad en el Landing Page | Sección asociada en la app |
+|---|---|
+| **Salud en tiempo real** | Salud |
+| **Detección de caídas + SOS** | Alertas |
+| **Ubicación y zonas seguras** | Ubicación |
+| **Rutinas sin olvidos** | Rutinas |
+| **Prevención activa** | Alertas (inactividad prolongada) |
+| **Siempre cerca** | Inicio (videollamada) |
+
+##### Etiquetas de la aplicación móvil
+
+La navegación principal de la aplicación se compone de cinco etiquetas, cada una asociada a un Bounded Context del dominio. El acceso a Perfil se ubica en el avatar de la barra superior.
+
+| Etiqueta | Ícono | Contenido asociado | Bounded Context | User Stories |
+|---|---|---|---|---|
+| **Inicio** | Casa | Estado general de la persona bajo cuidado, accesos rápidos y próximos recordatorios. | Vista integradora | US23 |
+| **Salud** | Pulso | Signos vitales en tiempo real, historial y reportes de salud. | Health Monitoring | US01–US05, US07, US19, US21, US24 |
+| **Rutinas** | Calendario | Medicación, citas médicas, actividad física, hidratación y descanso. | Care Routines & Wellness | US06, US13, US14, US17, US26, US27, US29 |
+| **Alertas** | Campana | Alertas activas, historial de incidentes, contactos de emergencia y configuración de alertas. | Emergency & Alerting | US08–US12, US15, US16, US20, US22, US25 |
+| **Ubicación** | Marcador de mapa | Ubicación actual y zonas seguras. | Mobility & Geofencing | US18, US28 |
+| **Perfil** | Avatar | Datos del usuario, persona bajo cuidado, círculo de cuidado, pulsera, plan y sesión. | Profile, IAM, Subscriptions | — |
+
+Dentro de cada sección se utilizan las siguientes etiquetas:
+
+| Sección | Pestañas | Etiquetas de contenido | Acciones |
+|---|---|---|---|
+| **Inicio** | — | *Elena está bien*, *Actualizado hace 2 min*, *Próximos recordatorios*, *Última alerta* | Llamar, Videollamada, Ver ubicación |
+| **Salud** | Ahora · Historial | *Ritmo cardíaco (lpm)*, *Presión arterial (mmHg)*, *Oxígeno (%)*, *Temperatura (°C)*, *Respiración (rpm)*; filtros *Día · Semana · Mes* | Exportar reporte, Ver reporte semanal |
+| **Rutinas** | Hoy · Semana | *Medicación*, *Citas médicas*, *Actividad*, *Hidratación*, *Descanso*, *Por agotarse* | Nuevo recordatorio, Reponer medicina |
+| **Alertas** | Activas · Historial | *Caída*, *SOS*, *Signo vital fuera de rango*, *Salida de zona segura*, *Inactividad*, *Batería baja* | Reconocer, Llamar, Marcar estabilizado, Cerrar incidente, Configurar |
+| **Ubicación** | Mapa · Zonas seguras | *Ubicación actual*, *Dentro de zona segura*, *Fuera de zona segura*, *Última actualización* | Nueva zona, Editar zona |
+| **Perfil** | — | *Mis datos*, *Persona bajo cuidado*, *Círculo de cuidado*, *Pulsera*, *Mi plan* | Cerrar sesión |
+
+Los flujos de acceso utilizan las etiquetas *Iniciar sesión*, *Crear cuenta*, *Correo electrónico*, *Contraseña*, *Código de verificación*, *¿Olvidaste tu contraseña?* y *Vincular pulsera*.
+
+##### Etiquetas de estado
+
+Los estados del dominio se presentan mediante etiquetas breves acompañadas del color semántico definido en la paleta de las Style Guidelines.
+
+| Concepto | Valor del dominio | Etiqueta | Color semántico |
+|---|---|---|---|
+| **Severidad de alerta** | `CRITICAL` / `HIGH` / `MEDIUM` | Crítica / Alta / Media | Destructive / Pastel Orange / Pastel Yellow |
+| **Estado de alerta** | `PENDING_CONFIRMATION` | Confirmando | Pastel Yellow |
+| | `TRIGGERED` / `ESCALATED` | Nueva / Escalada | Destructive |
+| | `ACKNOWLEDGED` | Reconocida | Pastel Orange |
+| | `DISMISSED` / `RESOLVED` | Descartada / Resuelta | Neutral Muted |
+| **Estado de incidente** | `IN_ATTENTION` / `STABILIZED` / `CLOSED` | En atención / Estabilizado / Cerrado | Pastel Orange / Secondary / Neutral Muted |
+| **Estado de recordatorio** | `SCHEDULED` / `ISSUED` / `REISSUED` | Programado / Pendiente / Reenviado | Neutral Muted / Pastel Yellow / Pastel Orange |
+| | `CONFIRMED` / `CANCELLED` / `SUPPRESSED` | Confirmado / Cancelado / Omitido | Secondary / Neutral Muted / Neutral Muted |
+| **Lectura de signo vital** | Rango normal / elevado / bajo / sin señal | Normal / Elevado / Bajo / Sin señal | Secondary / Pastel Orange / Pastel Orange / Neutral Muted |
+| **Zona segura** | Dentro / fuera del perímetro | En su zona segura / Fuera de zona segura | Secondary / Pastel Yellow |
+| **Pulsera** | Conectada / sin señal / batería baja | Conectada / Sin conexión / Batería baja | Secondary / Neutral Muted / Pastel Orange |
+
+##### Etiquetas de la pulsera
+
+La pulsera presenta un conjunto mínimo de etiquetas, pensadas para ser comprendidas por la persona bajo cuidado en una pantalla reducida.
+
+| Etiqueta | Función | User Story |
+|---|---|---|
+| **SOS** | Solicita ayuda inmediata a los contactos de emergencia. | US15 |
+| **Estoy bien** | Confirma, dentro de la ventana de 30 segundos, que la persona se encuentra a salvo tras una advertencia, evitando movilizar al círculo de cuidado. | US10 |
+| **Confirmar** | Registra que la medicación o la actividad recordada fue realizada. | US06, US14, US26 |
+| **Modo silencioso** | Recibe notificaciones sin sonido, excepto ante alertas críticas. | US22 |
+
 #### 3.1.2.3. SEO Tags and Meta Tags
 
 Guardian+ define elementos de Search Engine Optimization (SEO) para mejorar la identificación y visibilidad de su experiencia web en motores de búsqueda. Asimismo, se establecen elementos de App Store Optimization (ASO) para describir y posicionar adecuadamente la aplicación móvil en plataformas de distribución de aplicaciones.
@@ -167,6 +293,61 @@ Los elementos ASO definidos buscan comunicar de forma clara el propósito de Gua
 #### 3.1.2.4. Searching Systems
 
 #### 3.1.2.5. Navigation Systems
+
+Guardian+ combina distintos sistemas de navegación para que visitantes y usuarios recorran el contenido sin perder de vista dónde se encuentran ni cómo volver. En el Landing Page, la navegación acompaña un recorrido narrativo que conduce al visitante hacia la elección de un plan o el contacto con el equipo. En la aplicación móvil, la navegación prioriza el acceso inmediato al estado de la persona bajo cuidado y la respuesta rápida ante una emergencia.
+
+##### Landing Page
+
+| Mecanismo | Componente | Descripción |
+|---|---|---|
+| **Navegación global** | Header fijo | Presenta el menú *Cómo funciona · Beneficios · Por qué Guardian+ · Precios · Contacto* en el mismo orden en que aparecen las secciones al hacer scroll. Permanece visible durante todo el recorrido y cada enlace desplaza al visitante a su sección (US30). |
+| **Navegación global (mobile)** | Menú hamburguesa | En pantallas móviles el menú se agrupa en un ícono de hamburguesa que despliega las mismas cinco opciones. |
+| **Navegación secuencial** | Scroll narrativo | Las secciones siguen el orden problema → solución → diferenciación → precio → acción, guiando al visitante de forma progresiva hacia la conversión. |
+| **Navegación contextual** | CTAs | *Conocer los planes* lleva a Precios, *Ver cómo funciona* lleva a Cómo funciona y *Saber más* amplía cada funcionalidad sin abandonar la página. |
+| **Navegación de conversión** | CTAs de planes y formulario | *Comenzar gratis* y *Elegir este plan* redirigen a la descarga de la aplicación móvil, donde se completa el registro. *Quiero más información* envía la solicitud de contacto y muestra un mensaje de confirmación. |
+| **Navegación de retorno** | Logo y footer | El logo devuelve al inicio de la página. El footer repite el menú principal e incluye los enlaces *Privacidad · Términos*. |
+
+![landing-page-navigation](../assets/images/chapterIII/navigation-systems/landing-page-navigation.png)
+
+##### Aplicación móvil
+
+| Tipo de navegación | Componente | Uso en Guardian+ |
+|---|---|---|
+| **Global** | Bottom navigation bar | Cinco destinos permanentes: *Inicio · Salud · Rutinas · Alertas · Ubicación*. Se muestra en todas las pantallas principales y se oculta en los flujos secuenciales y en la alerta a pantalla completa, para que el usuario se concentre en una sola tarea. |
+| **Suplementaria** | Barra superior | Muestra el título de la pantalla, la flecha de regreso en pantallas secundarias y el avatar que conduce a Perfil. En Alertas incluye el acceso a *Configurar*. |
+| **Local** | Pestañas | Cada sección organiza su contenido en pestañas: *Ahora · Historial* en Salud, *Hoy · Semana* en Rutinas, *Activas · Historial* en Alertas y *Mapa · Zonas seguras* en Ubicación. |
+| **Contextual** | Tarjetas y enlaces internos | Las tarjetas de Inicio llevan a la sección correspondiente; el detalle de una alerta enlaza con *Ver ubicación* y con el historial de signos vitales del momento del evento. |
+| **Secuencial** | Flujos paso a paso | El registro sigue los pasos *Crear cuenta → Código de verificación → Vincular pulsera → Persona bajo cuidado → Contactos de emergencia*, con un indicador de progreso (*Paso 2 de 5*). La creación de una zona segura también se realiza paso a paso. |
+| **Por notificaciones** | Notificaciones push | Cada notificación abre directamente la pantalla relacionada: una alerta abre su detalle, un recordatorio abre Rutinas y la salida de una zona segura abre Ubicación. |
+| **Indicadores de estado** | Badges | La pestaña Alertas muestra la cantidad de alertas activas, de modo que el usuario las identifica desde cualquier sección. |
+
+Adicionalmente, se establecen las siguientes reglas de navegación:
+
+| Regla | Descripción |
+|---|---|
+| **Profundidad máxima** | Ninguna pantalla se encuentra a más de tres niveles desde la navegación principal (sección → detalle → edición). |
+| **Retorno predecible** | La flecha de regreso y el gesto del sistema siempre devuelven a la pantalla anterior, sin perder filtros ni pestañas seleccionadas. |
+| **Estado por sección** | Cada destino de la bottom navigation bar conserva su propio estado; al volver a una sección, el usuario la encuentra donde la dejó. |
+| **Prioridad de emergencia** | Una alerta crítica se superpone a cualquier pantalla y lleva al usuario a la acción *Reconocer* en un máximo de dos toques. |
+
+##### Ruta de emergencia
+
+La ruta de emergencia es el recorrido más crítico del producto, por lo que se diseña con el menor número de pasos posible.
+
+| Paso | Pantalla | Acción del usuario | Resultado |
+|---|---|---|---|
+| **1** | Notificación push | Toca la notificación | Se abre el detalle de la alerta a pantalla completa. |
+| **2** | Detalle de alerta | Toca *Reconocer* | Se detiene el escalamiento y se abre el incidente con estado *En atención*. |
+| **3** | Incidente en atención | *Llamar*, *Ver ubicación* o *Videollamada* | El usuario se comunica con la persona bajo cuidado o acude a su ubicación. |
+| **4** | Incidente en atención | *Marcar estabilizado* y luego *Cerrar incidente* | El incidente se registra en *Alertas › Historial* y en el historial de salud. |
+
+Si la alerta no es reconocida dentro del tiempo de espera configurado, el sistema la escala al siguiente contacto de emergencia según la cadena de escalamiento definida en *Configuración de alertas*.
+
+##### Mapa de navegación de la aplicación
+
+El siguiente diagrama presenta la distribución de las pantallas de la aplicación móvil y las rutas entre ellas.
+
+![mobile-app-navigation-map](../assets/images/chapterIII/navigation-systems/mobile-app-navigation-map.png)
 
 ### 3.1.3. Landing Page UI Design
 

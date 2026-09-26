@@ -1,0 +1,67 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontFamily: Helvetica
+---
+flowchart TB
+    subgraph ACC["Acceso (navegación secuencial)"]
+        direction LR
+        REG["Crear cuenta"] --> VER["Código de verificación"] --> PUL["Vincular pulsera"] --> PBC["Persona bajo cuidado"] --> CE0["Contactos de emergencia"]
+        LOGIN["Iniciar sesión"] --> OTP["Código de verificación"]
+    end
+
+    ACC --> BN["Bottom navigation bar (navegación global)<br/>+ Avatar en barra superior"]
+
+    BN --> INI
+    BN --> SAL
+    BN --> RUT
+    BN --> ALE
+    BN --> UBI
+    BN --> PER
+
+    subgraph INI["Inicio"]
+        direction TB
+        I1["Resumen de hoy"] --> I2["Llamar · Videollamada · Ver ubicación"]
+    end
+
+    subgraph SAL["Salud"]
+        direction TB
+        S1["Ahora"] --> S2["Detalle de signo vital"]
+        S3["Historial"] --> S4["Exportar reporte"]
+        S2 ~~~ S3
+    end
+
+    subgraph RUT["Rutinas"]
+        direction TB
+        R1["Hoy"] --> R2["Detalle de recordatorio"]
+        R3["Semana"] --> R4["Nuevo recordatorio"]
+        R2 ~~~ R3
+    end
+
+    subgraph ALE["Alertas"]
+        direction TB
+        A1["Activas"] --> A2["Detalle de alerta"] --> A3["Incidente en atención"]
+        A4["Historial"] --> A5["Detalle de incidente"]
+        A6["Configurar"] --> A7["Contactos de emergencia<br/>Configuración de alertas"]
+        A3 ~~~ A4
+        A5 ~~~ A6
+    end
+
+    subgraph UBI["Ubicación"]
+        direction TB
+        U1["Mapa"]
+        U2["Zonas seguras"] --> U3["Nueva zona"]
+        U1 ~~~ U2
+    end
+
+    subgraph PER["Perfil (avatar)"]
+        direction TB
+        P1["Mis datos"]
+        P2["Persona bajo cuidado"]
+        P3["Círculo de cuidado"]
+        P4["Pulsera"]
+        P5["Mi plan"]
+        P6["Cerrar sesión"]
+        P1 ~~~ P2 ~~~ P3 ~~~ P4 ~~~ P5 ~~~ P6
+    end
