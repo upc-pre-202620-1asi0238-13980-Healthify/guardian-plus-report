@@ -3513,7 +3513,7 @@ Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las u
 
 Explicación
 
-La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (Angular, HTML, CSS, TypeScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS.
+La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS.
 
 Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión.
 
@@ -3535,6 +3535,18 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 ![components-diagram](../assets/images/chapterII/c4-diagrams/components.png)
 
 ##### 2.5.3.4. Software Architecture Deployment Diagrams
+
+Introducción
+
+En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4 Model, elaborada con Structurizr. El diagrama muestra la distribución física de la solución en el entorno de producción: los nodos de infraestructura y plataformas en la nube que alojan cada contenedor, los dispositivos sobre los que se ejecutan los clientes y los servicios externos con los que se integra el backend.
+
+Explicación
+
+La Guardian+ Landing Page se publica en Vercel, que la distribuye a través de su red global de entrega de contenido. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 27 dentro de un Web Service de Render, ubicado en la región Virginia (US East), y persiste su información en la Guardian+ Database, alojada como servicio gestionado de PostgreSQL en Neon dentro de la región AWS us-east-1. Ambos servicios se ubican en la misma zona geográfica para reducir la latencia entre el backend y la base de datos.
+
+La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas.
+
+![deployment-diagram](../assets/images/chapterII/c4-diagrams/deployment.png)
 
 ### 2.6. Tactical-Level Domain-Driven Design
 
