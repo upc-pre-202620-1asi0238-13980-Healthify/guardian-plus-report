@@ -108,7 +108,18 @@ Guardian+ organiza su información combinando estructuras visuales y esquemas de
 
 ##### 3.1.2.3. SEO Tags and Meta Tags
 
-##### 3.1.2.4. Searching Systems
+#### 3.1.2.4. Searching Systems
+
+El sistema de búsqueda en la aplicación móvil y plataforma web optimiza la recuperación de datos mediante filtros estructurados y búsquedas directas:
+
+*   **Búsqueda en Bitácora de Salud e Incidentes:**
+    *   *Mecanismo:* Barra de consulta rápida con autocompletado en el historial clínico.
+    *   *Filtros Disponibles:* Por rango temporal (Últimas 24 horas, 7 días, 30 días, personalizado), por tipo de parámetro biométrico (Frecuencia Cardíaca, SpO₂, Presión Arterial, Temperatura) y por severidad del evento (Normal, En Observación, Crítico).
+    *   *Presentación de Resultados:* Lista cronológica ordenada con insignias de severidad identificadas por los colores del sistema, acompañada de gráficas de tendencia sincronizadas.
+*   **Búsqueda en Agenda de Medicamentos y Rutinas:**
+    *   *Mecanismo:* Filtrado instantáneo por estado de cumplimiento (Pendiente, Administrado, Omitido) y tipo de recordatorio (Medicación, Cita Médica, Actividad Física, Hidratación).
+*   **Búsqueda de Contactos del Círculo de Cuidado:**
+    *   *Mecanismo:* Búsqueda alfabética directa por nombre, apellido o parentesco, permitiendo la asignación y reordenamiento del orden de prioridad de auxilio.
 
 ##### 3.1.2.5. Navigation Systems
 
