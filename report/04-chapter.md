@@ -536,6 +536,105 @@ Estas convenciones permiten mantener un criterio común entre los diferentes pro
 
 ### 4.1.4. Software Deployment Configuration
 
+En esta sección se especifica la configuración de despliegue de cada producto digital de Guardian+, incluyendo los pasos necesarios para que, a partir de su repositorio de código fuente, se logre su publicación satisfactoria. El despliegue se integra con la estrategia de GitFlow definida en la sección 4.1.2: los productos se publican en producción a partir de la rama `main`, mientras que el desarrollo y la integración se realizan en las ramas `feat/*` y `develop`. Las credenciales y cadenas de conexión se configuran como variables de entorno en cada plataforma y no se almacenan en los repositorios.
+
+#### Deployment Overview
+
+| Product | Repository | Platform | Deployment Trigger | Public Access |
+|---|---|---|---|---|
+| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Vercel | Integración de cambios en `main` | Dominio `*.vercel.app` asignado por Vercel |
+| **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | Dominio `*.onrender.com` asignado por Render, con documentación en `/swagger-ui/index.html` |
+| **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release (`vX.Y.Z`) | Invitación por correo a los testers registrados |
+
+#### Deployment Environments
+
+| Environment | Branch | Landing Page | Web Services | Mobile Application |
+|---|---|---|---|---|
+| **Local** | `feat/*`, `develop` | `npm start` en `localhost:3000` | `./mvnw spring-boot:run` con PostgreSQL local | Android Emulator desde Android Studio |
+| **Preview** | Pull Request | Preview Deployment generado automáticamente por Vercel | — | — |
+| **Production** | `main` | Vercel Production | Render y Neon | Firebase App Distribution |
+
+#### Landing Page Deployment
+
+| Step | Action |
+|---|---|
+| **1** | Verificar que `node_modules/` y `build/` estén incluidos en `.gitignore` y que `npm run build` se ejecute sin errores. |
+| **2** | Iniciar sesión en Vercel con la cuenta de GitHub del equipo y seleccionar *Add New → Project*. |
+| **3** | Importar el repositorio `guardian-plus-website`. |
+| **4** | Configurar el proyecto: *Framework Preset* `Create React App`, *Install Command* `npm ci`, *Build Command* `npm run build` y *Output Directory* `build`. |
+| **5** | Definir `main` como *Production Branch*. |
+| **6** | Ejecutar *Deploy* y registrar la URL pública asignada por Vercel. |
+| **7** | Validar la navegación entre secciones, el formulario de contacto, los meta tags definidos en la sección 3.1.2.3 y los resultados de accesibilidad y rendimiento en Lighthouse. |
+
+Una vez configurado, cada integración en `main` publica automáticamente una nueva versión del Landing Page, y cada Pull Request genera una URL de vista previa que permite revisar los cambios antes de integrarlos.
+
+#### Web Services Deployment
+
+**Preparación del repositorio**
+
+| Step | Action |
+|---|---|
+| **1** | Agregar un `Dockerfile` multi-stage en la raíz del repositorio: una etapa de construcción con Maven y JDK 27 que ejecuta `./mvnw -DskipTests package`, y una etapa de ejecución con JRE 27 que copia el archivo `.jar` generado y lo inicia con `java -jar`. |
+| **2** | Agregar un `.dockerignore` que excluya `target/`, `.idea/` y otros archivos locales. |
+| **3** | Configurar `server.port=${PORT:8080}` en `application.properties`, de modo que la aplicación utilice el puerto asignado por Render. |
+| **4** | Verificar que la conexión a la base de datos se obtenga de las variables de entorno `SPRING_DATASOURCE_*`, sin credenciales en el código fuente. |
+
+**Base de datos en Neon**
+
+| Step | Action |
+|---|---|
+| **5** | Crear el proyecto `guardian-plus` en Neon, en la región AWS us-east-1 (N. Virginia). |
+| **6** | Crear la base de datos `guardian_plus` y obtener los datos de conexión (host, usuario y contraseña), utilizando `sslmode=require`. |
+
+**Servicio en Render**
+
+| Step | Action |
+|---|---|
+| **7** | En Render, seleccionar *New → Web Service* y conectar el repositorio `guardian-plus-platform`. |
+| **8** | Configurar *Language* `Docker`, *Branch* `main`, *Region* `Virginia (US East)` e *Instance Type* `Free`. |
+| **9** | Registrar las variables de entorno indicadas en la tabla siguiente. |
+| **10** | Configurar `/v3/api-docs` como *Health Check Path* y mantener activo *Auto-Deploy* ante cada commit en `main`. |
+| **11** | Ejecutar el despliegue y validar el acceso público a la documentación en `https://<service>.onrender.com/swagger-ui/index.html`. |
+
+| Variable | Description | Source |
+|---|---|---|
+| `SPRING_DATASOURCE_URL` | Cadena JDBC de la base de datos, con el formato `jdbc:postgresql://<host>/guardian_plus?sslmode=require`. | Neon |
+| `SPRING_DATASOURCE_USERNAME` | Usuario de la base de datos. | Neon |
+| `SPRING_DATASOURCE_PASSWORD` | Contraseña de la base de datos. | Neon |
+| `JWT_SECRET` | Clave utilizada por IAM para firmar los JWT de sesión. | Generada por el equipo |
+| `STRIPE_SECRET_KEY` | Clave secreta de Stripe en modo de prueba. | Stripe Dashboard |
+| `GOOGLE_MAPS_API_KEY` | Clave para las consultas de geocodificación. | Google Cloud Console |
+| `FIREBASE_CREDENTIALS` | Credenciales de la cuenta de servicio de Firebase, codificadas en Base64, para el envío de notificaciones push. | Firebase Console |
+
+Las variables de integraciones externas se registran a medida que cada integración se implementa. Asimismo, la instancia gratuita de Render se suspende tras un periodo de inactividad, por lo que la primera solicitud posterior puede demorar alrededor de un minuto; antes de cada demostración se realiza una solicitud previa para reactivar el servicio.
+
+#### Mobile Application Deployment
+
+| Step | Action |
+|---|---|
+| **1** | Crear el proyecto `guardian-plus` en Firebase y registrar la aplicación Android con su `applicationId` definitivo. Este identificador no puede modificarse después sin registrar una nueva aplicación. |
+| **2** | Descargar `google-services.json` y ubicarlo en el módulo `app/`. El archivo se excluye del repositorio mediante `.gitignore` y se comparte con el equipo por un canal privado. |
+| **3** | Definir en `BuildConfig` la URL base de la API (`API_BASE_URL`), apuntando al servicio de Render en el build de release, y registrar la API key de Google Maps en `local.properties`. |
+| **4** | Generar el keystore de firma desde *Build → Generate Signed App Bundle or APK* y almacenarlo fuera del repositorio, junto con sus credenciales. |
+| **5** | Desde la rama `release/*`, actualizar `versionName` con la versión semántica de la release e incrementar `versionCode`. |
+| **6** | Generar el APK de release firmado desde Android Studio o mediante `./gradlew assembleRelease`. |
+| **7** | En Firebase Console, ingresar a *App Distribution*, cargar el APK, redactar las notas de la versión y asignarlo al grupo de testers `validation-testers`. |
+| **8** | Verificar que los testers reciban la invitación por correo e instalen la aplicación mediante Firebase App Tester. |
+
+#### Deployment Considerations
+
+| Decision | Description |
+|---|---|
+| **Transporte de telemetría** | En la presente iteración, la pulsera es reemplazada por el IoT Simulator, que envía la telemetría y los eventos del dispositivo directamente al endpoint de ingesta de la REST API mediante HTTPS (TS02). No se despliega un broker MQTT, ya que el transporte se encuentra aislado en el adaptador de telemetría de la capa de infraestructura; un broker gestionado, como HiveMQ Cloud o EMQX, podrá incorporarse cuando se integre la pulsera física sin afectar el modelo de dominio. |
+| **Eventos de integración** | Debido a que los Bounded Contexts se despliegan dentro de una única REST API, los eventos de integración entre ellos se publican en memoria mediante Spring Application Events, sin requerir infraestructura adicional. Los puertos de salida definidos en cada contexto, como `MobilityEventOutputPort`, permiten reemplazar este mecanismo por un Message Broker como RabbitMQ si en el futuro los contextos se despliegan de forma independiente. |
+| **Ubicación de los servicios** | La REST API y la base de datos se despliegan en la región US East para reducir la latencia entre ambos. |
+
+#### Deployment Diagram
+
+El siguiente diagrama, elaborado con Structurizr bajo el C4 Model, presenta la distribución de los contenedores de Guardian+ en el entorno de producción. Su explicación detallada se encuentra en la sección 2.5.3.4.
+
+![deployment-diagram](../assets/images/chapterII/c4-diagrams/deployment.png)
+
 ## 4.2. Landing Page & Mobile Application Implementation
 
 ### 4.2.1. Sprint n
