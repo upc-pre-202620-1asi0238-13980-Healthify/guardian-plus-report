@@ -1,0 +1,29 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontFamily: Helvetica
+  flowchart:
+    wrappingWidth: 600
+---
+flowchart TB
+    H["Header fijo (desktop) / Menú hamburguesa (mobile)<br/>Cómo funciona · Beneficios · Por qué Guardian+ · Precios · Contacto"]
+
+    H -- "Cada enlace desplaza a su sección" --> S
+
+    subgraph S["Recorrido por scroll (navegación secuencial)"]
+        direction LR
+        HERO["Hero"] --> CF["Cómo funciona"] --> BEN["Beneficios"] --> PQ["Por qué Guardian+"] --> PR["Precios"] --> CO["Contacto"] --> FT["Footer"]
+    end
+
+    S --> CTA
+
+    subgraph CTA["Navegación contextual y de conversión"]
+        direction LR
+        C1["Conocer los planes"] --> R1(["Precios"])
+        C2["Ver cómo funciona"] --> R2(["Cómo funciona"])
+        C3["Saber más"] --> R3(["Detalle de funcionalidad"])
+        C4["Comenzar gratis / Elegir este plan"] --> R4(["Descarga de la app y registro"])
+        C5["Quiero más información"] --> R5(["Mensaje de confirmación"])
+        C6["Logo"] --> R6(["Inicio de la página"])
+    end
