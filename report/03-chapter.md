@@ -244,7 +244,7 @@ La pulsera presenta un conjunto mínimo de etiquetas, pensadas para ser comprend
 
 #### 3.1.2.3. SEO Tags and Meta Tags
 
-Guardian+ define elementos de Search Engine Optimization (SEO) para mejorar la identificación y visibilidad de su experiencia web en motores de búsqueda. Asimismo, se establecen elementos de App Store Optimization (ASO) para describir y posicionar adecuadamente la aplicación móvil en plataformas de distribución de aplicaciones.
+  Guardian+ define elementos de Search Engine Optimization (SEO) para mejorar la identificación y visibilidad de su experiencia web en motores de búsqueda. Asimismo, se establecen elementos de App Store Optimization (ASO) para describir y posicionar adecuadamente la aplicación móvil en plataformas de distribución de aplicaciones.
 
 ##### Landing Page
 
@@ -291,6 +291,17 @@ La aplicación móvil constituye el principal medio de interacción para familia
 Los elementos ASO definidos buscan comunicar de forma clara el propósito de Guardian+ y favorecer su identificación mediante términos relacionados con cuidado remoto, monitoreo, seguridad, alertas, ubicación y asistencia a personas bajo cuidado.
 
 #### 3.1.2.4. Searching Systems
+
+El sistema de búsqueda en la aplicación móvil y plataforma web optimiza la recuperación de datos mediante filtros estructurados y búsquedas directas:
+
+*   **Búsqueda en Bitácora de Salud e Incidentes:**
+    *   *Mecanismo:* Barra de consulta rápida con autocompletado en el historial clínico.
+    *   *Filtros Disponibles:* Por rango temporal (Últimas 24 horas, 7 días, 30 días, personalizado), por tipo de parámetro biométrico (Frecuencia Cardíaca, SpO₂, Presión Arterial, Temperatura) y por severidad del evento (Normal, En Observación, Crítico).
+    *   *Presentación de Resultados:* Lista cronológica ordenada con insignias de severidad identificadas por los colores del sistema, acompañada de gráficas de tendencia sincronizadas.
+*   **Búsqueda en Agenda de Medicamentos y Rutinas:**
+    *   *Mecanismo:* Filtrado instantáneo por estado de cumplimiento (Pendiente, Administrado, Omitido) y tipo de recordatorio (Medicación, Cita Médica, Actividad Física, Hidratación).
+*   **Búsqueda de Contactos del Círculo de Cuidado:**
+    *   *Mecanismo:* Búsqueda alfabética directa por nombre, apellido o parentesco, permitiendo la asignación y reordenamiento del orden de prioridad de auxilio.
 
 #### 3.1.2.5. Navigation Systems
 
@@ -443,6 +454,7 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 ![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-2.png)
 
 ###### Mockup mobile - Por qué guardian+
+
 
 ![landing page mockup - Por qué guardian+](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-5.png)
 
