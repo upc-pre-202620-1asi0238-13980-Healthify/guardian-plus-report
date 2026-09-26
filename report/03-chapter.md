@@ -160,7 +160,7 @@ Las etiquetas del Landing Page coinciden con las secciones presentadas en los wi
 
 | Etiqueta | Tipo | Asociación (qué encuentra el visitante) |
 |---|---|---|
-| **Cómo funciona** | Menú principal | Proceso de uso de Guardian+ en tres pasos: pulsera, app y círculo de cuidado. |
+| **Cómo funciona** | Menú principal | Proceso de uso de Guardian+ explicado en tres pasos. |
 | **Beneficios** | Menú principal | Las seis funcionalidades principales del producto. |
 | **Por qué Guardian+** | Menú principal | Diferenciación frente a relojes fitness y botones SOS, junto con un testimonio. |
 | **Precios** | Menú principal | Comparación de los planes Esencial, Guardian+ y Cuidado Pro. |
