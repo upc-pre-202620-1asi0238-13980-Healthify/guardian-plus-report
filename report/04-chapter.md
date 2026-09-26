@@ -542,9 +542,9 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 
 | Product | Repository | Platform | Deployment Trigger | Public Access |
 |---|---|---|---|---|
-| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Vercel | Integración de cambios en `main` | Dominio `*.vercel.app` asignado por Vercel |
-| **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | Dominio `*.onrender.com` asignado por Render, con documentación en `/swagger-ui/index.html` |
-| **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release (`vX.Y.Z`) | Invitación por correo a los testers registrados |
+| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Vercel | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue |
+| **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue, junto con la ruta de su documentación en Swagger UI |
+| **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release versionada con Semantic Versioning, por ejemplo `v1.0.0` | Invitación por correo a los testers registrados |
 
 #### Deployment Environments
 
@@ -594,11 +594,11 @@ Una vez configurado, cada integración en `main` publica automáticamente una nu
 | **8** | Configurar *Language* `Docker`, *Branch* `main`, *Region* `Virginia (US East)` e *Instance Type* `Free`. |
 | **9** | Registrar las variables de entorno indicadas en la tabla siguiente. |
 | **10** | Configurar `/v3/api-docs` como *Health Check Path* y mantener activo *Auto-Deploy* ante cada commit en `main`. |
-| **11** | Ejecutar el despliegue y validar el acceso público a la documentación en `https://<service>.onrender.com/swagger-ui/index.html`. |
+| **11** | Ejecutar el despliegue y validar el acceso público a la documentación de los Web Services en la ruta `/swagger-ui/index.html` del dominio asignado por Render. |
 
 | Variable | Description | Source |
 |---|---|---|
-| `SPRING_DATASOURCE_URL` | Cadena JDBC de la base de datos, con el formato `jdbc:postgresql://<host>/guardian_plus?sslmode=require`. | Neon |
+| `SPRING_DATASOURCE_URL` | Cadena de conexión JDBC de la base de datos `guardian_plus`, con el parámetro `sslmode=require`. | Neon |
 | `SPRING_DATASOURCE_USERNAME` | Usuario de la base de datos. | Neon |
 | `SPRING_DATASOURCE_PASSWORD` | Contraseña de la base de datos. | Neon |
 | `JWT_SECRET` | Clave utilizada por IAM para firmar los JWT de sesión. | Generada por el equipo |
