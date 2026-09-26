@@ -93,11 +93,9 @@ Escala tipográfica normalizada:
 
 #### 3.1.2.1. Organization Systems
 
-## Organization Systems
-
 Guardian+ organiza su información combinando estructuras visuales y esquemas de categorización según el tipo de contenido y la necesidad del usuario en cada momento.
 
-### Estructuras de organización
+##### Estructuras de organización
 
 **Jerárquica (Visual Hierarchy).** Se aplica a la navegación principal de la app: desde el Inicio se accede a las 5 secciones core (Monitoreo de Salud, Rutinas y Bienestar, Alertas, Ubicación, Perfil), y dentro de cada una la información se prioriza visualmente según su criticidad — por ejemplo, en Alertas, las alertas activas se muestran por encima del historial de incidentes ya resueltos.
 
@@ -105,7 +103,7 @@ Guardian+ organiza su información combinando estructuras visuales y esquemas de
 
 **Matricial (Matrix).** Se aplica donde el usuario necesita comparar información en dos dimensiones a la vez: el calendario semanal de recordatorios de medicación (horarios × días de la semana) y la comparación de planes de suscripción (beneficios × plan).
 
-### Esquemas de categorización
+##### Esquemas de categorización
 
 **Alfabético.** Para listas donde el usuario busca un ítem puntual por nombre: la lista de contactos de emergencia y el listado de medicamentos registrados.
 
@@ -116,13 +114,13 @@ Guardian+ organiza su información combinando estructuras visuales y esquemas de
 
 ![organizacion-systems](../assets/images/chapterIII/organization-systems/organization-systems-diagram.jpg)
 
-##### 3.1.2.2. Labelling Systems
+#### 3.1.2.2. Labelling Systems
 
-##### 3.1.2.3. SEO Tags and Meta Tags
+#### 3.1.2.3. SEO Tags and Meta Tags
 
 Guardian+ define elementos de Search Engine Optimization (SEO) para mejorar la identificación y visibilidad de su experiencia web en motores de búsqueda. Asimismo, se establecen elementos de App Store Optimization (ASO) para describir y posicionar adecuadamente la aplicación móvil en plataformas de distribución de aplicaciones.
 
-###### Landing Page
+##### Landing Page
 
 La Landing Page constituye la presencia web pública de Guardian+ y tiene como propósito presentar la propuesta de valor de la solución, sus principales funcionalidades, beneficios, planes de suscripción y canales de contacto para familiares y cuidadores.
 
@@ -147,13 +145,13 @@ La configuración SEO definida para la Landing Page se incorporará en el docume
 
 Los términos seleccionados se relacionan con las principales secciones definidas para la Landing Page, como la explicación del funcionamiento de Guardian+, sus beneficios, características diferenciadoras, planes de suscripción y canales de contacto.
 
-###### Web Application
+##### Web Application
 
 En la arquitectura actual de Guardian+ no se contempla una Web Application operativa independiente. La experiencia web corresponde a la Landing Page pública, mientras que las funcionalidades operativas de monitoreo, alertas, ubicación, rutinas, perfiles y suscripciones son proporcionadas mediante la aplicación móvil.
 
 Por este motivo, en la presente iteración no se definen SEO Tags ni Meta Tags adicionales para una Web Application separada, concentrándose la estrategia SEO de la experiencia web en la Landing Page.
 
-###### Mobile Application — ASO Elements
+##### Mobile Application — ASO Elements
 
 La aplicación móvil constituye el principal medio de interacción para familiares y cuidadores dentro de Guardian+. Para su publicación y presentación en plataformas de distribución de aplicaciones se definen los siguientes elementos de App Store Optimization (ASO):
 
@@ -166,55 +164,55 @@ La aplicación móvil constituye el principal medio de interacción para familia
 
 Los elementos ASO definidos buscan comunicar de forma clara el propósito de Guardian+ y favorecer su identificación mediante términos relacionados con cuidado remoto, monitoreo, seguridad, alertas, ubicación y asistencia a personas bajo cuidado.
 
-##### 3.1.2.4. Searching Systems
+#### 3.1.2.4. Searching Systems
 
-##### 3.1.2.5. Navigation Systems
+#### 3.1.2.5. Navigation Systems
 
-#### 3.1.3. Landing Page UI Design
+### 3.1.3. Landing Page UI Design
 
-##### 3.1.3.1. Landing Page Wireframe
+#### 3.1.3.1. Landing Page Wireframe
 
-#### Landing page wireframe desktop
+##### Landing page wireframe desktop
 
-#### Wireframe desktop - Cómo funciona
+###### Wireframe desktop - Cómo funciona
 
 ![landing page wireframe - Cómo funciona](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_1.png)
 
-#### Wireframe desktop - Beneficios
+###### Wireframe desktop - Beneficios
 
 ![landing page wireframe - Beneficios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_2.png)
 
-#### Wireframe desktop - Por qué Guardian+
+###### Wireframe desktop - Por qué Guardian+
 
 ![landing page wireframe - Por qué Guardian+](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_3.png)
 
-#### Wireframe desktop - Precios
+###### Wireframe desktop - Precios
 
 ![landing page wireframe - Precios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_4.png)
 
-#### Wireframe desktop - Contacto
+###### Wireframe desktop - Contacto
 
 ![landing page wireframe - Contacto](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_5.png)
 
-#### Landing page wireframe mobile
+##### Landing page wireframe mobile
 
-#### Wireframe mobile - Cómo funciona
+###### Wireframe mobile - Cómo funciona
 
 ![landing page wireframe - Cómo funciona](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_1.png)
 
-#### Wireframe mobile - Beneficios
+###### Wireframe mobile - Beneficios
 
 ![landing page wireframe - Beneficios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_2.png)
 
-#### Wireframe mobile - Por qué Guardian+
+###### Wireframe mobile - Por qué Guardian+
 
 ![landing page wireframe - Por qué Guardian+](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_3.png)
 
-#### Wireframe mobile - Precios
+###### Wireframe mobile - Precios
 
 ![landing page wireframe - Precios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_4.png)
 
-#### Wireframe mobile - Contacto
+###### Wireframe mobile - Contacto
 
 ![landing page wireframe - Contacto](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_5.png)
 
@@ -229,58 +227,60 @@ Diseño inclusivo: textos cortos y escaneables (títulos de 3-6 palabras, descri
 
 Versión Mobile: las mismas secciones se apilan en una sola columna, el menú colapsa a ícono de hamburguesa, y las grillas de 3 columnas pasan a apilarse verticalmente, manteniendo el mismo orden de lectura que en desktop.
 
-##### 3.1.3.2. Landing Page Mock-up
+#### 3.1.3.2. Landing Page Mock-up
 
-#### Mockup desktop - Cómo funciona
+##### Landing page mockup desktop
+
+###### Mockup desktop - Cómo funciona
 
 ![landing page mockup - Cómo funciona](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-1.png)
 
-#### Mockup desktop - Beneficios
+###### Mockup desktop - Beneficios
 
 ![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-2.png)
 
-#### Mockup desktop - Por qué guardian+
+###### Mockup desktop - Por qué guardian+
 
 ![landing page mockup - Por qué guardian plus](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-3.png)
 
-#### Mockup desktop - Precios
+###### Mockup desktop - Precios
 
 ![landing page mockup - Precios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-4.png)
 
-#### Mockup desktop - Contacto
+###### Mockup desktop - Contacto
 
 ![landing page mockup - Contacto](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-desktop-5.png)
 
-#### Landing page mockup mobile
+##### Landing page mockup mobile
 
-#### Mockup mobile - Cómo funciona
+###### Mockup mobile - Cómo funciona
 
 ![landing page mockup - Cómo funciona](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-1.png)
 
-#### Mockup mobile - Beneficios
+###### Mockup mobile - Beneficios
 
 ![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-2.png)
 
-#### Mockup mobile - Por qué guardian+
+###### Mockup mobile - Por qué guardian+
 
 ![landing page mockup - Por qué guardian+](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-5.png)
 
-#### Mockup mobile - Precios
+###### Mockup mobile - Precios
 
 ![landing page mockup - Precios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-3.png)
 
-#### Mockup mobile - Contacto
+###### Mockup mobile - Contacto
 
 ![landing page mockup - Contacto](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-4.png)
 
-#### 3.1.4. Mobile Applications UX/UI Design
+### 3.1.4. Mobile Applications UX/UI Design
 
-##### 3.1.4.1. Mobile Applications Wireframes
+#### 3.1.4.1. Mobile Applications Wireframes
 
-##### 3.1.4.2. Mobile Applications Wireflow Diagrams
+#### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
-##### 3.1.4.3. Mobile Applications Mock-ups
+#### 3.1.4.3. Mobile Applications Mock-ups
 
-##### 3.1.4.4. Mobile Applications User Flow Diagrams
+#### 3.1.4.4. Mobile Applications User Flow Diagrams
 
-##### 3.1.4.5. Mobile Applications Prototyping
+#### 3.1.4.5. Mobile Applications Prototyping
