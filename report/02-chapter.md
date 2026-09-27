@@ -639,7 +639,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US06</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Cuidador</td>
     <td>High</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -651,13 +651,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo recibir avisos hápticos y sonoros en mi pulsera en los horarios exactos de mis medicamentos para no olvidar mis dosis prescritas.</td>
+    <td colspan="4">Como cuidador, deseo programar las tomas de medicación del Fragile Citizen y que su pulsera emita los avisos hápticos y sonoros en los horarios exactos para asegurar la adherencia al tratamiento prescrito.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> existe una toma de medicamento registrada para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el Fragile Citizen ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y sincroniza el evento con el cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y el Fragile Citizen no envía confirmación dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo puntual del recordatorio programado</strong><br>- <strong>Dado que</strong> el cuidador ha registrado una toma de medicamento para una hora específica.<br>- <strong>Cuando</strong> el reloj del sistema alcanza la hora programada.<br>- <strong>Entonces</strong> el dispositivo emite señales vibratorias y sonoras, y el sistema marca el recordatorio como emitido.<br><br><strong>Escenario 2: Confirmación manual de ingestión de medicamento</strong><br>- <strong>Dado que</strong> el recordatorio de medicamento está activo en el dispositivo.<br>- <strong>Cuando</strong> el Fragile Citizen ejecuta la confirmación de la toma en el dispositivo.<br>- <strong>Entonces</strong> el sistema registra la dosis como administrada exitosamente y refleja el evento en la aplicación del cuidador.<br><br><strong>Escenario 3: Reintento por omisión de confirmación</strong><br>- <strong>Dado que</strong> un recordatorio ha sido emitido y no se registra la confirmación de la toma dentro de 10 minutos.<br>- <strong>Cuando</strong> expira dicho lapso de tolerancia.<br>- <strong>Entonces</strong> el sistema genera una segunda advertencia local y remite una notificación de dosis pendiente al cuidador.</td>
   </tr>
 </table>
 
@@ -750,7 +750,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del Fragile Citizen excedan los rangos seguros configurados para intervenir preventivamente.</td>
+    <td colspan="4">Como familiar o cuidador, deseo que el sistema genere una notificación prioritaria cuando los signos vitales del Fragile Citizen excedan los rangos seguros configurados para intervenir preventivamente.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -771,7 +771,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US10</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Familiar / Cuidador</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -783,13 +783,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo validar manualmente desde mi pulsera que me encuentro a salvo tras dispararse una advertencia para evitar movilizaciones innecesarias de mis familiares.</td>
+    <td colspan="4">Como familiar o cuidador, deseo que el Fragile Citizen pueda descartar desde su pulsera una advertencia preventiva cuando se encuentra a salvo para evitar movilizaciones innecesarias del Care Circle ante falsas alarmas.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del Fragile Citizen</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el Fragile Citizen confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado por el propio usuario.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
+    <td colspan="4"><strong>Escenario 1: Notificación de resolución rápida por parte del Fragile Citizen</strong><br>- <strong>Dado que</strong> se ha emitido una advertencia preventiva en el ecosistema Guardian+.<br>- <strong>Cuando</strong> el Fragile Citizen confirma la opción de estado seguro dentro de una ventana de 30 segundos.<br>- <strong>Entonces</strong> el sistema notifica al cuidador que el evento ha sido atendido y descartado desde la pulsera por el Fragile Citizen.<br><br><strong>Escenario 2: Vencimiento de ventana de confirmación manual</strong><br>- <strong>Dado que</strong> la advertencia preventiva se encuentra activa en el dispositivo.<br>- <strong>Cuando</strong> transcurren 30 segundos continuos sin registro de interacción manual.<br>- <strong>Entonces</strong> el sistema promueve la advertencia a categoría de alerta de confirmación requerida y la despacha al cuidador.</td>
   </tr>
 </table>
 
@@ -816,7 +816,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el Fragile Citizen reciba atención de emergencia.</td>
+    <td colspan="4">Como familiar o cuidador, deseo que las alertas críticas no reconocidas se transmitan a contactos secundarios o entidades de apoyo para asegurar que el Fragile Citizen reciba atención de emergencia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -849,7 +849,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo personalizar los canales y umbrales de severidad de las notificaciones para adaptar el comportamiento del sistema a los requerimientos clínicos específicos del Fragile Citizen.</td>
+    <td colspan="4">Como familiar o cuidador, deseo personalizar los canales y umbrales de severidad de las notificaciones para adaptar el comportamiento del sistema a los requerimientos clínicos específicos del Fragile Citizen.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -903,7 +903,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US14</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Cuidador</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -915,13 +915,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo que mi pulsera me recuerde realizar pausas activas o ejercicios de movilidad suave para mantener mi autonomía funcional.</td>
+    <td colspan="4">Como cuidador, deseo programar recordatorios de pausas activas y ejercicios de movilidad suave en la pulsera del Fragile Citizen para contribuir a la conservación de su autonomía funcional.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> se ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al Fragile Citizen.<br>- <strong>Cuando</strong> el usuario confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo de rutina de ejercicio planificada</strong><br>- <strong>Dado que</strong> el cuidador ha configurado un plan de actividad física para un horario definido.<br>- <strong>Cuando</strong> el reloj del sistema coincide con dicho horario.<br>- <strong>Entonces</strong> la pulsera emite una señal háptica indicando el inicio del bloque de actividad física.<br><br><strong>Escenario 2: Registro de cumplimiento de actividad</strong><br>- <strong>Dado que</strong> el recordatorio de actividad física ha sido presentado al Fragile Citizen.<br>- <strong>Cuando</strong> el Fragile Citizen confirma la finalización del ejercicio en el dispositivo.<br>- <strong>Entonces</strong> el sistema incrementa el contador de adherencia a rutinas de movilidad en el registro diario consultable por el cuidador.</td>
   </tr>
 </table>
 
@@ -936,7 +936,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US15</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Familiar / Cuidador</td>
     <td>Highest</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -948,13 +948,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo pulsar un botón SOS físico en la pulsera ante cualquier peligro para pedir asistencia inmediata a mis familiares sin depender del teléfono móvil.</td>
+    <td colspan="4">Como familiar o cuidador, deseo recibir un aviso de auxilio de máxima prioridad cuando el Fragile Citizen presione el botón SOS físico de la pulsera para acudir de inmediato sin que él dependa del teléfono móvil.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el Fragile Citizen presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el usuario presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
+    <td colspan="4"><strong>Escenario 1: Disparo efectivo por pulsación sostenida</strong><br>- <strong>Dado que</strong> la pulsera se encuentra encendida y con enlace de datos disponible.<br>- <strong>Cuando</strong> el Fragile Citizen presiona el botón físico de SOS por al menos 3 segundos continuos.<br>- <strong>Entonces</strong> el sistema despacha de forma inmediata un evento de auxilio de máxima severidad a los contactos de emergencia registrados, incluyendo la ubicación actual.<br><br><strong>Escenario 2: Aborto preventivo por pulsación involuntaria</strong><br>- <strong>Dado que</strong> el Fragile Citizen presiona el botón de SOS por un lapso inferior a 3 segundos.<br>- <strong>Cuando</strong> se libera la presión del botón sin alcanzar el umbral requerido.<br>- <strong>Entonces</strong> el dispositivo descarta la acción y evita el despacho de cualquier evento de alarma.</td>
   </tr>
 </table>
 
@@ -1101,7 +1101,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US20</strong></td>
-    <td>Fragile Citizen / Cuidador</td>
+    <td>Cuidador</td>
     <td>High</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -1113,7 +1113,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, o cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera descienda del 20% para recargarla y evitar la suspensión del monitoreo.</td>
+    <td colspan="4">Como cuidador, deseo recibir una advertencia oportuna cuando la batería de la pulsera del Fragile Citizen descienda del 20% para coordinar su recarga y evitar la suspensión del monitoreo.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
@@ -1167,7 +1167,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US22</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Cuidador</td>
     <td>Low</td>
     <td>EP03 - Alertas y Gestión de Emergencias</td>
   </tr>
@@ -1179,13 +1179,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo habilitar un modo de vibración táctil silenciosa para recibir mis notificaciones sin perturbar mi entorno en espacios públicos o eventos sociales.</td>
+    <td colspan="4">Como cuidador, deseo habilitar un modo de vibración táctil silenciosa en la pulsera del Fragile Citizen para que reciba sus avisos sin perturbar su entorno en espacios públicos o eventos sociales.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Conmutación a perfil táctil silencioso</strong><br>- <strong>Dado que</strong> la pulsera opera bajo el perfil de notificaciones auditivas estándar.<br>- <strong>Cuando</strong> el usuario activa el modo discreto en el dispositivo.<br>- <strong>Entonces</strong> el sistema silencia los zumbadores acústicos y canaliza todos los avisos a través de patrones vibratorios.<br><br><strong>Escenario 2: Excepción para eventos de emergencia crítica</strong><br>- <strong>Dado que</strong> la pulsera se encuentra configurada en modo discreto.<br>- <strong>Cuando</strong> se dispara una alerta clasificada como emergencia crítica o SOS.<br>- <strong>Entonces</strong> el sistema anula la restricción silenciosa y ejecuta las señales audibles de máxima alerta.</td>
+    <td colspan="4"><strong>Escenario 1: Conmutación a perfil táctil silencioso</strong><br>- <strong>Dado que</strong> la pulsera opera bajo el perfil de notificaciones auditivas estándar.<br>- <strong>Cuando</strong> el cuidador activa el modo discreto desde la aplicación.<br>- <strong>Entonces</strong> el sistema silencia los zumbadores acústicos y canaliza todos los avisos a través de patrones vibratorios.<br><br><strong>Escenario 2: Excepción para eventos de emergencia crítica</strong><br>- <strong>Dado que</strong> la pulsera se encuentra configurada en modo discreto.<br>- <strong>Cuando</strong> se dispara una alerta clasificada como emergencia crítica o SOS.<br>- <strong>Entonces</strong> el sistema anula la restricción silenciosa y ejecuta las señales audibles de máxima alerta.</td>
   </tr>
 </table>
 
@@ -1299,7 +1299,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <td><strong>US26</strong></td>
-    <td>Fragile Citizen</td>
+    <td>Cuidador</td>
     <td>Low</td>
     <td>EP02 - Recordatorios y Rutinas de Bienestar</td>
   </tr>
@@ -1311,13 +1311,13 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como Fragile Citizen, deseo que la pulsera me avise periódicamente cuándo tomar agua o levantarme para evitar la deshidratación y la rigidez articular.</td>
+    <td colspan="4">Como cuidador, deseo que la pulsera del Fragile Citizen le recuerde periódicamente tomar agua o levantarse para prevenir la deshidratación y la rigidez articular.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Notificación de intervalo de hidratación</strong><br>- <strong>Dado que</strong> transcurren 120 minutos consecutivos sin registro de confirmación de ingesta hídrica.<br>- <strong>Cuando</strong> se cumple la ventana de tiempo establecida.<br>- <strong>Entonces</strong> el dispositivo emite un patrón de vibración indicando el recordatorio de hidratación.<br><br><strong>Escenario 2: Supresión durante horas de descanso</strong><br>- <strong>Dado que</strong> el sistema identifica que el usuario se encuentra dentro del rango horario de sueño nocturno.<br>- <strong>Cuando</strong> vence el ciclo de hidratación periódica.<br>- <strong>Entonces</strong> el sistema inhibe la emisión del recordatorio para resguardar el descanso del Fragile Citizen.</td>
+    <td colspan="4"><strong>Escenario 1: Notificación de intervalo de hidratación</strong><br>- <strong>Dado que</strong> transcurren 120 minutos consecutivos sin registro de confirmación de ingesta hídrica.<br>- <strong>Cuando</strong> se cumple la ventana de tiempo establecida.<br>- <strong>Entonces</strong> el dispositivo emite un patrón de vibración indicando el recordatorio de hidratación.<br><br><strong>Escenario 2: Supresión durante horas de descanso</strong><br>- <strong>Dado que</strong> el sistema identifica que el Fragile Citizen se encuentra dentro del rango horario de sueño nocturno.<br>- <strong>Cuando</strong> vence el ciclo de hidratación periódica.<br>- <strong>Entonces</strong> el sistema inhibe la emisión del recordatorio para resguardar el descanso del Fragile Citizen.</td>
   </tr>
 </table>
 
