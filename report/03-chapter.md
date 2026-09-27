@@ -334,16 +334,52 @@ Los elementos ASO definidos buscan comunicar de forma clara el propósito de Gua
 
 #### 3.1.2.4. Searching Systems
 
-El sistema de búsqueda en la aplicación móvil y plataforma web optimiza la recuperación de datos mediante filtros estructurados y búsquedas directas:
+Guardian+ resuelve la totalidad de sus búsquedas con un único patrón de interacción, el **desplegable con búsqueda** (*searchable dropdown*), y un único mecanismo de filtrado, las **etiquetas** (*tags*). Todas las secciones que permiten consultar información —Salud, Rutinas, Alertas, Ubicación y Perfil— emplean estos dos componentes con el mismo comportamiento, de modo que el usuario aprende una sola mecánica de búsqueda y la reutiliza en el resto del producto. La búsqueda libre por texto abierto se descarta como mecanismo principal y se limita a los listados de nombres propios.
 
-*   **Búsqueda en Bitácora de Salud e Incidentes:**
-    *   *Mecanismo:* Barra de consulta rápida con autocompletado en el historial clínico.
-    *   *Filtros Disponibles:* Por rango temporal (Últimas 24 horas, 7 días, 30 días, personalizado), por tipo de parámetro biométrico (Frecuencia Cardíaca, SpO₂, Presión Arterial, Temperatura) y por severidad del evento (Normal, En Observación, Crítico).
-    *   *Presentación de Resultados:* Lista cronológica ordenada con insignias de severidad identificadas por los colores del sistema, acompañada de gráficas de tendencia sincronizadas.
-*   **Búsqueda en Agenda de Medicamentos y Rutinas:**
-    *   *Mecanismo:* Filtrado instantáneo por estado de cumplimiento (Pendiente, Administrado, Omitido) y tipo de recordatorio (Medicación, Cita Médica, Actividad Física, Hidratación).
-*   **Búsqueda de Contactos del Círculo de Cuidado:**
-    *   *Mecanismo:* Búsqueda alfabética directa por nombre, apellido o parentesco, permitiendo la asignación y reordenamiento del orden de prioridad de auxilio.
+##### Justificación del patrón elegido
+
+El desplegable con búsqueda combina las dos formas de localizar información sin obligar al usuario a elegir entre ellas: al abrirse muestra la lista completa de valores disponibles, lo que permite **reconocer** la opción buscada sin recordarla, y admite al mismo tiempo la escritura de unos pocos caracteres para **reducir** esa lista de inmediato. Esta doble vía resuelve la diferencia de uso entre los dos segmentos del producto: el familiar, que abre la aplicación de forma ocasional y no conoce de memoria las opciones, recorre la lista; el cuidador, que la usa varias veces al día y sabe qué busca, escribe dos letras y selecciona.
+
+La razón de fondo para preferirlo a un campo de búsqueda abierto es que el vocabulario del dominio de Guardian+ es cerrado y conocido: existen cinco signos vitales, seis tipos de alerta, cinco tipos de rutina y un conjunto acotado de estados, todos ellos ya definidos en el Labelling Systems. Un campo de texto libre obligaría al usuario a adivinar ese vocabulario y produciría resultados vacíos cada vez que escribiera un término que el sistema no reconoce —*presión alta* en lugar de *Presión arterial*, *desmayo* en lugar de *Caída*—. El desplegable elimina por completo esa posibilidad: como solo ofrece valores existentes, ninguna consulta puede quedar sin resultados por un error de escritura o de terminología. En un producto usado bajo tensión y por personas de edad avanzada, evitar el callejón sin salida del *sin resultados* importa más que ofrecer la flexibilidad de la escritura libre.
+
+El componente aporta además ventajas concretas en el contexto móvil. Cada opción es un objetivo táctil que cumple el área mínima definida en las Style Guidelines, por lo que seleccionar es más rápido y menos propenso a error que escribir en un teclado en pantalla, especialmente para un usuario con destreza reducida. Al no requerir ortografía exacta, tolera los términos clínicos difíciles de escribir. Y al mostrar siempre las opciones disponibles, informa al usuario de lo que el sistema puede hacer, en lugar de dejarlo frente a un campo vacío del que no sabe qué esperar.
+
+Las etiquetas, por su parte, se eligen como mecanismo de filtrado porque hacen visible el estado de la consulta. Un filtro aplicado desde un menú que se cierra deja al usuario ante una lista incompleta sin explicación aparente, situación especialmente riesgosa en un historial de alertas, donde una lista filtrada puede leerse como *no hay más incidentes*. Cada etiqueta activa permanece en pantalla como un *chip* que declara el criterio vigente y que se elimina con un solo toque, de modo que el usuario siempre sabe por qué está viendo lo que ve y cómo volver atrás. Las etiquetas reutilizan literalmente las etiquetas de estado definidas en el Labelling Systems, con su mismo texto y su mismo color semántico, por lo que el vocabulario con el que se filtra es el mismo con el que se lee la información.
+
+##### Anatomía del desplegable con búsqueda
+
+| Elemento | Comportamiento |
+|---|---|
+| **Campo disparador** | Muestra la selección vigente o el texto de invitación de la sección (*Todos los signos vitales*, *Todos los tipos de alerta*). Presenta radio de 12px y un ícono de cheurón descendente. |
+| **Panel desplegable** | Se abre como hoja inferior en móvil, con radio de 20px y elevación *High*, ocupando como máximo el 70% de la altura de la pantalla. |
+| **Campo de búsqueda interno** | Se ubica en la cabecera del panel y filtra la lista a medida que el usuario escribe, sin distinguir mayúsculas ni acentos. |
+| **Lista de opciones** | Presenta todas las opciones disponibles con su ícono y, cuando corresponde, su color semántico. Las coincidencias con el texto escrito se resaltan en negrita. |
+| **Selección múltiple** | Los desplegables que admiten más de un valor incorporan casillas de verificación y un contador de seleccionados en el campo disparador (*2 tipos de alerta*). |
+| **Acciones del panel** | *Aplicar* confirma la selección y cierra el panel; *Limpiar* restablece el valor por defecto de la sección. |
+| **Estado sin coincidencias** | Cuando el texto escrito no coincide con ninguna opción, el panel indica que no existe ese criterio y ofrece la acción *Ver todas las opciones*, evitando que el usuario quede sin salida. |
+
+##### Filtrado por etiquetas
+
+| Elemento | Comportamiento |
+|---|---|
+| **Barra de etiquetas activas** | Se sitúa bajo la cabecera de la sección y muestra un *chip* por cada criterio aplicado, con su color semántico y un ícono de cierre. |
+| **Combinación de criterios** | Las etiquetas de una misma familia se combinan de forma inclusiva —*Crítica* junto con *Alta* devuelve ambas severidades— mientras que las etiquetas de familias distintas se combinan de forma restrictiva: *Crítica* junto con *Semana* devuelve las alertas críticas de la última semana. |
+| **Eliminación** | Cada *chip* se retira individualmente con un toque en su ícono de cierre. La acción *Limpiar filtros* retira todos a la vez. |
+| **Recuento de resultados** | Junto a la barra de etiquetas se indica la cantidad de registros que satisfacen la consulta (*12 resultados*). |
+| **Persistencia** | Las etiquetas aplicadas se conservan al navegar al detalle de un registro y regresar, en coherencia con la regla de retorno predecible definida en los Navigation Systems. |
+| **Resultado vacío** | Si ninguna combinación de etiquetas devuelve registros, la sección informa que no existen coincidencias para los criterios activos y ofrece la acción *Limpiar filtros*, en lugar de presentar una lista vacía sin explicación. |
+
+##### Aplicación por sección
+
+| Sección | Desplegable con búsqueda | Etiquetas de filtrado | Presentación de resultados |
+|---|---|---|---|
+| **Salud** | Selector del parámetro biométrico: *Ritmo cardíaco*, *Presión arterial*, *Oxígeno*, *Temperatura*, *Respiración*. | Periodo (*Día · Semana · Mes*) y estado de la lectura (*Normal*, *Elevado*, *Bajo*, *Sin señal*). | Gráfica de tendencia del parámetro seleccionado y, bajo ella, la lista cronológica de lecturas con su etiqueta de estado. |
+| **Rutinas** | Selector del recordatorio por nombre del medicamento, de la cita o de la rutina, con la lista completa visible al abrirse. | Tipo (*Medicación*, *Citas médicas*, *Actividad*, *Hidratación*, *Descanso*) y estado de cumplimiento (*Programado*, *Pendiente*, *Confirmado*, *Omitido*, *Reenviado*). | Agenda del periodo activo agrupada por franja horaria, con la etiqueta de estado de cada recordatorio. |
+| **Alertas** | Selector del tipo de alerta: *Caída*, *SOS*, *Signo vital fuera de rango*, *Salida de zona segura*, *Inactividad*, *Batería baja*. Admite selección múltiple. | Severidad (*Crítica*, *Alta*, *Media*), estado del incidente (*En atención*, *Estabilizado*, *Cerrado*) y periodo (*Día · Semana · Mes*). | Lista cronológica descendente con la insignia de severidad de cada incidente y el acceso directo a su detalle. |
+| **Ubicación** | Selector de la zona segura por nombre (*Casa*, *Parque*, *Club*), con la lista de zonas configuradas visible al abrirse. | Estado del perímetro (*En su zona segura*, *Fuera de zona segura*) y periodo (*Día · Semana · Mes*). | Mapa con la zona seleccionada resaltada y el registro de entradas y salidas del periodo. |
+| **Perfil › Círculo de cuidado** | Selector del contacto por nombre, apellido o parentesco. Es el único caso en que la escritura libre opera sobre nombres propios, por lo que el desplegable acepta cualquier texto y filtra la lista de contactos registrados. | Rol (*Familiar*, *Cuidador*) y posición en el escalamiento (*Primario*, *Secundario*). | Lista ordenada alfabéticamente, con la posición de auxilio de cada contacto y la posibilidad de reordenarla. |
+
+En la Landing Page no se incorpora un sistema de búsqueda: al tratarse de una página informativa de extensión acotada, la localización de contenido se resuelve mediante la navegación entre secciones descrita en los Navigation Systems.
 
 #### 3.1.2.5. Navigation Systems
 
