@@ -66,7 +66,7 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
-| **Vercel** | Publicación del Landing Page con despliegue automático desde la rama `main` de su repositorio. | SaaS | [vercel.com](https://vercel.com) |
+| **Cloudflare Pages** | Publicación del Landing Page con despliegue automático desde la rama `main` de su repositorio. | SaaS | [pages.cloudflare.com](https://pages.cloudflare.com) |
 | **Render** | Despliegue de los Web Services como contenedor Docker, con despliegue automático desde la rama `main`. | SaaS | [render.com](https://render.com) |
 | **Neon** | Servicio gestionado de PostgreSQL para la base de datos de los Web Services desplegados. | SaaS | [neon.tech](https://neon.tech) |
 | **Firebase App Distribution** | Distribución de las versiones de prueba de la aplicación móvil a los testers y usuarios de validación. | SaaS | [firebase.google.com/products/app-distribution](https://firebase.google.com/products/app-distribution) |
@@ -542,7 +542,7 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 
 | Product | Repository | Platform | Deployment Trigger | Public Access |
 |---|---|---|---|---|
-| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Vercel | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue |
+| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Cloudflare Pages | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue |
 | **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue, junto con la ruta de su documentación en Swagger UI |
 | **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release versionada con Semantic Versioning, por ejemplo `v1.0.0` | Invitación por correo a los testers registrados |
 
@@ -551,19 +551,19 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 | Environment | Branch | Landing Page | Web Services | Mobile Application |
 |---|---|---|---|---|
 | **Local** | `feat/*`, `develop` | `npm start` en `localhost:3000` | `./mvnw spring-boot:run` con PostgreSQL local | Android Emulator desde Android Studio |
-| **Preview** | Pull Request | Preview Deployment generado automáticamente por Vercel | — | — |
-| **Production** | `main` | Vercel Production | Render y Neon | Firebase App Distribution |
+| **Preview** | Pull Request | Preview Deployment generado automáticamente por Cloudflare Pages | — | — |
+| **Production** | `main` | Cloudflare Pages Production | Render y Neon | Firebase App Distribution |
 
 #### Landing Page Deployment
 
 | Step | Action |
 |---|---|
 | **1** | Verificar que `node_modules/` y `build/` estén incluidos en `.gitignore` y que `npm run build` se ejecute sin errores. |
-| **2** | Iniciar sesión en Vercel con la cuenta de GitHub del equipo y seleccionar *Add New → Project*. |
-| **3** | Importar el repositorio `guardian-plus-website`. |
-| **4** | Configurar el proyecto: *Framework Preset* `Create React App`, *Install Command* `npm ci`, *Build Command* `npm run build` y *Output Directory* `build`. |
-| **5** | Definir `main` como *Production Branch*. |
-| **6** | Ejecutar *Deploy* y registrar la URL pública asignada por Vercel. |
+| **2** | Iniciar sesión en Cloudflare, ingresar a *Workers & Pages* y seleccionar *Create → Pages → Connect to Git*. |
+| **3** | Autorizar la aplicación de Cloudflare en la organización de GitHub del equipo e importar el repositorio `guardian-plus-website`. |
+| **4** | Configurar el proyecto: *Project name* `guardian-plus`, *Production branch* `main`, *Framework preset* `Create React App`, *Build command* `npm run build` y *Build output directory* `build`. |
+| **5** | Registrar la variable de entorno `NODE_VERSION` con el valor `20`, junto con las variables `REACT_APP_*` del Landing Page a medida que estén disponibles. |
+| **6** | Ejecutar *Save and Deploy* y registrar la URL pública asignada por Cloudflare Pages, con el formato `https://<project-name>.pages.dev`. |
 | **7** | Validar la navegación entre secciones, el formulario de contacto, los meta tags definidos en la sección 3.1.2.3 y los resultados de accesibilidad y rendimiento en Lighthouse. |
 
 Una vez configurado, cada integración en `main` publica automáticamente una nueva versión del Landing Page, y cada Pull Request genera una URL de vista previa que permite revisar los cambios antes de integrarlos.
