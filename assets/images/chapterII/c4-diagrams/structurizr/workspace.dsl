@@ -35,7 +35,7 @@ workspace "Guardian+" "C4 model of the Guardian+ platform." {
         mobileApp -> googleMaps "Renders maps and real-time location" "HTTPS"
 
         production = deploymentEnvironment "Production" {
-            deploymentNode "Vercel" "Hosting platform for static and frontend web applications." "Vercel Platform" {
+            deploymentNode "Cloudflare Pages" "Hosting platform for static and frontend web applications." "Cloudflare Pages" {
                 deploymentNode "Edge Network" "" "Global CDN" {
                     landingPageInstance = containerInstance landingPage
                 }
