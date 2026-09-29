@@ -542,7 +542,7 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 
 | Product | Repository | Platform | Deployment Trigger | Public Access |
 |---|---|---|---|---|
-| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Cloudflare Pages | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue |
+| **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Cloudflare Pages | Integración de cambios en `main` | [guardian-plus.pages.dev](https://guardian-plus.pages.dev) |
 | **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue, junto con la ruta de su documentación en Swagger UI |
 | **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release versionada con Semantic Versioning, por ejemplo `v1.0.0` | Invitación por correo a los testers registrados |
 
@@ -562,7 +562,7 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 | **2** | Iniciar sesión en Cloudflare, ingresar a *Workers & Pages* y seleccionar *Create → Pages → Connect to Git*. |
 | **3** | Autorizar la aplicación de Cloudflare en la organización de GitHub del equipo e importar el repositorio `guardian-plus-website`. |
 | **4** | Configurar el proyecto: *Project name* `guardian-plus`, *Production branch* `main`, *Framework preset* `Create React App`, *Build command* `npm run build` y *Build output directory* `build`. |
-| **5** | Registrar la variable de entorno `NODE_VERSION` con el valor `20`, junto con las variables `REACT_APP_*` del Landing Page a medida que estén disponibles. |
+| **5** | Registrar la variable de entorno `NODE_VERSION` con el valor `24`, junto con las variables `REACT_APP_*` del Landing Page a medida que estén disponibles. |
 | **6** | Ejecutar *Save and Deploy* y registrar la URL pública asignada por Cloudflare Pages, con el formato `https://<project-name>.pages.dev`. |
 | **7** | Validar la navegación entre secciones, el formulario de contacto, los meta tags definidos en la sección 3.1.2.3 y los resultados de accesibilidad y rendimiento en Lighthouse. |
 
@@ -694,6 +694,40 @@ La suma de 39 Story Points se ubica por debajo de la velocidad establecida de 40
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
+
+En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en Cloudflare Pages, siguiendo la configuración descrita en la sección 4.1.4. El despliegue se integra con GitFlow: cada integración en la rama `main` del repositorio publica automáticamente una nueva versión del sitio.
+
+##### Landing Page
+
+| Aspecto | Detalle |
+|---|---|
+| **Plataforma** | Cloudflare Pages |
+| **URL pública** | [guardian-plus.pages.dev](https://guardian-plus.pages.dev) |
+| **Repositorio** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) |
+| **Rama de producción** | `main` |
+| **Versión desplegada** | `v1.0.0` |
+| **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
+
+El despliegue se realizó en los siguientes pasos:
+
+| Step | Acción | Resultado |
+|---|---|---|
+| **1** | Integración de la rama `feat/landing-page-first-iteration` en `develop` mediante el Pull Request #1. | Implementación de las User Stories US30, US31, US32 y US33 disponible en la rama de integración. |
+| **2** | Creación del proyecto `guardian-plus` en Cloudflare Pages conectado al repositorio. | El primer build, ejecutado sobre el commit inicial de `main`, falló en la instalación de dependencias porque el `package-lock.json` no era compatible con npm 10, versión incluida en el entorno de build. |
+| **3** | Creación de la rama `release/v1.0.0` desde `develop`, actualización de la versión a `1.0.0` y regeneración del `package-lock.json` para que `npm ci` funcione con npm 10 y npm 11. | Build y 26 pruebas automatizadas ejecutadas satisfactoriamente sobre una instalación limpia. |
+| **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
+| **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
+
+Resultados de Lighthouse sobre la URL pública:
+
+| Categoría | Mobile | Desktop |
+|---|---|---|
+| **Performance** | 71 | 85 |
+| **Accessibility** | 97 | 97 |
+| **Best Practices** | 100 | 100 |
+| **SEO** | 100 | 100 |
+
+![landing-page-deployment](../assets/images/chatper4/sprint1/landing-page-deployment.png)
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
