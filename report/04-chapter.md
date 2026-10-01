@@ -735,6 +735,36 @@ Resultados de Lighthouse sobre la URL pública:
 
 ### 4.3.1. Diseño de Entrevistas
 
+## Diseño de Entrevistas — Validación del Landing Page
+
+La sesión de validación consiste en un recorrido guiado (think-aloud) por el Landing Page de Guardian+, en el mismo orden en que está estructurado el sitio: Hero → Pain Points → Cómo funciona → Pulsera → Beneficios → Tour de la app → Zonas Seguras → Por qué Guardian+ → Planes → Contacto. 
+
+### Segmento 1 — Familiares
+
+1. **Hero (Familiares):** Después de leer esta primera pantalla, ¿qué entiendes que hace Guardian+ por ti y tu familia, en tus propias palabras?
+2. **Pain Points:** ¿Alguna de estas tres preguntas refleja una preocupación que tú mismo has tenido con tu familiar?
+3. **Cómo funciona:** ¿Entiendes con claridad qué pasa, paso a paso, si tu familiar sufre una emergencia?
+4. **Pulsera:** De estas funciones de la pulsera, ¿cuál te daría más tranquilidad sabiendo que tu familiar la lleva puesta?
+5. **Beneficios:** ¿Cuál de estos seis beneficios te parece el más importante para decidir si usarías Guardian+?
+6. **Tour de la app:** Al explorar las pantallas de la app, ¿cuál usarías con más frecuencia para sentirte tranquilo durante el día?
+7. **Zonas Seguras:** ¿El funcionamiento de las zonas seguras te queda claro con lo que ves en pantalla, o necesitarías más explicación?
+8. **Por qué Guardian+:** ¿Te sientes identificado con el testimonio mostrado? ¿Por qué sí o por qué no?
+9. **Planes:** Viendo los tres planes, ¿cuál elegirías para tu familia y qué fue lo que más pesó en tu decisión?
+10. **Contacto:** Si tuvieras dudas sobre qué plan elegir, ¿usarías este formulario de contacto o preferirías otro canal?
+
+### Segmento 2 — Cuidadores
+
+1. **Hero (Cuidadores):** Si estuvieras buscando una herramienta que te apoye en tu trabajo de cuidado, ¿esta pantalla te convence de seguir explorando, o sientes que le falta algo dirigido específicamente a ti?
+2. **Pain Points:** ¿Estas preguntas representan también los riesgos que tú monitoreas en tu trabajo diario, o te faltaría alguna?
+3. **Cómo funciona:** Viendo estos 3 pasos, ¿sientes que encajan con cómo actúas tú actualmente ante una emergencia con tu paciente?
+4. **Pulsera:** ¿Cuál de estas funciones usarías con más frecuencia como apoyo directo a tu labor de cuidado?
+5. **Beneficios:** ¿Cuál de estos beneficios te ahorraría más tiempo o esfuerzo en tu rutina diaria de cuidado?
+6. **Tour de la app:** ¿Qué pantalla te resultaría más útil para reportar o verificar el estado del paciente mientras trabajas?
+7. **Zonas Seguras:** ¿Esta función te ayudaría a reducir la supervisión constante que haces actualmente, o no cambia mucho tu rutina?
+8. **Por qué Guardian+:** Como cuidador profesional, ¿estos diferenciadores te generan más confianza en la solución frente a lo que usas hoy?
+9. **Planes:** Si tú recomendaras un plan a la familia de tu paciente, ¿cuál sugerirías según las necesidades que observas en tu trabajo?
+10. **Contacto:** ¿Te parece útil esta opción de contacto si necesitaras orientación sobre el plan adecuado para tu paciente?
+
 ### 4.3.2. Registro de Entrevistas
 
 ### 4.3.3. Evaluaciones según heurísticas
