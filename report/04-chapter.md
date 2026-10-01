@@ -776,10 +776,10 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 |---|---|
 | **CARRERA** | Ingeniería de Software |
 | **CURSO** | 1ACC0238 Aplicaciones para dispositivos móviles |
-| **NRC** | <Código de la NRC> |
+| **NRC** | 13980 |
 | **PROFESORES** | Todos |
-| **AUDITOR** | <Nombre del equipo que ejecuta la sesión de evaluación> |
-| **CLIENTE(S)** | <Nombre de las personas que participan en la sesión> |
+| **AUDITOR** | Healthify |
+| **CLIENTE(S)** | Azama Fukuda, Juan Pablo, Mechan Montenegro, Luciana Carolina,Luis Miranda, Diego Andres, López Monroy, Rodrigo Alfredo, Sanchez Cuadrado, Juan Antonio |
 
 **SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas, Rutinas y Ubicación)
 
