@@ -1904,7 +1904,7 @@ Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citize
 <div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
 <tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (CRITICAL difunde / HIGH escala)</td>
+<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (escalamiento por niveles; difusión inmediata de CRITICAL configurable)</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ventana de Confirmación de Caída (20 s)</td>
 <td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout del contacto primario (60 s por defecto)</td>
 </tr>
@@ -3556,10 +3556,10 @@ El Bounded Context Emergency & Alerting constituye el Core Domain principal de G
 
 A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna. El Fragile Citizen se referencia mediante `CareRecipientProfileId` y los integrantes del Care Circle mediante `UserId`, ambos gobernados por otros contextos.
 
-La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
+La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure. La organización sigue la convención del repositorio `guardian-plus-platform`, compartida con el resto de Bounded Contexts.
 
 ```
-com.guardianplus.platform.emergencyalerting/
+com.healthify.guardian.platform.emergencyalerting/
 ├── domain/
 │   ├── model/
 │   │   ├── aggregates/
@@ -3574,18 +3574,21 @@ com.guardianplus.platform.emergencyalerting/
 │   ├── acl/
 │   ├── events/
 │   └── rest/
-│       ├── controllers/
 │       ├── resources/
 │       └── transform/
 ├── application/
 │   ├── acl/
 │   ├── commandservices/
-│   ├── internal/
-│   │   ├── commandservices/
-│   │   ├── eventhandlers/
-│   │   └── queryservices/
-│   └── queryservices/
+│   ├── outboundservices/
+│   ├── queryservices/
+│   └── internal/
+│       ├── commandservices/
+│       ├── eventhandlers/
+│       ├── outboundservices/
+│       └── queryservices/
 └── infrastructure/
+    ├── acl/
+    ├── configuration/
     ├── notifications/
     │   └── adapters/
     ├── persistence/
@@ -3603,14 +3606,14 @@ com.guardianplus.platform.emergencyalerting/
 
 Encapsula las reglas de reacción ante emergencias, las invariantes del ciclo de vida de alertas e incidentes y las políticas de despacho y escalamiento. La decisión de modelado central del contexto es la separación entre `Alert` e `Incident`: `Alert` es el agregado raíz que nace de una señal, se entrega a los contactos de emergencia (`AlertDelivery`) y recoge sus respuestas (`AlertResponse`); `Incident` solo existe cuando un integrante del Care Circle reconoce la alerta y asume la atención, registrando su estabilización y cierre. Por ello, una alerta origina como máximo un incidente, mientras que las alertas descartadas como falso positivo nunca llegan a generar uno.
 
-El escalamiento no se modela como un agregado independiente: se expresa mediante el nivel de destinatario (`RecipientLevel`) de cada entrega, el orden de prioridad de los `EmergencyContact` y el tiempo de espera configurado en `AlertSettings`.
+El escalamiento no se modela como un agregado independiente: se expresa mediante el nivel de destinatario (`RecipientLevel`) de cada entrega, el orden de prioridad de los `EmergencyContact` y el tiempo de espera configurado en `AlertSettings`. Toda operación sujeta a tiempo recibe el instante actual como parámetro (`Instant`) en lugar de leer el reloj, de modo que las ventanas de 20 s y 60 s se verifican de forma determinista.
 
 ###### Aggregates
 
 *   **Alert**
     *   Agregado raíz que representa la alerta disparada por una señal de riesgo sobre un Fragile Citizen, junto con sus entregas a los contactos de emergencia y las respuestas del Care Circle.
     *   Hereda de `AbstractDomainAggregateRoot<Alert>` para registrar y publicar eventos de dominio.
-    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_CONFIRMATION → TRIGGERED → ESCALATED → ACKNOWLEDGED → RESOLVED`, con `DISMISSED` como salida de un falso positivo), rechazando transiciones inválidas sin depender de servicios externos.
+    *   Gobierna de forma autónoma su ciclo de vida (`PENDING_CONFIRMATION → TRIGGERED → ESCALATED → ACKNOWLEDGED → RESOLVED`, con `DISMISSED` como salida de un falso positivo), rechazando transiciones inválidas sin depender de servicios externos. La severidad se deriva del tipo de origen (`AlertSourceType.defaultSeverity()`), nunca del emisor de la señal.
     *   *Atributos:*
         *   `id: AlertId`
         *   `careRecipientProfileId: CareRecipientProfileId`
@@ -3620,26 +3623,32 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
         *   `deliveries: List<AlertDelivery>`
         *   `responses: List<AlertResponse>`
         *   `triggeredAt: Instant`
+        *   `confirmedAt: Instant`: inicio de la medición de la latencia de despacho (US08).
+        *   `lastDispatchedAt: Instant`: base del cálculo del `AckTimeout` de cada nivel.
         *   `acknowledgedAt: Instant`
+        *   `acknowledgedByUserId: UserId`
+        *   `resolvedAt: Instant`
+        *   `version: Long`: marca de bloqueo optimista restaurada desde persistencia.
     *   *Métodos:*
         *   `Alert(TriggerAlertCommand command)`
-        *   `confirm(): void`
-        *   `dismissAsFalsePositive(): void`
-        *   `dispatchTo(UserId recipientUserId, RecipientLevel level, NotificationChannel channel): AlertDelivery`
-        *   `escalate(): void`
-        *   `broadcast(): void`
-        *   `registerDeliveryResult(AlertDeliveryId deliveryId, DeliveryStatus status, Instant occurredAt): void`
-        *   `acknowledge(UserId userId): void`
-        *   `claimResponse(UserId responderUserId): AlertResponse`
-        *   `completeResponse(AlertResponseId responseId, String notes): void`
-        *   `resolve(): void`
+        *   `confirm(Instant confirmedAt): void`
+        *   `dismissAsFalsePositive(Instant now): void`
+        *   `dispatch(RecipientLevel level, List<DeliveryTarget> targets, Instant now): List<AlertDelivery>`
+        *   `escalate(List<DeliveryTarget> targets, Instant now): List<AlertDelivery>`
+        *   `broadcast(List<DeliveryTarget> targets, Instant now): List<AlertDelivery>`
+        *   `registerDeliveryResult(AlertDeliveryId deliveryId, DeliveryStatus status, Instant occurredAt): void`: ignora callbacks repetidos o tardíos del proveedor.
+        *   `acknowledge(UserId userId, Instant now): void`: solo un destinatario notificado puede reconocer.
+        *   `claimResponse(UserId responderUserId, Instant now): AlertResponse`: solo una respuesta en curso a la vez; si la alerta no estaba reconocida, también la reconoce para detener el escalamiento.
+        *   `completeResponse(AlertResponseId responseId, String notes, Instant now): void`
+        *   `resolve(Instant now): void`
         *   `currentRecipientLevel(): RecipientLevel`
         *   `isAwaitingAcknowledgement(): boolean`
         *   `isAckTimeoutExpired(AckTimeout ackTimeout, Instant now): boolean`
+        *   `isConfirmationWindowExpired(Instant now): boolean`
 
 *   **Incident**
     *   Agregado raíz que representa la atención humana de una alerta reconocida. Referencia a su alerta por identidad (`AlertId`), con una relación de uno a cero o uno.
-    *   Ciclo de vida: `IN_ATTENTION → STABILIZED → CLOSED`.
+    *   Ciclo de vida: `IN_ATTENTION → STABILIZED → CLOSED`. Puede cerrarse directamente desde `IN_ATTENTION` cuando no hubo nada que estabilizar; las notas de cada etapa se acumulan.
     *   *Atributos:*
         *   `id: IncidentId`
         *   `alertId: AlertId`
@@ -3648,59 +3657,60 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
         *   `stabilizedAt: Instant`
         *   `closedAt: Instant`
         *   `notes: String`
-        *   `createdAt: Instant`
     *   *Métodos:*
         *   `Incident(OpenIncidentCommand command)`
-        *   `stabilize(String notes): void`
-        *   `close(String notes): void`
+        *   `stabilize(String notes, Instant now): void`
+        *   `close(String notes, Instant now): void`
         *   `isClosed(): boolean`
 
 *   **AlertSettings**
-    *   Agregado raíz que concentra la configuración de alertamiento por Fragile Citizen: tiempo de espera del reconocimiento del contacto primario, habilitación del escalamiento y modo silencioso. Existe como máximo una configuración por `CareRecipientProfileId`.
+    *   Agregado raíz que concentra la configuración de alertamiento por Fragile Citizen: tiempo de espera del reconocimiento, habilitación del escalamiento, difusión inmediata de alertas críticas y modo silencioso. Existe como máximo una configuración por `CareRecipientProfileId`; mientras no se modifique, se aplican los valores por defecto sin persistirlos.
     *   *Atributos:*
         *   `id: AlertSettingsId`
         *   `careRecipientProfileId: CareRecipientProfileId`
         *   `primaryAckTimeout: AckTimeout`
-        *   `escalationEnabled: Boolean`
-        *   `silentModeEnabled: Boolean`
-        *   `updatedAt: Instant`
+        *   `escalationEnabled: boolean`
+        *   `silentModeEnabled: boolean`
+        *   `broadcastCriticalImmediately: boolean`
     *   *Métodos:*
-        *   `AlertSettings(CareRecipientProfileId careRecipientProfileId)`: crea la configuración con valores por defecto (60 s, escalamiento habilitado, modo silencioso desactivado).
-        *   `update(AckTimeout primaryAckTimeout, Boolean escalationEnabled): void`
+        *   `AlertSettings(CareRecipientProfileId careRecipientProfileId)`: crea la configuración con valores por defecto (60 s, escalamiento habilitado, alertas críticas escalan como las demás, modo silencioso desactivado).
+        *   `update(AckTimeout primaryAckTimeout, Boolean escalationEnabled, Boolean broadcastCriticalImmediately): void`
         *   `activateSilentMode(): void`
         *   `deactivateSilentMode(): void`
         *   `allowsAudibleNotificationFor(Severity severity): boolean`
 
 *   **EmergencyContact**
-    *   Agregado raíz que registra a un integrante del Care Circle como contacto de auxilio de un Fragile Citizen, con su prioridad dentro del escalamiento. El contacto con `priorityOrder = 1` es el contacto primario.
+    *   Agregado raíz que registra a un integrante del Care Circle como contacto de auxilio de un Fragile Citizen, con su prioridad dentro del escalamiento. Conserva una copia local de los datos del contacto (Event-Carried State Transfer desde Profile) para que un Profile lento o no disponible nunca bloquee un despacho. El contacto activo con `priorityOrder = 1` es el contacto primario.
     *   *Atributos:*
         *   `id: EmergencyContactId`
         *   `careRecipientProfileId: CareRecipientProfileId`
         *   `userId: UserId`
+        *   `displayName: String`
+        *   `relationship: String`
+        *   `phoneNumber: PhoneNumber`
         *   `priorityOrder: PriorityOrder`
-        *   `active: Boolean`
-        *   `createdAt: Instant`
-        *   `updatedAt: Instant`
+        *   `active: boolean`
     *   *Métodos:*
         *   `EmergencyContact(AddEmergencyContactCommand command)`
+        *   `updateContactDetails(String displayName, String relationship, PhoneNumber phoneNumber): void`
         *   `changePriority(PriorityOrder priorityOrder): void`
         *   `activate(): void`
         *   `deactivate(): void`
         *   `isPrimary(): boolean`
 
 *   **AlertChannelSetting**
-    *   Agregado raíz que registra si un canal de notificación está habilitado para un integrante del Care Circle. Existe un registro por combinación de `UserId` y `NotificationChannel`.
+    *   Agregado raíz que registra si un canal de notificación está habilitado para un integrante del Care Circle y, para `PUSH`, el token del dispositivo. Existe un registro por combinación de `UserId` y `NotificationChannel`.
     *   *Atributos:*
         *   `id: AlertChannelSettingId`
         *   `userId: UserId`
         *   `channel: NotificationChannel`
-        *   `enabled: Boolean`
-        *   `createdAt: Instant`
-        *   `updatedAt: Instant`
+        *   `enabled: boolean`
+        *   `deviceToken: String`
     *   *Métodos:*
         *   `AlertChannelSetting(ConfigureAlertChannelCommand command)`
         *   `enable(): void`
         *   `disable(): void`
+        *   `registerDeviceToken(String deviceToken): void`
 
 ###### Entities
 
@@ -3724,57 +3734,61 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
         *   `claimedAt: Instant`
         *   `completedAt: Instant`
         *   `notes: String`
-    *   *Métodos:* `complete(String notes)`, `cancel()`.
+    *   *Métodos:* `complete(String notes, Instant completedAt)`, `cancel()`, `isActive()`.
 
 ###### Value Objects
 
-*   **AlertSource:** Origen de la alerta (`sourceType: AlertSourceType`, `sourceReferenceId: UUID`). `sourceReferenceId` identifica el registro del contexto proveedor que originó la señal (lectura biométrica, violación de zona segura, monitor de actividad, recordatorio, balance de stock de medicación o dispositivo wearable). Método: `requiresConfirmationWindow()`, verdadero únicamente para `FALL_DETECTED`.
-*   **AlertSourceType:** Enum (`FALL_DETECTED`, `SOS_TRIGGERED`, `VITAL_SIGN_ANOMALY`, `SAFE_ZONE_VIOLATION`, `PROLONGED_INACTIVITY`, `REMINDER_REISSUED`, `MEDICATION_RESTOCK_SUGGESTED`).
-*   **Severity:** Enum (`CRITICAL`, `HIGH`, `MEDIUM`) que gobierna la estrategia de despacho. Métodos: `requiresBroadcast()`, `allowsEscalation()`, `overridesSilentMode()`.
-*   **AlertStatus:** Enum (`PENDING_CONFIRMATION`, `TRIGGERED`, `ESCALATED`, `ACKNOWLEDGED`, `DISMISSED`, `RESOLVED`). Método: `canTransitionTo(AlertStatus target)`.
+*   **AlertSource:** Origen de la alerta (`sourceType: AlertSourceType`, `sourceReferenceId: UUID`). `sourceReferenceId` identifica el registro del contexto proveedor que originó la señal (lectura biométrica, zona segura, monitor de actividad, recordatorio, stock de medicación o dispositivo wearable). Método: `requiresConfirmationWindow()`, verdadero únicamente para `FALL_DETECTED`.
+*   **AlertSourceType:** Enum (`FALL_DETECTED`, `SOS_TRIGGERED`, `VITAL_SIGN_ANOMALY`, `SAFE_ZONE_VIOLATION`, `PROLONGED_INACTIVITY`, `REMINDER_REISSUED`, `MEDICATION_RESTOCK_SUGGESTED`). Métodos: `defaultSeverity()` (caída y SOS: `CRITICAL`; anomalía biométrica, zona segura e inactividad: `HIGH`; recordatorio y reabastecimiento: `MEDIUM`) e `isWearableReported()`.
+*   **Severity:** Enum (`CRITICAL`, `HIGH`, `MEDIUM`) que gobierna la estrategia de despacho. Métodos: `allowsImmediateBroadcast()`, `allowsEscalation()`, `overridesSilentMode()` y `requiresSmsBackup()`.
+*   **AlertStatus:** Enum (`PENDING_CONFIRMATION`, `TRIGGERED`, `ESCALATED`, `ACKNOWLEDGED`, `DISMISSED`, `RESOLVED`). Métodos: `canTransitionTo(AlertStatus target)`, `isTerminal()` e `isAwaitingAcknowledgement()`.
 *   **IncidentStatus:** Enum (`IN_ATTENTION`, `STABILIZED`, `CLOSED`).
 *   **RecipientLevel:** Enum (`PRIMARY`, `SECONDARY`, `BROADCAST`) que indica en qué nivel del escalamiento se entregó la alerta. Método: `next()`.
 *   **NotificationChannel:** Enum (`PUSH`, `SMS`, `IN_APP`).
-*   **DeliveryStatus:** Enum (`PENDING`, `SENT`, `DELIVERED`, `FAILED`).
+*   **DeliveryStatus:** Enum (`PENDING`, `SENT`, `DELIVERED`, `FAILED`). Método: `isFinal()`.
 *   **ResponseStatus:** Enum (`CLAIMED`, `COMPLETED`, `CANCELLED`).
+*   **EmergencyContactChange:** Enum (`ADDED`, `DETAILS_UPDATED`, `REPRIORITIZED`, `ACTIVATED`, `DEACTIVATED`) transportado por `EmergencyContactsChangedEvent`.
 *   **AckTimeout:** Encapsula el tiempo de espera del reconocimiento antes de escalar (`seconds: Integer`). Invariante: valor entre $15$ y $300\text{ s}$; valor por defecto $60\text{ s}$. Método: `hasExpired(Instant since, Instant now)`.
-*   **FallConfirmationWindow:** Ventana de cancelación local del Fragile Citizen ante una caída detectada. Valor fijo de política de $20\text{ s}$, no persistido. Método: `hasExpired(Instant triggeredAt, Instant now)`.
+*   **FallConfirmationWindow:** Ventana de cancelación local del Fragile Citizen ante una caída detectada. Valor fijo de política de $20\text{ s}$, no persistido. Métodos: `hasExpired(Instant triggeredAt, Instant now)` y `expiredIfTriggeredBefore(Instant now)`.
 *   **PriorityOrder:** Posición del contacto dentro del escalamiento (`value: Integer`). Invariante: valor mayor o igual a 1. Método: `isPrimary()`.
-*   **AlertId / AlertDeliveryId / AlertResponseId / IncidentId / AlertSettingsId / EmergencyContactId / AlertChannelSettingId:** Identificadores inmutables tipo UUID.
+*   **PhoneNumber:** Teléfono del contacto para el canal `SMS` (`value: String`). Invariante: formato internacional E.164 (p. ej. `+51987654321`).
+*   **DeliveryTarget:** Destinatario y canal resueltos por `EscalationPolicy` (`recipientUserId: UserId`, `channel: NotificationChannel`).
+*   **DateRange:** Periodo opcional para filtrar el historial (`from`, `to`). Invariante: `from` no posterior a `to`.
+*   **AlertId / AlertDeliveryId / AlertResponseId / IncidentId / AlertSettingsId / EmergencyContactId / AlertChannelSettingId:** Identificadores inmutables tipo UUID, generados por el propio agregado o entidad.
 *   **CareRecipientProfileId:** Identificador de referencia inmutable al Fragile Citizen, gobernado por el Bounded Context Profile.
 *   **UserId:** Identificador de referencia inmutable a un integrante del Care Circle, gobernado por el Bounded Context IAM.
 
 ###### Domain Services
 
-*   **DispatchStrategyPolicy:** Determina la estrategia de despacho de una alerta confirmada a partir de su `Severity` y de `AlertSettings`: `CRITICAL` difunde a todos los contactos activos (`BROADCAST`); `HIGH` notifica al contacto primario (`PRIMARY`) y habilita el escalamiento, o difunde directamente si el escalamiento está deshabilitado; `MEDIUM` notifica únicamente al contacto primario sin escalar. Método: `resolveInitialLevel(Severity severity, AlertSettings settings): RecipientLevel`.
-*   **EscalationPolicy:** Resuelve los destinatarios de cada nivel a partir de los `EmergencyContact` activos ordenados por prioridad (`PRIMARY`: prioridad 1; `SECONDARY`: prioridades siguientes; `BROADCAST`: todos los contactos activos) y los canales habilitados en `AlertChannelSetting`, añadiendo `SMS` como respaldo obligatorio en severidad `CRITICAL` y en el nivel `BROADCAST`. Método: `resolveRecipients(RecipientLevel level, Severity severity, List<EmergencyContact> contacts, List<AlertChannelSetting> channelSettings): List<DeliveryTarget>`.
+*   **DispatchStrategyPolicy:** Determina el nivel inicial de despacho de una alerta confirmada a partir de su `Severity` y de `AlertSettings`. Por defecto toda alerta comienza en el contacto primario (`PRIMARY`) y escala por niveles, que es el comportamiento comprometido en US08 y US11. `CRITICAL` difunde de inmediato a todos los contactos activos (`BROADCAST`, US25) cuando la configuración del Fragile Citizen lo solicita (`broadcastCriticalImmediately`). `CRITICAL` y `HIGH` también difunden de inmediato si el escalamiento está deshabilitado. `MEDIUM` notifica únicamente al contacto primario. Método: `resolveInitialLevel(Severity severity, AlertSettings settings): RecipientLevel`.
+*   **EscalationPolicy:** Resuelve los destinatarios de cada nivel a partir de los `EmergencyContact` activos ordenados por prioridad (`PRIMARY`: primer contacto activo; `SECONDARY`: los siguientes; `BROADCAST`: todos), de modo que los huecos dejados por contactos desactivados no afectan. Los canales salen de `AlertChannelSetting`, con `IN_APP` como respaldo si el contacto no tiene ninguno habilitado, y se añade `SMS` en severidad `CRITICAL` y en el nivel `BROADCAST`. También decide el siguiente nivel cuando vence el `AckTimeout`: `PRIMARY → SECONDARY` (o `BROADCAST` si no hay contactos secundarios o el escalamiento está deshabilitado) y `SECONDARY → BROADCAST`; las alertas `MEDIUM` nunca escalan. Métodos: `resolveRecipients(RecipientLevel level, Severity severity, List<EmergencyContact> contacts, List<AlertChannelSetting> channelSettings): List<DeliveryTarget>` y `resolveNextLevel(Alert alert, AlertSettings settings, List<EmergencyContact> activeContacts): Optional<RecipientLevel>`.
 
 ###### Commands & Queries (Domain Model)
 
-*   `TriggerAlertCommand(UUID careRecipientProfileId, String sourceType, UUID sourceReferenceId, String severity, Instant triggeredAt)`
+*   `TriggerAlertCommand(UUID careRecipientProfileId, AlertSourceType sourceType, UUID sourceReferenceId, Instant triggeredAt)`
 *   `ConfirmAlertCommand(UUID alertId)`
 *   `DismissAlertCommand(UUID alertId)`
 *   `DispatchAlertCommand(UUID alertId)`
 *   `EscalateAlertCommand(UUID alertId)`
 *   `BroadcastAlertCommand(UUID alertId)`
-*   `RegisterDeliveryResultCommand(UUID alertId, UUID deliveryId, String deliveryStatus, Instant occurredAt)`
+*   `RegisterDeliveryResultCommand(UUID alertId, UUID deliveryId, DeliveryStatus deliveryStatus, Instant occurredAt)`
 *   `AcknowledgeAlertCommand(UUID alertId, UUID userId)`
 *   `ClaimAlertResponseCommand(UUID alertId, UUID responderUserId)`
 *   `CompleteAlertResponseCommand(UUID alertId, UUID responseId, String notes)`
 *   `ResolveAlertCommand(UUID alertId)`
-*   `OpenIncidentCommand(UUID alertId)`
+*   `OpenIncidentCommand(UUID alertId, Instant markedInAttentionAt)`
 *   `StabilizeIncidentCommand(UUID incidentId, String notes)`
 *   `CloseIncidentCommand(UUID incidentId, String notes)`
-*   `UpdateAlertSettingsCommand(UUID careRecipientProfileId, Integer primaryAckTimeoutSec, Boolean escalationEnabled)`
+*   `UpdateAlertSettingsCommand(UUID careRecipientProfileId, Integer primaryAckTimeoutSec, Boolean escalationEnabled, Boolean broadcastCriticalImmediately)`
 *   `ActivateSilentModeCommand(UUID careRecipientProfileId)`
 *   `DeactivateSilentModeCommand(UUID careRecipientProfileId)`
-*   `AddEmergencyContactCommand(UUID careRecipientProfileId, UUID userId, Integer priorityOrder)`
+*   `AddEmergencyContactCommand(UUID careRecipientProfileId, UUID userId, String displayName, String relationship, String phoneNumber, Integer priorityOrder)`
 *   `ReorderEmergencyContactsCommand(UUID careRecipientProfileId, List<UUID> orderedEmergencyContactIds)`
 *   `DeactivateEmergencyContactCommand(UUID emergencyContactId)`
-*   `ConfigureAlertChannelCommand(UUID userId, String channel, Boolean enabled)`
+*   `ConfigureAlertChannelCommand(UUID userId, NotificationChannel channel, Boolean enabled, String deviceToken)`
 *   `GetAlertByIdQuery(AlertId alertId)`
 *   `GetActiveAlertsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
-*   `GetAlertHistoryByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId, DateRange dateRange, Severity severityFilter)`
+*   `GetAlertHistoryByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId, DateRange dateRange, Severity severityFilter, int page, int size)`
 *   `GetPendingAlertsByRecipientUserIdQuery(UserId recipientUserId)`
 *   `GetIncidentByIdQuery(IncidentId incidentId)`
 *   `GetIncidentByAlertIdQuery(AlertId alertId)`
@@ -3787,9 +3801,9 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   `AlertTriggeredEvent`: Emitido al disparar una alerta, portando su origen, severidad y estado inicial.
 *   `AlertConfirmedEvent`: Emitido cuando vence la `FallConfirmationWindow` sin cancelación del Fragile Citizen, o de inmediato cuando el origen no requiere confirmación.
 *   `AlertDismissedEvent`: Emitido cuando el Fragile Citizen cancela dentro de la ventana, clasificando la alerta como falso positivo.
-*   `AlertDispatchedEvent`: Emitido al generar las entregas de un nivel (`PRIMARY`, `SECONDARY` o `BROADCAST`).
+*   `AlertDispatchedEvent`: Emitido al generar las entregas de un nivel (`PRIMARY`, `SECONDARY` o `BROADCAST`), con los identificadores de las entregas a enviar.
 *   `AlertEscalatedEvent`: Emitido al avanzar al nivel `SECONDARY` por vencimiento del `AckTimeout`.
-*   `AlertBroadcastedEvent`: Emitido al difundir la alerta a todos los contactos activos, ya sea por severidad crítica o como último recurso.
+*   `AlertBroadcastedEvent`: Emitido al difundir la alerta a todos los contactos activos, ya sea de inmediato o como último recurso.
 *   `AlertDeliveryFailedEvent`: Emitido cuando el proveedor informa que una entrega no pudo completarse.
 *   `AlertAcknowledgedEvent`: Emitido cuando un destinatario reconoce la alerta, deteniendo el escalamiento.
 *   `AlertResponseClaimedEvent`: Emitido cuando un destinatario declara que asumirá la respuesta, habilitando la notificación al resto del Care Circle.
@@ -3798,8 +3812,8 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   `IncidentOpenedEvent`: Emitido al registrar la atención de una alerta reconocida (`IN_ATTENTION`).
 *   `IncidentStabilizedEvent`: Emitido cuando el responsable declara estabilizada la situación del Fragile Citizen.
 *   `IncidentClosedEvent`: Emitido al cierre definitivo del incidente.
-*   `AlertSettingsUpdatedEvent`: Emitido ante cualquier modificación del tiempo de espera, del escalamiento o del modo silencioso.
-*   `EmergencyContactsChangedEvent`: Emitido al añadir, reordenar o desactivar contactos de emergencia.
+*   `AlertSettingsUpdatedEvent`: Emitido ante cualquier modificación del tiempo de espera, del escalamiento, de la difusión crítica o del modo silencioso.
+*   `EmergencyContactsChangedEvent`: Emitido al añadir, actualizar, reordenar, activar o desactivar un contacto de emergencia, indicando el tipo de cambio (`EmergencyContactChange`).
 *   `AlertChannelSettingChangedEvent`: Emitido al habilitar o deshabilitar un canal de notificación.
 
 ###### Repositories (Domain Interfaces)
@@ -3807,8 +3821,9 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   **AlertRepository:**
     *   `save(Alert alert): Alert`
     *   `findById(AlertId id): Optional<Alert>`
+    *   `findActiveBySource(CareRecipientProfileId careRecipientProfileId, AlertSource source): Optional<Alert>`: evita disparar dos veces la misma señal reintentada.
     *   `findActiveByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<Alert>`
-    *   `findByCareRecipientProfileIdAndPeriod(CareRecipientProfileId careRecipientProfileId, DateRange period, Severity severity): List<Alert>`
+    *   `findHistory(CareRecipientProfileId careRecipientProfileId, DateRange period, Severity severity, Pageable pageable): Page<Alert>`
     *   `findPendingByRecipientUserId(UserId recipientUserId): List<Alert>`
     *   `findPendingConfirmationTriggeredBefore(Instant threshold): List<Alert>`
     *   `findAwaitingAcknowledgement(): List<Alert>`
@@ -3829,22 +3844,23 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   **AlertChannelSettingRepository:**
     *   `save(AlertChannelSetting setting): AlertChannelSetting`
     *   `findByUserId(UserId userId): List<AlertChannelSetting>`
+    *   `findByUserIdIn(Collection<UserId> userIds): List<AlertChannelSetting>`
     *   `findByUserIdAndChannel(UserId userId, NotificationChannel channel): Optional<AlertChannelSetting>`
 
 ---
 
 ##### 2.6.1.2. Interface Layer
 
-Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful para la app móvil y canaliza los eventos de integración provenientes de los contextos proveedores de señales.
+Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful para la app móvil y canaliza los eventos de integración provenientes de los contextos proveedores de señales. Los errores se devuelven con el formato común de la plataforma: `400` (validación), `404`, `409` (conflicto) y `422` (regla de negocio).
 
 ###### REST Controllers
 
 *   **AlertsController** (`/api/v1/alerts`):
-    *   `POST /`: Dispara una alerta reportada por el gateway del dispositivo wearable (caída detectada o SOS).
+    *   `POST /`: Dispara una alerta reportada por el gateway del dispositivo wearable. Fuera del perfil de desarrollo solo acepta `FALL_DETECTED` y `SOS_TRIGGERED`; la hora de disparo la asigna el servidor y reintentar la misma señal devuelve la alerta activa existente.
     *   `GET /`: Historial paginado y filtrable por `careRecipientProfileId`, `severity`, `from`, `to`, `page` y `size`.
     *   `GET /active/care-recipient/{careRecipientProfileId}`: Lista las alertas activas de un Fragile Citizen.
-    *   `GET /pending/recipient/{userId}`: Lista las alertas pendientes de reconocimiento de un destinatario.
-    *   `GET /{alertId}`: Recupera el detalle de una alerta con sus entregas y respuestas.
+    *   `GET /pending/recipient/{userId}`: Lista las alertas pendientes de reconocimiento de un destinatario; la app móvil la consulta para mostrar las alertas del canal `IN_APP`.
+    *   `GET /{alertId}`: Recupera el detalle de una alerta con sus entregas (en orden de despacho) y respuestas.
     *   `POST /{alertId}/dismiss`: Cancela la alerta dentro de la ventana de confirmación (falso positivo).
     *   `POST /{alertId}/acknowledge`: Registra el reconocimiento de la alerta por parte del destinatario.
     *   `POST /{alertId}/responses`: Declara que el destinatario asumirá la respuesta.
@@ -3855,141 +3871,127 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
     *   `POST /{incidentId}/stabilize`: Declara estabilizada la situación.
     *   `POST /{incidentId}/close`: Cierra definitivamente el incidente.
 *   **AlertSettingsController** (`/api/v1/alert-settings`):
-    *   `GET /care-recipient/{careRecipientProfileId}`: Recupera la configuración vigente de alertamiento.
-    *   `PUT /care-recipient/{careRecipientProfileId}`: Actualiza el tiempo de espera del contacto primario y la habilitación del escalamiento.
+    *   `GET /care-recipient/{careRecipientProfileId}`: Recupera la configuración vigente, o los valores por defecto.
+    *   `PUT /care-recipient/{careRecipientProfileId}`: Actualiza el tiempo de espera, el escalamiento y la difusión inmediata de alertas críticas.
     *   `POST /care-recipient/{careRecipientProfileId}/silent-mode`: Activa el modo silencioso.
     *   `DELETE /care-recipient/{careRecipientProfileId}/silent-mode`: Desactiva el modo silencioso.
 *   **EmergencyContactsController** (`/api/v1/emergency-contacts`):
-    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los contactos de emergencia ordenados por prioridad.
-    *   `POST /`: Incorpora un integrante del Care Circle como contacto de emergencia.
+    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los contactos de emergencia activos ordenados por prioridad.
+    *   `POST /`: Incorpora un contacto en la prioridad indicada (o al final), desplazando a los siguientes; reactiva un contacto dado de baja.
     *   `PUT /care-recipient/{careRecipientProfileId}/order`: Reordena la prioridad de los contactos.
     *   `DELETE /{emergencyContactId}`: Desactiva un contacto, validando que permanezca al menos un contacto activo.
 *   **AlertChannelSettingsController** (`/api/v1/alert-channel-settings`):
-    *   `GET /user/{userId}`: Lista los canales de notificación de un integrante del Care Circle.
-    *   `PUT /user/{userId}/channels/{channel}`: Habilita o deshabilita un canal.
+    *   `GET /user/{userId}`: Lista los canales de notificación de un integrante del Care Circle (sin exponer el token del dispositivo).
+    *   `PUT /user/{userId}/channels/{channel}`: Habilita o deshabilita un canal y, para `PUSH`, registra el token del dispositivo.
 *   **NotificationDeliveryWebhookController** (`/api/v1/webhooks/notification-deliveries`):
-    *   `POST /`: Recibe la confirmación de entrega o fallo informada por el proveedor de notificaciones.
+    *   `POST /`: Recibe la confirmación de entrega o fallo informada por el proveedor de notificaciones y responde `204`.
 
 ###### Resources & Assemblers
 
-*   *Resources (DTOs):* `TriggerAlertResource`, `AlertResource`, `AlertSummaryResource`, `AlertDeliveryResource`, `AlertResponseResource`, `AcknowledgeAlertResource`, `CompleteAlertResponseResource`, `IncidentResource`, `CloseIncidentResource`, `AlertSettingsResource`, `UpdateAlertSettingsResource`, `EmergencyContactResource`, `AddEmergencyContactResource`, `ReorderEmergencyContactsResource`, `AlertChannelSettingResource`, `DeliveryStatusCallbackResource`.
-*   *Assemblers (Mappers):* `TriggerAlertCommandFromResourceAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertSettingsResourceFromEntityAssembler`, `UpdateAlertSettingsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`, `AddEmergencyContactCommandFromResourceAssembler`, `AlertChannelSettingResourceFromEntityAssembler`, `RegisterDeliveryResultCommandFromResourceAssembler`.
+*   *Resources (DTOs):* `TriggerAlertResource`, `AlertResource`, `AlertSummaryResource`, `AlertDeliveryResource`, `AlertResponseResource`, `AcknowledgeAlertResource`, `ClaimAlertResponseResource`, `CompleteAlertResponseResource`, `IncidentResource`, `StabilizeIncidentResource`, `CloseIncidentResource`, `AlertSettingsResource`, `UpdateAlertSettingsResource`, `EmergencyContactResource`, `AddEmergencyContactResource`, `ReorderEmergencyContactsResource`, `AlertChannelSettingResource`, `ConfigureAlertChannelResource`, `DeliveryStatusCallbackResource` y `PageResource` (compartido).
+*   *Assemblers (Mappers):* `TriggerAlertCommandFromResourceAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertSettingsResourceFromEntityAssembler`, `UpdateAlertSettingsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`, `AddEmergencyContactCommandFromResourceAssembler`, `AlertChannelSettingResourceFromEntityAssembler`, `ConfigureAlertChannelCommandFromResourceAssembler` y `RegisterDeliveryResultCommandFromResourceAssembler`.
 
 ###### Integration Events & ACL Facade
 
 *   *Eventos consumidos (inbound):*
-    *   `VitalSignAnomalyDetectedIntegrationEvent`: Proveniente de `Health Monitoring`; dispara una alerta `VITAL_SIGN_ANOMALY` con severidad `HIGH`.
-    *   `SafeZoneViolationIntegrationEvent`: Proveniente de `Mobility & Geofencing`; dispara una alerta `SAFE_ZONE_VIOLATION` con severidad `HIGH`.
-    *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `PROLONGED_INACTIVITY` con severidad `HIGH`.
+    *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `PROLONGED_INACTIVITY` con severidad `HIGH`. Mientras el evento no incluya el monitor de actividad, la referencia de origen es el propio Fragile Citizen, por lo que existe como máximo una alerta de inactividad activa por persona.
     *   `ReminderReissuedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `REMINDER_REISSUED` con severidad `MEDIUM` dirigida al contacto primario.
     *   `MedicationRestockSuggestedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `MEDICATION_RESTOCK_SUGGESTED` con severidad `MEDIUM` dirigida al contacto primario.
-    *   `CareRelationshipEstablishedIntegrationEvent` y `CareRelationshipEndedIntegrationEvent`: Provenientes de `Profile`; mantienen sincronizados los contactos de emergencia con las relaciones de cuidado vigentes mediante Event-Carried State Transfer.
+    *   `VitalSignAnomalyDetectedIntegrationEvent` (`Health Monitoring`), `SafeZoneViolationIntegrationEvent` (`Mobility & Geofencing`) y `CareRelationshipEstablishedIntegrationEvent` / `CareRelationshipEndedIntegrationEvent` (`Profile`): contratos acordados que se incorporarán cuando esos contextos los publiquen. Mientras tanto, en el perfil de desarrollo las alertas biométricas y de zona segura pueden dispararse mediante `POST /api/v1/alerts`, y los contactos se registran con `POST /api/v1/emergency-contacts`.
 *   *Eventos publicados (outbound):*
-    *   `EmergencyDispatchedIntegrationEvent`: Notifica que una alerta confirmada de severidad `CRITICAL` o `HIGH` entró en despacho.
-    *   `IncidentClosedIntegrationEvent`: Notifica el cierre de un incidente para su incorporación al historial de salud.
-*   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (existencia de alertas activas por `CareRecipientProfileId`).
+    *   `EmergencyDispatchedIntegrationEvent(alertId, careRecipientProfileId, sourceType, severity, dispatchedAt)`: Notifica que una alerta confirmada de severidad `CRITICAL` o `HIGH` entró en despacho.
+    *   `IncidentClosedIntegrationEvent(incidentId, alertId, careRecipientProfileId, sourceType, notes, closedAt)`: Notifica el cierre de un incidente para su incorporación al historial de salud.
+*   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (`hasActiveAlerts(UUID careRecipientProfileId)`).
 
 ---
 
 ##### 2.6.1.3. Application Layer
 
-Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados y servicios de dominio. Los Event Handlers y Schedulers de esta capa son la materialización directa de las policies identificadas en el Design-Level EventStorming.
+Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados y servicios de dominio. Los Event Handlers y Schedulers son la materialización directa de las policies identificadas en el Design-Level EventStorming. Los servicios devuelven `Result<T, ApplicationError>` y obtienen la hora de un `Clock` inyectable.
 
 ###### Command Services
 
-*   **AlertCommandService & AlertCommandServiceImpl:**
-    *   `handle(TriggerAlertCommand command): Optional<Alert>`: Construye y persiste el agregado `Alert` en estado `PENDING_CONFIRMATION` si el origen requiere ventana de confirmación, o en `TRIGGERED` en caso contrario.
-    *   `handle(ConfirmAlertCommand command): void`: Confirma la alerta tras vencer la ventana de confirmación.
-    *   `handle(DismissAlertCommand command): void`: Clasifica la alerta como falso positivo e impide cualquier despacho.
-    *   `handle(DispatchAlertCommand command): void`: Aplica `DispatchStrategyPolicy` y `EscalationPolicy` para generar las entregas del nivel inicial y enviarlas mediante `NotificationDispatcher`.
-    *   `handle(EscalateAlertCommand command): void`: Genera las entregas del nivel `SECONDARY`.
-    *   `handle(BroadcastAlertCommand command): void`: Genera las entregas del nivel `BROADCAST` hacia todos los contactos activos, incluyendo `SMS`.
-    *   `handle(RegisterDeliveryResultCommand command): void`: Actualiza el estado de una entrega según la respuesta del proveedor.
-    *   `handle(AcknowledgeAlertCommand command): void`: Registra el reconocimiento del destinatario.
-    *   `handle(ClaimAlertResponseCommand command): void`: Registra la asunción de respuesta.
-    *   `handle(CompleteAlertResponseCommand command): void`: Registra el resultado de la intervención.
-    *   `handle(ResolveAlertCommand command): void`: Cierra la alerta.
-*   **IncidentCommandService & IncidentCommandServiceImpl:**
-    *   `handle(OpenIncidentCommand command): Optional<Incident>`: Crea el incidente en estado `IN_ATTENTION`, validando que la alerta no tenga ya un incidente asociado.
-    *   `handle(StabilizeIncidentCommand command): void`: Transiciona el incidente a `STABILIZED`.
-    *   `handle(CloseIncidentCommand command): void`: Cierra el incidente y publica el evento de integración correspondiente.
-*   **AlertSettingsCommandService & AlertSettingsCommandServiceImpl:**
-    *   `handle(UpdateAlertSettingsCommand command): void`
-    *   `handle(ActivateSilentModeCommand command): void`
-    *   `handle(DeactivateSilentModeCommand command): void`
-*   **EmergencyContactCommandService & EmergencyContactCommandServiceImpl:**
-    *   `handle(AddEmergencyContactCommand command): Optional<EmergencyContact>`: Valida mediante `ProfileContextAcl` que el usuario mantenga una relación de cuidado activa con el Fragile Citizen.
-    *   `handle(ReorderEmergencyContactsCommand command): void`: Reasigna prioridades consecutivas sin duplicados.
-    *   `handle(DeactivateEmergencyContactCommand command): void`: Rechaza la operación si dejaría al Fragile Citizen sin contactos activos.
-*   **AlertChannelSettingCommandService & AlertChannelSettingCommandServiceImpl:**
-    *   `handle(ConfigureAlertChannelCommand command): void`: Rechaza la operación si dejaría al usuario sin canales habilitados.
+*   **AlertCommandService & AlertCommandServiceImpl:** Resuelve `TriggerAlertCommand` (o devuelve la alerta activa de la misma señal), `ConfirmAlertCommand`, `DismissAlertCommand`, `DispatchAlertCommand` (aplica `DispatchStrategyPolicy` y `EscalationPolicy`), `EscalateAlertCommand`, `BroadcastAlertCommand`, `RegisterDeliveryResultCommand`, `AcknowledgeAlertCommand`, `ClaimAlertResponseCommand`, `CompleteAlertResponseCommand` y `ResolveAlertCommand`. Cuando una operación pierde una carrera de concurrencia sobre la misma alerta (p. ej. un reconocimiento mientras se registra el resultado de una entrega o se escala), recarga la alerta y reevalúa la transición sobre el estado actualizado, de modo que deciden las reglas de negocio y no el orden de llegada. Tras guardar, devuelve el estado más reciente, ya que los handlers síncronos pueden haber avanzado la alerta (un SOS queda confirmado y despachado antes de responder).
+*   **IncidentCommandService & IncidentCommandServiceImpl:** `OpenIncidentCommand` (valida que la alerta esté reconocida y no tenga ya un incidente), `StabilizeIncidentCommand` y `CloseIncidentCommand`.
+*   **AlertSettingsCommandService & AlertSettingsCommandServiceImpl:** `UpdateAlertSettingsCommand`, `ActivateSilentModeCommand` y `DeactivateSilentModeCommand`; la configuración se crea con sus valores por defecto la primera vez que se modifica.
+*   **EmergencyContactCommandService & EmergencyContactCommandServiceImpl:** `AddEmergencyContactCommand` (valida la relación de cuidado mediante `ProfileContextAcl` e inserta en la prioridad solicitada), `ReorderEmergencyContactsCommand` y `DeactivateEmergencyContactCommand` (rechaza dejar al Fragile Citizen sin contactos activos). Todas mantienen prioridades consecutivas desde 1.
+*   **AlertChannelSettingCommandService & AlertChannelSettingCommandServiceImpl:** `ConfigureAlertChannelCommand`, que rechaza dejar al usuario sin canales habilitados.
 
 ###### Query Services
 
 *   **AlertQueryService & AlertQueryServiceImpl:** Resuelve `GetAlertByIdQuery`, `GetActiveAlertsByCareRecipientProfileIdQuery`, `GetAlertHistoryByCareRecipientProfileIdQuery` y `GetPendingAlertsByRecipientUserIdQuery`.
 *   **IncidentQueryService & IncidentQueryServiceImpl:** Resuelve `GetIncidentByIdQuery` y `GetIncidentByAlertIdQuery`.
-*   **AlertSettingsQueryService & AlertSettingsQueryServiceImpl:** Resuelve `GetAlertSettingsByCareRecipientProfileIdQuery`.
+*   **AlertSettingsQueryService & AlertSettingsQueryServiceImpl:** Resuelve `GetAlertSettingsByCareRecipientProfileIdQuery`, devolviendo los valores por defecto si no existe configuración.
 *   **EmergencyContactQueryService & EmergencyContactQueryServiceImpl:** Resuelve `GetEmergencyContactsByCareRecipientProfileIdQuery`.
 *   **AlertChannelSettingQueryService & AlertChannelSettingQueryServiceImpl:** Resuelve `GetAlertChannelSettingsByUserIdQuery`.
 
 ###### Event Handlers
 
-*   `AlertTriggeredEventHandler`: Si la alerta no requiere ventana de confirmación (SOS, anomalía biométrica, zona segura, inactividad, rutina), despacha `ConfirmAlertCommand` de inmediato; en caso de caída, delega la espera en `FallConfirmationTimeoutScheduler`.
-*   `AlertConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector**. Despacha `DispatchAlertCommand`, que difunde (`CRITICAL`), notifica al contacto primario con escalamiento (`HIGH`) o solo al contacto primario (`MEDIUM`).
-*   `AlertAcknowledgedEventHandler`: Implementa la policy **Escalation Stopper**. Al pasar la alerta a `ACKNOWLEDGED` deja de ser candidata para los schedulers de escalamiento y despacha `OpenIncidentCommand`, marcando el incidente en atención.
-*   `AlertResponseClaimedEventHandler`: Notifica al resto de destinatarios que un integrante del Care Circle ya asumió la respuesta.
-*   `AlertDeliveryFailedEventHandler`: Reintenta la entrega por `SMS` cuando la severidad es `CRITICAL`.
+*   `AlertTriggeredEventHandler`: Si la alerta no requiere ventana de confirmación, despacha `ConfirmAlertCommand` de inmediato; en caso de caída, delega la espera en `FallConfirmationTimeoutScheduler`.
+*   `AlertConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector** despachando `DispatchAlertCommand`.
+*   `AlertDispatchedEventHandler`: Envía las entregas de cada nivel mediante `AlertNotificationSender` y publica `EmergencyDispatchedIntegrationEvent` en el primer despacho de una alerta `CRITICAL` o `HIGH`.
+*   `AlertAcknowledgedEventHandler`: Implementa la policy **Escalation Stopper**: la alerta reconocida deja de ser candidata al escalamiento y se despacha `OpenIncidentCommand`.
+*   `AlertResponseClaimedEventHandler`: Notifica al resto de destinatarios que un integrante del Care Circle ya asumió la respuesta (US25).
 *   `IncidentClosedEventHandler`: Despacha `ResolveAlertCommand` y publica `IncidentClosedIntegrationEvent`.
-*   `VitalSignAnomalyDetectedEventHandler`: Implementa la policy **Biometric Alert Raiser**. Traduce el evento de integración de `Health Monitoring` en un `TriggerAlertCommand` de severidad `HIGH`.
-*   `SafeZoneViolationEventHandler`, `ProlongedInactivityDetectedEventHandler`, `ReminderReissuedEventHandler` y `MedicationRestockSuggestedEventHandler`: Traducen los eventos de integración de `Mobility & Geofencing` y `Care Routines & Wellness` en alertas del tipo y severidad correspondientes.
-*   `CareRelationshipEstablishedEventHandler`: Registra al usuario vinculado como contacto de emergencia activo con la menor prioridad disponible.
-*   `CareRelationshipEndedEventHandler`: Desactiva el contacto de emergencia correspondiente.
+*   `ProlongedInactivityDetectedEventHandler`, `ReminderReissuedEventHandler` y `MedicationRestockSuggestedEventHandler`: Traducen los eventos de integración de `Care Routines & Wellness` en alertas del tipo y severidad correspondientes.
+*   Ningún handler propaga errores hacia quien publicó el evento: los fallos se registran y la alerta permanece activa y visible.
+*   No se implementa un handler de reintento por fallo de entrega: toda entrega `CRITICAL` ya incluye `SMS` como respaldo, por lo que un reintento la duplicaría. El fallo queda registrado en la entrega (`FAILED`).
+
+###### Outbound Services
+
+*   `NotificationDispatcher`: Puerto de salida para el envío efectivo de las notificaciones, independiente del proveedor.
+*   `AlertNotificationSender`: Envía de forma asíncrona (executor dedicado) las entregas pendientes de un nivel, componiendo cada notificación con el canal, la dirección (teléfono o token), si puede ser audible según el modo silencioso y, en alertas `CRITICAL` y `SAFE_ZONE_VIOLATION`, la última ubicación conocida. Registra el resultado de cada entrega con `RegisterDeliveryResultCommand`.
 
 ###### Application ACL Implementation
 
 *   `EmergencyAlertingContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
-*   `ProfileContextAcl`: Verifica que un `UserId` mantenga una relación de cuidado activa con un `CareRecipientProfileId` y obtiene el nombre del Fragile Citizen para componer el contenido de la notificación, evitando el acoplamiento directo con el modelo de Profile.
-*   `MobilityContextAcl`: Consulta la última ubicación conocida del Fragile Citizen para incluirla en el contenido de la notificación de alertas `CRITICAL` y `SAFE_ZONE_VIOLATION`; la ubicación no se persiste en este contexto.
+*   `ProfileContextAcl`: Verifica que un `UserId` mantenga una relación de cuidado activa con un `CareRecipientProfileId` y obtiene el nombre del Fragile Citizen para el contenido de la notificación.
+*   `MobilityContextAcl`: Consulta la última ubicación conocida del Fragile Citizen para incluirla en el contenido de la notificación; la ubicación no se persiste en este contexto.
+*   Mientras Profile y Mobility & Geofencing no estén implementados, ambos puertos se resuelven con implementaciones provisionales en infraestructura (`ProfileContextAclStub`, `MobilityContextAclStub`).
 
 ---
 
 ##### 2.6.1.4. Infrastructure Layer
 
-Implementa la persistencia técnica en PostgreSQL, la integración con los proveedores externos de notificación y los componentes de programación temporal que sostienen las políticas de temporización del contexto.
+Implementa la persistencia técnica en PostgreSQL, la integración con los proveedores de notificación y los componentes de programación temporal que sostienen las políticas de temporización del contexto.
 
 ###### Persistence JPA Entities
 
-*   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `care_recipient_profile_id`, `source_type`, `source_reference_id`, `severity`, `status`, `triggered_at`, `acknowledged_at`, `created_at`, `updated_at`. Mantiene relaciones `@OneToMany` hacia `AlertDeliveryPersistenceEntity` y `AlertResponsePersistenceEntity`.
-*   `AlertDeliveryPersistenceEntity`: Mapea la tabla `alert_deliveries`. Columnas: `id`, `alert_id`, `recipient_user_id`, `recipient_level`, `channel`, `delivery_status`, `sent_at`, `delivered_at`.
-*   `AlertResponsePersistenceEntity`: Mapea la tabla `alert_responses`. Columnas: `id`, `alert_id`, `responder_user_id`, `response_status`, `claimed_at`, `completed_at`, `notes`.
-*   `IncidentPersistenceEntity`: Mapea la tabla `incidents`. Columnas: `id`, `alert_id` (única), `status`, `marked_in_attention_at`, `stabilized_at`, `closed_at`, `notes`, `created_at`.
-*   `AlertSettingsPersistenceEntity`: Mapea la tabla `alert_settings`. Columnas: `id`, `care_recipient_profile_id` (única), `primary_ack_timeout_sec`, `escalation_enabled`, `silent_mode_enabled`, `updated_at`.
-*   `EmergencyContactPersistenceEntity`: Mapea la tabla `emergency_contacts`. Columnas: `id`, `care_recipient_profile_id`, `user_id`, `priority_order`, `active`, `created_at`, `updated_at`.
-*   `AlertChannelSettingPersistenceEntity`: Mapea la tabla `alert_channel_settings`. Columnas: `id`, `user_id`, `channel`, `enabled`, `created_at`, `updated_at`.
+*   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `care_recipient_profile_id`, `source_type`, `source_reference_id`, `severity`, `status`, `triggered_at`, `confirmed_at`, `last_dispatched_at`, `acknowledged_at`, `acknowledged_by_user_id`, `resolved_at`, `version`, `created_at`, `updated_at`. `version` aplica bloqueo optimista. Mantiene relaciones `@OneToMany` hacia entregas y respuestas, cargadas junto con la alerta y ordenadas por su posición.
+*   `AlertDeliveryPersistenceEntity`: Mapea la tabla `alert_deliveries`. Columnas: `id`, `alert_id`, `dispatch_order`, `recipient_user_id`, `recipient_level`, `channel`, `delivery_status`, `sent_at`, `delivered_at`. `dispatch_order` se escribe una sola vez al insertar.
+*   `AlertResponsePersistenceEntity`: Mapea la tabla `alert_responses`. Columnas: `id`, `alert_id`, `claim_order`, `responder_user_id`, `response_status`, `claimed_at`, `completed_at`, `notes`.
+*   `IncidentPersistenceEntity`: Mapea la tabla `incidents`. Columnas: `id`, `alert_id` (única), `status`, `marked_in_attention_at`, `stabilized_at`, `closed_at`, `notes`, `created_at`, `updated_at`.
+*   `AlertSettingsPersistenceEntity`: Mapea la tabla `alert_settings`. Columnas: `id`, `care_recipient_profile_id` (única), `primary_ack_timeout_sec`, `escalation_enabled`, `silent_mode_enabled`, `broadcast_critical_immediately`, `created_at`, `updated_at`.
+*   `EmergencyContactPersistenceEntity`: Mapea la tabla `emergency_contacts`. Columnas: `id`, `care_recipient_profile_id`, `user_id`, `display_name`, `relationship`, `phone_number`, `priority_order`, `active`, `created_at`, `updated_at`. Restricción única sobre (`care_recipient_profile_id`, `user_id`).
+*   `AlertChannelSettingPersistenceEntity`: Mapea la tabla `alert_channel_settings`. Columnas: `id`, `user_id`, `channel`, `enabled`, `device_token`, `created_at`, `updated_at`. Restricción única sobre (`user_id`, `channel`).
 *   `AlertSourceEmbeddable`: Agrupa `source_type` y `source_reference_id` dentro de `AlertPersistenceEntity`.
-*   *Converters:* `SeverityConverter`, `AlertStatusConverter`, `RecipientLevelConverter`, `NotificationChannelConverter`, `DeliveryStatusConverter`, `ResponseStatusConverter` e `IncidentStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
+*   *Converters:* `CareRecipientProfileIdPersistenceConverter` y `UserIdPersistenceConverter` traducen los identificadores de referencia hacia columnas `UUID`; los enums de dominio se almacenan como texto (`@Enumerated(EnumType.STRING)`), siguiendo la convención de la plataforma.
 
 ###### Spring Data Repositories & Adapters
 
-*   `AlertPersistenceRepository`, `IncidentPersistenceRepository`, `AlertSettingsPersistenceRepository`, `EmergencyContactPersistenceRepository` y `AlertChannelSettingPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
-*   `AlertRepositoryImpl`, `IncidentRepositoryImpl`, `AlertSettingsRepositoryImpl`, `EmergencyContactRepositoryImpl` y `AlertChannelSettingRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+*   `AlertPersistenceRepository` (con `JpaSpecificationExecutor` para combinar los filtros opcionales del historial), `IncidentPersistenceRepository`, `AlertSettingsPersistenceRepository`, `EmergencyContactPersistenceRepository` y `AlertChannelSettingPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `AlertRepositoryImpl`, `IncidentRepositoryImpl`, `AlertSettingsRepositoryImpl`, `EmergencyContactRepositoryImpl` y `AlertChannelSettingRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia y publican los eventos de dominio una vez persistido el agregado.
 
 ###### Persistence Assemblers
 
-*   `AlertPersistenceAssembler`: Traduce `AlertPersistenceEntity` y sus entregas y respuestas hacia los Value Objects (`AlertSource`, `Severity`, `AlertStatus`, `RecipientLevel`) y recompone el agregado `Alert`.
+*   `AlertPersistenceAssembler`: Traduce `AlertPersistenceEntity` y sus entregas y respuestas hacia los Value Objects (`AlertSource`, `Severity`, `AlertStatus`, `RecipientLevel`) y recompone el agregado `Alert`, conservando su versión y el orden de sus entregas.
 *   `IncidentPersistenceAssembler`, `AlertSettingsPersistenceAssembler`, `EmergencyContactPersistenceAssembler` y `AlertChannelSettingPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio.
 
 ###### Notification Adapters
 
-*   `NotificationDispatcher`: Puerto de salida del dominio para el envío efectivo de las entregas, independiente del proveedor.
-*   `PushNotificationProviderAdapter`: Implementación sobre Firebase Cloud Messaging para el canal `PUSH`.
-*   `SmsProviderAdapter`: Implementación sobre proveedor SMS para el canal `SMS`, utilizado como respaldo en severidad `CRITICAL` y en el nivel `BROADCAST`.
+*   `RoutingNotificationDispatcher`: Implementa `NotificationDispatcher` delegando cada notificación en el adaptador de su canal (`ChannelNotificationAdapter`).
 *   `InAppNotificationAdapter`: Marca como enviadas las entregas del canal `IN_APP`, que la app móvil recupera mediante la consulta de alertas pendientes.
+*   `PushNotificationProviderAdapter`: Canal `PUSH`. Simulado hasta integrar Firebase Cloud Messaging; falla, igual que el proveedor real, si el usuario no registró un token.
+*   `SmsProviderAdapter`: Canal `SMS`, respaldo obligatorio en severidad `CRITICAL` y en el nivel `BROADCAST`. Simulado hasta integrar un proveedor SMS; falla si el contacto no tiene teléfono.
+
+###### Configuration
+
+*   `EmergencyAlertingConfiguration`: Expone el `Clock` del contexto y el executor dedicado al envío de notificaciones (`emergency-alerting.notifications.executor.pool-size`).
 
 ###### Scheduling
 
-*   `FallConfirmationTimeoutScheduler`: Tarea de alta frecuencia que recupera las alertas en `PENDING_CONFIRMATION` cuya `FallConfirmationWindow` venció y despacha `ConfirmAlertCommand`.
-*   `AckTimeoutEscalationScheduler`: Tarea que recupera las alertas en `TRIGGERED` o `ESCALATED` cuyo `primaryAckTimeout` venció desde la última entrega enviada. Despacha `EscalateAlertCommand` si la alerta está en el nivel `PRIMARY` y el escalamiento está habilitado, o `BroadcastAlertCommand` como último recurso (**Critical Broadcast Fallback**) cuando ya se notificó al nivel `SECONDARY` sin reconocimiento.
+*   `FallConfirmationTimeoutScheduler`: Cada segundo recupera las alertas en `PENDING_CONFIRMATION` cuya `FallConfirmationWindow` venció y despacha `ConfirmAlertCommand`, de modo que una caída confirmada llega al contacto primario dentro del presupuesto de 5 s de US08.
+*   `AckTimeoutEscalationScheduler`: Cada cinco segundos recupera las alertas en `TRIGGERED` o `ESCALATED` cuyo `primaryAckTimeout` venció desde el último despacho y aplica `EscalationPolicy.resolveNextLevel`: despacha `EscalateAlertCommand` hacia el nivel `SECONDARY` o `BroadcastAlertCommand` como último recurso (**Critical Broadcast Fallback**).
 
 ---
 
