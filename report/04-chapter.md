@@ -737,33 +737,33 @@ Resultados de Lighthouse sobre la URL pública:
 
 ## Diseño de Entrevistas — Validación del Landing Page
 
-La sesión de validación consiste en un recorrido guiado (think-aloud) por el Landing Page de Guardian+, en el mismo orden en que está estructurado el sitio: Hero → Pain Points → Cómo funciona → Pulsera → Beneficios → Tour de la app → Zonas Seguras → Por qué Guardian+ → Planes → Contacto. 
+La sesión de validación consiste en un recorrido guiado (think-aloud) por el Landing Page de Guardian+, en el mismo orden en que está estructurado el sitio: Hero → Pain Points → Cómo funciona → Pulsera → Beneficios → Tour de la app → Zonas Seguras → Por qué Guardian+ → Planes → Contacto. El objetivo de cada pregunta es verificar si, según su segmento, el entrevistado entiende y percibe el valor real que ofrece Guardian+ en esa sección, por lo que todas las preguntas buscan que el entrevistado se explaye y justifique su respuesta, evitando preguntas cerradas de sí/no.
 
 ### Segmento 1 — Familiares
 
-1. **Hero (Familiares):** Después de leer esta primera pantalla, ¿qué entiendes que hace Guardian+ por ti y tu familia, en tus propias palabras?
-2. **Pain Points:** ¿Alguna de estas tres preguntas refleja una preocupación que tú mismo has tenido con tu familiar?
-3. **Cómo funciona:** ¿Entiendes con claridad qué pasa, paso a paso, si tu familiar sufre una emergencia?
-4. **Pulsera:** De estas funciones de la pulsera, ¿cuál te daría más tranquilidad sabiendo que tu familiar la lleva puesta?
-5. **Beneficios:** ¿Cuál de estos seis beneficios te parece el más importante para decidir si usarías Guardian+?
-6. **Tour de la app:** Al explorar las pantallas de la app, ¿cuál usarías con más frecuencia para sentirte tranquilo durante el día?
-7. **Zonas Seguras:** ¿El funcionamiento de las zonas seguras te queda claro con lo que ves en pantalla, o necesitarías más explicación?
-8. **Por qué Guardian+:** ¿Te sientes identificado con el testimonio mostrado? ¿Por qué sí o por qué no?
+1. **Hero:** Después de leer esta primera pantalla, ¿qué entiendes que hace Guardian+ por ti y tu familia, en tus propias palabras? ¿Por qué lo entiendes así?
+2. **Pain Points:** ¿Cuál de estas tres preguntas refleja mejor una preocupación que tú mismo has tenido con tu familiar, y por qué esa en particular?
+3. **Cómo funciona:** ¿Qué entiendes que pasa, paso a paso, si tu familiar sufre una emergencia? ¿Qué parte del proceso te queda más clara y cuál más confusa?
+4. **Pulsera:** ¿Cuáles de estas funciones de la pulsera usarías con tu familiar, y qué tranquilidad específica te daría cada una?
+5. **Beneficios:** ¿Cuáles de estos seis beneficios te parecen más importantes para decidir si usarías Guardian+, y qué necesidad tuya resuelve cada uno?
+6. **Tour de la app:** Al ver la pantalla de Inicio ¿qué tan bien reflejan la forma en que tú querrías enterarte del estado de tu familiar durante el día? ¿Por qué?
+7. **Zonas Seguras:** ¿De qué manera esta función cambiaría tu tranquilidad o tu rutina actual con tu familiar? ¿Por qué?
+8. **Por qué Guardian+:** ¿Qué tan identificado te sientes con el testimonio mostrado, y qué parte de esa historia se parece más a la tuya?
 9. **Planes:** Viendo los tres planes, ¿cuál elegirías para tu familia y qué fue lo que más pesó en tu decisión?
-10. **Contacto:** Si tuvieras dudas sobre qué plan elegir, ¿usarías este formulario de contacto o preferirías otro canal?
+10. **Contacto:** Si tuvieras dudas sobre qué plan elegir, ¿qué información esperarías recibir al usar este formulario de contacto?
 
 ### Segmento 2 — Cuidadores
 
-1. **Hero (Cuidadores):** Si estuvieras buscando una herramienta que te apoye en tu trabajo de cuidado, ¿esta pantalla te convence de seguir explorando, o sientes que le falta algo dirigido específicamente a ti?
-2. **Pain Points:** ¿Estas preguntas representan también los riesgos que tú monitoreas en tu trabajo diario, o te faltaría alguna?
-3. **Cómo funciona:** Viendo estos 3 pasos, ¿sientes que encajan con cómo actúas tú actualmente ante una emergencia con tu paciente?
-4. **Pulsera:** ¿Cuál de estas funciones usarías con más frecuencia como apoyo directo a tu labor de cuidado?
-5. **Beneficios:** ¿Cuál de estos beneficios te ahorraría más tiempo o esfuerzo en tu rutina diaria de cuidado?
-6. **Tour de la app:** ¿Qué pantalla te resultaría más útil para reportar o verificar el estado del paciente mientras trabajas?
-7. **Zonas Seguras:** ¿Esta función te ayudaría a reducir la supervisión constante que haces actualmente, o no cambia mucho tu rutina?
-8. **Por qué Guardian+:** Como cuidador profesional, ¿estos diferenciadores te generan más confianza en la solución frente a lo que usas hoy?
-9. **Planes:** Si tú recomendaras un plan a la familia de tu paciente, ¿cuál sugerirías según las necesidades que observas en tu trabajo?
-10. **Contacto:** ¿Te parece útil esta opción de contacto si necesitaras orientación sobre el plan adecuado para tu paciente?
+1. **Hero:** Si estuvieras buscando una herramienta que te apoye en tu trabajo de cuidado, ¿qué entiendes que te ofrece Guardian+ a partir de esta pantalla? ¿Por qué lo entiendes así?
+2. **Pain Points:** ¿Cuál de estas preguntas representa mejor un riesgo que tú monitoreas en tu trabajo diario, y por qué ese en particular?
+3. **Cómo funciona:** Viendo estos 3 pasos, ¿en qué se parece o se diferencia esto de cómo actúas tú actualmente ante una emergencia con tu paciente?
+4. **Pulsera:** ¿Cuáles de estas funciones de la pulsera usarías en tu trabajo diario, y qué problema puntual de tu rutina de cuidado te resolvería cada una?
+5. **Beneficios:** ¿Cuáles de estos beneficios te ahorrarían tiempo o esfuerzo en tu rutina diaria de cuidado, y de qué manera lo harían?
+6. **Tour de la app:** Al ver la pantalla de Inicio con el estado del paciente, ¿qué tan útil te resulta esa información para hacer seguimiento durante tu jornada? ¿Qué le agregarías o quitarías?
+7. **Zonas Seguras:** ¿De qué manera esta función reduciría la supervisión constante que haces actualmente? ¿Por qué?
+8. **Por qué Guardian+:** Como cuidador profesional, ¿qué tanta confianza te generan estos diferenciadores frente a lo que usas hoy, y por qué?
+9. **Planes:** Si tú recomendaras un plan a la familia de tu paciente, ¿cuál sugerirías según las necesidades que observas en tu trabajo, y por qué ese?
+10. **Contacto:** Si necesitaras orientación sobre el plan adecuado para tu paciente, ¿qué información esperarías recibir al usar este formulario de contacto?
 
 ### 4.3.2. Registro de Entrevistas
 
