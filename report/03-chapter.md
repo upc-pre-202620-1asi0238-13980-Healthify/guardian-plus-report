@@ -549,9 +549,274 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 #### 3.1.4.1. Mobile Applications Wireframes
 
+##### Health Monitoring Bounded Context
+
+Los wireframes del Bounded Context **Health Monitoring** definen, en escala de grises, la estructura y jerarquía de las pantallas de la sección **Salud** de la aplicación móvil, sin aplicar todavía la paleta de colores del Style Guide. Cubren las User Stories US01–US05, US07, US19, US21 y US24.
+
+###### Wireframe - Inicio
+
+Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto.
+
+![wireframe health monitoring - Inicio](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png)
+
+###### Wireframe - Salud · Ahora
+
+Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21).
+
+![wireframe health monitoring - Salud · Ahora](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png)
+
+###### Wireframe - Salud · Historial · Ritmo cardíaco
+
+Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01).
+
+![wireframe health monitoring - Salud · Historial · Ritmo cardíaco](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png)
+
+###### Wireframe - Salud · Historial · Presión arterial
+
+Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02).
+
+![wireframe health monitoring - Salud · Historial · Presión arterial](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion%20Wireflow.png)
+
+###### Wireframe - Salud · Historial · Saturación de oxígeno
+
+Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03).
+
+![wireframe health monitoring - Salud · Historial · Saturación de oxígeno](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion%20Wireflow.png)
+
+###### Wireframe - Salud · Historial · Temperatura corporal
+
+Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04).
+
+![wireframe health monitoring - Salud · Historial · Temperatura corporal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura%20Wireflow.png)
+
+###### Wireframe - Salud · Historial · Frecuencia respiratoria
+
+Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05).
+
+![wireframe health monitoring - Salud · Historial · Frecuencia respiratoria](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion%20Wireflow.png)
+
+###### Wireframe - Buscar y filtrar
+
+Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07).
+
+![wireframe health monitoring - Buscar y filtrar](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos%20Wireflow.png)
+
+###### Wireframe - Exportar expediente
+
+Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19).
+
+![wireframe health monitoring - Exportar expediente](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente%20Wireflow.png)
+
+###### Wireframe - Reporte semanal
+
+Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24).
+
+![wireframe health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal%20Wireflow.png)
+
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
+##### Health Monitoring Bounded Context
+
+Los wireflows del Bounded Context **Health Monitoring** combinan los wireframes de la sección **Salud** con las interacciones que conectan cada pantalla. Cada wireflow corresponde a un user goal del Cuidador y muestra la secuencia de pantallas, de izquierda a derecha, y la acción que dispara cada transición.
+
+###### Wireflow 1 - Consultar ritmo cardíaco (US01)
+
+**User goal:** Como cuidador, quiero consultar la lectura actual del ritmo cardíaco de la persona bajo cuidado, para monitorear su estabilidad cardiovascular e identificar irregularidades oportunamente.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US01 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US01 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial” y el chip “Ritmo”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png" alt="wireflow US01 - Ritmo cardíaco" width="170"><br><sub>Ritmo cardíaco</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 2 - Consultar presión arterial (US02)
+
+**User goal:** Como cuidador, quiero consultar la presión arterial sistólica y diastólica de la persona bajo cuidado, para evaluar su condición hemodinámica y prevenir descompensaciones.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US02 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US02 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial” y el chip “Presión”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion%20Wireflow.png" alt="wireflow US02 - Presión arterial" width="170"><br><sub>Presión arterial</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 3 - Consultar saturación de oxígeno (US03)
+
+**User goal:** Como cuidador, quiero consultar la saturación de oxígeno de la persona bajo cuidado, para identificar hipoxemia o dificultad respiratoria.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US03 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US03 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial” y el chip “SpO₂”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion%20Wireflow.png" alt="wireflow US03 - Saturación de oxígeno" width="170"><br><sub>Saturación de oxígeno</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 4 - Supervisar temperatura corporal (US04)
+
+**User goal:** Como cuidador, quiero supervisar la temperatura corporal de la persona bajo cuidado, para detectar oportunamente fiebre o hipotermia.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US04 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US04 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial” y el chip “Temp”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura%20Wireflow.png" alt="wireflow US04 - Temperatura corporal" width="170"><br><sub>Temperatura corporal</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 5 - Consultar frecuencia respiratoria (US05)
+
+**User goal:** Como cuidador, quiero consultar la frecuencia respiratoria de la persona bajo cuidado, para identificar taquipnea o bradipnea.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US05 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US05 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial” y el chip “Respir”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion%20Wireflow.png" alt="wireflow US05 - Frecuencia respiratoria" width="170"><br><sub>Frecuencia respiratoria</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 6 - Analizar tendencias históricas (US07)
+
+**User goal:** Como cuidador, quiero revisar tendencias históricas de signos vitales, para identificar patrones de deterioro y compartir información con el médico.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US07 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US07 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Todos los signos vitales”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos%20Wireflow.png" alt="wireflow US07 - Buscar y filtrar" width="170"><br><sub>Buscar y filtrar</sub></td>
+    <td align="center"><sub>Elige signo y periodo y toca “Aplicar”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png" alt="wireflow US07 - Tendencia filtrada" width="170"><br><sub>Tendencia filtrada</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 7 - Exportar historial de telemetría (US19)
+
+**User goal:** Como cuidador, quiero generar y exportar el historial de signos vitales, para respaldar las consultas médicas presenciales.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US19 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US19 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png" alt="wireflow US19 - Historial" width="170"><br><sub>Historial</sub></td>
+    <td align="center"><sub>Toca “Exportar PDF”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente%20Wireflow.png" alt="wireflow US19 - Exportar expediente" width="170"><br><sub>Exportar expediente</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 8 - Sincronizar telemetría sin conexión (US21)
+
+**User goal:** Como cuidador, quiero que las lecturas tomadas sin red se almacenen y sincronicen al recuperar conexión, para conservar íntegro el historial.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US21 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US21 - Salud · Ahora (tarjeta “Sincronización activa”)" width="170"><br><sub>Salud · Ahora (tarjeta “Sincronización activa”)</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 9 - Revisar reporte semanal de salud (US24)
+
+**User goal:** Como cuidador, quiero recibir una síntesis semanal del estado de salud, para evaluar la evolución global sin revisar la telemetría continuamente.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow US24 - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca “Salud”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireflow US24 - Salud · Ahora" width="170"><br><sub>Salud · Ahora</sub></td>
+    <td align="center"><sub>Toca “Historial”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png" alt="wireflow US24 - Historial" width="170"><br><sub>Historial</sub></td>
+    <td align="center"><sub>Toca “Reporte semanal”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal%20Wireflow.png" alt="wireflow US24 - Reporte semanal" width="170"><br><sub>Reporte semanal</sub></td>
+  </tr>
+</table>
+
+
 #### 3.1.4.3. Mobile Applications Mock-ups
+
+##### Health Monitoring Bounded Context
+
+Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wireframes la paleta de colores, tipografía, elevaciones y etiquetas de estado definidas en el Style Guide (3.1.1). El verde identifica las acciones primarias y los estados normales, y el ámbar resalta las lecturas “En Observación”.
+
+###### Mockup - Inicio
+
+Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto.
+
+![mockup health monitoring - Inicio](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen.png)
+
+###### Mockup - Salud · Ahora
+
+Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21).
+
+![mockup health monitoring - Salud · Ahora](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo.png)
+
+###### Mockup - Salud · Historial · Ritmo cardíaco
+
+Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01).
+
+![mockup health monitoring - Salud · Historial · Ritmo cardíaco](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo.png)
+
+###### Mockup - Salud · Historial · Presión arterial
+
+Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02).
+
+![mockup health monitoring - Salud · Historial · Presión arterial](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion.png)
+
+###### Mockup - Salud · Historial · Saturación de oxígeno
+
+Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03).
+
+![mockup health monitoring - Salud · Historial · Saturación de oxígeno](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion.png)
+
+###### Mockup - Salud · Historial · Temperatura corporal
+
+Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04).
+
+![mockup health monitoring - Salud · Historial · Temperatura corporal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura.png)
+
+###### Mockup - Salud · Historial · Frecuencia respiratoria
+
+Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05).
+
+![mockup health monitoring - Salud · Historial · Frecuencia respiratoria](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion.png)
+
+###### Mockup - Buscar y filtrar
+
+Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07).
+
+![mockup health monitoring - Buscar y filtrar](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos.png)
+
+###### Mockup - Exportar expediente
+
+Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19).
+
+![mockup health monitoring - Exportar expediente](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente.png)
+
+###### Mockup - Reporte semanal
+
+Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24).
+
+![mockup health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal.png)
+
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -687,5 +952,397 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 </table>
 
 ![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_3.png)
+
+<hr>
+
+##### Health Monitoring Bounded Context
+
+Los siguientes user flows corresponden al Bounded Context **Health Monitoring** y describen cómo la Cuidadora (User Persona: Roxana Paola Diana Ramírez) consulta, analiza, exporta y sincroniza los signos vitales del Fragile Citizen desde la sección **Salud**. Cada diagrama muestra el happy path con flechas continuas y el unhappy path con flechas discontinuas en rojo.
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>1 · US01</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero consultar la lectura actual del ritmo cardíaco de la persona bajo cuidado, para monitorear su estabilidad cardiovascular e identificar irregularidades oportunamente.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador selecciona Ritmo cardíaco.</li>
+    <li>El sistema muestra la pantalla de consulta de ritmo cardíaco.</li>
+    <li>¿Hay lectura válida? Sí → el sistema muestra el valor, la tendencia y el estado.</li>
+    <li>El Cuidador comprende el estado cardíaco del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona Ritmo cardíaco.</li>
+    <li>¿Hay lectura válida? No → el sistema no recibe una lectura válida de la pulsera.</li>
+    <li>El sistema muestra el último valor válido junto con el indicador “Sin señal”.</li>
+    <li>El Cuidador puede continuar el seguimiento con contexto.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 1 - Health Monitoring - US01](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%201%20%C2%B7%20US01%20%C2%B7%20Consultar%20ritmo%20cardi%CC%81aco.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>2 · US02</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero consultar la presión arterial sistólica y diastólica de la persona bajo cuidado, para evaluar su condición hemodinámica y prevenir descompensaciones.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador selecciona Presión arterial.</li>
+    <li>El sistema muestra la pantalla de consulta de presión arterial.</li>
+    <li>¿Lectura concluyente? Sí → el sistema muestra el valor en mmHg y su clasificación.</li>
+    <li>El Cuidador evalúa la presión arterial del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona Presión arterial.</li>
+    <li>¿Lectura concluyente? No → la medición no es válida.</li>
+    <li>El sistema descarta la medición inválida e informa el error.</li>
+    <li>Se solicita una nueva lectura.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 2 - Health Monitoring - US02](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%202%20%C2%B7%20US02%20%C2%B7%20Consultar%20presi%C3%B3n%20arterial.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>3 · US03</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero consultar la saturación de oxígeno de la persona bajo cuidado, para identificar hipoxemia o dificultad respiratoria.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador selecciona Saturación O₂.</li>
+    <li>El sistema muestra la pantalla de consulta de saturación de oxígeno.</li>
+    <li>¿Hay contacto continuo? Sí → el sistema muestra el valor de SpO₂ y su estado.</li>
+    <li>El Cuidador evalúa la oxigenación del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona Saturación O₂.</li>
+    <li>¿Hay contacto continuo? No → la pulsera no mantiene contacto continuo con la piel.</li>
+    <li>El sistema conserva el último registro válido e indica que la lectura está incompleta.</li>
+    <li>No se interpreta un dato incompleto.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 3 - Health Monitoring - US03](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%203%20%C2%B7%20US03%20%C2%B7%20Consultar%20saturaci%C3%B3n%20de%20ox%C3%ADgeno.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>4 · US04</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero supervisar la temperatura corporal de la persona bajo cuidado, para detectar oportunamente fiebre o hipotermia.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador selecciona Temperatura.</li>
+    <li>El sistema muestra la pantalla de supervisión de temperatura corporal.</li>
+    <li>¿Está en rango normal? Sí → el sistema muestra normotermia y registra la serie.</li>
+    <li>El Cuidador supervisa la temperatura del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona Temperatura.</li>
+    <li>¿Está en rango normal? No → la temperatura está fuera del rango normal.</li>
+    <li>El sistema destaca la fiebre o hipotermia y pide un control inmediato.</li>
+    <li>La anomalía queda visible para que el Cuidador actúe.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 4 - Health Monitoring - US04](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%204%20%C2%B7%20US04%20%C2%B7%20Supervisar%20temperatura%20corporal.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>5 · US05</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero consultar la frecuencia respiratoria de la persona bajo cuidado, para identificar taquipnea o bradipnea.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador selecciona Respiración.</li>
+    <li>El sistema muestra la pantalla de consulta de frecuencia respiratoria.</li>
+    <li>¿Está entre 12–20 rpm? Sí → el sistema muestra un ritmo ventilatorio normal.</li>
+    <li>El Cuidador evalúa la respiración del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona Respiración.</li>
+    <li>¿Está entre 12–20 rpm? No → la frecuencia respiratoria está fuera del rango.</li>
+    <li>El sistema destaca el valor anómalo y actualiza la condición.</li>
+    <li>El Cuidador identifica la alteración respiratoria.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 5 - Health Monitoring - US05](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%205%20%C2%B7%20US05%20%C2%B7%20Consultar%20frecuencia%20respiratoria.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>6 · US07</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero revisar tendencias históricas de signos vitales, para identificar patrones de deterioro y compartir información con el médico.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador abre “Buscar y filtrar” y elige el signo vital y el periodo.</li>
+    <li>El sistema aplica los criterios seleccionados.</li>
+    <li>¿Hay al menos 12 h válidas? Sí → el sistema consolida el promedio, mínimo, máximo y la gráfica.</li>
+    <li>La tendencia queda disponible para el Cuidador.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador elige el signo vital y el periodo.</li>
+    <li>¿Hay al menos 12 h válidas? No → el periodo no tiene suficientes datos.</li>
+    <li>El sistema informa que el muestreo es insuficiente.</li>
+    <li>El Cuidador elige otro periodo.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 6 - Health Monitoring - US07](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%206%20%C2%B7%20US07%20%C2%B7%20Analizar%20tendencias%20hist%C3%B3ricas.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>7 · US19</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero generar y exportar el historial de signos vitales, para respaldar las consultas médicas presenciales.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador abre Exportar PDF y elige el periodo.</li>
+    <li>El sistema muestra la hoja “Exportar expediente”.</li>
+    <li>¿El rango tiene registros? Sí → el sistema compila y genera el expediente en PDF.</li>
+    <li>El expediente queda listo para compartir.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador abre Exportar PDF y elige el periodo.</li>
+    <li>¿El rango tiene registros? No → el periodo seleccionado no contiene datos.</li>
+    <li>El sistema bloquea la exportación y conserva el periodo seleccionado.</li>
+    <li>El Cuidador selecciona otro rango.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 7 - Health Monitoring - US19](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%207%20%C2%B7%20US19%20%C2%B7%20Exportar%20historial%20de%20telemetr%C3%ADa.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>8 · US21</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero que las lecturas tomadas sin red se almacenen y sincronicen al recuperar conexión, para conservar íntegro el historial.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El monitoreo recibe nuevas lecturas de la pulsera.</li>
+    <li>El sistema muestra la tarjeta “Sincronización activa” en la pestaña Ahora.</li>
+    <li>¿Hay conexión disponible? Sí → el sistema transmite y persiste la telemetría.</li>
+    <li>El historial queda actualizado.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El monitoreo recibe nuevas lecturas de la pulsera.</li>
+    <li>¿Hay conexión disponible? No → no existe conexión de red.</li>
+    <li>El sistema almacena las lecturas localmente y las sincroniza al reconectar.</li>
+    <li>Los datos pendientes se recuperan en el historial.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 8 - Health Monitoring - US21](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%208%20%C2%B7%20US21%20%C2%B7%20Sincronizar%20telemetr%C3%ADa%20sin%20conexi%C3%B3n.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>9 · US24</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidador, quiero recibir una síntesis semanal del estado de salud, para evaluar la evolución global sin revisar la telemetría continuamente.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador necesita revisar el indicador y se encuentra en la pantalla de Inicio.</li>
+    <li>El Cuidador toca Salud.</li>
+    <li>El sistema muestra la pantalla Salud con los signos vitales en tiempo real.</li>
+    <li>El Cuidador abre Reporte semanal.</li>
+    <li>El sistema muestra la hoja de reporte semanal de salud.</li>
+    <li>El sistema muestra la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación.</li>
+    <li>El Cuidador comprende la evolución de la semana.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador abre Reporte semanal.</li>
+    <li>El sistema detecta anomalías recurrentes en un parámetro durante la semana.</li>
+    <li>El sistema resalta la recurrencia y recomienda una revisión médica preventiva.</li>
+    <li>El Cuidador identifica el riesgo recurrente.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 9 - Health Monitoring - US24](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%209%20%C2%B7%20US24%20%C2%B7%20Revisar%20reporte%20semanal%20de%20salud.png)
 
 #### 3.1.4.5. Mobile Applications Prototyping
