@@ -678,10 +678,11 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
     <td class="header">Unhappy Paths</td>
     <td colspan="3">
     <ul>
-    <li></li>
-    <li></li>
-    </ul>
+    <li>Salida de todas las zonas seguras: Si las coordenadas se mantienen fuera de todas las geocercas activas, el sistema genera una alerta de egreso y la envía inmediatamente al Cuidador.</li>
+    <li>Múltiples geocercas: Si existen varias zonas configuradas, el sistema debe verificar la posición respecto a todas las zonas activas antes de generar una alerta de salida.</li>
+    <li>Reingreso: Si el Fragile Citizen vuelve a ingresar a cualquiera de las zonas autorizadas, el sistema notifica el reingreso y vuelve al estado de vigilancia regular.</li>
     </td>
+    </ul>
   </tr>
 </table>
 
