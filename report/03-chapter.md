@@ -555,4 +555,53 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador</td>
+    <td class="header">Número</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Cuidador, quiero consultar en tiempo real la ubicación del Fragile Citizen mediante las coordenadas de geolocalización de su pulsera, para verificar su paradero y actuar rápidamente ante una posible desorientación.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>Cuidador inicia sesión en la aplicación</li>
+    <li>El sistema muestra la pantalla principal con los Fragile Citizens asociados.</li>
+    <li>Cuidador selecciona al Fragile Citizen que desea localizar.</li>
+    <li>El sistema muestra la vista de Localización/Mapa.</li>
+    <li>El Cuidador solicita la ubicación actual.</li>
+    <li>El sistema consulta la telemetría de geolocalización de la pulsera</li>
+    <li>¿Existe cobertura GNSS activa? Sí → el sistema obtiene la posición actual.</li>
+    <li>El sistema recibe las coordenadas de latitud y longitud.</li>
+    <li>El sistema verifica que la información tenga una marca de tiempo dentro de los últimos 30 segundos.</li>
+    <li>El sistema muestra la ubicación actual del Fragile Citizen en el mapa</li>
+    <li>Se muestran las coordenadas y la hora de última actualización. El Cuidador verifica el paradero del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona al Fragile Citizen.</li>
+    <li>El Cuidador solicita su ubicación actual.</li>
+    <li>¿Existe cobertura GNSS activa? No → el sistema detecta que no existe una fijación satelital válida.</li>
+    <li>El sistema recupera el último punto geográfico válido conocido.</li>
+    <li>El sistema muestra dicho punto en el mapa.</li>
+    <li>El sistema presenta una advertencia indicando que existe una pérdida momentánea de señal GNSS.</li>
+    <li>El sistema muestra la marca de tiempo correspondiente al último punto válido, diferenciándola de una ubicación en tiempo real.</li>
+    <li>El Cuidador puede continuar monitoreando la ubicación hasta que se restablezca la señal.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_1.png)
 #### 3.1.4.5. Mobile Applications Prototyping
