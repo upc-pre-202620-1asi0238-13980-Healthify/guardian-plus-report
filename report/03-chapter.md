@@ -555,4 +555,137 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador</td>
+    <td class="header">Número</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Cuidador, quiero consultar en tiempo real la ubicación del Fragile Citizen mediante las coordenadas de geolocalización de su pulsera, para verificar su paradero y actuar rápidamente ante una posible desorientación.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>Cuidador inicia sesión en la aplicación</li>
+    <li>El sistema muestra la pantalla principal con los Fragile Citizens asociados.</li>
+    <li>Cuidador selecciona al Fragile Citizen que desea localizar.</li>
+    <li>El sistema muestra la vista de Localización/Mapa.</li>
+    <li>El Cuidador solicita la ubicación actual.</li>
+    <li>El sistema consulta la telemetría de geolocalización de la pulsera</li>
+    <li>¿Existe cobertura GNSS activa? Sí → el sistema obtiene la posición actual.</li>
+    <li>El sistema recibe las coordenadas de latitud y longitud.</li>
+    <li>El sistema verifica que la información tenga una marca de tiempo dentro de los últimos 30 segundos.</li>
+    <li>El sistema muestra la ubicación actual del Fragile Citizen en el mapa</li>
+    <li>Se muestran las coordenadas y la hora de última actualización. El Cuidador verifica el paradero del Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador selecciona al Fragile Citizen.</li>
+    <li>El Cuidador solicita su ubicación actual.</li>
+    <li>¿Existe cobertura GNSS activa? No → el sistema detecta que no existe una fijación satelital válida.</li>
+    <li>El sistema recupera el último punto geográfico válido conocido.</li>
+    <li>El sistema muestra dicho punto en el mapa.</li>
+    <li>El sistema presenta una advertencia indicando que existe una pérdida momentánea de señal GNSS.</li>
+    <li>El sistema muestra la marca de tiempo correspondiente al último punto válido, diferenciándola de una ubicación en tiempo real.</li>
+    <li>El Cuidador puede continuar monitoreando la ubicación hasta que se restablezca la señal.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_1.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Famliar</td>
+    <td class="header">Número</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Familiar, quiero iniciar una comunicación directa con el Fragile Citizen mediante videollamada o llamada de voz, según las capacidades de la pulsera, para verificar su condición ante una inquietud o situación cotidiana.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Familiar selecciona al Fragile Citizen desde la aplicación.</li>
+    <li>Solicita iniciar una videollamada.</li>
+    <li>El sistema verifica las capacidades de comunicación de la pulsera.</li>
+    <li>La pulsera cuenta con cámara, pantalla y conexión de datos activa.</li>
+    <li>El sistema establece la sesión de videollamada.</li>
+    <li>Se confirma la conexión entre el Familiar y el Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ul>
+    <li>Sin cámara: Si la pulsera permite comunicación por audio, pero no dispone de cámara, el sistema informa la limitación y cambia automáticamente la solicitud a una llamada de voz.</li>
+    <li>Sin comunicación bidireccional: Si la pulsera solo permite telemetría, avisos hápticos y SOS, el sistema informa que no admite llamadas y ofrece realizar una llamada telefónica al número registrado.</li>
+    <li>Llamada no contestada: Si el Fragile Citizen no responde después de 30 segundos, el sistema finaliza el intento y registra la llamada como no atendida en el historial.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_2.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador</td>
+    <td class="header">Número</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Cuidador, quiero configurar y monitorear múltiples zonas geográficas seguras para recibir alertas cuando el Fragile Citizen salga de los perímetros autorizados y ser informado cuando reingrese a una zona segura.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador configura una o más geocercas, como hogar, parque o club.</li>
+    <li>Define las coordenadas y el radio de cada zona segura.</li>
+    <li>El sistema activa las geocercas y comienza el monitoreo.</li>
+    <li>El Fragile Citizen permanece dentro de una zona segura.</li>
+    <li>El sistema verifica continuamente las coordenadas del dispositivo.</li>
+    <li>Cuando el Fragile Citizen reingresa a una zona después de haber estado fuera, el sistema notifica el reingreso al perímetro seguro.</li>
+    <li>Se restablece la condición de vigilancia regular.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ul>
+    <li>Salida de todas las zonas seguras: Si las coordenadas se mantienen fuera de todas las geocercas activas, el sistema genera una alerta de egreso y la envía inmediatamente al Cuidador.</li>
+    <li>Múltiples geocercas: Si existen varias zonas configuradas, el sistema debe verificar la posición respecto a todas las zonas activas antes de generar una alerta de salida.</li>
+    <li>Reingreso: Si el Fragile Citizen vuelve a ingresar a cualquiera de las zonas autorizadas, el sistema notifica el reingreso y vuelve al estado de vigilancia regular.</li>
+    </td>
+    </ul>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_3.png)
+
 #### 3.1.4.5. Mobile Applications Prototyping
