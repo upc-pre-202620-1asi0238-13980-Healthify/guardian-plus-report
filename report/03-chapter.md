@@ -604,4 +604,45 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 </table>
 
 ![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_1.png)
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Famliar</td>
+    <td class="header">Número</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Familiar, quiero iniciar una comunicación directa con el Fragile Citizen mediante videollamada o llamada de voz, según las capacidades de la pulsera, para verificar su condición ante una inquietud o situación cotidiana.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Familiar selecciona al Fragile Citizen desde la aplicación.</li>
+    <li>Solicita iniciar una videollamada.</li>
+    <li>El sistema verifica las capacidades de comunicación de la pulsera.</li>
+    <li>La pulsera cuenta con cámara, pantalla y conexión de datos activa.</li>
+    <li>El sistema establece la sesión de videollamada.</li>
+    <li>Se confirma la conexión entre el Familiar y el Fragile Citizen.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ul>
+    <li>Sin cámara: Si la pulsera permite comunicación por audio, pero no dispone de cámara, el sistema informa la limitación y cambia automáticamente la solicitud a una llamada de voz.</li>
+    <li>Sin comunicación bidireccional: Si la pulsera solo permite telemetría, avisos hápticos y SOS, el sistema informa que no admite llamadas y ofrece realizar una llamada telefónica al número registrado.</li>
+    <li>Llamada no contestada: Si el Fragile Citizen no responde después de 30 segundos, el sistema finaliza el intento y registra la llamada como no atendida en el historial.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_2.png)
+
 #### 3.1.4.5. Mobile Applications Prototyping
