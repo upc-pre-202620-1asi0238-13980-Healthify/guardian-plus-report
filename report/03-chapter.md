@@ -605,6 +605,7 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 ![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_1.png)
 
+<hr>
 <table>
   <tr>
     <td class="header">User Persona</td>
@@ -644,5 +645,46 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 </table>
 
 ![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_2.png)
+
+<hr>
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidador</td>
+    <td class="header">Número</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como Cuidador, quiero configurar y monitorear múltiples zonas geográficas seguras para recibir alertas cuando el Fragile Citizen salga de los perímetros autorizados y ser informado cuando reingrese a una zona segura.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+    <li>El Cuidador configura una o más geocercas, como hogar, parque o club.</li>
+    <li>Define las coordenadas y el radio de cada zona segura.</li>
+    <li>El sistema activa las geocercas y comienza el monitoreo.</li>
+    <li>El Fragile Citizen permanece dentro de una zona segura.</li>
+    <li>El sistema verifica continuamente las coordenadas del dispositivo.</li>
+    <li>Cuando el Fragile Citizen reingresa a una zona después de haber estado fuera, el sistema notifica el reingreso al perímetro seguro.</li>
+    <li>Se restablece la condición de vigilancia regular.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ul>
+    <li></li>
+    <li></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram1 - Cuidador](../assets/images/chapterIII/user-flow-diagrams/user_flow_3.png)
 
 #### 3.1.4.5. Mobile Applications Prototyping
