@@ -613,6 +613,71 @@ Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos
 
 ![wireframe health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal%20Wireflow.png)
 
+##### Profile, IAM & Subscriptions
+
+Los siguientes wireframes representan las vistas complementarias de Guardian+ relacionadas con la gestión del perfil, la información de la persona bajo cuidado, el dispositivo asociado, la suscripción y las preferencias de uso. Las pantallas se presentan en escala de grises, conservando la estructura y jerarquía visual definida para los mock-ups finales.
+
+###### Wireframe - Perfil y datos personales
+
+Estas vistas permiten al familiar o cuidador acceder a las principales opciones de su perfil y consultar o actualizar su información personal y de contacto.
+
+![wireframe extras - Perfil](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png)
+
+![wireframe extras - Mis datos](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mis-datos.png)
+
+###### Wireframe - Persona bajo cuidado
+
+Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil. Presenta los datos de Elena Rojas y la relación existente con el usuario.
+
+![wireframe extras - Persona bajo cuidado](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-persona-bajo-cuidado.png)
+
+###### Wireframe - Círculo de cuidado
+
+Vista que reúne a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol.
+
+![wireframe extras - Círculo de cuidado](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-circulo-cuidado.png)
+
+###### Wireframe - Pulsera
+
+Vista destinada a consultar el estado del dispositivo wearable asociado a la persona bajo cuidado. Presenta información de conexión, batería, sincronización e identificación del dispositivo.
+
+![wireframe extras - Pulsera](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-pulsera.png)
+
+###### Wireframe - Mi plan
+
+Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado.
+
+![wireframe extras - Mi plan](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mi-plan.png)
+
+###### Wireframe - Configuración
+
+Vista que centraliza las preferencias generales de la aplicación. Permite acceder a las opciones de idioma, accesibilidad y a la información complementaria de Guardian+.
+
+![wireframe extras - Configuración](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-configuracion.png)
+
+###### Wireframe - Idioma
+
+Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida.
+
+![wireframe extras - Idioma](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-idioma.png)
+
+###### Wireframe - Accesibilidad
+
+Vista que permite al usuario ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento.
+
+![wireframe extras - Accesibilidad](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-accesibilidad.png)
+
+###### Wireframe - Acerca de Guardian+
+
+Vista informativa que presenta datos generales de Guardian+, incluyendo su propósito, versión de la aplicación y acceso a información complementaria del producto.
+
+![wireframe extras - Acerca de Guardian+](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-acerca-guardian.png)
+
+###### Wireframe - Cerrar sesión
+
+Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación.
+
+![wireframe extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-cerrar-sesion.png)
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
@@ -750,6 +815,113 @@ Los wireflows del Bounded Context **Health Monitoring** combinan los wireframes 
   </tr>
 </table>
 
+##### Extras
+
+Los wireflows de **Extras** combinan los wireframes relacionados con el perfil, el entorno de cuidado, la suscripción, las preferencias de la aplicación y la gestión de sesión. Cada wireflow corresponde a un user goal del Familiar o Cuidador y muestra la secuencia de pantallas, de izquierda a derecha, junto con la acción que dispara cada transición.
+
+###### Wireflow 1 - Gestionar información personal
+
+User goal: Como familiar o cuidador, quiero consultar y actualizar mis datos personales y de contacto, para mantener correcta la información asociada a mi perfil en Guardian+.
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Mis datos”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mis-datos.png" alt="wireflow extras - Mis datos" width="170"><br><sub>Mis datos</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 2 - Consultar entorno de cuidado
+
+**User goal:** Como familiar o cuidador, quiero consultar la información de Elena, las personas vinculadas a su cuidado y el estado de su pulsera, para mantenerme informado sobre su entorno de cuidado.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Persona bajo cuidado”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-persona-bajo-cuidado.png" alt="wireflow extras - Persona bajo cuidado" width="170"><br><sub>Persona bajo cuidado</sub></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Círculo de cuidado”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-circulo-cuidado.png" alt="wireflow extras - Círculo de cuidado" width="170"><br><sub>Círculo de cuidado</sub></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Pulsera”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-pulsera.png" alt="wireflow extras - Pulsera" width="170"><br><sub>Pulsera</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 3 - Consultar suscripción actual
+
+**User goal:** Como familiar o cuidador, quiero consultar mi plan actual y sus beneficios, para conocer las funcionalidades disponibles en mi suscripción de Guardian+.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Mi plan”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mi-plan.png" alt="wireflow extras - Mi plan" width="170"><br><sub>Mi plan</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 4 - Configurar preferencias de la aplicación
+
+**User goal:** Como familiar o cuidador, quiero ajustar el idioma y las opciones de accesibilidad de Guardian+, para adaptar la aplicación a mis necesidades de uso.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Configuración”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-configuracion.png" alt="wireflow extras - Configuración" width="170"><br><sub>Configuración</sub></td>
+    <td align="center"><sub>Toca “Idioma”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-idioma.png" alt="wireflow extras - Idioma" width="170"><br><sub>Idioma</sub></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Configuración”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-configuracion.png" alt="wireflow extras - Configuración" width="170"><br><sub>Configuración</sub></td>
+    <td align="center"><sub>Toca “Accesibilidad”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-accesibilidad.png" alt="wireflow extras - Accesibilidad" width="170"><br><sub>Accesibilidad</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 5 - Cerrar sesión de forma segura
+
+**User goal:** Como familiar o cuidador, quiero cerrar mi sesión de Guardian+, para proteger el acceso a la información de la persona bajo cuidado cuando termine de utilizar la aplicación.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow extras - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca su avatar</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireflow extras - Perfil" width="170"><br><sub>Perfil</sub></td>
+    <td align="center"><sub>Toca “Cerrar sesión”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-cerrar-sesion.png" alt="wireflow extras - Confirmar cierre de sesión" width="170"><br><sub>Confirmar cierre de sesión</sub></td>
+  </tr>
+</table>
+
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
@@ -817,6 +989,75 @@ Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos
 
 ![mockup health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal.png)
 
+##### Extras
+
+Los mock-ups de **Extras** aplican el Design System de Guardian+ a las vistas relacionadas con el perfil, el entorno de cuidado, la suscripción, las preferencias de la aplicación y la gestión de sesión. Las pantallas mantienen la paleta, tipografía, jerarquía visual y componentes definidos en las Style Guidelines.
+
+###### Mockup - Perfil
+
+Pantalla principal del perfil del familiar o cuidador. Centraliza el acceso a los datos personales, la información de la persona bajo cuidado, el círculo de cuidado, la pulsera, la suscripción, las preferencias de la aplicación y el cierre de sesión.
+
+![mockup extras - Perfil](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-perfil.png)
+
+###### Mockup - Mis datos
+
+Vista destinada a consultar y actualizar la información personal y de contacto del familiar o cuidador, incluyendo nombre, correo electrónico, teléfono y datos adicionales asociados al perfil.
+
+![mockup extras - Mis datos](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mis-datos.png)
+
+###### Mockup - Persona bajo cuidado
+
+Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil, mostrando sus datos generales y la relación existente con el usuario.
+
+![mockup extras - Persona bajo cuidado](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-persona-bajo-cuidado.png)
+
+###### Mockup - Círculo de cuidado
+
+Vista que presenta a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol.
+
+![mockup extras - Círculo de cuidado](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-circulo-cuidado.png)
+
+###### Mockup - Pulsera
+
+Vista que permite consultar el estado del dispositivo wearable asociado a la persona bajo cuidado, incluyendo información de conexión, batería, sincronización y datos de identificación del dispositivo.
+
+![mockup extras - Pulsera](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-pulsera.png)
+
+###### Mockup - Mi plan
+
+Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado.
+
+![mockup extras - Mi plan](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mi-plan.png)
+
+###### Mockup - Configuración
+
+Vista que centraliza las preferencias generales de la aplicación y proporciona acceso a las opciones de idioma, accesibilidad e información complementaria de Guardian+.
+
+![mockup extras - Configuración](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-configuracion.png)
+
+###### Mockup - Idioma
+
+Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida.
+
+![mockup extras - Idioma](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-idioma.png)
+
+###### Mockup - Accesibilidad
+
+Vista que permite ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento.
+
+![mockup extras - Accesibilidad](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-accesibilidad.png)
+
+###### Mockup - Acerca de Guardian+
+
+Vista informativa que presenta el propósito de Guardian+, la versión de la aplicación y el acceso a información complementaria del producto.
+
+![mockup extras - Acerca de Guardian+](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-acerca-guardian.png)
+
+###### Mockup - Cerrar sesión
+
+Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación.
+
+![mockup extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-cerrar-sesion.png)
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -999,7 +1240,7 @@ Los siguientes user flows corresponden al Bounded Context **Health Monitoring** 
   </tr>
 </table>
 
-![user flow diagram 1 - Health Monitoring - US01](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%201%20%C2%B7%20US01%20%C2%B7%20Consultar%20ritmo%20cardi%CC%81aco.png)
+![user flow diagram 1 - Health Monitoring - US01](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%201%20·%20US01%20·%20Consultar%20ritmo%20cardíaco.png)
 
 <hr>
 <table>
@@ -1345,4 +1586,189 @@ Los siguientes user flows corresponden al Bounded Context **Health Monitoring** 
 
 ![user flow diagram 9 - Health Monitoring - US24](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/flows/User%20Flow%209%20%C2%B7%20US24%20%C2%B7%20Revisar%20reporte%20semanal%20de%20salud.png)
 
-#### 3.1.4.5. Mobile Applications Prototyping
+##### Extras
+
+Los siguientes user flows corresponden a las vistas complementarias de **Extras** y describen cómo el Familiar o Cuidador gestiona su información personal, consulta su entorno de cuidado y suscripción, configura las preferencias de Guardian+ y administra el cierre de sesión. Cada diagrama presenta la ruta esperada o happy path y las rutas alternativas o unhappy paths.
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar / Cuidador</td>
+    <td class="header">Número</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar o cuidador, quiero consultar y actualizar mis datos personales y de contacto, para mantener correcta la información asociada a mi perfil en Guardian+.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>El Familiar o Cuidador se encuentra en la pantalla de Inicio.</li>
+      <li>El usuario toca su avatar.</li>
+      <li>El sistema muestra la pantalla Perfil.</li>
+      <li>El usuario selecciona “Mis datos”.</li>
+      <li>El sistema muestra la información personal y de contacto registrada.</li>
+      <li>El usuario modifica la información que desea actualizar y selecciona “Guardar cambios”.</li>
+      <li>¿Los datos son válidos? Sí → el sistema guarda la información actualizada.</li>
+      <li>El sistema confirma que los cambios fueron guardados correctamente.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Datos inválidos: Si alguno de los datos ingresados no cumple con el formato esperado, el sistema mantiene la pantalla “Mis datos” y muestra el campo que debe corregirse.</li>
+      <li>El usuario corrige el dato inválido y selecciona nuevamente “Guardar cambios”.</li>
+      <li>Cancelar edición: Si el usuario selecciona “Cancelar”, el sistema regresa a Perfil sin guardar las modificaciones realizadas.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 1 - Extras - Gestionar información personal](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/flows/user-flow-extras-1-gestionar-informacion-personal.png)
+
+<hr>
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar / Cuidador</td>
+    <td class="header">Número</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar o cuidador, quiero consultar la información de Elena, las personas vinculadas a su cuidado y el estado de su pulsera, para mantenerme informado sobre su entorno de cuidado.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>El Familiar o Cuidador se encuentra en la pantalla de Inicio.</li>
+      <li>El usuario toca su avatar.</li>
+      <li>El sistema muestra la pantalla Perfil.</li>
+      <li>El usuario selecciona la información del entorno de cuidado que desea consultar.</li>
+      <li>Si selecciona “Persona bajo cuidado”, el sistema muestra la información principal de Elena.</li>
+      <li>Si selecciona “Pulsera”, el sistema muestra el estado y la información del dispositivo asociado.</li>
+      <li>Si selecciona “Círculo de cuidado”, el sistema muestra las personas vinculadas al cuidado de Elena.</li>
+      <li>El usuario puede buscar una persona por nombre o parentesco.</li>
+      <li>¿Hay coincidencias? Sí → el sistema muestra los contactos que cumplen con el criterio de búsqueda.</li>
+      <li>El usuario consulta la información requerida del entorno de cuidado.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Sin coincidencias: Si la búsqueda no coincide con ninguna persona del círculo de cuidado, el sistema muestra el estado “No encontramos coincidencias”.</li>
+      <li>El sistema mantiene disponible el campo de búsqueda y la acción para limpiar o modificar el criterio utilizado.</li>
+      <li>El usuario modifica la búsqueda y el sistema vuelve a evaluar las coincidencias disponibles.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 2 - Extras - Consultar entorno de cuidado](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/flows/user-flow-extras-2-consultar-entorno-cuidado.png)
+
+<hr>
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar / Cuidador</td>
+    <td class="header">Número</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar o cuidador, quiero consultar mi plan actual y sus beneficios, para conocer las funcionalidades disponibles en mi suscripción de Guardian+.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>El Familiar o Cuidador se encuentra en la pantalla de Inicio.</li>
+      <li>El usuario toca su avatar.</li>
+      <li>El sistema muestra la pantalla Perfil.</li>
+      <li>El usuario selecciona “Mi plan”.</li>
+      <li>¿La información del plan está disponible? Sí → el sistema muestra la suscripción activa.</li>
+      <li>El sistema presenta el nombre del plan, sus beneficios y el estado general de la suscripción.</li>
+      <li>El usuario consulta la información y los beneficios disponibles en su plan.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Error de carga: Si la información del plan no está disponible, el sistema muestra el mensaje “No pudimos cargar tu plan”.</li>
+      <li>El sistema informa que los datos de la suscripción no han sido modificados.</li>
+      <li>El usuario selecciona “Reintentar”.</li>
+      <li>El sistema vuelve a consultar la información del plan hasta que pueda mostrarla correctamente.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 3 - Extras - Consultar suscripción actual](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/flows/user-flow-extras-3-consultar-suscripcion.png)
+
+<hr>
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar / Cuidador</td>
+    <td class="header">Número</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar o cuidador, quiero ajustar el idioma y las opciones de accesibilidad de Guardian+, para adaptar la aplicación a mis necesidades de uso.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>El Familiar o Cuidador se encuentra en la pantalla de Inicio.</li>
+      <li>El usuario toca su avatar.</li>
+      <li>El sistema muestra la pantalla Perfil.</li>
+      <li>El usuario selecciona “Configuración”.</li>
+      <li>El sistema muestra las preferencias disponibles de la aplicación.</li>
+      <li>El usuario selecciona la preferencia que desea configurar: “Idioma” o “Accesibilidad”.</li>
+      <li>Si selecciona “Idioma”, el sistema muestra los idiomas disponibles y el usuario selecciona el idioma deseado.</li>
+      <li>Si selecciona “Accesibilidad”, el sistema muestra las opciones disponibles y el usuario ajusta sus preferencias.</li>
+      <li>El usuario selecciona “Guardar cambios”.</li>
+      <li>¿Se guardaron los cambios? Sí → el sistema actualiza la preferencia seleccionada y muestra una confirmación.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Error al guardar idioma: Si la preferencia de idioma no puede guardarse, el sistema mantiene la selección realizada y muestra un mensaje de error.</li>
+      <li>El usuario selecciona “Reintentar” y el sistema intenta guardar nuevamente la preferencia.</li>
+      <li>Error al guardar accesibilidad: Si las preferencias de accesibilidad no pueden guardarse, el sistema mantiene los ajustes realizados y muestra un mensaje de error.</li>
+      <li>El usuario selecciona “Reintentar” y el sistema intenta guardar nuevamente las preferencias.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow diagram 4 - Extras - Configurar preferencias](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/flows/user-flow-extras-4-configurar-preferencias.png)
+
+<hr>
+
+
+#### 3.1.4.5. Mobile Applications Prototyping<table>
