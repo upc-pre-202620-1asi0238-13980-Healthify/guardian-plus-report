@@ -447,7 +447,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 - **Acknowledgment (Reconocimiento):** Confirmación explícita de un integrante del Care Circle de haber recibido una Alert, que detiene el escalamiento y abre el Incident en atención.
 
-- **Silent Mode (Modo silencioso):** Configuración que permite al Fragile Citizen recibir notificaciones de forma discreta, sin sonido, y que solo se anula ante Alerts de severidad crítica.
+- **Silent Mode (Modo silencioso):** Configuración de cada Fragile Citizen que hace que sus Alerts no críticas lleguen sin sonido a los celulares del Care Circle; las Alerts de severidad crítica siempre suenan.
 
 # 2.4. Requirements specification
 
@@ -1173,19 +1173,19 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
   <tr>
     <th>Title</th>
-    <td colspan="3"><strong>Activación de modo discreto y silencioso en wearable</strong></td>
+    <td colspan="3"><strong>Silenciamiento de alertas no críticas en el Care Circle</strong></td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Description</th>
   </tr>
   <tr>
-    <td colspan="4">Como cuidador, deseo habilitar un modo de vibración táctil silenciosa en la pulsera del Fragile Citizen para que reciba sus avisos sin perturbar su entorno en espacios públicos o eventos sociales.</td>
+    <td colspan="4">Como cuidador, deseo silenciar las alertas no críticas del Fragile Citizen en los celulares del Care Circle para no ser interrumpido por avisos menores, por ejemplo durante la noche, sin dejar de enterarme de una emergencia.</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
   </tr>
   <tr>
-    <td colspan="4"><strong>Escenario 1: Conmutación a perfil táctil silencioso</strong><br>- <strong>Dado que</strong> la pulsera opera bajo el perfil de notificaciones auditivas estándar.<br>- <strong>Cuando</strong> el cuidador activa el modo discreto desde la aplicación.<br>- <strong>Entonces</strong> el sistema silencia los zumbadores acústicos y canaliza todos los avisos a través de patrones vibratorios.<br><br><strong>Escenario 2: Excepción para eventos de emergencia crítica</strong><br>- <strong>Dado que</strong> la pulsera se encuentra configurada en modo discreto.<br>- <strong>Cuando</strong> se dispara una alerta clasificada como emergencia crítica o SOS.<br>- <strong>Entonces</strong> el sistema anula la restricción silenciosa y ejecuta las señales audibles de máxima alerta.</td>
+    <td colspan="4"><strong>Escenario 1: Activación del modo silencioso</strong><br>- <strong>Dado que</strong> el modo silencioso del Fragile Citizen está desactivado.<br>- <strong>Cuando</strong> el cuidador lo activa desde Configuración de alertas y se genera una alerta de severidad alta o media.<br>- <strong>Entonces</strong> el sistema la notifica sin sonido a los integrantes del Care Circle y la mantiene visible en la aplicación.<br><br><strong>Escenario 2: Excepción para alertas críticas</strong><br>- <strong>Dado que</strong> el modo silencioso del Fragile Citizen está activo.<br>- <strong>Cuando</strong> se genera una alerta de severidad crítica, como una caída o un SOS.<br>- <strong>Entonces</strong> el sistema la notifica con sonido a todos sus destinatarios.</td>
   </tr>
 </table>
 
@@ -1738,7 +1738,7 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 | 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
 | 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
 | 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
-| 30 | US22 | Activación de modo discreto y silencioso en wearable | 2 | Sprint 4 |
+| 30 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
 | 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
 | 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
 | 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
