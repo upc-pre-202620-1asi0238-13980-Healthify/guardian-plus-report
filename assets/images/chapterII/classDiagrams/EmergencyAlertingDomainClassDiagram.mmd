@@ -15,20 +15,25 @@ classDiagram
         -List~AlertDelivery~ deliveries
         -List~AlertResponse~ responses
         -Instant triggeredAt
+        -Instant confirmedAt
+        -Instant lastDispatchedAt
         -Instant acknowledgedAt
-        +confirm() void
-        +dismissAsFalsePositive() void
-        +dispatchTo(UserId, RecipientLevel, NotificationChannel) AlertDelivery
-        +escalate() void
-        +broadcast() void
+        -UserId acknowledgedByUserId
+        -Instant resolvedAt
+        +confirm(Instant) void
+        +dismissAsFalsePositive(Instant) void
+        +dispatch(RecipientLevel, List~DeliveryTarget~, Instant) List~AlertDelivery~
+        +escalate(List~DeliveryTarget~, Instant) List~AlertDelivery~
+        +broadcast(List~DeliveryTarget~, Instant) List~AlertDelivery~
         +registerDeliveryResult(AlertDeliveryId, DeliveryStatus, Instant) void
-        +acknowledge(UserId userId) void
-        +claimResponse(UserId responderUserId) AlertResponse
-        +completeResponse(AlertResponseId, String) void
-        +resolve() void
+        +acknowledge(UserId, Instant) void
+        +claimResponse(UserId, Instant) AlertResponse
+        +completeResponse(AlertResponseId, String, Instant) void
+        +resolve(Instant) void
         +currentRecipientLevel() RecipientLevel
         +isAwaitingAcknowledgement() boolean
         +isAckTimeoutExpired(AckTimeout, Instant) boolean
+        +isConfirmationWindowExpired(Instant) boolean
     }
 
     class AlertDelivery {
@@ -51,7 +56,7 @@ classDiagram
         -Instant claimedAt
         -Instant completedAt
         -String notes
-        +complete(String notes) void
+        +complete(String notes, Instant) void
         +cancel() void
     }
 
@@ -63,9 +68,8 @@ classDiagram
         -Instant stabilizedAt
         -Instant closedAt
         -String notes
-        -Instant createdAt
-        +stabilize(String notes) void
-        +close(String notes) void
+        +stabilize(String notes, Instant) void
+        +close(String notes, Instant) void
         +isClosed() boolean
     }
 
@@ -73,10 +77,10 @@ classDiagram
         -AlertSettingsId id
         -CareRecipientProfileId careRecipientProfileId
         -AckTimeout primaryAckTimeout
-        -Boolean escalationEnabled
-        -Boolean silentModeEnabled
-        -Instant updatedAt
-        +update(AckTimeout, Boolean) void
+        -boolean escalationEnabled
+        -boolean silentModeEnabled
+        -boolean broadcastCriticalImmediately
+        +update(AckTimeout, Boolean, Boolean) void
         +activateSilentMode() void
         +deactivateSilentMode() void
         +allowsAudibleNotificationFor(Severity severity) boolean
@@ -86,10 +90,12 @@ classDiagram
         -EmergencyContactId id
         -CareRecipientProfileId careRecipientProfileId
         -UserId userId
+        -String displayName
+        -String relationship
+        -PhoneNumber phoneNumber
         -PriorityOrder priorityOrder
-        -Boolean active
-        -Instant createdAt
-        -Instant updatedAt
+        -boolean active
+        +updateContactDetails(String, String, PhoneNumber) void
         +changePriority(PriorityOrder priorityOrder) void
         +activate() void
         +deactivate() void
@@ -100,11 +106,11 @@ classDiagram
         -AlertChannelSettingId id
         -UserId userId
         -NotificationChannel channel
-        -Boolean enabled
-        -Instant createdAt
-        -Instant updatedAt
+        -boolean enabled
+        -String deviceToken
         +enable() void
         +disable() void
+        +registerDeviceToken(String) void
     }
 
     class AlertSource {
@@ -119,8 +125,17 @@ classDiagram
     }
 
     class FallConfirmationWindow {
-        -Integer seconds = 20
+        -Duration DURATION = 20 s
         +hasExpired(Instant triggeredAt, Instant now) boolean
+    }
+
+    class PhoneNumber {
+        -String value
+    }
+
+    class DeliveryTarget {
+        -UserId recipientUserId
+        -NotificationChannel channel
     }
 
     class PriorityOrder {
@@ -135,6 +150,7 @@ classDiagram
 
     class EscalationPolicy {
         <<domain service>>
+        +resolveNextLevel(Alert, AlertSettings, List~EmergencyContact~) Optional~RecipientLevel~
         +resolveRecipients(RecipientLevel, Severity, List~EmergencyContact~, List~AlertChannelSetting~) List~DeliveryTarget~
     }
 
@@ -147,6 +163,8 @@ classDiagram
         PROLONGED_INACTIVITY
         REMINDER_REISSUED
         MEDICATION_RESTOCK_SUGGESTED
+        +defaultSeverity() Severity
+        +isWearableReported() boolean
     }
 
     class Severity {
@@ -154,9 +172,10 @@ classDiagram
         CRITICAL
         HIGH
         MEDIUM
-        +requiresBroadcast() boolean
+        +allowsImmediateBroadcast() boolean
         +allowsEscalation() boolean
         +overridesSilentMode() boolean
+        +requiresSmsBackup() boolean
     }
 
     class AlertStatus {
@@ -223,11 +242,14 @@ classDiagram
 
     AlertSettings *-- AckTimeout
     EmergencyContact *-- PriorityOrder
+    EmergencyContact *-- PhoneNumber
     AlertChannelSetting *-- NotificationChannel
 
     DispatchStrategyPolicy ..> AlertSettings : consulta
     DispatchStrategyPolicy ..> Severity : evalúa
     EscalationPolicy ..> EmergencyContact : ordena por prioridad
     EscalationPolicy ..> AlertChannelSetting : resuelve canales
+    EscalationPolicy ..> DeliveryTarget : produce
+    Alert ..> DeliveryTarget : recibe
     Alert ..> AckTimeout : evalúa vencimiento
     Alert ..> FallConfirmationWindow : evalúa vencimiento

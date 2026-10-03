@@ -191,7 +191,7 @@ La siguiente tabla establece la correspondencia entre los términos del dominio 
 | **Emergency Contact** | Contactos de emergencia | Alertas › Configuración |
 | **Escalation Chain** | Escalamiento | Alertas › Configuración |
 | **Alert Settings** | Configuración de alertas | Alertas › Configuración |
-| **Silent Mode** | Modo silencioso | Pulsera, Perfil › Pulsera |
+| **Silent Mode** | Silenciar alertas no críticas | Alertas › Configuración |
 | **Safe Zone** | Zonas seguras | Ubicación |
 | **Care Plan** | Mi plan | Perfil |
 | **Wearable Device** | Pulsera | Perfil, Onboarding |
@@ -282,7 +282,6 @@ La pulsera presenta un conjunto mínimo de etiquetas, pensadas para ser comprend
 | **SOS** | Solicita ayuda inmediata a los contactos de emergencia. | US15 |
 | **Estoy bien** | Confirma, dentro de la ventana de 30 segundos, que la persona se encuentra a salvo tras una advertencia, evitando movilizar al círculo de cuidado. | US10 |
 | **Confirmar** | Registra que la medicación o la actividad recordada fue realizada. | US06, US14, US26 |
-| **Modo silencioso** | Recibe notificaciones sin sonido, excepto ante alertas críticas. | US22 |
 | **Responder** | Acepta la videollamada o la llamada de voz iniciada por un familiar. Disponible únicamente en los modelos de pulsera con capacidad de comunicación bidireccional. | US23 |
 
 #### 3.1.2.3. SEO Tags and Meta Tags
