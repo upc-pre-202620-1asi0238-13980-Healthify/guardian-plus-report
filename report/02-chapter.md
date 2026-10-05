@@ -4203,38 +4203,33 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
 
 ###### REST Controllers
 
+*   **WearableDevicesController** (`/api/v1/wearable-devices`):
+    *   `POST /`: Vincula un wearable a un Care Recipient (`LinkWearableDeviceCommand`).
+    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los dispositivos vinculados.
 *   **VitalSignsController** (`/api/v1/vital-signs`):
     *   `POST /`: Registra la detección de un signo vital (`DetectVitalSignsCommand`).
-    *   `POST /batches`: Ingesta por lotes para sincronización offline.
-    *   `POST /{vitalSignId}/emit`: Publica el signo vital detectado para su visualización en vivo.
-    *   `GET /live/{careRecipientProfileId}`: Consulta el último estado biométrico emitido por tipo de signo vital.
-    *   `GET /history/{careRecipientProfileId}`: Retorna lecturas históricas filtradas por rango temporal.
-*   **VitalSignThresholdsController** (`/api/v1/vital-sign-thresholds`):
-    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los umbrales activos configurados.
-    *   `PUT /`: Define o actualiza un umbral (mínimo, máximo, lecturas consecutivas requeridas).
-    *   `POST /{thresholdId}/activate` / `DELETE /{thresholdId}`: Activa o desactiva un umbral.
-*   **WearableDevicesController** (`/api/v1/wearable-devices`):
-    *   `POST /`: Asigna un nuevo dispositivo a un Care Recipient.
-    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los dispositivos asignados.
-    *   `DELETE /{deviceId}`: Desactiva un dispositivo.
+    *   `POST /batches`: Ingesta por lotes para la sincronización offline, descartando duplicados.
+    *   `POST /{vitalSignId}/emit`: Reintenta la emisión de una lectura detectada que no fue emitida.
+    *   `GET /{vitalSignId}`: Recupera una lectura.
+    *   `GET /live/{careRecipientProfileId}`: `Live Vital Signs View`; última lectura emitida de cada tipo, clasificada contra su rango normal.
+    *   `GET /history/{careRecipientProfileId}`: Retorna las lecturas de un rango de fechas.
 *   **VitalSignTypesController** (`/api/v1/vital-sign-types`):
-    *   `GET /`: Lista el catálogo de tipos de signo vital soportados.
-    *   `POST /`: Registra un nuevo tipo (uso administrativo).
+    *   `GET /`: Lista los tipos de signo vital con su unidad, rango normal y límites físicos.
 *   **HealthReportsController** (`/api/v1/health-reports`):
-    *   `POST /`: Dispara la generación bajo demanda de un reporte de salud.
-    *   `GET /{reportId}`: Recupera un reporte específico compilado.
-    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los reportes emitidos de un Care Recipient.
+    *   `POST /`: Genera un reporte de salud bajo demanda (`GenerateHealthReportCommand`).
+    *   `GET /{reportId}`: Recupera un reporte.
+    *   `GET /care-recipient/{careRecipientProfileId}`: Lista los reportes de un Care Recipient.
 
 ###### Resources & Assemblers
 
-*   *Resources (DTOs):* `DetectVitalSignsResource`, `VitalSignResource`, `LiveVitalSignsResource`, `DefineVitalSignThresholdResource`, `AssignWearableDeviceResource`, `WearableDeviceResource`, `VitalSignTypeResource`, `GenerateHealthReportResource`, `HealthReportResource`.
-*   *Assemblers (Mappers):* `DetectVitalSignsCommandFromResourceAssembler`, `VitalSignResourceFromEntityAssembler`, `LiveVitalSignsResourceFromEntityAssembler`, `DefineVitalSignThresholdCommandFromResourceAssembler`, `WearableDeviceResourceFromEntityAssembler`, `GenerateHealthReportCommandFromResourceAssembler`, `HealthReportResourceFromEntityAssembler`.
+*   *Resources (DTOs):* `LinkWearableDeviceResource`, `WearableDeviceResource`, `DetectVitalSignsResource`, `TelemetryBatchResource`, `TelemetryBatchResultResource`, `VitalSignResource`, `LiveVitalSignResource`, `LiveVitalSignsResource`, `VitalSignTypeResource`, `GenerateHealthReportResource`, `HealthReportResource`, `VitalSignSummaryResource`.
+*   *Assemblers (Mappers):* `LinkWearableDeviceCommandFromResourceAssembler`, `WearableDeviceResourceFromEntityAssembler`, `DetectVitalSignsCommandFromResourceAssembler`, `VitalSignResourceFromEntityAssembler`, `LiveVitalSignsResourceFromEntityAssembler`, `VitalSignTypeResourceFromEntityAssembler`, `GenerateHealthReportCommandFromResourceAssembler`, `HealthReportResourceFromEntityAssembler`.
 
 ###### Integration Events & ACL Facade
 
-*   `VitalSignAnomalyDetectedIntegrationEvent`: Evento publicado hacia el bus de mensajería cuando se confirman `requiredConsecutiveHits` transgresiones consecutivas del umbral vigente, consumido por `Emergency & Alerting`.
-*   `HealthReportCompiledIntegrationEvent`: Notifica a contextos de soporte la disponibilidad de un nuevo reporte estructurado.
-*   `HealthMonitoringContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos.
+*   `VitalSignAnomalyDetectedIntegrationEvent`: Publicado cuando 3 lecturas consecutivas de un mismo tipo salen de su rango normal, consumido por `Emergency & Alerting` para levantar una alerta `VITAL_SIGN_ANOMALY`. Porta el código del tipo, el valor, el rango normal, la clasificación y una referencia estable al umbral (Care Recipient y tipo), de modo que una misma racha mantiene a lo sumo una alerta activa.
+*   `HealthReportCompiledIntegrationEvent`: Notifica a otros contextos la disponibilidad de un resumen semanal compilado.
+*   `HealthMonitoringContextFacade`: Fachada de solo lectura para consultas sincrónicas entre contextos: `hasLinkedWearableDevice(UUID careRecipientProfileId)` y `fetchLatestVitalSignValue(UUID careRecipientProfileId, String vitalSignTypeCode)`.
 
 ---
 
