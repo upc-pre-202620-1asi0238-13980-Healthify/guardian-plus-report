@@ -4012,12 +4012,14 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 #### 2.6.2. Bounded Context: Health Monitoring
 
-El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su responsabilidad consiste en administrar los dispositivos wearables (`WearableDevice`) asignados a un Care Recipient, capturar cada signo vital (`VitalSign`) contra un catálogo de tipos soportados (`VitalSignType`: frecuencia cardíaca, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria), evaluarlo frente a un umbral clínico configurable por paciente y tipo (`VitalSignThreshold`), y consolidar y compilar Health Reports periódicos.
+El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su responsabilidad consiste en recibir los signos vitales enviados por el wearable vinculado a un Care Recipient (`WearableDevice`), procesar cada lectura en el agregado `VitalSign`, emitirla para su consumo en vivo por el frontend (`Live Vital Signs View`) y evaluar si transgrede el umbral de su tipo de signo vital; cuando 3 lecturas consecutivas lo transgreden, notifica a Emergency & Alerting. Adicionalmente, consolida Health Reports bajo demanda y semanales.
+
+Cada tipo de signo vital (`VitalSignType`: frecuencia cardíaca, presión sistólica y diastólica, saturación de oxígeno, temperatura y frecuencia respiratoria) define su propia condición clínica: un rango normal, que actúa como umbral de evaluación, y unos límites físicos, fuera de los cuales una lectura no puede ser real y se rechaza como error del sensor.
 
 La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
 
 ```
-com.guardianplus.platform.healthmonitoring/
+com.healthify.guardian.platform.healthmonitoring/
 ├── domain/
 │   ├── model/
 │   │   ├── aggregates/
@@ -4031,7 +4033,6 @@ com.guardianplus.platform.healthmonitoring/
 │   ├── acl/
 │   ├── events/
 │   └── rest/
-│       ├── controllers/
 │       ├── resources/
 │       └── transform/
 ├── application/
@@ -4048,7 +4049,6 @@ com.guardianplus.platform.healthmonitoring/
     │       ├── adapters/
     │       ├── assemblers/
     │       ├── converters/
-    │       ├── embeddables/
     │       ├── entities/
     │       └── repositories/
     └── scheduling/
@@ -4056,73 +4056,46 @@ com.guardianplus.platform.healthmonitoring/
 
 ##### 2.6.2.1. Domain Layer
 
-Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y las reglas de evaluación clínica embebidas en los propios agregados y Value Objects. Se distinguen cinco agregados en lugar de dos: el Design-Level EventStorming separa explícitamente tres comandos sobre el mismo sticky de agregado (`Detect Vital Signs`, `Emit Vital Signs`, `Evaluate Vital Signs Thresholds`, todos etiquetados **VitalSign**), y el Database Design Diagram revela tres tablas propias del contexto (`wearable_devices`, `vital_sign_types`, `vital_sign_thresholds`) sin ningún agregado equivalente en el modelo original.
+Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y las reglas de evaluación clínica embebidas en los propios agregados y Value Objects. El modelo sigue el Design-Level EventStorming del contexto, que distingue tres agregados: **WearableDevice** (`Link Wearable Device`), **VitalSign** (`Detect Vital Signs`, `Emit Vital Signs`, `Evaluate Vital Signs Thresholds`) y **HealthReport** (`Generate Health Report`, `Compile Weekly Summary`). El umbral de cada lectura no es un agregado propio: lo define el Value Object `VitalSignType` mediante el rango normal de cada tipo.
 
 ###### Aggregates
 
-*   **VitalSign**
-    *   Agregado raíz que representa la captura de un único tipo de signo vital de un Care Recipient en un instante dado (una fila = una métrica, no un conjunto fijo de cinco).
-    *   Hereda de `AbstractDomainAggregateRoot<VitalSign>` para registrar y publicar eventos de dominio.
-    *   *Atributos:*
-        *   `id: VitalSignId`
-        *   `wearableDeviceId: WearableDeviceId`
-        *   `careRecipientProfileId: CareRecipientProfileId`
-        *   `vitalSignTypeId: VitalSignTypeId`
-        *   `value: VitalSignValue`
-        *   `measuredAt: Instant`
-        *   `receivedAt: Instant`
-        *   `emittedAt: Instant`
-    *   *Métodos:*
-        *   `VitalSign(DetectVitalSignsCommand command)`
-        *   `emit(): void`
-        *   `evaluateThresholds(VitalSignThreshold threshold): boolean`
-        *   `isEmitted(): boolean`
-
-*   **VitalSignThreshold**
-    *   Agregado raíz que configura, por Care Recipient y tipo de signo vital, el rango clínico válido y la cantidad de lecturas consecutivas requeridas para confirmar una anomalía. Reemplaza los invariantes fijos que antes vivían embebidos en Value Objects específicos (p. ej. "20-300 BPM" hardcodeado) por un umbral configurable por paciente.
-    *   *Atributos:*
-        *   `id: VitalSignThresholdId`
-        *   `careRecipientProfileId: CareRecipientProfileId`
-        *   `vitalSignTypeId: VitalSignTypeId`
-        *   `minimumValue: BigDecimal`
-        *   `maximumValue: BigDecimal`
-        *   `requiredConsecutiveHits: Integer`
-        *   `active: Boolean`
-        *   `createdAt: Instant`
-        *   `updatedAt: Instant`
-    *   *Métodos:*
-        *   `VitalSignThreshold(DefineVitalSignThresholdCommand command)`
-        *   `isExceededBy(VitalSignValue value): boolean`
-        *   `activate(): void`
-        *   `deactivate(): void`
-
 *   **WearableDevice**
-    *   Agregado raíz que registra el dispositivo físico asignado a un Care Recipient y gobierna su ciclo de vida de asignación.
+    *   Agregado raíz que registra el dispositivo físico vinculado a un Care Recipient. Solo un dispositivo vinculado es aceptado como fuente de los signos vitales de esa persona.
+    *   Hereda de `AbstractDomainAggregateRoot<WearableDevice>` para registrar y publicar eventos de dominio.
     *   *Atributos:*
         *   `id: WearableDeviceId`
         *   `careRecipientProfileId: CareRecipientProfileId`
         *   `serialNumber: SerialNumber`
         *   `deviceType: DeviceType`
-        *   `status: DeviceStatus`
-        *   `assignedAt: Instant`
+        *   `linkedAt: Instant`
         *   `createdAt: Instant`
         *   `updatedAt: Instant`
     *   *Métodos:*
-        *   `WearableDevice(AssignWearableDeviceCommand command)`
-        *   `deactivate(): void`
+        *   `WearableDevice(LinkWearableDeviceCommand command)`: Vincula el dispositivo y registra `WearableDeviceLinkedEvent`.
+        *   `canReportFor(CareRecipientProfileId careRecipientProfileId): boolean`
 
-*   **VitalSignType**
-    *   Agregado raíz que actúa como catálogo de los tipos de signo vital soportados por la plataforma (frecuencia cardíaca, presión sistólica/diastólica, saturación de oxígeno, temperatura, frecuencia respiratoria), cada uno con su código único y unidad de medida.
+*   **VitalSign**
+    *   Agregado raíz que representa la captura de un único tipo de signo vital de un Care Recipient en un instante dado (una fila = una métrica). Su ciclo de vida sigue el Design-Level EventStorming: se detecta, se emite para la vista en vivo y se evalúa contra el rango normal de su tipo.
+    *   Hereda de `AbstractDomainAggregateRoot<VitalSign>` para registrar y publicar eventos de dominio.
     *   *Atributos:*
-        *   `id: VitalSignTypeId`
-        *   `code: VitalSignTypeCode`
-        *   `name: String`
-        *   `unit: String`
+        *   `id: VitalSignId`
+        *   `wearableDeviceId: WearableDeviceId`
+        *   `careRecipientProfileId: CareRecipientProfileId`
+        *   `vitalSignType: VitalSignType`
+        *   `value: VitalSignValue`
+        *   `measuredAt: Instant`
+        *   `receivedAt: Instant`
+        *   `emittedAt: Instant`
     *   *Métodos:*
-        *   `VitalSignType(RegisterVitalSignTypeCommand command)`
+        *   `VitalSign(DetectVitalSignsCommand command)`: Resuelve el tipo, rechaza valores fuera de los límites físicos y registra `VitalSignsDetectedEvent`.
+        *   `emit(Instant now): void`: Registra `VitalSignsEmittedEvent`; una lectura solo se emite una vez.
+        *   `evaluateThresholds(Instant now): boolean`: Clasifica la lectura contra el rango normal de su tipo y registra `VitalSignsThresholdsEvaluatedEvent`; requiere que la lectura haya sido emitida.
+        *   `isEmitted(): boolean`
 
 *   **HealthReport**
-    *   Agregado raíz que consolida y sintetiza series temporales de `VitalSign` dentro de un rango temporal.
+    *   Agregado raíz que consolida las series temporales de `VitalSign` de un Care Recipient dentro de un período en un `VitalSignSummary` por tipo de signo vital.
+    *   Hereda de `AbstractDomainAggregateRoot<HealthReport>` para registrar y publicar eventos de dominio.
     *   *Atributos:*
         *   `id: HealthReportId`
         *   `careRecipientProfileId: CareRecipientProfileId`
@@ -4133,44 +4106,60 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
         *   `recurrentAnomaliesCount: Integer`
         *   `generatedAt: Instant`
     *   *Métodos:*
-        *   `HealthReport(GenerateHealthReportCommand command, List<VitalSign> vitalSigns)`
+        *   `HealthReport(GenerateHealthReportCommand command, List<VitalSign> vitalSigns)`: Registra `HealthReportGeneratedEvent` y, para reportes semanales automáticos, `WeeklySummaryCompiledEvent`.
         *   `isClinicallyStable(): boolean`
 
 ###### Entities
 
 *   **VitalSignSummary**
-    *   Entidad interna que compone el reporte médico agregado (`HealthReport`). No tiene columna propia en `health_reports`: se serializa hacia el campo `summary` (TEXT) al persistir, junto con `recurrentAnomaliesCount`.
+    *   Entidad interna de `HealthReport` que resume las lecturas de un tipo de signo vital dentro del período. No tiene tabla propia: se serializa hacia el campo `summary` (TEXT) de `health_reports`.
     *   *Atributos:*
         *   `id: Long`
-        *   `metricType: String`
+        *   `metricType: String` (código del `VitalSignType`)
         *   `averageValue: Double`
         *   `minValue: Double`
         *   `maxValue: Double`
-        *   `stabilityIndex: String`
+        *   `readingsCount: Integer`
+        *   `outOfRangeCount: Integer`
+        *   `stabilityIndex: String` (`STABLE`, `UNSTABLE` o `RECURRENT` cuando más de 3 lecturas salen del rango normal)
+    *   *Métodos:*
+        *   `of(Long id, VitalSignType type, List<VitalSign> readings): VitalSignSummary`
+        *   `isStable(): boolean`
+        *   `isRecurrent(): boolean`
 
 ###### Value Objects
 
-*   **VitalSignValue:** Encapsula el valor numérico crudo de una lectura (`value: BigDecimal`), sin acoplarse a una unidad o rango fijo; su interpretación clínica depende del `VitalSignType` y del `VitalSignThreshold` vigente.
-*   **VitalSignTypeCode:** Código único del catálogo (`value: String`, p. ej. `HR`, `BP_SYS`, `BP_DIA`, `SPO2`, `TEMP`, `RESP_RATE`).
+*   **VitalSignType:** Enum de los signos vitales monitoreados por el wearable. Cada constante define su nombre, unidad, rango normal y límites físicos. Métodos: `fromCode(String code)`, `classify(VitalSignValue value): ReadingClassification`, `isPhysicallyPossible(VitalSignValue value): boolean`.
+
+    | Código | Signo vital | Unidad | Rango normal | Límites físicos |
+    |---|---|---|---|---|
+    | `HR` | Frecuencia cardíaca | bpm | 60 – 100 | 20 – 250 |
+    | `BP_SYS` | Presión arterial sistólica | mmHg | 90 – 140 | 50 – 260 |
+    | `BP_DIA` | Presión arterial diastólica | mmHg | 60 – 90 | 30 – 160 |
+    | `SPO2` | Saturación de oxígeno | % | 92 – 100 | 0 – 100 |
+    | `TEMP` | Temperatura corporal | °C | 36.0 – 37.5 | 30.0 – 43.0 |
+    | `RESP_RATE` | Frecuencia respiratoria | rpm | 12 – 20 | 4 – 60 |
+
+*   **VitalSignRange:** Intervalo numérico cerrado e inmutable (`minimum: BigDecimal`, `maximum: BigDecimal`) usado para el rango normal y los límites físicos. Métodos: `classify(VitalSignValue value)`, `contains(VitalSignValue value)`, `encloses(VitalSignRange other)`.
+*   **ReadingClassification:** Enum (`BELOW_RANGE`, `WITHIN_RANGE`, `ABOVE_RANGE`) con el resultado de evaluar una lectura contra el rango normal de su tipo.
+*   **VitalSignValue:** Valor numérico crudo de una lectura (`value: BigDecimal`); su interpretación clínica depende de su `VitalSignType`.
 *   **SerialNumber:** Identificador de fábrica único del dispositivo (`value: String`).
 *   **DeviceType:** Enum (`SMARTWATCH`, `WRISTBAND`, `PATCH`).
-*   **DeviceStatus:** Enum (`ASSIGNED`, `INACTIVE`, `DECOMMISSIONED`).
 *   **HealthReportType:** Enum (`ON_DEMAND`, `WEEKLY_AUTOMATIC`).
 *   **DateRange:** Intervalo temporal inmutable (`startDate: LocalDate`, `endDate: LocalDate`). Método: `contains(LocalDate date)`.
-*   **VitalSignId / VitalSignThresholdId / WearableDeviceId / VitalSignTypeId / HealthReportId:** Identificadores inmutables tipo UUID.
+*   **VitalSignId / WearableDeviceId / HealthReportId:** Identificadores inmutables tipo UUID.
 *   **CareRecipientProfileId:** Identificador de referencia inmutable al paciente monitoreado, gobernado por el Bounded Context Profile.
 *   **UserId:** Identificador de referencia inmutable al usuario autenticado (IAM) que solicitó un `HealthReport`.
 
 ###### Commands & Queries (Domain Model)
 
-*   `DetectVitalSignsCommand(UUID wearableDeviceId, UUID careRecipientProfileId, UUID vitalSignTypeId, BigDecimal value, Instant measuredAt, Instant receivedAt)`
+*   `LinkWearableDeviceCommand(UUID careRecipientProfileId, String serialNumber, String deviceType)`
+*   `DetectVitalSignsCommand(UUID wearableDeviceId, UUID careRecipientProfileId, String vitalSignType, BigDecimal value, Instant measuredAt, Instant receivedAt)`
 *   `EmitVitalSignsCommand(UUID vitalSignId)`
 *   `EvaluateVitalSignsThresholdsCommand(UUID vitalSignId)`
-*   `DefineVitalSignThresholdCommand(UUID careRecipientProfileId, UUID vitalSignTypeId, BigDecimal minimumValue, BigDecimal maximumValue, Integer requiredConsecutiveHits)`
-*   `AssignWearableDeviceCommand(UUID careRecipientProfileId, String serialNumber, String deviceType)`
-*   `RegisterVitalSignTypeCommand(String code, String name, String unit)`
 *   `GenerateHealthReportCommand(UUID careRecipientProfileId, UUID generatedByUserId, String reportType, LocalDate periodStart, LocalDate periodEnd)`
 *   `CompileWeeklySummaryCommand(UUID careRecipientProfileId)`
+*   `GetWearableDevicesByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
 *   `GetLiveVitalSignsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
 *   `GetVitalSignsByCareRecipientProfileIdAndPeriodQuery(CareRecipientProfileId careRecipientProfileId, DateRange dateRange)`
 *   `GetHealthReportByIdQuery(HealthReportId healthReportId)`
@@ -4178,33 +4167,29 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
 
 ###### Domain Events
 
-*   `VitalSignsDetectedEvent`: Emitido tras validar e instanciar la captura de un signo vital (`Detect Vital Signs`).
-*   `VitalSignsEmittedEvent`: Emitido al publicar el signo vital para su consumo en vivo (`Emit Vital Signs`), habilitando la vista `Live Vital Signs View`.
-*   `VitalSignsThresholdsEvaluatedEvent`: Emitido al concluir la evaluación contra el `VitalSignThreshold` vigente (`Evaluate Vital Signs Thresholds`), portando el estado de desviación (`hasDeviation: boolean`).
-*   `HealthReportGeneratedEvent`: Emitido tras la compilación de un reporte longitudinal.
-*   `WeeklySummaryCompiledEvent`: Emitido por la tarea programada dominical.
+*   `WearableDeviceLinkedEvent`: Emitido al vincular un wearable a un Care Recipient (`Link Wearable Device`).
+*   `VitalSignsDetectedEvent`: Emitido tras validar y capturar una lectura (`Detect Vital Signs`).
+*   `VitalSignsEmittedEvent`: Emitido al publicar la lectura para su consumo en vivo (`Emit Vital Signs`), habilitando la vista `Live Vital Signs View`.
+*   `VitalSignsThresholdsEvaluatedEvent`: Emitido al concluir la evaluación contra el rango normal del tipo (`Evaluate Vital Signs Thresholds`), portando la clasificación y el estado de desviación (`hasDeviation: boolean`).
+*   `HealthReportGeneratedEvent`: Emitido tras la compilación de un reporte (`Generate Health Report`).
+*   `WeeklySummaryCompiledEvent`: Emitido por la tarea programada dominical (`Compile Weekly Summary`).
 
 ###### Repositories (Domain Interfaces)
 
-*   **VitalSignRepository:**
-    *   `save(VitalSign vitalSign): VitalSign`
-    *   `saveAll(List<VitalSign> vitalSigns): List<VitalSign>`
-    *   `findLatestByCareRecipientProfileIdAndVitalSignTypeId(CareRecipientProfileId careRecipientProfileId, VitalSignTypeId vitalSignTypeId): Optional<VitalSign>`
-    *   `findRecentByCareRecipientProfileIdAndVitalSignTypeId(CareRecipientProfileId careRecipientProfileId, VitalSignTypeId vitalSignTypeId, int count): List<VitalSign>`
-    *   `findByCareRecipientProfileIdAndPeriod(CareRecipientProfileId careRecipientProfileId, DateRange period): List<VitalSign>`
-*   **VitalSignThresholdRepository:**
-    *   `save(VitalSignThreshold threshold): VitalSignThreshold`
-    *   `findByCareRecipientProfileIdAndVitalSignTypeId(CareRecipientProfileId careRecipientProfileId, VitalSignTypeId vitalSignTypeId): Optional<VitalSignThreshold>`
-    *   `findAllActiveByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<VitalSignThreshold>`
 *   **WearableDeviceRepository:**
     *   `save(WearableDevice device): WearableDevice`
     *   `findById(WearableDeviceId id): Optional<WearableDevice>`
     *   `findByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<WearableDevice>`
     *   `findBySerialNumber(SerialNumber serialNumber): Optional<WearableDevice>`
-*   **VitalSignTypeRepository:**
-    *   `save(VitalSignType vitalSignType): VitalSignType`
-    *   `findById(VitalSignTypeId id): Optional<VitalSignType>`
-    *   `findByCode(VitalSignTypeCode code): Optional<VitalSignType>`
+    *   `findAll(): List<WearableDevice>`
+*   **VitalSignRepository:**
+    *   `save(VitalSign vitalSign): VitalSign`
+    *   `saveAll(List<VitalSign> vitalSigns): List<VitalSign>`
+    *   `findById(VitalSignId id): Optional<VitalSign>`
+    *   `findLatestByCareRecipientProfileIdAndVitalSignType(CareRecipientProfileId careRecipientProfileId, VitalSignType vitalSignType): Optional<VitalSign>`
+    *   `findRecentByCareRecipientProfileIdAndVitalSignType(CareRecipientProfileId careRecipientProfileId, VitalSignType vitalSignType, int count): List<VitalSign>`
+    *   `findByCareRecipientProfileIdAndPeriod(CareRecipientProfileId careRecipientProfileId, DateRange period): List<VitalSign>`
+    *   `existsByWearableDeviceIdAndVitalSignTypeAndMeasuredAt(WearableDeviceId wearableDeviceId, VitalSignType vitalSignType, Instant measuredAt): boolean`
 *   **HealthReportRepository:**
     *   `save(HealthReport report): HealthReport`
     *   `findById(HealthReportId id): Optional<HealthReport>`
