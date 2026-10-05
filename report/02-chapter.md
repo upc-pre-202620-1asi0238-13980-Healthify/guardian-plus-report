@@ -4235,39 +4235,37 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
 
 ##### 2.6.2.3. Application Layer
 
-Orquesta los flujos de casos de uso delegando las reglas clínicas en los agregados correspondientes. Los Event Handlers materializan el encadenamiento Detect → Emit → Evaluate distinguido en el Design-Level EventStorming.
+Orquesta los flujos de casos de uso delegando las reglas clínicas en los agregados correspondientes. Los Event Handlers materializan el encadenamiento Detect → Emit → Evaluate y la policy de tolerancia del Design-Level EventStorming.
 
 ###### Command Services
 
-*   **VitalSignCommandService & VitalSignCommandServiceImpl:**
-    *   `handle(DetectVitalSignsCommand command): Optional<VitalSign>`: Construye y persiste `VitalSign`.
-    *   `handle(EmitVitalSignsCommand command): void`: Marca el signo vital como emitido, habilitando su lectura en vivo.
-    *   `handle(EvaluateVitalSignsThresholdsCommand command): void`: Recupera el `VitalSignThreshold` activo para el Care Recipient y tipo correspondientes, y evalúa el signo vital contra él.
-*   **VitalSignThresholdCommandService & VitalSignThresholdCommandServiceImpl:**
-    *   `handle(DefineVitalSignThresholdCommand command): Optional<VitalSignThreshold>`
 *   **WearableDeviceCommandService & WearableDeviceCommandServiceImpl:**
-    *   `handle(AssignWearableDeviceCommand command): Optional<WearableDevice>`
-*   **VitalSignTypeCommandService & VitalSignTypeCommandServiceImpl:**
-    *   `handle(RegisterVitalSignTypeCommand command): Optional<VitalSignType>`
+    *   `handle(LinkWearableDeviceCommand command): Result<WearableDevice, ApplicationError>`: Vincula el dispositivo; un número de serie solo puede vincularse una vez.
+*   **VitalSignCommandService & VitalSignCommandServiceImpl:**
+    *   `handle(DetectVitalSignsCommand command): Result<VitalSign, ApplicationError>`: Valida el tipo, que el dispositivo exista y esté vinculado al Care Recipient y que la lectura no sea un duplicado; luego construye y persiste `VitalSign`.
+    *   `handleBatch(List<DetectVitalSignsCommand> commands): Result<List<VitalSign>, ApplicationError>`: Valida el lote completo antes de persistir y omite las lecturas ya almacenadas.
+    *   `handle(EmitVitalSignsCommand command): Result<VitalSign, ApplicationError>`: Emite la lectura para su visualización en vivo.
+    *   `handle(EvaluateVitalSignsThresholdsCommand command): Result<VitalSign, ApplicationError>`: Evalúa la lectura contra el rango normal de su tipo.
 *   **HealthReportCommandService & HealthReportCommandServiceImpl:**
-    *   `handle(GenerateHealthReportCommand command): Optional<HealthReport>`: Extrae los `VitalSign` del período y construye y persiste el aggregate `HealthReport`.
-    *   `handle(CompileWeeklySummaryCommand command): void`: Orquesta la síntesis semanal programada.
+    *   `handle(GenerateHealthReportCommand command): Result<HealthReport, ApplicationError>`: Extrae los `VitalSign` del período y construye y persiste el `HealthReport`.
+    *   `handle(CompileWeeklySummaryCommand command): Result<HealthReport, ApplicationError>`: Compila el resumen automático de los últimos 7 días.
 
 ###### Query Services
 
-*   **VitalSignQueryService & VitalSignQueryServiceImpl:** Resuelve `GetLiveVitalSignsByCareRecipientProfileIdQuery` y `GetVitalSignsByCareRecipientProfileIdAndPeriodQuery`.
+*   **WearableDeviceQueryService & WearableDeviceQueryServiceImpl:** Resuelve `GetWearableDevicesByCareRecipientProfileIdQuery`.
+*   **VitalSignQueryService & VitalSignQueryServiceImpl:** Resuelve `GetLiveVitalSignsByCareRecipientProfileIdQuery` (última lectura emitida de cada `VitalSignType`) y `GetVitalSignsByCareRecipientProfileIdAndPeriodQuery`.
 *   **HealthReportQueryService & HealthReportQueryServiceImpl:** Resuelve `GetHealthReportByIdQuery` y `GetAllHealthReportsByCareRecipientProfileIdQuery`.
 
 ###### Event Handlers
 
-*   `VitalSignsDetectedEventHandler`: Reacciona a `VitalSignsDetectedEvent` y despacha `EmitVitalSignsCommand`.
-*   `VitalSignsEmittedEventHandler`: Reacciona a `VitalSignsEmittedEvent` y despacha `EvaluateVitalSignsThresholdsCommand`.
-*   `VitalSignsThresholdsEvaluatedEventHandler`: Implementa la policy **Regla de Tolerancia**. Si hubo desviación, consulta las `requiredConsecutiveHits - 1` lecturas inmediatamente anteriores del mismo Care Recipient y tipo en `VitalSignRepository`; si todas violan el umbral, despacha `VitalSignAnomalyDetectedIntegrationEvent`.
-*   `WeeklySummaryCompiledEventHandler`: Gestiona la indexación y caché de los resúmenes médicos compilados.
+*   `VitalSignsDetectedEventHandler`: Policy *Vital Signs detected?*; reacciona a `VitalSignsDetectedEvent` y despacha `EmitVitalSignsCommand`.
+*   `VitalSignsEmittedEventHandler`: Policy *Vital Signs emitted?*; reacciona a `VitalSignsEmittedEvent` y despacha `EvaluateVitalSignsThresholdsCommand`.
+*   `VitalSignsThresholdsEvaluatedEventHandler`: Policy *Whenever 3 consecutive readings violate threshold* (Regla de Tolerancia). Si la lectura se desvió, consulta las lecturas más recientes del mismo Care Recipient y tipo; cuando exactamente 3 consecutivas están fuera del rango normal, publica `VitalSignAnomalyDetectedIntegrationEvent`. Dispara una sola vez por racha para no saturar al Care Circle con alertas repetidas.
+*   `WeeklySummaryCompiledEventHandler`: Reacciona a `WeeklySummaryCompiledEvent` y publica `HealthReportCompiledIntegrationEvent`.
 
 ###### Application ACL Implementation
 
-*   `HealthMonitoringContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
+*   `HealthMonitoringContextFacadeImpl`: Implementa `HealthMonitoringContextFacade` sobre `WearableDeviceRepository` y `VitalSignRepository`.
 
 ---
 
