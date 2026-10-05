@@ -4271,29 +4271,29 @@ Orquesta los flujos de casos de uso delegando las reglas clínicas en los agrega
 
 ##### 2.6.2.4. Infrastructure Layer
 
-Implementa la persistencia técnica en PostgreSQL, la comunicación con el broker MQTT y los componentes de programación temporal.
+Implementa la persistencia técnica en PostgreSQL y la programación temporal del resumen semanal.
 
 ###### Persistence JPA Entities
 
-*   `VitalSignPersistenceEntity`: Mapea la tabla `vital_sign_readings`. Columnas: `id`, `wearable_device_id`, `care_recipient_profile_id`, `vital_sign_type_id`, `value`, `measured_at`, `received_at`.
-*   `VitalSignThresholdPersistenceEntity`: Mapea la tabla `vital_sign_thresholds`. Columnas: `id`, `care_recipient_profile_id`, `vital_sign_type_id`, `minimum_value`, `maximum_value`, `required_consecutive_hits`, `active`, `created_at`, `updated_at`.
-*   `WearableDevicePersistenceEntity`: Mapea la tabla `wearable_devices`. Columnas: `id`, `care_recipient_profile_id`, `serial_number`, `device_type`, `status`, `assigned_at`, `created_at`, `updated_at`.
-*   `VitalSignTypePersistenceEntity`: Mapea la tabla `vital_sign_types`. Columnas: `id`, `code`, `name`, `unit`.
-*   `HealthReportPersistenceEntity`: Mapea la tabla `health_reports`. Columnas: `id`, `care_recipient_profile_id`, `generated_by_user_id`, `report_type`, `period_start`, `period_end`, `summary`, `generated_at`. El campo `summary` (TEXT) persiste la serialización de `summaries` y `recurrentAnomaliesCount`; no existe una tabla `report_summaries` separada.
+*   `WearableDevicePersistenceEntity`: Mapea la tabla `wearable_devices`. Columnas: `id`, `care_recipient_profile_id`, `serial_number` (único), `device_type`, `linked_at`, `created_at`, `updated_at`.
+*   `VitalSignPersistenceEntity`: Mapea la tabla `vital_sign_readings`. Columnas: `id`, `wearable_device_id`, `care_recipient_profile_id`, `vital_sign_type` (código del enum), `value`, `measured_at`, `received_at`, `emitted_at`, `created_at`, `updated_at`. Índices por Care Recipient, tipo y fecha de medición, y por dispositivo, tipo y fecha de medición (detección de duplicados).
+*   `HealthReportPersistenceEntity`: Mapea la tabla `health_reports`. Columnas: `id`, `care_recipient_profile_id`, `generated_by_user_id`, `report_type`, `period_start`, `period_end`, `summary`, `generated_at`. El campo `summary` (TEXT) persiste la serialización de `summaries` y `recurrentAnomaliesCount`.
+
+Los tipos de signo vital no tienen tabla propia: viven en el enum `VitalSignType` y se persisten como código en cada lectura.
 
 ###### Spring Data Repositories & Adapters
 
-*   `VitalSignPersistenceRepository`, `VitalSignThresholdPersistenceRepository`, `WearableDevicePersistenceRepository`, `VitalSignTypePersistenceRepository` y `HealthReportPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
-*   `VitalSignRepositoryImpl`, `VitalSignThresholdRepositoryImpl`, `WearableDeviceRepositoryImpl`, `VitalSignTypeRepositoryImpl` y `HealthReportRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
+*   `WearableDevicePersistenceRepository`, `VitalSignPersistenceRepository` y `HealthReportPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
+*   `WearableDeviceRepositoryImpl`, `VitalSignRepositoryImpl` y `HealthReportRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia y publican los eventos de dominio registrados por cada agregado al persistirlo. `VitalSignRepositoryImpl.saveAll` persiste todo el lote antes de publicar eventos, para que la Regla de Tolerancia vea el lote completo.
 
 ###### Persistence Assemblers
 
-*   `VitalSignPersistenceAssembler`: Traduce los tipos primitivos de `VitalSignPersistenceEntity` hacia los Value Objects (`VitalSignValue`, `WearableDeviceId`, `VitalSignTypeId`) y recompone el agregado `VitalSign`.
-*   `VitalSignThresholdPersistenceAssembler`, `WearableDevicePersistenceAssembler`, `VitalSignTypePersistenceAssembler` y `HealthReportPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio; `HealthReportPersistenceAssembler` serializa/deserializa `summaries` y `recurrentAnomaliesCount` hacia y desde el campo `summary`.
+*   `WearableDevicePersistenceAssembler`, `VitalSignPersistenceAssembler` y `HealthReportPersistenceAssembler`: Traducen entre las entidades JPA y los agregados de dominio; `HealthReportPersistenceAssembler` serializa y deserializa `summaries` y `recurrentAnomaliesCount` hacia y desde el campo `summary`.
+*   `CareRecipientProfileIdPersistenceConverter`: Convierte `CareRecipientProfileId` hacia y desde su columna UUID.
 
 ###### Scheduling
 
-*   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
+*   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` (zona `America/Lima`) que despacha `CompileWeeklySummaryCommand` para cada Care Recipient con un wearable vinculado.
 
 ##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 ![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
