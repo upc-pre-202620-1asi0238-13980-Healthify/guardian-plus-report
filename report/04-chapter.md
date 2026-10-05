@@ -682,6 +682,18 @@ La suma de 39 Story Points se ubica por debajo de la velocidad establecida de 40
 
 #### 4.2.1.2. Aspect Leaders and Collaborators
 
+Para el Sprint 1 el equipo organizó el trabajo en ocho aspectos: el **UX/UI Design**, que comprende la guía de estilos, la arquitectura de información, los wireframes y los mock-ups; los Bounded Contexts **Health Monitoring**, **Emergency & Alerting**, **Mobility & Geofencing**, **Care Routines & Wellness**, **IAM** y **Profile & Subscriptions**; y el **Testing**, con las pruebas unitarias, de integración y de aceptación del Sprint.
+
+La siguiente Leadership-and-Collaboration Matrix (LACX) indica el líder (L) y los colaboradores (C) de cada aspecto.
+
+| Team Member (Last Name, First Name) | GitHub Username | UX/UI Design | Health Monitoring | Emergency & Alerting | Mobility & Geofencing | Care Routines & Wellness | IAM | Profile & Subscriptions | Testing |
+|---|---|---|---|---|---|---|---|---|---|
+| Azama Fukuda, Juan Pablo | Llummo | L | L | C | C | C | L | C | C |
+| Mechan Montenegro, Luciana Carolina | luuu6 | C | C | C | C | L | C | C | C |
+| Luis Miranda, Diego Andres | Andrewdmr | C | C | C | L | C | C | C | C |
+| López Monroy, Rodrigo Alfredo | rodrigolopezu | C | C | L | C | C | C | C | C |
+| Sanchez Cuadrado, Juan Antonio | JuanASC05 | C | C | C | C | C | C | L | L |
+
 #### 4.2.1.3. Sprint Backlog 1
 
 El objetivo del Sprint 1 es que una persona interesada pueda conocer Guardian+ desde la Landing Page y que una familia que ya usa el servicio reciba en su teléfono las alertas de caída o SOS de la persona bajo cuidado. Para lograrlo, el equipo organizó el trabajo del Sprint en ClickUp, distribuyendo las tareas de diseño, configuración, implementación y documentación entre los integrantes.
