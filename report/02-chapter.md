@@ -6387,7 +6387,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
         *   latitude: Double
         *   longitude: Double
         *   accuracyInMeters: Double
-        *   status: Stringlllll
+        *   status: String
         *   recordedAt: Instant
 
 *   **LocationHistoryResource**
