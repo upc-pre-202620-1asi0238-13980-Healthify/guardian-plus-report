@@ -455,41 +455,39 @@ class ProfileViewModel {
 }
 ```
 
-#### C++ Coding Conventions
+#### Python Coding Conventions
 
-El IoT Simulator de Guardian+ utiliza C++ para representar el comportamiento y los eventos generados por el dispositivo wearable.
+El IoT Simulator de Guardian+ utiliza Python para representar el comportamiento y los eventos generados por el dispositivo wearable, siguiendo como referencia la guía PEP 8.
 
 Se aplican las siguientes convenciones:
 
-- Las clases, estructuras y enumeraciones utilizan `PascalCase`.
-- Las funciones y variables utilizan `camelCase`.
+- Las clases utilizan `PascalCase`.
+- Las funciones, métodos, variables y módulos utilizan `snake_case`.
 - Las constantes utilizan `UPPER_SNAKE_CASE`.
+- Los elementos de uso interno de una clase o módulo se identifican con un guion bajo inicial.
 - Los identificadores se redactan en inglés y describen claramente su responsabilidad.
-- Los archivos de cabecera y de implementación mantienen responsabilidades relacionadas.
-- Se evita el uso de valores literales repetidos mediante constantes con nombres significativos.
-- Las funciones deben mantenerse pequeñas y enfocadas en una operación específica.
-- Los datos obtenidos o simulados deben validarse antes de ser procesados o transmitidos.
-- La lógica encargada de producir datos se mantiene separada de la lógica utilizada para comunicarlos.
-- Los recursos utilizados durante la ejecución deben gestionarse adecuadamente para evitar pérdidas de memoria o estados inválidos.
-- Se utilizan referencias constantes cuando un parámetro no necesita modificarse.
+- Las funciones y métodos públicos declaran los tipos de sus parámetros y de su retorno mediante type hints.
+- La indentación es de cuatro espacios.
+- Los valores literales repetidos, como umbrales clínicos o canales, se representan mediante constantes con nombres significativos.
+- Los datos recibidos del backend se validan antes de ser procesados, y los datos simulados se mantienen coherentes en el tiempo mediante el estado de cada dispositivo.
+- La lógica que genera las señales se mantiene separada de la lógica que las publica y de la que expone la API HTTP.
+- La configuración se obtiene de variables de entorno o de argumentos de línea de comandos, sin valores sensibles en el código.
+- Los recursos externos, como la conexión al broker, se gestionan para que la ausencia del broker o del backend no detenga la ejecución del simulador.
 
 Ejemplo:
 
-```cpp
-constexpr int MAX_HEART_RATE = 220;
+~~~python
+BATTERY_LOW_THRESHOLD = 20
+BATTERY_CRITICAL_THRESHOLD = 5
 
-bool isValidHeartRate(const int heartRate) {
-    return heartRate > 0 && heartRate <= MAX_HEART_RATE;
-}
 
-void processHeartRate(const int heartRate) {
-    if (!isValidHeartRate(heartRate)) {
-        return;
-    }
-
-    // Process simulated wearable data
-}
-```
+def classify_battery(level: float) -> str:
+    if level <= BATTERY_CRITICAL_THRESHOLD:
+        return "BATTERY_CRITICAL"
+    if level <= BATTERY_LOW_THRESHOLD:
+        return "BATTERY_LOW"
+    return "OK"
+~~~
 
 #### Gherkin and BDD Feature File Conventions
 
@@ -532,7 +530,7 @@ Los Step Definitions asociados a los archivos `.feature` se implementan utilizan
 | Element | Convention | Example |
 |---|---|---|
 | Java / Kotlin class | `PascalCase` | `CareRelationship` |
-| C++ class / struct | `PascalCase` | `VitalSignReading` |
+| Python class | `PascalCase` | `MqttPublisher` |
 | Method / Function | `camelCase` | `activateSubscription()` |
 | Variable / Property | `camelCase` | `currentPeriodEnd` |
 | Constant | `UPPER_SNAKE_CASE` | `MAX_RETRY_ATTEMPTS` |
