@@ -50,6 +50,11 @@ En esta sección se especifican los productos de software que utilizan los integ
 | **PostgreSQL** | Base de datos relacional utilizada por los Web Services durante el desarrollo local. | Desktop | [postgresql.org/download](https://www.postgresql.org/download/) |
 | **Docker Desktop** | Construcción y ejecución local de la imagen de contenedor de los Web Services antes de su despliegue. | Desktop | [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/) |
 | **Android Studio** | IDE para el desarrollo de la aplicación móvil nativa en Kotlin, incluyendo Android SDK y Android Emulator. | Desktop | [developer.android.com/studio](https://developer.android.com/studio) |
+| **Python** | Lenguaje de implementación y ejecución del IoT Simulator. | Desktop | [python.org/downloads](https://www.python.org/downloads/) |
+| **Google Cloud (Compute Engine)** | Despliegue del IoT Simulator y del broker MQTT en una máquina virtual con IP pública fija. | SaaS | [cloud.google.com/compute](https://cloud.google.com/compute) |
+| **Terraform** | Infraestructura como código: aprovisiona la máquina virtual, la IP fija, el firewall y la cuenta de servicio del IoT Simulator. | CLI | [developer.hashicorp.com/terraform/install](https://developer.hashicorp.com/terraform/install) |
+| **Google Cloud Shell** | Terminal en el navegador desde la que se ejecuta Terraform sin instalar herramientas locales. | SaaS | [cloud.google.com/shell](https://cloud.google.com/shell) |
+| **Eclipse Mosquitto** | Broker MQTT al que el IoT Simulator publica la telemetría y al que se suscribe el backend. | Library | [mosquitto.org](https://mosquitto.org) |
 
 #### Software Testing
 
@@ -95,6 +100,11 @@ Las versiones de lenguajes y frameworks corresponden a las configuradas actualme
 | | Jetpack Compose BOM | 2026.02.01 |
 | | Material Design 3 | Gestionado por Compose BOM |
 | | Android SDK | `compileSdk` y `targetSdk` 37, `minSdk` 24 |
+| **IoT Simulator** | Python | 3.14 (imagen Docker); Python 3 de Debian 12 en la VM |
+| | Flask | 3.1.0 |
+| | paho-mqtt | 2.1.0 |
+| | requests | 2.32.3 |
+| | Eclipse Mosquitto | Paquete de Debian 12 |
 
 ### 4.1.2. Source Code Management
 
@@ -238,7 +248,7 @@ Las convenciones documentadas en esta sección corresponden únicamente a las te
 | Landing Page | HTML5, CSS3, JavaScript | Estructura, presentación y comportamiento de la experiencia web pública. |
 | Web Services | Java, Spring Boot | Implementación de los RESTful Web Services y lógica correspondiente a los Bounded Contexts. |
 | Mobile Application | Kotlin, Android | Implementación de la aplicación móvil nativa de Guardian+. |
-| IoT Simulator | C++ | Simulación y procesamiento de datos y eventos asociados al dispositivo wearable. |
+| IoT Simulator | Python | Simulación y procesamiento de datos y eventos asociados al dispositivo wearable. |
 | Automated Acceptance Tests | Gherkin | Especificación de escenarios BDD relacionados con User Stories y criterios de aceptación. |
 
 #### General Coding Conventions
