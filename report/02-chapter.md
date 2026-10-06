@@ -5887,7 +5887,6 @@ El siguiente diagrama UML presenta la organización general de la Domain Layer d
 
 El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, `CareRelationshipId`, `UserPreferencesId`, `FontScale` y `UserId` —este último como referencia a la identidad administrada por IAM— para representar conceptos que poseen validaciones y comportamiento propios.
 
-Asimismo, `ProfileCompletenessPolicy` encapsula la regla utilizada para determinar si un perfil contiene la información necesaria para ser considerado completo, y `CareRelationshipPolicy` las condiciones para establecer una relación de cuidado, manteniendo ambas reglas dentro de la Domain Layer y evitando trasladarlas hacia las capas de aplicación o infraestructura.
 
 ###### 2.6.4.6.2. Bounded Context Database Design Diagram
 
