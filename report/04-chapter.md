@@ -530,7 +530,7 @@ Los Step Definitions asociados a los archivos `.feature` se implementan utilizan
 | Element | Convention | Example |
 |---|---|---|
 | Java / Kotlin class | `PascalCase` | `CareRelationship` |
-| Python class / struct | `PascalCase` | `VitalSignReading` |
+| Python class | `PascalCase` | `MqttPublisher` |
 | Method / Function | `camelCase` | `activateSubscription()` |
 | Variable / Property | `camelCase` | `currentPeriodEnd` |
 | Constant | `UPPER_SNAKE_CASE` | `MAX_RETRY_ATTEMPTS` |
