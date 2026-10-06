@@ -678,6 +678,41 @@ Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ 
 
 ![wireframe extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-cerrar-sesion.png)
 
+##### Emergency & Alerting Bounded Context
+
+Los wireframes de la sección **Alertas** presentan en escala de grises las pantallas con las que el familiar o cuidador recibe, atiende y revisa las alertas de la persona bajo cuidado. Cubren las User Stories US08, US09, US10, US11, US15 y US16.
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alertas-activas.png" alt="wireframe emergency alerting - Alertas activas" width="200"><br><sub>Alertas activas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/detalle-alerta-critica.png" alt="wireframe emergency alerting - Detalle de alerta crítica" width="200"><br><sub>Detalle de alerta crítica</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alerta-sos.png" alt="wireframe emergency alerting - Alerta SOS" width="200"><br><sub>Alerta SOS</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/historial-alertas.png" alt="wireframe emergency alerting - Historial de alertas" width="200"><br><sub>Historial de alertas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alerta-estabilizada.png" alt="wireframe emergency alerting - Alerta estabilizada" width="200"><br><sub>Alerta estabilizada</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/contactos-emergencia.png" alt="wireframe emergency alerting - Contactos de emergencia" width="200"><br><sub>Contactos de emergencia</sub></td>
+  </tr>
+</table>
+
+##### Care Routines & Wellness Bounded Context
+
+Los wireframes de la sección **Rutinas** muestran el resumen diario de rutinas y las pantallas para programar tomas de medicación, citas médicas y actividad ligera. Cubren las User Stories US06, US13 y US14.
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/rutinas.png" alt="wireframe care routines - Rutinas" width="200"><br><sub>Rutinas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/medicacion.png" alt="wireframe care routines - Medicación" width="200"><br><sub>Medicación</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/nueva-toma.png" alt="wireframe care routines - Nueva toma" width="200"><br><sub>Nueva toma</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/citas-medicas.png" alt="wireframe care routines - Citas médicas" width="200"><br><sub>Citas médicas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/nueva-cita.png" alt="wireframe care routines - Nueva cita" width="200"><br><sub>Nueva cita</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/wireframes/actividad-ligera.png" alt="wireframe care routines - Actividad ligera" width="200"><br><sub>Actividad ligera</sub></td>
+  </tr>
+</table>
+
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
 ##### Health Monitoring Bounded Context
@@ -922,6 +957,85 @@ User goal: Como familiar o cuidador, quiero consultar y actualizar mis datos per
 </table>
 
 
+##### Emergency & Alerting Bounded Context
+
+Los wireflows de **Alertas** siguen el recorrido de los tres tipos de alerta de Guardian+: una caída detectada por la pulsera, un pedido de auxilio con el botón SOS y una alerta por signos vitales fuera de rango.
+
+###### Wireflow 1 - Atender una alerta de caída (US08, US11)
+
+**User goal:** Como familiar de Elena, quiero enterarme de inmediato cuando la pulsera detecte una caída y atenderla, para asegurarme de que reciba ayuda a tiempo.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alertas-activas.png" alt="wireflow emergency alerting - Alertas activas" width="170"><br><sub>Alertas activas</sub></td>
+    <td align="center"><sub>Toca la alerta de caída</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/detalle-alerta-critica.png" alt="wireflow emergency alerting - Detalle de alerta crítica" width="170"><br><sub>Detalle de alerta crítica</sub></td>
+    <td align="center"><sub>Reconoce la alerta y cierra el incidente</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/historial-alertas.png" alt="wireflow emergency alerting - Historial" width="170"><br><sub>Historial</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 2 - Responder a un SOS (US15)
+
+**User goal:** Como cuidadora de Elena, quiero recibir su pedido de auxilio en cuanto presione el botón SOS de la pulsera, para saber dónde está y actuar sin perder tiempo.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireflow emergency alerting - Inicio" width="170"><br><sub>Inicio</sub></td>
+    <td align="center"><sub>Toca la notificación SOS</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alerta-sos.png" alt="wireflow emergency alerting - Alerta SOS" width="170"><br><sub>Alerta SOS</sub></td>
+    <td align="center"><sub>Reconoce la alerta y atiende a Elena</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/historial-alertas.png" alt="wireflow emergency alerting - Historial" width="170"><br><sub>Historial</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 3 - Seguir una alerta de signos vitales (US09, US10)
+
+**User goal:** Como familiar de Elena, quiero enterarme cuando sus signos vitales salgan del rango seguro y seguir la alerta hasta que se normalicen, para intervenir solo cuando realmente haga falta.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alertas-activas.png" alt="wireflow emergency alerting - Alertas activas" width="170"><br><sub>Alertas activas</sub></td>
+    <td align="center"><sub>Reconoce la alerta de ritmo cardíaco</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/alerta-estabilizada.png" alt="wireflow emergency alerting - Alerta estabilizada" width="170"><br><sub>Alerta estabilizada</sub></td>
+    <td align="center"><sub>Toca “Cerrar incidente”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/emergency-alerting/wireframes/historial-alertas.png" alt="wireflow emergency alerting - Historial" width="170"><br><sub>Historial</sub></td>
+  </tr>
+</table>
+
+##### Care Routines & Wellness Bounded Context
+
+Los wireflows de **Rutinas** muestran cómo el cuidador programa un recordatorio desde el resumen diario de rutinas.
+
+###### Wireflow 1 - Programar una toma de medicación (US06)
+
+**User goal:** Como cuidador, deseo programar las tomas de medicación del Fragile Citizen y que su pulsera emita los avisos hápticos y sonoros en los horarios exactos para asegurar la adherencia al tratamiento prescrito.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/rutinas.png" alt="wireflow care routines - Rutinas" width="170"><br><sub>Rutinas</sub></td>
+    <td align="center"><sub>Toca “Medicación”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/medicacion.png" alt="wireflow care routines - Medicación" width="170"><br><sub>Medicación</sub></td>
+    <td align="center"><sub>Toca “+”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/nueva-toma.png" alt="wireflow care routines - Nueva toma" width="170"><br><sub>Nueva toma</sub></td>
+  </tr>
+</table>
+
+###### Wireflow 2 - Agendar una cita médica (US13)
+
+**User goal:** Como cuidador, deseo agendar los controles y citas médicas del Fragile Citizen para recibir avisos preventivos y evitar inasistencias a los centros de salud.
+
+<table>
+  <tr>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/rutinas.png" alt="wireflow care routines - Rutinas" width="170"><br><sub>Rutinas</sub></td>
+    <td align="center"><sub>Toca “Citas médicas”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/citas-medicas.png" alt="wireflow care routines - Citas médicas" width="170"><br><sub>Citas médicas</sub></td>
+    <td align="center"><sub>Toca “+”</sub><br>&#10140;</td>
+    <td align="center"><img src="../assets/images/chapterIII/care-routines/wireframes/nueva-cita.png" alt="wireflow care routines - Nueva cita" width="170"><br><sub>Nueva cita</sub></td>
+  </tr>
+</table>
+
+
 #### 3.1.4.3. Mobile Applications Mock-ups
 
 ##### Health Monitoring Bounded Context
@@ -1057,6 +1171,41 @@ Vista informativa que presenta el propósito de Guardian+, la versión de la apl
 Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación.
 
 ![mockup extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-cerrar-sesion.png)
+
+##### Emergency & Alerting Bounded Context
+
+Los mock-ups de **Alertas** aplican el Style Guide (3.1.1) con un criterio de severidad: el rojo identifica las alertas críticas y el SOS, el ámbar las alertas de prioridad media y el verde las alertas estabilizadas o atendidas.
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/alertas-activas.png" alt="mockup emergency alerting - Alertas activas" width="200"><br><sub>Alertas activas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/detalle-alerta-critica.png" alt="mockup emergency alerting - Detalle de alerta crítica" width="200"><br><sub>Detalle de alerta crítica</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/alerta-sos.png" alt="mockup emergency alerting - Alerta SOS" width="200"><br><sub>Alerta SOS</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/historial-alertas.png" alt="mockup emergency alerting - Historial de alertas" width="200"><br><sub>Historial de alertas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/alerta-estabilizada.png" alt="mockup emergency alerting - Alerta estabilizada" width="200"><br><sub>Alerta estabilizada</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/emergency-alerting/mockups/contactos-emergencia.png" alt="mockup emergency alerting - Contactos de emergencia" width="200"><br><sub>Contactos de emergencia</sub></td>
+  </tr>
+</table>
+
+##### Care Routines & Wellness Bounded Context
+
+Los mock-ups de **Rutinas** usan el verde para las rutinas completadas y las acciones principales, y el ámbar para las tomas pendientes y los avisos preventivos.
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/rutinas.png" alt="mockup care routines - Rutinas" width="200"><br><sub>Rutinas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/medicacion.png" alt="mockup care routines - Medicación" width="200"><br><sub>Medicación</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/nueva-toma.png" alt="mockup care routines - Nueva toma" width="200"><br><sub>Nueva toma</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/citas-medicas.png" alt="mockup care routines - Citas médicas" width="200"><br><sub>Citas médicas</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/nueva-cita.png" alt="mockup care routines - Nueva cita" width="200"><br><sub>Nueva cita</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/care-routines/mockups/actividad-ligera.png" alt="mockup care routines - Actividad ligera" width="200"><br><sub>Actividad ligera</sub></td>
+  </tr>
+</table>
+
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -1766,6 +1915,130 @@ Los siguientes user flows corresponden a las vistas complementarias de **Extras*
 </table>
 
 ![user flow diagram 4 - Extras - Configurar preferencias](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/flows/user-flow-extras-4-configurar-preferencias.png)
+
+<hr>
+
+
+##### Emergency & Alerting Bounded Context
+
+Los siguientes user flows corresponden al Bounded Context **Emergency & Alerting** y describen cómo el familiar y la cuidadora atienden las alertas de Elena desde la sección **Alertas**. Cada diagrama muestra el happy path en verde y los unhappy paths en rojo.
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar (María Fernanda Rojas Ibáñez)</td>
+    <td class="header">Número</td>
+    <td>1 · US08, US11</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar de Elena, quiero enterarme de inmediato cuando la pulsera detecte una caída y atenderla, para asegurarme de que reciba ayuda a tiempo.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>La pulsera detecta una caída y Elena no la cancela en 20 s.</li>
+      <li>El familiar toca la notificación y abre la alerta desde Alertas activas.</li>
+      <li>El sistema muestra el detalle de la alerta crítica con el escalamiento y la ubicación.</li>
+      <li>¿Reconoce antes de 60 s? Sí → llama o hace videollamada a Elena.</li>
+      <li>¿Elena está bien? Sí → cierra el incidente, que queda registrado en el Historial.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Si no reconoce la alerta en 60 s, el sistema la envía a los contactos secundarios y el primero que la reconoce la atiende.</li>
+      <li>Si Elena no está bien, el familiar llama a emergencias (SAMU 106) y el incidente se deriva.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow 1 - Emergency & Alerting - Atender una alerta de caída](../assets/images/chapterIII/emergency-alerting/user-flows/user-flow-1-alerta-caida.png)
+
+<hr>
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Cuidadora (Roxana Paola Diana Ramírez)</td>
+    <td class="header">Número</td>
+    <td>2 · US15, US25</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como cuidadora de Elena, quiero recibir su pedido de auxilio en cuanto presione el botón SOS de la pulsera, para saber dónde está y actuar sin perder tiempo.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>Elena mantiene presionado el botón SOS de la pulsera por al menos 3 s.</li>
+      <li>El sistema muestra la Alerta SOS con la ubicación de Elena.</li>
+      <li>¿La cuidadora la reconoce primero? Sí → revisa la ubicación en el mapa y llama a Elena.</li>
+      <li>¿Es una emergencia real? Sí → llama al SAMU 106 y acude al lugar.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Si Elena presiona el botón menos de 3 s, la pulsera descarta la acción y no se envía la alerta.</li>
+      <li>Si otro contacto reconoce la alerta primero, la cuidadora ve quién la atiende y hace el seguimiento desde el detalle.</li>
+      <li>Si no es una emergencia real, la cuidadora marca la alerta como falsa alarma y queda registrada como descartada en el Historial.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow 2 - Emergency & Alerting - Responder a un SOS](../assets/images/chapterIII/emergency-alerting/user-flows/user-flow-2-sos.png)
+
+<hr>
+
+<table>
+  <tr>
+    <td class="header">User Persona</td>
+    <td>Familiar (María Fernanda Rojas Ibáñez)</td>
+    <td class="header">Número</td>
+    <td>3 · US09, US10</td>
+  </tr>
+  <tr>
+    <td class="header">User Goal</td>
+    <td colspan="3" class="italic bold">
+    Como familiar de Elena, quiero enterarme cuando sus signos vitales salgan del rango seguro y seguir la alerta hasta que se normalicen, para intervenir solo cuando realmente haga falta.
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Happy path</td>
+    <td colspan="3">
+    <ol>
+      <li>Se registran tres lecturas seguidas del ritmo cardíaco fuera de rango y llega la alerta.</li>
+      <li>El familiar reconoce la alerta desde Alertas activas y revisa los signos de Elena.</li>
+      <li>¿Vuelve al rango seguro por 5 min? Sí → el sistema muestra la alerta como estabilizada.</li>
+      <li>El familiar cierra el incidente, que queda registrado en el Historial.</li>
+    </ol>
+    </td>
+  </tr>
+  <tr>
+    <td class="header">Unhappy Paths</td>
+    <td colspan="3">
+    <ol>
+      <li>Antes de alertar, la pulsera muestra una advertencia preventiva a Elena; si confirma que está bien en 30 s, la alerta se descarta y queda en el Historial.</li>
+      <li>Si los signos no vuelven al rango seguro, el familiar llama a Elena o ajusta los umbrales en Configuración de alertas, y la alerta sigue activa hasta normalizarse.</li>
+    </ol>
+    </td>
+  </tr>
+</table>
+
+![user flow 3 - Emergency & Alerting - Seguir una alerta de signos vitales](../assets/images/chapterIII/emergency-alerting/user-flows/user-flow-3-signos-vitales.png)
 
 <hr>
 
