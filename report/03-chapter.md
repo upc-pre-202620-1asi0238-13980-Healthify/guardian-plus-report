@@ -466,25 +466,17 @@ El siguiente diagrama presenta la distribución de las pantallas de la aplicaci�
 
 ##### Landing page wireframe mobile
 
-###### Wireframe mobile - Cómo funciona
-
-![landing page wireframe - Cómo funciona](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_1.png)
-
-###### Wireframe mobile - Beneficios
-
-![landing page wireframe - Beneficios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_2.png)
-
-###### Wireframe mobile - Por qué Guardian+
-
-![landing page wireframe - Por qué Guardian+](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_3.png)
-
-###### Wireframe mobile - Precios
-
-![landing page wireframe - Precios](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_4.png)
-
-###### Wireframe mobile - Contacto
-
-![landing page wireframe - Contacto](../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_5.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_1.png" alt="landing page wireframe - Cómo funciona" width="200"><br><sub>Cómo funciona</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_2.png" alt="landing page wireframe - Beneficios" width="200"><br><sub>Beneficios</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_3.png" alt="landing page wireframe - Por qué Guardian+" width="200"><br><sub>Por qué Guardian+</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_4.png" alt="landing page wireframe - Precios" width="200"><br><sub>Precios</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-wireframes/landing_wireframe__wireframe_mobile_5.png" alt="landing page wireframe - Contacto" width="200"><br><sub>Contacto</sub></td>
+  </tr>
+</table>
 
 
 El wireframe de Guardian+ se estructura en escala de grises para validar la arquitectura de información antes de introducir color, tipografía final o imágenes: header de navegación, hero con CTA, sección de 3 preguntas del dolor del usuario, proceso en 3 pasos, grilla de 6 funcionalidades, bloque de diferenciación de marca, tabla de 3 planes de suscripción, formulario de contacto y footer. El menú de navegación (Cómo funciona → Beneficios → Por qué Guardian+ → Precios → Contacto) refleja exactamente ese mismo orden de scroll, siguiendo un flujo narrativo secuencial (problema → solución → diferenciación → precio → acción) coherente con lo definido en Organization Systems.
@@ -523,26 +515,17 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 ##### Landing page mockup mobile
 
-###### Mockup mobile - Cómo funciona
-
-![landing page mockup - Cómo funciona](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-1.png)
-
-###### Mockup mobile - Beneficios
-
-![landing page mockup - Beneficios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-2.png)
-
-###### Mockup mobile - Por qué guardian+
-
-
-![landing page mockup - Por qué guardian+](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-5.png)
-
-###### Mockup mobile - Precios
-
-![landing page mockup - Precios](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-3.png)
-
-###### Mockup mobile - Contacto
-
-![landing page mockup - Contacto](../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-4.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-1.png" alt="landing page mockup - Cómo funciona" width="200"><br><sub>Cómo funciona</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-2.png" alt="landing page mockup - Beneficios" width="200"><br><sub>Beneficios</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-5.png" alt="landing page mockup - Por qué guardian+" width="200"><br><sub>Por qué guardian+</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-3.png" alt="landing page mockup - Precios" width="200"><br><sub>Precios</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/landing-page-mockups/landing-page-mockups-mobile-4.png" alt="landing page mockup - Contacto" width="200"><br><sub>Contacto</sub></td>
+  </tr>
+</table>
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
@@ -552,131 +535,78 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 Los wireframes del Bounded Context **Health Monitoring** definen, en escala de grises, la estructura y jerarquía de las pantallas de la sección **Salud** de la aplicación móvil, sin aplicar todavía la paleta de colores del Style Guide. Cubren las User Stories US01–US05, US07, US19, US21 y US24.
 
-###### Wireframe - Inicio
+| Pantalla | Descripción |
+|---|---|
+| Inicio | Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto. |
+| Salud · Ahora | Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21). |
+| Salud · Historial · Ritmo cardíaco | Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01). |
+| Salud · Historial · Presión arterial | Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02). |
+| Salud · Historial · Saturación de oxígeno | Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03). |
+| Salud · Historial · Temperatura corporal | Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04). |
+| Salud · Historial · Frecuencia respiratoria | Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05). |
+| Buscar y filtrar | Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07). |
+| Exportar expediente | Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19). |
+| Reporte semanal | Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24). |
 
-Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto.
-
-![wireframe health monitoring - Inicio](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png)
-
-###### Wireframe - Salud · Ahora
-
-Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21).
-
-![wireframe health monitoring - Salud · Ahora](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png)
-
-###### Wireframe - Salud · Historial · Ritmo cardíaco
-
-Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01).
-
-![wireframe health monitoring - Salud · Historial · Ritmo cardíaco](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png)
-
-###### Wireframe - Salud · Historial · Presión arterial
-
-Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02).
-
-![wireframe health monitoring - Salud · Historial · Presión arterial](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion%20Wireflow.png)
-
-###### Wireframe - Salud · Historial · Saturación de oxígeno
-
-Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03).
-
-![wireframe health monitoring - Salud · Historial · Saturación de oxígeno](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion%20Wireflow.png)
-
-###### Wireframe - Salud · Historial · Temperatura corporal
-
-Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04).
-
-![wireframe health monitoring - Salud · Historial · Temperatura corporal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura%20Wireflow.png)
-
-###### Wireframe - Salud · Historial · Frecuencia respiratoria
-
-Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05).
-
-![wireframe health monitoring - Salud · Historial · Frecuencia respiratoria](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion%20Wireflow.png)
-
-###### Wireframe - Buscar y filtrar
-
-Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07).
-
-![wireframe health monitoring - Buscar y filtrar](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos%20Wireflow.png)
-
-###### Wireframe - Exportar expediente
-
-Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19).
-
-![wireframe health monitoring - Exportar expediente](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente%20Wireflow.png)
-
-###### Wireframe - Reporte semanal
-
-Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24).
-
-![wireframe health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal%20Wireflow.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen%20Wireflow.png" alt="wireframe health monitoring - Inicio" width="200"><br><sub>Inicio</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo%20Wireflow.png" alt="wireframe health monitoring - Salud · Ahora" width="200"><br><sub>Salud · Ahora</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo%20Wireflow.png" alt="wireframe health monitoring - Salud · Historial · Ritmo cardíaco" width="200"><br><sub>Salud · Historial · Ritmo cardíaco</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion%20Wireflow.png" alt="wireframe health monitoring - Salud · Historial · Presión arterial" width="200"><br><sub>Salud · Historial · Presión arterial</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion%20Wireflow.png" alt="wireframe health monitoring - Salud · Historial · Saturación de oxígeno" width="200"><br><sub>Salud · Historial · Saturación de oxígeno</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura%20Wireflow.png" alt="wireframe health monitoring - Salud · Historial · Temperatura corporal" width="200"><br><sub>Salud · Historial · Temperatura corporal</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion%20Wireflow.png" alt="wireframe health monitoring - Salud · Historial · Frecuencia respiratoria" width="200"><br><sub>Salud · Historial · Frecuencia respiratoria</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos%20Wireflow.png" alt="wireframe health monitoring - Buscar y filtrar" width="200"><br><sub>Buscar y filtrar</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente%20Wireflow.png" alt="wireframe health monitoring - Exportar expediente" width="200"><br><sub>Exportar expediente</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal%20Wireflow.png" alt="wireframe health monitoring - Reporte semanal" width="200"><br><sub>Reporte semanal</sub></td>
+  </tr>
+</table>
 
 ##### Profile, IAM & Subscriptions
 
 Los siguientes wireframes representan las vistas complementarias de Guardian+ relacionadas con la gestión del perfil, la información de la persona bajo cuidado, el dispositivo asociado, la suscripción y las preferencias de uso. Las pantallas se presentan en escala de grises, conservando la estructura y jerarquía visual definida para los mock-ups finales.
 
-###### Wireframe - Perfil y datos personales
+| Pantalla | Descripción |
+|---|---|
+| Perfil y datos personales | Estas vistas permiten al familiar o cuidador acceder a las principales opciones de su perfil y consultar o actualizar su información personal y de contacto. |
+| Persona bajo cuidado | Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil. Presenta los datos de Elena Rojas y la relación existente con el usuario. |
+| Círculo de cuidado | Vista que reúne a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol. |
+| Pulsera | Vista destinada a consultar el estado del dispositivo wearable asociado a la persona bajo cuidado. Presenta información de conexión, batería, sincronización e identificación del dispositivo. |
+| Mi plan | Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado. |
+| Configuración | Vista que centraliza las preferencias generales de la aplicación. Permite acceder a las opciones de idioma, accesibilidad y a la información complementaria de Guardian+. |
+| Idioma | Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida. |
+| Accesibilidad | Vista que permite al usuario ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento. |
+| Acerca de Guardian+ | Vista informativa que presenta datos generales de Guardian+, incluyendo su propósito, versión de la aplicación y acceso a información complementaria del producto. |
+| Cerrar sesión | Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación. |
 
-Estas vistas permiten al familiar o cuidador acceder a las principales opciones de su perfil y consultar o actualizar su información personal y de contacto.
-
-![wireframe extras - Perfil](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png)
-
-![wireframe extras - Mis datos](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mis-datos.png)
-
-###### Wireframe - Persona bajo cuidado
-
-Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil. Presenta los datos de Elena Rojas y la relación existente con el usuario.
-
-![wireframe extras - Persona bajo cuidado](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-persona-bajo-cuidado.png)
-
-###### Wireframe - Círculo de cuidado
-
-Vista que reúne a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol.
-
-![wireframe extras - Círculo de cuidado](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-circulo-cuidado.png)
-
-###### Wireframe - Pulsera
-
-Vista destinada a consultar el estado del dispositivo wearable asociado a la persona bajo cuidado. Presenta información de conexión, batería, sincronización e identificación del dispositivo.
-
-![wireframe extras - Pulsera](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-pulsera.png)
-
-###### Wireframe - Mi plan
-
-Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado.
-
-![wireframe extras - Mi plan](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mi-plan.png)
-
-###### Wireframe - Configuración
-
-Vista que centraliza las preferencias generales de la aplicación. Permite acceder a las opciones de idioma, accesibilidad y a la información complementaria de Guardian+.
-
-![wireframe extras - Configuración](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-configuracion.png)
-
-###### Wireframe - Idioma
-
-Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida.
-
-![wireframe extras - Idioma](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-idioma.png)
-
-###### Wireframe - Accesibilidad
-
-Vista que permite al usuario ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento.
-
-![wireframe extras - Accesibilidad](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-accesibilidad.png)
-
-###### Wireframe - Acerca de Guardian+
-
-Vista informativa que presenta datos generales de Guardian+, incluyendo su propósito, versión de la aplicación y acceso a información complementaria del producto.
-
-![wireframe extras - Acerca de Guardian+](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-acerca-guardian.png)
-
-###### Wireframe - Cerrar sesión
-
-Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación.
-
-![wireframe extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-cerrar-sesion.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-perfil.png" alt="wireframe extras - Perfil" width="200"><br><sub>Perfil</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mis-datos.png" alt="wireframe extras - Mis datos" width="200"><br><sub>Mis datos</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-persona-bajo-cuidado.png" alt="wireframe extras - Persona bajo cuidado" width="200"><br><sub>Persona bajo cuidado</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-circulo-cuidado.png" alt="wireframe extras - Círculo de cuidado" width="200"><br><sub>Círculo de cuidado</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-pulsera.png" alt="wireframe extras - Pulsera" width="200"><br><sub>Pulsera</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-mi-plan.png" alt="wireframe extras - Mi plan" width="200"><br><sub>Mi plan</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-configuracion.png" alt="wireframe extras - Configuración" width="200"><br><sub>Configuración</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-idioma.png" alt="wireframe extras - Idioma" width="200"><br><sub>Idioma</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-accesibilidad.png" alt="wireframe extras - Accesibilidad" width="200"><br><sub>Accesibilidad</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-acerca-guardian.png" alt="wireframe extras - Acerca de Guardian+" width="200"><br><sub>Acerca de Guardian+</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/extras/mockups/wireframe-cerrar-sesion.png" alt="wireframe extras - Cerrar sesión" width="200"><br><sub>Cerrar sesión</sub></td>
+  </tr>
+</table>
 
 ##### Emergency & Alerting Bounded Context
 
@@ -1042,135 +972,79 @@ Los wireflows de **Rutinas** muestran cómo el cuidador programa un recordatorio
 
 Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wireframes la paleta de colores, tipografía, elevaciones y etiquetas de estado definidas en el Style Guide (3.1.1). El verde identifica las acciones primarias y los estados normales, y el ámbar resalta las lecturas “En Observación”.
 
-###### Mockup - Inicio
+| Pantalla | Descripción |
+|---|---|
+| Inicio | Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto. |
+| Salud · Ahora | Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21). |
+| Salud · Historial · Ritmo cardíaco | Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01). |
+| Salud · Historial · Presión arterial | Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02). |
+| Salud · Historial · Saturación de oxígeno | Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03). |
+| Salud · Historial · Temperatura corporal | Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04). |
+| Salud · Historial · Frecuencia respiratoria | Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05). |
+| Buscar y filtrar | Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07). |
+| Exportar expediente | Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19). |
+| Reporte semanal | Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24). |
 
-Pantalla principal del Cuidador. Resume el estado actual del Fragile Citizen, el estado de conexión y batería de la pulsera, las acciones rápidas (Llamar, Videollamada, Ubicación), un resumen de los cinco signos vitales, lo próximo en la agenda y la última alerta. Es el punto de partida de todos los flujos del contexto.
-
-![mockup health monitoring - Inicio](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen.png)
-
-###### Mockup - Salud · Ahora
-
-Vista en tiempo real del contexto Health Monitoring. Destaca la frecuencia cardíaca con su tendencia reciente y presenta tarjetas de presión arterial, saturación de oxígeno, temperatura y respiración, cada una con su etiqueta de estado. Incluye la tarjeta “Sincronización activa” que comunica el estado del envío de lecturas tomadas sin conexión (US21).
-
-![mockup health monitoring - Salud · Ahora](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo.png)
-
-###### Mockup - Salud · Historial · Ritmo cardíaco
-
-Pestaña Historial con el chip Ritmo seleccionado. Muestra el promedio semanal, mínimo y máximo, la gráfica de tendencia por día y las últimas lecturas registradas con su estado. Da acceso a Exportar PDF y Reporte semanal (US01).
-
-![mockup health monitoring - Salud · Historial · Ritmo cardíaco](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo.png)
-
-###### Mockup - Salud · Historial · Presión arterial
-
-Pestaña Historial con el chip Presión seleccionado. Presenta la presión sistólica y diastólica en mmHg, su tendencia semanal y la clasificación de cada lectura (US02).
-
-![mockup health monitoring - Salud · Historial · Presión arterial](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion.png)
-
-###### Mockup - Salud · Historial · Saturación de oxígeno
-
-Pestaña Historial con el chip SpO₂ seleccionado. Presenta el porcentaje de saturación de oxígeno, su tendencia semanal y el estado de cada lectura (US03).
-
-![mockup health monitoring - Salud · Historial · Saturación de oxígeno](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion.png)
-
-###### Mockup - Salud · Historial · Temperatura corporal
-
-Pestaña Historial con el chip Temp seleccionado. Presenta la temperatura corporal en °C, su tendencia semanal y el estado de cada lectura para detectar fiebre o hipotermia (US04).
-
-![mockup health monitoring - Salud · Historial · Temperatura corporal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura.png)
-
-###### Mockup - Salud · Historial · Frecuencia respiratoria
-
-Pestaña Historial con el chip Respir seleccionado. Presenta la frecuencia respiratoria en rpm, su tendencia semanal y el estado de cada lectura (US05).
-
-![mockup health monitoring - Salud · Historial · Frecuencia respiratoria](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion.png)
-
-###### Mockup - Buscar y filtrar
-
-Hoja inferior que se abre desde el buscador “Todos los signos vitales”. Permite buscar entre las opciones y combinar criterios por signo vital, periodo (Día, Semana, Mes) y estado, con las acciones Limpiar y Aplicar (US07).
-
-![mockup health monitoring - Buscar y filtrar](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos.png)
-
-###### Mockup - Exportar expediente
-
-Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19).
-
-![mockup health monitoring - Exportar expediente](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente.png)
-
-###### Mockup - Reporte semanal
-
-Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24).
-
-![mockup health monitoring - Reporte semanal](../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Homescreen.png" alt="mockup health monitoring - Inicio" width="200"><br><sub>Inicio</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Monitoreo.png" alt="mockup health monitoring - Salud · Ahora" width="200"><br><sub>Salud · Ahora</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Ritmo.png" alt="mockup health monitoring - Salud · Historial · Ritmo cardíaco" width="200"><br><sub>Salud · Historial · Ritmo cardíaco</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Presion.png" alt="mockup health monitoring - Salud · Historial · Presión arterial" width="200"><br><sub>Salud · Historial · Presión arterial</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Saturacion.png" alt="mockup health monitoring - Salud · Historial · Saturación de oxígeno" width="200"><br><sub>Salud · Historial · Saturación de oxígeno</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Temperatura.png" alt="mockup health monitoring - Salud · Historial · Temperatura corporal" width="200"><br><sub>Salud · Historial · Temperatura corporal</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Respiracion.png" alt="mockup health monitoring - Salud · Historial · Frecuencia respiratoria" width="200"><br><sub>Salud · Historial · Frecuencia respiratoria</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Buscar%20y%20Filtrar%20signos.png" alt="mockup health monitoring - Buscar y filtrar" width="200"><br><sub>Buscar y filtrar</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Exportar%20expediente.png" alt="mockup health monitoring - Exportar expediente" width="200"><br><sub>Exportar expediente</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/health-monitoring/wireframes-mockups/Reporte%20semanal.png" alt="mockup health monitoring - Reporte semanal" width="200"><br><sub>Reporte semanal</sub></td>
+  </tr>
+</table>
 
 ##### Extras
 
 Los mock-ups de **Extras** aplican el Design System de Guardian+ a las vistas relacionadas con el perfil, el entorno de cuidado, la suscripción, las preferencias de la aplicación y la gestión de sesión. Las pantallas mantienen la paleta, tipografía, jerarquía visual y componentes definidos en las Style Guidelines.
 
-###### Mockup - Perfil
+| Pantalla | Descripción |
+|---|---|
+| Perfil | Pantalla principal del perfil del familiar o cuidador. Centraliza el acceso a los datos personales, la información de la persona bajo cuidado, el círculo de cuidado, la pulsera, la suscripción, las preferencias de la aplicación y el cierre de sesión. |
+| Mis datos | Vista destinada a consultar y actualizar la información personal y de contacto del familiar o cuidador, incluyendo nombre, correo electrónico, teléfono y datos adicionales asociados al perfil. |
+| Persona bajo cuidado | Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil, mostrando sus datos generales y la relación existente con el usuario. |
+| Círculo de cuidado | Vista que presenta a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol. |
+| Pulsera | Vista que permite consultar el estado del dispositivo wearable asociado a la persona bajo cuidado, incluyendo información de conexión, batería, sincronización y datos de identificación del dispositivo. |
+| Mi plan | Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado. |
+| Configuración | Vista que centraliza las preferencias generales de la aplicación y proporciona acceso a las opciones de idioma, accesibilidad e información complementaria de Guardian+. |
+| Idioma | Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida. |
+| Accesibilidad | Vista que permite ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento. |
+| Acerca de Guardian+ | Vista informativa que presenta el propósito de Guardian+, la versión de la aplicación y el acceso a información complementaria del producto. |
+| Cerrar sesión | Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación. |
 
-Pantalla principal del perfil del familiar o cuidador. Centraliza el acceso a los datos personales, la información de la persona bajo cuidado, el círculo de cuidado, la pulsera, la suscripción, las preferencias de la aplicación y el cierre de sesión.
-
-![mockup extras - Perfil](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-perfil.png)
-
-###### Mockup - Mis datos
-
-Vista destinada a consultar y actualizar la información personal y de contacto del familiar o cuidador, incluyendo nombre, correo electrónico, teléfono y datos adicionales asociados al perfil.
-
-![mockup extras - Mis datos](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mis-datos.png)
-
-###### Mockup - Persona bajo cuidado
-
-Vista que permite al familiar o cuidador consultar la información principal de la persona bajo cuidado vinculada a su perfil, mostrando sus datos generales y la relación existente con el usuario.
-
-![mockup extras - Persona bajo cuidado](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-persona-bajo-cuidado.png)
-
-###### Mockup - Círculo de cuidado
-
-Vista que presenta a las personas vinculadas al cuidado de Elena. Permite consultar los integrantes del círculo de cuidado y localizar contactos mediante búsqueda y filtros por rol.
-
-![mockup extras - Círculo de cuidado](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-circulo-cuidado.png)
-
-###### Mockup - Pulsera
-
-Vista que permite consultar el estado del dispositivo wearable asociado a la persona bajo cuidado, incluyendo información de conexión, batería, sincronización y datos de identificación del dispositivo.
-
-![mockup extras - Pulsera](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-pulsera.png)
-
-###### Mockup - Mi plan
-
-Vista que permite al familiar o cuidador consultar la suscripción activa de Guardian+, sus beneficios principales y el estado general del plan contratado.
-
-![mockup extras - Mi plan](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mi-plan.png)
-
-###### Mockup - Configuración
-
-Vista que centraliza las preferencias generales de la aplicación y proporciona acceso a las opciones de idioma, accesibilidad e información complementaria de Guardian+.
-
-![mockup extras - Configuración](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-configuracion.png)
-
-###### Mockup - Idioma
-
-Vista que permite seleccionar el idioma de la aplicación entre las opciones disponibles y guardar la preferencia elegida.
-
-![mockup extras - Idioma](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-idioma.png)
-
-###### Mockup - Accesibilidad
-
-Vista que permite ajustar preferencias de accesibilidad de la aplicación, incluyendo tamaño de texto, contraste y reducción de movimiento.
-
-![mockup extras - Accesibilidad](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-accesibilidad.png)
-
-###### Mockup - Acerca de Guardian+
-
-Vista informativa que presenta el propósito de Guardian+, la versión de la aplicación y el acceso a información complementaria del producto.
-
-![mockup extras - Acerca de Guardian+](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-acerca-guardian.png)
-
-###### Mockup - Cerrar sesión
-
-Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación.
-
-![mockup extras - Cerrar sesión](../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-cerrar-sesion.png)
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-perfil.png" alt="mockup extras - Perfil" width="200"><br><sub>Perfil</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mis-datos.png" alt="mockup extras - Mis datos" width="200"><br><sub>Mis datos</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-persona-bajo-cuidado.png" alt="mockup extras - Persona bajo cuidado" width="200"><br><sub>Persona bajo cuidado</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-circulo-cuidado.png" alt="mockup extras - Círculo de cuidado" width="200"><br><sub>Círculo de cuidado</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-pulsera.png" alt="mockup extras - Pulsera" width="200"><br><sub>Pulsera</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-mi-plan.png" alt="mockup extras - Mi plan" width="200"><br><sub>Mi plan</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-configuracion.png" alt="mockup extras - Configuración" width="200"><br><sub>Configuración</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-idioma.png" alt="mockup extras - Idioma" width="200"><br><sub>Idioma</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-accesibilidad.png" alt="mockup extras - Accesibilidad" width="200"><br><sub>Accesibilidad</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-acerca-guardian.png" alt="mockup extras - Acerca de Guardian+" width="200"><br><sub>Acerca de Guardian+</sub></td>
+    <td align="center" valign="top"><img src="../assets/images/chapterIII/user-flow-diagrams/mockups/mockup-cerrar-sesion.png" alt="mockup extras - Cerrar sesión" width="200"><br><sub>Cerrar sesión</sub></td>
+  </tr>
+</table>
 
 ##### Emergency & Alerting Bounded Context
 
