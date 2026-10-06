@@ -760,7 +760,7 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-core-flow` | `7df392d` | `feat(emergency-alerting): add rest controllers, resources and assemblers` | 2026-10-01 |
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-core-flow` | `e19fb0a` | `docs(readme): document emergency and alerting bounded context` | 2026-10-01 |
 
-**#### 4.2.1.5. Testing Suite Evidence for Sprint Review**
+#### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
 Durante el presente Sprint se incorporaron pruebas automatizadas como parte del proceso de implementación de los Web Services de Guardian+. El objetivo de estas pruebas es verificar los comportamientos principales de los componentes desarrollados y reducir la posibilidad de introducir errores antes de integrar los cambios hacia las ramas principales del proyecto.
 
@@ -776,7 +776,7 @@ Las pruebas siguen el patrón **Arrange - Act - Assert (AAA)**:
 
 En el presente avance, la evidencia automatizada desarrollada para Profile corresponde a **Unit Tests**. Los Integration Tests y Acceptance Tests bajo BDD no forman parte todavía de la implementación actual y podrán incorporarse en siguientes incrementos conforme se completen las integraciones entre Bounded Contexts y los flujos funcionales del producto.
 
-**##### Unit Tests - Bounded Context Profile**
+##### Unit Tests - Bounded Context Profile
 
 Las pruebas desarrolladas para Profile verifican las principales reglas y comportamientos de los Aggregate Roots `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`.
 
@@ -803,7 +803,7 @@ Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImp
 | `UserProfileCommandServiceImplTest` | `UserProfileCommandServiceImpl` | `shouldCreateUserProfileWhenUserHasNoProfile` | Verifica que el servicio cree y persista un nuevo perfil cuando el usuario todavía no posee uno. |
 | `UserProfileCommandServiceImplTest` | `UserProfileCommandServiceImpl` | `shouldReturnConflictWhenUserAlreadyHasProfile` | Verifica que el servicio retorne un conflicto y no persista un nuevo perfil cuando el usuario ya posee uno. |
 
-**##### Domain Unit Tests**
+##### Domain Unit Tests
 
 Las pruebas `UserProfileTest`, `CareRecipientProfileTest`, `CareRelationshipTest` y `UserPreferencesTest` se ejecutan directamente sobre los Aggregate Roots del Bounded Context Profile.
 
@@ -820,7 +820,7 @@ Entre los principales comportamientos validados se encuentran:
 - configuración y modificación de preferencias de usuario;
 - validación de parámetros obligatorios.
 
-**##### Application Service Unit Test**
+##### Application Service Unit Test
 
 `UserProfileCommandServiceImplTest` verifica el comportamiento de la capa de aplicación.
 
@@ -835,7 +835,7 @@ Se verifican principalmente dos comportamientos:
 
 De esta manera, se comprueba el comportamiento del Application Service sin depender de una base de datos real.
 
-**##### Testing Execution Evidence**
+##### Testing Execution Evidence
 
 Los Unit Tests del Bounded Context **Profile** fueron ejecutados mediante Maven.
 
@@ -868,12 +868,12 @@ BUILD SUCCESS
 
 Esto confirma que los Unit Tests implementados para el Bounded Context **Profile** se ejecutan satisfactoriamente y validan los comportamientos definidos tanto en los Aggregate Roots como en el Application Service probado.
 
-**##### Integration Tests and Acceptance Tests**
+##### Integration Tests and Acceptance Tests
 
 Estas pruebas podrán incorporarse en siguientes incrementos cuando se encuentren disponibles las integraciones necesarias entre los diferentes Bounded Contexts y se implementen los flujos funcionales completos correspondientes a los User Stories del producto.
 
 
-**##### Testing Repository**
+##### Testing Repository
 
 Las pruebas automatizadas de Profile se encuentran dentro del mismo repositorio utilizado para la implementación de los Web Services de Guardian+.
 
@@ -909,7 +909,7 @@ profile
             └── UserPreferencesTest.java
 ~~~
 
-**##### Testing Commits**
+##### Testing Commits
 
 El siguiente commit contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
 
@@ -922,6 +922,24 @@ Este commit incorpora las pruebas unitarias correspondientes a los cuatro Aggreg
 
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
+
+Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado y con una primera versión de la aplicación móvil conectada a los Web Services. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia.
+
+##### Landing Page
+
+El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guardian-plus.pages.dev). La siguiente captura muestra la sección principal del sitio en su versión de escritorio.
+
+![landing-page-execution](../assets/images/chatper4/sprint1/landing-page-execution.png)
+
+| Producto | Video de ejecución |
+|---|---|
+| Landing Page | [Guardian+ — Landing Page (Sprint 1)](https://youtu.be/ZqqCONDHst8) |
+
+##### Mobile Application
+
+| Producto | Video de ejecución |
+|---|---|
+| Mobile Application | [Guardian+ — Mobile Application (Sprint 1)](https://www.youtube.com/watch?v=Q-VMpyzhfJM) |
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
