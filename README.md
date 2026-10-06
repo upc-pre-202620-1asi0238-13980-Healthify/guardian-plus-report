@@ -47,6 +47,7 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 **URL del repositorio:** https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.git
 
+**AV1**:
 ![alt text](<assets/images/Insights/chapter 1/report-insights-cover.png>)
 
 **TB1:**
