@@ -1770,4 +1770,64 @@ Los siguientes user flows corresponden a las vistas complementarias de **Extras*
 <hr>
 
 
-#### 3.1.4.5. Mobile Applications Prototyping<table>
+#### 3.1.4.5. Mobile Applications Prototyping
+
+El prototipo de la aplicación móvil de Guardian+ se construyó en Figma, en la página *Prototype v2* del archivo *Guardian+ Prototyping*, a partir de los mock-ups de la sección 3.1.4.3. Reúne las 38 pantallas de las cinco secciones de la aplicación (Inicio, Salud, Alertas, Rutinas y Ubicación) y la sección de Perfil, conectadas en un único flujo llamado *Guardian+* que inicia en la pantalla de Inicio. Desde ese punto se puede llegar a todas las pantallas del prototipo y volver desde cada una de ellas, de modo que el recorrido de los User Flow Diagrams de la sección 3.1.4.4 puede reproducirse sin interrupciones.
+
+##### Criterios de interacción
+
+Las conexiones del prototipo siguen el sistema de navegación definido en la sección 3.1.2.5. Los criterios aplicados fueron los siguientes:
+
+| Tipo de navegación | Decisión en el prototipo | Relación con la arquitectura de información |
+|---|---|---|
+| **Global** | La barra de navegación inferior está presente en las pantallas principales de cada sección y cada destino abre la pantalla raíz de su sección. El destino de la sección actual no tiene enlace para evitar recargar la misma pantalla. Alertas ocupa la posición central y se destaca con un botón circular. | Corresponde a los cinco destinos permanentes de la bottom navigation bar. Siguiendo la misma regla, la barra se oculta en las pantallas de detalle y en los formularios. |
+| **Suplementaria** | El avatar de la barra superior del Inicio abre Perfil, desde donde se accede a Mis datos, Persona bajo cuidado, Círculo de cuidado, Pulsera, Mi plan, Configuración y Cerrar sesión. | Perfil se ubica en la barra superior y no en la inferior, que se limita a cinco destinos. |
+| **Local** | Las pestañas *Ahora* e *Historial* de Salud y las pestañas *Activas* e *Historial* de Alertas alternan entre las dos vistas de su sección. En el historial de Salud, los chips Ritmo, Presión, SpO₂, Temp y Respir cambian entre los cinco signos vitales. | Cada sección organiza su contenido en vistas de la misma categoría, según los esquemas de organización de la sección 3.1.2.1. |
+| **Contextual** | Las tarjetas y los enlaces del Inicio (*Ver detalle*, *Ver agenda*, *Ver alertas*, signos vitales, próxima toma y última alerta) llevan a la pantalla que amplía esa información. *Ver en mapa* lleva desde el detalle de una alerta a la ubicación en tiempo real. | El Inicio resume el estado de la persona bajo cuidado y cada bloque funciona como acceso directo a su sección. |
+| **Retorno** | Las pantallas de detalle y los formularios de Rutinas, Alertas y Ubicación tienen un botón de volver que regresa a la pantalla anterior. Los formularios también regresan al confirmar con *Guardar recordatorio* o *Agendar cita*. | Aplica la regla de retorno predecible: el botón de volver regresa a la pantalla desde la que se abrió la secundaria y no a una pantalla fija. |
+| **Hojas modales** | *Buscar y filtrar*, *Exportar expediente* y *Reporte semanal* se abren sobre la pantalla de Salud y se cierran con su acción principal o al tocar fuera de la hoja. | Son tareas puntuales sobre la información de Salud y no cambian de sección. |
+
+Todas las interacciones se activan al tocar (*On tap*). En el Inicio, el contenido se desplaza verticalmente mientras la barra de navegación inferior permanece fija, igual que en la aplicación nativa.
+
+##### Ruta de emergencia
+
+El prototipo reproduce la ruta de emergencia de la sección 3.1.2.5. Como Figma no permite simular una notificación push, la campana del Inicio cumple ese papel y abre la alerta SOS enviada desde la pulsera. Desde Alertas, la tarjeta de la alerta crítica abre su detalle, que muestra el escalamiento a los contactos de emergencia y la ubicación de la persona bajo cuidado. En ambas pantallas, *Ver en mapa* abre la ubicación en tiempo real. Así, el cuidador llega al detalle de la emergencia en uno o dos toques desde la pantalla en la que se encuentre.
+
+##### Flujos cubiertos por el prototipo
+
+| Sección | Recorrido en el prototipo | User Stories |
+|---|---|---|
+| Salud | Inicio → Salud · Ahora → Historial del signo vital → cambio entre Ritmo, Presión, SpO₂, Temp y Respir. | US01, US02, US03, US04, US05, US07 |
+| Salud | Historial → *Todos los signos vitales* → Buscar y filtrar → *Aplicar*. | US07 |
+| Salud | Historial → *Exportar PDF* → Exportar expediente → *Generar y exportar PDF*. | US19 |
+| Salud | Historial → *Reporte semanal* → Reporte semanal. | US24 |
+| Alertas | Alertas activas → Detalle de alerta crítica → *Ver en mapa*. | US08, US11 |
+| Alertas | Inicio → campana → Alerta SOS desde la pulsera → *Ver en mapa*. | US15 |
+| Alertas | Alertas → Historial → Alerta de signos vitales estabilizada → *Ver en Salud*. | US09, US10 |
+| Rutinas | Rutinas → Medicación → Nueva toma → *Guardar recordatorio*. | US06 |
+| Rutinas | Rutinas → Citas médicas → Nueva cita → *Agendar cita*. | US13 |
+| Rutinas | Rutinas → Actividad ligera → Nueva actividad. | US14 |
+| Rutinas | Rutinas → Hidratación, Sueño e Inactividad. | US26, US17, US27 |
+| Ubicación | Inicio → Ubicación → Ubicación en tiempo real. | US18 |
+| Perfil | Inicio → Perfil → Mis datos, Persona bajo cuidado, Círculo de cuidado, Pulsera, Mi plan, Configuración (Idioma, Accesibilidad, Términos y condiciones, Acerca de Guardian+) y Cerrar sesión. | — |
+
+Las acciones que dependen de servicios externos, como *Llamar* y *Videollamada*, se muestran en las pantallas pero no tienen conexión en el prototipo, ya que no cuentan con una pantalla propia.
+
+##### Evidencia del prototipo
+
+La siguiente captura muestra las conexiones del prototipo en la página *Prototype v2*, agrupadas por sección: Perfil, Inicio (*Dashboard*), Salud (*Monitoreo*), Alertas, Ubicación (*Mobility*) y Rutinas (*Care routines and wellness*).
+
+![Conexiones del prototipo de Guardian+](../assets/images/chapterIII/prototyping/prototype-connections-overview.png)
+
+En la sección de Salud se aprecian las conexiones entre la vista *Ahora*, el historial de cada signo vital y las hojas modales de búsqueda, exportación y reporte semanal.
+
+![Conexiones de la sección Salud](../assets/images/chapterIII/prototyping/prototype-health-connections.png)
+
+La siguiente captura corresponde a la ejecución del prototipo desde la pantalla de Inicio.
+
+![Ejecución del prototipo de Guardian+](../assets/images/chapterIII/prototyping/prototype-execution-home.png)
+
+| Recurso | Enlace |
+|---|---|
+| Prototipo en Figma | [Guardian+ Prototype](https://www.figma.com/proto/kxCl254LnsEBLOvjC65nD2/Guardian--Prototyping?node-id=436-1532&p=f&t=C4aAPKwd1OEPOhE6-1&scaling=min-zoom&content-scaling=fixed&page-id=436%3A1471&starting-point-node-id=436%3A1532) |
+| Video del recorrido | [Guardian+ — Recorrido del prototipo móvil](https://youtu.be/rcKs9-MPEaE) |
