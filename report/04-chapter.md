@@ -923,6 +923,26 @@ Este commit incorpora las pruebas unitarias correspondientes a los cuatro Aggreg
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
+Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado y con una primera versión de la aplicación móvil conectada a los Web Services. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia.
+
+##### Landing Page
+
+El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guardian-plus.pages.dev). La siguiente captura muestra la sección principal del sitio en su versión de escritorio.
+
+![landing-page-execution](../assets/images/chatper4/sprint1/landing-page-execution.png)
+
+| Producto | Video de ejecución |
+|---|---|
+| Landing Page | [Guardian+ — Landing Page (Sprint 1)](https://youtu.be/ZqqCONDHst8) |
+
+##### Mobile Application
+
+> Hola, soy Rodrigo. Estoy terminando esta parte; cuando tenga el video lo pongo.
+
+| Producto | Video de ejecución |
+|---|---|
+| Mobile Application | |
+
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especificación se publica en `/v3/api-docs` y puede explorarse en Swagger UI (`/swagger-ui/index.html`). Los errores siguen un formato común (`code`, `message`, `details`) con los códigos `400`, `404`, `409` y `422`.
