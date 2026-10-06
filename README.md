@@ -49,6 +49,10 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 ![alt text](<assets/images/Insights/chapter 1/report-insights-cover.png>)
 
+**TB1:**
+
+![report-insights-tb1](assets/images/Insights/tb1/report-insights-tb1.png)
+
 ## Contenido
 
 - [Capítulo I: Presentación](#capítulo-i-presentación)

@@ -1029,6 +1029,24 @@ Resultados de Lighthouse sobre la URL pública:
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
+Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
+
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas.
+
+![backend-insights](../assets/images/chatper4/sprint1/insights/backend-insights.png)
+
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas.
+
+![mobile-app-insights](../assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
+
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main.
+
+![website-insights](../assets/images/chatper4/sprint1/insights/website-insights.png)
+
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main.
+
+![iot-simulator-insights](../assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
+
 ## 4.3. Validation Interviews
 
 ### 4.3.1. Diseño de Entrevistas
