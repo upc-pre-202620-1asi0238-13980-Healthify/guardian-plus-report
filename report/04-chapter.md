@@ -1103,6 +1103,31 @@ Resultados de Lighthouse sobre la URL pública:
 
 ![landing-page-deployment](../assets/images/chatper4/sprint1/landing-page-deployment.png)
 
+##### IoT Simulator
+
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4.
+
+| Aspecto | Detalle |
+|---|---|
+| **Plataforma** | Google Cloud Compute Engine, aprovisionada con Terraform |
+| **Acceso** | `http://34.45.141.10:5000` (API) y `34.45.141.10:1883` (MQTT), restringido por firewall |
+| **Repositorio** | [guardian-plus-iot-simulator](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator) |
+| **Rama desplegada** | `main` |
+| **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
+| **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
+
+El despliegue se realizó en los siguientes pasos:
+
+| Step | Acción | Resultado |
+|---|---|---|
+| **1** | Instalación de Terraform en Google Cloud Shell, que no lo incluía preinstalado. | Terraform 1.9.8 disponible en el directorio personal. |
+| **2** | Configuración de `terraform.tfvars` y ejecución de `terraform init` y `terraform apply`. | Se crearon la IP estática y las dos reglas de firewall. La creación de la cuenta de servicio falló porque la API de IAM estaba deshabilitada en el proyecto. |
+| **3** | Habilitación de `iam.googleapis.com` y `cloudresourcemanager.googleapis.com`, y nueva ejecución de `terraform apply`. | Se crearon la cuenta de servicio, sus permisos y la máquina virtual. En total, 8 recursos. |
+| **4** | Ejecución del script de arranque de la VM. | Mosquitto y el simulador quedaron instalados y en ejecución como servicios. |
+| **5** | Validación del estado en `/health`. | El simulador responde `status: ok`, con `mqttConnected: true` y `loopRunning: true`. |
+| **6** | Carga de los wearables desde `GET /api/v1/wearable-devices` y verificación en `/signals`. | <completar cuando haya dispositivos cargados> |
+
+
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
