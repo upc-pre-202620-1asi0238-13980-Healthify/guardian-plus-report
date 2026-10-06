@@ -760,7 +760,166 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-core-flow` | `7df392d` | `feat(emergency-alerting): add rest controllers, resources and assemblers` | 2026-10-01 |
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-core-flow` | `e19fb0a` | `docs(readme): document emergency and alerting bounded context` | 2026-10-01 |
 
-#### 4.2.1.5. Testing Suite Evidence for Sprint Review
+**#### 4.2.1.5. Testing Suite Evidence for Sprint Review**
+
+Durante el presente Sprint se incorporaron pruebas automatizadas como parte del proceso de implementación de los Web Services de Guardian+. El objetivo de estas pruebas es verificar los comportamientos principales de los componentes desarrollados y reducir la posibilidad de introducir errores antes de integrar los cambios hacia las ramas principales del proyecto.
+
+De acuerdo con el alcance del Sprint, que contempla el desarrollo progresivo del backend, las pruebas se implementan de manera incremental junto con las funcionalidades correspondientes a cada Bounded Context.
+
+Para el Bounded Context **Profile** se desarrollaron Unit Tests orientados principalmente a validar los Aggregate Roots del dominio y un Application Service. Las pruebas fueron implementadas utilizando **JUnit Jupiter**, mientras que **Mockito** fue utilizado para aislar dependencias externas en las pruebas de servicios de aplicación.
+
+Las pruebas siguen el patrón **Arrange - Act - Assert (AAA)**:
+
+- **Arrange:** preparación de datos, objetos y dependencias necesarias para ejecutar el escenario.
+- **Act:** ejecución de la operación o comportamiento que se desea comprobar.
+- **Assert:** verificación de que el resultado obtenido corresponda con el comportamiento esperado.
+
+En el presente avance, la evidencia automatizada desarrollada para Profile corresponde a **Unit Tests**. Los Integration Tests y Acceptance Tests bajo BDD no forman parte todavía de la implementación actual y podrán incorporarse en siguientes incrementos conforme se completen las integraciones entre Bounded Contexts y los flujos funcionales del producto.
+
+**##### Unit Tests - Bounded Context Profile**
+
+Las pruebas desarrolladas para Profile verifican las principales reglas y comportamientos de los Aggregate Roots `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`.
+
+Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada.
+
+| Test Class | Class Under Test | Test | Behavior Verified |
+|---|---|---|---|
+| `UserProfileTest` | `UserProfile` | `shouldCreateUserProfileWithValidData` | Verifica que un perfil de usuario pueda crearse correctamente cuando recibe información válida. |
+| `UserProfileTest` | `UserProfile` | `shouldUpdatePersonalInformation` | Verifica la actualización del nombre y apellido del perfil de usuario. |
+| `UserProfileTest` | `UserProfile` | `shouldUpdateContactInformation` | Verifica la actualización de la información de contacto asociada al perfil. |
+| `UserProfileTest` | `UserProfile` | `shouldRejectBlankPersonalInformation` | Verifica que el Aggregate Root rechace información personal inválida o vacía. |
+| `CareRecipientProfileTest` | `CareRecipientProfile` | `shouldCreateCareRecipientProfileWithValidData` | Verifica la creación correcta de un perfil de persona bajo cuidado. |
+| `CareRecipientProfileTest` | `CareRecipientProfile` | `shouldUpdatePersonalInformation` | Verifica la actualización de nombres y fecha de nacimiento de la persona bajo cuidado. |
+| `CareRecipientProfileTest` | `CareRecipientProfile` | `shouldUpdateProfileImage` | Verifica la actualización de la imagen del perfil de la persona bajo cuidado. |
+| `CareRecipientProfileTest` | `CareRecipientProfile` | `shouldRejectNullBirthDate` | Verifica que el Aggregate Root rechace una fecha de nacimiento inválida. |
+| `CareRelationshipTest` | `CareRelationship` | `shouldEstablishCareRelationshipWithValidData` | Verifica que una relación de cuidado válida sea creada correctamente con estado `ACTIVE`. |
+| `CareRelationshipTest` | `CareRelationship` | `shouldEndActiveCareRelationship` | Verifica la transición de una relación de cuidado desde `ACTIVE` hacia `ENDED`. |
+| `CareRelationshipTest` | `CareRelationship` | `shouldRejectEndingRelationshipTwice` | Verifica que una relación que ya fue finalizada no pueda volver a finalizarse. |
+| `CareRelationshipTest` | `CareRelationship` | `shouldRejectNullRelationshipType` | Verifica que no pueda establecerse una relación de cuidado sin un tipo válido. |
+| `UserPreferencesTest` | `UserPreferences` | `shouldCreateUserPreferencesWithDefaultValues` | Verifica la creación de preferencias con los valores iniciales definidos por Guardian+. |
+| `UserPreferencesTest` | `UserPreferences` | `shouldUpdateApplicationPreferences` | Verifica la actualización de las preferencias generales de aplicación. |
+| `UserPreferencesTest` | `UserPreferences` | `shouldUpdateLanguageAndAccessibilityPreferences` | Verifica la actualización conjunta de idioma, alto contraste, reducción de movimiento y tamaño de fuente. |
+| `UserPreferencesTest` | `UserPreferences` | `shouldRejectNullLanguage` | Verifica que el dominio rechace una actualización cuando no se proporciona un idioma válido. |
+| `UserProfileCommandServiceImplTest` | `UserProfileCommandServiceImpl` | `shouldCreateUserProfileWhenUserHasNoProfile` | Verifica que el servicio cree y persista un nuevo perfil cuando el usuario todavía no posee uno. |
+| `UserProfileCommandServiceImplTest` | `UserProfileCommandServiceImpl` | `shouldReturnConflictWhenUserAlreadyHasProfile` | Verifica que el servicio retorne un conflicto y no persista un nuevo perfil cuando el usuario ya posee uno. |
+
+**##### Domain Unit Tests**
+
+Las pruebas `UserProfileTest`, `CareRecipientProfileTest`, `CareRelationshipTest` y `UserPreferencesTest` se ejecutan directamente sobre los Aggregate Roots del Bounded Context Profile.
+
+Estas pruebas no requieren inicializar Spring, una base de datos ni contenedores Docker, debido a que su objetivo es comprobar de manera aislada las reglas propias del dominio.
+
+Entre los principales comportamientos validados se encuentran:
+
+- creación de Aggregate Roots con información válida;
+- modificación de información personal;
+- actualización de información de contacto;
+- actualización de imágenes de perfil;
+- control del ciclo de vida de las relaciones de cuidado;
+- validación de estados inválidos;
+- configuración y modificación de preferencias de usuario;
+- validación de parámetros obligatorios.
+
+**##### Application Service Unit Test**
+
+`UserProfileCommandServiceImplTest` verifica el comportamiento de la capa de aplicación.
+
+En este caso se utiliza **Mockito** debido a que `UserProfileCommandServiceImpl` depende de `UserProfileRepository`.
+
+El repositorio es reemplazado mediante un mock para controlar sus respuestas durante cada escenario de prueba.
+
+Se verifican principalmente dos comportamientos:
+
+- cuando el usuario todavía no posee un perfil, el servicio crea el Aggregate Root y ejecuta la operación de persistencia;
+- cuando ya existe un perfil asociado al mismo usuario, el servicio retorna un resultado de conflicto y evita realizar una nueva operación de persistencia.
+
+De esta manera, se comprueba el comportamiento del Application Service sin depender de una base de datos real.
+
+**##### Testing Execution Evidence**
+
+Los Unit Tests del Bounded Context **Profile** fueron ejecutados mediante Maven.
+
+Para ejecutar únicamente las pruebas correspondientes a Profile se utilizó:
+
+~~~powershell
+.\mvnw.cmd "-Dtest=UserProfileTest,CareRecipientProfileTest,CareRelationshipTest,UserPreferencesTest,UserProfileCommandServiceImplTest" test
+~~~
+
+La siguiente evidencia muestra la ejecución de las pruebas correspondientes a `UserProfileCommandServiceImplTest`, `CareRecipientProfileTest`, `CareRelationshipTest`, `UserPreferencesTest` y `UserProfileTest`.
+
+![Profile Unit Tests Execution](../assets/images/chapterIV/testing/profile-unit-tests-execution.png)
+
+La ejecución comprende un total de **18 Unit Tests** distribuidos entre los cuatro Aggregate Roots principales de Profile y el Application Service `UserProfileCommandServiceImpl`.
+
+Los resultados obtenidos fueron:
+
+- `UserProfileCommandServiceImplTest`: 2 tests ejecutados.
+- `CareRecipientProfileTest`: 4 tests ejecutados.
+- `CareRelationshipTest`: 4 tests ejecutados.
+- `UserPreferencesTest`: 4 tests ejecutados.
+- `UserProfileTest`: 4 tests ejecutados.
+
+La ejecución finalizó correctamente con los siguientes resultados:
+
+~~~text
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+~~~
+
+Esto confirma que los Unit Tests implementados para el Bounded Context **Profile** se ejecutan satisfactoriamente y validan los comportamientos definidos tanto en los Aggregate Roots como en el Application Service probado.
+
+**##### Integration Tests and Acceptance Tests**
+
+Estas pruebas podrán incorporarse en siguientes incrementos cuando se encuentren disponibles las integraciones necesarias entre los diferentes Bounded Contexts y se implementen los flujos funcionales completos correspondientes a los User Stories del producto.
+
+
+**##### Testing Repository**
+
+Las pruebas automatizadas de Profile se encuentran dentro del mismo repositorio utilizado para la implementación de los Web Services de Guardian+.
+
+**Repository:**
+
+`upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform`
+
+**Branch:**
+
+`feat/profile-bounded-context`
+
+**Testing source path:**
+
+~~~text
+src/test/java/com/healthify/guardian/platform/profile
+~~~
+
+La estructura principal utilizada para las pruebas es:
+
+~~~text
+profile
+├── application
+│   └── internal
+│       └── commandservices
+│           └── UserProfileCommandServiceImplTest.java
+│
+└── domain
+    └── model
+        └── aggregates
+            ├── UserProfileTest.java
+            ├── CareRecipientProfileTest.java
+            ├── CareRelationshipTest.java
+            └── UserPreferencesTest.java
+~~~
+
+**##### Testing Commits**
+
+El siguiente commit contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/profile-bounded-context` | `711c50c` | `test(profile): add unit tests for profile bounded context` | — | `2026-10-03` |
+
+Este commit incorpora las pruebas unitarias correspondientes a los cuatro Aggregate Roots principales de Profile y la prueba del Application Service `UserProfileCommandServiceImpl`.
+
+
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
