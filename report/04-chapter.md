@@ -937,11 +937,9 @@ El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guar
 
 ##### Mobile Application
 
-> Hola, soy Rodrigo. Estoy terminando esta parte; cuando tenga el video lo pongo.
-
 | Producto | Video de ejecución |
 |---|---|
-| Mobile Application | |
+| Mobile Application | [Guardian+ — Mobile Application (Sprint 1)](https://www.youtube.com/watch?v=Q-VMpyzhfJM) |
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
