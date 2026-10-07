@@ -289,24 +289,21 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 ## Azama Fukuda, Juan Pablo
 
-Objetivo SMART 1 — Arquitectura y liderazgo técnico:
+**Objetivo SMART 1:**
+Dentro de los 3 años posteriores a mi graduación, alcanzaré el rol de Ingeniero de Software Semi Senior, liderando el diseño arquitectónico de al menos 2 aplicaciones web en producción (definición de arquitectura, ADRs y patrones de diseño), evidenciado por la propiedad técnica de al menos un módulo crítico en cada proyecto y la aprobación formal de mis decisiones de diseño en revisiones de arquitectura.
+- *Specific:* Rol + entregable concreto (ownership arquitectónico de 2 apps).
+- *Measurable:* Se verifica con el cambio de título/rol y el conteo de ADRs/módulos bajo mi propiedad.
+- *Achievable:* Alcanzable en 3 años dado el ciclo típico junior a mid senior.
+- *Relevant:* Aplica directamente arquitectura de software y diseño de software, áreas que me interesan.
+- *Time-bound:* 3 años desde la graduación.
 
-▎ Dentro de los 3 años posteriores a mi graduación, alcanzaré el rol de Ingeniero de Software Semi Senior, liderando el diseño arquitectónico de al menos 2 aplicaciones web en producción (definición de arquitectura, ADRs y patrones de diseño), evidenciado por la propiedad técnica de al menos un módulo crítico en cada proyecto y la aprobación formal de mis decisiones de diseño en revisiones de arquitectura.
-- S: rol + entregable concreto (ownership arquitectónico de 2 apps).
-- M: se verifica con el cambio de título/rol y el conteo de ADRs/módulos bajo mi propiedad.
-- A: alcanzable en 3 años dado el ciclo típico junior a mid senior.
-- R: aplica directamente arquitectura de software y diseño de software, áreas que me interesan.
-- T: 3 años desde la graduación.
-
-Objetivo SMART 2 — Contribución medible de valor:
-
-▎ Dentro de los primeros 2 años de carrera, entregaré al menos 3 mejoras medibles (rendimiento, reducción de deuda técnica o automatización) en los productos web de las empresas donde trabaje, cada una respaldada por una métrica de impacto (p. ej. ≥20% de reducción en tiempo de carga o ≥15% de reducción de bugs en producción).
-
-- S: tipo y cantidad de contribuciones definidas (3, medibles).
-- M: métricas numéricas concretas por contribución.
-- A: realista para un ingeniero que busca responsabilidad propia activamente desde el inicio.
-- R: responde directamente a "crear valor" y "contribuciones significativas", algo que considero que es importante para mi crecimiento.
-- T: 2 años desde el inicio de la carrera profesional.
+**Objetivo SMART 2:**
+Dentro de los primeros 2 años de carrera, entregaré al menos 3 mejoras medibles (rendimiento, reducción de deuda técnica o automatización) en los productos web de las empresas donde trabaje, cada una respaldada por una métrica de impacto (p. ej. ≥20% de reducción en tiempo de carga o ≥15% de reducción de bugs en producción).
+- *Specific:* Tipo y cantidad de contribuciones definidas (3, medibles).
+- *Measurable:* Métricas numéricas concretas por contribución.
+- *Achievable:* Realista para un ingeniero que busca responsabilidad propia activamente desde el inicio.
+- *Relevant:* Responde directamente a "crear valor" y "contribuciones significativas", algo que considero que es importante para mi crecimiento.
+- *Time-bound:* 2 años desde el inicio de la carrera profesional.
 
 ## Mechan Montenegro, Luciana Carolina
 
@@ -327,13 +324,14 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Time-bound:* 4 años después de la graduación.
 
 ## Luis Miranda, Diego Andres
+
 **Objetivo SMART 1:**
 Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software.
 - *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
 - *Measurable:* Participar en al menos 2 proyectos académicos o personales donde asuma el rol de arquitecto o líder técnico, documentando las decisiones de diseño y resultados.
 - *Achievable:* Aprovechar cursos de la carrera y proyectos extracurriculares para aplicar patrones de arquitectura y buenas prácticas.
 - *Relevant:* Fortalecer mi perfil profesional AI Engineer para roles de liderazgo en desarrollo de software.
-- *Lograrlo:* antes de 2 años posteriores a mi graduación.
+- *Time-bound:* Antes de 2 años posteriores a mi graduación.
 
 **Objetivo SMART 2:**
 En los próximos 2 años después de graduarme, contribuiré con al menos 5 funcionalidades clave en proyectos de software (académicos, open source o laborales), asegurando que generen valor medible para usuarios o equipos, consolidando mi especialización en AI Engineer o full stack developer.
@@ -341,7 +339,7 @@ En los próximos 2 años después de graduarme, contribuiré con al menos 5 func
 - *Measurable:* Contribuir con al menos 5 funcionalidades clave en proyectos académicos, open source o laborales, que sean utilizadas por otros usuarios o equipos.
 - *Achievable:* Usar mis conocimientos adquiridos en .NET, Spring Boot, Node.js y bases de datos para implementar soluciones completas.
 - *Relevant:* Alinear mi crecimiento profesional con la especialización en AI Engineer o full stack developer.
-- *Lograrlo:* Alcanzar este objetivo dentro de los 2 años posteriores a mi graduación.
+- *Time-bound:* Alcanzar este objetivo dentro de los 2 años posteriores a mi graduación.
 
 ## López Monroy, Rodrigo Alfredo
 
@@ -363,22 +361,18 @@ En un plazo de 4 años tras graduarme, cursaré una especialización de posgrado
 
 ## Sanchez Cuadrado, Juan Antonio
 
-**Objetivo SMART 1 — Desarrollo móvil con responsabilidad integral:**
+**Objetivo SMART 1:**
+Dentro de los primeros 2 años posteriores a mi graduación, participaré en el desarrollo y publicación de al menos 2 aplicaciones móviles Android en producción utilizando Kotlin e integración con servicios backend, asumiendo responsabilidad directa sobre al menos un módulo funcional completo en cada proyecto y alcanzando una cobertura mínima de pruebas automatizadas del 70% en dichos módulos.
+- *Specific:* Desarrollar aplicaciones Android reales y asumir responsabilidad completa sobre módulos funcionales.
+- *Measurable:* 2 aplicaciones en producción, al menos 1 módulo funcional bajo mi responsabilidad por aplicación y una cobertura mínima de pruebas del 70% en dichos módulos.
+- *Achievable:* Es alcanzable considerando mi formación en Ingeniería de Software y la experiencia que estoy desarrollando actualmente en Android, arquitectura de aplicaciones e integración con APIs.
+- *Relevant:* Está alineado con mi interés profesional en desarrollo móvil y en la construcción de soluciones de software completas y mantenibles.
+- *Time-bound:* Dentro de los primeros 2 años posteriores a mi graduación.
 
-▎ Dentro de los primeros 2 años posteriores a mi graduación, participaré en el desarrollo y publicación de al menos 2 aplicaciones móviles Android en producción utilizando Kotlin e integración con servicios backend, asumiendo responsabilidad directa sobre al menos un módulo funcional completo en cada proyecto y alcanzando una cobertura mínima de pruebas automatizadas del 70% en dichos módulos.
-
-- **S:** Desarrollar aplicaciones Android reales y asumir responsabilidad completa sobre módulos funcionales.
-- **M:** 2 aplicaciones en producción, al menos 1 módulo funcional bajo mi responsabilidad por aplicación y una cobertura mínima de pruebas del 70% en dichos módulos.
-- **A:** Es alcanzable considerando mi formación en Ingeniería de Software y la experiencia que estoy desarrollando actualmente en Android, arquitectura de aplicaciones e integración con APIs.
-- **R:** Está alineado con mi interés profesional en desarrollo móvil y en la construcción de soluciones de software completas y mantenibles.
-- **T:** Dentro de los primeros 2 años posteriores a mi graduación.
-
-**Objetivo SMART 2 — Arquitectura e integración de soluciones backend:**
-
-▎ Durante los primeros 3 años de mi carrera profesional, diseñaré e implementaré al menos 3 módulos backend aplicando principios de arquitectura modular o Domain-Driven Design, integrando en cada uno como mínimo una base de datos y un servicio externo, y documentando sus principales decisiones mediante diagramas C4, UML o ADRs antes de su puesta en producción.
-
-- **S:** Diseñar e implementar módulos backend con arquitectura modular o DDD, persistencia e integración con servicios externos.
-- **M:** Al menos 3 módulos completados, cada uno con base de datos, una integración externa y documentación arquitectónica.
-- **A:** Es una meta progresiva y alcanzable a partir de los conocimientos que estoy desarrollando en diseño de Bounded Contexts, APIs, repositories, C4 y modelado de dominio.
-- **R:** Complementa mi perfil de desarrollo móvil con capacidades de backend, integración y diseño arquitectónico de soluciones.
-- **T:** Dentro de los primeros 3 años de mi carrera profesional.
+**Objetivo SMART 2:**
+Durante los primeros 3 años de mi carrera profesional, diseñaré e implementaré al menos 3 módulos backend aplicando principios de arquitectura modular o Domain-Driven Design, integrando en cada uno como mínimo una base de datos y un servicio externo, y documentando sus principales decisiones mediante diagramas C4, UML o ADRs antes de su puesta en producción.
+- *Specific:* Diseñar e implementar módulos backend con arquitectura modular o DDD, persistencia e integración con servicios externos.
+- *Measurable:* Al menos 3 módulos completados, cada uno con base de datos, una integración externa y documentación arquitectónica.
+- *Achievable:* Es una meta progresiva y alcanzable a partir de los conocimientos que estoy desarrollando en diseño de Bounded Contexts, APIs, repositories, C4 y modelado de dominio.
+- *Relevant:* Complementa mi perfil de desarrollo móvil con capacidades de backend, integración y diseño arquitectónico de soluciones.
+- *Time-bound:* Dentro de los primeros 3 años de mi carrera profesional.
