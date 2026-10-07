@@ -1248,7 +1248,7 @@ Los umbrales son configurables mediante `care-routines-wellness.*` en `applicati
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en Cloudflare Pages, siguiendo la configuración descrita en la sección 4.1.4. El despliegue se integra con GitFlow: cada integración en la rama `main` del repositorio publica automáticamente una nueva versión del sitio.
+En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en Cloudflare Pages y de los Web Services en Microsoft Azure, además del IoT Simulator en Google Cloud, siguiendo la configuración descrita en la sección 4.1.4. En el Landing Page, cada integración en la rama `main` publica automáticamente una nueva versión del sitio; en los Web Services, cada integración en `develop` ejecuta las pruebas y actualiza la API publicada mediante GitHub Actions.
 
 ##### Landing Page
 
@@ -1281,6 +1281,51 @@ Resultados de Lighthouse sobre la URL pública:
 | **SEO** | 100 | 100 |
 
 ![landing-page-deployment](../assets/images/chatper4/sprint1/landing-page-deployment.png)
+
+##### Web Services
+
+| Aspecto | Detalle |
+|---|---|
+| **Plataforma** | Microsoft Azure (suscripción Azure for Students), región Chile Central |
+| **URL pública** | [guardian-plus-api.chilecentral.cloudapp.azure.com](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html) |
+| **Repositorio** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) |
+| **Rama desplegada** | `develop` |
+| **Infraestructura** | Máquina virtual `guardian-plus-vm` (Ubuntu 24.04, Standard B2ats v2) y Azure Database for PostgreSQL `guardian-plus-db-54c33b` (PostgreSQL 17, Burstable B1ms) |
+| **Contenedores en la VM** | `app` (imagen de GHCR) y `caddy` (HTTPS), gestionados con Docker Compose |
+| **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
+| **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
+
+El despliegue se realizó en los siguientes pasos:
+
+| Step | Acción | Resultado |
+|---|---|---|
+| **1** | Integración de la rama `chore/azure-vm-deployment` en `develop` mediante el Pull Request #8, con el `Dockerfile`, los archivos de `deploy/` y los workflows `ci.yml` y `deploy.yml`. | Repositorio preparado para construir la imagen de la API y desplegarla de forma automática. |
+| **2** | Creación del grupo de recursos `guardian-plus-rg` en Chile Central, del servidor de Azure Database for PostgreSQL con la base de datos `guardian_plus` y de la máquina virtual `guardian-plus-vm` con la etiqueta DNS `guardian-plus-api`. | Siete recursos creados el 3 de octubre de 2026: la base de datos, la máquina virtual y sus recursos de red y disco. |
+| **3** | Instalación de Docker en la máquina virtual y registro del archivo `.env` en `~/guardian-plus`. Registro de `VM_HOST`, `VM_USER` y `VM_SSH_PRIVATE_KEY` en el repositorio de GitHub. | Máquina virtual lista para recibir los despliegues del workflow. |
+| **4** | Cambio del disparador del despliegue de `main` a `develop` mediante el Pull Request #10, para validar cada incremento integrado durante el Sprint. | Primera ejecución del workflow `Deploy` completada y API publicada por HTTPS. |
+| **5** | Integración de Mobility & Geofencing (Pull Request #11). | El job `test` falló porque el contexto de la aplicación no se cargaba, por lo que el workflow omitió `build` y `deploy` y la versión publicada se mantuvo sin cambios. |
+| **6** | Integración de Health Monitoring, Profile y la conexión con el IoT Simulator (Pull Requests #12, #13 y #14). | Tres despliegues consecutivos completados, el último el 6 de octubre de 2026. |
+| **7** | Validación de la API publicada. | `/v3/api-docs` y Swagger UI responden por HTTPS, y las solicitudes HTTP se redirigen automáticamente a HTTPS. |
+
+El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services:
+
+![azure-resource-group](../assets/images/chatper4/sprint1/azure-resource-group.png)
+
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API:
+
+![azure-virtual-machine](../assets/images/chatper4/sprint1/azure-virtual-machine.png)
+
+El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`:
+
+![azure-postgresql](../assets/images/chatper4/sprint1/azure-postgresql.png)
+
+Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`:
+
+![github-actions-workflows](../assets/images/chatper4/sprint1/github-actions-workflows.png)
+
+Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI:
+
+![web-services-swagger](../assets/images/chatper4/sprint1/web-services-swagger.png)
 
 ##### IoT Simulator
 
