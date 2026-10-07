@@ -207,7 +207,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.
-\<br>
+<br>
 
 TB1: Actualicé y apliqué mis conocimientos de Domain-Driven Design y arquitectura por capas durante la implementación del Bounded Context Profile de Guardian+. Pasé del diseño conceptual a una implementación funcional mediante aggregates como UserProfile, CareRecipientProfile, CareRelationship y UserPreferences, incorporando commands, queries, domain events, repositories, servicios de aplicación, persistencia con JPA y endpoints REST. También reforcé mis conocimientos de pruebas automatizadas utilizando JUnit Jupiter, Mockito y el patrón AAA, implementando una suite de 18 Unit Tests que validan el comportamiento del dominio y los servicios de aplicación. Asimismo, apliqué conocimientos de Git y GitFlow para integrar la rama de Profile con develop, resolver conflictos en recursos compartidos y mantener la compatibilidad con los demás bounded contexts. Finalmente, reforcé el prototipado interactivo en Figma conectando el Dashboard con Perfil y sus pantallas de Persona bajo cuidado, Círculo de cuidado, Configuración, Idioma y Accesibilidad.
 
@@ -291,7 +291,7 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
 
-### <Luis Miranda, Diego Andres>
+### Luis Miranda, Diego Andres
 **Objetivo SMART 1:**
 Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software.
 - *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
