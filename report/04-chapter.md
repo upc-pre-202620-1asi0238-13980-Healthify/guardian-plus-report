@@ -72,8 +72,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
 | **Cloudflare Pages** | Publicación del Landing Page con despliegue automático desde la rama `main` de su repositorio. | SaaS | [pages.cloudflare.com](https://pages.cloudflare.com) |
-| **Render** | Despliegue de los Web Services como contenedor Docker, con despliegue automático desde la rama `main`. | SaaS | [render.com](https://render.com) |
-| **Neon** | Servicio gestionado de PostgreSQL para la base de datos de los Web Services desplegados. | SaaS | [neon.tech](https://neon.tech) |
+| **Microsoft Azure** | Máquina virtual que ejecuta los Web Services como contenedor Docker y servicio gestionado Azure Database for PostgreSQL para su base de datos. | Cloud provider | [azure.microsoft.com](https://azure.microsoft.com) |
+| **GitHub Actions** | Integración continua de los Web Services y despliegue automático en la máquina virtual de Azure ante cada integración en `develop`. | SaaS | [github.com/features/actions](https://github.com/features/actions) |
+| **GitHub Container Registry** | Almacenamiento de las imágenes Docker de los Web Services que se despliegan en Azure. | SaaS | [ghcr.io](https://github.com/features/packages) |
+| **Caddy** | Proxy inverso que publica los Web Services por HTTPS y gestiona automáticamente su certificado TLS. | Server | [caddyserver.com](https://caddyserver.com) |
 | **Firebase App Distribution** | Distribución de las versiones de prueba de la aplicación móvil a los testers y usuarios de validación. | SaaS | [firebase.google.com/products/app-distribution](https://firebase.google.com/products/app-distribution) |
 
 #### Software Documentation
@@ -544,14 +546,14 @@ Estas convenciones permiten mantener un criterio común entre los diferentes pro
 
 ### 4.1.4. Software Deployment Configuration
 
-En esta sección se especifica la configuración de despliegue de cada producto digital de Guardian+, incluyendo los pasos necesarios para que, a partir de su repositorio de código fuente, se logre su publicación satisfactoria. El despliegue se integra con la estrategia de GitFlow definida en la sección 4.1.2: los productos se publican en producción a partir de la rama `main`, mientras que el desarrollo y la integración se realizan en las ramas `feat/*` y `develop`. Las credenciales y cadenas de conexión se configuran como variables de entorno en cada plataforma y no se almacenan en los repositorios.
+En esta sección se especifica la configuración de despliegue de cada producto digital de Guardian+, incluyendo los pasos necesarios para que, a partir de su repositorio de código fuente, se logre su publicación satisfactoria. El despliegue se integra con la estrategia de GitFlow definida en la sección 4.1.2: el Landing Page se publica en producción a partir de la rama `main`, mientras que los Web Services se despliegan automáticamente ante cada integración en `develop`, de modo que el equipo valida cada incremento integrado sobre el entorno publicado. El desarrollo de nuevas funcionalidades se realiza en las ramas `feat/*`. Las credenciales y cadenas de conexión se configuran como variables de entorno en cada plataforma y no se almacenan en los repositorios.
 
 #### Deployment Overview
 
 | Product | Repository | Platform | Deployment Trigger | Public Access |
 |---|---|---|---|---|
 | **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Cloudflare Pages | Integración de cambios en `main` | [guardian-plus.pages.dev](https://guardian-plus.pages.dev) |
-| **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Render (Docker) y Neon (PostgreSQL) | Integración de cambios en `main` | URL pública aún no disponible; se registrará en esta sección tras el primer despliegue, junto con la ruta de su documentación en Swagger UI |
+| **Web Services** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | Microsoft Azure: máquina virtual con Docker Compose y Caddy, y Azure Database for PostgreSQL | GitHub Actions ante cada integración en `develop` | [Swagger UI](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html) |
 | **Mobile Application** | [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | Firebase App Distribution | Publicación de una release versionada con Semantic Versioning, por ejemplo `v1.0.0` | Invitación por correo a los testers registrados |
 | **IoT Simulator** | [guardian-plus-iot-simulator](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator) | Google Cloud Compute Engine (VM Debian 12 aprovisionada con Terraform) | Manual: `terraform apply` sobre el código de la rama `main`, que la VM clona al arrancar | API de monitoreo en `http://34.45.141.10:5000` y broker MQTT en `34.45.141.10:1883` (WebSocket en `9001`), con acceso restringido por firewall a las IP autorizadas |
 
@@ -561,7 +563,7 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 |---|---|---|---|---|---|
 | **Local** | `feat/*`, `develop` | `npm start` en `localhost:3000` | `./mvnw spring-boot:run` con PostgreSQL local | Android Emulator desde Android Studio | `python simulator/cli.py serve` con un broker Mosquitto local |
 | **Preview** | Pull Request | Preview Deployment generado automáticamente por Cloudflare Pages | — | — | — |
-| **Production** | `main` | Cloudflare Pages Production | Render y Neon | Firebase App Distribution | Máquina virtual en Google Compute Engine |
+| **Production** | `main` (Web Services: `develop`) | Cloudflare Pages Production | Máquina virtual de Azure y Azure Database for PostgreSQL | Firebase App Distribution | Máquina virtual en Google Compute Engine |
 
 #### Landing Page Deployment
 
@@ -579,43 +581,47 @@ Una vez configurado, cada integración en `main` publica automáticamente una nu
 
 #### Web Services Deployment
 
+Los Web Services se despliegan en una máquina virtual de Microsoft Azure como contenedor Docker, detrás del proxy inverso Caddy, que publica la API por HTTPS y renueva su certificado de forma automática. La base de datos se aloja en Azure Database for PostgreSQL. El despliegue se automatiza con GitHub Actions: cada integración en `develop` ejecuta las pruebas, publica la imagen en GitHub Container Registry (GHCR) y actualiza los contenedores de la máquina virtual.
+
+**Recursos en Azure**
+
+Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la región Chile Central y bajo la suscripción Azure for Students.
+
+| Resource | Description |
+|---|---|
+| **Máquina virtual `guardian-plus-vm`** | Ubuntu 24.04, tamaño Standard B2ats v2 (2 vCPU y 1 GiB de RAM), con Docker y Docker Compose. Su IP pública tiene asignado el nombre DNS `guardian-plus-api.chilecentral.cloudapp.azure.com`. |
+| **Red de la máquina virtual** | Red virtual, interfaz de red, IP pública, disco del sistema operativo y grupo de seguridad de red que regula el tráfico entrante: HTTP y HTTPS para la API y SSH para el despliegue. |
+| **Azure Database for PostgreSQL `guardian-plus-db-54c33b`** | Servidor flexible con PostgreSQL 17, configuración Burstable B1ms (1 vCore, 2 GiB de RAM y 32 GiB de almacenamiento) y la base de datos `guardian_plus`, con conexiones cifradas (`sslmode=require`). |
+
 **Preparación del repositorio**
 
 | Step | Action |
 |---|---|
-| **1** | Agregar un `Dockerfile` multi-stage en la raíz del repositorio: una etapa de construcción con Maven y JDK 27 que ejecuta `./mvnw -DskipTests package`, y una etapa de ejecución con JRE 27 que copia el archivo `.jar` generado y lo inicia con `java -jar`. |
-| **2** | Agregar un `.dockerignore` que excluya `target/`, `.idea/` y otros archivos locales. |
-| **3** | Configurar `server.port=${PORT:8080}` en `application.properties`, de modo que la aplicación utilice el puerto asignado por Render. |
-| **4** | Verificar que la conexión a la base de datos se obtenga de las variables de entorno `SPRING_DATASOURCE_*`, sin credenciales en el código fuente. |
+| **1** | Agregar un `Dockerfile` multi-stage: una etapa de construcción con Maven y JDK 26 que ejecuta `mvn package -DskipTests`, y una etapa de ejecución con JRE 26 que inicia el archivo `.jar` con un usuario sin privilegios y el perfil `prod` activo. |
+| **2** | Configurar `application-prod.properties` para que la conexión a la base de datos se obtenga de las variables de entorno `DATABASE_*`, con `sslmode=require` y sin credenciales en el código fuente. |
+| **3** | Agregar en `deploy/` el archivo `compose.yaml`, con los servicios `app` (imagen publicada en GHCR) y `caddy` (puertos 80 y 443), y el `Caddyfile`, que redirige el tráfico del dominio hacia `app:8080`. Como la máquina virtual tiene 1 GiB de RAM, el contenedor de la API se limita a 768 MB. |
+| **4** | Agregar el workflow `ci.yml`, que compila y ejecuta las pruebas con un servicio de PostgreSQL 17 en cada Pull Request hacia `develop` o `main`. |
+| **5** | Agregar el workflow `deploy.yml`, que ante cada integración en `develop` ejecuta tres jobs: `test` (reutiliza `ci.yml`), `build` (publica la imagen en GHCR con las etiquetas `latest` y el SHA del commit) y `deploy` (copia los archivos de `deploy/` a la máquina virtual por SSH, descarga la nueva imagen, reinicia los contenedores con `docker compose up -d` y espera a que `/v3/api-docs` responda). |
 
-**Base de datos en Neon**
-
-| Step | Action |
-|---|---|
-| **5** | Crear el proyecto `guardian-plus` en Neon, en la región AWS us-east-1 (N. Virginia). |
-| **6** | Crear la base de datos `guardian_plus` y obtener los datos de conexión (host, usuario y contraseña), utilizando `sslmode=require`. |
-
-**Servicio en Render**
+**Aprovisionamiento en Azure**
 
 | Step | Action |
 |---|---|
-| **7** | En Render, seleccionar *New → Web Service* y conectar el repositorio `guardian-plus-platform`. |
-| **8** | Configurar *Language* `Docker`, *Branch* `main`, *Region* `Virginia (US East)` e *Instance Type* `Free`. |
-| **9** | Registrar las variables de entorno indicadas en la tabla siguiente. |
-| **10** | Configurar `/v3/api-docs` como *Health Check Path* y mantener activo *Auto-Deploy* ante cada commit en `main`. |
-| **11** | Ejecutar el despliegue y validar el acceso público a la documentación de los Web Services en la ruta `/swagger-ui/index.html` del dominio asignado por Render. |
+| **6** | Crear el grupo de recursos `guardian-plus-rg` en la región Chile Central. |
+| **7** | Crear el servidor flexible de Azure Database for PostgreSQL con PostgreSQL 17 y configuración Burstable B1ms, crear la base de datos `guardian_plus` y habilitar en sus reglas de red el acceso desde la máquina virtual. |
+| **8** | Crear la máquina virtual `guardian-plus-vm` con Ubuntu 24.04 y tamaño Standard B2ats v2, con autenticación por llave SSH, y asignar a su IP pública la etiqueta DNS `guardian-plus-api`. |
+| **9** | Instalar Docker Engine y el plugin de Docker Compose en la máquina virtual, crear la carpeta `~/guardian-plus` y registrar en ella el archivo `.env` con las variables indicadas en la tabla siguiente, a partir de `deploy/.env.example`. |
+| **10** | Registrar en el repositorio de GitHub las variables `VM_HOST` y `VM_USER` y el secreto `VM_SSH_PRIVATE_KEY`, que el workflow utiliza para conectarse a la máquina virtual. |
+| **11** | Integrar un cambio en `develop` para ejecutar el workflow y validar el acceso público a la documentación de los Web Services en `/swagger-ui/index.html`. |
 
 | Variable | Description | Source |
 |---|---|---|
-| `SPRING_DATASOURCE_URL` | Cadena de conexión JDBC de la base de datos `guardian_plus`, con el parámetro `sslmode=require`. | Neon |
-| `SPRING_DATASOURCE_USERNAME` | Usuario de la base de datos. | Neon |
-| `SPRING_DATASOURCE_PASSWORD` | Contraseña de la base de datos. | Neon |
-| `JWT_SECRET` | Clave utilizada por IAM para firmar los JWT de sesión. | Generada por el equipo |
-| `STRIPE_SECRET_KEY` | Clave secreta de Stripe en modo de prueba. | Stripe Dashboard |
-| `GOOGLE_MAPS_API_KEY` | Clave para las consultas de geocodificación. | Google Cloud Console |
-| `FIREBASE_CREDENTIALS` | Credenciales de la cuenta de servicio de Firebase, codificadas en Base64, para el envío de notificaciones push. | Firebase Console |
+| `SITE_ADDRESS` | Dominio público de la API, utilizado por Caddy para emitir el certificado HTTPS. | Nombre DNS de la máquina virtual |
+| `DATABASE_URL` / `DATABASE_PORT` / `DATABASE_NAME` | Host, puerto y nombre de la base de datos `guardian_plus`. | Azure Database for PostgreSQL |
+| `DATABASE_USER` / `DATABASE_PASSWORD` | Credenciales de la base de datos. | Azure Database for PostgreSQL |
+| `HEALTH_MONITORING_MQTT_ENABLED` / `HEALTH_MONITORING_MQTT_BROKER_URL` | Activan la suscripción a la telemetría de signos vitales y apuntan al broker MQTT del IoT Simulator mediante WebSocket. | IoT Simulator |
 
-Las variables de integraciones externas se registran a medida que cada integración se implementa. Asimismo, la instancia gratuita de Render se suspende tras un periodo de inactividad, por lo que la primera solicitud posterior puede demorar alrededor de un minuto; antes de cada demostración se realiza una solicitud previa para reactivar el servicio.
+Las variables de las integraciones externas, como Firebase, Stripe y Google Maps Platform, se registran en el mismo archivo a medida que cada integración se implementa.
 
 #### Mobile Application Deployment
 
@@ -623,7 +629,7 @@ Las variables de integraciones externas se registran a medida que cada integraci
 |---|---|
 | **1** | Crear el proyecto `guardian-plus` en Firebase y registrar la aplicación Android con su `applicationId` definitivo. Este identificador no puede modificarse después sin registrar una nueva aplicación. |
 | **2** | Descargar `google-services.json` y ubicarlo en el módulo `app/`. El archivo se excluye del repositorio mediante `.gitignore` y se comparte con el equipo por un canal privado. |
-| **3** | Definir en `BuildConfig` la URL base de la API (`API_BASE_URL`), apuntando al servicio de Render en el build de release, y registrar la API key de Google Maps en `local.properties`. |
+| **3** | Definir en `BuildConfig` la URL base de la API (`API_BASE_URL`), apuntando al dominio de los Web Services en Azure en el build de release, y registrar la API key de Google Maps en `local.properties`. |
 | **4** | Generar el keystore de firma desde *Build → Generate Signed App Bundle or APK* y almacenarlo fuera del repositorio, junto con sus credenciales. |
 | **5** | Desde la rama `release/*`, actualizar `versionName` con la versión semántica de la release e incrementar `versionCode`. |
 | **6** | Generar el APK de release firmado desde Android Studio o mediante `./gradlew assembleRelease`. |
@@ -689,7 +695,8 @@ Si el backend no está disponible al iniciar el simulador, este arranca igualmen
 | **Seguridad del simulador y del broker** | El broker permite conexiones anónimas y la API del simulador no implementa autenticación, además de utilizar el servidor de desarrollo de Flask. Por ello, el acceso se restringe mediante el firewall de la red a las direcciones IP del equipo y del backend, y el simulador se utiliza únicamente como herramienta de desarrollo y validación. |
 | **Ciclo de vida de la infraestructura** | La infraestructura del simulador se encuentra definida como código y puede crearse o destruirse con un solo comando, por lo que se mantiene activa únicamente durante las pruebas y demostraciones. |
 | **Eventos de integración** | Debido a que los Bounded Contexts se despliegan dentro de una única REST API, los eventos de integración entre ellos se publican en memoria mediante Spring Application Events, sin requerir infraestructura adicional. Los puertos de salida definidos en cada contexto, como `MobilityEventOutputPort`, permiten reemplazar este mecanismo por un Message Broker como RabbitMQ si en el futuro los contextos se despliegan de forma independiente. |
-| **Ubicación de los servicios** | La REST API y la base de datos se despliegan en la región US East para reducir la latencia entre ambos. |
+| **Ubicación de los servicios** | La REST API y la base de datos se despliegan en la región Chile Central de Azure, la más cercana a Lima, para reducir la latencia hacia los usuarios y entre ambos servicios. |
+| **Recursos de la máquina virtual** | La máquina virtual de los Web Services cuenta con 1 GiB de RAM, por lo que el contenedor de la API se limita a 768 MB y la JVM utiliza el recolector de basura serial y un máximo del 70 % de esa memoria. |
 
 #### Deployment Diagram
 
