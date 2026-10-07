@@ -1157,6 +1157,10 @@ El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guar
 
 ##### Mobile Application
 
+La siguiente captura muestra la pantalla de Inicio de la aplicación móvil ejecutándose en el emulador de Android Studio (Pixel 8, API 37).
+
+![mobile-app-execution](../assets/images/chatper4/sprint1/mobile-app-execution.png)
+
 | Producto | Video de ejecución |
 |---|---|
 | Mobile Application | [Guardian+ — Mobile Application (Sprint 1)](https://www.youtube.com/watch?v=Q-VMpyzhfJM) |
