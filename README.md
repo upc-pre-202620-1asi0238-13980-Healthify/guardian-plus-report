@@ -36,6 +36,8 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 </div>
 
+<div style="page-break-before: always; break-before: page;"></div>
+
 ## Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
@@ -53,6 +55,8 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 **TB1:**
 
 ![report-insights-tb1](assets/images/Insights/tb1/report-insights-tb1.png)
+
+<div style="page-break-before: always; break-before: page;"></div>
 
 ## Contenido
 
@@ -168,6 +172,8 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
         - [2.6.7.6.2. Bounded Context Database Design Diagram](#26762-bounded-context-database-design-diagram)
     - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
     - [Bibliografía](#bibliografía)
+
+<div style="page-break-before: always; break-before: page;"></div>
 
 ## Student Outcome
 

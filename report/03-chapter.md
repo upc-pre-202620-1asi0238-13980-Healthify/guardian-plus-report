@@ -1,3 +1,5 @@
+<div style="page-break-before: always; break-before: page;"></div>
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design
