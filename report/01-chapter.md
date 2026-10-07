@@ -12,17 +12,53 @@ Como respuesta a esta problemática, Guardian+ propone una solución móvil que 
 
 
 #### 1.1.2. Perfiles de integrantes del equipo
-<div class="team-table">
 
+El equipo Healthify está conformado por cinco estudiantes de Ingeniería de Software de la UPC. La siguiente tabla presenta a cada integrante con su código, su carrera y un resumen de sus conocimientos y de su rol dentro del proyecto.
 
-|                         Foto                         | Apellidos y Nombres                       |    Código    | Carrera                | Resumen                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| :--------------------------------------------------: | :---------------------------------------- | :----------: | :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     ![foto](/assets/images/Team/JuanPablo.jpeg)      | Azama Fukuda, Juan Pablo | [U202411310] | Ingeniería de Software | Soy Juan Pablo Azama Fukuda (Código: u202411310), estudiante de sexto ciclo de Ingeniería de Software. En el ámbito técnico, poseo una base sólida en lenguajes como C++, Java y Unity. Para este proyecto, mi contribución principal tendrá un foco en la parte de diseño/frontend de la aplicación, tanto en la aplicación web y el landing page. Para ello, me respaldo en mis conocimientos decentes en Figma, HTML y CSS, además de mi manejo de React.js, competencias que seguiré escalando a lo largo del curso. A nivel de gestión, asumo el rol de team leader, con la responsabilidad de articular los esfuerzos del equipo, guiar el desarrollo y garantizar una metodología de trabajo eficiente.                   |
-| ![foto](/assets/images/Team/RodrigoLopez.png) | Lopez Monroy, Rodrigo Alfredo            | [U202421866] | Ingeniería de Software | Estudiante del 6to ciclo de Ingeniería de Software, con interés en el desarrollo de soluciones tecnológicas. Me enfoco en analizar problemas y plantear soluciones estructuradas, aplicando buenas prácticas y patrones de software. Mis principales habilidades técnicas incluyen el diseño de soluciones de software, desarrollo backend con Spring Boot y despliegue de aplicaciones en infraestructura cloud.                                                                                      |
-|       ![foto](/assets/images/Team/DiegoMiranda.jpeg)        | Luis Miranda, Diego Andres               | [U20241D185] | Ingeniería de Software | Estudiante de la carrera de ingeniería de software del 6to ciclo, apasionado en la programación,con reflejos por el desarrollo web frontend y backend, mediante diversos lenguajes de programación. Me gusta trabajar con responsabilidad, orden, metodología ágiles para entregar un buen proyecto. Con mi experiencia y capacidades sé que puedo aportar más de lo logrado siendo una persona proactiva y perseverante.  . |
-|         ![foto](/assets/images/Team/LucianaMechan.png)          | Mechan Montenegro, Luciana Carolina                    | [U20241B843] | Ingeniería de Software | Soy Luciana Carolina Mechan Montenegro (Código: u20241b843), estudiante del sexto ciclo de la carrera de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Dentro del equipo, mi contribución se enfoca tanto en el desarrollo frontend como backend, participando en la implementación de funcionalidades y en la integración de los distintos componentes del sistema. Me caracterizo por ser responsable, proactiva y con una gran capacidad de aprendizaje, además de tener facilidad para el trabajo en equipo y la adaptación a nuevos retos dentro del proyecto.                                                              |
-| ![foto](/assets/images/Team/JuanSanchez.png) | Sanchez Cuadrado, Juan Antonio             | [U202319404] | Ingeniería de Software | Soy estudiante de Ingeniería de Software con conocimientos en diversos lenguajes de programación y tecnologías web, entre ellos Python, JavaScript, Java, SQL, HTML y CSS. Poseo habilidades en desarrollo de aplicaciones web, lógica de programación y manejo de bases de datos, lo que me permite contribuir en la construcción tanto del frontend como del backend del sistema. Asimismo, tengo capacidad para analizar problemas, diseñar soluciones tecnológicas y trabajar en equipo bajo metodologías de desarrollo, aportando de manera activa en la implementación y mejora continua del proyecto.                                                                                                                                                     |
-</div>
+<table>
+  <tr>
+    <th width="130">Foto</th>
+    <th>Apellidos y Nombres</th>
+    <th>Código</th>
+    <th>Carrera</th>
+    <th>Resumen</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/JuanPablo.jpeg" alt="Azama Fukuda, Juan Pablo" width="120" height="120"></td>
+    <td>Azama Fukuda, Juan Pablo</td>
+    <td align="center">u202411310</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy Juan Pablo Azama Fukuda (Código: u202411310), estudiante de sexto ciclo de Ingeniería de Software. En el ámbito técnico, poseo una base sólida en lenguajes como C++, Java y Unity. Para este proyecto, mi contribución principal tendrá un foco en la parte de diseño/frontend de la aplicación, tanto en la aplicación web y el landing page. Para ello, me respaldo en mis conocimientos decentes en Figma, HTML y CSS, además de mi manejo de React.js, competencias que seguiré escalando a lo largo del curso. A nivel de gestión, asumo el rol de team leader, con la responsabilidad de articular los esfuerzos del equipo, guiar el desarrollo y garantizar una metodología de trabajo eficiente.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/LucianaMechan.png" alt="Mechan Montenegro, Luciana Carolina" width="120" height="120"></td>
+    <td>Mechan Montenegro, Luciana Carolina</td>
+    <td align="center">u20241b843</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy Luciana Carolina Mechan Montenegro (Código: u20241b843), estudiante del sexto ciclo de la carrera de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Dentro del equipo, mi contribución se enfoca tanto en el desarrollo frontend como backend, participando en la implementación de funcionalidades y en la integración de los distintos componentes del sistema. Me caracterizo por ser responsable, proactiva y con una gran capacidad de aprendizaje, además de tener facilidad para el trabajo en equipo y la adaptación a nuevos retos dentro del proyecto.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/DiegoMiranda.jpeg" alt="Luis Miranda, Diego Andres" width="120" height="120"></td>
+    <td>Luis Miranda, Diego Andres</td>
+    <td align="center">u20241d185</td>
+    <td>Ingeniería de Software</td>
+    <td>Estudiante de la carrera de ingeniería de software del 6to ciclo, apasionado en la programación, con reflejos por el desarrollo web frontend y backend, mediante diversos lenguajes de programación. Me gusta trabajar con responsabilidad, orden, metodología ágiles para entregar un buen proyecto. Con mi experiencia y capacidades sé que puedo aportar más de lo logrado siendo una persona proactiva y perseverante.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/RodrigoLopez.png" alt="López Monroy, Rodrigo Alfredo" width="120" height="120"></td>
+    <td>López Monroy, Rodrigo Alfredo</td>
+    <td align="center">u202421866</td>
+    <td>Ingeniería de Software</td>
+    <td>Estudiante del 6to ciclo de Ingeniería de Software, con interés en el desarrollo de soluciones tecnológicas. Me enfoco en analizar problemas y plantear soluciones estructuradas, aplicando buenas prácticas y patrones de software. Mis principales habilidades técnicas incluyen el diseño de soluciones de software, desarrollo backend con Spring Boot y despliegue de aplicaciones en infraestructura cloud.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/JuanSanchez.png" alt="Sanchez Cuadrado, Juan Antonio" width="120" height="120"></td>
+    <td>Sanchez Cuadrado, Juan Antonio</td>
+    <td align="center">u202319404</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy estudiante de Ingeniería de Software con conocimientos en diversos lenguajes de programación y tecnologías web, entre ellos Python, JavaScript, Java, SQL, HTML y CSS. Poseo habilidades en desarrollo de aplicaciones web, lógica de programación y manejo de bases de datos, lo que me permite contribuir en la construcción tanto del frontend como del backend del sistema. Asimismo, tengo capacidad para analizar problemas, diseñar soluciones tecnológicas y trabajar en equipo bajo metodologías de desarrollo, aportando de manera activa en la implementación y mejora continua del proyecto.</td>
+  </tr>
+</table>
 
 ### 1.2. Solution Profile
 
