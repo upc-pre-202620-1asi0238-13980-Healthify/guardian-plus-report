@@ -1591,3 +1591,27 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 
 **Recomendación:**
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
+
+<div style="page-break-before: always; break-before: page;"></div>
+
+# Conclusiones y recomendaciones
+
+A partir del trabajo realizado en este primer avance, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
+
+En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad
+
+<div style="page-break-before: always; break-before: page;"></div>
+
+# Bibliografía
+
+Barrera, M. (2022). Diseño de un sistema de supervisión y control de la salud en el hogar, para adultos mayores en la vereda "La Venta" del municipio de Belén-Boyacá, haciendo uso del internet de las cosas (IoT) [Tesis de licenciatura, Universidad Cooperativa de Colombia]. Repositorio Institucional. [Enlace](https://repository.ucc.edu.co/entities/publication/e41d1244-9d65-4fed-a5e1-177da2504ea8)
+
+Guerrero, J., & Pardo, G. (2024). Apoyo familiar y su incidencia en los adultos mayores del proyecto Envejeciendo Juntos, Paltas. Tesla Revista Científica, 7(15), 223-234. [Enlace](https://doi.org/10.56124/tj.v7i15ep.014)
+
+Instituto Nacional de Estadística e Informática. (2017). Perfil sociodemográfico de la población con discapacidad, 2017: Capítulo III. Resultados generales sobre la población con discapacidad. INEI. [Enlace](https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1675/cap03.pdf)
+
+Instituto Nacional de Estadística e Informática. (2014). En el Perú 1 millón 575 mil personas presentan algún tipo de discapacidad [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/en-el-peru-1-millon-575-mil-personas-presentan-alg/)
+
+Instituto Nacional de Estadística e Informática. (2017). 47 de cada 100 personas con discapacidad son adultos mayores [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/47-de-cada-100-personas-con-discapacidad-son-adultos-mayores-10226/)
+
+Ministerio de Salud. (2018, 13 de diciembre). Uno de cada tres adultos mayores de 65 años sufre una caída. Gob.pe. [Enlace](https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida)
