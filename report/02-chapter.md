@@ -3554,11 +3554,11 @@ La Guardian+ Mobile Application se ejecuta en los smartphones Android de familia
 
 #### 2.6.1. Bounded Context: Emergency & Alerting
 
-El Bounded Context Emergency & Alerting constituye el Core Domain principal de Guardian+. Su responsabilidad consiste en disparar las alertas ante señales que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, violaciones de zona segura, inactividad prolongada y avisos de rutina), despacharlas hacia sus contactos de emergencia según la severidad, gobernar el escalamiento hasta obtener un reconocimiento efectivo y registrar la atención del incidente hasta su cierre.
+El Bounded Context **Emergency & Alerting** pertenece al Core Domain de Guardian+ y es el contexto central de la solución. Su responsabilidad consiste en disparar las alertas ante señales que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, violaciones de zona segura, inactividad prolongada y avisos de rutina), despacharlas hacia sus contactos de emergencia según la severidad, gobernar el escalamiento hasta obtener un reconocimiento efectivo y registrar la atención del incidente hasta su cierre.
 
-A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing, Care Routines & Wellness), este contexto no observa telemetría: consume eventos de negocio ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna. El Fragile Citizen se referencia mediante `CareRecipientProfileId` y los integrantes del Care Circle mediante `UserId`, ambos gobernados por otros contextos.
+A diferencia de los contextos que producen señales (Health Monitoring, Mobility & Geofencing y Care Routines & Wellness), este contexto no observa telemetría: consume eventos de integración ya interpretados y concentra las reglas de reacción, temporización y escalamiento que traducen una señal en una respuesta humana oportuna. El Fragile Citizen se referencia mediante `CareRecipientProfileId` y los integrantes del Care Circle mediante `UserId`, ambos gobernados por otros contextos.
 
-La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure. La organización sigue la convención del repositorio `guardian-plus-platform`, compartida con el resto de Bounded Contexts.
+La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.emergencyalerting` del repositorio `guardian-plus-platform`, con la siguiente estructura:
 
 ```
 com.healthify.guardian.platform.emergencyalerting/
@@ -3581,13 +3581,13 @@ com.healthify.guardian.platform.emergencyalerting/
 ├── application/
 │   ├── acl/
 │   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   ├── outboundservices/
+│   │   └── queryservices/
 │   ├── outboundservices/
-│   ├── queryservices/
-│   └── internal/
-│       ├── commandservices/
-│       ├── eventhandlers/
-│       ├── outboundservices/
-│       └── queryservices/
+│   └── queryservices/
 └── infrastructure/
     ├── acl/
     ├── configuration/
@@ -3849,8 +3849,6 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
     *   `findByUserIdIn(Collection<UserId> userIds): List<AlertChannelSetting>`
     *   `findByUserIdAndChannel(UserId userId, NotificationChannel channel): Optional<AlertChannelSetting>`
 
----
-
 ##### 2.6.1.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful para la app móvil y canaliza los eventos de integración provenientes de los contextos proveedores de señales. Los errores se devuelven con el formato común de la plataforma: `400` (validación), `404`, `409` (conflicto) y `422` (regla de negocio).
@@ -3905,8 +3903,6 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
     *   `IncidentClosedIntegrationEvent(incidentId, alertId, careRecipientProfileId, sourceType, notes, closedAt)`: Notifica el cierre de un incidente para su incorporación al historial de salud.
 *   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (`hasActiveAlerts(UUID careRecipientProfileId)`).
 
----
-
 ##### 2.6.1.3. Application Layer
 
 Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados y servicios de dominio. Los Event Handlers y Schedulers son la materialización directa de las policies identificadas en el Design-Level EventStorming. Los servicios devuelven `Result<T, ApplicationError>` y obtienen la hora de un `Clock` inyectable.
@@ -3951,8 +3947,6 @@ Orquesta los flujos de casos de uso delegando las reglas de negocio en los agreg
 *   `MobilityContextAcl`: Consulta la última ubicación conocida del Fragile Citizen para incluirla en el contenido de la notificación; la ubicación no se persiste en este contexto.
 *   Mientras Profile y Mobility & Geofencing no estén implementados, ambos puertos se resuelven con implementaciones provisionales en infraestructura (`ProfileContextAclStub`, `MobilityContextAclStub`).
 
----
-
 ##### 2.6.1.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, la integración con los proveedores de notificación y los componentes de programación temporal que sostienen las políticas de temporización del contexto.
@@ -3995,8 +3989,6 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 *   `FallConfirmationTimeoutScheduler`: Cada segundo recupera las alertas en `PENDING_CONFIRMATION` cuya `FallConfirmationWindow` venció y despacha `ConfirmAlertCommand`, de modo que una caída confirmada llega al contacto primario dentro del presupuesto de 5 s de US08.
 *   `AckTimeoutEscalationScheduler`: Cada cinco segundos recupera las alertas en `TRIGGERED` o `ESCALATED` cuyo `primaryAckTimeout` venció desde el último despacho y aplica `EscalationPolicy.resolveNextLevel`: despacha `EscalateAlertCommand` hacia el nivel `SECONDARY` o `BroadcastAlertCommand` como último recurso (**Critical Broadcast Fallback**).
 
----
-
 ##### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Emergency & Alerting Component Diagram](../assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
@@ -4014,12 +4006,14 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 #### 2.6.2. Bounded Context: Health Monitoring
 
-El Bounded Context Health Monitoring pertenece al Core Domain de Guardian+. Su responsabilidad consiste en administrar los dispositivos wearables (`WearableDevice s`) asignados a un Care Recipient, capturar cada signo vital (`VitalSign`) contra un catálogo de tipos soportados (`VitalSignType`: frecuencia cardíaca, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria), evaluarlo frente a un umbral clínico configurable por paciente y tipo (`VitalSignThreshold`), y consolidar y compilar Health Reports periódicos.
+El Bounded Context **Health Monitoring** pertenece al Core Domain de Guardian+. Su responsabilidad consiste en administrar los dispositivos wearables (`WearableDevice`) asignados a un Care Recipient, capturar cada signo vital (`VitalSign`) contra un catálogo de tipos soportados (`VitalSignType`: frecuencia cardíaca, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria), evaluarlo frente a un umbral clínico configurable por paciente y tipo (`VitalSignThreshold`) y compilar Health Reports periódicos.
 
-La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
+Este contexto recibe la telemetría del wearable por MQTT y la traduce al lenguaje del dominio mediante una Anti-Corruption Layer, de modo que el formato del firmware no afecte al modelo clínico. Cuando un signo vital supera su umbral, publica el evento de integración `VitalSignAnomalyDetected`, que Emergency & Alerting consume para generar la alerta correspondiente. Health Monitoring no despacha alertas ni gestiona su escalamiento.
+
+La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.healthmonitoring` del repositorio `guardian-plus-platform`, con la siguiente estructura:
 
 ```
-com.guardianplus.platform.healthmonitoring/
+com.healthify.guardian.platform.healthmonitoring/
 ├── domain/
 │   ├── model/
 │   │   ├── aggregates/
@@ -4033,7 +4027,6 @@ com.guardianplus.platform.healthmonitoring/
 │   ├── acl/
 │   ├── events/
 │   └── rest/
-│       ├── controllers/
 │       ├── resources/
 │       └── transform/
 ├── application/
@@ -4045,12 +4038,13 @@ com.guardianplus.platform.healthmonitoring/
 │   │   └── queryservices/
 │   └── queryservices/
 └── infrastructure/
+    ├── messaging/
+    │   └── mqtt/
     ├── persistence/
     │   └── jpa/
     │       ├── adapters/
     │       ├── assemblers/
     │       ├── converters/
-    │       ├── embeddables/
     │       ├── entities/
     │       └── repositories/
     └── scheduling/
@@ -4212,8 +4206,6 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
     *   `findById(HealthReportId id): Optional<HealthReport>`
     *   `findByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<HealthReport>`
 
----
-
 ##### 2.6.2.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
@@ -4253,8 +4245,6 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
 *   `HealthReportCompiledIntegrationEvent`: Notifica a contextos de soporte la disponibilidad de un nuevo reporte estructurado.
 *   `HealthMonitoringContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos.
 
----
-
 ##### 2.6.2.3. Application Layer
 
 Orquesta los flujos de casos de uso delegando las reglas clínicas en los agregados correspondientes. Los Event Handlers materializan el encadenamiento Detect → Emit → Evaluate distinguido en el Design-Level EventStorming.
@@ -4290,8 +4280,6 @@ Orquesta los flujos de casos de uso delegando las reglas clínicas en los agrega
 ###### Application ACL Implementation
 
 *   `HealthMonitoringContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
-
----
 
 ##### 2.6.2.4. Infrastructure Layer
 
@@ -4333,15 +4321,53 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.3. Bounded Context: Subscriptions
 
-El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Abarca la solicitud y activación de una suscripción, cambios de plan, renovación, cancelación, expiración y determinación de los beneficios o entitlements asociados al plan vigente.
+El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar el ciclo de vida comercial de las suscripciones de la plataforma: la solicitud y activación de una suscripción, los cambios de plan, la renovación, la cancelación, la expiración y la determinación de los beneficios (entitlements) asociados al plan vigente.
 
-Este contexto mantiene aisladas las reglas comerciales de Guardian+ respecto de capacidades pertenecientes a otros contextos, como identidad, perfiles, monitoreo de salud o gestión de emergencias. Las integraciones necesarias con proveedores de pago y mecanismos de programación temporal se realizan mediante abstracciones y adaptadores, evitando que dichas dependencias formen parte directa del modelo de dominio.
+Este contexto mantiene aisladas las reglas comerciales de Guardian+ respecto de la identidad, los perfiles, el monitoreo de salud y la gestión de emergencias. La integración con Stripe se realiza mediante adaptadores que traducen sus notificaciones de pago a las transiciones de estado del agregado `Subscription`, y la evaluación periódica de renovaciones y expiraciones se delega a un mecanismo de programación temporal, de modo que ninguna de estas dependencias forme parte del modelo de dominio.
+
+La arquitectura táctica se diseñó sobre Java y Spring Boot con la misma estructura de paquetes de cuatro capas que el resto de Bounded Contexts: domain, interfaces, application e infrastructure. Su código se organizará en el paquete `com.healthify.guardian.platform.subscriptions` del repositorio `guardian-plus-platform`, con la siguiente estructura:
+
+```
+com.healthify.guardian.platform.subscriptions/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── entities/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   ├── repositories/
+│   └── services/
+├── interfaces/
+│   ├── events/
+│   └── rest/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── payments/
+    │   └── adapters/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── entities/
+    │       └── repositories/
+    └── scheduling/
+```
 
 ##### 2.6.3.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con el ciclo de vida de las suscripciones, la definición de planes comerciales, el procesamiento de pagos y la determinación de los entitlements habilitados para cada suscripción. Esta capa se mantiene independiente de proveedores de pago, tecnologías de persistencia y mecanismos externos de programación.
 
-###### Aggregate Roots
+###### Aggregates
 
 **`Subscription`**
 
@@ -4661,7 +4687,7 @@ Determina los beneficios efectivos que deben mantenerse habilitados como consecu
 - `RenewalPaymentFailed`: Emitido cuando el pago de renovación falla, sin extender el periodo vigente.
 - `EntitlementsUpdated`: Emitido cuando `EntitlementPolicy` determina un nuevo conjunto de beneficios efectivos y el `EntitlementSet` se sincroniza.
 
-###### Repository Interfaces
+###### Repositories (Domain Interfaces)
 
 **`SubscriptionRepository`**
 
@@ -4708,7 +4734,7 @@ El modelo de persistencia no replica de manera uno a uno todos los objetos del d
 
 La Interface Layer expone las capacidades del Bounded Context **Subscriptions** hacia los clientes de Guardian+ y recibe mensajes provenientes de integraciones externas. Su responsabilidad es transformar solicitudes HTTP, notificaciones externas y señales temporales en comandos o consultas que serán procesados por la Application Layer, sin incorporar reglas de negocio ni acceder directamente a la persistencia.
 
-###### Backend API
+###### REST Controllers
 
 **`SubscriptionController`**
 
@@ -4955,19 +4981,53 @@ La tabla `subscriptions` constituye el elemento central del modelo de persistenc
 
 Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
-### 2.6.4. Bounded Context: Profile
+#### 2.6.4. Bounded Context: Profile
 
-El Bounded Context **Profile** pertenece al Generic Domain de Guardian+ y es responsable de gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado y las preferencias asociadas al uso de la aplicación.
+El Bounded Context **Profile** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado entre familiares o cuidadores y la persona a su cargo, y las preferencias de idioma, accesibilidad y notificaciones de la aplicación.
 
-Profile mantiene separadas las responsabilidades de información personal de aquellas relacionadas con identidad y autenticación. Para ello utiliza `UserId` únicamente como referencia externa y no almacena contraseñas, tokens ni credenciales. La integración directa con el Bounded Context IAM se mantiene pendiente debido a que dicho contexto aún no se encuentra implementado en el backend actual.
+Este contexto separa la información personal de la identidad y la autenticación: utiliza `UserId` únicamente como referencia externa al Bounded Context IAM y no almacena contraseñas, tokens ni credenciales. Al establecer o finalizar una relación de cuidado publica los eventos `CareRelationshipEstablished` y `CareRelationshipEnded`, que Emergency & Alerting utiliza para mantener actualizados los contactos de emergencia. La integración directa con IAM queda pendiente hasta que dicho contexto se implemente en el backend.
 
-#### 2.6.4.1. Domain Layer
+La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.profile` del repositorio `guardian-plus-platform`, con la siguiente estructura:
+
+```
+com.healthify.guardian.platform.profile/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   ├── repositories/
+│   └── services/
+├── interfaces/
+│   └── rest/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── configuration/
+    └── persistence/
+        └── jpa/
+            ├── adapters/
+            ├── assemblers/
+            ├── converters/
+            ├── entities/
+            └── repositories/
+```
+
+##### 2.6.4.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con la gestión de perfiles de usuario, personas bajo cuidado, relaciones de cuidado y preferencias de aplicación. Esta capa mantiene las invariantes del contexto Profile y permanece independiente de los mecanismos de persistencia y de autenticación externos.
 
-##### Aggregate Roots
+###### Aggregates
 
-###### UserProfile
+**`UserProfile`**
 
 Representa la información descriptiva asociada a un usuario de Guardian+. El aggregate mantiene los datos personales, información de contacto e imagen de perfil utilizados por la aplicación.
 
@@ -4990,7 +5050,7 @@ Representa la información descriptiva asociada a un usuario de Guardian+. El ag
 
 El aggregate garantiza que cada perfil permanezca asociado a un identificador de usuario mediante `UserId`, sin asumir responsabilidades relacionadas con autenticación.
 
-###### CareRecipientProfile
+**`CareRecipientProfile`**
 
 Representa el perfil de una persona bajo cuidado dentro de Guardian+. Mantiene la información descriptiva necesaria para identificar y administrar a la persona vinculada con familiares o cuidadores.
 
@@ -5012,7 +5072,7 @@ Representa el perfil de una persona bajo cuidado dentro de Guardian+. Mantiene l
 
 El aggregate permite actualizar tanto la información personal como la imagen de la persona bajo cuidado, conservando el usuario que creó originalmente el perfil mediante `createdByUserId`.
 
-###### CareRelationship
+**`CareRelationship`**
 
 Representa la relación de responsabilidad entre un usuario de Guardian+ y una persona bajo cuidado. Permite distinguir si el usuario participa como familiar o cuidador y controlar el ciclo de vida de dicha relación.
 
@@ -5034,7 +5094,7 @@ Representa la relación de responsabilidad entre un usuario de Guardian+ y una p
 
 La relación inicia con estado `ACTIVE` y puede finalizar pasando a estado `ENDED`. Una relación finalizada deja de considerarse activa, manteniéndose su información para conservar el historial de cuidado.
 
-###### UserPreferences
+**`UserPreferences`**
 
 Representa las preferencias de aplicación, idioma y accesibilidad configuradas por un usuario de Guardian+.
 
@@ -5057,529 +5117,529 @@ Las preferencias visuales iniciales utilizan español de Latinoamérica (`es-419
 
 La actualización de idioma y accesibilidad se realiza como una única operación de dominio para mantener de forma consistente las preferencias asociadas a la experiencia de uso.
 
-**###### Value Objects**
+###### Value Objects
 
-**\*\*`UserProfileId`\*\***
+**`UserProfileId`**
 
 Identificador inmutable utilizado para distinguir un perfil de usuario dentro del Bounded Context Profile.
 
-**\*\*Atributos:\*\***
+**Atributos:**
 
-\- `value: UUID`
+- `value: UUID`
 
 El identificador es generado por el propio dominio al crear un nuevo `UserProfile`.
 
-**\*\*`CareRecipientProfileId`\*\***
+**`CareRecipientProfileId`**
 
 Identificador inmutable utilizado para distinguir el perfil de una persona bajo cuidado.
 
-**\*\*Atributos:\*\***
+**Atributos:**
 
-\- `value: UUID`
+- `value: UUID`
 
 El identificador es generado por el dominio al registrar un nuevo `CareRecipientProfile`.
 
-**\*\*`CareRelationshipId`\*\***
+**`CareRelationshipId`**
 
 Identificador inmutable utilizado para distinguir una relación de cuidado.
 
-**\*\*Atributos:\*\***
+**Atributos:**
 
-\- `value: UUID`
+- `value: UUID`
 
 El identificador es generado por el dominio cuando se establece una nueva relación de cuidado.
 
-**\*\*`UserId`\*\***
+**`UserId`**
 
 Referencia inmutable al identificador de un usuario externo al Bounded Context Profile.
 
-**\*\*Atributos:\*\***
+**Atributos:**
 
-\- `value: UUID`
+- `value: UUID`
 
 A diferencia de los identificadores pertenecientes al propio contexto, `UserId` no es generado por Profile. Se utiliza únicamente como referencia externa hacia el usuario que posteriormente será administrado por el Bounded Context IAM.
 
 `UserPreferences` no posee un Value Object `UserPreferencesId`; su identidad dentro del dominio se encuentra asociada directamente a `UserId`.
 
-**###### Enumerations**
+###### Enumerations
 
-**\*\*`RelationshipType`\*\***
+**`RelationshipType`**
 
 Representa el tipo de responsabilidad existente entre un usuario y una persona bajo cuidado.
 
-\- `FAMILY`
-\- `CAREGIVER`
+- `FAMILY`
+- `CAREGIVER`
 
-**\*\*`CareRelationshipStatus`\*\***
+**`CareRelationshipStatus`**
 
 Representa el estado actual del ciclo de vida de una relación de cuidado.
 
-\- `ACTIVE`
-\- `ENDED`
+- `ACTIVE`
+- `ENDED`
 
 Una relación se crea inicialmente con estado `ACTIVE` y cambia a `ENDED` cuando finaliza.
 
-**\*\*`Language`\*\***
+**`Language`**
 
 Representa los idiomas soportados actualmente por Guardian+.
 
-\- `SPANISH_LATIN_AMERICA` — código `es-419`
-\- `ENGLISH_UNITED_STATES` — código `en-US`
+- `SPANISH_LATIN_AMERICA` — código `es-419`
+- `ENGLISH_UNITED_STATES` — código `en-US`
 
-**\*\*`FontScale`\*\***
+**`FontScale`**
 
 Representa las opciones de tamaño de texto disponibles en las preferencias de accesibilidad.
 
-\- `SMALL`
-\- `DEFAULT`
-\- `LARGE`
+- `SMALL`
+- `DEFAULT`
+- `LARGE`
 
 El tamaño de fuente se maneja como una enumeración de opciones soportadas y no como un valor decimal arbitrario.
 
-**###### Domain Policies**
+###### Domain Policies
 
-**\*\*`CareRelationshipPolicy`\*\***
+**`CareRelationshipPolicy`**
 
 Evalúa las condiciones necesarias para establecer una nueva relación de cuidado entre un usuario y una persona bajo cuidado.
 
 La policy utiliza `CareRelationshipRepository` para comprobar que no exista previamente una relación activa entre el mismo usuario y el mismo `CareRecipientProfile`.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `canEstablishRelationship(userId: UserId, careRecipientProfileId: CareRecipientProfileId): Boolean`
-\- `validateRelationshipType(type: RelationshipType): void`
+- `canEstablishRelationship(userId: UserId, careRecipientProfileId: CareRecipientProfileId): Boolean`
+- `validateRelationshipType(type: RelationshipType): void`
 
 `canEstablishRelationship(...)` retorna `false` cuando alguno de los identificadores es inválido o cuando ya existe una relación activa entre ambos participantes.
 
 `validateRelationshipType(...)` garantiza que el tipo de relación proporcionado sea válido dentro del dominio.
 
-**###### Commands & Queries (Domain Model)**
+###### Commands & Queries (Domain Model)
 
 Los comandos representan intenciones de modificación del estado del dominio, mientras que las queries permiten recuperar información sin modificar los Aggregate Roots.
 
-**\*\*Commands:\*\***
+**Commands:**
 
-\- `CreateUserProfileCommand(UUID userId, String firstName, String lastName, String phoneNumber, String profileImageUrl)`
+- `CreateUserProfileCommand(UUID userId, String firstName, String lastName, String phoneNumber, String profileImageUrl)`
 
-\- `UpdateUserProfileCommand(UUID userProfileId, String firstName, String lastName)`
+- `UpdateUserProfileCommand(UUID userProfileId, String firstName, String lastName)`
 
-\- `UpdateContactInformationCommand(UUID userProfileId, String phoneNumber)`
+- `UpdateContactInformationCommand(UUID userProfileId, String phoneNumber)`
 
-\- `UpdateUserProfileImageCommand(UUID userProfileId, String profileImageUrl)`
+- `UpdateUserProfileImageCommand(UUID userProfileId, String profileImageUrl)`
 
-\- `CreateCareRecipientProfileCommand(UUID createdByUserId, String firstName, String lastName, LocalDate birthDate, String profileImageUrl)`
+- `CreateCareRecipientProfileCommand(UUID createdByUserId, String firstName, String lastName, LocalDate birthDate, String profileImageUrl)`
 
-\- `UpdateCareRecipientProfileCommand(UUID careRecipientProfileId, String firstName, String lastName, LocalDate birthDate)`
+- `UpdateCareRecipientProfileCommand(UUID careRecipientProfileId, String firstName, String lastName, LocalDate birthDate)`
 
-\- `UpdateCareRecipientProfileImageCommand(UUID careRecipientProfileId, String profileImageUrl)`
+- `UpdateCareRecipientProfileImageCommand(UUID careRecipientProfileId, String profileImageUrl)`
 
-\- `EstablishCareRelationshipCommand(UUID userId, UUID careRecipientProfileId, RelationshipType relationshipType)`
+- `EstablishCareRelationshipCommand(UUID userId, UUID careRecipientProfileId, RelationshipType relationshipType)`
 
-\- `EndCareRelationshipCommand(UUID careRelationshipId)`
+- `EndCareRelationshipCommand(UUID careRelationshipId)`
 
-\- `UpdateApplicationPreferencesCommand(UUID userId, boolean notificationsEnabled)`
+- `UpdateApplicationPreferencesCommand(UUID userId, boolean notificationsEnabled)`
 
-\- `UpdateLanguageAndAccessibilityPreferencesCommand(UUID userId, Language language, boolean highContrastEnabled, boolean reduceMotionEnabled, FontScale fontScale)`
+- `UpdateLanguageAndAccessibilityPreferencesCommand(UUID userId, Language language, boolean highContrastEnabled, boolean reduceMotionEnabled, FontScale fontScale)`
 
-**\*\*Queries:\*\***
+**Queries:**
 
-\- `GetUserProfileByUserIdQuery(UserId userId)`
+- `GetUserProfileByUserIdQuery(UserId userId)`
 
-\- `GetCareRecipientProfileQuery(CareRecipientProfileId careRecipientProfileId)`
+- `GetCareRecipientProfileQuery(CareRecipientProfileId careRecipientProfileId)`
 
-\- `GetCareRecipientProfilesByCreatedByUserIdQuery(UserId createdByUserId)`
+- `GetCareRecipientProfilesByCreatedByUserIdQuery(UserId createdByUserId)`
 
-\- `GetCareRelationshipsByUserIdQuery(UserId userId)`
+- `GetCareRelationshipsByUserIdQuery(UserId userId)`
 
-\- `GetCareRelationshipsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
+- `GetCareRelationshipsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
 
-\- `GetUserPreferencesQuery(UserId userId)`
+- `GetUserPreferencesQuery(UserId userId)`
 
 La separación entre commands y queries permite que la Application Layer coordine las operaciones del contexto manteniendo las reglas de negocio dentro de los Aggregate Roots y Domain Services.
 
-**###### Domain Events**
+###### Domain Events
 
 El Bounded Context Profile registra eventos de dominio cuando ocurren cambios relevantes sobre sus aggregates.
 
-\- `ProfileCreatedEvent`: registrado cuando se crea el perfil descriptivo asociado a un usuario.
+- `ProfileCreatedEvent`: registrado cuando se crea el perfil descriptivo asociado a un usuario.
 
-\- `ProfileUpdatedEvent`: registrado cuando se actualiza la información personal de un perfil de usuario.
+- `ProfileUpdatedEvent`: registrado cuando se actualiza la información personal de un perfil de usuario.
 
-\- `ContactInformationUpdatedEvent`: registrado cuando cambia la información de contacto de un usuario.
+- `ContactInformationUpdatedEvent`: registrado cuando cambia la información de contacto de un usuario.
 
-\- `CareRecipientProfileCreatedEvent`: registrado cuando se crea el perfil de una nueva persona bajo cuidado.
+- `CareRecipientProfileCreatedEvent`: registrado cuando se crea el perfil de una nueva persona bajo cuidado.
 
-\- `CareRelationshipEstablishedEvent`: registrado cuando se establece una nueva relación de cuidado.
+- `CareRelationshipEstablishedEvent`: registrado cuando se establece una nueva relación de cuidado.
 
-\- `CareRelationshipEndedEvent`: registrado cuando una relación activa pasa al estado `ENDED`.
+- `CareRelationshipEndedEvent`: registrado cuando una relación activa pasa al estado `ENDED`.
 
-\- `ApplicationPreferencesUpdatedEvent`: registrado cuando se crean o modifican las preferencias generales de aplicación, como el estado de las notificaciones.
+- `ApplicationPreferencesUpdatedEvent`: registrado cuando se crean o modifican las preferencias generales de aplicación, como el estado de las notificaciones.
 
-\- `LanguageAndAccessibilityPreferencesUpdatedEvent`: registrado cuando cambian el idioma, alto contraste, reducción de movimiento o tamaño de fuente.
+- `LanguageAndAccessibilityPreferencesUpdatedEvent`: registrado cuando cambian el idioma, alto contraste, reducción de movimiento o tamaño de fuente.
 
 Los repositorios JPA recuperan los eventos registrados por los Aggregate Roots después de persistir su estado y utilizan el mecanismo de publicación de eventos de Spring para comunicarlos dentro de la aplicación.
 
 La implementación actual no define Event Handler classes específicas dentro del Bounded Context Profile; la publicación de los eventos queda preparada para futuras integraciones con otros contextos.
 
-**###### Repository Interfaces**
+###### Repositories (Domain Interfaces)
 
-**\*\*`UserProfileRepository`\*\***
+**`UserProfileRepository`**
 
 Abstracción utilizada para recuperar y persistir perfiles de usuario.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `save(profile: UserProfile): UserProfile`
+- `save(profile: UserProfile): UserProfile`
 
-\- `findById(id: UserProfileId): Optional<UserProfile>`
+- `findById(id: UserProfileId): Optional<UserProfile>`
 
-\- `findByUserId(userId: UserId): Optional<UserProfile>`
+- `findByUserId(userId: UserId): Optional<UserProfile>`
 
-**\*\*`CareRecipientProfileRepository`\*\***
+**`CareRecipientProfileRepository`**
 
 Abstracción utilizada para recuperar y persistir perfiles de personas bajo cuidado.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `save(profile: CareRecipientProfile): CareRecipientProfile`
+- `save(profile: CareRecipientProfile): CareRecipientProfile`
 
-\- `findById(id: CareRecipientProfileId): Optional<CareRecipientProfile>`
+- `findById(id: CareRecipientProfileId): Optional<CareRecipientProfile>`
 
-\- `findByCreatedByUserId(userId: UserId): List<CareRecipientProfile>`
+- `findByCreatedByUserId(userId: UserId): List<CareRecipientProfile>`
 
-**\*\*`CareRelationshipRepository`\*\***
+**`CareRelationshipRepository`**
 
 Abstracción utilizada para recuperar y persistir las relaciones de cuidado.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `save(relationship: CareRelationship): CareRelationship`
+- `save(relationship: CareRelationship): CareRelationship`
 
-\- `findById(id: CareRelationshipId): Optional<CareRelationship>`
+- `findById(id: CareRelationshipId): Optional<CareRelationship>`
 
-\- `findActiveByUserId(userId: UserId): List<CareRelationship>`
+- `findActiveByUserId(userId: UserId): List<CareRelationship>`
 
-\- `findActiveByCareRecipientId(careRecipientProfileId: CareRecipientProfileId): List<CareRelationship>`
+- `findActiveByCareRecipientId(careRecipientProfileId: CareRecipientProfileId): List<CareRelationship>`
 
-**\*\*`UserPreferencesRepository`\*\***
+**`UserPreferencesRepository`**
 
 Abstracción utilizada para recuperar y persistir las preferencias asociadas a cada usuario.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `save(preferences: UserPreferences): UserPreferences`
+- `save(preferences: UserPreferences): UserPreferences`
 
-\- `findByUserId(userId: UserId): Optional<UserPreferences>`
+- `findByUserId(userId: UserId): Optional<UserPreferences>`
 
 El modelo de dominio utiliza identificadores tipados para los elementos que pertenecen a Profile y mantiene `UserId` como referencia externa. En la implementación actual no existe `UserPreferencesId`, ya que las preferencias se encuentran asociadas directamente al usuario.
 
-**##### 2.6.4.2. Interface Layer**
+##### 2.6.4.2. Interface Layer
 
-La Interface Layer expone las capacidades del Bounded Context **\*\*Profile\*\*** mediante una API REST. Esta capa recibe las solicitudes HTTP, valida los recursos de entrada y los transforma en comandos o consultas que son delegados a la Application Layer.
+La Interface Layer expone las capacidades del Bounded Context **Profile** mediante una API REST. Esta capa recibe las solicitudes HTTP, valida los recursos de entrada y los transforma en comandos o consultas que son delegados a la Application Layer.
 
 Los controllers no contienen reglas de negocio ni acceden directamente a la persistencia. Su responsabilidad consiste en actuar como punto de entrada hacia los casos de uso del contexto.
 
-**###### Backend API**
+###### REST Controllers
 
-**\*\*`UserProfilesController`\*\***
+**`UserProfilesController`**
 
 Expone las operaciones relacionadas con la creación, consulta y actualización del perfil descriptivo de un usuario.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `POST /api/v1/user-profiles`
+- `POST /api/v1/user-profiles`
 
 Crea un nuevo perfil de usuario utilizando la información personal, de contacto e imagen proporcionada.
 
-\- `GET /api/v1/user-profiles/user/{userId}`
+- `GET /api/v1/user-profiles/user/{userId}`
 
 Obtiene el perfil asociado a un determinado `UserId`.
 
-\- `PUT /api/v1/user-profiles/{userProfileId}`
+- `PUT /api/v1/user-profiles/{userProfileId}`
 
 Actualiza el nombre y apellido de un perfil existente.
 
-\- `PUT /api/v1/user-profiles/{userProfileId}/contact-information`
+- `PUT /api/v1/user-profiles/{userProfileId}/contact-information`
 
 Actualiza la información de contacto asociada al perfil.
 
-\- `PUT /api/v1/user-profiles/{userProfileId}/profile-image`
+- `PUT /api/v1/user-profiles/{userProfileId}/profile-image`
 
 Actualiza la imagen de perfil del usuario.
 
-**\*\*Relaciones principales:\*\***
+**Relaciones principales:**
 
-\- recibe recursos HTTP desde los clientes de Guardian+;
+- recibe recursos HTTP desde los clientes de Guardian+;
 
-\- transforma las solicitudes en commands y queries del Bounded Context Profile;
+- transforma las solicitudes en commands y queries del Bounded Context Profile;
 
-\- delega las operaciones a `UserProfileCommandService` y `UserProfileQueryService`;
+- delega las operaciones a `UserProfileCommandService` y `UserProfileQueryService`;
 
-\- utiliza `UserId` como referencia externa sin administrar credenciales ni mecanismos de autenticación;
+- utiliza `UserId` como referencia externa sin administrar credenciales ni mecanismos de autenticación;
 
-\- transforma los resultados del dominio en recursos REST antes de devolver la respuesta al cliente.
+- transforma los resultados del dominio en recursos REST antes de devolver la respuesta al cliente.
 
 
-**\*\*`CareRecipientProfilesController`\*\***
+**`CareRecipientProfilesController`**
 
 Expone las operaciones relacionadas con las personas bajo cuidado registradas dentro de Guardian+.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `POST /api/v1/care-recipient-profiles`
+- `POST /api/v1/care-recipient-profiles`
 
 Registra un nuevo perfil de persona bajo cuidado.
 
-\- `GET /api/v1/care-recipient-profiles/{careRecipientProfileId}`
+- `GET /api/v1/care-recipient-profiles/{careRecipientProfileId}`
 
 Obtiene un `CareRecipientProfile` mediante su identificador.
 
-\- `GET /api/v1/care-recipient-profiles/created-by/{userId}`
+- `GET /api/v1/care-recipient-profiles/created-by/{userId}`
 
 Obtiene la lista de perfiles de personas bajo cuidado registrados por un determinado usuario.
 
-\- `PUT /api/v1/care-recipient-profiles/{careRecipientProfileId}`
+- `PUT /api/v1/care-recipient-profiles/{careRecipientProfileId}`
 
 Actualiza la información personal de una persona bajo cuidado, incluyendo nombres y fecha de nacimiento.
 
-\- `PUT /api/v1/care-recipient-profiles/{careRecipientProfileId}/profile-image`
+- `PUT /api/v1/care-recipient-profiles/{careRecipientProfileId}/profile-image`
 
 Actualiza la imagen de perfil de una persona bajo cuidado.
 
-**\*\*Relaciones principales:\*\***
+**Relaciones principales:**
 
-\- delega las operaciones de modificación a `CareRecipientProfileCommandService`;
+- delega las operaciones de modificación a `CareRecipientProfileCommandService`;
 
-\- utiliza `CareRecipientProfileQueryService` para recuperar uno o varios perfiles;
+- utiliza `CareRecipientProfileQueryService` para recuperar uno o varios perfiles;
 
-\- utiliza `CareRecipientProfileId` como identificador propio del contexto;
+- utiliza `CareRecipientProfileId` como identificador propio del contexto;
 
-\- mantiene `createdByUserId` como referencia al usuario que registró originalmente a la persona bajo cuidado;
+- mantiene `createdByUserId` como referencia al usuario que registró originalmente a la persona bajo cuidado;
 
-\- no accede directamente a la tabla `care_recipient_profiles`.
+- no accede directamente a la tabla `care_recipient_profiles`.
 
 
-**\*\*`CareRelationshipsController`\*\***
+**`CareRelationshipsController`**
 
 Expone las operaciones utilizadas para administrar las relaciones de cuidado existentes entre usuarios y personas bajo cuidado.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `POST /api/v1/care-relationships`
+- `POST /api/v1/care-relationships`
 
 Establece una nueva relación de cuidado entre un usuario y un `CareRecipientProfile`.
 
-\- `GET /api/v1/care-relationships/user/{userId}`
+- `GET /api/v1/care-relationships/user/{userId}`
 
 Obtiene las relaciones activas asociadas a un determinado usuario.
 
-\- `GET /api/v1/care-relationships/care-recipient/{careRecipientProfileId}`
+- `GET /api/v1/care-relationships/care-recipient/{careRecipientProfileId}`
 
 Obtiene las relaciones activas asociadas a una determinada persona bajo cuidado.
 
-\- `DELETE /api/v1/care-relationships/{careRelationshipId}`
+- `DELETE /api/v1/care-relationships/{careRelationshipId}`
 
 Finaliza una relación de cuidado existente.
 
 La operación de finalización no elimina físicamente la relación. El Aggregate Root cambia su estado de `ACTIVE` a `ENDED`, permitiendo conservar el historial de la relación.
 
-**\*\*Relaciones principales:\*\***
+**Relaciones principales:**
 
-\- delega el establecimiento y finalización de relaciones a `CareRelationshipCommandService`;
+- delega el establecimiento y finalización de relaciones a `CareRelationshipCommandService`;
 
-\- utiliza `CareRelationshipQueryService` para consultar las relaciones activas;
+- utiliza `CareRelationshipQueryService` para consultar las relaciones activas;
 
-\- las reglas necesarias para evitar relaciones activas duplicadas son evaluadas por la Domain Layer;
+- las reglas necesarias para evitar relaciones activas duplicadas son evaluadas por la Domain Layer;
 
-\- no modifica directamente la tabla `care_relationships`.
+- no modifica directamente la tabla `care_relationships`.
 
 
-**\*\*`UserPreferencesController`\*\***
+**`UserPreferencesController`**
 
 Expone las operaciones necesarias para consultar y modificar las preferencias de aplicación, idioma y accesibilidad de cada usuario.
 
-**\*\*Operaciones principales:\*\***
+**Operaciones principales:**
 
-\- `GET /api/v1/user-preferences/user/{userId}`
+- `GET /api/v1/user-preferences/user/{userId}`
 
 Obtiene las preferencias configuradas para un determinado usuario.
 
-\- `PUT /api/v1/user-preferences/user/{userId}/application`
+- `PUT /api/v1/user-preferences/user/{userId}/application`
 
 Actualiza las preferencias generales de aplicación, actualmente representadas por el estado de las notificaciones.
 
-\- `PUT /api/v1/user-preferences/user/{userId}/language-accessibility`
+- `PUT /api/v1/user-preferences/user/{userId}/language-accessibility`
 
 Actualiza conjuntamente el idioma y las preferencias de accesibilidad: alto contraste, reducción de movimiento y tamaño de fuente.
 
-**\*\*Relaciones principales:\*\***
+**Relaciones principales:**
 
-\- delega las operaciones de modificación a `UserPreferencesCommandService`;
+- delega las operaciones de modificación a `UserPreferencesCommandService`;
 
-\- utiliza `UserPreferencesQueryService` para recuperar las preferencias existentes;
+- utiliza `UserPreferencesQueryService` para recuperar las preferencias existentes;
 
-\- mantiene las preferencias asociadas directamente a `UserId`;
+- mantiene las preferencias asociadas directamente a `UserId`;
 
-\- no modifica directamente la tabla `user_preferences`.
+- no modifica directamente la tabla `user_preferences`.
 
 
-**###### REST Resources and Assemblers**
+###### Resources & Assemblers
 
 La Interface Layer utiliza recursos REST para representar la información recibida y enviada por la API.
 
 Entre los principales recursos de entrada se encuentran:
 
-\- `CreateUserProfileResource`
-\- `UpdateUserProfileResource`
-\- `UpdateContactInformationResource`
-\- `UpdateProfileImageResource`
-\- `CreateCareRecipientProfileResource`
-\- `UpdateCareRecipientProfileResource`
-\- `EstablishCareRelationshipResource`
-\- `UpdateApplicationPreferencesResource`
-\- `UpdateLanguageAndAccessibilityPreferencesResource`
+- `CreateUserProfileResource`
+- `UpdateUserProfileResource`
+- `UpdateContactInformationResource`
+- `UpdateProfileImageResource`
+- `CreateCareRecipientProfileResource`
+- `UpdateCareRecipientProfileResource`
+- `EstablishCareRelationshipResource`
+- `UpdateApplicationPreferencesResource`
+- `UpdateLanguageAndAccessibilityPreferencesResource`
 
 Los recursos de salida principales son:
 
-\- `UserProfileResource`
-\- `CareRecipientProfileResource`
-\- `CareRelationshipResource`
-\- `UserPreferencesResource`
+- `UserProfileResource`
+- `CareRecipientProfileResource`
+- `CareRelationshipResource`
+- `UserPreferencesResource`
 
 Los Transform Assemblers convierten estos recursos en los Commands correspondientes y transforman los Aggregate Roots recuperados por la Application Layer en los recursos devueltos por la API.
 
 Esta separación evita que las clases propias del dominio sean expuestas directamente a través de la interfaz HTTP.
 
-**##### 2.6.4.3. Application Layer**
+##### 2.6.4.3. Application Layer
 
-La Application Layer coordina los casos de uso del Bounded Context **\*\*Profile\*\*** y actúa como intermediaria entre la Interface Layer y el modelo de dominio.
+La Application Layer coordina los casos de uso del Bounded Context **Profile** y actúa como intermediaria entre la Interface Layer y el modelo de dominio.
 
 Esta capa recibe Commands y Queries provenientes de los controllers, recupera los Aggregate Roots requeridos mediante Repository Interfaces y delega las reglas de negocio a los propios aggregates y Domain Services.
 
 La implementación se organiza mediante Command Services para operaciones que modifican el estado del dominio y Query Services para operaciones de consulta.
 
-**###### Command Services**
+###### Command Services
 
-**\*\*`UserProfileCommandService`\*\***
+**`UserProfileCommandService`**
 
 Define las operaciones de aplicación relacionadas con la creación y modificación de perfiles de usuario.
 
 Su implementación concreta, `UserProfileCommandServiceImpl`, coordina los siguientes casos de uso:
 
-\- creación de un nuevo `UserProfile`;
+- creación de un nuevo `UserProfile`;
 
-\- actualización de información personal;
+- actualización de información personal;
 
-\- actualización de información de contacto;
+- actualización de información de contacto;
 
-\- actualización de la imagen de perfil.
+- actualización de la imagen de perfil.
 
 Durante la creación, el servicio verifica que no exista previamente un perfil asociado al mismo `UserId`.
 
 Las validaciones propias del perfil permanecen dentro del Aggregate Root `UserProfile`, mientras que el servicio coordina la búsqueda y persistencia mediante `UserProfileRepository`.
 
 
-**\*\*`CareRecipientProfileCommandService`\*\***
+**`CareRecipientProfileCommandService`**
 
 Define las operaciones relacionadas con la creación y actualización de perfiles de personas bajo cuidado.
 
 Su implementación `CareRecipientProfileCommandServiceImpl` coordina:
 
-\- creación de un nuevo `CareRecipientProfile`;
+- creación de un nuevo `CareRecipientProfile`;
 
-\- actualización de nombres y fecha de nacimiento;
+- actualización de nombres y fecha de nacimiento;
 
-\- actualización de la imagen del perfil.
+- actualización de la imagen del perfil.
 
 El servicio recupera el Aggregate Root correspondiente mediante `CareRecipientProfileRepository`, ejecuta la operación de dominio requerida y persiste posteriormente su nuevo estado.
 
 
-**\*\*`CareRelationshipCommandService`\*\***
+**`CareRelationshipCommandService`**
 
 Coordina los casos de uso relacionados con el ciclo de vida de una relación de cuidado.
 
 Su implementación `CareRelationshipCommandServiceImpl` permite:
 
-\- establecer una nueva relación entre un usuario y una persona bajo cuidado;
+- establecer una nueva relación entre un usuario y una persona bajo cuidado;
 
-\- finalizar una relación de cuidado existente.
+- finalizar una relación de cuidado existente.
 
 Antes de establecer una nueva relación utiliza `CareRelationshipPolicy` para comprobar que no exista ya una relación activa entre el mismo usuario y el mismo `CareRecipientProfile`.
 
 La finalización de una relación no elimina el aggregate. Se ejecuta la operación `end(...)`, que modifica su estado de `ACTIVE` a `ENDED`.
 
 
-**\*\*`UserPreferencesCommandService`\*\***
+**`UserPreferencesCommandService`**
 
 Coordina las operaciones de modificación de las preferencias asociadas a un usuario.
 
 Su implementación `UserPreferencesCommandServiceImpl` permite:
 
-\- crear o actualizar las preferencias generales de aplicación mediante `UpdateApplicationPreferencesCommand`;
+- crear o actualizar las preferencias generales de aplicación mediante `UpdateApplicationPreferencesCommand`;
 
-\- actualizar conjuntamente idioma y accesibilidad mediante `UpdateLanguageAndAccessibilityPreferencesCommand`.
+- actualizar conjuntamente idioma y accesibilidad mediante `UpdateLanguageAndAccessibilityPreferencesCommand`.
 
 Cuando todavía no existen preferencias para un usuario, la actualización de preferencias generales puede originar la creación inicial del Aggregate Root `UserPreferences`.
 
 La operación de idioma y accesibilidad actúa sobre preferencias previamente existentes.
 
 
-**###### Query Services**
+###### Query Services
 
 Los Query Services recuperan información del dominio sin modificar el estado de los Aggregate Roots.
 
-**\*\*`UserProfileQueryService`\*\***
+**`UserProfileQueryService`**
 
 Su implementación `UserProfileQueryServiceImpl` recupera el perfil asociado a un usuario mediante `UserId`.
 
 Utiliza `UserProfileRepository` como abstracción de persistencia.
 
 
-**\*\*`CareRecipientProfileQueryService`\*\***
+**`CareRecipientProfileQueryService`**
 
 Su implementación `CareRecipientProfileQueryServiceImpl` permite:
 
-\- recuperar un `CareRecipientProfile` mediante su identificador;
+- recuperar un `CareRecipientProfile` mediante su identificador;
 
-\- recuperar la colección de perfiles registrados por un determinado usuario mediante `createdByUserId`.
+- recuperar la colección de perfiles registrados por un determinado usuario mediante `createdByUserId`.
 
 
-**\*\*`CareRelationshipQueryService`\*\***
+**`CareRelationshipQueryService`**
 
 Su implementación `CareRelationshipQueryServiceImpl` permite consultar:
 
-\- las relaciones activas asociadas a un usuario;
+- las relaciones activas asociadas a un usuario;
 
-\- las relaciones activas asociadas a una persona bajo cuidado.
+- las relaciones activas asociadas a una persona bajo cuidado.
 
 Estas operaciones utilizan `CareRelationshipRepository` para recuperar las relaciones que permanecen en estado `ACTIVE`.
 
 
-**\*\*`UserPreferencesQueryService`\*\***
+**`UserPreferencesQueryService`**
 
 Su implementación `UserPreferencesQueryServiceImpl` recupera las preferencias asociadas a un determinado `UserId`.
 
 La consulta se realiza mediante `UserPreferencesRepository`.
 
 
-**###### Application Error Handling**
+###### Application Error Handling
 
 Los Command Services utilizan la abstracción compartida `Result` para representar el resultado de las operaciones de aplicación.
 
 Cuando una operación finaliza correctamente se devuelve un resultado exitoso. En situaciones de error se utilizan objetos `ApplicationError`, permitiendo representar de forma consistente casos como:
 
-\- errores de validación;
+- errores de validación;
 
-\- recursos no encontrados;
+- recursos no encontrados;
 
-\- conflictos de negocio;
+- conflictos de negocio;
 
-\- violaciones de reglas del dominio.
+- violaciones de reglas del dominio.
 
 Los mensajes de error son resueltos mediante `MessageResolver`, permitiendo mantener soporte de internacionalización para los mensajes definidos por Profile.
 
 
-**###### Domain Events in the Application Flow**
+###### Domain Events in the Application Flow
 
 Los Aggregate Roots de Profile registran Domain Events cuando ocurre un cambio relevante en su estado.
 
@@ -5590,94 +5650,94 @@ En el estado actual del backend no existen clases específicas de tipo `EventHan
 La publicación de eventos queda disponible para permitir futuras integraciones con otros Bounded Contexts conforme avance la implementación del backend.
 
 
-**##### 2.6.4.4. Infrastructure Layer**
+##### 2.6.4.4. Infrastructure Layer
 
-La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir y recuperar la información administrada por el Bounded Context **\*\*Profile\*\***.
+La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir y recuperar la información administrada por el Bounded Context **Profile**.
 
 Esta capa implementa las Repository Interfaces definidas por el dominio utilizando Spring Data JPA, entidades de persistencia, assemblers y converters. También contiene la configuración necesaria para proporcionar dependencias técnicas utilizadas por la Application y Domain Layer.
 
 La implementación mantiene separados los Aggregate Roots del modelo de dominio de las entidades utilizadas para representar la información en la base de datos.
 
-**###### Persistence JPA Entities**
+###### Persistence JPA Entities
 
 La persistencia del contexto se organiza alrededor de cuatro entidades principales, correspondientes a los cuatro Aggregate Roots implementados.
 
-**\*\*`UserProfilePersistenceEntity`\*\***
+**`UserProfilePersistenceEntity`**
 
 Representa la persistencia de `UserProfile` en la tabla `user_profiles`.
 
 Entre sus principales datos se encuentran:
 
-\- `id`
+- `id`
 
-\- `user_id`
+- `user_id`
 
-\- `first_name`
+- `first_name`
 
-\- `last_name`
+- `last_name`
 
-\- `phone_number`
+- `phone_number`
 
-\- `profile_image_url`
+- `profile_image_url`
 
-\- `created_at`
+- `created_at`
 
-\- `updated_at`
+- `updated_at`
 
 La entidad almacena únicamente información descriptiva del usuario y utiliza `user_id` como referencia externa.
 
 
-**\*\*`CareRecipientProfilePersistenceEntity`\*\***
+**`CareRecipientProfilePersistenceEntity`**
 
 Representa la persistencia de `CareRecipientProfile` en la tabla `care_recipient_profiles`.
 
 Entre sus principales datos se encuentran:
 
-\- `id`
+- `id`
 
-\- `created_by_user_id`
+- `created_by_user_id`
 
-\- `first_name`
+- `first_name`
 
-\- `last_name`
+- `last_name`
 
-\- `birth_date`
+- `birth_date`
 
-\- `profile_image_url`
+- `profile_image_url`
 
-\- `created_at`
+- `created_at`
 
-\- `updated_at`
+- `updated_at`
 
 `created_by_user_id` permite conservar la referencia hacia el usuario que registró originalmente a la persona bajo cuidado.
 
 
-**\*\*`CareRelationshipPersistenceEntity`\*\***
+**`CareRelationshipPersistenceEntity`**
 
 Representa las relaciones de cuidado almacenadas en la tabla `care_relationships`.
 
 Entre sus principales datos se encuentran:
 
-\- `id`
+- `id`
 
-\- `user_id`
+- `user_id`
 
-\- `care_recipient_profile_id`
+- `care_recipient_profile_id`
 
-\- `relationship_type`
+- `relationship_type`
 
-\- `status`
+- `status`
 
-\- `started_at`
+- `started_at`
 
-\- `ended_at`
+- `ended_at`
 
 Los valores de `relationship_type` representan los tipos `FAMILY` y `CAREGIVER`, mientras que `status` representa los estados `ACTIVE` y `ENDED`.
 
 La finalización de una relación actualiza su estado y `ended_at` en lugar de eliminar físicamente el registro.
 
 
-**\*\*`UserPreferencesPersistenceEntity`\*\***
+**`UserPreferencesPersistenceEntity`**
 
 Representa las preferencias de un usuario mediante la tabla `user_preferences`.
 
@@ -5685,145 +5745,145 @@ La identidad persistente de estas preferencias corresponde al mismo UUID del `Us
 
 Entre los datos persistidos se encuentran:
 
-\- `user_id`
+- `user_id`
 
-\- `language`
+- `language`
 
-\- `notifications_enabled`
+- `notifications_enabled`
 
-\- `high_contrast_enabled`
+- `high_contrast_enabled`
 
-\- `reduce_motion_enabled`
+- `reduce_motion_enabled`
 
-\- `font_scale`
+- `font_scale`
 
-\- `updated_at`
+- `updated_at`
 
 La propiedad `reduce_motion_enabled` corresponde a la preferencia de accesibilidad utilizada actualmente por Guardian+, reemplazando la referencia anterior a `voice_assistance_enabled`.
 
 Los valores de `language` y `font_scale` se corresponden con las enumeraciones definidas por el dominio.
 
 
-**###### Persistence Converters**
+###### Persistence Converters
 
 La implementación actual utiliza converters específicos cuando es necesario traducir Value Objects del dominio hacia representaciones compatibles con JPA.
 
 Los converters implementados son:
 
-\- `UserIdPersistenceConverter`
+- `UserIdPersistenceConverter`
 
 Convierte entre `UserId` y su representación `UUID` utilizada por la persistencia.
 
-\- `CareRecipientProfileIdPersistenceConverter`
+- `CareRecipientProfileIdPersistenceConverter`
 
 Convierte entre `CareRecipientProfileId` y su representación `UUID`.
 
 Las enumeraciones como `RelationshipType`, `CareRelationshipStatus`, `Language` y `FontScale` no poseen clases converter independientes dentro de la implementación actual.
 
 
-**###### Persistence Assemblers**
+###### Persistence Assemblers
 
 Los Persistence Assemblers mantienen separadas las estructuras del dominio y las estructuras utilizadas por JPA.
 
 Se implementan los siguientes assemblers:
 
-\- `UserProfilePersistenceAssembler`
+- `UserProfilePersistenceAssembler`
 
-\- `CareRecipientProfilePersistenceAssembler`
+- `CareRecipientProfilePersistenceAssembler`
 
-\- `CareRelationshipPersistenceAssembler`
+- `CareRelationshipPersistenceAssembler`
 
-\- `UserPreferencesPersistenceAssembler`
+- `UserPreferencesPersistenceAssembler`
 
 Cada assembler proporciona las transformaciones necesarias entre el Aggregate Root correspondiente y su Persistence Entity.
 
 De esta manera, las clases del dominio no dependen directamente de las anotaciones ni de las entidades utilizadas por JPA.
 
 
-**###### Repository Implementations**
+###### Repository Implementations
 
-**\*\*`UserProfileRepositoryImpl`\*\***
+**`UserProfileRepositoryImpl`**
 
 Implementa `UserProfileRepository` y administra la persistencia de `UserProfile`.
 
-**\*\*Responsabilidades principales:\*\***
+**Responsabilidades principales:**
 
-\- persistir perfiles de usuario;
+- persistir perfiles de usuario;
 
-\- recuperar perfiles mediante `UserProfileId`;
+- recuperar perfiles mediante `UserProfileId`;
 
-\- recuperar el perfil asociado a un determinado `UserId`;
+- recuperar el perfil asociado a un determinado `UserId`;
 
-\- transformar entre dominio y persistencia mediante `UserProfilePersistenceAssembler`.
+- transformar entre dominio y persistencia mediante `UserProfilePersistenceAssembler`.
 
 
-**\*\*`CareRecipientProfileRepositoryImpl`\*\***
+**`CareRecipientProfileRepositoryImpl`**
 
 Implementa `CareRecipientProfileRepository` y administra la persistencia de perfiles de personas bajo cuidado.
 
-**\*\*Responsabilidades principales:\*\***
+**Responsabilidades principales:**
 
-\- persistir la creación y actualización de un `CareRecipientProfile`;
+- persistir la creación y actualización de un `CareRecipientProfile`;
 
-\- recuperar un perfil mediante `CareRecipientProfileId`;
+- recuperar un perfil mediante `CareRecipientProfileId`;
 
-\- recuperar los perfiles registrados por un determinado `UserId`;
+- recuperar los perfiles registrados por un determinado `UserId`;
 
-\- utilizar `CareRecipientProfilePersistenceAssembler` para mantener separados dominio y persistencia.
+- utilizar `CareRecipientProfilePersistenceAssembler` para mantener separados dominio y persistencia.
 
 
-**\*\*`CareRelationshipRepositoryImpl`\*\***
+**`CareRelationshipRepositoryImpl`**
 
 Implementa `CareRelationshipRepository` y administra la persistencia del ciclo de vida de las relaciones de cuidado.
 
-**\*\*Responsabilidades principales:\*\***
+**Responsabilidades principales:**
 
-\- persistir nuevas relaciones;
+- persistir nuevas relaciones;
 
-\- persistir el cambio de estado de `ACTIVE` a `ENDED`;
+- persistir el cambio de estado de `ACTIVE` a `ENDED`;
 
-\- recuperar relaciones mediante `CareRelationshipId`;
+- recuperar relaciones mediante `CareRelationshipId`;
 
-\- recuperar relaciones activas asociadas a un usuario;
+- recuperar relaciones activas asociadas a un usuario;
 
-\- recuperar relaciones activas asociadas a una persona bajo cuidado;
+- recuperar relaciones activas asociadas a una persona bajo cuidado;
 
-\- transformar los modelos mediante `CareRelationshipPersistenceAssembler`.
+- transformar los modelos mediante `CareRelationshipPersistenceAssembler`.
 
 
-**\*\*`UserPreferencesRepositoryImpl`\*\***
+**`UserPreferencesRepositoryImpl`**
 
 Implementa `UserPreferencesRepository` y administra las preferencias asociadas a cada usuario.
 
-**\*\*Responsabilidades principales:\*\***
+**Responsabilidades principales:**
 
-\- persistir la creación o modificación de preferencias;
+- persistir la creación o modificación de preferencias;
 
-\- recuperar preferencias mediante `UserId`;
+- recuperar preferencias mediante `UserId`;
 
-\- persistir idioma, notificaciones, alto contraste, reducción de movimiento y tamaño de fuente;
+- persistir idioma, notificaciones, alto contraste, reducción de movimiento y tamaño de fuente;
 
-\- transformar entre `UserPreferences` y `UserPreferencesPersistenceEntity` mediante `UserPreferencesPersistenceAssembler`.
+- transformar entre `UserPreferences` y `UserPreferencesPersistenceEntity` mediante `UserPreferencesPersistenceAssembler`.
 
 
-**###### Spring Data JPA Repositories**
+###### Spring Data JPA Repositories
 
 Las Repository Implementations utilizan interfaces de Spring Data JPA para realizar las operaciones sobre la base de datos.
 
 Se encuentran implementadas:
 
-\- `UserProfilePersistenceRepository`
+- `UserProfilePersistenceRepository`
 
-\- `CareRecipientProfilePersistenceRepository`
+- `CareRecipientProfilePersistenceRepository`
 
-\- `CareRelationshipPersistenceRepository`
+- `CareRelationshipPersistenceRepository`
 
-\- `UserPreferencesPersistenceRepository`
+- `UserPreferencesPersistenceRepository`
 
 Estas interfaces contienen las consultas necesarias para localizar los registros utilizados por las Repository Implementations sin exponer directamente detalles de persistencia hacia la Domain Layer.
 
 
-**###### Domain Event Publishing**
+###### Domain Event Publishing
 
 Los Aggregate Roots registran Domain Events cuando ocurre una modificación relevante de su estado.
 
@@ -5834,20 +5894,20 @@ Este mecanismo permite mantener desacoplada la generación de eventos del modelo
 Actualmente no existe una clase independiente denominada `ProfileEventPublisher`; la publicación se realiza desde las implementaciones de los repositorios mediante la infraestructura de eventos de Spring.
 
 
-**###### Profile Configuration**
+###### Profile Configuration
 
 `ProfileConfiguration` centraliza la configuración técnica necesaria para algunos componentes del Bounded Context.
 
 Entre sus responsabilidades se encuentran:
 
-\- proporcionar un `Clock` mediante `Clock.systemUTC()` para que los servicios de aplicación puedan trabajar con timestamps de manera consistente;
+- proporcionar un `Clock` mediante `Clock.systemUTC()` para que los servicios de aplicación puedan trabajar con timestamps de manera consistente;
 
-\- registrar `CareRelationshipPolicy` proporcionando su dependencia `CareRelationshipRepository`.
+- registrar `CareRelationshipPolicy` proporcionando su dependencia `CareRelationshipRepository`.
 
 Esto permite utilizar dichas dependencias mediante inyección sin introducir componentes de infraestructura directamente dentro del modelo de dominio.
 
 
-**###### Integration with IAM**
+###### Integration with IAM
 
 Profile mantiene `UserId` como referencia externa hacia la identidad del usuario, pero no almacena contraseñas, tokens ni información de autenticación.
 
@@ -5859,11 +5919,11 @@ Esta decisión mantiene preparado el diseño para una futura integración sin in
 
 ##### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente diagrama presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **\*\*Profile\*\***. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
+El siguiente diagrama presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
 
 ![Profile Component Level Diagram](../assets/images/chapterII/Profile/ProofileComponents.png)
 
-La **\*\*Interface Layer\*\*** se representa mediante los componentes REST responsables de exponer las operaciones del contexto hacia los clientes de Guardian+. En la implementación actual estas responsabilidades se encuentran distribuidas entre `UserProfilesController`, `CareRecipientProfilesController`, `CareRelationshipsController` y `UserPreferencesController`.
+La **Interface Layer** se representa mediante los componentes REST responsables de exponer las operaciones del contexto hacia los clientes de Guardian+. En la implementación actual estas responsabilidades se encuentran distribuidas entre `UserProfilesController`, `CareRecipientProfilesController`, `CareRelationshipsController` y `UserPreferencesController`.
 
 Las solicitudes recibidas son delegadas hacia la Application Layer, implementada mediante Command Services y Query Services específicos para cada Aggregate Root. Esta capa coordina los casos de uso sin incorporar directamente las reglas propias del dominio.
 
@@ -5871,17 +5931,17 @@ La lógica principal del dominio se concentra en cuatro Aggregate Roots: `UserPr
 
 El diagrama conserva algunos elementos correspondientes al diseño arquitectónico planteado para etapas posteriores del proyecto. En particular, la integración directa mediante un adaptador hacia IAM permanece pendiente debido a que dicho Bounded Context todavía no se encuentra implementado en el backend actual. Profile mantiene por el momento `UserId` únicamente como referencia externa.
 
-La **\*\*Infrastructure Layer\*\*** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
+La **Infrastructure Layer** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
 
 De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
 
 ##### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-En esta sección se documenta la estructura interna del Bounded Context **\*\*Profile\*\*** a nivel de código. Los diagramas se mantienen como referencia del diseño planteado para el contexto y se complementan con la descripción de los elementos efectivamente implementados durante el presente Sprint.
+En esta sección se documenta la estructura interna del Bounded Context **Profile** a nivel de código. Los diagramas se mantienen como referencia del diseño planteado para el contexto y se complementan con la descripción de los elementos efectivamente implementados durante el presente Sprint.
 
 ###### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente diagrama UML presenta la organización general de la Domain Layer de **\*\*Profile\*\***.
+El siguiente diagrama UML presenta la organización general de la Domain Layer de **Profile**.
 
 ![Profile Domain Layer Class Diagram](../assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
 
@@ -5902,7 +5962,48 @@ La relación entre usuarios y personas bajo cuidado se representa mediante `care
 
 #### 2.6.5. Bounded Context: Care Routines & Wellness
 
-El Bounded Context Care Routines & Wellness pertenece al Supporting Domain de Guardian+ y es responsable de asegurar que las rutinas de bienestar del adulto mayor, persona con discapacidad o en situación de dependencia se cumplan: recordatorios de medicación, citas médicas, actividad física e hidratación; registro y clasificación de ciclos de sueño; detección de inactividad física prolongada; y control del stock de medicamentos con sugerencia de reabastecimiento.
+El Bounded Context **Care Routines & Wellness** pertenece al Supporting Domain de Guardian+. Su responsabilidad consiste en asegurar que las rutinas de bienestar de la persona bajo cuidado se cumplan: recordatorios de medicación, citas médicas, actividad física e hidratación; registro y clasificación de ciclos de sueño; detección de inactividad física prolongada; y control del stock de medicamentos con sugerencia de reabastecimiento.
+
+Este contexto recibe la telemetría de actividad y de sueño del wearable mediante sus consumidores de mensajes y publica los eventos de integración `ProlongedInactivityDetected`, `ReminderReissued` y `MedicationRestockSuggested`, que Emergency & Alerting consume para notificar al cuidador o al familiar. Care Routines & Wellness no evalúa signos vitales ni gestiona el escalamiento de las alertas.
+
+La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.careroutineswellness` del repositorio `guardian-plus-platform`, con la siguiente estructura:
+
+```
+com.healthify.guardian.platform.careroutineswellness/
+├── domain/
+│   ├── model/
+│   │   ├── aggregates/
+│   │   ├── commands/
+│   │   ├── events/
+│   │   ├── queries/
+│   │   └── valueobjects/
+│   ├── repositories/
+│   └── services/
+├── interfaces/
+│   ├── events/
+│   ├── messaging/
+│   └── rest/
+│       ├── resources/
+│       └── transform/
+├── application/
+│   ├── commandservices/
+│   ├── internal/
+│   │   ├── commandservices/
+│   │   ├── eventhandlers/
+│   │   └── queryservices/
+│   └── queryservices/
+└── infrastructure/
+    ├── configuration/
+    ├── messaging/
+    ├── persistence/
+    │   └── jpa/
+    │       ├── adapters/
+    │       ├── assemblers/
+    │       ├── converters/
+    │       ├── entities/
+    │       └── repositories/
+    └── scheduling/
+```
 
 ##### 2.6.5.1. Domain Layer
 
@@ -6038,8 +6139,6 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
     *   `findByPersonUnderCareId(PersonUnderCareId personUnderCareId): Optional<MedicationStock>`
     *   `save(MedicationStock stock): MedicationStock`
 
----
-
 ##### 2.6.5.2. Interface Layer
 
 Traduce estímulos externos (solicitudes HTTP de cuidadores/familiares y telemetría del dispositivo wearable) hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
@@ -6070,8 +6169,6 @@ Traduce estímulos externos (solicitudes HTTP de cuidadores/familiares y telemet
 *   `ProlongedInactivityDetectedIntegrationEvent`: Publicado cuando se detecta inactividad prolongada, consumido por `Emergency & Alerting`.
 *   `ReminderReissuedIntegrationEvent`: Publicado cuando un recordatorio de medicación es reemitido, consumido por `Emergency & Alerting` para notificar al cuidador.
 *   `MedicationRestockSuggestedIntegrationEvent`: Publicado cuando se sugiere un reabastecimiento, consumido por `Emergency & Alerting` para notificar al familiar.
-
----
 
 ##### 2.6.5.3. Application Layer
 
@@ -6105,8 +6202,6 @@ Orquesta los flujos de casos de uso de rutina y bienestar delegando las reglas d
 *   `ProlongedInactivityDetectedEventHandler`: Reacciona a `ProlongedInactivityDetectedEvent` (interno) republicándolo como `ProlongedInactivityDetectedIntegrationEvent` hacia `Emergency & Alerting`.
 *   `ReminderReissuedEventHandler`: Reacciona a `ReminderReissuedEvent` (interno) republicándolo como `ReminderReissuedIntegrationEvent` hacia `Emergency & Alerting`.
 *   `MedicationRestockSuggestedEventHandler`: Reacciona a `MedicationRestockSuggestedEvent` (interno) republicándolo como `MedicationRestockSuggestedIntegrationEvent` hacia `Emergency & Alerting`.
-
----
 
 ##### 2.6.5.4. Infrastructure Layer
 
@@ -6162,14 +6257,14 @@ Las columnas `person_under_care_id` y `wearable_device_id` referencian, respecti
 
 #### 2.6.6. Bounded Context: Mobility & Geofencing
 
-El Bounded Context Mobility & Geofencing pertenece al Supporting Domain. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
+El Bounded Context **Mobility & Geofencing** pertenece al Supporting Domain de Guardian+. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
 
-El contexto recibe información de ubicación proveniente del Wearable Device, valida y procesa las coordenadas recibidas, mantiene el estado de ubicación y genera eventos de dominio cuando se detecta una salida de la zona segura. Estos eventos son consumidos por el Bounded Context Emergency & Alerting, que se encarga de gestionar la respuesta y el proceso de escalamiento ante situaciones que requieren atención.
+Este contexto recibe la ubicación del Wearable Device, valida las coordenadas, mantiene el estado de ubicación y publica el evento de integración `SafeZoneViolation` cuando detecta una salida de la zona segura, que Emergency & Alerting consume para gestionar la respuesta y el escalamiento. A diferencia de Health Monitoring, no interpreta signos vitales, y su responsabilidad termina en la detección y el registro de los eventos de ubicación.
 
-A diferencia de Health Monitoring, este contexto no interpreta signos vitales ni realiza evaluaciones clínicas. Asimismo, no es responsable de generar o gestionar alertas de emergencia; su responsabilidad termina en la detección y registro de eventos relacionados con la ubicación y las zonas seguras.
+La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.mobilitygeofencing` del repositorio `guardian-plus-platform`, con la siguiente estructura:
 
 ```
-com.guardianplus.platform.mobilitygeofencing/
+com.healthify.guardian.platform.mobilitygeofencing/
 ├── domain/
 │   ├── model/
 │   │   ├── aggregates/
@@ -6178,39 +6273,31 @@ com.guardianplus.platform.mobilitygeofencing/
 │   │   ├── events/
 │   │   ├── queries/
 │   │   └── valueobjects/
-│   └── repositories/
-│
+│   ├── repositories/
+│   └── services/
 ├── interfaces/
-│   ├── acl/
 │   ├── events/
-│   └── rest/
-│       ├── controllers/
-│       ├── resources/
-│       └── transform/
-│
+│   ├── rest/
+│   │   ├── controllers/
+│   │   ├── resources/
+│   │   └── transform/
+│   └── transform/
 ├── application/
-│   ├── acl/
-│   ├── commandservices/
 │   ├── internal/
 │   │   ├── commandservices/
-│   │   ├── eventhandlers/
 │   │   └── queryservices/
-│   └── queryservices/
-│
+│   └── ports/
+│       └── inbound/
 └── infrastructure/
-    ├── messaging/
-    │   └── adapters/
     ├── persistence/
     │   └── jpa/
     │       ├── adapters/
     │       ├── assemblers/
-    │       ├── converters/
-    │       ├── embeddables/
     │       ├── entities/
     │       └── repositories/
-    └── wearable/
-        └── adapters/
+    └── publisher/
 ```
+
 ##### 2.6.6.1. Domain Layer
 
 Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
@@ -6728,14 +6815,14 @@ Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfile
 
 #### 2.6.7. Bounded Context: IAM
 
-El Bounded Context IAM pertenece al Generic Domain de Guardian+ y es responsable de gestionar la identidad digital de cuidadores y familiares: registro y verificación de credenciales mediante correo electrónico, autenticación reforzada con un segundo factor opcional (OTP) y recuperación segura de contraseña.
+El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación reforzada con un segundo factor opcional (OTP) y la recuperación segura de la contraseña.
 
-A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS) publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados, validado localmente por cada contexto descendente sin consultas síncronas a la base de datos de identidad.
+A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS), publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados que cada contexto descendente valida localmente, sin consultar la base de datos de identidad.
 
-La arquitectura táctica se implementa sobre Java y Spring Boot aplicando una estructura de paquetes hexagonal/onion estricta dividida en cuatro capas: domain, interfaces, application e infrastructure.
+La arquitectura táctica se diseñó sobre Java y Spring Boot con la misma estructura de paquetes de cuatro capas que el resto de Bounded Contexts: domain, interfaces, application e infrastructure. Su código se organizará en el paquete `com.healthify.guardian.platform.iam` del repositorio `guardian-plus-platform`, con la siguiente estructura:
 
 ```
-com.guardianplus.platform.iam/
+com.healthify.guardian.platform.iam/
 ├── domain/
 │   ├── model/
 │   │   ├── aggregates/
@@ -6770,9 +6857,9 @@ com.guardianplus.platform.iam/
     │       ├── converters/
     │       ├── entities/
     │       └── repositories/
-    ├── security/
-    │   └── adapters/
-    └── scheduling/
+    ├── scheduling/
+    └── security/
+        └── adapters/
 ```
 
 ##### 2.6.7.1. Domain Layer
@@ -6907,8 +6994,6 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
     *   `findUsableByTokenHash(HashedSecret tokenHash, Instant now): Optional<PasswordResetToken>`
     *   `deleteExpiredUnusedBefore(Instant threshold): int`
 
----
-
 ##### 2.6.7.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación y expone contratos HTTP RESTful para la app móvil. Al ser el contexto más upstream del dominio, no canaliza eventos de integración entrantes.
@@ -6942,8 +7027,6 @@ Los recursos de salida nunca exponen el hash de la contraseña ni el de un códi
     *   `UserAccountVerifiedIntegrationEvent`: Notifica la activación definitiva de la cuenta.
 *   *Eventos consumidos (inbound):* Ninguno. IAM no depende de señales de negocio de otros contextos.
 *   `IamContextFacade`: Interfaz expuesta para la validación síncrona de tokens y la consulta puntual de existencia de una `UserAccount` desde otros contextos, sin exponer el modelo interno de credenciales.
-
----
 
 ##### 2.6.7.3. Application Layer
 
@@ -6982,8 +7065,6 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 
 *   `IamContextFacadeImpl`: Implementa la fachada de acceso público del contexto (validación de tokens y existencia de cuentas).
 
----
-
 ##### 2.6.7.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, la firma/validación de JWT, la integración con el proveedor de correo electrónico y los componentes de programación temporal que sostienen la vigencia de tokens y códigos OTP.
@@ -7019,8 +7100,6 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 ###### Scheduling
 
 *   `ExpiredSecretsCleanupScheduler`: Tarea periódica que purga de `otp_codes` y `password_reset_tokens` los secretos vencidos y no consumidos, invocando `deleteExpiredUnusedBefore`. La invalidación no requiere una transición de estado persistida: un secreto deja de ser utilizable en cuanto vence su `expires_at` o se registra su `used_at`.
-
----
 
 ##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 ![IAM Component Diagram](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
