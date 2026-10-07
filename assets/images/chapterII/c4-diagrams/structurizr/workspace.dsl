@@ -49,16 +49,16 @@ workspace "Guardian+" "C4 model of the Guardian+ platform." {
                 wearableFirmwareInstance = containerInstance wearableFirmware
             }
 
-            deploymentNode "Render" "Cloud application platform." "Render (Virginia, US East)" {
-                deploymentNode "Web Service" "" "Docker container" {
-                    deploymentNode "Java Runtime" "" "JRE 27" {
+            deploymentNode "Azure Virtual Machine" "Virtual machine that runs the REST API behind the Caddy reverse proxy, which serves it over HTTPS." "Ubuntu 24.04 (Azure, Chile Central)" {
+                deploymentNode "Docker Container" "" "Docker Compose" {
+                    deploymentNode "Java Runtime" "" "JRE 26" {
                         restApiInstance = containerInstance restApi
                     }
                 }
             }
 
-            deploymentNode "Neon" "Managed serverless PostgreSQL service." "Neon (AWS us-east-1)" {
-                deploymentNode "guardian-plus project" "" "PostgreSQL" {
+            deploymentNode "Azure Database for PostgreSQL" "Managed PostgreSQL flexible server." "Azure (Chile Central)" {
+                deploymentNode "guardian_plus database" "" "PostgreSQL 17" {
                     databaseInstance = containerInstance database
                 }
             }
