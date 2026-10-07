@@ -1,10 +1,10 @@
 <div style="page-break-before: always; break-before: page;"></div>
 
-## Capítulo II: Requirements Development and Software Solution Design
+# Capítulo II: Requirements Development and Software Solution Design
 
-### 2.1. Competidores
+## 2.1. Competidores
 
-#### 2.1.1. Análisis competitivo
+### 2.1.1. Análisis competitivo
 
 #### LifeWatch/LifeWatch 2:
 Reloj inteligente que monitorea pulso, presión arterial, oxígeno, ejercicio, temperatura corporal y patrones de sueño. Está más orientado al fitness y bienestar general que al cuidado de personas con necesidades específicas, y no cuentan con funciones de emergencia o conectividad familiar especializada. Precio aproximado: S/.140 soles.
@@ -18,7 +18,7 @@ Reloj pulsera con GPS, botón SOS, detección de caídas y llamadas que ofrece p
 #### MovilTecno 866:
 Reloj de pulsera diseñado específicamente para personas mayores, ancianos o con principios de Alzheimer, con localización GPS y tecla de socorro. Aunque tiene un enfoque geriátrico, su mercado está limitado a casos avanzados y no contempla el monitoreo preventivo o la conexión familiar cotidiana .
 
-## Competitive Analysis Landscape
+#### Competitive Analysis Landscape
 
 **¿Por qué llevar a cabo este análisis?**
 Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidades frente a la competencia, entender sus estrategias, tomar decisiones informadas, detectar oportunidades de crecimiento, anticipar movimientos y optimizar recursos para mejorar nuestra posición en el mercado.
@@ -38,7 +38,7 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 | **Debilidades** | En fase de validación y crecimiento, aún sin base de usuarios consolidada. | No enfocado en adultos mayores, sin alertas familiares. | Requiere configuración técnica más compleja, carece de "lazo de cuidado" bidireccional. | Sin acompañamiento emocional, no incluye reportes médicos ni monitoreo integral. | Enfoque limitado a la seguridad física y localización; sin capacidad de monitoreo médico ni reportes de salud. |
 | **Amenazas** | Competidores globales con mayor capital y alcance comercial. | Sustitución por otros relojes fitness más económicos. | Aparición de apps con pulseras más intuitivas. | Competencia tecnológica que combine seguridad + monitoreo de salud. | Competidores con plataforma más robusta o integración con servicios de salud podrían desplazarlo. |
 
-#### 2.1.2. Estrategias y tácticas frente a competidores
+### 2.1.2. Estrategias y tácticas frente a competidores
 Estrategias y tácticas frente a competidores
 Nuestra solución contará con compatibilidad completa con dispositivos móviles Android e iOS(teóricamente, dado que en el curso no es 100% necesario trabajar con IOS), así como con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
@@ -47,9 +47,9 @@ La plataforma contará con un registro digital de incidentes y alertas previas, 
 Hemos identificado una oportunidad clave en las familias que actualmente dependen de dispositivos importados o genéricos, los cuales suelen estar orientados al fitness o a la seguridad básica. Nuestra propuesta integra seguridad, salud y acompañamiento emocional en un solo dispositivo, diferenciándonos por ofrecer un servicio más integral y enfocado en las personas vulnerables que requieren cuidado.
 La aplicación contará con pagos seguros e integración con servicios adicionales (como telemedicina, seguros o planes premium), lo que permitirá a los usuarios acceder a un ecosistema completo desde la misma plataforma, generando valor agregado y fidelización.
 
-### 2.2. Entrevistas
+## 2.2. Entrevistas
 
-#### 2.2.1. Diseño de entrevistas
+### 2.2.1. Diseño de entrevistas
 
 **Preguntas para segmento 1**
 **(Familiares de personas vulnerables que requieren cuidado)**
@@ -93,13 +93,13 @@ La aplicación contará con pagos seguros e integración con servicios adicional
 - ¿Qué características harían que usted confíe en un sistema de monitoreo para complementar su trabajo?
 - ¿Usted compraría el servicio que le ofrecemos si es a un precio razonable?
 
-#### 2.2.2. Registro de entrevistas
+### 2.2.2. Registro de entrevistas
 
 A continuación se presenta el registro de las entrevistas realizadas a los segmentos de Familiares y Cuidadores, incluyendo la ficha de cada entrevistado y la captura de pantalla correspondiente.
 
 **Enlace a la grabación de las entrevistas:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202421866_upc_edu_pe/IQACcQNLkvZqQpHQRm3if26lAffXgxwl4EZcZ-_CvP5Vc0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xXF12j)
 
-##### Segmento 1: Familiares
+#### Segmento 1: Familiares
 
 **Entrevistado 1**
 
@@ -143,7 +143,7 @@ A continuación se presenta el registro de las entrevistas realizadas a los segm
 
 **Resumen de la entrevista:** El entrevistado Junior Ayala de 32 años y soldador, vive con su pareja y su hijo y manifiesta preocupación principalmente por la seguridad y el bienestar de su familia cuando no puede estar presente debido al trabajo u otras actividades. Señala que, ante emergencias o problemas de salud, suele experimentar preocupación y desesperación, recurriendo a familiares cercanos o a servicios de emergencia. Considera que una solución tecnológica, como una pulsera o dispositivo inteligente, podría ayudar a monitorear el estado de salud, las actividades y la seguridad de sus familiares, además de recordar medicamentos y citas médicas. Actualmente no utiliza herramientas de monitoreo ni lleva un control preventivo de la salud, ya que normalmente acuden a un centro de salud cuando los síntomas se vuelven graves. Está dispuesto a utilizar tecnología de este tipo, aunque considera importantes factores como el costo, la duración de la batería y la conectividad, especialmente en zonas rurales. Finalmente, estaría dispuesto a pagar por un dispositivo que realmente aporte seguridad y bienestar a su familia, realizando un esfuerzo económico si considera que el producto es útil y de buena calidad.
 
-##### Segmento 2: Cuidadores
+#### Segmento 2: Cuidadores
 
 **Entrevistado 1**
 
@@ -203,7 +203,7 @@ Ante todo lo mencionado, se puede evidenciar que algunas de las features proporc
 
 **Resumen de la entrevista:** Gabriela Cuadro Curihuamán, de 21 años, es enfermera y trabaja en la Casa del Adulto Mayor de Santa Anita, donde se encarga de acompañar y supervisar a pacientes adultos mayores, apoyándolos en su alimentación, higiene, medicamentos y actividades diarias. Su principal preocupación cuando debe dejar solo a un paciente es que pueda sufrir una caída, sentirse mal o tener alguna emergencia sin recibir ayuda inmediata. Considera que un sistema de monitoreo mediante una aplicación y una pulsera sería muy útil para recibir alertas en su celular, conocer la ubicación, actividad, calidad del sueño y detectar caídas o comportamientos fuera de lo normal. También destaca la importancia de contar con recordatorios de medicamentos y un historial del estado del paciente. Señala que la supervisión constante puede ser agotadora y generar preocupación, por lo que la tecnología podría reducir su carga y brindarle mayor tranquilidad. Para confiar en el sistema, considera fundamental que sea preciso, confiable, fácil de usar, con botones grandes, información clara, poco peso, alertas rápidas y una batería que dure todo el día. Finalmente, estaría dispuesta a adquirir el servicio siempre que tenga un precio accesible y cumpla adecuadamente con estas funciones.
 
-#### 2.2.3. Análisis de entrevistas
+### 2.2.3. Análisis de entrevistas
 
 * En la entrevista con Rocío Alvarado es una familiar cuidadora que vive con su hermano y su madre, quienes se turnan para supervisarlo debido a sus necesidades de atención. Su principal preocupación es que su hermano atraviese una crisis mientras se encuentra solo, ya que en una ocasión reciente ocurrió una situación de este tipo sin que ellas pudieran enterarse hasta regresar a casa. Valora especialmente una solución tecnológica que permita monitorear su estado a distancia, recibir notificaciones y controlar indicadores como el ritmo cardíaco y la actividad física. Se muestra cómoda utilizando tecnología y considera importante que el dispositivo sea sencillo. Su principal motivación es reducir la preocupación y tener mayor tranquilidad, mostrando además una alta disposición de pago, de hasta S/100 mensuales, por un servicio que considere útil.
 * La entrevista con Lucía Infante, de 27 años, es diseñadora gráfica y vive con su padre adulto mayor, quien todavía mantiene cierta autonomía. Su principal dificultad aparece cuando se encuentra fuera de casa y no puede saber qué está ocurriendo con él, especialmente cuando no responde sus llamadas. Considera que una aplicación de monitoreo debe ser sencilla, intuitiva y poco recargada, debido a las posibles dificultades de los adultos mayores con la tecnología. Valora la seguridad, la facilidad de uso y la confianza en el manejo de los datos. Está dispuesta a pagar aproximadamente entre S/30 y S/40 mensuales, siempre que el servicio ofrezca beneficios claros y se adapte al nivel de cuidado que requiere cada usuario.
@@ -214,7 +214,7 @@ Ante todo lo mencionado, se puede evidenciar que algunas de las features proporc
 * Piero, de 22 años, estudiante de psicología y voluntario en un asilo, cuenta con experiencia apoyando a adultos mayores en su alimentación, higiene, movilidad y medicación. Su principal preocupación son las caídas, descompensaciones y situaciones en las que el paciente pueda necesitar ayuda urgente mientras él se encuentra estudiando o fuera del lugar. Considera útil recibir alertas en el celular y acceder a información sobre signos vitales, medicamentos, sueño, actividad física y posibles comportamientos inusuales. La solución ideal para él debe ser simple, cómoda y fácil de comprender. También considera fundamentales la precisión, rapidez de las alertas, duración de la batería y protección de los datos del paciente. Está dispuesto a comprar el servicio si este facilita el cuidado y proporciona mayor seguridad tanto al paciente como al cuidador.
 * En la entrevista con Fernanda Llanos, de 59 años, residente de San Borja y cuidadora de una adulta mayor de 88 años, realiza labores de acompañamiento y supervisión, pero enfrenta dificultades cuando debe dejarla sola debido a la ausencia de los familiares. Su principal preocupación es que la adulta mayor pueda desplazarse hacia lugares peligrosos de la vivienda, como las escaleras o la cocina, o sufrir algún problema de salud sin recibir asistencia inmediata. Esta situación evidencia una necesidad de supervisión a distancia que le permita conocer tanto la ubicación como el estado de la adulta mayor cuando no se encuentra presente. Fernanda muestra una actitud favorable hacia el uso de tecnología para complementar el cuidado y considera que una solución como Guardian+ podría brindarle mayor tranquilidad y seguridad. Su perfil representa a un cuidador con experiencia que busca reducir los riesgos asociados a la ausencia física y contar con información oportuna para actuar ante posibles incidentes.
 
-##### 1. Segmento: familiares de personas que requieren atención 
+#### 1. Segmento: familiares de personas que requieren atención 
 
 En este segmento identificamos a **Rocío Alvarado**, **Junior Ayala Miranda**, **Lucia Infante** por lo que la muestra es de **3 entrevistados**.
 
@@ -233,7 +233,7 @@ En este segmento identificamos a **Rocío Alvarado**, **Junior Ayala Miranda**, 
 
 **Análisis:** Los familiares entrevistados presentan como principal necesidad la seguridad y supervisión de sus seres queridos cuando no pueden estar físicamente presentes. El 100% manifestó preocupación por posibles emergencias, accidentes o problemas de salud durante los períodos en los que el familiar permanece solo. Rocío, por ejemplo, relató una situación en la que su hermano tuvo una crisis mientras ella y su madre se encontraban fuera de casa y no tuvieron conocimiento de lo ocurrido hasta regresar. Por su parte, Junior señaló que cuando se encuentra trabajando o realizando sus actividades diarias le preocupa no saber qué está haciendo su hijo o si se encuentra bien al igual que Lucia. Los entrevistados mostraron interés en una solución tecnológica que permita monitorear el estado del familiar y enviar alertas a distancia, evidenciando una necesidad de mayor tranquilidad y control. Asimismo, el 100% indicó estar dispuesto a utilizar o adquirir una solución de este tipo si resulta útil. Entre las características más valoradas aparecen la facilidad de uso, el monitoreo de indicadores de salud y la posibilidad de recibir asistencia rápida ante una emergencia. Rocío incluso manifestó una disposición de pago de hasta S/100 mensuales, mientras que Junior indicó que realizaría un esfuerzo económico si la tecnología realmente aporta seguridad y salud a su familia.
 
-##### 2. Segmento: cuidadores 
+#### 2. Segmento: cuidadores 
 
 En este segmento podemos considerar a **Roxana Paola**, **Fernanda Llanos**, **Gabriela Curihuamán** y **Piero Segura**, por lo que tenemos una muestra de **4 entrevistados**.
 
@@ -252,7 +252,7 @@ En este segmento podemos considerar a **Roxana Paola**, **Fernanda Llanos**, **G
 
 **Analisis:** Los entrevistados de este segmento coinciden principalmente en que el cuidado del adulto mayor requiere una supervisión constante, lo que puede generar preocupación y carga para el cuidador. El 100% identifica las caídas y las emergencias como situaciones críticas y considera útil recibir alertas cuando no se encuentra junto al adulto mayor. Gabriela menciona que la supervisión constante es agotadora y que una aplicación podría ayudarla a sentirse más tranquila, mientras que Piero señala que el monitoreo le permitiría organizar mejor su tiempo cuando debe estudiar o atender otras actividades. Asimismo, existe una alta valoración de funciones relacionadas con la medicación, ubicación, actividad física, sueño y signos vitales. El 100% de los entrevistados considera importante que la solución sea sencilla y fácil de utilizar, especialmente debido a las posibles dificultades que pueden presentar los adultos mayores frente a la tecnología. En cuanto a la disposición de pago, los tres entrevistados estarían dispuestos a adquirir el servicio si el precio resulta razonable; Lucía estima un rango de S/30 a S/40 mensuales, mientras Gabriela y Piero también condicionan su compra a que el precio sea accesible y que el sistema realmente aporte seguridad y utilidad.
 
-##### 3. Características para la construcción de los arquetipos
+#### 3. Características para la construcción de los arquetipos
 
 A partir del análisis, podemos resumir los principales elementos que deberían formar parte de los arquetipos:
 
@@ -268,11 +268,9 @@ A partir del análisis, podemos resumir los principales elementos que deberían 
 | Barreras                | Precio y conectividad                     | Precio, batería y facilidad de uso                     |
 | Disposición de pago     | Sí                                        | Sí                                                     |
 
-### 2.3. Needfinding
+## 2.3. Needfinding
 
-#### 2.3.1. User Personas
-
-## User Personas
+### 2.3.1. User Personas
 
 Las fichas de User Persona presentadas a continuación son el resultado directo del análisis realizado sobre las entrevistas aplicadas a ambos segmentos objetivo: familiares y cuidadores de personas con necesidades especiales. A partir de las respuestas recogidas, se identificaron patrones comunes en preocupaciones, necesidades, emociones y expectativas frente a una solución tecnológica de monitoreo, los cuales fueron sistematizados y traducidos en las características que conforman cada arquetipo. Se elaboró una ficha de User Persona por cada segmento identificado, procurando que cada uno de sus componentes —background, motivations, frustrations, goals, quote, skills y brands and influencers— refleje de manera representativa los hallazgos obtenidos y no las características de un único entrevistado en particular.
 
@@ -280,17 +278,15 @@ Para el segmento de **familiares**, el análisis evidenció que el 100% de los e
 
 Para el segmento de **cuidadores**, el análisis mostró que la totalidad de los entrevistados coincide en la preocupación por caídas y emergencias, la utilidad de recibir alertas en el celular y el interés en monitorear a distancia al adulto mayor, además de una valoración compartida por la facilidad de uso y el seguimiento de medicamentos y signos vitales como funciones clave para reducir la carga que genera la supervisión constante. Estas características quedaron plasmadas en el User Persona de este segmento, representado en la ficha de Roxana Paola Diana Ramírez. Ambas fichas fueron elaboradas en la herramienta UXPressia, siguiendo las mejores prácticas para la especificación de arquetipos de usuario.
 
-## Primer segmento: Familiares 
+#### Primer segmento: Familiares 
 
 ![user-persona-1](../assets/images/chapterII/user-persona-1-fix.png)
 
-## Segundo segmento: Cuidadores
+#### Segundo segmento: Cuidadores
 
 ![user-persona-2](../assets/images/chapterII/user-persona-2.png)
 
-#### 2.3.2. User Task Matrix
-
-##### Introducción
+### 2.3.2. User Task Matrix
 
 El User Task Matrix que se presenta a continuación concentra las tareas que cada User Persona realiza para cumplir sus objetivos de cuidado y supervisión. Es fundamental distinguir entre **tareas** (actividades realizadas por los usuarios independientemente de la existencia de Guardian+) y **características de software** (funcionalidades que la solución proporciona). Las tareas aquí identificadas representan actividades que los usuarios realizan actualmente mediante métodos manuales, informales o tradicionales para garantizar el bienestar y la seguridad del ciudadano frágil.
 
@@ -302,7 +298,7 @@ Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
 - **Frecuencia**: Regularidad con que realiza la tarea (Baja, Media, Alta).
 - **Importancia**: Criticidad de la tarea para cumplir objetivos de cuidado (Baja, Media, Alta).
 
-##### Matriz de Tareas de Usuario
+#### Matriz de Tareas de Usuario
 
 | Tarea | María Fernanda – Frecuencia | María Fernanda – Importancia | Roxana Paola – Frecuencia | Roxana Paola – Importancia |
 |---|---|---|---|---|
@@ -317,7 +313,7 @@ Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
 | Registrar cambios en el estado de salud | Media | Alta | Alta | Alta |
 | Comunicar información a otros miembros del círculo de cuidado | Media | Alta | Alta | Alta |
 
-##### Análisis de Resultados
+#### Análisis de Resultados
 
 **Tareas de Mayor Frecuencia e Importancia:**
 
@@ -345,43 +341,43 @@ Para cada User Persona, se evaluaron las tareas considerando dos dimensiones:
 
 4. **Registro y Seguimiento**: Tanto María Fernanda como Roxana Paola reconocen la importancia de registrar cambios en el estado de salud. Para la cuidadora es operativo y diario; para la familiar es analítico y periódico, pero ambas usan esta información para tomar decisiones.
 
-#### 2.3.3. User Journey Mapping
+### 2.3.3. User Journey Mapping
 
 En esta sección se presentan los User Journey Maps As-Is elaborados para los User Personas correspondientes a los segmentos objetivo de Guardian+. Estos artefactos permiten representar el recorrido actual que realizan los usuarios para cumplir sus objetivos de cuidado y supervisión, antes de la existencia de la solución Guardian+.
 
 Los journeys se construyen a partir de la información obtenida durante las entrevistas, su análisis y los User Personas previamente definidos. Para cada recorrido se identifican las principales etapas, acciones, puntos de contacto, pensamientos, emociones, dificultades y oportunidades encontradas durante la experiencia.
 
-##### User Journey Map - Familiar
+#### User Journey Map - Familiar
 
 El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior.
 
 ![User Journey Map - Familiares](../assets/images/chapterII/user-journey-mapping/journeyMappFamiliar.png)
 
-##### User Journey Map - Cuidador
+#### User Journey Map - Cuidador
 
 El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables.
 
 ![User Journey Map - Cuidadores](../assets/images/chapterII/user-journey-mapping/journeyMappCuidador.png)
 
-#### 2.3.4. Empathy Mapping
+### 2.3.4. Empathy Mapping
 
 En esta sección se presentan los Empathy Maps elaborados para los User Personas de cada segmento objetivo de Guardian+. Estos artefactos permiten profundizar en la perspectiva de los usuarios, identificando lo que necesitan hacer, lo que ven, dicen, hacen, escuchan, piensan y sienten durante su labor de cuidado, así como sus principales dolores (pains) y beneficios esperados (gains).
 
 Los mapas se construyen a partir de la información obtenida en las entrevistas, su análisis, los User Personas y los User Journey Maps previamente definidos, consolidando los hallazgos comunes de cada segmento.
 
-##### Empathy Map - Familiar
+#### Empathy Map - Familiar
 
 El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia.
 
 ![Empathy Map - Familiar](../assets/images/chapterII/empathy-mapping/empathyMapFamiliar-fix.png)
 
-##### Empathy Map - Cuidador
+#### Empathy Map - Cuidador
 
 El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia.
 
 ![Empathy Map - Cuidador](../assets/images/chapterII/empathy-mapping/empathyMapCuidador.png)
 
-#### 2.3.5. Big Picture EventStorming
+### 2.3.5. Big Picture EventStorming
 
 El Big Picture EventStorming permitió explorar el dominio de Guardian+ desde una perspectiva integral, identificando los principales Domain Events que ocurren a lo largo del ciclo de uso de la solución. Este artefacto fue utilizado para comprender de manera global cómo interactúan los actores principales, los sistemas externos y los eventos relevantes del negocio antes de profundizar en la identificación formal de Bounded Contexts.
 
@@ -395,9 +391,7 @@ Este artefacto sirvió como base para construir una visión compartida del domin
 
 
 
-#### 2.3.6. Ubiquitous Language
-
-## Ubiquitous Language
+### 2.3.6. Ubiquitous Language
 
 Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto delimitado, donde se identifican los términos y conceptos del dominio del negocio, y no debe existir ambigüedad¹. A continuación, se presenta el glosario de términos del dominio de negocio de Guardian+, construido a partir del análisis de segmentos, entrevistas y arquetipos elaborados.
 
@@ -451,11 +445,11 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 - **Silent Mode (Modo silencioso):** Configuración de cada Fragile Citizen que hace que sus Alerts no críticas lleguen sin sonido a los celulares del Care Circle; las Alerts de severidad crítica siempre suenan.
 
-# 2.4. Requirements specification
+## 2.4. Requirements specification
 
-## 2.4.1. User Stories
+### 2.4.1. User Stories
 
-### Epics Identificadas
+#### Epics Identificadas
 
 * **EP01 - Monitoreo de Salud en Tiempo Real:** Supervisión continua y telemetría de signos vitales (ritmo cardíaco, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria) para la detección temprana de irregularidades fisiológicas.
 * **EP02 - Recordatorios y Rutinas de Bienestar:** Gestión programada de tomas de medicación, hidratación, actividad física, citas médicas y supervisión de patrones de descanso.
@@ -1686,7 +1680,7 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
   </tr>
 </table>
 
-#### 2.4.2. Impact Mapping
+### 2.4.2. Impact Mapping
 
 El Impact Mapping de Guardian+ permite relacionar los objetivos de negocio de la solución con los actores que participan en el ecosistema, los cambios de comportamiento esperados en cada uno de ellos y los entregables que permitirán generar dichos impactos.
 
@@ -1702,7 +1696,7 @@ El Impact Map evidencia que las funcionalidades principales de Guardian+ no se p
 
 Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Product Backlog. Entre las historias relacionadas se encuentran la detección automática de caídas y despacho de emergencia (US08), la generación y escalamiento de alertas críticas (US09 y US11), el monitoreo de signos vitales (US01-US05), los reportes históricos de salud (US07, US19 y US24), los recordatorios de bienestar (US06, US14 y US26), el botón SOS (US15), la localización y geocercas (US18 y US28), y la visualización comparativa de planes de suscripción (US33).
 
-#### 2.4.3. Product Backlog
+### 2.4.3. Product Backlog
 
 El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
 
@@ -1745,11 +1739,11 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 | 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
 | 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
 
-### 2.5. Strategic-Level Domain-Driven Design
+## 2.5. Strategic-Level Domain-Driven Design
 
-#### 2.5.1. EventStorming
+### 2.5.1. EventStorming
 
-### 2.5.1.1. Candidate Context Discovery
+#### 2.5.1.1. Candidate Context Discovery
 
 Una vez detallados los flujos mediante Design-Level EventStorming, se procedió con la actividad de Candidate Context Discovery. Esta etapa representa la transición entre el análisis del comportamiento del dominio y la definición de su arquitectura estratégica. El objetivo fue identificar agrupaciones de funcionalidades que comparten un mismo Lenguaje Ubicuo, reglas de negocio relacionadas y responsabilidades cohesivas.
 
@@ -1759,7 +1753,7 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos,
 
 
 
-#### Emergency & Alerting Bounded Context (Core Domain)
+##### Emergency & Alerting Bounded Context (Core Domain)
 
 ![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.jpg)
 
@@ -1771,7 +1765,7 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 
 
-#### Health Monitoring Bounded Context (Core Domain)
+##### Health Monitoring Bounded Context (Core Domain)
 ![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
@@ -1782,7 +1776,7 @@ Se clasificó como parte del **Core Domain** porque el monitoreo continuo del es
 
 
 
-#### Care Routines & Wellness Bounded Context (Supporting Domain)
+##### Care Routines & Wellness Bounded Context (Supporting Domain)
 
 ![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStorming/careRoutine.png)
 
@@ -1794,7 +1788,7 @@ Fue clasificado como **Supporting Domain**, ya que complementa las capacidades p
 
 
 
-#### Mobility & Geofencing Bounded Context (Supporting Domain)
+##### Mobility & Geofencing Bounded Context (Supporting Domain)
 
 ![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStorming/MOBILITY.png)
 
@@ -1806,7 +1800,7 @@ Se clasificó como **Supporting Domain**, debido a que aporta información conte
 
 
 
-#### IAM Bounded Context (Generic Domain)
+##### IAM Bounded Context (Generic Domain)
 
 ![IAM EventStorming](../assets/images/chapterII/EventStorming/IAM.png)
 
@@ -1817,7 +1811,7 @@ Su Lenguaje Ubicuo comprende conceptos como credenciales, autenticación, verifi
 Se clasificó como **Generic Domain** porque representa una capacidad necesaria para garantizar el acceso seguro a la plataforma, pero corresponde a una problemática común en numerosos sistemas de software y no constituye un elemento diferenciador propio del negocio de Guardian+.
 
 
-#### Profile Bounded Context (Generic Domain)
+##### Profile Bounded Context (Generic Domain)
 
 ![Profile EventStorming](../assets/images/chapterII/EventStorming/PROFILE.png)
 
@@ -1829,7 +1823,7 @@ Se clasificó como **Generic Domain** debido a que proporciona información fund
 
 
 
-#### Subscriptions Bounded Context (Generic Domain)
+##### Subscriptions Bounded Context (Generic Domain)
 
 ![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStorming/subscription1.png)
 
@@ -1847,11 +1841,11 @@ Como resultado del Candidate Context Discovery, el equipo estableció una primer
 
 Esta descomposición servirá como base para las siguientes actividades de Strategic-Level Domain-Driven Design, donde se analizarán los mensajes intercambiados entre contextos, sus responsabilidades y las relaciones de integración mediante Domain Message Flows, Bounded Context Canvases y Context Mapping.
 
-##### 2.5.1.2. Domain Message Flows Modeling
+#### 2.5.1.2. Domain Message Flows Modeling
 
 En esta sección se documentan los principales flujos de mensajes (comandos, eventos y policies) del Bounded Context **Emergency & Alerting**, modelados como diagramas de secuencia a partir del Design-Level EventStorming. Se seleccionaron los tres flujos de mayor valor de negocio, que recorren los dos agregados centrales del contexto (ALERT e INCIDENT) y las policies de despacho y escalamiento que los conectan.
 
-#### Bounded Context: Emergency & Alerting
+##### Bounded Context: Emergency & Alerting
 
 **Flujo 1 — Caída confirmada**
 
@@ -1875,10 +1869,10 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 ![alt text](../assets/images/chapterII/domain-message-flows/inactivity-storytelling.png)
 
 
-##### 2.5.1.3. Bounded Context Canvases
+#### 2.5.1.3. Bounded Context Canvases
 En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
 
-#### Bounded Context: Emergency & Alerting (Core Domain)
+##### Bounded Context: Emergency & Alerting (Core Domain)
 
 <!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2044,7 +2038,7 @@ Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citize
 </tr>
 </table>
 
-#### Bounded Context: Health Monitoring (Core Domain)
+##### Bounded Context: Health Monitoring (Core Domain)
 
 <!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2178,7 +2172,7 @@ Administra los Wearable Devices asignados a un Care Recipient, ingesta y emite e
 </tr>
 </table>
 
-#### Bounded Context: Care Routines & Wellness (Supporting Domain)
+##### Bounded Context: Care Routines & Wellness (Supporting Domain)
 
 <!-- CANVAS: CARE ROUTINES & WELLNESS (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2304,7 +2298,7 @@ Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, activi
 </tr>
 </table>
 
-#### Bounded Context: Subscriptions (Generic Domain)
+##### Bounded Context: Subscriptions (Generic Domain)
 
 <!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2551,7 +2545,7 @@ Interactions with other bounded contexts and services
 </tr>
 </table>
 
-#### Bounded Context: Profile (Generic Domain)
+##### Bounded Context: Profile (Generic Domain)
 
 <!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -2838,7 +2832,7 @@ Interactions with other bounded contexts and services
 </tr>
 </table>
 
-#### Bounded Context: Mobility & Geofencing (Supporting Domain)
+##### Bounded Context: Mobility & Geofencing (Supporting Domain)
 <!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
 <tr>
@@ -3190,7 +3184,7 @@ de los límites de una zona segura.
 
 </table>
 
-#### Bounded Context: IAM (Generic Domain)
+##### Bounded Context: IAM (Generic Domain)
 
 <!-- CANVAS: IAM (NICK TUNE V1 TEMPLATE) -->
 <table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -3351,7 +3345,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 </tr>
 </table>
 
-#### 2.5.2. Context Mapping
+### 2.5.2. Context Mapping
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
 El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proceso de cuestionamiento heurístico recomendado por Domain-Driven Design (DDD Crew y Nick Tune) para validar la ubicación de cada capability y evitar dependencias cíclicas o acoplamiento innecesario:
@@ -3491,9 +3485,9 @@ A continuación se presenta la topología integral de integración que intercone
     *   *Patrón:* **Anti-Corruption Layer Adapter**.
     *   *Justificación:* La gestión de pagos depende de las librerías oficiales del proveedor externo. *Subscriptions* implementa adaptadores de webhook (`PaymentWebhookController` y `PaymentProviderAdapter`) para conformarse a los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) y traducirlos a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`).
 
-#### 2.5.3. Software Architecture
+### 2.5.3. Software Architecture
 
-##### 2.5.3.1. Software Architecture Context Level Diagrams
+#### 2.5.3.1. Software Architecture Context Level Diagrams
 
 Introducción
 
@@ -3507,7 +3501,7 @@ El sistema se integra con cuatro servicios externos, cada uno resolviendo una ne
 
 ![context-diagram](../assets/images/chapterII/c4-diagrams/system-context.png)
 
-##### 2.5.3.2. Software Architecture Container Level Diagrams
+#### 2.5.3.2. Software Architecture Container Level Diagrams
 
 Introducción
 
@@ -3522,7 +3516,7 @@ Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con
 
 ![containers-diagram](../assets/images/chapterII/c4-diagrams/containers.png)
 
-##### 2.5.3.3. Software Architecture Components Level Diagrams
+#### 2.5.3.3. Software Architecture Components Level Diagrams
 
 Introducción
 
@@ -3536,7 +3530,7 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 
 ![components-diagram](../assets/images/chapterII/c4-diagrams/components.png)
 
-##### 2.5.3.4. Software Architecture Deployment Diagrams
+#### 2.5.3.4. Software Architecture Deployment Diagrams
 
 Introducción
 
@@ -3550,9 +3544,9 @@ La Guardian+ Mobile Application se ejecuta en los smartphones Android de familia
 
 ![deployment-diagram](../assets/images/chapterII/c4-diagrams/deployment.png)
 
-### 2.6. Tactical-Level Domain-Driven Design
+## 2.6. Tactical-Level Domain-Driven Design
 
-#### 2.6.1. Bounded Context: Emergency & Alerting
+### 2.6.1. Bounded Context: Emergency & Alerting
 
 El Bounded Context **Emergency & Alerting** pertenece al Core Domain de Guardian+ y es el contexto central de la solución. Su responsabilidad consiste en disparar las alertas ante señales que comprometen la seguridad de un Fragile Citizen (caídas, activaciones de SOS, anomalías biométricas, violaciones de zona segura, inactividad prolongada y avisos de rutina), despacharlas hacia sus contactos de emergencia según la severidad, gobernar el escalamiento hasta obtener un reconocimiento efectivo y registrar la atención del incidente hasta su cierre.
 
@@ -3604,13 +3598,13 @@ com.healthify.guardian.platform.emergencyalerting/
     └── scheduling/
 ```
 
-##### 2.6.1.1. Domain Layer
+#### 2.6.1.1. Domain Layer
 
 Encapsula las reglas de reacción ante emergencias, las invariantes del ciclo de vida de alertas e incidentes y las políticas de despacho y escalamiento. La decisión de modelado central del contexto es la separación entre `Alert` e `Incident`: `Alert` es el agregado raíz que nace de una señal, se entrega a los contactos de emergencia (`AlertDelivery`) y recoge sus respuestas (`AlertResponse`); `Incident` solo existe cuando un integrante del Care Circle reconoce la alerta y asume la atención, registrando su estabilización y cierre. Por ello, una alerta origina como máximo un incidente, mientras que las alertas descartadas como falso positivo nunca llegan a generar uno.
 
 El escalamiento no se modela como un agregado independiente: se expresa mediante el nivel de destinatario (`RecipientLevel`) de cada entrega, el orden de prioridad de los `EmergencyContact` y el tiempo de espera configurado en `AlertSettings`. Toda operación sujeta a tiempo recibe el instante actual como parámetro (`Instant`) en lugar de leer el reloj, de modo que las ventanas de 20 s y 60 s se verifican de forma determinista.
 
-###### Aggregates
+##### Aggregates
 
 *   **Alert**
     *   Agregado raíz que representa la alerta disparada por una señal de riesgo sobre un Fragile Citizen, junto con sus entregas a los contactos de emergencia y las respuestas del Care Circle.
@@ -3714,7 +3708,7 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
         *   `disable(): void`
         *   `registerDeviceToken(String deviceToken): void`
 
-###### Entities
+##### Entities
 
 *   **AlertDelivery**
     *   Entidad interna de `Alert` que representa la entrega de la alerta a un destinatario concreto, por un canal y en un nivel de escalamiento determinado.
@@ -3738,7 +3732,7 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
         *   `notes: String`
     *   *Métodos:* `complete(String notes, Instant completedAt)`, `cancel()`, `isActive()`.
 
-###### Value Objects
+##### Value Objects
 
 *   **AlertSource:** Origen de la alerta (`sourceType: AlertSourceType`, `sourceReferenceId: UUID`). `sourceReferenceId` identifica el registro del contexto proveedor que originó la señal (lectura biométrica, zona segura, monitor de actividad, recordatorio, stock de medicación o dispositivo wearable). Método: `requiresConfirmationWindow()`, verdadero únicamente para `FALL_DETECTED`.
 *   **AlertSourceType:** Enum (`FALL_DETECTED`, `SOS_TRIGGERED`, `VITAL_SIGN_ANOMALY`, `SAFE_ZONE_VIOLATION`, `PROLONGED_INACTIVITY`, `REMINDER_REISSUED`, `MEDICATION_RESTOCK_SUGGESTED`). Métodos: `defaultSeverity()` (caída y SOS: `CRITICAL`; anomalía biométrica, zona segura e inactividad: `HIGH`; recordatorio y reabastecimiento: `MEDIUM`) e `isWearableReported()`.
@@ -3760,12 +3754,12 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   **CareRecipientProfileId:** Identificador de referencia inmutable al Fragile Citizen, gobernado por el Bounded Context Profile.
 *   **UserId:** Identificador de referencia inmutable a un integrante del Care Circle, gobernado por el Bounded Context IAM.
 
-###### Domain Services
+##### Domain Services
 
 *   **DispatchStrategyPolicy:** Determina el nivel inicial de despacho de una alerta confirmada a partir de su `Severity` y de `AlertSettings`. Por defecto toda alerta comienza en el contacto primario (`PRIMARY`) y escala por niveles, que es el comportamiento comprometido en US08 y US11. `CRITICAL` difunde de inmediato a todos los contactos activos (`BROADCAST`, US25) cuando la configuración del Fragile Citizen lo solicita (`broadcastCriticalImmediately`). `CRITICAL` y `HIGH` también difunden de inmediato si el escalamiento está deshabilitado. `MEDIUM` notifica únicamente al contacto primario. Método: `resolveInitialLevel(Severity severity, AlertSettings settings): RecipientLevel`.
 *   **EscalationPolicy:** Resuelve los destinatarios de cada nivel a partir de los `EmergencyContact` activos ordenados por prioridad (`PRIMARY`: primer contacto activo; `SECONDARY`: los siguientes; `BROADCAST`: todos), de modo que los huecos dejados por contactos desactivados no afectan. Los canales salen de `AlertChannelSetting`, con `IN_APP` como respaldo si el contacto no tiene ninguno habilitado, y se añade `SMS` en severidad `CRITICAL` y en el nivel `BROADCAST`. También decide el siguiente nivel cuando vence el `AckTimeout`: `PRIMARY → SECONDARY` (o `BROADCAST` si no hay contactos secundarios o el escalamiento está deshabilitado) y `SECONDARY → BROADCAST`; las alertas `MEDIUM` nunca escalan. Métodos: `resolveRecipients(RecipientLevel level, Severity severity, List<EmergencyContact> contacts, List<AlertChannelSetting> channelSettings): List<DeliveryTarget>` y `resolveNextLevel(Alert alert, AlertSettings settings, List<EmergencyContact> activeContacts): Optional<RecipientLevel>`.
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 *   `TriggerAlertCommand(UUID careRecipientProfileId, AlertSourceType sourceType, UUID sourceReferenceId, Instant triggeredAt)`
 *   `ConfirmAlertCommand(UUID alertId)`
@@ -3798,7 +3792,7 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   `GetEmergencyContactsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
 *   `GetAlertChannelSettingsByUserIdQuery(UserId userId)`
 
-###### Domain Events
+##### Domain Events
 
 *   `AlertTriggeredEvent`: Emitido al disparar una alerta, portando su origen, severidad y estado inicial.
 *   `AlertConfirmedEvent`: Emitido cuando vence la `FallConfirmationWindow` sin cancelación del Fragile Citizen, o de inmediato cuando el origen no requiere confirmación.
@@ -3818,7 +3812,7 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
 *   `EmergencyContactsChangedEvent`: Emitido al añadir, actualizar, reordenar, activar o desactivar un contacto de emergencia, indicando el tipo de cambio (`EmergencyContactChange`).
 *   `AlertChannelSettingChangedEvent`: Emitido al habilitar o deshabilitar un canal de notificación.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 *   **AlertRepository:**
     *   `save(Alert alert): Alert`
@@ -3849,11 +3843,11 @@ El escalamiento no se modela como un agregado independiente: se expresa mediante
     *   `findByUserIdIn(Collection<UserId> userIds): List<AlertChannelSetting>`
     *   `findByUserIdAndChannel(UserId userId, NotificationChannel channel): Optional<AlertChannelSetting>`
 
-##### 2.6.1.2. Interface Layer
+#### 2.6.1.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful para la app móvil y canaliza los eventos de integración provenientes de los contextos proveedores de señales. Los errores se devuelven con el formato común de la plataforma: `400` (validación), `404`, `409` (conflicto) y `422` (regla de negocio).
 
-###### REST Controllers
+##### REST Controllers
 
 *   **AlertsController** (`/api/v1/alerts`):
     *   `POST /`: Dispara una alerta reportada por el gateway del dispositivo wearable. Fuera del perfil de desarrollo solo acepta `FALL_DETECTED` y `SOS_TRIGGERED`; la hora de disparo la asigna el servidor y reintentar la misma señal devuelve la alerta activa existente.
@@ -3886,12 +3880,12 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
 *   **NotificationDeliveryWebhookController** (`/api/v1/webhooks/notification-deliveries`):
     *   `POST /`: Recibe la confirmación de entrega o fallo informada por el proveedor de notificaciones y responde `204`.
 
-###### Resources & Assemblers
+##### Resources & Assemblers
 
 *   *Resources (DTOs):* `TriggerAlertResource`, `AlertResource`, `AlertSummaryResource`, `AlertDeliveryResource`, `AlertResponseResource`, `AcknowledgeAlertResource`, `ClaimAlertResponseResource`, `CompleteAlertResponseResource`, `IncidentResource`, `StabilizeIncidentResource`, `CloseIncidentResource`, `AlertSettingsResource`, `UpdateAlertSettingsResource`, `EmergencyContactResource`, `AddEmergencyContactResource`, `ReorderEmergencyContactsResource`, `AlertChannelSettingResource`, `ConfigureAlertChannelResource`, `DeliveryStatusCallbackResource` y `PageResource` (compartido).
 *   *Assemblers (Mappers):* `TriggerAlertCommandFromResourceAssembler`, `AlertResourceFromEntityAssembler`, `AcknowledgeAlertCommandFromResourceAssembler`, `IncidentResourceFromEntityAssembler`, `AlertSettingsResourceFromEntityAssembler`, `UpdateAlertSettingsCommandFromResourceAssembler`, `EmergencyContactResourceFromEntityAssembler`, `AddEmergencyContactCommandFromResourceAssembler`, `AlertChannelSettingResourceFromEntityAssembler`, `ConfigureAlertChannelCommandFromResourceAssembler` y `RegisterDeliveryResultCommandFromResourceAssembler`.
 
-###### Integration Events & ACL Facade
+##### Integration Events & ACL Facade
 
 *   *Eventos consumidos (inbound):*
     *   `ProlongedInactivityDetectedIntegrationEvent`: Proveniente de `Care Routines & Wellness`; dispara una alerta `PROLONGED_INACTIVITY` con severidad `HIGH`. Mientras el evento no incluya el monitor de actividad, la referencia de origen es el propio Fragile Citizen, por lo que existe como máximo una alerta de inactividad activa por persona.
@@ -3903,11 +3897,11 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
     *   `IncidentClosedIntegrationEvent(incidentId, alertId, careRecipientProfileId, sourceType, notes, closedAt)`: Notifica el cierre de un incidente para su incorporación al historial de salud.
 *   `EmergencyAlertingContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos (`hasActiveAlerts(UUID careRecipientProfileId)`).
 
-##### 2.6.1.3. Application Layer
+#### 2.6.1.3. Application Layer
 
 Orquesta los flujos de casos de uso delegando las reglas de negocio en los agregados y servicios de dominio. Los Event Handlers y Schedulers son la materialización directa de las policies identificadas en el Design-Level EventStorming. Los servicios devuelven `Result<T, ApplicationError>` y obtienen la hora de un `Clock` inyectable.
 
-###### Command Services
+##### Command Services
 
 *   **AlertCommandService & AlertCommandServiceImpl:** Resuelve `TriggerAlertCommand` (o devuelve la alerta activa de la misma señal), `ConfirmAlertCommand`, `DismissAlertCommand`, `DispatchAlertCommand` (aplica `DispatchStrategyPolicy` y `EscalationPolicy`), `EscalateAlertCommand`, `BroadcastAlertCommand`, `RegisterDeliveryResultCommand`, `AcknowledgeAlertCommand`, `ClaimAlertResponseCommand`, `CompleteAlertResponseCommand` y `ResolveAlertCommand`. Cuando una operación pierde una carrera de concurrencia sobre la misma alerta (p. ej. un reconocimiento mientras se registra el resultado de una entrega o se escala), recarga la alerta y reevalúa la transición sobre el estado actualizado, de modo que deciden las reglas de negocio y no el orden de llegada. Tras guardar, devuelve el estado más reciente, ya que los handlers síncronos pueden haber avanzado la alerta (un SOS queda confirmado y despachado antes de responder).
 *   **IncidentCommandService & IncidentCommandServiceImpl:** `OpenIncidentCommand` (valida que la alerta esté reconocida y no tenga ya un incidente), `StabilizeIncidentCommand` y `CloseIncidentCommand`.
@@ -3915,7 +3909,7 @@ Orquesta los flujos de casos de uso delegando las reglas de negocio en los agreg
 *   **EmergencyContactCommandService & EmergencyContactCommandServiceImpl:** `AddEmergencyContactCommand` (valida la relación de cuidado mediante `ProfileContextAcl` e inserta en la prioridad solicitada), `ReorderEmergencyContactsCommand` y `DeactivateEmergencyContactCommand` (rechaza dejar al Fragile Citizen sin contactos activos). Todas mantienen prioridades consecutivas desde 1.
 *   **AlertChannelSettingCommandService & AlertChannelSettingCommandServiceImpl:** `ConfigureAlertChannelCommand`, que rechaza dejar al usuario sin canales habilitados.
 
-###### Query Services
+##### Query Services
 
 *   **AlertQueryService & AlertQueryServiceImpl:** Resuelve `GetAlertByIdQuery`, `GetActiveAlertsByCareRecipientProfileIdQuery`, `GetAlertHistoryByCareRecipientProfileIdQuery` y `GetPendingAlertsByRecipientUserIdQuery`.
 *   **IncidentQueryService & IncidentQueryServiceImpl:** Resuelve `GetIncidentByIdQuery` y `GetIncidentByAlertIdQuery`.
@@ -3923,7 +3917,7 @@ Orquesta los flujos de casos de uso delegando las reglas de negocio en los agreg
 *   **EmergencyContactQueryService & EmergencyContactQueryServiceImpl:** Resuelve `GetEmergencyContactsByCareRecipientProfileIdQuery`.
 *   **AlertChannelSettingQueryService & AlertChannelSettingQueryServiceImpl:** Resuelve `GetAlertChannelSettingsByUserIdQuery`.
 
-###### Event Handlers
+##### Event Handlers
 
 *   `AlertTriggeredEventHandler`: Si la alerta no requiere ventana de confirmación, despacha `ConfirmAlertCommand` de inmediato; en caso de caída, delega la espera en `FallConfirmationTimeoutScheduler`.
 *   `AlertConfirmedEventHandler`: Implementa la policy **Dispatch Strategy Selector** despachando `DispatchAlertCommand`.
@@ -3935,23 +3929,23 @@ Orquesta los flujos de casos de uso delegando las reglas de negocio en los agreg
 *   Ningún handler propaga errores hacia quien publicó el evento: los fallos se registran y la alerta permanece activa y visible.
 *   No se implementa un handler de reintento por fallo de entrega: toda entrega `CRITICAL` ya incluye `SMS` como respaldo, por lo que un reintento la duplicaría. El fallo queda registrado en la entrega (`FAILED`).
 
-###### Outbound Services
+##### Outbound Services
 
 *   `NotificationDispatcher`: Puerto de salida para el envío efectivo de las notificaciones, independiente del proveedor.
 *   `AlertNotificationSender`: Envía de forma asíncrona (executor dedicado) las entregas pendientes de un nivel, componiendo cada notificación con el canal, la dirección (teléfono o token), si puede ser audible según el modo silencioso y, en alertas `CRITICAL` y `SAFE_ZONE_VIOLATION`, la última ubicación conocida. Registra el resultado de cada entrega con `RegisterDeliveryResultCommand`.
 
-###### Application ACL Implementation
+##### Application ACL Implementation
 
 *   `EmergencyAlertingContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
 *   `ProfileContextAcl`: Verifica que un `UserId` mantenga una relación de cuidado activa con un `CareRecipientProfileId` y obtiene el nombre del Fragile Citizen para el contenido de la notificación.
 *   `MobilityContextAcl`: Consulta la última ubicación conocida del Fragile Citizen para incluirla en el contenido de la notificación; la ubicación no se persiste en este contexto.
 *   Mientras Profile y Mobility & Geofencing no estén implementados, ambos puertos se resuelven con implementaciones provisionales en infraestructura (`ProfileContextAclStub`, `MobilityContextAclStub`).
 
-##### 2.6.1.4. Infrastructure Layer
+#### 2.6.1.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, la integración con los proveedores de notificación y los componentes de programación temporal que sostienen las políticas de temporización del contexto.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 *   `AlertPersistenceEntity`: Mapea la tabla `alerts`. Columnas: `id`, `care_recipient_profile_id`, `source_type`, `source_reference_id`, `severity`, `status`, `triggered_at`, `confirmed_at`, `last_dispatched_at`, `acknowledged_at`, `acknowledged_by_user_id`, `resolved_at`, `version`, `created_at`, `updated_at`. `version` aplica bloqueo optimista. Mantiene relaciones `@OneToMany` hacia entregas y respuestas, cargadas junto con la alerta y ordenadas por su posición.
 *   `AlertDeliveryPersistenceEntity`: Mapea la tabla `alert_deliveries`. Columnas: `id`, `alert_id`, `dispatch_order`, `recipient_user_id`, `recipient_level`, `channel`, `delivery_status`, `sent_at`, `delivered_at`. `dispatch_order` se escribe una sola vez al insertar.
@@ -3963,48 +3957,48 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 *   `AlertSourceEmbeddable`: Agrupa `source_type` y `source_reference_id` dentro de `AlertPersistenceEntity`.
 *   *Converters:* `CareRecipientProfileIdPersistenceConverter` y `UserIdPersistenceConverter` traducen los identificadores de referencia hacia columnas `UUID`; los enums de dominio se almacenan como texto (`@Enumerated(EnumType.STRING)`), siguiendo la convención de la plataforma.
 
-###### Spring Data Repositories & Adapters
+##### Spring Data Repositories & Adapters
 
 *   `AlertPersistenceRepository` (con `JpaSpecificationExecutor` para combinar los filtros opcionales del historial), `IncidentPersistenceRepository`, `AlertSettingsPersistenceRepository`, `EmergencyContactPersistenceRepository` y `AlertChannelSettingPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
 *   `AlertRepositoryImpl`, `IncidentRepositoryImpl`, `AlertSettingsRepositoryImpl`, `EmergencyContactRepositoryImpl` y `AlertChannelSettingRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia y publican los eventos de dominio una vez persistido el agregado.
 
-###### Persistence Assemblers
+##### Persistence Assemblers
 
 *   `AlertPersistenceAssembler`: Traduce `AlertPersistenceEntity` y sus entregas y respuestas hacia los Value Objects (`AlertSource`, `Severity`, `AlertStatus`, `RecipientLevel`) y recompone el agregado `Alert`, conservando su versión y el orden de sus entregas.
 *   `IncidentPersistenceAssembler`, `AlertSettingsPersistenceAssembler`, `EmergencyContactPersistenceAssembler` y `AlertChannelSettingPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio.
 
-###### Notification Adapters
+##### Notification Adapters
 
 *   `RoutingNotificationDispatcher`: Implementa `NotificationDispatcher` delegando cada notificación en el adaptador de su canal (`ChannelNotificationAdapter`).
 *   `InAppNotificationAdapter`: Marca como enviadas las entregas del canal `IN_APP`, que la app móvil recupera mediante la consulta de alertas pendientes.
 *   `PushNotificationProviderAdapter`: Canal `PUSH`. Simulado hasta integrar Firebase Cloud Messaging; falla, igual que el proveedor real, si el usuario no registró un token.
 *   `SmsProviderAdapter`: Canal `SMS`, respaldo obligatorio en severidad `CRITICAL` y en el nivel `BROADCAST`. Simulado hasta integrar un proveedor SMS; falla si el contacto no tiene teléfono.
 
-###### Configuration
+##### Configuration
 
 *   `EmergencyAlertingConfiguration`: Expone el `Clock` del contexto y el executor dedicado al envío de notificaciones (`emergency-alerting.notifications.executor.pool-size`).
 
-###### Scheduling
+##### Scheduling
 
 *   `FallConfirmationTimeoutScheduler`: Cada segundo recupera las alertas en `PENDING_CONFIRMATION` cuya `FallConfirmationWindow` venció y despacha `ConfirmAlertCommand`, de modo que una caída confirmada llega al contacto primario dentro del presupuesto de 5 s de US08.
 *   `AckTimeoutEscalationScheduler`: Cada cinco segundos recupera las alertas en `TRIGGERED` o `ESCALATED` cuyo `primaryAckTimeout` venció desde el último despacho y aplica `EscalationPolicy.resolveNextLevel`: despacha `EscalateAlertCommand` hacia el nivel `SECONDARY` o `BroadcastAlertCommand` como último recurso (**Critical Broadcast Fallback**).
 
-##### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Emergency & Alerting Component Diagram](../assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
 
-##### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
 ![Emergency & Alerting Domain Class Diagram](../assets/images/chapterII/classDiagrams/EmergencyAlertingDomainClassDiagram.png)
 
-###### 2.6.1.6.2. Bounded Context Database Design Diagram
+##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
 ![Emergency & Alerting Database Design Diagram](../assets/images/chapterII/databaseDiagrams/emergency-alerting-db-diagram.png)
 
 
-#### 2.6.2. Bounded Context: Health Monitoring
+### 2.6.2. Bounded Context: Health Monitoring
 
 El Bounded Context **Health Monitoring** pertenece al Core Domain de Guardian+. Su responsabilidad consiste en administrar los dispositivos wearables (`WearableDevice`) asignados a un Care Recipient, capturar cada signo vital (`VitalSign`) contra un catálogo de tipos soportados (`VitalSignType`: frecuencia cardíaca, presión arterial, saturación de oxígeno, temperatura y frecuencia respiratoria), evaluarlo frente a un umbral clínico configurable por paciente y tipo (`VitalSignThreshold`) y compilar Health Reports periódicos.
 
@@ -4050,11 +4044,11 @@ com.healthify.guardian.platform.healthmonitoring/
     └── scheduling/
 ```
 
-##### 2.6.2.1. Domain Layer
+#### 2.6.2.1. Domain Layer
 
 Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y las reglas de evaluación clínica embebidas en los propios agregados y Value Objects. Se distinguen cinco agregados en lugar de dos: el Design-Level EventStorming separa explícitamente tres comandos sobre el mismo sticky de agregado (`Detect Vital Signs`, `Emit Vital Signs`, `Evaluate Vital Signs Thresholds`, todos etiquetados **VitalSign**), y el Database Design Diagram revela tres tablas propias del contexto (`wearable_devices`, `vital_sign_types`, `vital_sign_thresholds`) sin ningún agregado equivalente en el modelo original.
 
-###### Aggregates
+##### Aggregates
 
 *   **VitalSign**
     *   Agregado raíz que representa la captura de un único tipo de signo vital de un Care Recipient en un instante dado (una fila = una métrica, no un conjunto fijo de cinco).
@@ -4132,7 +4126,7 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
         *   `HealthReport(GenerateHealthReportCommand command, List<VitalSign> vitalSigns)`
         *   `isClinicallyStable(): boolean`
 
-###### Entities
+##### Entities
 
 *   **VitalSignSummary**
     *   Entidad interna que compone el reporte médico agregado (`HealthReport`). No tiene columna propia en `health_reports`: se serializa hacia el campo `summary` (TEXT) al persistir, junto con `recurrentAnomaliesCount`.
@@ -4144,7 +4138,7 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
         *   `maxValue: Double`
         *   `stabilityIndex: String`
 
-###### Value Objects
+##### Value Objects
 
 *   **VitalSignValue:** Encapsula el valor numérico crudo de una lectura (`value: BigDecimal`), sin acoplarse a una unidad o rango fijo; su interpretación clínica depende del `VitalSignType` y del `VitalSignThreshold` vigente.
 *   **VitalSignTypeCode:** Código único del catálogo (`value: String`, p. ej. `HR`, `BP_SYS`, `BP_DIA`, `SPO2`, `TEMP`, `RESP_RATE`).
@@ -4157,7 +4151,7 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
 *   **CareRecipientProfileId:** Identificador de referencia inmutable al paciente monitoreado, gobernado por el Bounded Context Profile.
 *   **UserId:** Identificador de referencia inmutable al usuario autenticado (IAM) que solicitó un `HealthReport`.
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 *   `DetectVitalSignsCommand(UUID wearableDeviceId, UUID careRecipientProfileId, UUID vitalSignTypeId, BigDecimal value, Instant measuredAt, Instant receivedAt)`
 *   `EmitVitalSignsCommand(UUID vitalSignId)`
@@ -4172,7 +4166,7 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
 *   `GetHealthReportByIdQuery(HealthReportId healthReportId)`
 *   `GetAllHealthReportsByCareRecipientProfileIdQuery(CareRecipientProfileId careRecipientProfileId)`
 
-###### Domain Events
+##### Domain Events
 
 *   `VitalSignsDetectedEvent`: Emitido tras validar e instanciar la captura de un signo vital (`Detect Vital Signs`).
 *   `VitalSignsEmittedEvent`: Emitido al publicar el signo vital para su consumo en vivo (`Emit Vital Signs`), habilitando la vista `Live Vital Signs View`.
@@ -4180,7 +4174,7 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
 *   `HealthReportGeneratedEvent`: Emitido tras la compilación de un reporte longitudinal.
 *   `WeeklySummaryCompiledEvent`: Emitido por la tarea programada dominical.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 *   **VitalSignRepository:**
     *   `save(VitalSign vitalSign): VitalSign`
@@ -4206,11 +4200,11 @@ Encapsula la lógica pura del dominio médico, las invariantes fisiológicas y l
     *   `findById(HealthReportId id): Optional<HealthReport>`
     *   `findByCareRecipientProfileId(CareRecipientProfileId careRecipientProfileId): List<HealthReport>`
 
-##### 2.6.2.2. Interface Layer
+#### 2.6.2.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
 
-###### REST Controllers
+##### REST Controllers
 
 *   **VitalSignsController** (`/api/v1/vital-signs`):
     *   `POST /`: Registra la detección de un signo vital (`DetectVitalSignsCommand`).
@@ -4234,22 +4228,22 @@ Traduce estímulos externos hacia comandos y consultas de aplicación, expone co
     *   `GET /{reportId}`: Recupera un reporte específico compilado.
     *   `GET /care-recipient/{careRecipientProfileId}`: Lista los reportes emitidos de un Care Recipient.
 
-###### Resources & Assemblers
+##### Resources & Assemblers
 
 *   *Resources (DTOs):* `DetectVitalSignsResource`, `VitalSignResource`, `LiveVitalSignsResource`, `DefineVitalSignThresholdResource`, `AssignWearableDeviceResource`, `WearableDeviceResource`, `VitalSignTypeResource`, `GenerateHealthReportResource`, `HealthReportResource`.
 *   *Assemblers (Mappers):* `DetectVitalSignsCommandFromResourceAssembler`, `VitalSignResourceFromEntityAssembler`, `LiveVitalSignsResourceFromEntityAssembler`, `DefineVitalSignThresholdCommandFromResourceAssembler`, `WearableDeviceResourceFromEntityAssembler`, `GenerateHealthReportCommandFromResourceAssembler`, `HealthReportResourceFromEntityAssembler`.
 
-###### Integration Events & ACL Facade
+##### Integration Events & ACL Facade
 
 *   `VitalSignAnomalyDetectedIntegrationEvent`: Evento publicado hacia el bus de mensajería cuando se confirman `requiredConsecutiveHits` transgresiones consecutivas del umbral vigente, consumido por `Emergency & Alerting`.
 *   `HealthReportCompiledIntegrationEvent`: Notifica a contextos de soporte la disponibilidad de un nuevo reporte estructurado.
 *   `HealthMonitoringContextFacade`: Interfaz expuesta para consultas sincrónicas de lectura segura entre contextos.
 
-##### 2.6.2.3. Application Layer
+#### 2.6.2.3. Application Layer
 
 Orquesta los flujos de casos de uso delegando las reglas clínicas en los agregados correspondientes. Los Event Handlers materializan el encadenamiento Detect → Emit → Evaluate distinguido en el Design-Level EventStorming.
 
-###### Command Services
+##### Command Services
 
 *   **VitalSignCommandService & VitalSignCommandServiceImpl:**
     *   `handle(DetectVitalSignsCommand command): Optional<VitalSign>`: Construye y persiste `VitalSign`.
@@ -4265,27 +4259,27 @@ Orquesta los flujos de casos de uso delegando las reglas clínicas en los agrega
     *   `handle(GenerateHealthReportCommand command): Optional<HealthReport>`: Extrae los `VitalSign` del período y construye y persiste el aggregate `HealthReport`.
     *   `handle(CompileWeeklySummaryCommand command): void`: Orquesta la síntesis semanal programada.
 
-###### Query Services
+##### Query Services
 
 *   **VitalSignQueryService & VitalSignQueryServiceImpl:** Resuelve `GetLiveVitalSignsByCareRecipientProfileIdQuery` y `GetVitalSignsByCareRecipientProfileIdAndPeriodQuery`.
 *   **HealthReportQueryService & HealthReportQueryServiceImpl:** Resuelve `GetHealthReportByIdQuery` y `GetAllHealthReportsByCareRecipientProfileIdQuery`.
 
-###### Event Handlers
+##### Event Handlers
 
 *   `VitalSignsDetectedEventHandler`: Reacciona a `VitalSignsDetectedEvent` y despacha `EmitVitalSignsCommand`.
 *   `VitalSignsEmittedEventHandler`: Reacciona a `VitalSignsEmittedEvent` y despacha `EvaluateVitalSignsThresholdsCommand`.
 *   `VitalSignsThresholdsEvaluatedEventHandler`: Implementa la policy **Regla de Tolerancia**. Si hubo desviación, consulta las `requiredConsecutiveHits - 1` lecturas inmediatamente anteriores del mismo Care Recipient y tipo en `VitalSignRepository`; si todas violan el umbral, despacha `VitalSignAnomalyDetectedIntegrationEvent`.
 *   `WeeklySummaryCompiledEventHandler`: Gestiona la indexación y caché de los resúmenes médicos compilados.
 
-###### Application ACL Implementation
+##### Application ACL Implementation
 
 *   `HealthMonitoringContextFacadeImpl`: Implementa la fachada de acceso público del contexto.
 
-##### 2.6.2.4. Infrastructure Layer
+#### 2.6.2.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, la comunicación con el broker MQTT y los componentes de programación temporal.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 *   `VitalSignPersistenceEntity`: Mapea la tabla `vital_sign_readings`. Columnas: `id`, `wearable_device_id`, `care_recipient_profile_id`, `vital_sign_type_id`, `value`, `measured_at`, `received_at`.
 *   `VitalSignThresholdPersistenceEntity`: Mapea la tabla `vital_sign_thresholds`. Columnas: `id`, `care_recipient_profile_id`, `vital_sign_type_id`, `minimum_value`, `maximum_value`, `required_consecutive_hits`, `active`, `created_at`, `updated_at`.
@@ -4293,33 +4287,33 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 *   `VitalSignTypePersistenceEntity`: Mapea la tabla `vital_sign_types`. Columnas: `id`, `code`, `name`, `unit`.
 *   `HealthReportPersistenceEntity`: Mapea la tabla `health_reports`. Columnas: `id`, `care_recipient_profile_id`, `generated_by_user_id`, `report_type`, `period_start`, `period_end`, `summary`, `generated_at`. El campo `summary` (TEXT) persiste la serialización de `summaries` y `recurrentAnomaliesCount`; no existe una tabla `report_summaries` separada.
 
-###### Spring Data Repositories & Adapters
+##### Spring Data Repositories & Adapters
 
 *   `VitalSignPersistenceRepository`, `VitalSignThresholdPersistenceRepository`, `WearableDevicePersistenceRepository`, `VitalSignTypePersistenceRepository` y `HealthReportPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
 *   `VitalSignRepositoryImpl`, `VitalSignThresholdRepositoryImpl`, `WearableDeviceRepositoryImpl`, `VitalSignTypeRepositoryImpl` y `HealthReportRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
 
-###### Persistence Assemblers
+##### Persistence Assemblers
 
 *   `VitalSignPersistenceAssembler`: Traduce los tipos primitivos de `VitalSignPersistenceEntity` hacia los Value Objects (`VitalSignValue`, `WearableDeviceId`, `VitalSignTypeId`) y recompone el agregado `VitalSign`.
 *   `VitalSignThresholdPersistenceAssembler`, `WearableDevicePersistenceAssembler`, `VitalSignTypePersistenceAssembler` y `HealthReportPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados de dominio; `HealthReportPersistenceAssembler` serializa/deserializa `summaries` y `recurrentAnomaliesCount` hacia y desde el campo `summary`.
 
-###### Scheduling
+##### Scheduling
 
 *   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
 
-##### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 ![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
-##### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 ![Health Monitoring Domain Class Diagram](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
-###### 2.6.2.6.2. Bounded Context Database Design Diagram
+##### 2.6.2.6.2. Bounded Context Database Design Diagram
 ![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 
-#### 2.6.3. Bounded Context: Subscriptions
+### 2.6.3. Bounded Context: Subscriptions
 
 El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar el ciclo de vida comercial de las suscripciones de la plataforma: la solicitud y activación de una suscripción, los cambios de plan, la renovación, la cancelación, la expiración y la determinación de los beneficios (entitlements) asociados al plan vigente.
 
@@ -4363,11 +4357,11 @@ com.healthify.guardian.platform.subscriptions/
     └── scheduling/
 ```
 
-##### 2.6.3.1. Domain Layer
+#### 2.6.3.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con el ciclo de vida de las suscripciones, la definición de planes comerciales, el procesamiento de pagos y la determinación de los entitlements habilitados para cada suscripción. Esta capa se mantiene independiente de proveedores de pago, tecnologías de persistencia y mecanismos externos de programación.
 
-###### Aggregates
+##### Aggregates
 
 **`Subscription`**
 
@@ -4472,7 +4466,7 @@ Representa un beneficio o capacidad comercial del catálogo de Guardian+, que pu
 - Un `Entitlement` puede formar parte de múltiples `Plan`, mediante la relación `plan_entitlements`.
 - Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`, mediante `SubscriptionEntitlement`.
 
-###### Entities
+##### Entities
 
 **`PaymentAttempt`**
 
@@ -4521,7 +4515,7 @@ Representa un beneficio efectivo habilitado para una suscripción durante un per
 - Cada `SubscriptionEntitlement` pertenece a un `EntitlementSet`.
 - Cada `SubscriptionEntitlement` referencia un `Entitlement` del catálogo mediante `EntitlementId`.
 
-###### Value Objects
+##### Value Objects
 
 **`SubscriptionId`**
 
@@ -4582,7 +4576,7 @@ Representa el intervalo temporal vigente de una suscripción.
 - `contains(date: Instant): Boolean`
 - `durationInDays(): Long`
 
-###### Enumerations
+##### Enumerations
 
 **`SubscriptionStatus`**
 
@@ -4622,7 +4616,7 @@ Representa el estado de un beneficio efectivo dentro de una suscripción.
 - `ACTIVE`
 - `REVOKED`
 
-###### Domain Policies
+##### Domain Policies
 
 **`SubscriptionActivationPolicy`**
 
@@ -4655,7 +4649,7 @@ Determina los beneficios efectivos que deben mantenerse habilitados como consecu
 - `afterCancellation(subscription: Subscription): Set<EntitlementId>`
 - `afterExpiration(subscription: Subscription): Set<EntitlementId>`
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 - `RequestSubscriptionCommand(UUID subscriberUserId, UUID planId)`
 - `ActivateSubscriptionCommand(UUID subscriptionId)`
@@ -4674,7 +4668,7 @@ Determina los beneficios efectivos que deben mantenerse habilitados como consecu
 - `GetCurrentPlanQuery(SubscriptionId subscriptionId)`
 - `GetAvailableEntitlementsQuery(SubscriptionId subscriptionId)`
 
-###### Domain Events
+##### Domain Events
 
 - `SubscriptionActivated`: Emitido cuando una suscripción cumple las condiciones de activación definidas por `SubscriptionActivationPolicy`.
 - `SubscriptionPlanChanged`: Emitido al aplicarse efectivamente un cambio de plan sobre una suscripción vigente.
@@ -4687,7 +4681,7 @@ Determina los beneficios efectivos que deben mantenerse habilitados como consecu
 - `RenewalPaymentFailed`: Emitido cuando el pago de renovación falla, sin extender el periodo vigente.
 - `EntitlementsUpdated`: Emitido cuando `EntitlementPolicy` determina un nuevo conjunto de beneficios efectivos y el `EntitlementSet` se sincroniza.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 **`SubscriptionRepository`**
 
@@ -4730,11 +4724,11 @@ Abstracción utilizada para recuperar y persistir los beneficios efectivos asoci
 
 El modelo de persistencia no replica de manera uno a uno todos los objetos del dominio. Los Value Objects se almacenan como parte de las entidades correspondientes, mientras que las asociaciones entre planes y entitlements y los beneficios efectivos de una suscripción se representan mediante las relaciones definidas en el modelo de base de datos.
 
-##### 2.6.3.2. Interface Layer
+#### 2.6.3.2. Interface Layer
 
 La Interface Layer expone las capacidades del Bounded Context **Subscriptions** hacia los clientes de Guardian+ y recibe mensajes provenientes de integraciones externas. Su responsabilidad es transformar solicitudes HTTP, notificaciones externas y señales temporales en comandos o consultas que serán procesados por la Application Layer, sin incorporar reglas de negocio ni acceder directamente a la persistencia.
 
-###### REST Controllers
+##### REST Controllers
 
 **`SubscriptionController`**
 
@@ -4769,7 +4763,7 @@ Recibe las notificaciones enviadas por el proveedor externo de pagos y las trans
 - delega el procesamiento de los resultados de pago a la Application Layer;
 - no modifica directamente el estado de `Subscription` ni de `PaymentAttempt`.
 
-###### Message Consumers
+##### Message Consumers
 
 **`BillingSchedulerConsumer`**
 
@@ -4786,13 +4780,13 @@ Recibe las señales temporales utilizadas para iniciar la evaluación de renovac
 - delega las evaluaciones correspondientes a la Application Layer;
 - no contiene reglas para decidir si una suscripción debe renovarse o expirar.
 
-##### 2.6.3.3. Application Layer
+#### 2.6.3.3. Application Layer
 
 La Application Layer coordina los casos de uso del Bounded Context **Subscriptions** utilizando los Aggregate Roots, Domain Policies y Repository Interfaces definidos en la Domain Layer. Esta capa organiza el flujo de cada operación, pero delega las reglas de negocio al modelo de dominio.
 
 Los handlers no mantienen estado de negocio propio. Sus principales dependencias corresponden a los repositories y políticas necesarias para recuperar los aggregates, ejecutar las reglas del dominio y persistir los cambios resultantes.
 
-###### Command Handlers
+##### Command Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4810,7 +4804,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `ExpireSubscriptionHandler` | Cambia una suscripción al estado expirado cuando se cumplen las condiciones del dominio. | `handle(ExpireSubscriptionCommand)` |
 | `UpdateEntitlementsHandler` | Actualiza los beneficios efectivos de una suscripción después de cambios relevantes en su ciclo de vida. | `handle(UpdateEntitlementsCommand)` |
 
-###### Query Handlers
+##### Query Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4818,7 +4812,7 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `GetCurrentPlanHandler` | Recupera el plan actualmente asociado a una suscripción. | `handle(GetCurrentPlanQuery)` |
 | `GetAvailableEntitlementsHandler` | Recupera los entitlements efectivos habilitados para una suscripción. | `handle(GetAvailableEntitlementsQuery)` |
 
-###### Event Handlers
+##### Event Handlers
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -4832,11 +4826,11 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 | `RenewalPaymentFailedHandler` | Procesa el fallo de un pago de renovación sin extender el periodo de la suscripción. | `handle(RenewalPaymentFailed)` |
 
 
-##### 2.6.3.4. Infrastructure Layer
+#### 2.6.3.4. Infrastructure Layer
 
 La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir el estado del Bounded Context **Subscriptions** y comunicarse con servicios externos. Esta capa implementa las abstracciones utilizadas por las capas internas sin incorporar reglas propias del dominio.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 *   `SubscriptionPersistenceEntity`: Mapea la tabla `subscriptions`. Columnas: `id`, `subscriber_user_id`, `plan_id`, `status`, `current_period_start`, `current_period_end`, `cancel_at_period_end`, `cancelled_at`, `created_at`, `updated_at`. Mantiene una relación `@OneToMany` hacia `PaymentPersistenceEntity`.
 *   `PaymentPersistenceEntity`: Mapea la tabla `payments`. Columnas: `id`, `subscription_id`, `payment_type`, `amount`, `currency`, `provider`, `provider_reference`, `status`, `paid_at`, `created_at`. Las columnas `amount` y `currency` componen el Value Object `Money`.
@@ -4846,7 +4840,7 @@ La Infrastructure Layer contiene las implementaciones técnicas necesarias para 
 *   `SubscriptionEntitlementPersistenceEntity`: Mapea la tabla `subscription_entitlements`. Columnas: `id`, `subscription_id`, `entitlement_id`, `status`, `effective_from`, `effective_to`. Las columnas `effective_from` y `effective_to` componen el Value Object `Period`.
 *   *Converters:* `SubscriptionStatusConverter`, `PaymentStatusConverter`, `PaymentTypeConverter`, `BillingCycleConverter` y `SubscriptionEntitlementStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
 
-###### Repository Implementations
+##### Repository Implementations
 
 **`SubscriptionRepositoryImpl`**
 
@@ -4892,7 +4886,7 @@ Implementa `EntitlementSetRepository` y gestiona la persistencia de los benefici
 - implementa `EntitlementSetRepository` y `EntitlementRepository`;
 - utiliza `entitlements` como catálogo y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
 
-###### External Service Adapters
+##### External Service Adapters
 
 **`PaymentProviderAdapter`**
 
@@ -4925,7 +4919,7 @@ Implementa el mecanismo técnico utilizado para generar las señales temporales 
 - genera las señales consumidas por `BillingSchedulerConsumer`;
 - no contiene las reglas que determinan si una suscripción debe renovarse o expirar.
 
-###### Event Publishing
+##### Event Publishing
 
 **`EventPublisher`**
 
@@ -4941,7 +4935,7 @@ Publica los eventos producidos por el ciclo de vida de las suscripciones para qu
 - publica cambios relevantes como activación, cambio de plan, cancelación, expiración y actualización de entitlements;
 - no modifica directamente el estado de los aggregates.
 
-##### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
 
@@ -4955,11 +4949,11 @@ El componente `Subscriptions REST Controllers` recibe las solicitudes relacionad
 
 Para las operaciones que requieren pagos, `Payment Application Service` utiliza `Stripe Adapter`, que encapsula la comunicación con el proveedor externo Stripe. Las confirmaciones o fallos de pago regresan hacia Guardian+ mediante el `Payment Webhook Controller`.
 
-##### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado como referencia para la implementación del contexto.
 
-###### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente diagrama UML representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
 
@@ -4971,7 +4965,7 @@ El siguiente diagrama UML representa los principales elementos que conforman la 
 
 Los estados principales de las suscripciones, los pagos y los beneficios efectivos se representan mediante las enumeraciones `SubscriptionStatus`, `PaymentStatus` y `SubscriptionEntitlementStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
 
-###### 2.6.3.6.2. Bounded Context Database Design Diagram
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
 El siguiente diagrama presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
 
@@ -4981,7 +4975,7 @@ La tabla `subscriptions` constituye el elemento central del modelo de persistenc
 
 Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
 
-#### 2.6.4. Bounded Context: Profile
+### 2.6.4. Bounded Context: Profile
 
 El Bounded Context **Profile** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado entre familiares o cuidadores y la persona a su cargo, y las preferencias de idioma, accesibilidad y notificaciones de la aplicación.
 
@@ -5021,11 +5015,11 @@ com.healthify.guardian.platform.profile/
             └── repositories/
 ```
 
-##### 2.6.4.1. Domain Layer
+#### 2.6.4.1. Domain Layer
 
 La Domain Layer concentra las reglas de negocio relacionadas con la gestión de perfiles de usuario, personas bajo cuidado, relaciones de cuidado y preferencias de aplicación. Esta capa mantiene las invariantes del contexto Profile y permanece independiente de los mecanismos de persistencia y de autenticación externos.
 
-###### Aggregates
+##### Aggregates
 
 **`UserProfile`**
 
@@ -5117,7 +5111,7 @@ Las preferencias visuales iniciales utilizan español de Latinoamérica (`es-419
 
 La actualización de idioma y accesibilidad se realiza como una única operación de dominio para mantener de forma consistente las preferencias asociadas a la experiencia de uso.
 
-###### Value Objects
+##### Value Objects
 
 **`UserProfileId`**
 
@@ -5161,7 +5155,7 @@ A diferencia de los identificadores pertenecientes al propio contexto, `UserId` 
 
 `UserPreferences` no posee un Value Object `UserPreferencesId`; su identidad dentro del dominio se encuentra asociada directamente a `UserId`.
 
-###### Enumerations
+##### Enumerations
 
 **`RelationshipType`**
 
@@ -5196,7 +5190,7 @@ Representa las opciones de tamaño de texto disponibles en las preferencias de a
 
 El tamaño de fuente se maneja como una enumeración de opciones soportadas y no como un valor decimal arbitrario.
 
-###### Domain Policies
+##### Domain Policies
 
 **`CareRelationshipPolicy`**
 
@@ -5213,7 +5207,7 @@ La policy utiliza `CareRelationshipRepository` para comprobar que no exista prev
 
 `validateRelationshipType(...)` garantiza que el tipo de relación proporcionado sea válido dentro del dominio.
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 Los comandos representan intenciones de modificación del estado del dominio, mientras que las queries permiten recuperar información sin modificar los Aggregate Roots.
 
@@ -5257,7 +5251,7 @@ Los comandos representan intenciones de modificación del estado del dominio, mi
 
 La separación entre commands y queries permite que la Application Layer coordine las operaciones del contexto manteniendo las reglas de negocio dentro de los Aggregate Roots y Domain Services.
 
-###### Domain Events
+##### Domain Events
 
 El Bounded Context Profile registra eventos de dominio cuando ocurren cambios relevantes sobre sus aggregates.
 
@@ -5281,7 +5275,7 @@ Los repositorios JPA recuperan los eventos registrados por los Aggregate Roots d
 
 La implementación actual no define Event Handler classes específicas dentro del Bounded Context Profile; la publicación de los eventos queda preparada para futuras integraciones con otros contextos.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 **`UserProfileRepository`**
 
@@ -5333,13 +5327,13 @@ Abstracción utilizada para recuperar y persistir las preferencias asociadas a c
 
 El modelo de dominio utiliza identificadores tipados para los elementos que pertenecen a Profile y mantiene `UserId` como referencia externa. En la implementación actual no existe `UserPreferencesId`, ya que las preferencias se encuentran asociadas directamente al usuario.
 
-##### 2.6.4.2. Interface Layer
+#### 2.6.4.2. Interface Layer
 
 La Interface Layer expone las capacidades del Bounded Context **Profile** mediante una API REST. Esta capa recibe las solicitudes HTTP, valida los recursos de entrada y los transforma en comandos o consultas que son delegados a la Application Layer.
 
 Los controllers no contienen reglas de negocio ni acceden directamente a la persistencia. Su responsabilidad consiste en actuar como punto de entrada hacia los casos de uso del contexto.
 
-###### REST Controllers
+##### REST Controllers
 
 **`UserProfilesController`**
 
@@ -5483,7 +5477,7 @@ Actualiza conjuntamente el idioma y las preferencias de accesibilidad: alto cont
 - no modifica directamente la tabla `user_preferences`.
 
 
-###### Resources & Assemblers
+##### Resources & Assemblers
 
 La Interface Layer utiliza recursos REST para representar la información recibida y enviada por la API.
 
@@ -5510,7 +5504,7 @@ Los Transform Assemblers convierten estos recursos en los Commands correspondien
 
 Esta separación evita que las clases propias del dominio sean expuestas directamente a través de la interfaz HTTP.
 
-##### 2.6.4.3. Application Layer
+#### 2.6.4.3. Application Layer
 
 La Application Layer coordina los casos de uso del Bounded Context **Profile** y actúa como intermediaria entre la Interface Layer y el modelo de dominio.
 
@@ -5518,7 +5512,7 @@ Esta capa recibe Commands y Queries provenientes de los controllers, recupera lo
 
 La implementación se organiza mediante Command Services para operaciones que modifican el estado del dominio y Query Services para operaciones de consulta.
 
-###### Command Services
+##### Command Services
 
 **`UserProfileCommandService`**
 
@@ -5584,7 +5578,7 @@ Cuando todavía no existen preferencias para un usuario, la actualización de pr
 La operación de idioma y accesibilidad actúa sobre preferencias previamente existentes.
 
 
-###### Query Services
+##### Query Services
 
 Los Query Services recuperan información del dominio sin modificar el estado de los Aggregate Roots.
 
@@ -5622,7 +5616,7 @@ Su implementación `UserPreferencesQueryServiceImpl` recupera las preferencias a
 La consulta se realiza mediante `UserPreferencesRepository`.
 
 
-###### Application Error Handling
+##### Application Error Handling
 
 Los Command Services utilizan la abstracción compartida `Result` para representar el resultado de las operaciones de aplicación.
 
@@ -5639,7 +5633,7 @@ Cuando una operación finaliza correctamente se devuelve un resultado exitoso. E
 Los mensajes de error son resueltos mediante `MessageResolver`, permitiendo mantener soporte de internacionalización para los mensajes definidos por Profile.
 
 
-###### Domain Events in the Application Flow
+##### Domain Events in the Application Flow
 
 Los Aggregate Roots de Profile registran Domain Events cuando ocurre un cambio relevante en su estado.
 
@@ -5650,7 +5644,7 @@ En el estado actual del backend no existen clases específicas de tipo `EventHan
 La publicación de eventos queda disponible para permitir futuras integraciones con otros Bounded Contexts conforme avance la implementación del backend.
 
 
-##### 2.6.4.4. Infrastructure Layer
+#### 2.6.4.4. Infrastructure Layer
 
 La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir y recuperar la información administrada por el Bounded Context **Profile**.
 
@@ -5658,7 +5652,7 @@ Esta capa implementa las Repository Interfaces definidas por el dominio utilizan
 
 La implementación mantiene separados los Aggregate Roots del modelo de dominio de las entidades utilizadas para representar la información en la base de datos.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 La persistencia del contexto se organiza alrededor de cuatro entidades principales, correspondientes a los cuatro Aggregate Roots implementados.
 
@@ -5764,7 +5758,7 @@ La propiedad `reduce_motion_enabled` corresponde a la preferencia de accesibilid
 Los valores de `language` y `font_scale` se corresponden con las enumeraciones definidas por el dominio.
 
 
-###### Persistence Converters
+##### Persistence Converters
 
 La implementación actual utiliza converters específicos cuando es necesario traducir Value Objects del dominio hacia representaciones compatibles con JPA.
 
@@ -5781,7 +5775,7 @@ Convierte entre `CareRecipientProfileId` y su representación `UUID`.
 Las enumeraciones como `RelationshipType`, `CareRelationshipStatus`, `Language` y `FontScale` no poseen clases converter independientes dentro de la implementación actual.
 
 
-###### Persistence Assemblers
+##### Persistence Assemblers
 
 Los Persistence Assemblers mantienen separadas las estructuras del dominio y las estructuras utilizadas por JPA.
 
@@ -5800,7 +5794,7 @@ Cada assembler proporciona las transformaciones necesarias entre el Aggregate Ro
 De esta manera, las clases del dominio no dependen directamente de las anotaciones ni de las entidades utilizadas por JPA.
 
 
-###### Repository Implementations
+##### Repository Implementations
 
 **`UserProfileRepositoryImpl`**
 
@@ -5866,7 +5860,7 @@ Implementa `UserPreferencesRepository` y administra las preferencias asociadas a
 - transformar entre `UserPreferences` y `UserPreferencesPersistenceEntity` mediante `UserPreferencesPersistenceAssembler`.
 
 
-###### Spring Data JPA Repositories
+##### Spring Data JPA Repositories
 
 Las Repository Implementations utilizan interfaces de Spring Data JPA para realizar las operaciones sobre la base de datos.
 
@@ -5883,7 +5877,7 @@ Se encuentran implementadas:
 Estas interfaces contienen las consultas necesarias para localizar los registros utilizados por las Repository Implementations sin exponer directamente detalles de persistencia hacia la Domain Layer.
 
 
-###### Domain Event Publishing
+##### Domain Event Publishing
 
 Los Aggregate Roots registran Domain Events cuando ocurre una modificación relevante de su estado.
 
@@ -5894,7 +5888,7 @@ Este mecanismo permite mantener desacoplada la generación de eventos del modelo
 Actualmente no existe una clase independiente denominada `ProfileEventPublisher`; la publicación se realiza desde las implementaciones de los repositorios mediante la infraestructura de eventos de Spring.
 
 
-###### Profile Configuration
+##### Profile Configuration
 
 `ProfileConfiguration` centraliza la configuración técnica necesaria para algunos componentes del Bounded Context.
 
@@ -5907,7 +5901,7 @@ Entre sus responsabilidades se encuentran:
 Esto permite utilizar dichas dependencias mediante inyección sin introducir componentes de infraestructura directamente dentro del modelo de dominio.
 
 
-###### Integration with IAM
+##### Integration with IAM
 
 Profile mantiene `UserId` como referencia externa hacia la identidad del usuario, pero no almacena contraseñas, tokens ni información de autenticación.
 
@@ -5917,7 +5911,7 @@ La validación directa de referencias contra IAM queda pendiente para una etapa 
 
 Esta decisión mantiene preparado el diseño para una futura integración sin incorporar actualmente dependencias hacia componentes inexistentes.
 
-##### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 El siguiente diagrama presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
 
@@ -5935,11 +5929,11 @@ La **Infrastructure Layer** implementada actualmente incluye los Repository Adap
 
 De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
 
-##### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
 En esta sección se documenta la estructura interna del Bounded Context **Profile** a nivel de código. Los diagramas se mantienen como referencia del diseño planteado para el contexto y se complementan con la descripción de los elementos efectivamente implementados durante el presente Sprint.
 
-###### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente diagrama UML presenta la organización general de la Domain Layer de **Profile**.
 
@@ -5950,7 +5944,7 @@ El siguiente diagrama UML presenta la organización general de la Domain Layer d
 El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, `CareRelationshipId`, `UserPreferencesId`, `FontScale` y `UserId` —este último como referencia a la identidad administrada por IAM— para representar conceptos que poseen validaciones y comportamiento propios.
 
 
-###### 2.6.4.6.2. Bounded Context Database Design Diagram
+##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
 El siguiente diagrama representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
 
@@ -5960,7 +5954,7 @@ El siguiente diagrama representa el diseño de persistencia correspondiente al B
 
 La relación entre usuarios y personas bajo cuidado se representa mediante `care_relationships`, permitiendo establecer asociaciones entre familiares o cuidadores y los perfiles correspondientes. Finalmente, `user_preferences` mantiene las configuraciones de idioma, accesibilidad y experiencia de uso asociadas a cada usuario.
 
-#### 2.6.5. Bounded Context: Care Routines & Wellness
+### 2.6.5. Bounded Context: Care Routines & Wellness
 
 El Bounded Context **Care Routines & Wellness** pertenece al Supporting Domain de Guardian+. Su responsabilidad consiste en asegurar que las rutinas de bienestar de la persona bajo cuidado se cumplan: recordatorios de medicación, citas médicas, actividad física e hidratación; registro y clasificación de ciclos de sueño; detección de inactividad física prolongada; y control del stock de medicamentos con sugerencia de reabastecimiento.
 
@@ -6005,11 +5999,11 @@ com.healthify.guardian.platform.careroutineswellness/
     └── scheduling/
 ```
 
-##### 2.6.5.1. Domain Layer
+#### 2.6.5.1. Domain Layer
 
 Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vida de cada recordatorio y las decisiones de programación temporal embebidas en los propios agregados, Value Objects y Domain Services.
 
-###### Aggregates
+##### Aggregates
 
 *   **Reminder**
     *   Agregado raíz principal que representa un recordatorio individual de rutina (medicación, cita médica, actividad física o hidratación) y su ciclo de vida completo.
@@ -6069,7 +6063,7 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
         *   `confirmAcquisition(Integer dosesAdded): void`
         *   `remainingDaysOfSupply(): Decimal`
 
-###### Value Objects
+##### Value Objects
 
 *   **ReminderId:** Identificador inmutable de un recordatorio.
 *   **SleepCycleRecordId:** Identificador inmutable de un ciclo de sueño registrado.
@@ -6083,7 +6077,7 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
 *   **IssuanceOutcome:** Enum (`ISSUE`, `SUPPRESS`). Resultado de `ReminderIssuancePolicy` que el aggregate `Reminder` aplica en `issue()`.
 *   **SleepWindow:** Intervalo horario inmutable configurado para la persona bajo cuidado, utilizado por `ReminderIssuancePolicy` para determinar la supresión de recordatorios de hidratación.
 
-###### Domain Services
+##### Domain Services
 
 *   **ReminderIssuancePolicy:** Evalúa si un recordatorio debe emitirse normalmente o suprimirse al cumplirse su horario programado, considerando el tipo de recordatorio y la ventana de sueño configurada.
     *   `determineIssuanceOutcome(Reminder reminder, Instant currentTime, SleepWindow sleepWindow): IssuanceOutcome`
@@ -6092,7 +6086,7 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
 *   **MedicationStockPolicy:** Determina si el balance vigente de un control de stock amerita sugerir reabastecimiento.
     *   `requiresRestockSuggestion(MedicationStock stock): Boolean`
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 *   `ScheduleReminderCommand(UUID personUnderCareId, ReminderType type, Instant scheduledTime)`
 *   `IssueReminderCommand(UUID reminderId)`
@@ -6108,7 +6102,7 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
 *   `GetRemindersByPersonUnderCareIdQuery(PersonUnderCareId personUnderCareId)`
 *   `GetMedicationStockStatusQuery(PersonUnderCareId personUnderCareId)`
 
-###### Domain Events
+##### Domain Events
 
 *   `ReminderScheduledEvent`: Emitido al programarse un nuevo recordatorio.
 *   `ReminderIssuedEvent`: Emitido cuando `ReminderIssuancePolicy` determina que el recordatorio debe emitirse.
@@ -6122,7 +6116,7 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
 *   `MedicationRestockSuggestedEvent`: Emitido cuando `MedicationStockPolicy` determina que corresponde sugerir reabastecimiento.
 *   `MedicationStockUpdatedEvent`: Emitido tras confirmarse la adquisición de un nuevo envase.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 *   **ReminderRepository:**
     *   `findById(ReminderId id): Optional<Reminder>`
@@ -6139,11 +6133,11 @@ Encapsula la lógica pura de rutina y bienestar, las invariantes de ciclo de vid
     *   `findByPersonUnderCareId(PersonUnderCareId personUnderCareId): Optional<MedicationStock>`
     *   `save(MedicationStock stock): MedicationStock`
 
-##### 2.6.5.2. Interface Layer
+#### 2.6.5.2. Interface Layer
 
 Traduce estímulos externos (solicitudes HTTP de cuidadores/familiares y telemetría del dispositivo wearable) hacia comandos y consultas de aplicación, expone contratos HTTP RESTful y canaliza eventos de integración.
 
-###### REST Controllers
+##### REST Controllers
 
 *   **RemindersController** (`/api/v1/reminders`):
     *   `POST /`: Programa un nuevo recordatorio.
@@ -6154,27 +6148,27 @@ Traduce estímulos externos (solicitudes HTTP de cuidadores/familiares y telemet
     *   `PUT /{stockId}/acquisition`: Confirma la adquisición de un nuevo envase de medicamento.
     *   `GET /citizen/{personUnderCareId}`: Consulta el estado vigente del stock.
 
-###### Message Consumers
+##### Message Consumers
 
 *   **ActivityTelemetryConsumer:** Recibe la telemetría de movimiento e inactividad enviada por el dispositivo wearable y la traduce en `RecordProlongedInactivityCommand` o `RecordActivityResumedCommand`.
 *   **SleepTelemetryConsumer:** Recibe la telemetría de ciclos de sueño enviada por el dispositivo wearable y la traduce en `RecordSleepCycleCommand`.
 
-###### Resources & Assemblers
+##### Resources & Assemblers
 
 *   *Resources (DTOs):* `ScheduleReminderResource`, `ReminderResource`, `ConfirmMedicationAcquisitionResource`, `MedicationStockResource`.
 *   *Assemblers (Mappers):* `ScheduleReminderCommandFromResourceAssembler`, `ReminderResourceFromEntityAssembler`, `ConfirmMedicationAcquisitionCommandFromResourceAssembler`, `MedicationStockResourceFromEntityAssembler`.
 
-###### Integration Events
+##### Integration Events
 
 *   `ProlongedInactivityDetectedIntegrationEvent`: Publicado cuando se detecta inactividad prolongada, consumido por `Emergency & Alerting`.
 *   `ReminderReissuedIntegrationEvent`: Publicado cuando un recordatorio de medicación es reemitido, consumido por `Emergency & Alerting` para notificar al cuidador.
 *   `MedicationRestockSuggestedIntegrationEvent`: Publicado cuando se sugiere un reabastecimiento, consumido por `Emergency & Alerting` para notificar al familiar.
 
-##### 2.6.5.3. Application Layer
+#### 2.6.5.3. Application Layer
 
 Orquesta los flujos de casos de uso de rutina y bienestar delegando las reglas de negocio en los agregados y Domain Services correspondientes.
 
-###### Command Services
+##### Command Services
 
 *   **ReminderCommandService & ReminderCommandServiceImpl:**
     *   `handle(ScheduleReminderCommand command): Result<Reminder, ApplicationError>`: Construye y persiste `Reminder` en estado `SCHEDULED`.
@@ -6191,30 +6185,30 @@ Orquesta los flujos de casos de uso de rutina y bienestar delegando las reglas d
     *   `handle(SuggestMedicationRestockCommand command): Result<Void, ApplicationError>`: Evalúa `MedicationStockPolicy` y registra la sugerencia.
     *   `handle(ConfirmMedicationAcquisitionCommand command): Result<MedicationStock, ApplicationError>`: Actualiza el balance tras la adquisición.
 
-###### Query Services
+##### Query Services
 
 *   **ReminderQueryService & ReminderQueryServiceImpl:** Resuelve `GetReminderStatusByIdQuery` y `GetRemindersByPersonUnderCareIdQuery`.
 *   **MedicationStockQueryService & MedicationStockQueryServiceImpl:** Resuelve `GetMedicationStockStatusQuery`.
 
-###### Event Handlers
+##### Event Handlers
 
 *   `ReminderConfirmedEventHandler`: Reacciona a `ReminderConfirmedEvent` cuando `type == MEDICATION`, registrando el consumo correspondiente en `MedicationStock` y evaluando `MedicationStockPolicy`.
 *   `ProlongedInactivityDetectedEventHandler`: Reacciona a `ProlongedInactivityDetectedEvent` (interno) republicándolo como `ProlongedInactivityDetectedIntegrationEvent` hacia `Emergency & Alerting`.
 *   `ReminderReissuedEventHandler`: Reacciona a `ReminderReissuedEvent` (interno) republicándolo como `ReminderReissuedIntegrationEvent` hacia `Emergency & Alerting`.
 *   `MedicationRestockSuggestedEventHandler`: Reacciona a `MedicationRestockSuggestedEvent` (interno) republicándolo como `MedicationRestockSuggestedIntegrationEvent` hacia `Emergency & Alerting`.
 
-##### 2.6.5.4. Infrastructure Layer
+#### 2.6.5.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, la comunicación con el broker MQTT del dispositivo wearable y los componentes de programación temporal que traducen las políticas de tiempo del dominio.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 *   `ReminderPersistenceEntity`: Mapea la tabla `reminders`. Columnas: `id`, `person_under_care_id`, `type`, `scheduled_time`, `issued_at`, `status`, `reissue_count`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
 *   `SleepCycleRecordPersistenceEntity`: Mapea la tabla `sleep_cycle_records`. Columnas: `id`, `person_under_care_id`, `start_time`, `end_time`, `interruption_count`, `classification`.
 *   `ActivityMonitorPersistenceEntity`: Mapea la tabla `activity_monitors`. Columnas: `id`, `person_under_care_id`, `status`, `inactivity_since`.
 *   `MedicationStockPersistenceEntity`: Mapea la tabla `medication_stocks`. Columnas: `id`, `person_under_care_id`, `remaining_doses`, `daily_consumption`, `last_acquisition_date`.
 
-###### Spring Data Repositories & Adapters
+##### Spring Data Repositories & Adapters
 
 *   `ReminderPersistenceRepository`: Extiende `JpaRepository<ReminderPersistenceEntity, UUID>`.
 *   `SleepCycleRecordPersistenceRepository`: Extiende `JpaRepository<SleepCycleRecordPersistenceEntity, UUID>`.
@@ -6223,31 +6217,31 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 *   `ReminderRepositoryImpl`: Implementa `ReminderRepository` usando `ReminderPersistenceAssembler` para traducir bidireccionalmente entre entidad JPA y aggregate.
 *   `SleepCycleRecordRepositoryImpl`, `ActivityMonitorRepositoryImpl`, `MedicationStockRepositoryImpl`: Implementan sus respectivos puertos de dominio siguiendo el mismo patrón.
 
-###### Persistence Assemblers
+##### Persistence Assemblers
 
 *   `ReminderPersistenceAssembler`: Traduce los tipos primitivos de `ReminderPersistenceEntity` hacia los Value Objects del aggregate (`ReminderType`, `ReminderStatus`, etc.) y recompone `Reminder`.
 *   `SleepCycleRecordPersistenceAssembler`, `ActivityMonitorPersistenceAssembler`, `MedicationStockPersistenceAssembler`: Traducen entre su entidad JPA correspondiente y su aggregate de dominio.
 
-###### Messaging
+##### Messaging
 
 *   `WearableTelemetryBrokerAdapter`: Implementa la conexión técnica con el broker MQTT, suscribiéndose a los tópicos de telemetría de actividad/inactividad y de sueño, y entregando los mensajes a `ActivityTelemetryConsumer` y `SleepTelemetryConsumer` respectivamente.
 
-###### Scheduling
+##### Scheduling
 
 *   `ReminderDueCheckScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 30000)` que consulta `ReminderRepository.findDueForIssuance(Instant.now())` e invoca `IssueReminderCommand` por cada resultado.
 *   `ReminderReissueScheduler`: Tarea periódica anotada con `@Scheduled(fixedDelay = 60000)` que consulta `ReminderRepository.findOverdueForReissue(Instant.now())` e invoca `ReissueReminderCommand` por cada resultado.
 
-##### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Care Routines & Wellness Component Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
 
-##### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
 ![Care Routines & Wellness Domain Class Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
-###### 2.6.5.6.2. Bounded Context Database Design Diagram
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 El siguiente diagrama presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
 
@@ -6255,7 +6249,7 @@ Las columnas `person_under_care_id` y `wearable_device_id` referencian, respecti
 
 ![Care Routines & Wellness Database Design Diagram](../assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
-#### 2.6.6. Bounded Context: Mobility & Geofencing
+### 2.6.6. Bounded Context: Mobility & Geofencing
 
 El Bounded Context **Mobility & Geofencing** pertenece al Supporting Domain de Guardian+. Su responsabilidad consiste en gestionar el seguimiento de ubicación de un Fragile Citizen, administrar las Safe Zones configuradas y evaluar las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una Safe Zone Violation.
 
@@ -6298,11 +6292,11 @@ com.healthify.guardian.platform.mobilitygeofencing/
     └── publisher/
 ```
 
-##### 2.6.6.1. Domain Layer
+#### 2.6.6.1. Domain Layer
 
 Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de configuración de zonas seguras y la evaluación de las ubicaciones recibidas desde el dispositivo wearable. El dominio determina si una ubicación se encuentra dentro o fuera de una SafeZone y registra una violación cuando corresponde, sin asumir responsabilidades propias de Emergency & Alerting, como la generación de alertas, escalamiento o gestión de incidentes.
 
-###### Aggregates
+##### Aggregates
 
 *   **SafeZone**
     *   Agregado raíz que representa una zona geográfica segura configurada para un Fragile Citizen.
@@ -6339,7 +6333,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   getCurrentLocation(): Location
         *   getCurrentStatus(): LocationStatus
 
-###### Entities
+##### Entities
 
 *   **ZoneViolation**
     *   Entidad que representa el registro de una ubicación que fue determinada como externa a una SafeZone activa.
@@ -6355,7 +6349,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   getLocation(): Location
         *   getDetectedAt(): Instant
 
-###### Value Objects
+##### Value Objects
 
 *   **Coordinates:** Encapsula las coordenadas geográficas de una ubicación (latitude: Double, longitude: Double). Invariante: latitud entre $-90.0$ y $90.0$, longitud entre $-180.0$ y $180.0$. Método: isValid().
 *   **Location:** Representa una ubicación capturada por el wearable (coordinates: Coordinates, recordedAt: Instant, accuracyInMeters: Double). Es inmutable y representa el valor recibido para un instante determinado.
@@ -6367,7 +6361,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 *   **ZoneViolationId:** Identificador inmutable de una violación de zona, basado en UUID.
 *   **FragileCitizenId:** Identificador de referencia inmutable del Fragile Citizen monitoreado.
 
-###### Domain Services
+##### Domain Services
 
 *   **GeofenceEvaluationService**
     *   Servicio de dominio encargado de evaluar una ubicación contra los límites de una SafeZone.
@@ -6376,7 +6370,7 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
         *   evaluate(Location location, SafeZoneBoundary boundary): LocationStatus
         *   isInside(Location location, SafeZoneBoundary boundary): boolean
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 *   CreateSafeZoneCommand(UUID fragileCitizenId, String name, Coordinates center, Double radiusInMeters)
 *   UpdateSafeZoneCommand(UUID safeZoneId, String name, Coordinates center, Double radiusInMeters)
@@ -6389,14 +6383,14 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
 *   GetActiveSafeZoneQuery(FragileCitizenId fragileCitizenId)
 *   GetLocationStatusQuery(FragileCitizenId fragileCitizenId)
 
-###### Domain Events
+##### Domain Events
 
 *   SafeZoneCreatedEvent: Emitido después de crear correctamente una nueva SafeZone.
 *   LocationReceivedEvent: Emitido después de validar y registrar una ubicación proveniente del wearable.
 *   LocationStatusUpdatedEvent: Emitido después de evaluar una ubicación y determinar su estado respecto a la SafeZone.
 *   SafeZoneViolationDetectedEvent: Emitido cuando una ubicación válida es evaluada como OUTSIDE_SAFE_ZONE. Este evento puede ser publicado hacia Emergency & Alerting, que se encarga de iniciar el flujo correspondiente de alertamiento.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 *   **SafeZoneRepository:**
     *   save(SafeZone safeZone): SafeZone
@@ -6412,11 +6406,11 @@ Encapsula la lógica pura del dominio de movilidad y geocercas, las reglas de co
     *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
     *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
 
-##### 2.6.6.2. Interface Layer
+#### 2.6.6.2. Interface Layer
 
 Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes externos y sistemas con los que se integra. Esta capa transforma las solicitudes externas en comandos del dominio y adapta los eventos de dominio para su publicación hacia otros contextos, sin contener reglas propias de negocio.
 
-###### REST Controllers
+##### REST Controllers
 
 *   **SafeZoneController**
     *   Expone las operaciones relacionadas con la administración de SafeZone.
@@ -6436,7 +6430,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
         *   `GET /api/v1/location-tracking/{fragileCitizenId}/status`
         *   `GET /api/v1/location-tracking/{fragileCitizenId}/history`
 
-###### Inbound Adapters (Wearable Integration)
+##### Inbound Adapters (Wearable Integration)
 
 *   **WearableLocationConsumer**
     *   Adaptador de entrada responsable de recibir las ubicaciones enviadas por el Wearable Device.
@@ -6455,7 +6449,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
         *   accuracyInMeters: Double
         *   recordedAt: Instant
 
-###### REST Resources
+##### REST Resources
 
 *   **SafeZoneResource**
     *   Representa la respuesta HTTP asociada a una SafeZone.
@@ -6487,7 +6481,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
         *   status: String
         *   recordedAt: Instant
 
-###### Transformers & Assemblers
+##### Transformers & Assemblers
 
 *   **SafeZoneResourceAssembler**
     *   Transforma entidades del dominio SafeZone en `SafeZoneResource` para respuestas REST.
@@ -6505,7 +6499,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
     *   *Métodos:*
         *   toCommand(WearableLocationMessage message): ReceiveLocationCommand
 
-###### Outbound Adapters (Event Publishers)
+##### Outbound Adapters (Event Publishers)
 
 *   **MobilityEventPublisher**
     *   Adaptador de salida responsable de publicar eventos de integración hacia otros Bounded Contexts.
@@ -6514,7 +6508,7 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
     *   *Métodos:*
         *   publish(SafeZoneViolationDetectedEvent event): void
 
-###### Responsabilidades de la Interface Layer
+##### Responsabilidades de la Interface Layer
 
 *   Recibir solicitudes HTTP provenientes de clientes autorizados.
 *   Recibir mensajes de telemetría de ubicación provenientes del Wearable Device.
@@ -6524,11 +6518,11 @@ Expone las capacidades del Bounded Context Mobility & Geofencing hacia clientes 
 *   Publicar eventos de integración hacia otros Bounded Contexts.
 *   Mantener desacoplada la infraestructura de transporte respecto a la lógica de negocio del dominio.
 
-##### 2.6.6.3. Application Layer
+#### 2.6.6.3. Application Layer
 
 Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando comandos, consultas, agregados, repositorios y eventos de dominio. Esta capa define los flujos de aplicación, pero delega las reglas de negocio y las invariantes al Domain Layer.
 
-###### Command Services
+##### Command Services
 
 *   **SafeZoneCommandService**
     *   Coordina los casos de uso relacionados con la administración del ciclo de vida de SafeZone.
@@ -6546,7 +6540,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
         *   receiveLocation(ReceiveLocationCommand command): void
         *   evaluateLocation(EvaluateLocationCommand command): LocationStatus
 
-###### Query Services
+##### Query Services
 
 *   **SafeZoneQueryService**
     *   Proporciona consultas de solo lectura relacionadas con las zonas seguras configuradas.
@@ -6561,7 +6555,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
         *   getLocationHistory(GetLocationHistoryQuery query): List<Location>
         *   getLocationStatus(GetLocationStatusQuery query): Optional<LocationStatus>
 
-###### Command Handlers
+##### Command Handlers
 
 *   **CreateSafeZoneCommandHandler**
     *   Recibe `CreateSafeZoneCommand` y delega la creación al `SafeZoneCommandService`.
@@ -6577,7 +6571,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
     *   Actualiza el seguimiento de ubicación (`LocationTracking`).
     *   Si la ubicación se encuentra fuera de la zona segura, coordina el registro de la `ZoneViolation`.
 
-###### Event Handlers
+##### Event Handlers
 
 *   **LocationReceivedEventHandler**
     *   Procesa `LocationReceivedEvent`.
@@ -6589,7 +6583,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
     *   Responsable de preparar la publicación del evento de integración hacia Emergency & Alerting a través del puerto de salida correspondiente.
     *   No genera una alerta ni determina su severidad; su responsabilidad se limita a comunicar que se detectó una violación de zona.
 
-###### Internal Application Services
+##### Internal Application Services
 
 *   **LocationEvaluationApplicationService**
     *   Coordina el flujo de extremo a extremo en la evaluación de una ubicación:
@@ -6601,7 +6595,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
     *   *Flujo principal:*
         *   `ReceiveLocationCommand` $\rightarrow$ `LocationTrackingCommandService` $\rightarrow$ `SafeZoneRepository` $\rightarrow$ `GeofenceEvaluationService` $\rightarrow$ `LocationTrackingRepository` $\rightarrow$ `ZoneViolationRepository` $\rightarrow$ `SafeZoneViolationDetectedEvent`
 
-###### Application Ports
+##### Application Ports
 
 *   **Inbound Ports:**
     *   **WearableLocationInputPort:** Puerto de entrada utilizado para recibir ubicaciones provenientes del adaptador del wearable.
@@ -6612,7 +6606,7 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
         *   *Métodos:*
             *   publish(SafeZoneViolationDetectedEvent event): void
 
-###### Responsabilidades de la Application Layer
+##### Responsabilidades de la Application Layer
 
 *   Orquestar los casos de uso del Bounded Context.
 *   Coordinar Commands, Queries y Domain Events.
@@ -6624,11 +6618,11 @@ Orquesta los casos de uso del Bounded Context Mobility & Geofencing, coordinando
 *   Mantener la lógica de negocio compleja fuera de esta capa.
 *   No gestionar alertas, incidentes, severidad ni escalamiento, ya que esas responsabilidades pertenecen a Emergency & Alerting.
 
-##### 2.6.6.4. Infrastructure Layer
+#### 2.6.6.4. Infrastructure Layer
 
 Implementa los mecanismos técnicos que permiten persistir la información del Bounded Context Mobility & Geofencing, recibir ubicaciones desde el Wearable Device y publicar eventos hacia otros Bounded Contexts. Esta capa contiene las implementaciones concretas de los puertos definidos por las capas Domain y Application, sin introducir reglas de negocio propias.
 
-###### Persistence Implementations (Repositories)
+##### Persistence Implementations (Repositories)
 
 *   **SafeZoneRepositoryImpl**
     *   Implementación concreta de `SafeZoneRepository`.
@@ -6655,7 +6649,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
         *   findByFragileCitizenId(FragileCitizenId citizenId): List<ZoneViolation>
         *   findBySafeZoneId(SafeZoneId safeZoneId): List<ZoneViolation>
 
-###### JPA Entities
+##### JPA Entities
 
 *   **SafeZoneJpaEntity**
     *   Representación persistente del agregado SafeZone en base de datos relacional.
@@ -6702,7 +6696,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
         *   longitude: Double
         *   detectedAt: Instant
 
-###### Spring Data JPA Repositories
+##### Spring Data JPA Repositories
 
 *   **SafeZoneJpaRepository**
     *   Repositorio Spring Data utilizado por `SafeZoneRepositoryImpl`.
@@ -6727,7 +6721,7 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
         *   findByFragileCitizenId(UUID fragileCitizenId)
         *   findBySafeZoneId(UUID safeZoneId)
 
-###### Assemblers & Converters
+##### Assemblers & Converters
 
 *   **SafeZonePersistenceAssembler**
     *   Convierte bidireccionalmente entre el agregado de dominio `SafeZone` y `SafeZoneJpaEntity`.
@@ -6750,14 +6744,14 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 *   **CoordinatesConverter**
     *   Convierte el Value Object `Coordinates` a los campos persistentes `latitude` y `longitude`, y viceversa.
 
-###### Inbound Infrastructure Adapters
+##### Inbound Infrastructure Adapters
 
 *   **WearableLocationAdapter**
     *   Implementa el mecanismo técnico utilizado para recibir las ubicaciones provenientes del Wearable Device (mediante HTTP, MQTT u otro protocolo IoT).
     *   Convierte el mensaje externo recibido en `WearableLocationMessage` y lo entrega al `WearableLocationInputPort`.
     *   No contiene lógica de evaluación de geocercas.
 
-###### Outbound Infrastructure Adapters (Messaging)
+##### Outbound Infrastructure Adapters (Messaging)
 
 *   **MobilityEventPublisherAdapter**
     *   Implementa el puerto de salida `MobilityEventOutputPort`.
@@ -6776,13 +6770,13 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
         *   longitude: Double
         *   detectedAt: Instant
 
-###### Infrastructure Configuration
+##### Infrastructure Configuration
 
 *   **MobilityPersistenceConfiguration:** Configura los componentes de persistencia JPA, conexiones al pool de base de datos y gestión de transacciones.
 *   **MobilityMessagingConfiguration:** Configura el broker de mensajería, exchanges/topics, serialización JSON y canales de publicación de eventos.
 *   **WearableIntegrationConfiguration:** Configura el conector y los endpoints del protocolo técnico de comunicación con el Wearable Device.
 
-###### Responsabilidades de la Infrastructure Layer
+##### Responsabilidades de la Infrastructure Layer
 
 *   Implementar técnicamente los repositorios definidos por el Domain Layer.
 *   Persistir de forma consistente `SafeZone`, `LocationTracking`, `LocationRecord` y `ZoneViolation`.
@@ -6793,19 +6787,19 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 *   Mantener los detalles tecnológicos y dependencias de frameworks fuera del Domain y Application Layer.
 *   No implementar reglas de negocio como la evaluación de geocercas o la determinación de violaciones; estas responsabilidades pertenecen estrictamente al Domain Layer.
 
-##### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![Mobility & Geofencing Component Diagram](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
-##### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente diagrama UML presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
 
 ![Mobility & Geofencing Domain Class Diagram](../assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
 
-###### 2.6.6.6.2. Bounded Context Database Design Diagram
+##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
 El siguiente diagrama presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
 
@@ -6813,7 +6807,7 @@ Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfile
 
 ![Mobility & Geofencing Database Design Diagram](../assets/images/chapterII/databaseDiagrams/mobility-and-geofencing-db-diagram.png)
 
-#### 2.6.7. Bounded Context: IAM
+### 2.6.7. Bounded Context: IAM
 
 El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación reforzada con un segundo factor opcional (OTP) y la recuperación segura de la contraseña.
 
@@ -6862,13 +6856,13 @@ com.healthify.guardian.platform.iam/
         └── adapters/
 ```
 
-##### 2.6.7.1. Domain Layer
+#### 2.6.7.1. Domain Layer
 
 Encapsula las reglas de identidad y acceso: la unicidad del correo electrónico, la obligatoriedad de verificación de la cuenta, la vigencia y el consumo de un solo uso de los códigos de segundo factor y de los tokens de recuperación de contraseña. Del Design-Level EventStorming se desprende una decisión de modelado central: los secretos de vida corta se separan de `UserAccount` en agregados propios (`OneTimePassword` y `PasswordResetToken`), ya que poseen un ciclo de vida independiente —emisión, vigencia, consumo— que no debe acoplarse a las invariantes permanentes de la cuenta. Esta separación es la que el diseño de base de datos refleja mediante las tablas `otp_codes` y `password_reset_tokens`.
 
 Ninguno de los secretos se conserva en claro: el dominio almacena únicamente su hash (`code_hash` y `token_hash`), de modo que una filtración de la base de datos no permite reconstruir el código enviado al usuario.
 
-###### Aggregates
+##### Aggregates
 
 *   **UserAccount**
     *   Agregado raíz que representa la identidad digital de un cuidador o familiar registrado en Guardian+.
@@ -6932,7 +6926,7 @@ Ninguno de los secretos se conserva en claro: el dominio almacena únicamente su
 
 Este contexto no requiere entidades internas: los tres agregados son de único nivel, sin objetos hijos con identidad propia.
 
-###### Value Objects
+##### Value Objects
 
 *   **Email:** Encapsula el correo electrónico (`value: String`). Invariante: formato RFC 5322 válido. Método: `matches(String other)`.
 *   **HashedPassword:** Encapsula el hash irreversible de la contraseña (`hash: String`). Nunca expone ni acepta la contraseña en texto plano fuera del `PasswordHasher`.
@@ -6941,13 +6935,13 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   **OtpPurpose:** Enum (`LOGIN`, `EMAIL_VERIFICATION`) que declara para qué fue emitido un código de un solo uso.
 *   **UserAccountId / OtpId / PasswordResetTokenId:** Identificadores inmutables tipo UUID.
 
-###### Domain Services (Puertos)
+##### Domain Services (Puertos)
 
 *   **PasswordHasher:** `hash(String rawPassword): HashedPassword`; `matches(String rawPassword, HashedPassword hash): boolean`. Implementado en infraestructura mediante BCrypt.
 *   **SecretGenerator:** `generateNumericCode(int digits): String`; `generateOpaqueToken(): String`. Genera los códigos OTP y los tokens de recuperación mediante un generador criptográficamente seguro.
 *   **SecretHasher:** `hash(String rawSecret): HashedSecret`; `matches(String rawSecret, HashedSecret hash): boolean`. Permite verificar un código o token sin conservarlo en claro.
 
-###### Commands & Queries (Domain Model)
+##### Commands & Queries (Domain Model)
 
 *   `RegisterUserCredentialsCommand(String email, String rawPassword)`
 *   `GenerateOtpCommand(UUID userAccountId, String purpose)`
@@ -6964,7 +6958,7 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   `GetEmailAvailabilityQuery(String email)`
 *   `GetUsableOtpByUserAccountIdAndPurposeQuery(UserAccountId userAccountId, OtpPurpose purpose)`
 
-###### Domain Events
+##### Domain Events
 
 *   `UserCredentialsRegisteredEvent`: Emitido al registrar exitosamente las credenciales, con la cuenta en estado `PENDING_EMAIL_VERIFICATION`.
 *   `OtpGeneratedEvent`: Emitido tras emitir un código de un solo uso, portando su propósito y su vencimiento; el código en claro viaja únicamente hacia el adaptador de notificaciones y nunca se persiste.
@@ -6976,7 +6970,7 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
 *   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
-###### Repositories (Domain Interfaces)
+##### Repositories (Domain Interfaces)
 
 *   **UserAccountRepository:**
     *   `save(UserAccount account): UserAccount`
@@ -6994,11 +6988,11 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
     *   `findUsableByTokenHash(HashedSecret tokenHash, Instant now): Optional<PasswordResetToken>`
     *   `deleteExpiredUnusedBefore(Instant threshold): int`
 
-##### 2.6.7.2. Interface Layer
+#### 2.6.7.2. Interface Layer
 
 Traduce estímulos externos hacia comandos y consultas de aplicación y expone contratos HTTP RESTful para la app móvil. Al ser el contexto más upstream del dominio, no canaliza eventos de integración entrantes.
 
-###### REST Controllers
+##### REST Controllers
 
 *   **AuthController** (`/api/v1/auth`):
     *   `POST /register`: Registra nuevas credenciales de usuario.
@@ -7013,14 +7007,14 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
     *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
     *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
 
-###### Resources & Assemblers
+##### Resources & Assemblers
 
 *   *Resources (DTOs):* `RegisterUserCredentialsResource`, `VerifyEmailResource`, `LoginResource`, `VerifyOtpResource`, `TwoFactorSettingResource`, `RequestPasswordResetResource`, `ResetPasswordResource`, `UserAccountResource`, `AuthenticatedSessionResource`.
 *   *Assemblers (Mappers):* `RegisterUserCredentialsCommandFromResourceAssembler`, `LoginCommandFromResourceAssembler`, `VerifyOtpCommandFromResourceAssembler`, `TwoFactorCommandFromResourceAssembler`, `UserAccountResourceFromEntityAssembler`, `AuthenticatedSessionResourceFromTokenAssembler`.
 
 Los recursos de salida nunca exponen el hash de la contraseña ni el de un código o token: `UserAccountResource` publica únicamente el identificador, el correo, el estado, la verificación del correo y la habilitación del segundo factor.
 
-###### Integration Events & ACL Facade
+##### Integration Events & ACL Facade
 
 *   *Eventos publicados (outbound):*
     *   `UserAccountRegisteredIntegrationEvent`: Notifica a `Profile` el alta de una nueva identidad, mediante Event-Carried State Transfer, para la creación del perfil asociado.
@@ -7028,11 +7022,11 @@ Los recursos de salida nunca exponen el hash de la contraseña ni el de un códi
 *   *Eventos consumidos (inbound):* Ninguno. IAM no depende de señales de negocio de otros contextos.
 *   `IamContextFacade`: Interfaz expuesta para la validación síncrona de tokens y la consulta puntual de existencia de una `UserAccount` desde otros contextos, sin exponer el modelo interno de credenciales.
 
-##### 2.6.7.3. Application Layer
+#### 2.6.7.3. Application Layer
 
 Orquesta los flujos de registro, verificación, autenticación y recuperación de contraseña delegando las reglas de negocio en los agregados correspondientes. Los Event Handlers materializan directamente las policies identificadas en el Design-Level EventStorming.
 
-###### Command Services
+##### Command Services
 
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
     *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
@@ -7047,12 +7041,12 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
     *   `handle(VerifyOtpCommand command): void`: Recupera el código utilizable del propósito `LOGIN` y lo verifica dentro de su vigencia, marcándolo como usado.
     *   `handle(AuthenticateUserCommand command): String`: Emite el JWT firmado con `UserId` y roles tras la validación exitosa del flujo de autenticación.
 
-###### Query Services
+##### Query Services
 
 *   **UserAccountQueryService & UserAccountQueryServiceImpl:** Resuelve `GetUserAccountByIdQuery`, `GetUserAccountByEmailQuery` y `GetEmailAvailabilityQuery`.
 *   **OneTimePasswordQueryService & OneTimePasswordQueryServiceImpl:** Resuelve `GetUsableOtpByUserAccountIdAndPurposeQuery`.
 
-###### Event Handlers
+##### Event Handlers
 
 *   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
 *   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
@@ -7061,59 +7055,59 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 *   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.
 *   `PasswordResetTokenIssuedEventHandler`: Despacha el envío del correo con el enlace de recuperación, que porta el token en claro una única vez.
 
-###### Application ACL Implementation
+##### Application ACL Implementation
 
 *   `IamContextFacadeImpl`: Implementa la fachada de acceso público del contexto (validación de tokens y existencia de cuentas).
 
-##### 2.6.7.4. Infrastructure Layer
+#### 2.6.7.4. Infrastructure Layer
 
 Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, la firma/validación de JWT, la integración con el proveedor de correo electrónico y los componentes de programación temporal que sostienen la vigencia de tokens y códigos OTP.
 
-###### Persistence JPA Entities
+##### Persistence JPA Entities
 
 *   `UserAccountPersistenceEntity`: Mapea la tabla `user_accounts`. Columnas: `id`, `email` (única), `password_hash`, `email_verified`, `two_factor_enabled`, `status`, `created_at`, `updated_at`. Hereda campos de auditoría de `AuditableAbstractPersistenceEntity`.
 *   `OneTimePasswordPersistenceEntity`: Mapea la tabla `otp_codes`. Columnas: `id`, `user_id`, `code_hash`, `purpose`, `expires_at`, `used_at`, `created_at`.
 *   `PasswordResetTokenPersistenceEntity`: Mapea la tabla `password_reset_tokens`. Columnas: `id`, `user_id`, `token_hash`, `expires_at`, `used_at`, `created_at`.
 *   *Converters:* `UserAccountStatusConverter` y `OtpPurposeConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
 
-###### Spring Data Repositories & Adapters
+##### Spring Data Repositories & Adapters
 
 *   `UserAccountPersistenceRepository`, `OneTimePasswordPersistenceRepository` y `PasswordResetTokenPersistenceRepository`: Extienden `JpaRepository<..., UUID>`.
 *   `UserAccountRepositoryImpl`, `OneTimePasswordRepositoryImpl` y `PasswordResetTokenRepositoryImpl`: Implementan las interfaces de dominio usando los assemblers de persistencia para traducir bidireccionalmente entre entidades JPA y agregados.
 
-###### Persistence Assemblers
+##### Persistence Assemblers
 
 *   `UserAccountPersistenceAssembler`: Traduce entre `UserAccountPersistenceEntity` y el agregado `UserAccount`, recomponiendo `Email`, `HashedPassword` y `UserAccountStatus`.
 *   `OneTimePasswordPersistenceAssembler` y `PasswordResetTokenPersistenceAssembler`: Traducen entre sus respectivas entidades JPA y agregados, recomponiendo `HashedSecret` y, en el caso del OTP, `OtpPurpose`.
 
-###### Security Adapters
+##### Security Adapters
 
 *   `BCryptPasswordHasherAdapter`: Implementa `PasswordHasher` sobre el algoritmo BCrypt.
 *   `BCryptSecretHasherAdapter`: Implementa `SecretHasher` para el hashing y la comparación de los códigos OTP y de los tokens de recuperación.
 *   `SecureRandomSecretGeneratorAdapter`: Implementa `SecretGenerator` sobre un generador criptográficamente seguro, produciendo códigos numéricos de seis dígitos y tokens opacos.
 *   `JwtTokenProviderAdapter`: Implementa la emisión y validación de JWT firmados (RS256) con `UserId` y roles como claims; materializa el Published Language del Open Host Service de IAM.
 
-###### Notification Adapters
+##### Notification Adapters
 
 *   `EmailProviderAdapter`: Envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña.
 
-###### Scheduling
+##### Scheduling
 
 *   `ExpiredSecretsCleanupScheduler`: Tarea periódica que purga de `otp_codes` y `password_reset_tokens` los secretos vencidos y no consumidos, invocando `deleteExpiredUnusedBefore`. La invalidación no requiere una transición de estado persistida: un secreto deja de ser utilizable en cuanto vence su `expires_at` o se registra su `used_at`.
 
-##### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
+#### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 ![IAM Component Diagram](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
-##### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
+#### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
-###### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
+##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 ![IAM Domain Class Diagram](../assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
-###### 2.6.7.6.2. Bounded Context Database Design Diagram
+##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
 ![IAM Database Design Diagram](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
-#### Guardian+ Physical Database Schema
+### Guardian+ Physical Database Schema
 
 Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, el siguiente diagrama presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
 
@@ -7123,13 +7117,13 @@ El Physical Schema ERD integra las principales tablas utilizadas por los distint
 
 El modelo mantiene la separación lógica definida mediante los Bounded Contexts, mientras que las referencias necesarias entre sus datos persistentes se representan mediante identificadores y relaciones explícitas. De esta manera, el esquema físico proporciona una visión integral de la persistencia sin sustituir los Database Design Diagrams particulares documentados previamente para cada contexto.
 
-## Conclusiones y recomendaciones
+# Conclusiones y recomendaciones
 
 A partir del trabajo realizado en este primer avance, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
 
 En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad
 
-## Bibliografía
+# Bibliografía
 
 Barrera, M. (2022). Diseño de un sistema de supervisión y control de la salud en el hogar, para adultos mayores en la vereda "La Venta" del municipio de Belén-Boyacá, haciendo uso del internet de las cosas (IoT) [Tesis de licenciatura, Universidad Cooperativa de Colombia]. Repositorio Institucional. [Enlace](https://repository.ucc.edu.co/entities/publication/e41d1244-9d65-4fed-a5e1-177da2504ea8)
 

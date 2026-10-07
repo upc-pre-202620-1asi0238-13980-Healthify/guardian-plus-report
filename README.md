@@ -38,14 +38,14 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 <div style="page-break-before: always; break-before: page;"></div>
 
-## Registro de Versiones del Informe
+# Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
 |---|---|---|---|
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo  u20241b843 - Mechan Montenegro, Luciana Carolina  u20241d185 - Luis Miranda Diego Andres  u202421866 - López Monroy, Rodrigo Alfredo  u202419494 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo  u20241b843 - Mechan Montenegro, Luciana Carolina  u20241d185 - Luis Miranda Diego Andres  u202421866 - López Monroy, Rodrigo Alfredo  u202419494 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
 
-## Project Report Collaboration Insights
+# Project Report Collaboration Insights
 
 **URL del repositorio:** https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.git
 
@@ -58,7 +58,7 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 <div style="page-break-before: always; break-before: page;"></div>
 
-## Contenido
+# Contenido
 
 - [Capítulo I: Presentación](#capítulo-i-presentación)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -175,7 +175,7 @@ u202419494 - Sanchez Cuadrado, Juan Antonio
 
 <div style="page-break-before: always; break-before: page;"></div>
 
-## Student Outcome
+# Student Outcome
 
 **ABET - EAC - Student Outcome 7**
 
@@ -250,9 +250,9 @@ Como equipo reconocimos que, incluso contando con experiencia previa en DDD y en
 </table>
 
 
-## Objetivos SMART
+# Objetivos SMART
 
-### Azama Fukuda, Juan Pablo
+## Azama Fukuda, Juan Pablo
 
 Objetivo SMART 1 — Arquitectura y liderazgo técnico:
 
@@ -273,7 +273,7 @@ Objetivo SMART 2 — Contribución medible de valor:
 - R: responde directamente a "crear valor" y "contribuciones significativas", algo que considero que es importante para mi crecimiento.
 - T: 2 años desde el inicio de la carrera profesional.
 
-### Mechan Montenegro, Luciana Carolina
+## Mechan Montenegro, Luciana Carolina
 
 **Objetivo SMART 1:**
 Durante los primeros 18 meses después de graduarme, me desempeñaré como desarrolladora backend en una empresa de tecnología, consolidando experiencia práctica en el diseño e implementación de servicios backend y arquitecturas escalables en proyectos reales de producción. Para ello, comenzaré desde ahora a prepararme para obtener una certificación relacionada a arquitectura de software en la nube (por ejemplo, AWS Certified Solutions Architect – Associate o equivalente), la cual buscaré tener lista como máximo dentro de los primeros meses tras egresar.
@@ -291,7 +291,7 @@ En un plazo de 4 años tras graduarme, asumiré un rol de mayor responsabilidad 
 - *Relevant:* Está directamente alineado con mi interés profesional a largo plazo en arquitectura de software y desarrollo backend.
 - *Time-bound:* 4 años después de la graduación.
 
-### Luis Miranda, Diego Andres
+## Luis Miranda, Diego Andres
 **Objetivo SMART 1:**
 Dentro de los 2 años posteriores a mi graduación, alcanzaré el rol de AI Engineer o Full Stack Developer, liderando la integración de modelos de Inteligencia Artificial (modelos predictivos), asumiré roles de liderazgo técnico en al menos 2 proyectos de software, aplicando principios de arquitectura y documentando resultados, con el fin de consolidar mi perfil como arquitecto de software.
 - *Specific:* Desarrollar habilidades en diseño de arquitecturas de software y liderazgo técnico en proyectos colaborativos.
@@ -308,7 +308,7 @@ En los próximos 2 años después de graduarme, contribuiré con al menos 5 func
 - *Relevant:* Alinear mi crecimiento profesional con la especialización en AI Engineer o full stack developer.
 - *Lograrlo:* Alcanzar este objetivo dentro de los 2 años posteriores a mi graduación.
 
-### López Monroy, Rodrigo Alfredo
+## López Monroy, Rodrigo Alfredo
 
 **Objetivo SMART 1:**
 Dentro de los primeros 18 meses posteriores a mi graduación, me incorporaré como ingeniero de software embebido o de firmware, programando en C y C++ sobre sistemas operativos de tiempo real, y consolidaré esa base con al menos 3 proyectos propios documentados en un repositorio público y un curso o certificación formal en sistemas embebidos.
@@ -326,7 +326,7 @@ En un plazo de 4 años tras graduarme, cursaré una especialización de posgrado
 - *Relevant:* Reúne mis tres metas profesionales: especializarme en el extranjero, trabajar en software de bajo nivel y hacerlo en el sector automotriz.
 - *Time-bound:* 4 años desde la graduación, con las postulaciones enviadas antes del segundo año.
 
-### Sanchez Cuadrado, Juan Antonio
+## Sanchez Cuadrado, Juan Antonio
 
 **Objetivo SMART 1 — Desarrollo móvil con responsabilidad integral:**
 

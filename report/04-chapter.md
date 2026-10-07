@@ -1389,11 +1389,9 @@ Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo tra
 
 ### 4.3.1. Diseño de Entrevistas
 
-## Diseño de Entrevistas — Validación del Landing Page
-
 La sesión de validación consiste en un recorrido guiado (think-aloud) por el Landing Page de Guardian+, en el mismo orden en que está estructurado el sitio: Hero → Pain Points → Cómo funciona → Pulsera → Beneficios → Tour de la app → Zonas Seguras → Por qué Guardian+ → Planes → Contacto. El objetivo de cada pregunta es verificar si, según su segmento, el entrevistado entiende y percibe el valor real que ofrece Guardian+ en esa sección, por lo que todas las preguntas buscan que el entrevistado se explaye y justifique su respuesta, evitando preguntas cerradas de sí/no.
 
-### Segmento 1 — Familiares
+#### Segmento 1 — Familiares
 
 1. **Hero:** Después de leer esta primera pantalla, ¿qué entiendes que hace Guardian+ por ti y tu familia, en tus propias palabras? ¿Por qué lo entiendes así?
 2. **Pain Points:** ¿Cuál de estas tres preguntas refleja mejor una preocupación que tú mismo has tenido con tu familiar, y por qué esa en particular?
@@ -1406,7 +1404,7 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 9. **Planes:** Viendo los tres planes, ¿cuál elegirías para tu familia y qué fue lo que más pesó en tu decisión?
 10. **Contacto:** Si tuvieras dudas sobre qué plan elegir, ¿qué información esperarías recibir al usar este formulario de contacto?
 
-### Segmento 2 — Cuidadores
+#### Segmento 2 — Cuidadores
 
 1. **Hero:** Si estuvieras buscando una herramienta que te apoye en tu trabajo de cuidado, ¿qué entiendes que te ofrece Guardian+ a partir de esta pantalla? ¿Por qué lo entiendes así?
 2. **Pain Points:** ¿Cuál de estas preguntas representa mejor un riesgo que tú monitoreas en tu trabajo diario, y por qué ese en particular?
@@ -1455,7 +1453,7 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-### UX Heuristics & Principles Evaluation
+#### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
 | | |
