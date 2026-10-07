@@ -2,9 +2,15 @@
 
 # Capítulo II: Requirements Development and Software Solution Design
 
+En este capítulo se documenta el levantamiento de requerimientos y el diseño de la solución: el análisis de competidores, las entrevistas y los artefactos de needfinding, la especificación de requerimientos y el diseño estratégico y táctico de Guardian+ con Domain-Driven Design.
+
 ## 2.1. Competidores
 
+En esta sección se analizan las soluciones que compiten con Guardian+ en el mercado peruano y se definen las estrategias y tácticas con las que el equipo busca diferenciarse.
+
 ### 2.1.1. Análisis competitivo
+
+Se identificaron cuatro competidores con dispositivos y servicios orientados al monitoreo de personas: LifeWatch, SaveFamily Senior, SeniorDomo y MovilTecno 866. A continuación se describe cada uno y se comparan con Guardian+ en el Competitive Analysis Landscape.
 
 #### LifeWatch/LifeWatch 2:
 Reloj inteligente que monitorea pulso, presión arterial, oxígeno, ejercicio, temperatura corporal y patrones de sueño. Está más orientado al fitness y bienestar general que al cuidado de personas con necesidades específicas, y no cuentan con funciones de emergencia o conectividad familiar especializada. Precio aproximado: S/.140 soles.
@@ -39,17 +45,26 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 | **Amenazas** | Competidores globales con mayor capital y alcance comercial. | Sustitución por otros relojes fitness más económicos. | Aparición de apps con pulseras más intuitivas. | Competencia tecnológica que combine seguridad + monitoreo de salud. | Competidores con plataforma más robusta o integración con servicios de salud podrían desplazarlo. |
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
-Estrategias y tácticas frente a competidores
+
 Nuestra solución contará con compatibilidad completa con dispositivos móviles Android e iOS(teóricamente, dado que en el curso no es 100% necesario trabajar con IOS), así como con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
+
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
+
 A diferencia de dispositivos genéricos como LifeWatch o SeniorDomo, nuestra propuesta incorpora el concepto de “lazo de cuidado” bidireccional, en el que tanto la persona vulnerable que requiere cuidado como el familiar/cuidador están conectados entre sí. Esto permite comunicación directa, envío de alertas y generación de confianza mutua en tiempo real.
+
 La plataforma contará con un registro digital de incidentes y alertas previas, lo que permitirá a los familiares conocer antecedentes de salud, historial de caídas y cambios en los signos vitales. Esto ofrece mayor capacidad de prevención y facilita la consulta médica posterior.
+
 Hemos identificado una oportunidad clave en las familias que actualmente dependen de dispositivos importados o genéricos, los cuales suelen estar orientados al fitness o a la seguridad básica. Nuestra propuesta integra seguridad, salud y acompañamiento emocional en un solo dispositivo, diferenciándonos por ofrecer un servicio más integral y enfocado en las personas vulnerables que requieren cuidado.
+
 La aplicación contará con pagos seguros e integración con servicios adicionales (como telemedicina, seguros o planes premium), lo que permitirá a los usuarios acceder a un ecosistema completo desde la misma plataforma, generando valor agregado y fidelización.
 
 ## 2.2. Entrevistas
 
+En esta sección se presentan las entrevistas realizadas a familiares y cuidadores de personas vulnerables: su diseño, el registro de cada entrevista y el análisis de sus resultados.
+
 ### 2.2.1. Diseño de entrevistas
+
+Las entrevistas se diseñaron para conocer cómo familiares y cuidadores acompañan a la persona bajo su cuidado, qué situaciones les generan mayor preocupación y qué herramientas utilizan. A continuación se presentan las preguntas preparadas para cada segmento.
 
 **Preguntas para segmento 1**
 **(Familiares de personas vulnerables que requieren cuidado)**
@@ -205,6 +220,8 @@ Ante todo lo mencionado, se puede evidenciar que algunas de las features proporc
 
 ### 2.2.3. Análisis de entrevistas
 
+En esta sección se resumen los hallazgos de cada entrevista y, a partir de ellos, se analizan los patrones de cada segmento y las características que sirvieron para construir los arquetipos de usuario.
+
 * En la entrevista con Rocío Alvarado es una familiar cuidadora que vive con su hermano y su madre, quienes se turnan para supervisarlo debido a sus necesidades de atención. Su principal preocupación es que su hermano atraviese una crisis mientras se encuentra solo, ya que en una ocasión reciente ocurrió una situación de este tipo sin que ellas pudieran enterarse hasta regresar a casa. Valora especialmente una solución tecnológica que permita monitorear su estado a distancia, recibir notificaciones y controlar indicadores como el ritmo cardíaco y la actividad física. Se muestra cómoda utilizando tecnología y considera importante que el dispositivo sea sencillo. Su principal motivación es reducir la preocupación y tener mayor tranquilidad, mostrando además una alta disposición de pago, de hasta S/100 mensuales, por un servicio que considere útil.
 * La entrevista con Lucía Infante, de 27 años, es diseñadora gráfica y vive con su padre adulto mayor, quien todavía mantiene cierta autonomía. Su principal dificultad aparece cuando se encuentra fuera de casa y no puede saber qué está ocurriendo con él, especialmente cuando no responde sus llamadas. Considera que una aplicación de monitoreo debe ser sencilla, intuitiva y poco recargada, debido a las posibles dificultades de los adultos mayores con la tecnología. Valora la seguridad, la facilidad de uso y la confianza en el manejo de los datos. Está dispuesta a pagar aproximadamente entre S/30 y S/40 mensuales, siempre que el servicio ofrezca beneficios claros y se adapte al nivel de cuidado que requiere cada usuario.
 * En la entrevista con Junior Antenor, de 32 años y soldador, vive con su pareja y su hijo, y su principal preocupación es conocer la seguridad y bienestar de su familia cuando se encuentra trabajando o fuera de casa. Ha experimentado situaciones en las que su hijo necesitó la presencia de un adulto debido a accidentes o problemas repentinos, generándole preocupación y la necesidad de recurrir rápidamente a familiares cercanos. Actualmente no utiliza sistemas de monitoreo ni realiza un seguimiento preventivo constante de la salud familiar. Considera atractiva una solución tecnológica que permita monitorear el estado de sus familiares, facilitar la atención ante emergencias y recordar medicamentos o citas. Está dispuesto a realizar un esfuerzo económico por adquirirla, aunque considera importantes el precio, la duración de la batería y la conectividad, especialmente en zonas con poca cobertura.
@@ -269,6 +286,8 @@ A partir del análisis, podemos resumir los principales elementos que deberían 
 | Disposición de pago     | Sí                                        | Sí                                                     |
 
 ## 2.3. Needfinding
+
+En esta sección se sintetizan los hallazgos de las entrevistas en los artefactos de needfinding: User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping, Big Picture EventStorming y Ubiquitous Language.
 
 ### 2.3.1. User Personas
 
@@ -447,7 +466,11 @@ Eric Evans plantea que el Ubiquitous Language se modela dentro de un contexto de
 
 ## 2.4. Requirements specification
 
+En esta sección se especifican los requerimientos de Guardian+: las User Stories agrupadas en epics, el Impact Mapping que las relaciona con los objetivos de negocio y el Product Backlog priorizado.
+
 ### 2.4.1. User Stories
+
+Las User Stories describen las funcionalidades de Guardian+ desde la perspectiva de sus usuarios, cada una con sus criterios de aceptación. Se organizan en las siguientes epics.
 
 #### Epics Identificadas
 
@@ -1741,7 +1764,11 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
+En esta sección se presenta el diseño estratégico de Guardian+ con Domain-Driven Design: el EventStorming con el que se descubrieron los Bounded Contexts, el Context Mapping que define sus relaciones y la arquitectura de software representada con el C4 Model.
+
 ### 2.5.1. EventStorming
+
+El equipo aplicó EventStorming para explorar el dominio de Guardian+ a partir de sus eventos, comandos, actores y políticas. Con ese análisis se identificaron los Bounded Contexts candidatos, se modelaron los flujos de mensajes del contexto principal y se elaboraron los Bounded Context Canvases.
 
 #### 2.5.1.1. Candidate Context Discovery
 
@@ -3346,6 +3373,9 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 </table>
 
 ### 2.5.2. Context Mapping
+
+En esta sección se definen las relaciones entre los siete Bounded Contexts de Guardian+ y los sistemas externos. Se evalúan alternativas mediante preguntas heurísticas, se comparan las topologías posibles y se presenta el Context Map resultante con el catálogo de patrones de integración.
+
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
 El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proceso de cuestionamiento heurístico recomendado por Domain-Driven Design (DDD Crew y Nick Tune) para validar la ubicación de cada capability y evitar dependencias cíclicas o acoplamiento innecesario:
@@ -3366,6 +3396,8 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 ---
 
 #### 2.5.2.2. Discusión de Alternativas de Context Mapping Global
+
+La siguiente tabla compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
 
 | Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
 | :--- | :--- | :--- | :--- | :--- |
@@ -3451,6 +3483,8 @@ A continuación se presenta la topología integral de integración que intercone
 
 #### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
 
+A continuación se detalla cada relación del Context Map, indicando su tipo, el patrón de integración aplicado y la justificación de su elección.
+
 *   **Wearable Hardware -> Health Monitoring (Anti-Corruption Layer - ACL):**
     *   *Tipo:* External -> Internal Downstream.
     *   *Patrón:* **Anti-Corruption Layer (ACL)**.
@@ -3487,13 +3521,11 @@ A continuación se presenta la topología integral de integración que intercone
 
 ### 2.5.3. Software Architecture
 
+En esta sección se presenta la arquitectura de software de Guardian+ con el C4 Model en sus vistas de contexto, contenedores, componentes y despliegue.
+
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-Introducción
-
 En esta sección se presenta la vista de contexto de Guardian+ aplicando el C4 Model, elaborada con Structurizr. Este diagrama posiciona a Guardian+ como un único sistema de software en el centro, y muestra alrededor a los actores que lo utilizan y a los sistemas externos con los que se integra, sin entrar todavía en detalles internos de implementación.
-
-Explicación
 
 Guardian+ es utilizado por tres tipos de actores: el Familiar, quien supervisa remotamente el bienestar de la persona bajo cuidado sin estar presente de forma permanente; el Cuidador, encargado del cuidado frecuente o permanente de dicha persona, ya sea de forma particular o institucional; y la Persona bajo cuidado (adulto mayor, persona con discapacidad o en situación de dependencia), quien interactúa con el sistema físicamente a través de la pulsera IoT.
 
@@ -3503,11 +3535,7 @@ El sistema se integra con cuatro servicios externos, cada uno resolviendo una ne
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-Introducción
-
 Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las unidades desplegables independientes que conforman la solución — y muestra cómo se distribuyen las responsabilidades entre ellos, las decisiones tecnológicas adoptadas y los protocolos de comunicación entre contenedores.
-
-Explicación
 
 La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
 
@@ -3518,11 +3546,7 @@ Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con
 
 #### 2.5.3.3. Software Architecture Components Level Diagrams
 
-Introducción
-
 Esta sección presenta la vista de componentes de la Guardian+ REST API, ilustrando los módulos funcionales internos del backend y cómo interactúan entre sí para resolver las distintas capacidades del sistema, con la API como elemento centralizado y sus componentes circundantes.
-
-Explicación
 
 El backend se organiza en siete componentes, correspondientes uno a uno con los Bounded Contexts definidos en el diseño estratégico de Domain-Driven Design del equipo: Emergency & Alerting y Health Monitoring como Core Domains, encargados respectivamente de la detección/escalamiento de emergencias y del monitoreo de signos vitales — los diferenciadores centrales de la propuesta de valor de Guardian+; Care Routines & Wellness y Mobility & Geofencing como Supporting Domains, que dan soporte a la gestión de rutinas de bienestar y a la localización/geocercas; y IAM, Profile y Subscriptions como Generic Domains, que resuelven capacidades transversales reutilizables (identidad y autorización, gestión de perfiles, y planes de suscripción).
 
@@ -3532,11 +3556,7 @@ Todos los componentes de negocio dependen de IAM para validar identidad y autori
 
 #### 2.5.3.4. Software Architecture Deployment Diagrams
 
-Introducción
-
 En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4 Model, elaborada con Structurizr. El diagrama muestra la distribución física de la solución en el entorno de producción: los nodos de infraestructura y plataformas en la nube que alojan cada contenedor, los dispositivos sobre los que se ejecutan los clientes y los servicios externos con los que se integra el backend.
-
-Explicación
 
 La Guardian+ Landing Page se publica en Cloudflare Pages, que la distribuye a través de la red global de entrega de contenido de Cloudflare. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 26 dentro de una máquina virtual de Microsoft Azure con Ubuntu 24.04, detrás del proxy inverso Caddy, que la publica por HTTPS, y persiste su información en la Guardian+ Database, alojada en el servicio gestionado Azure Database for PostgreSQL. Ambos servicios se ubican en la región Chile Central para reducir la latencia entre el backend y la base de datos.
 
@@ -3545,6 +3565,8 @@ La Guardian+ Mobile Application se ejecuta en los smartphones Android de familia
 ![deployment-diagram](../assets/images/chapterII/c4-diagrams/deployment.png)
 
 ## 2.6. Tactical-Level Domain-Driven Design
+
+En esta sección se detalla el diseño táctico de cada Bounded Context de Guardian+. Para cada uno se describen sus capas Domain, Interface, Application e Infrastructure y se presentan sus diagramas de componentes, de clases y de base de datos. Al final se incluye el esquema físico consolidado de la base de datos.
 
 ### 2.6.1. Bounded Context: Emergency & Alerting
 
@@ -3985,15 +4007,23 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente diagrama presenta los componentes del Bounded Context **Emergency & Alerting** organizados por capa: los controladores REST, el consumidor de eventos de integración y el webhook de entrega en la Interface Layer; los servicios, event handlers y schedulers en la Application Layer; los agregados y servicios de dominio en la Domain Layer; y los adaptadores de persistencia y notificación en la Infrastructure Layer.
+
 ![Emergency & Alerting Component Diagram](../assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
+En esta sección se presenta la estructura interna del Bounded Context **Emergency & Alerting** a nivel de código, mediante el diagrama de clases de su Domain Layer y el diseño de su base de datos.
+
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+El siguiente diagrama UML presenta la Domain Layer de **Emergency & Alerting**, organizada alrededor de los agregados `Alert`, `Incident`, `AlertSettings`, `EmergencyContact` y `AlertChannelSetting`, junto con sus entidades, Value Objects, servicios de dominio y repositorios.
 
 ![Emergency & Alerting Domain Class Diagram](../assets/images/chapterII/classDiagrams/EmergencyAlertingDomainClassDiagram.png)
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+El siguiente diagrama presenta el diseño de persistencia de **Emergency & Alerting**. La tabla `alerts` concentra el ciclo de vida de cada alerta y se relaciona con `alert_deliveries`, `alert_responses` e `incidents`, mientras que `alert_settings`, `emergency_contacts` y `alert_channel_settings` guardan la configuración del Care Circle. Las tablas `user_accounts` y `care_recipient_profiles` se muestran como referencias externas.
 
 ![Emergency & Alerting Database Design Diagram](../assets/images/chapterII/databaseDiagrams/emergency-alerting-db-diagram.png)
 
@@ -4302,16 +4332,27 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 *   `WeeklyHealthSummaryScheduler`: Tarea periódica anotada con `@Scheduled(cron = "0 0 0 * * SUN")` que invoca `CompileWeeklySummaryCommand` para los pacientes activos.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El siguiente diagrama presenta las cuatro capas del Bounded Context **Health Monitoring**, su comunicación con la aplicación móvil y con el broker MQTT que entrega la telemetría del wearable, y la publicación de eventos de integración hacia Emergency & Alerting.
+
 ![Health Monitoring Component Diagram](../assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
+En esta sección se presenta la estructura interna del Bounded Context **Health Monitoring** a nivel de código, mediante el diagrama de clases de su Domain Layer y el diseño de su base de datos.
+
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El siguiente diagrama UML presenta la Domain Layer de **Health Monitoring**, con los agregados `VitalSignType`, `VitalSignThreshold`, `VitalSign`, `WearableDevice` y `HealthReport`, sus Value Objects y las interfaces de repositorio que los gestionan.
+
 ![Health Monitoring Domain Class Diagram](../assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
-![alt text](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
+
+El siguiente diagrama presenta el diseño de persistencia de **Health Monitoring**: `wearable_devices` registra los dispositivos asignados a cada persona bajo cuidado, `vital_sign_types` y `vital_sign_thresholds` definen el catálogo de signos vitales y sus umbrales, `vital_sign_readings` almacena cada lectura recibida y `health_reports` guarda los reportes generados.
+
+![Health Monitoring Database Design Diagram](../assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 
 ### 2.6.3. Bounded Context: Subscriptions
 
@@ -6233,11 +6274,17 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente diagrama presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
+
 ![Care Routines & Wellness Component Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
+En esta sección se presenta la estructura interna del Bounded Context **Care Routines & Wellness** a nivel de código, mediante el diagrama de clases de su Domain Layer y el diseño de su base de datos.
+
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+El siguiente diagrama UML presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
 
 ![Care Routines & Wellness Domain Class Diagram](../assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
@@ -6789,9 +6836,13 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente diagrama presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
+
 ![Mobility & Geofencing Component Diagram](../assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
 #### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presenta la estructura interna del Bounded Context **Mobility & Geofencing** a nivel de código, mediante el diagrama de clases de su Domain Layer y el diseño de su base de datos.
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
@@ -7096,14 +7147,24 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 *   `ExpiredSecretsCleanupScheduler`: Tarea periódica que purga de `otp_codes` y `password_reset_tokens` los secretos vencidos y no consumidos, invocando `deleteExpiredUnusedBefore`. La invalidación no requiere una transición de estado persistida: un secreto deja de ser utilizable en cuanto vence su `expires_at` o se registra su `used_at`.
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
+
+El siguiente diagrama presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
+
 ![IAM Component Diagram](../assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
 #### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
+En esta sección se presenta la estructura interna del Bounded Context **IAM** a nivel de código, mediante el diagrama de clases de su Domain Layer y el diseño de su base de datos.
+
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
+
+El siguiente diagrama UML presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
+
 ![IAM Domain Class Diagram](../assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
+
+El siguiente diagrama presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
 
 ![IAM Database Design Diagram](../assets/images/chapterII/databaseDiagrams/IAM-database.png)
 

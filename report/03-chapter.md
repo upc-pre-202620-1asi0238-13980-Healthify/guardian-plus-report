@@ -2,7 +2,11 @@
 
 # Capítulo III: Solution UI/UX Design
 
+En este capítulo se presenta el diseño de la experiencia y de la interfaz de Guardian+: la guía de estilos, la arquitectura de información, el diseño del Landing Page y el diseño de la aplicación móvil, desde sus wireframes hasta el prototipo navegable.
+
 ## 3.1. Product design
+
+En esta sección se presenta el diseño de producto de Guardian+, que parte de la guía de estilos y la arquitectura de información para definir el Landing Page y la aplicación móvil.
 
 ### 3.1.1. Style Guidelines
 
@@ -13,6 +17,8 @@ Las presentes directrices de estilo definen el lenguaje visual, los componentes 
 Esta intención se deriva del valor central que el Capítulo I identifica en los segmentos objetivo: lo que familiares y cuidadores buscan, antes que cualquier funcionalidad, es *tranquilidad*. Un producto que promete calma no puede generar tensión visual al abrirse. De ahí que el estado normal —la situación mayoritaria, la que el usuario verá casi siempre— se represente con un lenguaje sereno y silencioso, y que la intensidad visual esté racionada y reservada para lo excepcional. La jerarquía del sistema no se organiza por importancia funcional, sino por urgencia: el diseño permanece callado mientras todo está bien y solo eleva la voz cuando algo ocurre.
 
 #### 3.1.1.1. General Style Guidelines
+
+La guía de estilos general define los lineamientos que comparten el Landing Page y la aplicación móvil: el tono de comunicación, la paleta de colores, la tipografía y el uso de espaciado, bordes y elevaciones.
 
 ##### A. Tono de Comunicación y Lenguaje
 
@@ -134,6 +140,8 @@ Escala tipográfica normalizada:
 ![ejemplo de vista](../assets/images/chapterIII/general-style-guidelines/example.png)
 
 ### 3.1.2. Information Architecture
+
+La arquitectura de información define cómo se organiza, etiqueta, encuentra y recorre el contenido de Guardian+. En esta sección se presentan los sistemas de organización, etiquetado, búsqueda y navegación, junto con las etiquetas SEO del Landing Page.
 
 #### 3.1.2.1. Organization Systems
 
@@ -442,7 +450,11 @@ El siguiente diagrama presenta la distribución de las pantallas de la aplicaci�
 
 ### 3.1.3. Landing Page UI Design
 
+En esta sección se presenta el diseño de la interfaz del Landing Page de Guardian+, primero como wireframes y luego como mock-ups, en sus versiones para escritorio y para dispositivos móviles.
+
 #### 3.1.3.1. Landing Page Wireframe
+
+Los wireframes del Landing Page definen la estructura y la jerarquía de contenido de cada sección del sitio (Cómo funciona, Beneficios, Por qué Guardian+, Precios y Contacto), sin aplicar todavía la paleta de colores del Style Guide.
 
 ##### Landing page wireframe desktop
 
@@ -493,6 +505,8 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 #### 3.1.3.2. Landing Page Mock-up
 
+Los mock-ups del Landing Page aplican sobre los wireframes la paleta de colores, la tipografía y los componentes definidos en el Style Guide, para las mismas secciones del sitio en escritorio y en dispositivos móviles.
+
 ##### Landing page mockup desktop
 
 ###### Mockup desktop - Cómo funciona
@@ -531,7 +545,11 @@ Versión Mobile: las mismas secciones se apilan en una sola columna, el menú co
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
+En esta sección se presenta el diseño de la aplicación móvil de Guardian+ organizado por Bounded Context: los wireframes, los wireflows, los mock-ups, los user flow diagrams y el prototipo navegable.
+
 #### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes de la aplicación móvil definen la estructura de las pantallas principales de cada sección. A continuación se presentan agrupados por Bounded Context.
 
 ##### Health Monitoring Bounded Context
 
@@ -646,6 +664,8 @@ Los wireframes de la sección **Rutinas** muestran el resumen diario de rutinas 
 
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+Los wireflow diagrams combinan los wireframes con las interacciones que conectan cada pantalla y muestran cómo el usuario cumple cada user goal. Se presentan agrupados por Bounded Context.
 
 ##### Health Monitoring Bounded Context
 
@@ -970,6 +990,8 @@ Los wireflows de **Rutinas** muestran cómo el cuidador programa un recordatorio
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
+Los mock-ups aplican el Style Guide sobre los wireframes y representan la apariencia final de las pantallas de la aplicación móvil. Se presentan agrupados por Bounded Context.
+
 ##### Health Monitoring Bounded Context
 
 Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wireframes la paleta de colores, tipografía, elevaciones y etiquetas de estado definidas en el Style Guide (3.1.1). El verde identifica las acciones primarias y los estados normales, y el ámbar resalta las lecturas “En Observación”.
@@ -1084,6 +1106,12 @@ Los mock-ups de **Rutinas** usan el verde para las rutinas completadas y las acc
 
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
+
+Los user flow diagrams describen, para cada user goal, la secuencia de acciones del usuario en la aplicación y las respuestas del sistema. Cada diagrama se acompaña de la User Persona, el número de flujo y el user goal que representa, y se presentan agrupados por Bounded Context.
+
+##### Mobility & Geofencing Bounded Context
+
+Los user flows de Mobility & Geofencing cubren la consulta de la ubicación en tiempo real de la persona bajo cuidado, la comunicación directa con ella mediante llamada o videollamada y la configuración de zonas seguras.
 
 <table>
   <tr>

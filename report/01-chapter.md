@@ -2,7 +2,11 @@
 
 # Capítulo I: Presentación
 
+En este capítulo se presenta Guardian+ y al equipo Healthify que la desarrolla. Se describe la problemática que motiva la solución, el proceso Lean UX aplicado para plantearla y los segmentos objetivo a los que se dirige.
+
 ## 1.1. Startup Profile
+
+En esta sección se describe la startup detrás de Guardian+ y se presenta a los integrantes del equipo que la conforman.
 
 ### 1.1.1. Descripción de la Startup
 
@@ -64,6 +68,8 @@ El equipo Healthify está conformado por cinco estudiantes de Ingeniería de Sof
 
 ## 1.2. Solution Profile
 
+En esta sección se expone el contexto en el que surge Guardian+, la problemática que busca resolver y el proceso Lean UX con el que el equipo formuló sus supuestos e hipótesis.
+
 ### 1.2.1. Antecedentes y problemática
 
 En el Perú, una parte importante de la población se encuentra en situación de vulnerabilidad y requiere cuidado y supervisión constante. Según el Censo 2017 del INEI, el 10,4 % de la población (más de 3 millones de personas) presenta algún tipo de discapacidad, y el 40,6 % de ellas depende de otra persona para realizar sus actividades diarias (INEI, ENEDIS). Esta situación se cruza fuertemente con la vejez: 47 de cada 100 personas con discapacidad son adultos mayores (INEI). Además, el envejecimiento poblacional se acelera: durante el tercer trimestre de 2025, el 44,6 % de los hogares del país contaba con al menos un adulto mayor (47,4 % en Lima Metropolitana), y el índice de dependencia de adultos mayores pasará de 23,0 % en 2025 a 41,5 % en 2050 (INEI, 2025). A ello se suman condiciones como la fragilidad, la comorbilidad y el riesgo de caídas: uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, una de las principales causas de hospitalización en esta población (Gobierno del Perú, 2018).
@@ -76,7 +82,11 @@ El punto crítico es que el cuidado de estas personas recae en familiares y cuid
 
 ### 1.2.2. Lean UX Process
 
+El equipo aplicó el proceso Lean UX para pasar de la problemática identificada a supuestos e hipótesis verificables. A continuación se presentan los problem statements, los supuestos, las hipótesis y el Lean UX Canvas que resume el planteamiento.
+
 #### 1.2.2.1. Lean UX Problem Statements
+
+Los problem statements describen la situación actual de los usuarios, la brecha que las soluciones existentes dejan sin atender y el foco con el que Guardian+ la aborda. Se plantea un enunciado principal y dos enunciados secundarios por objetivo.
 
 **Problem Statement principal (PS-1):**
 El cuidado de personas vulnerables que requieren cuidado (adultos mayores, personas con discapacidad o en situación de dependencia) en el Perú se ha apoyado principalmente en la supervisión presencial y en herramientas genéricas (llamadas, mensajería o wearables orientados al fitness) que no fueron diseñadas para el acompañamiento a distancia. Lo que los familiares y cuidadores necesitan es una forma oportuna, centralizada y confiable de conocer el estado de la persona a su cuidado y de ser alertados ante eventos críticos, incluso cuando no están presentes. Debido a que las soluciones actuales no integran monitoreo, alertas y comunicación pensados para este contexto, la información llega fragmentada y tarde. Por ello, Guardian+ abordará esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta en un dashboard claro y emite notificaciones y alertas en tiempo real. Nuestro foco inicial serán los familiares y cuidadores de personas vulnerables que requieren cuidado, con especial énfasis en los adultos mayores.
@@ -87,6 +97,8 @@ Enunciados secundarios por objetivo:
 - **PS-3 (Salud):** no existe un seguimiento continuo y comprensible de los signos de la persona a su cuidado. ¿Cómo ofrecer un monitoreo preventivo desde el aplicativo móvil?
 
 #### 1.2.2.2. Lean UX Assumptions
+
+Los supuestos reúnen lo que el equipo cree sobre el negocio, los usuarios y las funcionalidades de Guardian+, y sirven como punto de partida para las hipótesis que se validarán.
 
 **Business Assumptions (Suposiciones de negocio)**
 
@@ -120,12 +132,16 @@ Enunciados secundarios por objetivo:
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
+A partir de los supuestos anteriores se formularon las siguientes hipótesis, cada una con la métrica que permitirá validarla.
+
 - **H1:** Creemos que mejoraremos la respuesta ante emergencias si los familiares y cuidadores reciben avisos oportunos mediante alertas en tiempo real ante caídas o eventos críticos. *Métrica:* se reduce el tiempo promedio entre el evento detectado y la primera acción del responsable.
 - **H2:** Creemos que aumentaremos el uso recurrente de la app si los cuidadores logran supervisar sin presencia física mediante un dashboard de indicadores centralizado. *Métrica:* usuarios activos diarios y frecuencia de consultas al dashboard.
 - **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado de la persona a su cuidado. *Métrica:* número de reportes revisados y tasa de retención semanal.
 - **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
 
 #### 1.2.2.4. Lean UX Canvas
+
+El Lean UX Canvas reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.
 
 ![Lean UX Canvas](../assets/images/chapterI/leanux-canvas.svg)
 
