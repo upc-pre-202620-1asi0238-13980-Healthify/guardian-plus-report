@@ -1,0 +1,23 @@
+// ¿Cómo se integran la identidad y los sistemas externos? (Figura 2.40).
+import "./bounded-contexts.cml"
+
+ContextMap GuardianPlusIdentityExternal {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
+  contains EmergencyAlerting, HealthMonitoring, CareRoutinesWellness, MobilityGeofencing
+  contains Profile, Subscriptions, IAM
+  contains WearableDevice, Stripe, NotificationProviders
+
+  IAM [U,OHS,PL] -> [D] EmergencyAlerting
+  IAM [U,OHS,PL] -> [D] HealthMonitoring
+  IAM [U,OHS,PL] -> [D] CareRoutinesWellness
+  IAM [U,OHS,PL] -> [D] MobilityGeofencing
+  IAM [U,OHS,PL] -> [D] Profile
+  IAM [U,OHS,PL] -> [D] Subscriptions
+
+  WearableDevice [U] -> [D,ACL] HealthMonitoring
+  WearableDevice [U] -> [D,ACL] CareRoutinesWellness
+  WearableDevice [U] -> [D,ACL] MobilityGeofencing
+  Stripe [U] -> [D,ACL] Subscriptions
+  NotificationProviders [U] -> [D,ACL] EmergencyAlerting
+}

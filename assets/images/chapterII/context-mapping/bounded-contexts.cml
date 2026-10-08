@@ -1,0 +1,13 @@
+// Bounded Contexts y sistemas externos de Guardian+ (secciones 2.5.1.3 y 2.6).
+
+BoundedContext EmergencyAlerting { type = FEATURE domainVisionStatement = "Core Domain" }
+BoundedContext HealthMonitoring { type = FEATURE domainVisionStatement = "Core Domain" }
+BoundedContext CareRoutinesWellness { type = FEATURE domainVisionStatement = "Supporting Domain" }
+BoundedContext MobilityGeofencing { type = FEATURE domainVisionStatement = "Supporting Domain" }
+BoundedContext Profile { type = FEATURE domainVisionStatement = "Generic Domain" }
+BoundedContext Subscriptions { type = FEATURE domainVisionStatement = "Generic Domain" }
+BoundedContext IAM { type = FEATURE domainVisionStatement = "Generic Domain" }
+
+BoundedContext WearableDevice { type = SYSTEM }
+BoundedContext Stripe { type = SYSTEM }
+BoundedContext NotificationProviders { type = SYSTEM }
