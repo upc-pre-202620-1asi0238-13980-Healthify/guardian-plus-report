@@ -2033,35 +2033,51 @@ La Figura 2.21 presenta el EventStorming del Bounded Context Profile.
 
 <a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context Profile
 
+El Bounded Context **Profile** concentra las capacidades relacionadas con la administración de la información descriptiva de los usuarios de Guardian+, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de la aplicación. Mediante la sesión de EventStorming se identificaron los principales actores, comandos y eventos de dominio involucrados en estos procesos, permitiendo delimitar las responsabilidades correspondientes a este contexto.
+
+La siguiente figura presenta el EventStorming correspondiente al **Profile Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro del dominio.
+
 ![Profile EventStorming](../assets/images/chapterII/EventStorming/PROFILE.png)
 
-Este contexto candidato gestiona la información asociada a los perfiles de los usuarios y de las personas bajo cuidado, así como las relaciones existentes entre familiares, cuidadores y Care Recipients. También contempla la gestión de información de contacto y preferencias de uso de la aplicación.
+**Figura: EventStorming del Profile Bounded Context.**
 
-Su Lenguaje Ubicuo incluye conceptos como perfil de usuario, perfil de persona bajo cuidado, relación de cuidado, información de contacto, preferencias de aplicación, idioma y accesibilidad.
+En el diagrama, las notas amarillas representan los actores que interactúan con el contexto, las notas azules representan los comandos que expresan una intención o acción sobre el dominio y las notas naranjas representan los eventos de dominio producidos como resultado de dichas acciones. Esta organización permite visualizar los principales flujos bajo la secuencia **Actor → Command → Domain Event**.
 
-Se clasificó como **Generic Domain** debido a que proporciona información fundamental para que otros contextos puedan operar correctamente, pero sus capacidades corresponden principalmente a gestión de perfiles y relaciones, y no constituyen el núcleo diferenciador de Guardian+.
+En la parte superior izquierda de la figura se agrupan las operaciones relacionadas con el perfil del usuario. El actor `Guardian+ User` puede ejecutar los comandos `Create Profile`, `Update Profile` y `Update Contact Information`, generando respectivamente los eventos `Profile Created`, `Profile Updated` y `Contact Information Updated`. Estos flujos representan las acciones necesarias para crear y mantener actualizada la información descriptiva de una persona usuaria de Guardian+.
 
+En la parte superior derecha se representan las operaciones relacionadas con las personas bajo cuidado y las relaciones de cuidado. Un `Family Member / Caregiver` puede ejecutar `Create Care Recipient Profile` para registrar a una persona bajo cuidado, generando `Care Recipient Profile Created`. Asimismo, puede establecer o finalizar una relación de cuidado mediante los comandos `Establish Care Relationship` y `End Care Relationship`, produciendo los eventos `Relationship Established` y `Relationship Ended`.
 
+Finalmente, en la parte inferior se encuentran las operaciones asociadas a las preferencias del usuario. El actor `Guardian+ User` puede modificar las preferencias generales de la aplicación mediante `Update Application Preferences`, así como configurar aspectos de idioma y accesibilidad mediante `Update Language & Accessibility Preferences`. Como resultado se generan los eventos `Application Preferences Updated` y `Language & Accessibility Preferences Updated`.
+
+A partir de estos flujos se identificó un Lenguaje Ubicuo compuesto por conceptos como **User Profile**, **Care Recipient Profile**, **Care Relationship**, **Contact Information**, **Application Preferences**, **Language** y **Accessibility Preferences**, los cuales permiten mantener una terminología consistente entre el modelado del dominio y su posterior implementación.
+
+El contexto **Profile** se clasificó como **Generic Domain**, debido a que sus capacidades de administración de perfiles, relaciones y preferencias son necesarias para el funcionamiento de Guardian+, pero corresponden a funcionalidades comunes que no constituyen el principal elemento diferenciador de la propuesta de valor del producto.
 
 ##### Subscriptions Bounded Context (Generic Domain)
 
-Las Figuras 2.22 y 2.23 presentan el EventStorming del Bounded Context Subscriptions, dividido en dos partes por su extensión.
+El Bounded Context **Subscriptions** concentra las capacidades relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Mediante la sesión de EventStorming se identificaron los principales actores, comandos, eventos de dominio, reglas de decisión y sistemas externos involucrados en los procesos de solicitud, activación, cambio de plan, cancelación, expiración y renovación de una suscripción, así como en la actualización de los beneficios asociados a cada plan.
 
-<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Subscriptions (parte 1)
+La Figura 2.22 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
 
-![Subscriptions EventStorming - Parte 1](../assets/images/chapterII/EventStorming/subscription1.png)
+<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Subscriptions
 
-<a id="figura-2-23"></a>**Figura 2.23.** EventStorming del Bounded Context Subscriptions (parte 2)
+![Subscriptions EventStorming](../assets/images/chapterII/EventStorming/Subscription.png)
 
-![Subscriptions EventStorming - Parte 2](../assets/images/chapterII/EventStorming/Subscription2.png)
+En el diagrama, las notas amarillas representan los actores que interactúan con el contexto, las notas azules representan los comandos ejecutados sobre el dominio, las notas naranjas corresponden a los eventos de dominio generados como resultado de dichas acciones, las notas moradas representan reglas o decisiones que determinan el comportamiento del proceso y las notas verdes representan sistemas externos o componentes de soporte, como `Billing Scheduler` y `Payment Provider`.
 
-Este contexto candidato concentra las reglas relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Incluye la solicitud y activación de suscripciones, cambios de plan, renovación, cancelación, expiración y administración de los beneficios asociados a cada plan.
+En la parte superior izquierda se representa el proceso de solicitud y activación de una suscripción. El actor `Subscriber` inicia el flujo mediante `Request Subscription`, generando `Subscription Requested`. A partir de `Determine Subscription Activation Requirements`, el proceso puede continuar directamente hacia la activación cuando corresponde a un plan gratuito o iniciar el flujo de pago mediante `Initiate Subscription Payment`. En este último caso, el resultado del proveedor de pagos determina si la suscripción puede activarse mediante `Activate Subscription After Successful Payment` o si el proceso finaliza con un pago fallido.
 
-Su Lenguaje Ubicuo se encuentra relacionado con conceptos como suscripción, plan, pago, renovación, cancelación, expiración y entitlement.
+La parte central izquierda reúne los flujos relacionados con la consulta del estado de la suscripción y la administración de entitlements. El usuario puede consultar el estado de su suscripción mediante `Check Subscription Status` y revisar los beneficios disponibles mediante `Check Available Entitlements`. Asimismo, las reglas `Determine Entitlements After Activation`, `Recalculate Plan Entitlements`, `Recalculate Entitlements After Cancellation` y `Determine Remaining Entitlements` permiten actualizar los beneficios asociados a la suscripción mediante `Update Entitlements`.
 
-Se clasificó como **Generic Domain** porque permite implementar el modelo comercial y controlar los beneficios disponibles para los usuarios, pero no representa la principal fuente de innovación o diferenciación de Guardian+.
+En la parte superior derecha se presenta el proceso de cancelación. Luego de `Request Subscription Cancellation`, la regla `Determine Cancellation Effective Date` permite distinguir entre una cancelación inmediata y una cancelación efectiva al finalizar el ciclo de facturación. En el primer caso se ejecuta `Cancel Subscription`, mientras que en el segundo interviene `Billing Scheduler` para ejecutar `Expire Scheduled Subscription`.
 
+En la parte inferior izquierda se representa el cambio de plan. El flujo inicia con `Request Plan Change`, continúa con `Determine Plan Change Conditions` y `Apply Plan Change`, y posteriormente recalcula y actualiza los entitlements correspondientes al nuevo plan.
 
+Finalmente, la parte inferior derecha agrupa los procesos de expiración y renovación. `Billing Scheduler` evalúa periódicamente si una suscripción debe expirar o renovarse. En el proceso de expiración se utilizan `Evaluate Subscription Expiration`, `Determine Expiration Conditions` y `Expire Subscription`. En el proceso de renovación se ejecutan `Evaluate Subscription Renewal`, `Determine Renewal Requirements` e `Initiate Renewal Payment`, incorporando la interacción con `Payment Provider` y contemplando tanto la confirmación como el fallo del pago antes de renovar la suscripción.
+
+A partir de estos flujos se identificó un Lenguaje Ubicuo compuesto por conceptos como **Subscription**, **Plan**, **Payment**, **Renewal**, **Cancellation**, **Expiration** y **Entitlement**, permitiendo mantener una terminología consistente entre el modelado del dominio y su posterior implementación.
+
+El contexto **Subscriptions** se clasificó como **Generic Domain**, debido a que sus capacidades permiten implementar el modelo comercial de Guardian+ y controlar los beneficios disponibles para los usuarios, pero corresponden a funcionalidades comunes que no representan la principal fuente de innovación o diferenciación de la solución.
 
 Como resultado del Candidate Context Discovery, el equipo estableció una primera descomposición estratégica del dominio de Guardian+. Los contextos **Emergency & Alerting** y **Health Monitoring** fueron reconocidos como parte del Core Domain debido a su relación directa con la propuesta de valor principal de la solución. **Care Routines & Wellness** y **Mobility & Geofencing** fueron clasificados como Supporting Domains debido a que complementan y fortalecen las capacidades centrales de cuidado. Finalmente, **IAM**, **Profile** y **Subscriptions** fueron identificados como Generic Domains al representar capacidades necesarias para el funcionamiento de la plataforma, pero comunes a otros tipos de sistemas.
 
