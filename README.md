@@ -49,12 +49,15 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 
 **URL del repositorio:** https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report.git
 
-**AV1**:
-![alt text](<assets/images/Insights/chapter 1/report-insights-cover.png>)
+Las siguientes capturas muestran los insights del repositorio del informe, con los pull requests integrados y los commits de cada integrante durante cada entrega.
+
+**AV1:**
+
+![Insights del repositorio del informe en el AV1](<assets/images/Insights/chapter 1/report-insights-cover.png>)
 
 **TB1:**
 
-![report-insights-tb1](assets/images/Insights/tb1/report-insights-tb1.png)
+![Insights del repositorio del informe en el TB1](assets/images/Insights/tb1/report-insights-tb1.png)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -1325,7 +1328,7 @@ Los journeys se construyen a partir de la información obtenida durante las entr
 
 #### User Journey Map - Familiar
 
-El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior. La Figura 2.10 presenta este recorrido.
+El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior. La Figura 2.10 presenta el User Journey Map del segmento de familiares.
 
 <a id="figura-2-10"></a>**Figura 2.10.** User Journey Map del segmento de familiares
 
@@ -1333,7 +1336,7 @@ El recorrido del segmento de familiares representa la experiencia de supervisar 
 
 #### User Journey Map - Cuidador
 
-El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables. La Figura 2.11 presenta este recorrido.
+El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables. La Figura 2.11 presenta el User Journey Map del segmento de cuidadores.
 
 <a id="figura-2-11"></a>**Figura 2.11.** User Journey Map del segmento de cuidadores
 
@@ -1347,7 +1350,7 @@ Los mapas se construyen a partir de la información obtenida en las entrevistas,
 
 #### Empathy Map - Familiar
 
-El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia. La Figura 2.12 presenta este mapa.
+El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia. La Figura 2.12 presenta el Empathy Map del segmento de familiares.
 
 <a id="figura-2-12"></a>**Figura 2.12.** Empathy Map del segmento de familiares
 
@@ -1355,7 +1358,7 @@ El mapa del segmento de familiares refleja la experiencia de una persona que asu
 
 #### Empathy Map - Cuidador
 
-El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia. La Figura 2.13 presenta este mapa.
+El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia. La Figura 2.13 presenta el Empathy Map del segmento de cuidadores.
 
 <a id="figura-2-13"></a>**Figura 2.13.** Empathy Map del segmento de cuidadores
 
@@ -8629,7 +8632,7 @@ La Tabla 3.4 establece la correspondencia entre los términos del dominio y la e
 
 ##### Etiquetas del Landing Page
 
-Las etiquetas del Landing Page coinciden con las secciones presentadas en los wireframes y mock-ups. Cada una funciona como una promesa de contenido: el visitante asocia la etiqueta con la información que encontrará al seleccionarla, sin que toda la información se concentre en un mismo lugar. La Tabla 3.5 presenta estas etiquetas.
+Las etiquetas del Landing Page coinciden con las secciones presentadas en los wireframes y mock-ups. Cada una funciona como una promesa de contenido: el visitante asocia la etiqueta con la información que encontrará al seleccionarla, sin que toda la información se concentre en un mismo lugar. La Tabla 3.5 presenta las etiquetas del Landing Page.
 
 <a id="tabla-3-5"></a>**Tabla 3.5.** Etiquetas del Landing Page
 
@@ -8666,7 +8669,7 @@ Asimismo, las funcionalidades presentadas en la sección Beneficios anticipan la
 
 ##### Etiquetas de la aplicación móvil
 
-La navegación principal de la aplicación se compone de cinco etiquetas, cada una asociada a un Bounded Context del dominio. El acceso a Perfil se ubica en el avatar de la barra superior. La Tabla 3.7 presenta estas etiquetas.
+La navegación principal de la aplicación se compone de cinco etiquetas, cada una asociada a un Bounded Context del dominio. El acceso a Perfil se ubica en el avatar de la barra superior. La Tabla 3.7 presenta las etiquetas de la navegación principal de la aplicación.
 
 <a id="tabla-3-7"></a>**Tabla 3.7.** Etiquetas de la navegación principal de la aplicación
 
@@ -8696,7 +8699,7 @@ Los flujos de acceso utilizan las etiquetas *Iniciar sesión*, *Crear cuenta*, *
 
 ##### Etiquetas de estado
 
-Los estados del dominio se presentan mediante etiquetas breves acompañadas del color semántico definido en la paleta de las Style Guidelines. La Tabla 3.9 presenta estas etiquetas.
+Los estados del dominio se presentan mediante etiquetas breves acompañadas del color semántico definido en la paleta de las Style Guidelines. La Tabla 3.9 presenta las etiquetas de estado.
 
 <a id="tabla-3-9"></a>**Tabla 3.9.** Etiquetas de estado
 
@@ -8716,7 +8719,7 @@ Los estados del dominio se presentan mediante etiquetas breves acompañadas del 
 
 ##### Etiquetas de la pulsera
 
-La pulsera presenta un conjunto mínimo de etiquetas, pensadas para ser comprendidas por la persona bajo cuidado en una pantalla reducida. La Tabla 3.10 presenta estas etiquetas.
+La pulsera presenta un conjunto mínimo de etiquetas, pensadas para ser comprendidas por la persona bajo cuidado en una pantalla reducida. La Tabla 3.10 presenta las etiquetas de la pulsera.
 
 <a id="tabla-3-10"></a>**Tabla 3.10.** Etiquetas de la pulsera
 
@@ -8746,7 +8749,7 @@ Debido a que la experiencia se estructura como una página informativa con naveg
 | **Meta Keywords** | Guardian+, cuidado remoto, cuidadores, familiares, personas bajo cuidado, monitoreo de salud, alertas de emergencia, wearable, geolocalización, planes de suscripción |
 | **Meta Author** | Healthify Team |
 
-La configuración SEO definida para la Landing Page se incorporará en el documento principal mediante las etiquetas HTML correspondientes a `title`, `description`, `keywords` y `author`. Asimismo, se considera la configuración de `viewport` para garantizar una correcta visualización en dispositivos móviles. La Tabla 3.12 presenta estas etiquetas.
+La configuración SEO definida para la Landing Page se incorporará en el documento principal mediante las etiquetas HTML correspondientes a `title`, `description`, `keywords` y `author`. Asimismo, se considera la configuración de `viewport` para garantizar una correcta visualización en dispositivos móviles. La Tabla 3.12 presenta las etiquetas HTML de SEO del Landing Page.
 
 <a id="tabla-3-12"></a>**Tabla 3.12.** Etiquetas HTML de SEO del Landing Page
 
@@ -9054,7 +9057,7 @@ Los wireframes de la aplicación móvil definen la estructura de las pantallas p
 
 ##### Health Monitoring Bounded Context
 
-Los wireframes del Bounded Context **Health Monitoring** definen, en escala de grises, la estructura y jerarquía de las pantallas de la sección **Salud** de la aplicación móvil, sin aplicar todavía la paleta de colores del Style Guide. Cubren las User Stories US01–US05, US07, US19, US21 y US24. La Tabla 3.21 describe cada pantalla.
+Los wireframes del Bounded Context **Health Monitoring** definen, en escala de grises, la estructura y jerarquía de las pantallas de la sección **Salud** de la aplicación móvil, sin aplicar todavía la paleta de colores del Style Guide. Cubren las User Stories US01–US05, US07, US19, US21 y US24. La Tabla 3.21 describe cada pantalla de Health Monitoring.
 
 <a id="tabla-3-21"></a>**Tabla 3.21.** Pantallas de los wireframes de Health Monitoring
 
@@ -9071,7 +9074,7 @@ Los wireframes del Bounded Context **Health Monitoring** definen, en escala de g
 | Exportar expediente | Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19). |
 | Reporte semanal | Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24). |
 
-La Figura 3.21 presenta los wireframes de estas pantallas.
+La Figura 3.21 presenta los wireframes de las pantallas de Health Monitoring.
 
 <a id="figura-3-21"></a>**Figura 3.21.** Wireframes de Health Monitoring
 
@@ -9098,7 +9101,7 @@ La Figura 3.21 presenta los wireframes de estas pantallas.
 
 ##### Profile, IAM & Subscriptions
 
-Los siguientes wireframes representan las vistas complementarias de Guardian+ relacionadas con la gestión del perfil, la información de la persona bajo cuidado, el dispositivo asociado, la suscripción y las preferencias de uso. Las pantallas se presentan en escala de grises, conservando la estructura y jerarquía visual definida para los mock-ups finales. La Tabla 3.22 describe cada pantalla.
+Los siguientes wireframes representan las vistas complementarias de Guardian+ relacionadas con la gestión del perfil, la información de la persona bajo cuidado, el dispositivo asociado, la suscripción y las preferencias de uso. Las pantallas se presentan en escala de grises, conservando la estructura y jerarquía visual definida para los mock-ups finales. La Tabla 3.22 describe cada pantalla de Profile, IAM y Subscriptions.
 
 <a id="tabla-3-22"></a>**Tabla 3.22.** Pantallas de los wireframes de Profile, IAM y Subscriptions
 
@@ -9115,7 +9118,7 @@ Los siguientes wireframes representan las vistas complementarias de Guardian+ re
 | Acerca de Guardian+ | Vista informativa que presenta datos generales de Guardian+, incluyendo su propósito, versión de la aplicación y acceso a información complementaria del producto. |
 | Cerrar sesión | Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación. |
 
-La Figura 3.22 presenta los wireframes de estas pantallas.
+La Figura 3.22 presenta los wireframes de las pantallas de Profile, IAM y Subscriptions.
 
 <a id="figura-3-22"></a>**Figura 3.22.** Wireframes de Profile, IAM y Subscriptions
 
@@ -9143,7 +9146,7 @@ La Figura 3.22 presenta los wireframes de estas pantallas.
 
 ##### Emergency & Alerting Bounded Context
 
-Los wireframes de la sección **Alertas** presentan en escala de grises las pantallas con las que el familiar o cuidador recibe, atiende y revisa las alertas de la persona bajo cuidado. Cubren las User Stories US08, US09, US10, US11, US15 y US16. La Figura 3.23 presenta estas pantallas.
+Los wireframes de la sección **Alertas** presentan en escala de grises las pantallas con las que el familiar o cuidador recibe, atiende y revisa las alertas de la persona bajo cuidado. Cubren las User Stories US08, US09, US10, US11, US15 y US16. La Figura 3.23 presenta los wireframes de Emergency & Alerting.
 
 <a id="figura-3-23"></a>**Figura 3.23.** Wireframes de Emergency & Alerting
 
@@ -9162,7 +9165,7 @@ Los wireframes de la sección **Alertas** presentan en escala de grises las pant
 
 ##### Care Routines & Wellness Bounded Context
 
-Los wireframes de la sección **Rutinas** muestran el resumen diario de rutinas y las pantallas para programar tomas de medicación, citas médicas y actividad ligera. Cubren las User Stories US06, US13 y US14. La Figura 3.24 presenta estas pantallas.
+Los wireframes de la sección **Rutinas** muestran el resumen diario de rutinas y las pantallas para programar tomas de medicación, citas médicas y actividad ligera. Cubren las User Stories US06, US13 y US14. La Figura 3.24 presenta los wireframes de Care Routines & Wellness.
 
 <a id="figura-3-24"></a>**Figura 3.24.** Wireframes de Care Routines & Wellness
 
@@ -9192,7 +9195,7 @@ Los wireflows del Bounded Context **Health Monitoring** combinan los wireframes 
 
 **User goal:** Como cuidador, quiero consultar la lectura actual del ritmo cardíaco de la persona bajo cuidado, para monitorear su estabilidad cardiovascular e identificar irregularidades oportunamente.
 
-La Figura 3.25 presenta el wireflow.
+La Figura 3.25 presenta el wireflow para consultar el ritmo cardíaco (US01).
 
 <a id="figura-3-25"></a>**Figura 3.25.** Wireflow de Health Monitoring: Consultar ritmo cardíaco (US01)
 
@@ -9210,7 +9213,7 @@ La Figura 3.25 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero consultar la presión arterial sistólica y diastólica de la persona bajo cuidado, para evaluar su condición hemodinámica y prevenir descompensaciones.
 
-La Figura 3.26 presenta el wireflow.
+La Figura 3.26 presenta el wireflow para consultar la presión arterial (US02).
 
 <a id="figura-3-26"></a>**Figura 3.26.** Wireflow de Health Monitoring: Consultar presión arterial (US02)
 
@@ -9228,7 +9231,7 @@ La Figura 3.26 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero consultar la saturación de oxígeno de la persona bajo cuidado, para identificar hipoxemia o dificultad respiratoria.
 
-La Figura 3.27 presenta el wireflow.
+La Figura 3.27 presenta el wireflow para consultar la saturación de oxígeno (US03).
 
 <a id="figura-3-27"></a>**Figura 3.27.** Wireflow de Health Monitoring: Consultar saturación de oxígeno (US03)
 
@@ -9246,7 +9249,7 @@ La Figura 3.27 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero supervisar la temperatura corporal de la persona bajo cuidado, para detectar oportunamente fiebre o hipotermia.
 
-La Figura 3.28 presenta el wireflow.
+La Figura 3.28 presenta el wireflow para supervisar la temperatura corporal (US04).
 
 <a id="figura-3-28"></a>**Figura 3.28.** Wireflow de Health Monitoring: Supervisar temperatura corporal (US04)
 
@@ -9264,7 +9267,7 @@ La Figura 3.28 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero consultar la frecuencia respiratoria de la persona bajo cuidado, para identificar taquipnea o bradipnea.
 
-La Figura 3.29 presenta el wireflow.
+La Figura 3.29 presenta el wireflow para consultar la frecuencia respiratoria (US05).
 
 <a id="figura-3-29"></a>**Figura 3.29.** Wireflow de Health Monitoring: Consultar frecuencia respiratoria (US05)
 
@@ -9282,7 +9285,7 @@ La Figura 3.29 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero revisar tendencias históricas de signos vitales, para identificar patrones de deterioro y compartir información con el médico.
 
-La Figura 3.30 presenta el wireflow.
+La Figura 3.30 presenta el wireflow para analizar las tendencias históricas de los signos vitales (US07).
 
 <a id="figura-3-30"></a>**Figura 3.30.** Wireflow de Health Monitoring: Analizar tendencias históricas (US07)
 
@@ -9302,7 +9305,7 @@ La Figura 3.30 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero generar y exportar el historial de signos vitales, para respaldar las consultas médicas presenciales.
 
-La Figura 3.31 presenta el wireflow.
+La Figura 3.31 presenta el wireflow para exportar el historial de telemetría (US19).
 
 <a id="figura-3-31"></a>**Figura 3.31.** Wireflow de Health Monitoring: Exportar historial de telemetría (US19)
 
@@ -9322,7 +9325,7 @@ La Figura 3.31 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero que las lecturas tomadas sin red se almacenen y sincronicen al recuperar conexión, para conservar íntegro el historial.
 
-La Figura 3.32 presenta el wireflow.
+La Figura 3.32 presenta el wireflow para sincronizar la telemetría registrada sin conexión (US21).
 
 <a id="figura-3-32"></a>**Figura 3.32.** Wireflow de Health Monitoring: Sincronizar telemetría sin conexión (US21)
 
@@ -9338,7 +9341,7 @@ La Figura 3.32 presenta el wireflow.
 
 **User goal:** Como cuidador, quiero recibir una síntesis semanal del estado de salud, para evaluar la evolución global sin revisar la telemetría continuamente.
 
-La Figura 3.33 presenta el wireflow.
+La Figura 3.33 presenta el wireflow para revisar el reporte semanal de salud (US24).
 
 <a id="figura-3-33"></a>**Figura 3.33.** Wireflow de Health Monitoring: Revisar reporte semanal de salud (US24)
 
@@ -9362,7 +9365,7 @@ Los wireflows de **Extras** combinan los wireframes relacionados con el perfil, 
 
 User goal: Como familiar o cuidador, quiero consultar y actualizar mis datos personales y de contacto, para mantener correcta la información asociada a mi perfil en Guardian+.
 
-La Figura 3.34 presenta el wireflow.
+La Figura 3.34 presenta el wireflow para gestionar la información personal.
 
 <a id="figura-3-34"></a>**Figura 3.34.** Wireflow de Extras: Gestionar información personal
 
@@ -9422,7 +9425,7 @@ Las Figuras 3.35 a 3.37 presentan el wireflow para cada vista del entorno de cui
 
 **User goal:** Como familiar o cuidador, quiero consultar mi plan actual y sus beneficios, para conocer las funcionalidades disponibles en mi suscripción de Guardian+.
 
-La Figura 3.38 presenta el wireflow.
+La Figura 3.38 presenta el wireflow para consultar la suscripción actual.
 
 <a id="figura-3-38"></a>**Figura 3.38.** Wireflow de Extras: Consultar suscripción actual
 
@@ -9474,7 +9477,7 @@ Las Figuras 3.39 y 3.40 presentan el wireflow para el idioma y para la accesibil
 
 **User goal:** Como familiar o cuidador, quiero cerrar mi sesión de Guardian+, para proteger el acceso a la información de la persona bajo cuidado cuando termine de utilizar la aplicación.
 
-La Figura 3.41 presenta el wireflow.
+La Figura 3.41 presenta el wireflow para cerrar sesión de forma segura.
 
 <a id="figura-3-41"></a>**Figura 3.41.** Wireflow de Extras: Cerrar sesión de forma segura
 
@@ -9497,7 +9500,7 @@ Los wireflows de **Alertas** siguen el recorrido de los tres tipos de alerta de 
 
 **User goal:** Como familiar de Elena, quiero enterarme de inmediato cuando la pulsera detecte una caída y atenderla, para asegurarme de que reciba ayuda a tiempo.
 
-La Figura 3.42 presenta el wireflow.
+La Figura 3.42 presenta el wireflow para atender una alerta de caída (US08, US11).
 
 <a id="figura-3-42"></a>**Figura 3.42.** Wireflow de Emergency & Alerting: Atender una alerta de caída (US08, US11)
 
@@ -9515,7 +9518,7 @@ La Figura 3.42 presenta el wireflow.
 
 **User goal:** Como cuidadora de Elena, quiero recibir su pedido de auxilio en cuanto presione el botón SOS de la pulsera, para saber dónde está y actuar sin perder tiempo.
 
-La Figura 3.43 presenta el wireflow.
+La Figura 3.43 presenta el wireflow para responder a un SOS (US15).
 
 <a id="figura-3-43"></a>**Figura 3.43.** Wireflow de Emergency & Alerting: Responder a un SOS (US15)
 
@@ -9533,7 +9536,7 @@ La Figura 3.43 presenta el wireflow.
 
 **User goal:** Como familiar de Elena, quiero enterarme cuando sus signos vitales salgan del rango seguro y seguir la alerta hasta que se normalicen, para intervenir solo cuando realmente haga falta.
 
-La Figura 3.44 presenta el wireflow.
+La Figura 3.44 presenta el wireflow para seguir una alerta de signos vitales (US09, US10).
 
 <a id="figura-3-44"></a>**Figura 3.44.** Wireflow de Emergency & Alerting: Seguir una alerta de signos vitales (US09, US10)
 
@@ -9555,7 +9558,7 @@ Los wireflows de **Rutinas** muestran cómo el cuidador programa un recordatorio
 
 **User goal:** Como cuidador, deseo programar las tomas de medicación del Fragile Citizen y que su pulsera emita los avisos hápticos y sonoros en los horarios exactos para asegurar la adherencia al tratamiento prescrito.
 
-La Figura 3.45 presenta el wireflow.
+La Figura 3.45 presenta el wireflow para programar una toma de medicación (US06).
 
 <a id="figura-3-45"></a>**Figura 3.45.** Wireflow de Care Routines & Wellness: Programar una toma de medicación (US06)
 
@@ -9573,7 +9576,7 @@ La Figura 3.45 presenta el wireflow.
 
 **User goal:** Como cuidador, deseo agendar los controles y citas médicas del Fragile Citizen para recibir avisos preventivos y evitar inasistencias a los centros de salud.
 
-La Figura 3.46 presenta el wireflow.
+La Figura 3.46 presenta el wireflow para agendar una cita médica (US13).
 
 <a id="figura-3-46"></a>**Figura 3.46.** Wireflow de Care Routines & Wellness: Agendar una cita médica (US13)
 
@@ -9594,7 +9597,7 @@ Los mock-ups aplican el Style Guide sobre los wireframes y representan la aparie
 
 ##### Health Monitoring Bounded Context
 
-Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wireframes la paleta de colores, tipografía, elevaciones y etiquetas de estado definidas en el Style Guide (3.1.1). El verde identifica las acciones primarias y los estados normales, y el ámbar resalta las lecturas “En Observación”. La Tabla 3.23 describe cada pantalla.
+Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wireframes la paleta de colores, tipografía, elevaciones y etiquetas de estado definidas en el Style Guide (3.1.1). El verde identifica las acciones primarias y los estados normales, y el ámbar resalta las lecturas “En Observación”. La Tabla 3.23 describe cada pantalla de Health Monitoring.
 
 <a id="tabla-3-23"></a>**Tabla 3.23.** Pantallas de los mock-ups de Health Monitoring
 
@@ -9611,7 +9614,7 @@ Los mock-ups del Bounded Context **Health Monitoring** aplican sobre los wirefra
 | Exportar expediente | Hoja inferior que se abre desde Exportar PDF. Permite elegir el periodo (Últimos 30 días, Últimos 7 días o Personalizado), revisar las métricas incluidas y generar el expediente en PDF (US19). |
 | Reporte semanal | Hoja inferior que se abre desde Reporte semanal. Resume la estabilidad de signos vitales, las alertas disparadas y la adherencia a la medicación, el comportamiento por parámetro y un aviso cuando se detecta un parámetro recurrente (US24). |
 
-La Figura 3.47 presenta los mock-ups de estas pantallas.
+La Figura 3.47 presenta los mock-ups de las pantallas de Health Monitoring.
 
 <a id="figura-3-47"></a>**Figura 3.47.** Mock-ups de Health Monitoring
 
@@ -9638,7 +9641,7 @@ La Figura 3.47 presenta los mock-ups de estas pantallas.
 
 ##### Extras
 
-Los mock-ups de **Extras** aplican el Design System de Guardian+ a las vistas relacionadas con el perfil, el entorno de cuidado, la suscripción, las preferencias de la aplicación y la gestión de sesión. Las pantallas mantienen la paleta, tipografía, jerarquía visual y componentes definidos en las Style Guidelines. La Tabla 3.24 describe cada pantalla.
+Los mock-ups de **Extras** aplican el Design System de Guardian+ a las vistas relacionadas con el perfil, el entorno de cuidado, la suscripción, las preferencias de la aplicación y la gestión de sesión. Las pantallas mantienen la paleta, tipografía, jerarquía visual y componentes definidos en las Style Guidelines. La Tabla 3.24 describe cada pantalla de Extras.
 
 <a id="tabla-3-24"></a>**Tabla 3.24.** Pantallas de los mock-ups de Extras
 
@@ -9656,7 +9659,7 @@ Los mock-ups de **Extras** aplican el Design System de Guardian+ a las vistas re
 | Acerca de Guardian+ | Vista informativa que presenta el propósito de Guardian+, la versión de la aplicación y el acceso a información complementaria del producto. |
 | Cerrar sesión | Diálogo de confirmación que permite al usuario cerrar su sesión de Guardian+ de forma segura antes de abandonar la aplicación. |
 
-La Figura 3.48 presenta los mock-ups de estas pantallas.
+La Figura 3.48 presenta los mock-ups de las pantallas de Extras.
 
 <a id="figura-3-48"></a>**Figura 3.48.** Mock-ups de Extras
 
@@ -9684,7 +9687,7 @@ La Figura 3.48 presenta los mock-ups de estas pantallas.
 
 ##### Emergency & Alerting Bounded Context
 
-Los mock-ups de **Alertas** aplican el Style Guide (3.1.1) con un criterio de severidad: el rojo identifica las alertas críticas y el SOS, el ámbar las alertas de prioridad media y el verde las alertas estabilizadas o atendidas. La Figura 3.49 presenta estas pantallas.
+Los mock-ups de **Alertas** aplican el Style Guide (3.1.1) con un criterio de severidad: el rojo identifica las alertas críticas y el SOS, el ámbar las alertas de prioridad media y el verde las alertas estabilizadas o atendidas. La Figura 3.49 presenta los mock-ups de Emergency & Alerting.
 
 <a id="figura-3-49"></a>**Figura 3.49.** Mock-ups de Emergency & Alerting
 
@@ -9703,7 +9706,7 @@ Los mock-ups de **Alertas** aplican el Style Guide (3.1.1) con un criterio de se
 
 ##### Care Routines & Wellness Bounded Context
 
-Los mock-ups de **Rutinas** usan el verde para las rutinas completadas y las acciones principales, y el ámbar para las tomas pendientes y los avisos preventivos. La Figura 3.50 presenta estas pantallas.
+Los mock-ups de **Rutinas** usan el verde para las rutinas completadas y las acciones principales, y el ámbar para las tomas pendientes y los avisos preventivos. La Figura 3.50 presenta los mock-ups de Care Routines & Wellness.
 
 <a id="figura-3-50"></a>**Figura 3.50.** Mock-ups de Care Routines & Wellness
 
@@ -9729,7 +9732,7 @@ Los user flow diagrams describen, para cada user goal, la secuencia de acciones 
 
 Los user flows de Mobility & Geofencing cubren la consulta de la ubicación en tiempo real de la persona bajo cuidado, la comunicación directa con ella mediante llamada o videollamada y la configuración de zonas seguras.
 
-La Figura 3.51 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.51 presenta el user flow para consultar la ubicación en tiempo real, junto con su User Persona y su user goal.
 
 <a id="figura-3-51"></a>**Figura 3.51.** User flow de Mobility & Geofencing: Consultar la ubicación en tiempo real
 
@@ -9785,7 +9788,7 @@ La Figura 3.51 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.52 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.52 presenta el user flow para comunicarse directamente con la persona bajo cuidado, junto con su User Persona y su user goal.
 
 <a id="figura-3-52"></a>**Figura 3.52.** User flow de Mobility & Geofencing: Comunicarse directamente con la persona bajo cuidado
 
@@ -9831,7 +9834,7 @@ La Figura 3.52 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.53 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.53 presenta el user flow para configurar y monitorear zonas seguras, junto con su User Persona y su user goal.
 
 <a id="figura-3-53"></a>**Figura 3.53.** User flow de Mobility & Geofencing: Configurar y monitorear zonas seguras
 
@@ -9882,7 +9885,7 @@ La Figura 3.53 presenta el user flow, junto con su User Persona y su user goal.
 
 Los siguientes user flows corresponden al Bounded Context **Health Monitoring** y describen cómo la Cuidadora (User Persona: Roxana Paola Diana Ramírez) consulta, analiza, exporta y sincroniza los signos vitales del Fragile Citizen desde la sección **Salud**. Cada diagrama muestra el happy path con flechas continuas y el unhappy path con flechas discontinuas en rojo.
 
-La Figura 3.54 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.54 presenta el user flow para consultar el ritmo cardíaco (US01), junto con su User Persona y su user goal.
 
 <a id="figura-3-54"></a>**Figura 3.54.** User flow de Health Monitoring: Consultar ritmo cardíaco (US01)
 
@@ -9930,7 +9933,7 @@ La Figura 3.54 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.55 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.55 presenta el user flow para consultar la presión arterial (US02), junto con su User Persona y su user goal.
 
 <a id="figura-3-55"></a>**Figura 3.55.** User flow de Health Monitoring: Consultar presión arterial (US02)
 
@@ -9978,7 +9981,7 @@ La Figura 3.55 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.56 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.56 presenta el user flow para consultar la saturación de oxígeno (US03), junto con su User Persona y su user goal.
 
 <a id="figura-3-56"></a>**Figura 3.56.** User flow de Health Monitoring: Consultar saturación de oxígeno (US03)
 
@@ -10026,7 +10029,7 @@ La Figura 3.56 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.57 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.57 presenta el user flow para supervisar la temperatura corporal (US04), junto con su User Persona y su user goal.
 
 <a id="figura-3-57"></a>**Figura 3.57.** User flow de Health Monitoring: Supervisar temperatura corporal (US04)
 
@@ -10074,7 +10077,7 @@ La Figura 3.57 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.58 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.58 presenta el user flow para consultar la frecuencia respiratoria (US05), junto con su User Persona y su user goal.
 
 <a id="figura-3-58"></a>**Figura 3.58.** User flow de Health Monitoring: Consultar frecuencia respiratoria (US05)
 
@@ -10122,7 +10125,7 @@ La Figura 3.58 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.59 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.59 presenta el user flow para analizar las tendencias históricas de los signos vitales (US07), junto con su User Persona y su user goal.
 
 <a id="figura-3-59"></a>**Figura 3.59.** User flow de Health Monitoring: Analizar tendencias históricas (US07)
 
@@ -10170,7 +10173,7 @@ La Figura 3.59 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.60 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.60 presenta el user flow para exportar el historial de telemetría (US19), junto con su User Persona y su user goal.
 
 <a id="figura-3-60"></a>**Figura 3.60.** User flow de Health Monitoring: Exportar historial de telemetría (US19)
 
@@ -10218,7 +10221,7 @@ La Figura 3.60 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.61 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.61 presenta el user flow para sincronizar la telemetría registrada sin conexión (US21), junto con su User Persona y su user goal.
 
 <a id="figura-3-61"></a>**Figura 3.61.** User flow de Health Monitoring: Sincronizar telemetría sin conexión (US21)
 
@@ -10266,7 +10269,7 @@ La Figura 3.61 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.62 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.62 presenta el user flow para revisar el reporte semanal de salud (US24), junto con su User Persona y su user goal.
 
 <a id="figura-3-62"></a>**Figura 3.62.** User flow de Health Monitoring: Revisar reporte semanal de salud (US24)
 
@@ -10316,7 +10319,7 @@ La Figura 3.62 presenta el user flow, junto con su User Persona y su user goal.
 
 Los siguientes user flows corresponden a las vistas complementarias de **Extras** y describen cómo el Familiar o Cuidador gestiona su información personal, consulta su entorno de cuidado y suscripción, configura las preferencias de Guardian+ y administra el cierre de sesión. Cada diagrama presenta la ruta esperada o happy path y las rutas alternativas o unhappy paths.
 
-La Figura 3.63 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.63 presenta el user flow para gestionar la información personal, junto con su User Persona y su user goal.
 
 <a id="figura-3-63"></a>**Figura 3.63.** User flow de Extras: Gestionar información personal
 
@@ -10364,7 +10367,7 @@ La Figura 3.63 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.64 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.64 presenta el user flow para consultar el entorno de cuidado, junto con su User Persona y su user goal.
 
 <a id="figura-3-64"></a>**Figura 3.64.** User flow de Extras: Consultar entorno de cuidado
 
@@ -10414,7 +10417,7 @@ La Figura 3.64 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.65 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.65 presenta el user flow para consultar la suscripción actual, junto con su User Persona y su user goal.
 
 <a id="figura-3-65"></a>**Figura 3.65.** User flow de Extras: Consultar suscripción actual
 
@@ -10462,7 +10465,7 @@ La Figura 3.65 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.66 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.66 presenta el user flow para configurar las preferencias de la aplicación, junto con su User Persona y su user goal.
 
 <a id="figura-3-66"></a>**Figura 3.66.** User flow de Extras: Configurar preferencias de la aplicación
 
@@ -10518,7 +10521,7 @@ La Figura 3.66 presenta el user flow, junto con su User Persona y su user goal.
 
 Los siguientes user flows corresponden al Bounded Context **Emergency & Alerting** y describen cómo el familiar y la cuidadora atienden las alertas de Elena desde la sección **Alertas**. Cada diagrama muestra el happy path en verde y los unhappy paths en rojo.
 
-La Figura 3.67 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.67 presenta el user flow para atender una alerta de caída (US08, US11), junto con su User Persona y su user goal.
 
 <a id="figura-3-67"></a>**Figura 3.67.** User flow de Emergency & Alerting: Atender una alerta de caída (US08, US11)
 
@@ -10562,7 +10565,7 @@ La Figura 3.67 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.68 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.68 presenta el user flow para responder a un SOS (US15, US25), junto con su User Persona y su user goal.
 
 <a id="figura-3-68"></a>**Figura 3.68.** User flow de Emergency & Alerting: Responder a un SOS (US15, US25)
 
@@ -10606,7 +10609,7 @@ La Figura 3.68 presenta el user flow, junto con su User Persona y su user goal.
 
 <hr>
 
-La Figura 3.69 presenta el user flow, junto con su User Persona y su user goal.
+La Figura 3.69 presenta el user flow para seguir una alerta de signos vitales (US09, US10), junto con su User Persona y su user goal.
 
 <a id="figura-3-69"></a>**Figura 3.69.** User flow de Emergency & Alerting: Seguir una alerta de signos vitales (US09, US10)
 
@@ -11663,7 +11666,7 @@ En esta sección se registran los commits que implementan las User Stories del S
 
 ##### Web Services — Emergency & Alerting
 
-Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits correspondientes.
+Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits de Emergency & Alerting en los Web Services.
 
 <a id="tabla-4-33"></a>**Tabla 4.33.** Commits de Web Services: Emergency & Alerting
 
@@ -11683,7 +11686,7 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 
 ##### Web Services — Care Routines & Wellness
 
-Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits correspondientes.
+Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits de Care Routines & Wellness en los Web Services.
 
 <a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Care Routines & Wellness
 
@@ -11697,7 +11700,7 @@ Implementación anticipada del Bounded Context Care Routines & Wellness (US06, U
 
 ##### Web Services — Health Monitoring
 
-Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits correspondientes.
+Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits de Health Monitoring en los Web Services.
 
 <a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Health Monitoring
 
@@ -11799,7 +11802,7 @@ Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US
 
 ##### Mobile App — Emergency & Alerting
 
-Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits correspondientes.
+Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits de Emergency & Alerting en la aplicación móvil.
 
 <a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Mobile App: Emergency & Alerting
 
@@ -11812,7 +11815,7 @@ Implementación de las pantallas del Bounded Context Emergency & Alerting en la 
 
 ##### Mobile App — Health Monitoring
 
-Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits correspondientes.
+Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits de Health Monitoring en la aplicación móvil.
 
 <a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Mobile App: Health Monitoring
 
@@ -11846,7 +11849,7 @@ Implementación de la capa de dominio, infraestructura y presentación del Bound
 
 ##### IoT Simulator
 
-Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits correspondientes.
+Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits del IoT Simulator.
 
 <a id="tabla-4-38"></a>**Tabla 4.38.** Commits de IoT Simulator
 
@@ -12293,25 +12296,25 @@ El despliegue se realizó en los pasos de la Tabla 4.53:
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
 
-**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra estas métricas.
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra los insights del repositorio de los Web Services.
 
 <a id="figura-4-13"></a>**Figura 4.13.** Insights del repositorio de los Web Services
 
 ![backend-insights](assets/images/chatper4/sprint1/insights/backend-insights.png)
 
-**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra estas métricas.
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de la aplicación móvil.
 
 <a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
 
-**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra estas métricas.
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra los insights del repositorio del Landing Page.
 
 <a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio del Landing Page
 
 ![website-insights](assets/images/chatper4/sprint1/insights/website-insights.png)
 
-**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra estas métricas.
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra los insights del repositorio del IoT Simulator.
 
 <a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del IoT Simulator
 
@@ -12371,7 +12374,7 @@ La Tabla 4.54 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.17 muestra una captura de la entrevista.
+La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
 <a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Roxana Paola Diana
 
@@ -12393,7 +12396,7 @@ La Tabla 4.55 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.18 muestra una captura de la entrevista.
+La Figura 4.18 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
 <a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
@@ -12500,7 +12503,7 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra esta pantalla.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra la pantalla Contactos de emergencia.
 
 <a id="figura-4-22"></a>**Figura 4.22.** Pantalla Contactos de emergencia
 
@@ -12517,7 +12520,7 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra esta pantalla.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra el panel Buscar y filtrar del módulo de Salud.
 
 <a id="figura-4-23"></a>**Figura 4.23.** Panel Buscar y filtrar del módulo de Salud
 
@@ -12534,7 +12537,7 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra esta pantalla.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra la pantalla Exportar expediente.
 
 <a id="figura-4-24"></a>**Figura 4.24.** Pantalla Exportar expediente
 
@@ -12551,7 +12554,7 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra esta pantalla.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra la pantalla Sueño del módulo de Rutinas.
 
 <a id="figura-4-25"></a>**Figura 4.25.** Pantalla Sueño del módulo de Rutinas
 
