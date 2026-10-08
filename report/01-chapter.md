@@ -19,7 +19,9 @@ Como respuesta a esta problemática, Guardian+ propone una solución móvil que 
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-El equipo Healthify está conformado por cinco estudiantes de Ingeniería de Software de la UPC. La siguiente tabla presenta a cada integrante con su código, su carrera y un resumen de sus conocimientos y de su rol dentro del proyecto.
+El equipo Healthify está conformado por cinco estudiantes de Ingeniería de Software de la UPC. La Tabla 1.1 presenta a cada integrante con su código, su carrera y un resumen de sus conocimientos y de su rol dentro del proyecto.
+
+<a id="tabla-1-1"></a>**Tabla 1.1.** Perfiles de los integrantes del equipo Healthify
 
 <table>
   <tr>
@@ -76,7 +78,9 @@ En el Perú, una parte importante de la población se encuentra en situación de
 
 El punto crítico es que el cuidado de estas personas recae en familiares y cuidadores que no siempre pueden estar presentes. De hecho, entre quienes apoyan a una persona con discapacidad, muchos dejan de trabajar (27,1 %) o de realizar sus quehaceres del hogar (46,7 %) para asumir ese cuidado (INEI, ENEDIS). Cuando la persona vulnerable queda sola, sus familiares y cuidadores carecen de una forma oportuna, centralizada y a distancia de conocer su estado y de ser alertados ante un evento crítico. Guardian+ aborda esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta de forma clara y genera alertas, permitiendo una respuesta rápida sin necesidad de presencia constante.
 
-**Análisis 5W2H**
+La Figura 1.1 resume la problemática mediante el análisis 5W2H, que responde qué ocurre, quiénes la enfrentan, dónde, cuándo, por qué, cómo se presenta y cuánto impacta.
+
+<a id="figura-1-1"></a>**Figura 1.1.** Análisis 5W2H de la problemática
 
 ![5w2h](../assets/images/chapterI/5w2h.svg)
 
@@ -141,7 +145,9 @@ A partir de los supuestos anteriores se formularon las siguientes hipótesis, ca
 
 #### 1.2.2.4. Lean UX Canvas
 
-El Lean UX Canvas reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.
+El Lean UX Canvas de la Figura 1.2 reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.
+
+<a id="figura-1-2"></a>**Figura 1.2.** Lean UX Canvas de Guardian+
 
 ![Lean UX Canvas](../assets/images/chapterI/leanux-canvas.svg)
 

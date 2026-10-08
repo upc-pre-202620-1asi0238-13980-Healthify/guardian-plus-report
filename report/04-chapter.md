@@ -14,6 +14,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 #### Project Management
 
+La Tabla 4.1 presenta las herramientas utilizadas para Project Management.
+
+<a id="tabla-4-1"></a>**Tabla 4.1.** Herramientas de Project Management
+
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
 | **ClickUp** | Gestión del Product Backlog, planificación de Sprints, estimación con Story Points, asignación de tareas y seguimiento de su estado. | SaaS | [Tablero de Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708) |
@@ -21,6 +25,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 | **Discord** | Reuniones sincrónicas del equipo, revisiones de avance y sesiones de trabajo colaborativo. | SaaS / Desktop | [discord.com](https://discord.com/download) |
 
 #### Requirements Management
+
+La Tabla 4.2 presenta las herramientas utilizadas para Requirements Management.
+
+<a id="tabla-4-2"></a>**Tabla 4.2.** Herramientas de Requirements Management
 
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
@@ -30,11 +38,19 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 #### Product UX/UI Design
 
+La Tabla 4.3 presenta las herramientas utilizadas para Product UX/UI Design.
+
+<a id="tabla-4-3"></a>**Tabla 4.3.** Herramientas de Product UX/UI Design
+
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
 | **Figma** | Diseño de Style Guidelines, wireframes, mock-ups y prototipos del Landing Page y de la aplicación móvil. | SaaS | [figma.com](https://www.figma.com) |
 
 #### Software Architecture & Modeling
+
+La Tabla 4.4 presenta las herramientas utilizadas para Software Architecture & Modeling.
+
+<a id="tabla-4-4"></a>**Tabla 4.4.** Herramientas de Software Architecture & Modeling
 
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
@@ -43,6 +59,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 | **Graphviz** | Generación de los diagramas de base de datos a partir de archivos `.dot` versionados en el repositorio del informe. | Desktop | [graphviz.org/download](https://graphviz.org/download/) |
 
 #### Software Development
+
+La Tabla 4.5 presenta las herramientas utilizadas para Software Development.
+
+<a id="tabla-4-5"></a>**Tabla 4.5.** Herramientas de Software Development
 
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
@@ -64,6 +84,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 #### Software Testing
 
+La Tabla 4.6 presenta las herramientas utilizadas para Software Testing.
+
+<a id="tabla-4-6"></a>**Tabla 4.6.** Herramientas de Software Testing
+
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
 | **JUnit 5 y Mockito** | Pruebas unitarias y de integración de los Web Services, incluidas en los starters de prueba de Spring Boot. | Library | [junit.org/junit5](https://junit.org/junit5/) |
@@ -74,6 +98,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 | **Lighthouse** | Evaluación de accesibilidad, rendimiento y buenas prácticas SEO del Landing Page. | Browser tool | [developer.chrome.com/docs/lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) |
 
 #### Software Deployment
+
+La Tabla 4.7 presenta las herramientas utilizadas para Software Deployment.
+
+<a id="tabla-4-7"></a>**Tabla 4.7.** Herramientas de Software Deployment
 
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
@@ -86,6 +114,10 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 #### Software Documentation
 
+La Tabla 4.8 presenta las herramientas utilizadas para Software Documentation.
+
+<a id="tabla-4-8"></a>**Tabla 4.8.** Herramientas de Software Documentation
+
 | Product | Purpose | Type | Reference / Download URL |
 |---|---|---|---|
 | **GitHub y Markdown** | Elaboración colaborativa y versionamiento del informe del proyecto. | SaaS | [guardian-plus-report](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-report) |
@@ -93,7 +125,9 @@ En esta sección se especifican los productos de software que utilizan los integ
 
 #### Technology Stack
 
-Las versiones de lenguajes y frameworks corresponden a las configuradas actualmente en los repositorios de cada producto.
+Las versiones de lenguajes y frameworks corresponden a las configuradas actualmente en los repositorios de cada producto. La Tabla 4.9 presenta el stack tecnológico de cada producto.
+
+<a id="tabla-4-9"></a>**Tabla 4.9.** Technology Stack de Guardian+
 
 | Product | Technology | Version |
 |---|---|---|
@@ -118,7 +152,9 @@ Las versiones de lenguajes y frameworks corresponden a las configuradas actualme
 
 El equipo utiliza Git como sistema de control de versiones distribuido y GitHub como plataforma para almacenar y administrar los repositorios de los productos que conforman Guardian+. Esta organización permite mantener trazabilidad sobre los cambios realizados, separar el trabajo de cada integrante y revisar las modificaciones mediante Pull Requests antes de integrarlas a las ramas principales.
 
-Los repositorios utilizados por Guardian+ son los siguientes:
+Los repositorios utilizados por Guardian+ se presentan en la Tabla 4.10:
+
+<a id="tabla-4-10"></a>**Tabla 4.10.** Repositorios de Guardian+
 
 | Product / Artifact | Repository | Purpose |
 |---|---|---|
@@ -134,7 +170,9 @@ En la iteración actual no se mantiene una Web Application operativa independien
 
 Guardian+ adopta GitFlow como estrategia de organización de ramas para mantener separado el código estable, el trabajo de integración y el desarrollo de nuevas funcionalidades. Los cambios se desarrollan en ramas independientes y se integran mediante Pull Requests, evitando realizar modificaciones directas sobre las ramas principales.
 
-Las ramas consideradas en el workflow son las siguientes:
+Las ramas consideradas en el workflow se presentan en la Tabla 4.11:
+
+<a id="tabla-4-11"></a>**Tabla 4.11.** Ramas del workflow GitFlow
 
 | Branch | Purpose | Origin | Destination |
 |---|---|---|---|
@@ -147,7 +185,9 @@ Las ramas consideradas en el workflow son las siguientes:
 
 ##### Branch Naming Conventions
 
-Los nombres de las ramas se escriben en inglés, utilizando minúsculas y palabras separadas mediante guiones. El nombre debe indicar claramente el propósito del cambio.
+Los nombres de las ramas se escriben en inglés, utilizando minúsculas y palabras separadas mediante guiones. El nombre debe indicar claramente el propósito del cambio. La Tabla 4.12 resume estas convenciones.
+
+<a id="tabla-4-12"></a>**Tabla 4.12.** Convenciones de nombres de ramas
 
 | Branch Type | Convention | Example |
 |---|---|---|
@@ -194,7 +234,9 @@ La estructura utilizada es:
 
 `<type>(<scope>): <description>`
 
-Los tipos principales adoptados por el equipo son:
+Los tipos principales adoptados por el equipo se presentan en la Tabla 4.13:
+
+<a id="tabla-4-13"></a>**Tabla 4.13.** Tipos de Conventional Commits
 
 | Type | Usage |
 |---|---|
@@ -249,7 +291,9 @@ Guardian+ establece convenciones de código comunes para mantener consistencia, 
 
 Todos los nombres utilizados en el código fuente, incluyendo clases, métodos, variables, componentes, archivos, paquetes y escenarios de pruebas, se redactan en inglés.
 
-Las convenciones documentadas en esta sección corresponden únicamente a las tecnologías que forman parte de la implementación actual de Guardian+.
+Las convenciones documentadas en esta sección corresponden únicamente a las tecnologías que forman parte de la implementación actual de Guardian+. La Tabla 4.14 presenta las tecnologías consideradas.
+
+<a id="tabla-4-14"></a>**Tabla 4.14.** Lenguajes y tecnologías por producto
 
 | Product | Language / Technology | Application in Guardian+ |
 |---|---|---|
@@ -535,6 +579,10 @@ Los Step Definitions asociados a los archivos `.feature` se implementan utilizan
 
 #### Naming Conventions Summary
 
+La Tabla 4.15 resume las convenciones de nombres de todos los productos.
+
+<a id="tabla-4-15"></a>**Tabla 4.15.** Resumen de convenciones de nombres
+
 | Element | Convention | Example |
 |---|---|---|
 | Java / Kotlin class | `PascalCase` | `CareRelationship` |
@@ -556,6 +604,10 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 
 #### Deployment Overview
 
+La Tabla 4.16 resume el despliegue de cada producto.
+
+<a id="tabla-4-16"></a>**Tabla 4.16.** Deployment Overview de Guardian+
+
 | Product | Repository | Platform | Deployment Trigger | Public Access |
 |---|---|---|---|---|
 | **Landing Page** | [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | Cloudflare Pages | Integración de cambios en `main` | [guardian-plus.pages.dev](https://guardian-plus.pages.dev) |
@@ -565,6 +617,10 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 
 #### Deployment Environments
 
+La Tabla 4.17 presenta los entornos de despliegue de cada producto.
+
+<a id="tabla-4-17"></a>**Tabla 4.17.** Entornos de despliegue
+
 | Environment | Branch | Landing Page | Web Services | Mobile Application | IoT Simulator |
 |---|---|---|---|---|---|
 | **Local** | `feat/*`, `develop` | `npm start` en `localhost:3000` | `./mvnw spring-boot:run` con PostgreSQL local | Android Emulator desde Android Studio | `python simulator/cli.py serve` con un broker Mosquitto local |
@@ -572,6 +628,10 @@ En esta sección se especifica la configuración de despliegue de cada producto 
 | **Production** | `main` (Web Services: `develop`) | Cloudflare Pages Production | Máquina virtual de Azure y Azure Database for PostgreSQL | Firebase App Distribution | Máquina virtual en Google Compute Engine |
 
 #### Landing Page Deployment
+
+La Tabla 4.18 presenta los pasos del despliegue del Landing Page.
+
+<a id="tabla-4-18"></a>**Tabla 4.18.** Pasos del despliegue del Landing Page
 
 | Step | Action |
 |---|---|
@@ -591,7 +651,9 @@ Los Web Services se despliegan en una máquina virtual de Microsoft Azure como c
 
 **Recursos en Azure**
 
-Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la región Chile Central y bajo la suscripción Azure for Students.
+Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la región Chile Central y bajo la suscripción Azure for Students. La Tabla 4.19 describe cada recurso.
+
+<a id="tabla-4-19"></a>**Tabla 4.19.** Recursos de Azure de los Web Services
 
 | Resource | Description |
 |---|---|
@@ -600,6 +662,10 @@ Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la regió
 | **Azure Database for PostgreSQL `guardian-plus-db-54c33b`** | Servidor flexible con PostgreSQL 17, configuración Burstable B1ms (1 vCore, 2 GiB de RAM y 32 GiB de almacenamiento) y la base de datos `guardian_plus`, con conexiones cifradas (`sslmode=require`). |
 
 **Preparación del repositorio**
+
+La Tabla 4.20 presenta los pasos de preparación del repositorio.
+
+<a id="tabla-4-20"></a>**Tabla 4.20.** Preparación del repositorio de los Web Services
 
 | Step | Action |
 |---|---|
@@ -611,6 +677,10 @@ Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la regió
 
 **Aprovisionamiento en Azure**
 
+La Tabla 4.21 presenta los pasos de aprovisionamiento en Azure.
+
+<a id="tabla-4-21"></a>**Tabla 4.21.** Aprovisionamiento de los Web Services en Azure
+
 | Step | Action |
 |---|---|
 | **6** | Crear el grupo de recursos `guardian-plus-rg` en la región Chile Central. |
@@ -619,6 +689,10 @@ Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la regió
 | **9** | Instalar Docker Engine y el plugin de Docker Compose en la máquina virtual, crear la carpeta `~/guardian-plus` y registrar en ella el archivo `.env` con las variables indicadas en la tabla siguiente, a partir de `deploy/.env.example`. |
 | **10** | Registrar en el repositorio de GitHub las variables `VM_HOST` y `VM_USER` y el secreto `VM_SSH_PRIVATE_KEY`, que el workflow utiliza para conectarse a la máquina virtual. |
 | **11** | Integrar un cambio en `develop` para ejecutar el workflow y validar el acceso público a la documentación de los Web Services en `/swagger-ui/index.html`. |
+
+La Tabla 4.22 presenta las variables de entorno registradas en la máquina virtual.
+
+<a id="tabla-4-22"></a>**Tabla 4.22.** Variables de entorno de los Web Services
 
 | Variable | Description | Source |
 |---|---|---|
@@ -630,6 +704,10 @@ Los recursos se crearon en el grupo de recursos `guardian-plus-rg`, en la regió
 Las variables de las integraciones externas, como Firebase, Stripe y Google Maps Platform, se registran en el mismo archivo a medida que cada integración se implementa.
 
 #### Mobile Application Deployment
+
+La Tabla 4.23 presenta los pasos del despliegue de la aplicación móvil.
+
+<a id="tabla-4-23"></a>**Tabla 4.23.** Pasos del despliegue de la aplicación móvil
 
 | Step | Action |
 |---|---|
@@ -650,6 +728,10 @@ El repositorio incluye además un `Dockerfile` para ejecutar el simulador de for
 
 **Recursos aprovisionados**
 
+La Tabla 4.24 describe los recursos aprovisionados.
+
+<a id="tabla-4-24"></a>**Tabla 4.24.** Recursos aprovisionados para el IoT Simulator
+
 | Resource | Description |
 |---|---|
 | **Máquina virtual `guardian-iot-sim`** | Debian 12, tipo `e2-small`, disco de 20 GB, zona `us-central1-a`, con Secure Boot y OS Login habilitados. |
@@ -659,6 +741,10 @@ El repositorio incluye además un `Dockerfile` para ejecutar el simulador de for
 | **Cuenta de servicio** | Identidad de la máquina virtual, limitada a los roles `logging.logWriter` y `monitoring.metricWriter`. |
 
 **Preparación y despliegue**
+
+La Tabla 4.25 presenta los pasos de preparación y despliegue.
+
+<a id="tabla-4-25"></a>**Tabla 4.25.** Preparación y despliegue del IoT Simulator
 
 | Step | Action |
 |---|---|
@@ -672,6 +758,10 @@ El repositorio incluye además un `Dockerfile` para ejecutar el simulador de for
 | **8** | Esperar que el script de arranque termine de instalar Mosquitto y el simulador, y validar el estado en `http://<external_ip>:5000/health`. |
 | **9** | Registrar el valor `mqtt_websocket_broker` entregado por Terraform en la variable `HEALTH_MONITORING_MQTT_BROKER_URL` del backend. |
 
+La Tabla 4.26 presenta las variables de Terraform utilizadas.
+
+<a id="tabla-4-26"></a>**Tabla 4.26.** Variables de Terraform del IoT Simulator
+
 | Terraform Variable | Description |
 |---|---|
 | `project_id` | Identificador del proyecto de Google Cloud donde se despliegan los recursos. |
@@ -680,7 +770,9 @@ El repositorio incluye además un `Dockerfile` para ejecutar el simulador de for
 | `mqtt_max_rate` / `mqtt_burst` | Límite de mensajes por segundo hacia el broker (20) y tamaño de ráfaga permitido (20). Las alertas críticas no esperan. |
 | `mqtt_retain` | Indica que el broker conserva el último mensaje de cada tópico para suscriptores que se conecten tarde (`true`). |
 
-Las variables de entorno que Terraform entrega al servicio del simulador son las siguientes:
+Las variables de entorno que Terraform entrega al servicio del simulador se presentan en la Tabla 4.27:
+
+<a id="tabla-4-27"></a>**Tabla 4.27.** Variables de entorno del IoT Simulator
 
 | Variable | Description | Value |
 |---|---|---|
@@ -695,6 +787,10 @@ Si el backend no está disponible al iniciar el simulador, este arranca igualmen
 
 #### Deployment Considerations
 
+La Tabla 4.28 presenta las decisiones consideradas en el despliegue.
+
+<a id="tabla-4-28"></a>**Tabla 4.28.** Consideraciones de despliegue
+
 | Decision | Description |
 |---|---|
 | **Transporte de telemetría** | En la presente iteración, la pulsera es reemplazada por el IoT Simulator, que publica la telemetría y los eventos del dispositivo mediante MQTT en canales independientes (`vitals`, `alerts`, `location`, `activity` y `sleep`), de modo que cada Bounded Context se suscriba únicamente a lo que consume. El broker Mosquitto se despliega en la misma máquina virtual y el backend se suscribe mediante MQTT sobre WebSocket. Las alertas críticas se publican con QoS 1 y la telemetría de rutina con QoS 0. Un broker gestionado, como HiveMQ Cloud o EMQX, podrá reemplazar a Mosquitto cuando se integre la pulsera física, modificando únicamente la dirección configurada en el backend. |
@@ -706,7 +802,9 @@ Si el backend no está disponible al iniciar el simulador, este arranca igualmen
 
 #### Deployment Diagram
 
-El siguiente diagrama, elaborado con Structurizr bajo el C4 Model, presenta la distribución de los contenedores de Guardian+ en el entorno de producción. Su explicación detallada se encuentra en la sección 2.5.3.4.
+La Figura 4.1, elaborada con Structurizr bajo el C4 Model, presenta la distribución de los contenedores de Guardian+ en el entorno de producción. Su explicación detallada se encuentra en la sección 2.5.3.4.
+
+<a id="figura-4-1"></a>**Figura 4.1.** Diagrama de despliegue de Guardian+
 
 ![deployment-diagram](../assets/images/chapterII/c4-diagrams/deployment.png)
 
@@ -724,7 +822,9 @@ El Sprint 1 constituye el primer Sprint de implementación de Guardian+ y se eje
 
 El criterio de selección combinó dos referencias. La primera es la prioridad de negocio establecida en el Product Backlog, que sitúa en los primeros lugares las historias de detección y respuesta ante emergencias por constituir la propuesta de valor central del producto. La segunda es el alcance esperado para el Stage Review de la semana 7, que requiere la Landing Page desplegada, el backend desplegado al 70% y las pantallas core de la aplicación en funcionamiento. De la intersección de ambas resulta el alcance comprometido: el circuito completo de emergencia —desde la pulsera hasta el teléfono del contacto de auxilio—, la geolocalización en tiempo real y la totalidad de las historias de la Landing Page.
 
-Las pantallas core que se habilitan en este Sprint son, en consecuencia, las del circuito de emergencia: *Inicio*, con el estado general de la persona bajo cuidado; *Alertas*, con las alertas activas, el detalle del incidente y la configuración de contactos; y *Ubicación*, con la posición en tiempo real. Las pantallas de *Salud* y *Rutinas* dependen de historias planificadas para los Sprints siguientes. El siguiente cuadro resume los acuerdos de la reunión de planificación.
+Las pantallas core que se habilitan en este Sprint son, en consecuencia, las del circuito de emergencia: *Inicio*, con el estado general de la persona bajo cuidado; *Alertas*, con las alertas activas, el detalle del incidente y la configuración de contactos; y *Ubicación*, con la posición en tiempo real. Las pantallas de *Salud* y *Rutinas* dependen de historias planificadas para los Sprints siguientes. El siguiente cuadro resume los acuerdos de la reunión de planificación. La Tabla 4.29 resume la planificación del Sprint 1.
+
+<a id="tabla-4-29"></a>**Tabla 4.29.** Sprint Planning del Sprint 1
 
 | Sprint # | Sprint 1 |
 |---|---|
@@ -741,7 +841,9 @@ Las pantallas core que se habilitan en este Sprint son, en consecuencia, las del
 | Sprint 1 Velocity | 40 Story Points. Corresponde a la capacidad estimada del equipo de cinco integrantes para un Sprint de tres semanas, calculada sobre una dedicación promedio de ocho horas semanales por integrante. Al ser el primer Sprint, este valor es una estimación inicial que será ajustada en la planificación del Sprint 2 con la velocidad real observada. |
 | Sum of Story Points | 39 Story Points. |
 
-Las User Stories que conforman el alcance comprometido del Sprint 1 son las siguientes, tomadas del Product Backlog en su orden de prioridad:
+Las User Stories que conforman el alcance comprometido del Sprint 1 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.30:
+
+<a id="tabla-4-30"></a>**Tabla 4.30.** User Stories comprometidas en el Sprint 1
 
 | # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
 |---|---|---|---|---|
@@ -763,7 +865,9 @@ La suma de 39 Story Points se ubica por debajo de la velocidad establecida de 40
 
 Para el Sprint 1 el equipo organizó el trabajo en ocho aspectos: el **UX/UI Design**, que comprende la guía de estilos, la arquitectura de información, los wireframes y los mock-ups; los Bounded Contexts **Health Monitoring**, **Emergency & Alerting**, **Mobility & Geofencing**, **Care Routines & Wellness**, **IAM** y **Profile & Subscriptions**; y el **Testing**, con las pruebas unitarias, de integración y de aceptación del Sprint.
 
-La siguiente Leadership-and-Collaboration Matrix (LACX) indica el líder (L) y los colaboradores (C) de cada aspecto.
+La Leadership-and-Collaboration Matrix (LACX) de la Tabla 4.31 indica el líder (L) y los colaboradores (C) de cada aspecto.
+
+<a id="tabla-4-31"></a>**Tabla 4.31.** Leadership-and-Collaboration Matrix del Sprint 1
 
 | Team Member (Last Name, First Name) | GitHub Username | UX/UI Design | Health Monitoring | Emergency & Alerting | Mobility & Geofencing | Care Routines & Wellness | IAM | Profile & Subscriptions | Testing |
 |---|---|---|---|---|---|---|---|---|---|
@@ -777,13 +881,19 @@ La siguiente Leadership-and-Collaboration Matrix (LACX) indica el líder (L) y l
 
 El objetivo del Sprint 1 es que una persona interesada pueda conocer Guardian+ desde la Landing Page y que una familia que ya usa el servicio reciba en su teléfono las alertas de caída o SOS de la persona bajo cuidado. Para lograrlo, el equipo organizó el trabajo del Sprint en ClickUp, distribuyendo las tareas de diseño, configuración, implementación y documentación entre los integrantes.
 
-El tablero del Sprint 1 está disponible en el siguiente enlace: [Sprint Backlog 1 — Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708)
+El tablero del Sprint 1 está disponible en el siguiente enlace: [Sprint Backlog 1 — Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708) Las Figuras 4.2 y 4.3 muestran el tablero.
+
+<a id="figura-4-2"></a>**Figura 4.2.** Tablero del Sprint 1 en ClickUp (parte 1)
 
 ![sprint-1-board-1](../assets/images/chatper4/sprint1/sprint-1-board-1.png)
 
+<a id="figura-4-3"></a>**Figura 4.3.** Tablero del Sprint 1 en ClickUp (parte 2)
+
 ![sprint-1-board-2](../assets/images/chatper4/sprint1/sprint-1-board-2.png)
 
-La siguiente tabla detalla las tareas del Sprint 1 y su estado.
+La Tabla 4.32 detalla las tareas del Sprint 1 y su estado.
+
+<a id="tabla-4-32"></a>**Tabla 4.32.** Sprint Backlog 1
 
 | Sprint # | Sprint 1 | | | | | | |
 |---|---|---|---|---|---|---|---|
@@ -823,7 +933,9 @@ En esta sección se registran los commits que implementan las User Stories del S
 
 ##### Web Services — Emergency & Alerting
 
-Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas.
+Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits de Emergency & Alerting en los Web Services.
+
+<a id="tabla-4-33"></a>**Tabla 4.33.** Commits de Web Services: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -841,7 +953,9 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 
 ##### Web Services — Care Routines & Wellness
 
-Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5).
+Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits de Care Routines & Wellness en los Web Services.
+
+<a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Care Routines & Wellness
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -853,7 +967,9 @@ Implementación anticipada del Bounded Context Care Routines & Wellness (US06, U
 
 ##### Web Services — Health Monitoring
 
-Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14).
+Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits de Health Monitoring en los Web Services.
+
+<a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -953,7 +1069,9 @@ Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US
 
 ##### Mobile App — Emergency & Alerting
 
-Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1).
+Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits de Emergency & Alerting en la aplicación móvil.
+
+<a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Mobile App: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -964,7 +1082,9 @@ Implementación de las pantallas del Bounded Context Emergency & Alerting en la 
 
 ##### Mobile App — Health Monitoring
 
-Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6).
+Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits de Health Monitoring en la aplicación móvil.
+
+<a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Mobile App: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -996,7 +1116,9 @@ Implementación de la capa de dominio, infraestructura y presentación del Bound
 
 ##### IoT Simulator
 
-Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1).
+Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits del IoT Simulator.
+
+<a id="tabla-4-38"></a>**Tabla 4.38.** Commits de IoT Simulator
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -1028,7 +1150,9 @@ En el presente avance, la evidencia automatizada desarrollada para Profile corre
 
 Las pruebas desarrolladas para Profile verifican las principales reglas y comportamientos de los Aggregate Roots `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`.
 
-Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada.
+Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada. La Tabla 4.39 resume las pruebas implementadas.
+
+<a id="tabla-4-39"></a>**Tabla 4.39.** Unit Tests del Bounded Context Profile
 
 | Test Class | Class Under Test | Test | Behavior Verified |
 |---|---|---|---|
@@ -1093,7 +1217,9 @@ Para ejecutar únicamente las pruebas correspondientes a Profile se utilizó:
 .\mvnw.cmd "-Dtest=UserProfileTest,CareRecipientProfileTest,CareRelationshipTest,UserPreferencesTest,UserProfileCommandServiceImplTest" test
 ~~~
 
-La siguiente evidencia muestra la ejecución de las pruebas correspondientes a `UserProfileCommandServiceImplTest`, `CareRecipientProfileTest`, `CareRelationshipTest`, `UserPreferencesTest` y `UserProfileTest`.
+La Figura 4.4 muestra la ejecución de las pruebas correspondientes a `UserProfileCommandServiceImplTest`, `CareRecipientProfileTest`, `CareRelationshipTest`, `UserPreferencesTest` y `UserProfileTest`.
+
+<a id="figura-4-4"></a>**Figura 4.4.** Ejecución de los Unit Tests de Profile
 
 ![Profile Unit Tests Execution](../assets/images/chapterIV/testing/profile-unit-tests-execution.png)
 
@@ -1159,7 +1285,9 @@ profile
 
 ##### Testing Commits
 
-El siguiente commit contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
+El commit de la Tabla 4.40 contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
+
+<a id="tabla-4-40"></a>**Tabla 4.40.** Commit de los Unit Tests de Profile
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
@@ -1175,9 +1303,15 @@ Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado y con un
 
 ##### Landing Page
 
-El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guardian-plus.pages.dev). La siguiente captura muestra la sección principal del sitio en su versión de escritorio.
+El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guardian-plus.pages.dev). La Figura 4.5 muestra la sección principal del sitio en su versión de escritorio.
+
+<a id="figura-4-5"></a>**Figura 4.5.** Landing Page en ejecución
 
 ![landing-page-execution](../assets/images/chatper4/sprint1/landing-page-execution.png)
+
+La Tabla 4.41 presenta el enlace al video de ejecución del Landing Page.
+
+<a id="tabla-4-41"></a>**Tabla 4.41.** Video de ejecución del Landing Page
 
 | Producto | Video de ejecución |
 |---|---|
@@ -1185,9 +1319,15 @@ El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guar
 
 ##### Mobile Application
 
-La siguiente captura muestra la pantalla de Inicio de la aplicación móvil ejecutándose en el emulador de Android Studio (Pixel 8, API 37).
+La Figura 4.6 muestra la pantalla de Inicio de la aplicación móvil ejecutándose en el emulador de Android Studio (Pixel 8, API 37).
+
+<a id="figura-4-6"></a>**Figura 4.6.** Aplicación móvil en ejecución en el emulador
 
 ![mobile-app-execution](../assets/images/chatper4/sprint1/mobile-app-execution.png)
+
+La Tabla 4.42 presenta el enlace al video de ejecución de la aplicación móvil.
+
+<a id="tabla-4-42"></a>**Tabla 4.42.** Video de ejecución de la aplicación móvil
 
 | Producto | Video de ejecución |
 |---|---|
@@ -1198,6 +1338,10 @@ La siguiente captura muestra la pantalla de Inicio de la aplicación móvil ejec
 Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especificación se publica en `/v3/api-docs` y puede explorarse en Swagger UI (`/swagger-ui/index.html`). Los errores siguen un formato común (`code`, `message`, `details`) con los códigos `400`, `404`, `409` y `422`.
 
 ##### Emergency & Alerting
+
+La Tabla 4.43 presenta los endpoints de Emergency & Alerting.
+
+<a id="tabla-4-43"></a>**Tabla 4.43.** Endpoints de Emergency & Alerting
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1227,6 +1371,10 @@ Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especi
 
 ##### Health Monitoring
 
+La Tabla 4.44 presenta los endpoints de Health Monitoring.
+
+<a id="tabla-4-44"></a>**Tabla 4.44.** Endpoints de Health Monitoring
+
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
 | POST | `/api/v1/vital-signs` | Registra una lectura enviada por el wearable y evalúa su rango normal | Body: `wearableDeviceId`, `careRecipientProfileId`, `vitalSignType`, `value`, `measuredAt` | 201 `VitalSignResource` / 400 / 404 / 409 / 422 |
@@ -1245,6 +1393,10 @@ Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especi
 
 ##### Care Routines & Wellness
 
+La Tabla 4.45 presenta los endpoints de Care Routines & Wellness.
+
+<a id="tabla-4-45"></a>**Tabla 4.45.** Endpoints de Care Routines & Wellness
+
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
 | POST | `/api/v1/reminders` | Programa un recordatorio de medicación, cita, actividad física o hidratación | Body: `personUnderCareId`, `type`, `scheduledTime` | 201 `ReminderResource` / 400 |
@@ -1255,7 +1407,9 @@ Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especi
 | GET | `/api/v1/medication-stocks/citizen/{personUnderCareId}` | Saldo de dosis y días de suministro proyectados | Path: `personUnderCareId` | 200 / 404 |
 
 
-Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema:
+Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.46:
+
+<a id="tabla-4-46"></a>**Tabla 4.46.** Procesos de Care Routines & Wellness disparados por el sistema
 
 | Proceso | Componente | Descripción |
 |---|---|---|
@@ -1273,6 +1427,10 @@ En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en
 
 ##### Landing Page
 
+La Tabla 4.47 resume el despliegue del Landing Page.
+
+<a id="tabla-4-47"></a>**Tabla 4.47.** Despliegue del Landing Page en el Sprint 1
+
 | Aspecto | Detalle |
 |---|---|
 | **Plataforma** | Cloudflare Pages |
@@ -1282,7 +1440,9 @@ En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en
 | **Versión desplegada** | `v1.0.0` |
 | **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
 
-El despliegue se realizó en los siguientes pasos:
+El despliegue se realizó en los pasos de la Tabla 4.48:
+
+<a id="tabla-4-48"></a>**Tabla 4.48.** Pasos del despliegue del Landing Page en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1292,7 +1452,9 @@ El despliegue se realizó en los siguientes pasos:
 | **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
 | **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
 
-Resultados de Lighthouse sobre la URL pública:
+La Tabla 4.49 presenta los resultados de Lighthouse sobre la URL pública:
+
+<a id="tabla-4-49"></a>**Tabla 4.49.** Resultados de Lighthouse del Landing Page
 
 | Categoría | Mobile | Desktop |
 |---|---|---|
@@ -1301,9 +1463,17 @@ Resultados de Lighthouse sobre la URL pública:
 | **Best Practices** | 100 | 100 |
 | **SEO** | 100 | 100 |
 
+La Figura 4.7 muestra el Landing Page publicado.
+
+<a id="figura-4-7"></a>**Figura 4.7.** Landing Page publicado en Cloudflare Pages
+
 ![landing-page-deployment](../assets/images/chatper4/sprint1/landing-page-deployment.png)
 
 ##### Web Services
+
+La Tabla 4.50 resume el despliegue de los Web Services.
+
+<a id="tabla-4-50"></a>**Tabla 4.50.** Despliegue de los Web Services en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1316,7 +1486,9 @@ Resultados de Lighthouse sobre la URL pública:
 | **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
 | **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
 
-El despliegue se realizó en los siguientes pasos:
+El despliegue se realizó en los pasos de la Tabla 4.51:
+
+<a id="tabla-4-51"></a>**Tabla 4.51.** Pasos del despliegue de los Web Services en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1328,29 +1500,41 @@ El despliegue se realizó en los siguientes pasos:
 | **6** | Integración de Health Monitoring, Profile y la conexión con el IoT Simulator (Pull Requests #12, #13 y #14). | Tres despliegues consecutivos completados, el último el 6 de octubre de 2026. |
 | **7** | Validación de la API publicada. | `/v3/api-docs` y Swagger UI responden por HTTPS, y las solicitudes HTTP se redirigen automáticamente a HTTPS. |
 
-El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services:
+El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services, como se muestra en la Figura 4.8.
+
+<a id="figura-4-8"></a>**Figura 4.8.** Grupo de recursos guardian-plus-rg en Azure
 
 ![azure-resource-group](../assets/images/chatper4/sprint1/azure-resource-group.png)
 
-La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API:
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API, como se muestra en la Figura 4.9.
+
+<a id="figura-4-9"></a>**Figura 4.9.** Máquina virtual guardian-plus-vm en Azure
 
 ![azure-virtual-machine](../assets/images/chatper4/sprint1/azure-virtual-machine.png)
 
-El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`:
+El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`, como se muestra en la Figura 4.10.
+
+<a id="figura-4-10"></a>**Figura 4.10.** Servidor de Azure Database for PostgreSQL
 
 ![azure-postgresql](../assets/images/chatper4/sprint1/azure-postgresql.png)
 
-Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`:
+Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`, como se muestra en la Figura 4.11.
+
+<a id="figura-4-11"></a>**Figura 4.11.** Ejecuciones de los workflows de GitHub Actions
 
 ![github-actions-workflows](../assets/images/chatper4/sprint1/github-actions-workflows.png)
 
-Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI:
+Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI, como se muestra en la Figura 4.12.
+
+<a id="figura-4-12"></a>**Figura 4.12.** Documentación de los Web Services en Swagger UI
 
 ![web-services-swagger](../assets/images/chatper4/sprint1/web-services-swagger.png)
 
 ##### IoT Simulator
 
-En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4.
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.52 resume este despliegue.
+
+<a id="tabla-4-52"></a>**Tabla 4.52.** Despliegue del IoT Simulator en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1361,7 +1545,9 @@ En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la config
 | **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
 | **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
 
-El despliegue se realizó en los siguientes pasos:
+El despliegue se realizó en los pasos de la Tabla 4.53:
+
+<a id="tabla-4-53"></a>**Tabla 4.53.** Pasos del despliegue del IoT Simulator en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1377,19 +1563,27 @@ El despliegue se realizó en los siguientes pasos:
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
 
-**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas.
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra los insights del repositorio de los Web Services.
+
+<a id="figura-4-13"></a>**Figura 4.13.** Insights del repositorio de los Web Services
 
 ![backend-insights](../assets/images/chatper4/sprint1/insights/backend-insights.png)
 
-**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas.
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de la aplicación móvil.
+
+<a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](../assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
 
-**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main.
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra los insights del repositorio del Landing Page.
+
+<a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio del Landing Page
 
 ![website-insights](../assets/images/chatper4/sprint1/insights/website-insights.png)
 
-**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main.
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra los insights del repositorio del IoT Simulator.
+
+<a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del IoT Simulator
 
 ![iot-simulator-insights](../assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
 
@@ -1437,11 +1631,19 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
+La Tabla 4.54 presenta los datos de la entrevistada.
+
+<a id="tabla-4-54"></a>**Tabla 4.54.** Datos de la entrevista de validación a Roxana Paola Diana
+
 | Campo | Valor |
 |---|---|
 | Nombre y apellido | Roxana Paola Diana |
 | Edad | 39 |
 | Distrito | Surco |
+
+La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+
+<a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -1451,11 +1653,19 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
+La Tabla 4.55 presenta los datos del entrevistado.
+
+<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Piero Segurda Cardenas
+
 | Campo | Valor |
 |---|---|
 | Nombre y apellido | Piero Segurda Cardenas |
 | Edad | 20 |
 | Distrito | Callao |
+
+La Figura 4.18 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+
+<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -1467,6 +1677,10 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
+
+La Tabla 4.56 presenta los datos generales de la evaluación.
+
+<a id="tabla-4-56"></a>**Tabla 4.56.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1497,6 +1711,10 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
+La Tabla 4.57 define la escala de severidad utilizada.
+
+<a id="tabla-4-57"></a>**Tabla 4.57.** Escala de severidad de la evaluación heurística
+
 | Nivel | Descripción |
 |---|---|
 | 1 | Problema superficial: Puede ser fácilmente superado por el usuario y ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
@@ -1506,6 +1724,10 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 
 **TABLA RESUMEN:**
+
+La Tabla 4.58 resume los problemas encontrados.
+
+<a id="tabla-4-58"></a>**Tabla 4.58.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -1524,9 +1746,17 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
+Las Figuras 4.19 a 4.21 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+
+<a id="figura-4-19"></a>**Figura 4.19.** Pantalla Nueva toma del módulo de Rutinas
+
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
+<a id="figura-4-20"></a>**Figura 4.20.** Pantalla Nueva cita del módulo de Rutinas
+
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
+
+<a id="figura-4-21"></a>**Figura 4.21.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -1540,7 +1770,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición".
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra la pantalla Contactos de emergencia.
+
+<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -1555,7 +1787,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra el panel Buscar y filtrar del módulo de Salud.
+
+<a id="figura-4-23"></a>**Figura 4.23.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -1570,7 +1804,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra la pantalla Exportar expediente.
+
+<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -1585,7 +1821,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra la pantalla Sueño del módulo de Rutinas.
+
+<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
