@@ -1,21 +1,27 @@
 digraph "ContextMapGraph" {
 graph ["pad"="0.3","nodesep"="0.7","ranksep"="1.1","dpi"="150"]
-"CareRoutinesWellness" ["margin"="0.3","orientation"="178","shape"="egg","fontsize"="16","label"=<Care Routines &amp; Wellness<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"EmergencyAlerting" ["margin"="0.3","orientation"="135","shape"="egg","fontsize"="16","label"=<Emergency &amp; Alerting<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"HealthMonitoring" ["margin"="0.3","orientation"="318","shape"="egg","fontsize"="16","label"=<Health Monitoring<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"IAM" ["margin"="0.3","orientation"="280","shape"="egg","fontsize"="16","label"=<IAM<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"Subscriptions" ["margin"="0.3","orientation"="149","shape"="egg","fontsize"="16","label"=<Subscriptions<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"Profile" ["margin"="0.3","orientation"="255","shape"="egg","fontsize"="16","label"=<Profile<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"MobilityGeofencing" ["margin"="0.3","orientation"="250","shape"="egg","fontsize"="16","label"=<Mobility &amp; Geofencing<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"NotificationProviders" ["margin"="0.3","orientation"="141","shape"="egg","fontsize"="16","label"=<Notification Providers<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
-"Stripe" ["margin"="0.3","orientation"="219","shape"="egg","fontsize"="16","label"=<Stripe<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
-"WearableDevice" ["margin"="0.3","orientation"="263","shape"="egg","fontsize"="16","label"=<Wearable Device<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
-"IAM" -> "HealthMonitoring" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+"CareRoutinesWellness" ["margin"="0.3","orientation"="330","shape"="egg","fontsize"="16","label"=<Care Routines &amp; Wellness<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"EmailProvider" ["margin"="0.3","orientation"="80","shape"="egg","fontsize"="16","label"=<Email Provider<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
+"IAM" ["margin"="0.3","orientation"="250","shape"="egg","fontsize"="16","label"=<IAM<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"MobilityGeofencing" ["margin"="0.3","orientation"="221","shape"="egg","fontsize"="16","label"=<Mobility &amp; Geofencing<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"EmergencyAlerting" ["margin"="0.3","orientation"="128","shape"="egg","fontsize"="16","label"=<Emergency &amp; Alerting<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"Profile" ["margin"="0.3","orientation"="109","shape"="egg","fontsize"="16","label"=<Profile<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"HealthMonitoring" ["margin"="0.3","orientation"="146","shape"="egg","fontsize"="16","label"=<Health Monitoring<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"Subscriptions" ["margin"="0.3","orientation"="280","shape"="egg","fontsize"="16","label"=<Subscriptions<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"NotificationProviders" ["margin"="0.3","orientation"="215","shape"="egg","fontsize"="16","label"=<Notification Providers<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
+"Stripe" ["margin"="0.3","orientation"="289","shape"="egg","fontsize"="16","label"=<Stripe<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
+"WearableDevice" ["margin"="0.3","orientation"="303","shape"="egg","fontsize"="16","label"=<Wearable Device<BR/><FONT POINT-SIZE="11">External System</FONT>>,"style"="bold,dashed","fontname"="sans-serif"]
+"EmailProvider" -> "IAM" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">U</td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"IAM" -> "MobilityGeofencing" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">D</td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS, PL</font></td></tr>
 </table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
-"IAM" -> "Subscriptions" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+"IAM" -> "EmergencyAlerting" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">D</td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS, PL</font></td></tr>
@@ -30,12 +36,12 @@ graph ["pad"="0.3","nodesep"="0.7","ranksep"="1.1","dpi"="150"]
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS, PL</font></td></tr>
 </table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
-"IAM" -> "EmergencyAlerting" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+"IAM" -> "HealthMonitoring" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">D</td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS, PL</font></td></tr>
 </table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
-"IAM" -> "MobilityGeofencing" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+"IAM" -> "Subscriptions" ["sametail"="IAM","headlabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">D</td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS, PL</font></td></tr>
@@ -50,17 +56,17 @@ graph ["pad"="0.3","nodesep"="0.7","ranksep"="1.1","dpi"="150"]
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">U</td></tr>
 </table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"WearableDevice" -> "HealthMonitoring" ["sametail"="WearableDevice","headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">U</td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
 "WearableDevice" -> "CareRoutinesWellness" ["sametail"="WearableDevice","headlabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">U</td></tr>
 </table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
 "WearableDevice" -> "MobilityGeofencing" ["sametail"="WearableDevice","headlabel"=<<table cellspacing="0" cellborder="1" border="0">
-<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
-</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
-<tr><td bgcolor="white">U</td></tr>
-</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
-"WearableDevice" -> "HealthMonitoring" ["sametail"="WearableDevice","headlabel"=<<table cellspacing="0" cellborder="1" border="0">
 <tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">U</td></tr>

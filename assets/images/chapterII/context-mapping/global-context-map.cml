@@ -6,13 +6,16 @@ ContextMap GuardianPlusGlobal {
   state = TO_BE
   contains EmergencyAlerting, HealthMonitoring, CareRoutinesWellness, MobilityGeofencing
   contains Profile, Subscriptions, IAM
-  contains WearableDevice, Stripe, NotificationProviders
+  contains WearableDevice, Stripe, NotificationProviders, EmailProvider
 
   // Señales que disparan alertas
   HealthMonitoring [S,PL] -> [C] EmergencyAlerting
   MobilityGeofencing [S,PL] -> [C,ACL] EmergencyAlerting
   CareRoutinesWellness [S,PL] -> [C] EmergencyAlerting
   Profile [S] -> [C,ACL] EmergencyAlerting
+
+  // Identidad del Fragile Citizen
+  Profile [U] -> [D,ACL] MobilityGeofencing
 
   // Identidad
   IAM [U,OHS,PL] -> [D] EmergencyAlerting
@@ -28,4 +31,5 @@ ContextMap GuardianPlusGlobal {
   WearableDevice [U] -> [D,ACL] MobilityGeofencing
   Stripe [U] -> [D,ACL] Subscriptions
   NotificationProviders [U] -> [D,ACL] EmergencyAlerting
+  EmailProvider [U] -> [D,ACL] IAM
 }

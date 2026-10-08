@@ -1,10 +1,10 @@
 digraph "ContextMapGraph" {
 graph ["pad"="0.3","nodesep"="0.7","ranksep"="1.1","dpi"="150"]
-"CareRoutinesWellness" ["margin"="0.3","orientation"="42","shape"="egg","fontsize"="16","label"=<Care Routines &amp; Wellness<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"EmergencyAlerting" ["margin"="0.3","orientation"="42","shape"="egg","fontsize"="16","label"=<Emergency &amp; Alerting<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"HealthMonitoring" ["margin"="0.3","orientation"="189","shape"="egg","fontsize"="16","label"=<Health Monitoring<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"MobilityGeofencing" ["margin"="0.3","orientation"="103","shape"="egg","fontsize"="16","label"=<Mobility &amp; Geofencing<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
-"Profile" ["margin"="0.3","orientation"="296","shape"="egg","fontsize"="16","label"=<Profile<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"CareRoutinesWellness" ["margin"="0.3","orientation"="77","shape"="egg","fontsize"="16","label"=<Care Routines &amp; Wellness<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"EmergencyAlerting" ["margin"="0.3","orientation"="8","shape"="egg","fontsize"="16","label"=<Emergency &amp; Alerting<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"HealthMonitoring" ["margin"="0.3","orientation"="334","shape"="egg","fontsize"="16","label"=<Health Monitoring<BR/><FONT POINT-SIZE="11">Core Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"MobilityGeofencing" ["margin"="0.3","orientation"="48","shape"="egg","fontsize"="16","label"=<Mobility &amp; Geofencing<BR/><FONT POINT-SIZE="11">Supporting Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
+"Profile" ["margin"="0.3","orientation"="250","shape"="egg","fontsize"="16","label"=<Profile<BR/><FONT POINT-SIZE="11">Generic Domain</FONT>>,"style"="bold","fontname"="sans-serif"]
 "CareRoutinesWellness" -> "EmergencyAlerting" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
 <tr><td bgcolor="white">D</td></tr>
 </table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">

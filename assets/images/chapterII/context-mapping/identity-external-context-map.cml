@@ -6,7 +6,7 @@ ContextMap GuardianPlusIdentityExternal {
   state = TO_BE
   contains EmergencyAlerting, HealthMonitoring, CareRoutinesWellness, MobilityGeofencing
   contains Profile, Subscriptions, IAM
-  contains WearableDevice, Stripe, NotificationProviders
+  contains WearableDevice, Stripe, NotificationProviders, EmailProvider
 
   IAM [U,OHS,PL] -> [D] EmergencyAlerting
   IAM [U,OHS,PL] -> [D] HealthMonitoring
@@ -20,4 +20,5 @@ ContextMap GuardianPlusIdentityExternal {
   WearableDevice [U] -> [D,ACL] MobilityGeofencing
   Stripe [U] -> [D,ACL] Subscriptions
   NotificationProviders [U] -> [D,ACL] EmergencyAlerting
+  EmailProvider [U] -> [D,ACL] IAM
 }

@@ -11,3 +11,4 @@ BoundedContext IAM { type = FEATURE domainVisionStatement = "Generic Domain" }
 BoundedContext WearableDevice { type = SYSTEM }
 BoundedContext Stripe { type = SYSTEM }
 BoundedContext NotificationProviders { type = SYSTEM }
+BoundedContext EmailProvider { type = SYSTEM }

@@ -30,6 +30,7 @@ NAMES = {
     'WearableDevice': 'Wearable Device',
     'Stripe': 'Stripe',
     'NotificationProviders': 'Notification Providers',
+    'EmailProvider': 'Email Provider',
 }
 GRAPH = 'graph ["pad"="0.3","nodesep"="0.7","ranksep"="1.1","dpi"="150"]'
 # per-map layout adjustments that keep each figure readable at page width
@@ -70,13 +71,13 @@ for source in sorted(glob.glob(f'{FOLDER}/*-context-map.cml')):
     # node attributes: the generator writes the style before the label
     dot = re.sub(r'"style"="bold","label"="(\w+)\\n"', lambda m: label(m), dot)
 
-    # edges whose upstream end carries the same label start from a single point of the context
-    edges = re.findall(r'^"(\w+)" -> "\w+" \[.*?"taillabel"=(<<.*?>>)', dot, re.M | re.S)
+    # edges of the same kind whose upstream end carries the same label start from a single point
+    edges = re.findall(r'^"(\w+)" -> "\w+" \[.*?"taillabel"=(<<.*?>>).*?"label"="([^"]*)"', dot, re.M | re.S)
     tails = defaultdict(set)
-    for tail, tail_label in edges:
-        tails[tail].add(tail_label)
+    for tail, tail_label, kind in edges:
+        tails[tail].add((tail_label, kind))
     for tail, labels in tails.items():
-        if len(labels) == 1 and sum(1 for t, _ in edges if t == tail) > 1:
+        if len(labels) == 1 and sum(1 for t, *_ in edges if t == tail) > 1:
             dot = re.sub(rf'^("{tail}" -> "\w+" \[)', rf'\1"sametail"="{tail}",', dot, flags=re.M)
 
     dot = dot.rstrip()[:-1] + ''.join(f'{line}\n' for line in LAYOUT.get(base, [])) + '}\n'
