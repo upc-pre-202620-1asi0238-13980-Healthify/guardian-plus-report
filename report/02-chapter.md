@@ -1942,8 +1942,10 @@ Una vez detallados los flujos mediante Design-Level EventStorming, se procedió 
 
 A partir del análisis de los eventos, comandos, actores, políticas, agregados y sistemas externos identificados durante el EventStorming, fue posible reconocer límites naturales dentro del dominio de Guardian+. Estas agrupaciones permitieron proponer contextos candidatos que posteriormente servirán como base para la descomposición del sistema en módulos independientes y con responsabilidades claramente diferenciadas.
 
-Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto.
+Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto. De la misma manera, por practicidad, se adjuntan nuevamente los eventos encontrados en el Big Picture Eventstorming.
 
+###### Eventos obtenidos previamente
+![Big Picture EventStorming - Guardian+](../assets/images/chapterII/bigPicture/bigPictureStorming.png)
 
 
 ##### Emergency & Alerting Bounded Context (Core Domain)
