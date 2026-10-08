@@ -1,8 +1,14 @@
-## Capítulo I: Presentación
+<div style="page-break-before: always; break-before: page;"></div>
 
-### 1.1. Startup Profile
+# Capítulo I: Presentación
 
-#### 1.1.1. Descripción de la Startup
+En este capítulo se presenta Guardian+ y al equipo Healthify que la desarrolla. Se describe la problemática que motiva la solución, el proceso Lean UX aplicado para plantearla y los segmentos objetivo a los que se dirige.
+
+## 1.1. Startup Profile
+
+En esta sección se describe la startup detrás de Guardian+ y se presenta a los integrantes del equipo que la conforman.
+
+### 1.1.1. Descripción de la Startup
 
 Guardian+ es una startup tecnológica desarrollada por estudiantes de Ingeniería de Software de la UPC que busca mejorar el cuidado y monitoreo de personas vulnerables que requieren cuidado como adultos mayores, personas con discapacidad o en situación de dependencia mediante una aplicación móvil integrada con dispositivos wearables.
 
@@ -11,22 +17,60 @@ Surgió ante la necesidad de brindar a familiares y cuidadores una herramienta q
 Como respuesta a esta problemática, Guardian+ propone una solución móvil que conecta a la persona que requiere cuidado con sus familiares o cuidadores, utilizando los datos obtenidos desde un dispositivo wearable para proporcionar información relevante sobre su estado y generar alertas ante situaciones que puedan requerir atención y asi ayudar a los responsables a reaccionar rápidamente ante situaciones que puedan comprometer su bienestar.
 
 
-#### 1.1.2. Perfiles de integrantes del equipo
-<div class="team-table">
+### 1.1.2. Perfiles de integrantes del equipo
 
+El equipo Healthify está conformado por cinco estudiantes de Ingeniería de Software de la UPC. La siguiente tabla presenta a cada integrante con su código, su carrera y un resumen de sus conocimientos y de su rol dentro del proyecto.
 
-|                         Foto                         | Apellidos y Nombres                       |    Código    | Carrera                | Resumen                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| :--------------------------------------------------: | :---------------------------------------- | :----------: | :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     ![foto](/assets/images/Team/JuanPablo.jpeg)      | Azama Fukuda, Juan Pablo | [U202411310] | Ingeniería de Software | Soy Juan Pablo Azama Fukuda (Código: u202411310), estudiante de sexto ciclo de Ingeniería de Software. En el ámbito técnico, poseo una base sólida en lenguajes como C++, Java y Unity. Para este proyecto, mi contribución principal tendrá un foco en la parte de diseño/frontend de la aplicación, tanto en la aplicación web y el landing page. Para ello, me respaldo en mis conocimientos decentes en Figma, HTML y CSS, además de mi manejo de React.js, competencias que seguiré escalando a lo largo del curso. A nivel de gestión, asumo el rol de team leader, con la responsabilidad de articular los esfuerzos del equipo, guiar el desarrollo y garantizar una metodología de trabajo eficiente.                   |
-| ![foto](/assets/images/Team/RodrigoLopez.png) | Lopez Monroy, Rodrigo Alfredo            | [U202421866] | Ingeniería de Software | Estudiante del 6to ciclo de Ingeniería de Software, con interés en el desarrollo de soluciones tecnológicas. Me enfoco en analizar problemas y plantear soluciones estructuradas, aplicando buenas prácticas y patrones de software. Mis principales habilidades técnicas incluyen el diseño de soluciones de software, desarrollo backend con Spring Boot y despliegue de aplicaciones en infraestructura cloud.                                                                                      |
-|       ![foto](/assets/images/Team/DiegoMiranda.jpeg)        | Luis Miranda, Diego Andres               | [U20241D185] | Ingeniería de Software | Estudiante de la carrera de ingeniería de software del 6to ciclo, apasionado en la programación,con reflejos por el desarrollo web frontend y backend, mediante diversos lenguajes de programación. Me gusta trabajar con responsabilidad, orden, metodología ágiles para entregar un buen proyecto. Con mi experiencia y capacidades sé que puedo aportar más de lo logrado siendo una persona proactiva y perseverante.  . |
-|         ![foto](/assets/images/Team/LucianaMechan.png)          | Mechan Montenegro, Luciana Carolina                    | [U20241B843] | Ingeniería de Software | Soy Luciana Carolina Mechan Montenegro (Código: u20241b843), estudiante del sexto ciclo de la carrera de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Dentro del equipo, mi contribución se enfoca tanto en el desarrollo frontend como backend, participando en la implementación de funcionalidades y en la integración de los distintos componentes del sistema. Me caracterizo por ser responsable, proactiva y con una gran capacidad de aprendizaje, además de tener facilidad para el trabajo en equipo y la adaptación a nuevos retos dentro del proyecto.                                                              |
-| ![foto](/assets/images/Team/JuanSanchez.png) | Sanchez Cuadrado, Juan Antonio             | [U202319404] | Ingeniería de Software | Soy estudiante de Ingeniería de Software con conocimientos en diversos lenguajes de programación y tecnologías web, entre ellos Python, JavaScript, Java, SQL, HTML y CSS. Poseo habilidades en desarrollo de aplicaciones web, lógica de programación y manejo de bases de datos, lo que me permite contribuir en la construcción tanto del frontend como del backend del sistema. Asimismo, tengo capacidad para analizar problemas, diseñar soluciones tecnológicas y trabajar en equipo bajo metodologías de desarrollo, aportando de manera activa en la implementación y mejora continua del proyecto.                                                                                                                                                     |
-</div>
+<table>
+  <tr>
+    <th width="130">Foto</th>
+    <th>Apellidos y Nombres</th>
+    <th>Código</th>
+    <th>Carrera</th>
+    <th>Resumen</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/JuanPablo.jpeg" alt="Azama Fukuda, Juan Pablo" width="120" height="120"></td>
+    <td>Azama Fukuda, Juan Pablo</td>
+    <td align="center">u202411310</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy Juan Pablo Azama Fukuda (Código: u202411310), estudiante de sexto ciclo de Ingeniería de Software. En el ámbito técnico, poseo una base sólida en lenguajes como C++, Java y Unity. Para este proyecto, mi contribución principal tendrá un foco en la parte de diseño/frontend de la aplicación, tanto en la aplicación web y el landing page. Para ello, me respaldo en mis conocimientos decentes en Figma, HTML y CSS, además de mi manejo de React.js, competencias que seguiré escalando a lo largo del curso. A nivel de gestión, asumo el rol de team leader, con la responsabilidad de articular los esfuerzos del equipo, guiar el desarrollo y garantizar una metodología de trabajo eficiente.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/LucianaMechan.png" alt="Mechan Montenegro, Luciana Carolina" width="120" height="120"></td>
+    <td>Mechan Montenegro, Luciana Carolina</td>
+    <td align="center">u20241b843</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy Luciana Carolina Mechan Montenegro (Código: u20241b843), estudiante del sexto ciclo de la carrera de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Dentro del equipo, mi contribución se enfoca tanto en el desarrollo frontend como backend, participando en la implementación de funcionalidades y en la integración de los distintos componentes del sistema. Me caracterizo por ser responsable, proactiva y con una gran capacidad de aprendizaje, además de tener facilidad para el trabajo en equipo y la adaptación a nuevos retos dentro del proyecto.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/DiegoMiranda.jpeg" alt="Luis Miranda, Diego Andres" width="120" height="120"></td>
+    <td>Luis Miranda, Diego Andres</td>
+    <td align="center">u20241d185</td>
+    <td>Ingeniería de Software</td>
+    <td>Estudiante de la carrera de ingeniería de software del 6to ciclo, apasionado en la programación, con reflejos por el desarrollo web frontend y backend, mediante diversos lenguajes de programación. Me gusta trabajar con responsabilidad, orden, metodología ágiles para entregar un buen proyecto. Con mi experiencia y capacidades sé que puedo aportar más de lo logrado siendo una persona proactiva y perseverante.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/RodrigoLopez.png" alt="López Monroy, Rodrigo Alfredo" width="120" height="120"></td>
+    <td>López Monroy, Rodrigo Alfredo</td>
+    <td align="center">u202421866</td>
+    <td>Ingeniería de Software</td>
+    <td>Estudiante del 6to ciclo de Ingeniería de Software, con interés en el desarrollo de soluciones tecnológicas. Me enfoco en analizar problemas y plantear soluciones estructuradas, aplicando buenas prácticas y patrones de software. Mis principales habilidades técnicas incluyen el diseño de soluciones de software, desarrollo backend con Spring Boot y despliegue de aplicaciones en infraestructura cloud.</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../assets/images/Team/JuanSanchez.png" alt="Sanchez Cuadrado, Juan Antonio" width="120" height="120"></td>
+    <td>Sanchez Cuadrado, Juan Antonio</td>
+    <td align="center">u202319404</td>
+    <td>Ingeniería de Software</td>
+    <td>Soy estudiante de Ingeniería de Software con conocimientos en diversos lenguajes de programación y tecnologías web, entre ellos Python, JavaScript, Java, SQL, HTML y CSS. Poseo habilidades en desarrollo de aplicaciones web, lógica de programación y manejo de bases de datos, lo que me permite contribuir en la construcción tanto del frontend como del backend del sistema. Asimismo, tengo capacidad para analizar problemas, diseñar soluciones tecnológicas y trabajar en equipo bajo metodologías de desarrollo, aportando de manera activa en la implementación y mejora continua del proyecto.</td>
+  </tr>
+</table>
 
-### 1.2. Solution Profile
+## 1.2. Solution Profile
 
-#### 1.2.1. Antecedentes y problemática
+En esta sección se expone el contexto en el que surge Guardian+, la problemática que busca resolver y el proceso Lean UX con el que el equipo formuló sus supuestos e hipótesis.
+
+### 1.2.1. Antecedentes y problemática
 
 En el Perú, una parte importante de la población se encuentra en situación de vulnerabilidad y requiere cuidado y supervisión constante. Según el Censo 2017 del INEI, el 10,4 % de la población (más de 3 millones de personas) presenta algún tipo de discapacidad, y el 40,6 % de ellas depende de otra persona para realizar sus actividades diarias (INEI, ENEDIS). Esta situación se cruza fuertemente con la vejez: 47 de cada 100 personas con discapacidad son adultos mayores (INEI). Además, el envejecimiento poblacional se acelera: durante el tercer trimestre de 2025, el 44,6 % de los hogares del país contaba con al menos un adulto mayor (47,4 % en Lima Metropolitana), y el índice de dependencia de adultos mayores pasará de 23,0 % en 2025 a 41,5 % en 2050 (INEI, 2025). A ello se suman condiciones como la fragilidad, la comorbilidad y el riesgo de caídas: uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, una de las principales causas de hospitalización en esta población (Gobierno del Perú, 2018).
 
@@ -36,9 +80,13 @@ El punto crítico es que el cuidado de estas personas recae en familiares y cuid
 
 ![5w2h](../assets/images/chapterI/5w2h.svg)
 
-#### 1.2.2. Lean UX Process
+### 1.2.2. Lean UX Process
 
-##### 1.2.2.1. Lean UX Problem Statements
+El equipo aplicó el proceso Lean UX para pasar de la problemática identificada a supuestos e hipótesis verificables. A continuación se presentan los problem statements, los supuestos, las hipótesis y el Lean UX Canvas que resume el planteamiento.
+
+#### 1.2.2.1. Lean UX Problem Statements
+
+Los problem statements describen la situación actual de los usuarios, la brecha que las soluciones existentes dejan sin atender y el foco con el que Guardian+ la aborda. Se plantea un enunciado principal y dos enunciados secundarios por objetivo.
 
 **Problem Statement principal (PS-1):**
 El cuidado de personas vulnerables que requieren cuidado (adultos mayores, personas con discapacidad o en situación de dependencia) en el Perú se ha apoyado principalmente en la supervisión presencial y en herramientas genéricas (llamadas, mensajería o wearables orientados al fitness) que no fueron diseñadas para el acompañamiento a distancia. Lo que los familiares y cuidadores necesitan es una forma oportuna, centralizada y confiable de conocer el estado de la persona a su cuidado y de ser alertados ante eventos críticos, incluso cuando no están presentes. Debido a que las soluciones actuales no integran monitoreo, alertas y comunicación pensados para este contexto, la información llega fragmentada y tarde. Por ello, Guardian+ abordará esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta en un dashboard claro y emite notificaciones y alertas en tiempo real. Nuestro foco inicial serán los familiares y cuidadores de personas vulnerables que requieren cuidado, con especial énfasis en los adultos mayores.
@@ -48,7 +96,9 @@ Enunciados secundarios por objetivo:
 - **PS-2 (Seguridad):** los familiares y cuidadores no reciben aviso oportuno ante caídas o emergencias. ¿Cómo garantizar una respuesta rápida mediante alertas inmediatas en la app?
 - **PS-3 (Salud):** no existe un seguimiento continuo y comprensible de los signos de la persona a su cuidado. ¿Cómo ofrecer un monitoreo preventivo desde el aplicativo móvil?
 
-##### 1.2.2.2. Lean UX Assumptions
+#### 1.2.2.2. Lean UX Assumptions
+
+Los supuestos reúnen lo que el equipo cree sobre el negocio, los usuarios y las funcionalidades de Guardian+, y sirven como punto de partida para las hipótesis que se validarán.
 
 **Business Assumptions (Suposiciones de negocio)**
 
@@ -80,18 +130,22 @@ Enunciados secundarios por objetivo:
 - Creemos que los reportes e historial del estado de la persona a su cuidado aportan valor preventivo.
 - Creemos que la comunicación directa (contacto rápido con familiares o servicios) refuerza la respuesta ante emergencias.
 
-##### 1.2.2.3. Lean UX Hypothesis Statements
+#### 1.2.2.3. Lean UX Hypothesis Statements
+
+A partir de los supuestos anteriores se formularon las siguientes hipótesis, cada una con la métrica que permitirá validarla.
 
 - **H1:** Creemos que mejoraremos la respuesta ante emergencias si los familiares y cuidadores reciben avisos oportunos mediante alertas en tiempo real ante caídas o eventos críticos. *Métrica:* se reduce el tiempo promedio entre el evento detectado y la primera acción del responsable.
 - **H2:** Creemos que aumentaremos el uso recurrente de la app si los cuidadores logran supervisar sin presencia física mediante un dashboard de indicadores centralizado. *Métrica:* usuarios activos diarios y frecuencia de consultas al dashboard.
 - **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado de la persona a su cuidado. *Métrica:* número de reportes revisados y tasa de retención semanal.
 - **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
 
-##### 1.2.2.4. Lean UX Canvas
+#### 1.2.2.4. Lean UX Canvas
+
+El Lean UX Canvas reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.
 
 ![Lean UX Canvas](../assets/images/chapterI/leanux-canvas.svg)
 
-### 1.3. Segmentos objetivo
+## 1.3. Segmentos objetivo
 
 Guardian+ está dirigido a dos segmentos que forman parte de nuestro ecosistema, estos segmentos estan relacionado dentro del dominio del problema
 

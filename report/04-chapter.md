@@ -1,6 +1,12 @@
+<div style="page-break-before: always; break-before: page;"></div>
+
 # Capítulo IV: Product Implementation & Validation
 
+En este capítulo se describe la implementación y la validación de Guardian+: la configuración del entorno de desarrollo, la gestión del código fuente y del despliegue, la ejecución del Sprint 1 con sus evidencias y las entrevistas de validación realizadas con usuarios.
+
 ## 4.1. Software Configuration Management
+
+En esta sección se describe cómo el equipo gestiona la configuración del software de Guardian+: las herramientas del entorno de desarrollo, la gestión del código fuente con GitFlow, las convenciones de código y la configuración del despliegue de cada producto.
 
 ### 4.1.1. Software Development Environment Configuration
 
@@ -706,7 +712,11 @@ El siguiente diagrama, elaborado con Structurizr bajo el C4 Model, presenta la d
 
 ## 4.2. Landing Page & Mobile Application Implementation
 
+En esta sección se documenta la implementación del Landing Page, la aplicación móvil y los Web Services de Guardian+ organizada por Sprint, con la planificación, el backlog y las evidencias presentadas en cada Sprint Review.
+
 ### 4.2.1. Sprint 1
+
+En esta sección se documenta el Sprint 1 de Guardian+: su planificación, la distribución de responsabilidades, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue presentadas en el Sprint Review, y los insights de colaboración del equipo.
 
 #### 4.2.1.1. Sprint Planning 1
 
@@ -1385,13 +1395,13 @@ Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo tra
 
 ## 4.3. Validation Interviews
 
-### 4.3.1. Diseño de Entrevistas
+En esta sección se presentan las entrevistas de validación del Landing Page realizadas con familiares y cuidadores, junto con su diseño y su registro, y la evaluación heurística del prototipo de la aplicación móvil.
 
-## Diseño de Entrevistas — Validación del Landing Page
+### 4.3.1. Diseño de Entrevistas
 
 La sesión de validación consiste en un recorrido guiado (think-aloud) por el Landing Page de Guardian+, en el mismo orden en que está estructurado el sitio: Hero → Pain Points → Cómo funciona → Pulsera → Beneficios → Tour de la app → Zonas Seguras → Por qué Guardian+ → Planes → Contacto. El objetivo de cada pregunta es verificar si, según su segmento, el entrevistado entiende y percibe el valor real que ofrece Guardian+ en esa sección, por lo que todas las preguntas buscan que el entrevistado se explaye y justifique su respuesta, evitando preguntas cerradas de sí/no.
 
-### Segmento 1 — Familiares
+#### Segmento 1 — Familiares
 
 1. **Hero:** Después de leer esta primera pantalla, ¿qué entiendes que hace Guardian+ por ti y tu familia, en tus propias palabras? ¿Por qué lo entiendes así?
 2. **Pain Points:** ¿Cuál de estas tres preguntas refleja mejor una preocupación que tú mismo has tenido con tu familiar, y por qué esa en particular?
@@ -1404,7 +1414,7 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 9. **Planes:** Viendo los tres planes, ¿cuál elegirías para tu familia y qué fue lo que más pesó en tu decisión?
 10. **Contacto:** Si tuvieras dudas sobre qué plan elegir, ¿qué información esperarías recibir al usar este formulario de contacto?
 
-### Segmento 2 — Cuidadores
+#### Segmento 2 — Cuidadores
 
 1. **Hero:** Si estuvieras buscando una herramienta que te apoye en tu trabajo de cuidado, ¿qué entiendes que te ofrece Guardian+ a partir de esta pantalla? ¿Por qué lo entiendes así?
 2. **Pain Points:** ¿Cuál de estas preguntas representa mejor un riesgo que tú monitoreas en tu trabajo diario, y por qué ese en particular?
@@ -1453,7 +1463,9 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-### UX Heuristics & Principles Evaluation
+La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación.
+
+#### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
 | | |

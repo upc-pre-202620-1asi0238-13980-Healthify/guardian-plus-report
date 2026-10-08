@@ -1,3 +1,12 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "markdown-pdf.format": "A4",
+    "markdown-pdf.styles": [".vscode/markdown-pdf.css"],
+    "markdown-pdf.margin.top": "2cm",
+    "markdown-pdf.margin.bottom": "2cm",
+    "markdown-pdf.margin.left": "2cm",
+    "markdown-pdf.margin.right": "2cm",
+    "markdown-pdf.displayHeaderFooter": true,
+    "markdown-pdf.headerTemplate": "<div></div>",
+    "markdown-pdf.footerTemplate": "<div style=\"font-size: 9px; width: 100%; text-align: center;\"><span class='pageNumber'></span> / <span class='totalPages'></span></div>"
 }

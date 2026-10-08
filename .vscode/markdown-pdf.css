@@ -1,0 +1,6 @@
+body { font-size: 12pt; line-height: 1.5; }
+table { font-size: 10pt; }
+pre, code { font-size: 9pt; }
+img { max-width: 100%; }
+tr, img { page-break-inside: avoid; }
+h1, h2, h3, h4 { page-break-after: avoid; }
