@@ -1651,6 +1651,28 @@ La Figura 4.17 muestra una captura de la entrevista de validación a Rocio Alvar
 
 Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja muy bien la forma en que quiere enterarse del estado de su familiar durante el día, porque muestra lo primordial y le daría más confianza. Respecto a las Zonas Seguras, destacó que le alertarían si su familiar sale de casa, algo relevante por el riesgo de que se pierda o le ocurra algún incidente. También se sintió identificada con el testimonio, pues trabaja y estar informada le da tranquilidad mientras está fuera. Entre los planes, eligió Guardian+ porque incluye la pulsera, cubre lo esencial y se adecúa a su presupuesto. Finalmente, del formulario de contacto esperaría recibir atención de un operador que resuelva sus dudas por teléfono, correo o WhatsApp.
 
+**Entrevistado 2**
+
+**Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
+
+La Tabla 4.55 presenta los datos de la entrevistada.
+
+<a id="tabla-4-54"></a>**Tabla 4.55.** Datos de la entrevista de validación a Junior Antenor
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Junior Antenor Ayala |
+| Edad | 33 |
+| Distrito | San Juan Bautista |
+
+La Figura 4.18 muestra una captura de la entrevista de validación a Junior Antenor.
+
+<a id="figura-4-17"></a>**Figura 4.18.** Captura de la entrevista de validación a Junior Antenor
+
+![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
+
+**Análisis de la entrevista:** El entrevistado entiende Guardián+ como una plataforma que utiliza una pulsera inteligente para monitorear la salud, ubicación y seguridad de un familiar, destacando su utilidad para recibir alertas ante situaciones como caídas, problemas de salud o falta de respuesta. Considera especialmente valiosas la geolocalización, las alertas y las opciones de comunicación, ya que le permitirían reaccionar con mayor rapidez ante una emergencia y reducir la preocupación durante el día, incluso mientras trabaja o se encuentra lejos de su familiar. También percibe como útiles funciones como el monitoreo de signos vitales, rutinas y recordatorios de medicamentos, calificando la propuesta como completa. En cuanto a los planes, muestra interés por el plan más avanzado, aunque señala que inicialmente podría comenzar con el de $19 para conocer mejor el funcionamiento de la plataforma. Finalmente, espera que el formulario de contacto presente información breve, directa, clara y sin términos técnicos.
+
 
 ##### Segmento 2: Cuidadores
 
