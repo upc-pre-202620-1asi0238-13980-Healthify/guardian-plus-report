@@ -933,7 +933,7 @@ En esta sección se registran los commits que implementan las User Stories del S
 
 ##### Web Services — Emergency & Alerting
 
-Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits correspondientes.
+Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits de Emergency & Alerting en los Web Services.
 
 <a id="tabla-4-33"></a>**Tabla 4.33.** Commits de Web Services: Emergency & Alerting
 
@@ -953,7 +953,7 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 
 ##### Web Services — Care Routines & Wellness
 
-Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits correspondientes.
+Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits de Care Routines & Wellness en los Web Services.
 
 <a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Care Routines & Wellness
 
@@ -967,7 +967,7 @@ Implementación anticipada del Bounded Context Care Routines & Wellness (US06, U
 
 ##### Web Services — Health Monitoring
 
-Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits correspondientes.
+Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits de Health Monitoring en los Web Services.
 
 <a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Health Monitoring
 
@@ -1069,7 +1069,7 @@ Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US
 
 ##### Mobile App — Emergency & Alerting
 
-Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits correspondientes.
+Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits de Emergency & Alerting en la aplicación móvil.
 
 <a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Mobile App: Emergency & Alerting
 
@@ -1082,7 +1082,7 @@ Implementación de las pantallas del Bounded Context Emergency & Alerting en la 
 
 ##### Mobile App — Health Monitoring
 
-Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits correspondientes.
+Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits de Health Monitoring en la aplicación móvil.
 
 <a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Mobile App: Health Monitoring
 
@@ -1116,7 +1116,7 @@ Implementación de la capa de dominio, infraestructura y presentación del Bound
 
 ##### IoT Simulator
 
-Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits correspondientes.
+Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits del IoT Simulator.
 
 <a id="tabla-4-38"></a>**Tabla 4.38.** Commits de IoT Simulator
 
@@ -1563,25 +1563,25 @@ El despliegue se realizó en los pasos de la Tabla 4.53:
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
 
-**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra estas métricas.
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra los insights del repositorio de los Web Services.
 
 <a id="figura-4-13"></a>**Figura 4.13.** Insights del repositorio de los Web Services
 
 ![backend-insights](../assets/images/chatper4/sprint1/insights/backend-insights.png)
 
-**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra estas métricas.
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de la aplicación móvil.
 
 <a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](../assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
 
-**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra estas métricas.
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra los insights del repositorio del Landing Page.
 
 <a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio del Landing Page
 
 ![website-insights](../assets/images/chatper4/sprint1/insights/website-insights.png)
 
-**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra estas métricas.
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra los insights del repositorio del IoT Simulator.
 
 <a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del IoT Simulator
 
@@ -1641,7 +1641,7 @@ La Tabla 4.54 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.17 muestra una captura de la entrevista.
+La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
 <a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Roxana Paola Diana
 
@@ -1663,7 +1663,7 @@ La Tabla 4.55 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.18 muestra una captura de la entrevista.
+La Figura 4.18 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
 <a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
@@ -1770,7 +1770,7 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra esta pantalla.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra la pantalla Contactos de emergencia.
 
 <a id="figura-4-22"></a>**Figura 4.22.** Pantalla Contactos de emergencia
 
@@ -1787,7 +1787,7 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra esta pantalla.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra el panel Buscar y filtrar del módulo de Salud.
 
 <a id="figura-4-23"></a>**Figura 4.23.** Panel Buscar y filtrar del módulo de Salud
 
@@ -1804,7 +1804,7 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra esta pantalla.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra la pantalla Exportar expediente.
 
 <a id="figura-4-24"></a>**Figura 4.24.** Pantalla Exportar expediente
 
@@ -1821,7 +1821,7 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra esta pantalla.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra la pantalla Sueño del módulo de Rutinas.
 
 <a id="figura-4-25"></a>**Figura 4.25.** Pantalla Sueño del módulo de Rutinas
 

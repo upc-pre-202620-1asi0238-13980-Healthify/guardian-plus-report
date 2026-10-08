@@ -444,7 +444,7 @@ Los journeys se construyen a partir de la información obtenida durante las entr
 
 #### User Journey Map - Familiar
 
-El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior. La Figura 2.10 presenta este recorrido.
+El recorrido del segmento de familiares representa la experiencia de supervisar a distancia el bienestar de una persona vulnerable. El journey inicia con la necesidad de conocer su estado, continúa con la búsqueda de información mediante llamadas, mensajería u otros responsables, y contempla la evaluación de posibles situaciones de riesgo, la coordinación de asistencia y el seguimiento posterior. La Figura 2.10 presenta el User Journey Map del segmento de familiares.
 
 <a id="figura-2-10"></a>**Figura 2.10.** User Journey Map del segmento de familiares
 
@@ -452,7 +452,7 @@ El recorrido del segmento de familiares representa la experiencia de supervisar 
 
 #### User Journey Map - Cuidador
 
-El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables. La Figura 2.11 presenta este recorrido.
+El recorrido del segmento de cuidadores representa una jornada habitual de supervisión de una o varias personas bajo su responsabilidad. Comprende la revisión inicial del estado y actividades pendientes, el seguimiento de rutinas, la vigilancia continua, la atención de posibles incidencias y el registro o comunicación de lo ocurrido a familiares u otros responsables. La Figura 2.11 presenta el User Journey Map del segmento de cuidadores.
 
 <a id="figura-2-11"></a>**Figura 2.11.** User Journey Map del segmento de cuidadores
 
@@ -466,7 +466,7 @@ Los mapas se construyen a partir de la información obtenida en las entrevistas,
 
 #### Empathy Map - Familiar
 
-El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia. La Figura 2.12 presenta este mapa.
+El mapa del segmento de familiares refleja la experiencia de una persona que asume la responsabilidad del cuidado de un familiar vulnerable mientras cumple con su jornada laboral. Destaca la preocupación constante por no saber qué ocurre en casa, la dependencia de llamadas y mensajes como único canal de información, y la necesidad de recibir alertas oportunas y datos confiables que le brinden tranquilidad a distancia. La Figura 2.12 presenta el Empathy Map del segmento de familiares.
 
 <a id="figura-2-12"></a>**Figura 2.12.** Empathy Map del segmento de familiares
 
@@ -474,7 +474,7 @@ El mapa del segmento de familiares refleja la experiencia de una persona que asu
 
 #### Empathy Map - Cuidador
 
-El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia. La Figura 2.13 presenta este mapa.
+El mapa del segmento de cuidadores refleja la experiencia de una persona encargada del cuidado directo y cotidiano de un Fragile Citizen. Destaca la carga que genera la supervisión manual continua, el riesgo de olvidar horarios de medicación o no advertir una caída durante sus ausencias, y la necesidad de contar con recordatorios, alertas automáticas y un historial centralizado que facilite su labor y la comunicación con la familia. La Figura 2.13 presenta el Empathy Map del segmento de cuidadores.
 
 <a id="figura-2-13"></a>**Figura 2.13.** Empathy Map del segmento de cuidadores
 
