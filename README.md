@@ -12304,6 +12304,10 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
 
+##### Segmento 1: Familiares
+
+**Entrevistado 1**
+
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**

@@ -1625,15 +1625,42 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
 
+##### Segmento 1: Familiares
+
+**Entrevistado 1**
+
+**Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+
+La Tabla 4.54 presenta los datos de la entrevistada.
+
+<a id="tabla-4-54"></a>**Tabla 4.54.** Datos de la entrevista de validación a Rocio Alvarado
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Rocío Miranda Alvarado Silva |
+| Edad | 22 |
+| Distrito | Jesus María |
+
+La Figura 4.17 muestra una captura de la entrevista de validación a Rocio Alvarado.
+
+<a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Rocio Alvarado
+
+![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_1.png)
+
+**Análisis de la entrevista:** Rocío Alvarado, familiar de una persona con esquizofrenia, recorrió el Landing Page completo y mostró una comprensión clara de la propuesta de valor de Guardian+. Al leer la pantalla inicial lo describió como una app con pulsera inteligente que acompaña a quienes necesitan cuidados, y calificó la sección "Cómo funciona" como sencilla y fácil de entender, sin dudas en ninguno de sus tres pasos. De las preocupaciones de la sección Pain Points se identificó con la pregunta sobre la medicación, porque su familiar requiere medicación constante y una rutina estable. Coherentemente con ello, valoró del apartado de la pulsera el recordatorio con vibración y la confirmación de la toma con un solo toque, y eligió "Rutinas sin olvidos" como el beneficio más importante, ya que le permite asegurar que se cumplan la medicación y las citas.
+
+Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja muy bien la forma en que quiere enterarse del estado de su familiar durante el día, porque muestra lo primordial y le daría más confianza. Respecto a las Zonas Seguras, destacó que le alertarían si su familiar sale de casa, algo relevante por el riesgo de que se pierda o le ocurra algún incidente. También se sintió identificada con el testimonio, pues trabaja y estar informada le da tranquilidad mientras está fuera. Entre los planes, eligió Guardian+ porque incluye la pulsera, cubre lo esencial y se adecúa a su presupuesto. Finalmente, del formulario de contacto esperaría recibir atención de un operador que resuelva sus dudas por teléfono, correo o WhatsApp.
+
+
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.54 presenta los datos de la entrevistada.
+La Tabla 4.55 presenta los datos de la entrevistada.
 
-<a id="tabla-4-54"></a>**Tabla 4.54.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1641,9 +1668,9 @@ La Tabla 4.54 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.18 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -1653,9 +1680,9 @@ La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.55 presenta los datos del entrevistado.
+La Tabla 4.56 presenta los datos del entrevistado.
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1663,9 +1690,9 @@ La Tabla 4.55 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.18 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.19 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -1678,9 +1705,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.56 presenta los datos generales de la evaluación.
+La Tabla 4.57 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Datos generales de la evaluación heurística
+<a id="tabla-4-57"></a>**Tabla 4.57.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1711,9 +1738,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.57 define la escala de severidad utilizada.
+La Tabla 4.58 define la escala de severidad utilizada.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-58"></a>**Tabla 4.58.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1725,9 +1752,9 @@ La Tabla 4.57 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.58 resume los problemas encontrados.
+La Tabla 4.59 resume los problemas encontrados.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-59"></a>**Tabla 4.59.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -1746,17 +1773,17 @@ La Tabla 4.58 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.19 a 4.21 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.20 a 4.22 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-20"></a>**Figura 4.20.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-20"></a>**Figura 4.20.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-21"></a>**Figura 4.21.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-21"></a>**Figura 4.21.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -1770,9 +1797,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.23 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Contactos de emergencia
+<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -1787,9 +1814,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.24 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-23"></a>**Figura 4.23.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-24"></a>**Figura 4.24.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -1804,9 +1831,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.25 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Exportar expediente
+<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -1821,9 +1848,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.26 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
