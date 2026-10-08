@@ -280,9 +280,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 2.49. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](#tabla-2-49)
 - [Tabla 2.50. Product Backlog de Guardian+](#tabla-2-50)
 - [Tabla 2.51. Alternativas de Context Mapping evaluadas](#tabla-2-51)
-- [Tabla 2.52. Command Handlers de Subscriptions](#tabla-2-52)
-- [Tabla 2.53. Query Handlers de Subscriptions](#tabla-2-53)
-- [Tabla 2.54. Event Handlers de Subscriptions](#tabla-2-54)
+- [Tabla 2.52. Leyenda de patrones del Context Map](#tabla-2-52)
+- [Tabla 2.53. Catálogo de relaciones del Context Map](#tabla-2-53)
+- [Tabla 2.54. Command Handlers de Subscriptions](#tabla-2-54)
+- [Tabla 2.55. Query Handlers de Subscriptions](#tabla-2-55)
+- [Tabla 2.56. Event Handlers de Subscriptions](#tabla-2-56)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -424,32 +426,34 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.36. Bounded Context Canvas de Mobility & Geofencing](#figura-2-36)
 - [Figura 2.37. Bounded Context Canvas de IAM](#figura-2-37)
 - [Figura 2.38. Context Map global de Guardian+](#figura-2-38)
-- [Figura 2.39. Diagrama de contexto de Guardian+](#figura-2-39)
-- [Figura 2.40. Diagrama de contenedores de Guardian+](#figura-2-40)
-- [Figura 2.41. Diagrama de componentes de la Guardian+ REST API](#figura-2-41)
-- [Figura 2.42. Diagrama de despliegue de Guardian+](#figura-2-42)
-- [Figura 2.43. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-43)
-- [Figura 2.44. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-44)
-- [Figura 2.45. Diagrama de base de datos de Emergency & Alerting](#figura-2-45)
-- [Figura 2.46. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-46)
-- [Figura 2.47. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-47)
-- [Figura 2.48. Diagrama de base de datos de Health Monitoring](#figura-2-48)
-- [Figura 2.49. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-49)
-- [Figura 2.50. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-50)
-- [Figura 2.51. Diagrama de base de datos de Subscriptions](#figura-2-51)
-- [Figura 2.52. Diagrama de componentes del Bounded Context Profile](#figura-2-52)
-- [Figura 2.53. Diagrama de clases de la Domain Layer de Profile](#figura-2-53)
-- [Figura 2.54. Diagrama de base de datos de Profile](#figura-2-54)
-- [Figura 2.55. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-55)
-- [Figura 2.56. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-56)
-- [Figura 2.57. Diagrama de base de datos de Care Routines & Wellness](#figura-2-57)
-- [Figura 2.58. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-58)
-- [Figura 2.59. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-59)
-- [Figura 2.60. Diagrama de base de datos de Mobility & Geofencing](#figura-2-60)
-- [Figura 2.61. Diagrama de componentes del Bounded Context IAM](#figura-2-61)
-- [Figura 2.62. Diagrama de clases de la Domain Layer de IAM](#figura-2-62)
-- [Figura 2.63. Diagrama de base de datos de IAM](#figura-2-63)
-- [Figura 2.64. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-64)
+- [Figura 2.39. Context Map de las señales que disparan alertas](#figura-2-39)
+- [Figura 2.40. Context Map de identidad y sistemas externos](#figura-2-40)
+- [Figura 2.41. Diagrama de contexto de Guardian+](#figura-2-41)
+- [Figura 2.42. Diagrama de contenedores de Guardian+](#figura-2-42)
+- [Figura 2.43. Diagrama de componentes de la Guardian+ REST API](#figura-2-43)
+- [Figura 2.44. Diagrama de despliegue de Guardian+](#figura-2-44)
+- [Figura 2.45. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-45)
+- [Figura 2.46. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-46)
+- [Figura 2.47. Diagrama de base de datos de Emergency & Alerting](#figura-2-47)
+- [Figura 2.48. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-48)
+- [Figura 2.49. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-49)
+- [Figura 2.50. Diagrama de base de datos de Health Monitoring](#figura-2-50)
+- [Figura 2.51. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-51)
+- [Figura 2.52. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-52)
+- [Figura 2.53. Diagrama de base de datos de Subscriptions](#figura-2-53)
+- [Figura 2.54. Diagrama de componentes del Bounded Context Profile](#figura-2-54)
+- [Figura 2.55. Diagrama de clases de la Domain Layer de Profile](#figura-2-55)
+- [Figura 2.56. Diagrama de base de datos de Profile](#figura-2-56)
+- [Figura 2.57. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-57)
+- [Figura 2.58. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-58)
+- [Figura 2.59. Diagrama de base de datos de Care Routines & Wellness](#figura-2-59)
+- [Figura 2.60. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-60)
+- [Figura 2.61. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-61)
+- [Figura 2.62. Diagrama de base de datos de Mobility & Geofencing](#figura-2-62)
+- [Figura 2.63. Diagrama de componentes del Bounded Context IAM](#figura-2-63)
+- [Figura 2.64. Diagrama de clases de la Domain Layer de IAM](#figura-2-64)
+- [Figura 2.65. Diagrama de base de datos de IAM](#figura-2-65)
+- [Figura 2.66. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-66)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -4518,7 +4522,7 @@ Gestiona el ciclo de vida completo de la identidad digital de cuidadores y famil
 
 ### 2.5.2. Context Mapping
 
-En esta sección se definen las relaciones entre los siete Bounded Contexts de Guardian+ y los sistemas externos. Se evalúan alternativas mediante preguntas heurísticas, se comparan las topologías posibles y se presenta el Context Map resultante con el catálogo de patrones de integración.
+En esta sección se definen las relaciones entre los siete Bounded Contexts de Guardian+ y los sistemas externos. Se evalúan alternativas mediante preguntas heurísticas, se comparan las topologías posibles y se presentan el Context Map global, dos mapas enfocados y el catálogo de patrones de integración.
 
 #### 2.5.2.1. Heurísticas de Diseño y Exploración de Alternativas (What-If Analysis Global)
 
@@ -4531,11 +4535,11 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 *   **¿Qué pasaría si tomamos el capability de despacho de notificaciones (Push/SMS) de *Emergency & Alerting*, *Care Routines & Wellness* y *Health Monitoring* para formar un nuevo Bounded Context (*Notification Service*)?**
     *   *Evaluación:* Crear un contexto de dominio para enviar notificaciones introduce una sobrecarga transaccional y de red innecesaria para una función que es netamente técnica y de infraestructura. En su lugar, cada contexto interactúa de manera aislada con pasarelas de mensajería externas a través de puertos y adaptadores (`Infrastructure Layer`).
 *   **¿Qué pasaría si duplicamos la información de relaciones de cuidado (`CareCircle`) en *Emergency & Alerting* para romper la dependencia en tiempo real con *Profile*?**
-    *   *Evaluación:* Durante un incidente crítico (como una caída con pérdida de conocimiento), una falla de red o una consulta lenta hacia *Profile* bloquearía el auxilio al paciente. Se decidió aplicar desnormalización eventual: *Emergency & Alerting* almacena una copia local optimizada de la agenda y jerarquía de contactos del *Care Circle*, sincronizada de manera reactiva mediante eventos de integración emitidos por *Profile* (`CareRelationshipEstablished`, `CareRelationshipEnded`).
+    *   *Evaluación:* Durante un incidente crítico (como una caída con pérdida de conocimiento), una falla de red o una consulta lenta hacia *Profile* bloquearía el auxilio al paciente. Se decidió que *Emergency & Alerting* almacene su propia agenda y jerarquía de contactos del *Care Circle* y consulte a *Profile* solo mediante una Anti-Corruption Layer al registrar un contacto. Los eventos de integración emitidos por *Profile* (`CareRelationshipEstablished`, `CareRelationshipEnded`) son el contrato previsto para mantener esa agenda sincronizada.
 *   **¿Qué pasaría si unificamos *IAM*, *Profile* y *Subscriptions* en un único gran Bounded Context genérico?**
     *   *Evaluación:* Aunque los tres pertenecen al Generic Domain, operan con ciclos de vida y razones de cambio dispares. *IAM* maneja autenticación, credenciales efímeras y seguridad criptográfica; *Profile* gestiona la semántica de lazos familiares y preferencias de accesibilidad; y *Subscriptions* gobierna la facturación recurrente, planes comerciales y pasarelas de pago. Mantenerlos como tres contextos genéricos separados protege la pureza de sus modelos y minimiza el radio de impacto ante auditorías de seguridad o cambios en proveedores comerciales.
 *   **¿Qué pasaría si aislamos el cálculo de transgresión de zonas seguras en *Mobility & Geofencing* y emitimos solo eventos de brecha a *Emergency & Alerting*?**
-    *   *Evaluación:* Es la decisión óptima. *Mobility & Geofencing* ingesta la señal de posicionamiento GPS y calcula polígonos/radios geográficos de manera continua. *Emergency & Alerting* no necesita conocer latitud ni longitud en cada segundo, únicamente consume el evento de negocio `SafeZoneBreached` cuando la persona abandona su perímetro seguro autorizado.
+    *   *Evaluación:* Es la decisión óptima. *Mobility & Geofencing* ingesta la señal de posicionamiento GPS y calcula polígonos/radios geográficos de manera continua. *Emergency & Alerting* no necesita conocer latitud ni longitud en cada segundo, únicamente consume el evento de negocio `SafeZoneViolation` cuando la persona abandona su perímetro seguro autorizado.
 
 ---
 
@@ -4555,117 +4559,59 @@ La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equip
 
 #### 2.5.2.3. Context Map Global de Guardian+
 
-La Figura 2.38 presenta la topología integral de integración que interconecta la totalidad de los Bounded Contexts y sistemas externos del ecosistema:
+Siguiendo las recomendaciones de DDD Crew, el Context Map se presenta en un mapa global y en dos mapas enfocados en preguntas concretas. Los diagramas se generan con Context Mapper a partir de archivos CML: cada relación marca el extremo upstream (U) y downstream (D), y junto a cada contexto se indica el patrón que aplica.
+
+La Tabla 2.52 presenta la leyenda de los patrones usados en los diagramas.
+
+<a id="tabla-2-52"></a>**Tabla 2.52.** Leyenda de patrones del Context Map
+
+| Notación | Patrón | Significado en Guardian+ |
+| :--- | :--- | :--- |
+| **U / D** | Upstream / Downstream | Los cambios del contexto upstream afectan al downstream, pero no a la inversa. |
+| **Customer/Supplier** | Customer / Supplier | El downstream (customer) consume los eventos del upstream (supplier), y sus necesidades se consideran en la planificación del upstream. |
+| **OHS** | Open Host Service | El upstream expone un protocolo abierto que cualquier contexto puede usar sin integraciones a medida. |
+| **PL** | Published Language | El upstream publica un contrato documentado (eventos de integración o tokens) independiente de su modelo interno. |
+| **ACL** | Anticorruption Layer | El downstream traduce el modelo del upstream a su propio Ubiquitous Language para que no contamine su dominio. |
+| Borde punteado | Sistema externo | Sistema fuera de Guardian+ con el que se integra un Bounded Context. |
+
+La Figura 2.38 presenta el Context Map global con todas las relaciones entre los Bounded Contexts y los sistemas externos.
 
 <a id="figura-2-38"></a>**Figura 2.38.** Context Map global de Guardian+
 
-```
-                 +---------------------------------------------------------+
-                  |               EXTERNAL ACTORS & HARDWARE                |
-                  +--------------+---------------------------+--------------+
-                                 |                           |
-                 (Raw Vital Signs Telemetry)      (Fall Pattern / SOS / Bat)
-                   [MQTT Topic: /vitals]             [MQTT Topic: /alerts]
-                                 |                           |
-                                 v [In]                      v [In]
-                  +--------------------------+  +---------------------------+
-                  |    Health Monitoring     |  |   Mobility & Geofencing   |
-                  |         (Core)           |  |       (Supporting)        |
-                  |          [ACL]           |  |           [ACL]           |
-                  +--------------+-----------+  +-------------+-------------+
-                                 |                            |
-                                 | [U] (Supplier)             | [U] (Supplier)
-                                 | Integration Event:         | Integration Event:
-                                 | 3 Consecutive Threshold    | SafeZoneViolation
-                                 | Violations Confirmed       |
-                                 v [D] (Customer)             v [D] (Customer)
-               +-----------------+----------------------------+---------------+
-               |                 Emergency & Alerting (Core)                  |
-               |                                                              |
-               | - Biometric alert raiser (Raise Biometric Alert)             |
-               | - Fall confirmation timeout / SOS Triage Engine              |
-               | - Multi-tier Escalation (Primary ack timeout / Broadcast)    |
-               | - Emergency Contacts & Alert Channels Governance             |
-               +-----------------+----------------------------+---------------+
-                                 ^                            ^
-                                 | [D] (Customer)             | [D] (Customer)
-                                 | Integration Event:         | Integration Event:
-                                 | ProlongedInactivity        | CareRelationshipEstablished
-                                 | Detected / ReminderReissued| CareRelationshipEnded
-                                 | MedicationRestockSuggested |
-                                 |                            |
-                  +--------------+-----------+  +-------------+-------------+
-                  | Care Routines & Wellness |  |          Profile          |
-                  |       (Supporting)       |  |         (Generic)         |
-                  +--------------+-----------+  +-------------+-------------+
-                                 ^                            ^
-                                 | [D]                        | [D]
-                                 |                            |
-                                 |            [U]             |
-                                 | [Open Host Service (OHS)]  |
-                                 | [Published Language (PL)]  |
-                                 | (Identity Tokens / Claims) |
-                                 +-------------+--------------+
-                                               |
-                                               |
-                                +--------------v-------------+
-                                |            IAM             |
-                                |         (Generic)          |
-                                +--------------+-------------+
-                                               |
-                                               | [U] (OHS / PL)
-                                               v [D]
-                                +--------------+-------------+
-                                |       Subscriptions        |
-                                |         (Generic)          |
-                                |           [ACL]            |
-                                +--------------+-------------+
-                                               |
-                                               | [D] (Conformist / SDK Adapter)
-                                               v [U]
-                                +--------------+-------------+
-                                |  External Stripe Gateway   |
-                                +----------------------------+
+![global-context-map](assets/images/chapterII/context-mapping/global-context-map.png)
 
-```
+La Figura 2.39 responde qué señales disparan alertas en Emergency & Alerting.
+
+<a id="figura-2-39"></a>**Figura 2.39.** Context Map de las señales que disparan alertas
+
+![alerting-context-map](assets/images/chapterII/context-mapping/alerting-context-map.png)
+
+La Figura 2.40 muestra cómo se integran con Guardian+ la identidad provista por IAM y los sistemas externos.
+
+<a id="figura-2-40"></a>**Figura 2.40.** Context Map de identidad y sistemas externos
+
+![identity-external-context-map](assets/images/chapterII/context-mapping/identity-external-context-map.png)
 
 #### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
 
-A continuación se detalla cada relación del Context Map, indicando su tipo, el patrón de integración aplicado y la justificación de su elección.
+La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
 
-*   **Wearable Hardware -> Health Monitoring (Anti-Corruption Layer - ACL):**
-    *   *Tipo:* External -> Internal Downstream.
-    *   *Patrón:* **Anti-Corruption Layer (ACL)**.
-    *   *Justificación:* El wearable físico es un productor externo que emite tramas crudas serializadas y optimizadas para restricciones energéticas del microcontrolador (ESP32-S3). Aunque el canal de transporte subyacente es un bus Pub/Sub, el Bounded Context de Health Monitoring implementa una Anti-Corruption Layer (ACL) en su capa de infraestructura (compuesta por un MQTT Inbound Adapter y un Telemetry Payload Translator/Assembler). Esta capa intercepta las tramas crudas, valida la integridad de los paquetes y traduce las variables de hardware a los Value Objects y Comandos propios del Lenguaje Ubicuo del dominio (`DetectVitalSignsCommand`, `VitalSignValue`, `VitalSignTypeId`), garantizando que las particularidades del firmware no contaminen ni acoplen el modelo clínico interno.
+<a id="tabla-2-53"></a>**Tabla 2.53.** Catálogo de relaciones del Context Map
 
-*   **GNSS Module -> Mobility & Geofencing (Anti-Corruption Layer - ACL):**
-    *   *Tipo:* External -> Internal Downstream.
-    *   *Patrón:* **Anti-Corruption Layer (ACL)**.
-    *   *Justificación:* El hardware de rastreo emite sentencias geográficas crudas (formato NMEA / coordenadas en latitud y longitud flotantes). La ACL filtra la degradación de señal satelital y transforma la posición en el Value Object `GeographicCoordinate`.
-*   **Health Monitoring -> Emergency & Alerting (Customer / Supplier con Published Language):**
-    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
-    *   *Patrón:* **Customer/Supplier** con **Published Language (PL)**.
-    *   *Justificación:* *Health Monitoring* actúa como proveedor notificando desviaciones clínicas. Para evitar acoplamiento, expone un contrato estandarizado de evento de integración (`VitalSignAnomalyDetected`) con el payload mínimo necesario (identificador de paciente, parámetro violado y severidad), permitiendo que Emergencias opere como cliente consumidor sin conocer cómo se calcularon los umbrales basales.
-*   **Mobility & Geofencing -> Emergency & Alerting (Customer / Supplier):**
-    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
-    *   *Patrón:* **Customer/Supplier**.
-    *   *Justificación:* Cuando un Fragile Citizen cruza los límites de una geocerca activa sin retorno inmediato, este contexto emite de forma asíncrona el evento `SafeZoneViolation`. *Emergency & Alerting* consume este evento para disparar una alerta de severidad alta y activar el despacho a los contactos de emergencia.
-*   **Care Routines & Wellness -> Emergency & Alerting (Customer / Supplier):**
-    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
-    *   *Patrón:* **Customer/Supplier**.
-    *   *Justificación:* El contexto de rutinas monitorea la actividad diaria del paciente. Si los sensores cinemáticos registran una inactividad prolongada no justificada en horas diurnas (US27), se emite el evento `ProlongedInactivityDetected`, consumido por Emergencias para ejecutar la verificación de bienestar del paciente. Del mismo modo, `ReminderReissued` y `MedicationRestockSuggested` se consumen como alertas de severidad media dirigidas al contacto primario.
-*   **Profile -> Emergency & Alerting (Event-Carried State Transfer / Customer-Supplier):**
-    *   *Tipo:* Upstream (Supplier) -> Downstream (Customer).
-    *   *Patrón:* **Customer/Supplier con replicación eventual**.
-    *   *Justificación:* *Emergency & Alerting* requiere conocer qué integrantes del *Care Circle* pueden recibir alertas para el escalamiento a 60 segundos. Para no depender síncronamente de la base de datos de *Profile*, Emergencias escucha los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` y mantiene sincronizada su propia tabla `emergency_contacts`, activando o desactivando al contacto correspondiente.
-*   **IAM -> Profile, Subscriptions, Health Monitoring, Emergency & Alerting (Open Host Service / Published Language):**
-    *   *Tipo:* Upstream -> Downstream.
-    *   *Patrón:* **Open Host Service (OHS)** con **Published Language (PL)**.
-    *   *Justificación:* *IAM* provee autenticación y autorización mediante un mecanismo estándar de tokens de acceso (JSON Web Tokens firmados) con un Published Language documentado. Todos los contextos descendentes validan las firmas criptográficas de los tokens y extraen el `UserId` y roles sin consultar síncronamente a la base de datos de identidad en cada petición.
-*   **Subscriptions -> Stripe (Conformist / ACL Adapter):**
-    *   *Tipo:* External Upstream -> Downstream.
-    *   *Patrón:* **Anti-Corruption Layer Adapter**.
-    *   *Justificación:* La gestión de pagos depende de las librerías oficiales del proveedor externo. *Subscriptions* implementa adaptadores de webhook (`PaymentWebhookController` y `PaymentProviderAdapter`) para conformarse a los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) y traducirlos a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`).
+| Relación | Upstream | Downstream | Patrón | Justificación |
+| :--- | :--- | :--- | :--- | :--- |
+| Wearable Device → Health Monitoring | Wearable Device (sistema externo) | Health Monitoring | **ACL** | El wearable físico emite tramas crudas serializadas y optimizadas para las restricciones energéticas del microcontrolador (ESP32-S3). Aunque el canal de transporte es un bus Pub/Sub (MQTT), Health Monitoring implementa una Anti-Corruption Layer en su capa de infraestructura (`VitalSignTelemetryMqttSubscriber` y `VitalSignTelemetryMessageHandler`) que valida cada trama y la traduce a los comandos y Value Objects del dominio (`DetectVitalSignsCommand`, `VitalSignValue`), de modo que las particularidades del firmware no acoplen el modelo clínico. |
+| Wearable Device → Mobility & Geofencing | Wearable Device (sistema externo) | Mobility & Geofencing | **ACL** | El wearable emite la posición como coordenadas crudas (latitud, longitud y precisión). La ACL (`WearableLocationConsumer` y `WearableLocationTransformer`) transforma cada mensaje en el Value Object `Coordinates` y en el comando `ReceiveLocationCommand`. |
+| Wearable Device → Care Routines & Wellness | Wearable Device (sistema externo) | Care Routines & Wellness | **ACL** | `WearableTelemetryBrokerAdapter` recibe la telemetría de actividad, inactividad y sueño, la deserializa en registros propios del contexto y la entrega a `ActivityTelemetryConsumer` y `SleepTelemetryConsumer`, de modo que el formato del dispositivo no alcance al modelo de rutinas. |
+| Health Monitoring → Emergency & Alerting | Health Monitoring (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL** | Health Monitoring actúa como proveedor notificando desviaciones clínicas. Para evitar acoplamiento, expone el evento de integración `VitalSignAnomalyDetected` con el payload necesario (Care Recipient, tipo de signo vital, umbral transgredido, valor y clasificación), de modo que Emergency & Alerting opere como cliente sin conocer cómo se calcularon los umbrales basales. |
+| Mobility & Geofencing → Emergency & Alerting | Mobility & Geofencing (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL**; **ACL** en Emergency & Alerting | Cuando una ubicación del Fragile Citizen queda fuera de su zona segura activa, Mobility & Geofencing emite de forma asíncrona el evento `SafeZoneViolation`, que Emergency & Alerting consume para disparar una alerta de severidad alta y activar el despacho a los contactos de emergencia. Para incluir la ubicación en la notificación, Emergency & Alerting consulta la última ubicación conocida mediante su ACL `MobilityContextAcl`, sin persistirla. |
+| Care Routines & Wellness → Emergency & Alerting | Care Routines & Wellness (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL** | El contexto de rutinas monitorea la actividad diaria del paciente. Si se registra una inactividad prolongada no justificada en horas diurnas (US27), emite el evento `ProlongedInactivityDetected`, consumido por Emergency & Alerting para ejecutar la verificación de bienestar. Del mismo modo, `ReminderReissued` y `MedicationRestockSuggested` se consumen como alertas de severidad media dirigidas al contacto primario. |
+| Profile → Emergency & Alerting | Profile (supplier) | Emergency & Alerting (customer) | **Customer/Supplier**; **ACL** en Emergency & Alerting | Emergency & Alerting requiere conocer qué integrantes del Care Circle pueden recibir alertas para el escalamiento a 60 segundos. Para no depender de Profile durante el despacho, mantiene su propia tabla `emergency_contacts` y consulta a Profile solo mediante su ACL `ProfileContextAcl`: al registrar un contacto verifica que exista una relación de cuidado activa y, al componer la notificación, obtiene el nombre del Fragile Citizen. Los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` de Profile son el contrato previsto para activar o desactivar los contactos (sección 2.6.4). |
+| Profile → Mobility & Geofencing | Profile | Mobility & Geofencing | **ACL** en Mobility & Geofencing | Mobility & Geofencing verifica los datos del Fragile Citizen mediante su componente Profile ACL, el adaptador anticorrupción que consume la información de identidad del contexto Profile (Figura 2.60). La columna `fragile_citizen_id` de sus tablas referencia los perfiles gobernados por Profile. |
+| IAM → Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing, Profile, Subscriptions | IAM | Los seis Bounded Contexts de negocio | **OHS** con **PL** | IAM provee autenticación y autorización mediante tokens de acceso estándar (JSON Web Tokens firmados) con un Published Language documentado. Los contextos descendentes validan la firma de los tokens y extraen el `UserId` y los roles sin consultar la base de datos de identidad en cada petición. |
+| Stripe → Subscriptions | Stripe (sistema externo) | Subscriptions | **ACL** | La gestión de pagos depende de las librerías oficiales del proveedor externo. Subscriptions implementa adaptadores (`PaymentWebhookController` y `PaymentProviderAdapter`) que traducen los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`). |
+| Notification Providers → Emergency & Alerting | Notification Providers (sistema externo) | Emergency & Alerting | **ACL** | Emergency & Alerting despacha las notificaciones mediante adaptadores por canal (`PushNotificationProviderAdapter` y `SmsProviderAdapter`) y recibe el resultado de cada entrega en `NotificationDeliveryWebhookController`, de modo que los formatos de los proveedores de push y SMS no alcancen al modelo de alertas. |
+| Email Provider → IAM | Email Provider (sistema externo) | IAM | **ACL** | IAM envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña mediante `EmailProviderAdapter`, ubicado en el paquete `infrastructure/notifications/adapters` (Figura 2.63), de modo que el proveedor de correo no alcance al modelo de identidad. |
 
 ### 2.5.3. Software Architecture
 
@@ -4677,9 +4623,9 @@ En esta sección se presenta la vista de contexto de Guardian+ aplicando el C4 M
 
 Guardian+ es utilizado por tres tipos de actores: el Familiar, quien supervisa remotamente el bienestar de la persona bajo cuidado sin estar presente de forma permanente; el Cuidador, encargado del cuidado frecuente o permanente de dicha persona, ya sea de forma particular o institucional; y la Persona bajo cuidado (adulto mayor, persona con discapacidad o en situación de dependencia), quien interactúa con el sistema físicamente a través de la pulsera IoT.
 
-El sistema se integra con cuatro servicios externos, cada uno resolviendo una necesidad específica que Guardian+ no implementa por sí mismo: Stripe, para el procesamiento de pagos y suscripciones; un servicio de notificaciones push/SMS, para el despacho de alertas y recordatorios; un servicio de videollamada, que habilita la comunicación directa en tiempo real entre familiar/cuidador y la persona bajo cuidado; y Google Maps, utilizado tanto para la geocodificación y el cálculo de geocercas en el backend como para la visualización del mapa y la ubicación en tiempo real dentro de la aplicación móvil. La Figura 2.39 presenta el diagrama de contexto.
+El sistema se integra con cuatro servicios externos, cada uno resolviendo una necesidad específica que Guardian+ no implementa por sí mismo: Stripe, para el procesamiento de pagos y suscripciones; un servicio de notificaciones push/SMS, para el despacho de alertas y recordatorios; un servicio de videollamada, que habilita la comunicación directa en tiempo real entre familiar/cuidador y la persona bajo cuidado; y Google Maps, utilizado tanto para la geocodificación y el cálculo de geocercas en el backend como para la visualización del mapa y la ubicación en tiempo real dentro de la aplicación móvil. La Figura 2.41 presenta el diagrama de contexto.
 
-<a id="figura-2-39"></a>**Figura 2.39.** Diagrama de contexto de Guardian+
+<a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contexto de Guardian+
 
 ![context-diagram](assets/images/chapterII/c4-diagrams/system-context.png)
 
@@ -4689,10 +4635,10 @@ Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las u
 
 La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
 
-Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.40 presenta el diagrama de contenedores.
+Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.42 presenta el diagrama de contenedores.
 
 
-<a id="figura-2-40"></a>**Figura 2.40.** Diagrama de contenedores de Guardian+
+<a id="figura-2-42"></a>**Figura 2.42.** Diagrama de contenedores de Guardian+
 
 ![containers-diagram](assets/images/chapterII/c4-diagrams/containers.png)
 
@@ -4702,9 +4648,9 @@ Esta sección presenta la vista de componentes de la Guardian+ REST API, ilustra
 
 El backend se organiza en siete componentes, correspondientes uno a uno con los Bounded Contexts definidos en el diseño estratégico de Domain-Driven Design del equipo: Emergency & Alerting y Health Monitoring como Core Domains, encargados respectivamente de la detección/escalamiento de emergencias y del monitoreo de signos vitales — los diferenciadores centrales de la propuesta de valor de Guardian+; Care Routines & Wellness y Mobility & Geofencing como Supporting Domains, que dan soporte a la gestión de rutinas de bienestar y a la localización/geocercas; y IAM, Profile y Subscriptions como Generic Domains, que resuelven capacidades transversales reutilizables (identidad y autorización, gestión de perfiles, y planes de suscripción).
 
-Todos los componentes de negocio dependen de IAM para validar identidad y autorización mediante una capa anticorrupción (ACL), asegurando que cada comando solo pueda ser ejecutado por el actor correspondiente (por ejemplo, solo el Cuidador puede cancelar un recordatorio, o solo la persona bajo cuidado puede confirmarlo). Asimismo, Emergency & Alerting escucha eventos de integración emitidos por Health Monitoring, Care Routines & Wellness y Mobility & Geofencing — anomalías en signos vitales, inactividad prolongada y salida de zona segura respectivamente — reaccionando automáticamente para generar y escalar alertas; esta relación es la traducción directa de las políticas ya definidas en el Event Storming del equipo. Finalmente, Emergency & Alerting es también responsable de despachar las notificaciones push/SMS y de orquestar las sesiones de videollamada hacia los servicios externos correspondientes, mientras que Subscriptions se comunica con Stripe para el procesamiento de pagos. La Figura 2.41 presenta el diagrama de componentes.
+Todos los componentes de negocio dependen de IAM para validar identidad y autorización mediante una capa anticorrupción (ACL), asegurando que cada comando solo pueda ser ejecutado por el actor correspondiente (por ejemplo, solo el Cuidador puede cancelar un recordatorio, o solo la persona bajo cuidado puede confirmarlo). Asimismo, Emergency & Alerting escucha eventos de integración emitidos por Health Monitoring, Care Routines & Wellness y Mobility & Geofencing — anomalías en signos vitales, inactividad prolongada y salida de zona segura respectivamente — reaccionando automáticamente para generar y escalar alertas; esta relación es la traducción directa de las políticas ya definidas en el Event Storming del equipo. Finalmente, Emergency & Alerting es también responsable de despachar las notificaciones push/SMS y de orquestar las sesiones de videollamada hacia los servicios externos correspondientes, mientras que Subscriptions se comunica con Stripe para el procesamiento de pagos. La Figura 2.43 presenta el diagrama de componentes.
 
-<a id="figura-2-41"></a>**Figura 2.41.** Diagrama de componentes de la Guardian+ REST API
+<a id="figura-2-43"></a>**Figura 2.43.** Diagrama de componentes de la Guardian+ REST API
 
 ![components-diagram](assets/images/chapterII/c4-diagrams/components.png)
 
@@ -4714,9 +4660,9 @@ En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4
 
 La Guardian+ Landing Page se publica en Cloudflare Pages, que la distribuye a través de la red global de entrega de contenido de Cloudflare. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 26 dentro de una máquina virtual de Microsoft Azure con Ubuntu 24.04, detrás del proxy inverso Caddy, que la publica por HTTPS, y persiste su información en la Guardian+ Database, alojada en el servicio gestionado Azure Database for PostgreSQL. Ambos servicios se ubican en la región Chile Central para reducir la latencia entre el backend y la base de datos.
 
-La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.42 presenta el diagrama de despliegue.
+La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.44 presenta el diagrama de despliegue.
 
-<a id="figura-2-42"></a>**Figura 2.42.** Diagrama de despliegue de Guardian+
+<a id="figura-2-44"></a>**Figura 2.44.** Diagrama de despliegue de Guardian+
 
 ![deployment-diagram](assets/images/chapterII/c4-diagrams/deployment.png)
 
@@ -5163,9 +5109,9 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.43 presenta los componentes del Bounded Context **Emergency & Alerting** organizados por capa: los controladores REST, el consumidor de eventos de integración y el webhook de entrega en la Interface Layer; los servicios, event handlers y schedulers en la Application Layer; los agregados y servicios de dominio en la Domain Layer; y los adaptadores de persistencia y notificación en la Infrastructure Layer.
+La Figura 2.45 presenta los componentes del Bounded Context **Emergency & Alerting** organizados por capa: los controladores REST, el consumidor de eventos de integración y el webhook de entrega en la Interface Layer; los servicios, event handlers y schedulers en la Application Layer; los agregados y servicios de dominio en la Domain Layer; y los adaptadores de persistencia y notificación en la Infrastructure Layer.
 
-<a id="figura-2-43"></a>**Figura 2.43.** Diagrama de componentes del Bounded Context Emergency & Alerting
+<a id="figura-2-45"></a>**Figura 2.45.** Diagrama de componentes del Bounded Context Emergency & Alerting
 
 ![Emergency & Alerting Component Diagram](assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
 
@@ -5175,17 +5121,17 @@ En esta sección se presenta la estructura interna del Bounded Context **Emergen
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.44 presenta la Domain Layer de **Emergency & Alerting**, organizada alrededor de los agregados `Alert`, `Incident`, `AlertSettings`, `EmergencyContact` y `AlertChannelSetting`, junto con sus entidades, Value Objects, servicios de dominio y repositorios.
+El diagrama UML de la Figura 2.46 presenta la Domain Layer de **Emergency & Alerting**, organizada alrededor de los agregados `Alert`, `Incident`, `AlertSettings`, `EmergencyContact` y `AlertChannelSetting`, junto con sus entidades, Value Objects, servicios de dominio y repositorios.
 
-<a id="figura-2-44"></a>**Figura 2.44.** Diagrama de clases de la Domain Layer de Emergency & Alerting
+<a id="figura-2-46"></a>**Figura 2.46.** Diagrama de clases de la Domain Layer de Emergency & Alerting
 
 ![Emergency & Alerting Domain Class Diagram](assets/images/chapterII/classDiagrams/EmergencyAlertingDomainClassDiagram.png)
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.45 presenta el diseño de persistencia de **Emergency & Alerting**. La tabla `alerts` concentra el ciclo de vida de cada alerta y se relaciona con `alert_deliveries`, `alert_responses` e `incidents`, mientras que `alert_settings`, `emergency_contacts` y `alert_channel_settings` guardan la configuración del Care Circle. Las tablas `user_accounts` y `care_recipient_profiles` se muestran como referencias externas.
+La Figura 2.47 presenta el diseño de persistencia de **Emergency & Alerting**. La tabla `alerts` concentra el ciclo de vida de cada alerta y se relaciona con `alert_deliveries`, `alert_responses` e `incidents`, mientras que `alert_settings`, `emergency_contacts` y `alert_channel_settings` guardan la configuración del Care Circle. Las tablas `user_accounts` y `care_recipient_profiles` se muestran como referencias externas.
 
-<a id="figura-2-45"></a>**Figura 2.45.** Diagrama de base de datos de Emergency & Alerting
+<a id="figura-2-47"></a>**Figura 2.47.** Diagrama de base de datos de Emergency & Alerting
 
 ![Emergency & Alerting Database Design Diagram](assets/images/chapterII/databaseDiagrams/emergency-alerting-db-diagram.png)
 
@@ -5495,9 +5441,9 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.46 presenta las cuatro capas del Bounded Context **Health Monitoring**, su comunicación con la aplicación móvil y con el broker MQTT que entrega la telemetría del wearable, y la publicación de eventos de integración hacia Emergency & Alerting.
+La Figura 2.48 presenta las cuatro capas del Bounded Context **Health Monitoring**, su comunicación con la aplicación móvil y con el broker MQTT que entrega la telemetría del wearable, y la publicación de eventos de integración hacia Emergency & Alerting.
 
-<a id="figura-2-46"></a>**Figura 2.46.** Diagrama de componentes del Bounded Context Health Monitoring
+<a id="figura-2-48"></a>**Figura 2.48.** Diagrama de componentes del Bounded Context Health Monitoring
 
 ![Health Monitoring Component Diagram](assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
@@ -5507,18 +5453,18 @@ En esta sección se presenta la estructura interna del Bounded Context **Health 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.47 presenta la Domain Layer de **Health Monitoring**, con los agregados `VitalSignType`, `VitalSignThreshold`, `VitalSign`, `WearableDevice` y `HealthReport`, sus Value Objects y las interfaces de repositorio que los gestionan.
+El diagrama UML de la Figura 2.49 presenta la Domain Layer de **Health Monitoring**, con los agregados `VitalSignType`, `VitalSignThreshold`, `VitalSign`, `WearableDevice` y `HealthReport`, sus Value Objects y las interfaces de repositorio que los gestionan.
 
-<a id="figura-2-47"></a>**Figura 2.47.** Diagrama de clases de la Domain Layer de Health Monitoring
+<a id="figura-2-49"></a>**Figura 2.49.** Diagrama de clases de la Domain Layer de Health Monitoring
 
 ![Health Monitoring Domain Class Diagram](assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.48 presenta el diseño de persistencia de **Health Monitoring**: `wearable_devices` registra los dispositivos asignados a cada persona bajo cuidado, `vital_sign_types` y `vital_sign_thresholds` definen el catálogo de signos vitales y sus umbrales, `vital_sign_readings` almacena cada lectura recibida y `health_reports` guarda los reportes generados.
+La Figura 2.50 presenta el diseño de persistencia de **Health Monitoring**: `wearable_devices` registra los dispositivos asignados a cada persona bajo cuidado, `vital_sign_types` y `vital_sign_thresholds` definen el catálogo de signos vitales y sus umbrales, `vital_sign_readings` almacena cada lectura recibida y `health_reports` guarda los reportes generados.
 
-<a id="figura-2-48"></a>**Figura 2.48.** Diagrama de base de datos de Health Monitoring
+<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de base de datos de Health Monitoring
 
 ![Health Monitoring Database Design Diagram](assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 
@@ -5997,9 +5943,9 @@ Los handlers no mantienen estado de negocio propio. Sus principales dependencias
 
 ##### Command Handlers
 
-La Tabla 2.52 describe los command handlers del contexto y la operación principal de cada uno.
+La Tabla 2.54 describe los command handlers del contexto y la operación principal de cada uno.
 
-<a id="tabla-2-52"></a>**Tabla 2.52.** Command Handlers de Subscriptions
+<a id="tabla-2-54"></a>**Tabla 2.54.** Command Handlers de Subscriptions
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -6019,9 +5965,9 @@ La Tabla 2.52 describe los command handlers del contexto y la operación princip
 
 ##### Query Handlers
 
-La Tabla 2.53 describe los query handlers del contexto.
+La Tabla 2.55 describe los query handlers del contexto.
 
-<a id="tabla-2-53"></a>**Tabla 2.53.** Query Handlers de Subscriptions
+<a id="tabla-2-55"></a>**Tabla 2.55.** Query Handlers de Subscriptions
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -6031,9 +5977,9 @@ La Tabla 2.53 describe los query handlers del contexto.
 
 ##### Event Handlers
 
-La Tabla 2.54 describe los event handlers del contexto y el evento al que reacciona cada uno.
+La Tabla 2.56 describe los event handlers del contexto y el evento al que reacciona cada uno.
 
-<a id="tabla-2-54"></a>**Tabla 2.54.** Event Handlers de Subscriptions
+<a id="tabla-2-56"></a>**Tabla 2.56.** Event Handlers de Subscriptions
 
 | Class | Purpose | Main Operation |
 |---|---|---|
@@ -6158,11 +6104,11 @@ Publica los eventos producidos por el ciclo de vida de las suscripciones para qu
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.49 presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
+La Figura 2.51 presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
 
 La **Interface Layer** se encuentra representada por los controladores REST de suscripciones y el controlador de webhooks de pagos. La **Application Layer** coordina los casos de uso mediante `Subscription Application Service` y `Payment Application Service`. La lógica central del dominio se concentra en los aggregates `Subscription` y `Entitlement Set`, junto con las políticas de suscripción. Finalmente, la **Infrastructure Layer** implementa los adaptadores de repositorio, publicación de eventos e integración con Stripe.
 
-<a id="figura-2-49"></a>**Figura 2.49.** Diagrama de componentes del Bounded Context Subscriptions
+<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de componentes del Bounded Context Subscriptions
 
 ![Subscriptions Component Level Diagram](assets/images/chapterII/Subscriptions/SubscriptionComponents.png)
 
@@ -6178,9 +6124,9 @@ En esta sección se presenta la estructura interna del Bounded Context **Subscri
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.50 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
+El diagrama UML de la Figura 2.52 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
 
-<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de clases de la Domain Layer de Subscriptions
+<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de clases de la Domain Layer de Subscriptions
 
 ![Subscriptions Domain Layer Class Diagram](assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
@@ -6192,9 +6138,9 @@ Los estados principales de las suscripciones, los pagos y los beneficios efectiv
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.51 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
+La Figura 2.53 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
 
-<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de base de datos de Subscriptions
+<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de base de datos de Subscriptions
 
 ![Subscriptions Database Design Diagram](assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
 
@@ -7140,9 +7086,9 @@ Esta decisión mantiene preparado el diseño para una futura integración sin in
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.52 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
+La Figura 2.54 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
 
-<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de componentes del Bounded Context Profile
+<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de componentes del Bounded Context Profile
 
 ![Profile Component Level Diagram](assets/images/chapterII/Profile/ProofileComponents.png)
 
@@ -7164,9 +7110,9 @@ En esta sección se documenta la estructura interna del Bounded Context **Profil
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.53 presenta la organización general de la Domain Layer de **Profile**.
+El diagrama UML de la Figura 2.55 presenta la organización general de la Domain Layer de **Profile**.
 
-<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de clases de la Domain Layer de Profile
+<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de clases de la Domain Layer de Profile
 
 ![Profile Domain Layer Class Diagram](assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
 
@@ -7177,9 +7123,9 @@ El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, 
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.54 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
+La Figura 2.56 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
 
-<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de base de datos de Profile
+<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de base de datos de Profile
 
 ![Profile Database Design Diagram](assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
 
@@ -7466,9 +7412,9 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.55 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
+La Figura 2.57 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
 
-<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de componentes del Bounded Context Care Routines & Wellness
+<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de componentes del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness Component Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
 
@@ -7478,19 +7424,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Care Ro
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.56 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
+El diagrama UML de la Figura 2.58 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
 
-<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
+<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
 
 ![Care Routines & Wellness Domain Class Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.57 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
+La Figura 2.59 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
 
 Las columnas `person_under_care_id` y `wearable_device_id` referencian, respectivamente, los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring, de modo que la telemetría registrada mantiene su trazabilidad hacia el dispositivo que la originó sin que este contexto administre ninguna de las dos entidades.
 
-<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de base de datos de Care Routines & Wellness
+<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de base de datos de Care Routines & Wellness
 
 ![Care Routines & Wellness Database Design Diagram](assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
@@ -8034,9 +7980,9 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.58 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
+La Figura 2.60 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
 
-<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de componentes del Bounded Context Mobility & Geofencing
+<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de componentes del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing Component Diagram](assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
@@ -8046,19 +7992,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Mobilit
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.59 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
+El diagrama UML de la Figura 2.61 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
 
-<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
+<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
 
 ![Mobility & Geofencing Domain Class Diagram](assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.60 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
+La Figura 2.62 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
 
 Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring. La resolución de una violación no se persiste en este contexto: su responsabilidad termina en la detección y el registro, mientras que la atención y el cierre pertenecen a Emergency & Alerting.
 
-<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de base de datos de Mobility & Geofencing
+<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de base de datos de Mobility & Geofencing
 
 ![Mobility & Geofencing Database Design Diagram](assets/images/chapterII/databaseDiagrams/mobility-and-geofencing-db-diagram.png)
 
@@ -8352,9 +8298,9 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.61 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
+La Figura 2.63 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
 
-<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de componentes del Bounded Context IAM
+<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de componentes del Bounded Context IAM
 
 ![IAM Component Diagram](assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
@@ -8364,27 +8310,27 @@ En esta sección se presenta la estructura interna del Bounded Context **IAM** a
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.62 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
+El diagrama UML de la Figura 2.64 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
 
-<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de clases de la Domain Layer de IAM
+<a id="figura-2-64"></a>**Figura 2.64.** Diagrama de clases de la Domain Layer de IAM
 
 ![IAM Domain Class Diagram](assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.63 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
+La Figura 2.65 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
 
-<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de base de datos de IAM
+<a id="figura-2-65"></a>**Figura 2.65.** Diagrama de base de datos de IAM
 
 ![IAM Database Design Diagram](assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 ### Guardian+ Physical Database Schema
 
-Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.64 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
+Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.66 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
 
 El Physical Schema ERD integra las principales tablas utilizadas por los distintos contextos del sistema y permite visualizar de manera conjunta sus claves primarias, claves foráneas y relaciones. Esta representación facilita la comprensión de cómo los datos persistentes de identidad, perfiles, suscripciones, monitoreo de salud, alertas, rutinas de cuidado y demás capacidades de Guardian+ se relacionan dentro de la infraestructura de almacenamiento.
 
-<a id="figura-2-64"></a>**Figura 2.64.** Esquema físico consolidado de la base de datos de Guardian+
+<a id="figura-2-66"></a>**Figura 2.66.** Esquema físico consolidado de la base de datos de Guardian+
 
 ![Guardian+ Physical Schema ERD](assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
 

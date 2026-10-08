@@ -1,0 +1,13 @@
+// ¿Qué señales disparan alertas en Emergency & Alerting? (Figura 2.39).
+import "./bounded-contexts.cml"
+
+ContextMap GuardianPlusAlerting {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
+  contains EmergencyAlerting, HealthMonitoring, CareRoutinesWellness, MobilityGeofencing, Profile
+
+  HealthMonitoring [S,PL] -> [C] EmergencyAlerting
+  MobilityGeofencing [S,PL] -> [C,ACL] EmergencyAlerting
+  CareRoutinesWellness [S,PL] -> [C] EmergencyAlerting
+  Profile [S] -> [C,ACL] EmergencyAlerting
+}
