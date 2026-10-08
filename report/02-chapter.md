@@ -2075,9 +2075,13 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 
 La Figura 2.24 presenta el diagrama de secuencia del flujo de caída confirmada y la Figura 2.25, su domain storytelling.
 
+El flujo inicia cuando el Wearable Device detecta una caída y envía el comando Trigger Alert (FALL_DETECTED) al agregado ALERT, que registra el evento Alert Triggered en estado PENDING_CONFIRMATION. La policy Fall Confirmation Timeout otorga 20 segundos al Fragile Citizen para descartar la caída; al no recibir respuesta, la alerta se confirma (Confirm Alert y Alert Confirmed). Como la severidad es CRITICAL, el Dispatch Strategy Selector ordena difundir la alerta a todos los contactos (Broadcast Alert), lo que se registra como Alert Broadcasted por PUSH y SMS. Cuando un Family Member reconoce la alerta (Acknowledge Alert y Alert Acknowledged), la policy Escalation Stopper detiene el escalamiento y se abre un INCIDENT, que queda en estado IN_ATTENTION.
+
 <a id="figura-2-24"></a>**Figura 2.24.** Domain message flow del flujo de caída confirmada
 
 ![Domain Message Flow - Caída confirmada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow1-fall-confirmed.png)
+
+El domain storytelling describe el mismo escenario desde la perspectiva de los actores. El Wearable Device detecta un patrón de caída y lo envía a Emergency & Alerting, que (1) espera la confirmación de bienestar del Fragile Citizen. Como (2) el Fragile Citizen no confirma que se encuentra bien, el sistema (3) envía una notificación que llega al cuidador o familiar.
 
 <a id="figura-2-25"></a>**Figura 2.25.** Domain storytelling del flujo de caída confirmada
 
@@ -2087,6 +2091,8 @@ La Figura 2.24 presenta el diagrama de secuencia del flujo de caída confirmada 
 
 La Figura 2.26 presenta el diagrama de secuencia del flujo de SOS manual.
 
+En este flujo el Fragile Citizen presiona el botón SOS y envía el comando Trigger Alert (SOS_TRIGGERED) al agregado ALERT, que registra Alert Triggered. A diferencia de la caída, el SOS no requiere ventana de confirmación, por lo que la alerta pasa de inmediato a Alert Confirmed. La severidad siempre es CRITICAL, de modo que el Dispatch Strategy Selector ordena el Broadcast Alert y se registra Alert Broadcasted. A partir de ese punto, el reconocimiento por parte del contacto y la apertura del incidente continúan igual que en el Flujo 1.
+
 <a id="figura-2-26"></a>**Figura 2.26.** Domain message flow del flujo de SOS manual
 
 ![Domain Message Flow - SOS manual](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow2-sos-triggered.png)
@@ -2095,9 +2101,13 @@ La Figura 2.26 presenta el diagrama de secuencia del flujo de SOS manual.
 
 La Figura 2.27 presenta el diagrama de secuencia del flujo de anomalía biométrica escalada y la Figura 2.28, su domain storytelling.
 
+El flujo inicia con el evento VitalSignAnomalyDetected, publicado por el Bounded Context externo Health Monitoring y recibido a través de una Anti-Corruption Layer (ACL). La policy Biometric Alert Raiser lo traduce en el comando Trigger Alert (VITAL_SIGN_ANOMALY), y el agregado ALERT registra Alert Triggered y Alert Confirmed. Con severidad HIGH, el Dispatch Strategy Selector despacha la alerta solo al contacto primario (Alert Dispatched, PRIMARY). El diagrama muestra dos alternativas: si el Caregiver responde a tiempo, reconoce la alerta y se abre un INCIDENT en estado IN_ATTENTION; si vence el Ack Timeout de 60 segundos, la policy Ack Timeout Escalation escala la alerta al contacto secundario (Alert Escalated, SECONDARY). Si nuevamente nadie la reconoce, la policy Critical Broadcast Fallback la difunde por SMS a todos los contactos (Alert Broadcasted).
+
 <a id="figura-2-27"></a>**Figura 2.27.** Domain message flow del flujo de anomalía biométrica escalada
 
 ![Domain Message Flow - Anomalía biométrica escalada](../assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
+
+El domain storytelling muestra la colaboración entre Bounded Contexts. El Wearable Device envía lecturas de signos vitales que son evaluadas por Health Monitoring, el cual (4) detecta tres violaciones consecutivas del umbral y publica un evento de anomalía. Emergency & Alerting (5) escucha ese evento, (6) genera una alerta y (7) envía una notificación que llega al cuidador o familiar.
 
 <a id="figura-2-28"></a>**Figura 2.28.** Domain storytelling del flujo de anomalía biométrica escalada
 
@@ -2107,6 +2117,8 @@ La Figura 2.27 presenta el diagrama de secuencia del flujo de anomalía biométr
 
 La Figura 2.29 presenta el domain storytelling del flujo de recordatorio enviado.
 
+El domain storytelling representa el seguimiento de los recordatorios de medicación. Care Routines & Wellness (8) emite un recordatorio que llega al Fragile Citizen; cuando este (9) no confirma la toma, el contexto (10) reemite el recordatorio mediante un evento de reemisión. Emergency & Alerting (11) escucha ese evento y (12) envía una notificación que llega al cuidador o familiar, para que pueda verificar que la medicación se cumpla.
+
 <a id="figura-2-29"></a>**Figura 2.29.** Domain storytelling del flujo de recordatorio enviado
 
 ![alt text](../assets/images/chapterII/domain-message-flows/reminder-storytelling.png)
@@ -2115,6 +2127,8 @@ La Figura 2.29 presenta el domain storytelling del flujo de recordatorio enviado
 **Flujo 5 - Inactivity**
 
 La Figura 2.30 presenta el domain storytelling del flujo de inactividad prolongada.
+
+El domain storytelling describe la detección de inactividad prolongada. El Wearable Device envía telemetría de inactividad que es recibida por Care Routines & Wellness, el cual (13) detecta que se superó el umbral de 60 minutos y publica el evento de inactividad prolongada. Emergency & Alerting (14) escucha ese evento, (15) genera una alerta y (16) envía una notificación que llega al cuidador o familiar.
 
 <a id="figura-2-30"></a>**Figura 2.30.** Domain storytelling del flujo de inactividad prolongada
 
