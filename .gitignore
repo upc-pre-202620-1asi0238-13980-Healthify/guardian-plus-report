@@ -1,4 +1,6 @@
 README.pdf
 README.html
+temp_auto_push.bat
 ./scripts
-report.html
+report.html.gitignore
+branch_structure.json
