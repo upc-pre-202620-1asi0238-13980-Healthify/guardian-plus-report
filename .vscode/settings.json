@@ -2,11 +2,11 @@
     "liveServer.settings.port": 5501,
     "markdown-pdf.format": "A4",
     "markdown-pdf.styles": [".vscode/markdown-pdf.css"],
-    "markdown-pdf.margin.top": "2.2cm",
-    "markdown-pdf.margin.bottom": "1.8cm",
+    "markdown-pdf.margin.top": "2cm",
+    "markdown-pdf.margin.bottom": "2cm",
     "markdown-pdf.margin.left": "2cm",
     "markdown-pdf.margin.right": "2cm",
     "markdown-pdf.displayHeaderFooter": true,
-    "markdown-pdf.headerTemplate": "<div style='font-family: sans-serif; font-size: 9px; color: #555555; width: 100%; border-bottom: 1px solid #cccccc; padding-bottom: 6px; margin-left: 10px; margin-right: 10px; display: flex; justify-content: space-between;'><span class='texto-izq'>Universidad Peruana de Ciencias Aplicadas | Aplicaciones Móviles (1ACC0238)</span><span>Guardian+ / Healthfly</span></div>",
+    "markdown-pdf.headerTemplate": "<div></div>",
     "markdown-pdf.footerTemplate": "<div style=\"font-size: 9px; width: 100%; text-align: center;\"><span class='pageNumber'></span> / <span class='totalPages'></span></div>"
 }
