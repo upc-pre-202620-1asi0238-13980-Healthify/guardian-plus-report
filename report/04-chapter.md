@@ -1299,7 +1299,7 @@ Este commit incorpora las pruebas unitarias correspondientes a los cuatro Aggreg
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
-Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado y con una primera versión de la aplicación móvil conectada a los Web Services. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia.
+Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado, con una primera versión de la aplicación móvil y con los Web Services desplegados que esta consume. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia. Los Web Services exponen los endpoints de Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile desde su despliegue en Microsoft Azure.
 
 ##### Landing Page
 
@@ -1333,15 +1333,31 @@ La Tabla 4.42 presenta el enlace al video de ejecución de la aplicación móvil
 |---|---|
 | Mobile Application | [Guardian+ — Mobile Application (Sprint 1)](https://www.youtube.com/watch?v=Q-VMpyzhfJM) |
 
+##### Web Services
+
+Los Web Services se encuentran publicados en Microsoft Azure y su documentación puede consultarse en [Swagger UI](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html). La Figura 4.7 muestra los endpoints disponibles en el entorno desplegado.
+
+<a id="figura-4-7"></a>**Figura 4.7.** Web Services en ejecución en Swagger UI
+
+![web-services-execution](../assets/images/chatper4/sprint1/web-services-swagger.png)
+
+La Tabla 4.43 presenta el enlace al video de ejecución de los Web Services.
+
+<a id="tabla-4-43"></a>**Tabla 4.43.** Video de ejecución de los Web Services
+
+| Producto | Video de ejecución |
+|---|---|
+| Web Services | [Guardian+ — Web Services (Sprint 1)](https://youtu.be/GIFvYs21GDY) |
+
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especificación se publica en `/v3/api-docs` y puede explorarse en Swagger UI (`/swagger-ui/index.html`). Los errores siguen un formato común (`code`, `message`, `details`) con los códigos `400`, `404`, `409` y `422`.
 
 ##### Emergency & Alerting
 
-La Tabla 4.43 presenta los endpoints de Emergency & Alerting.
+La Tabla 4.44 presenta los endpoints de Emergency & Alerting.
 
-<a id="tabla-4-43"></a>**Tabla 4.43.** Endpoints de Emergency & Alerting
+<a id="tabla-4-44"></a>**Tabla 4.44.** Endpoints de Emergency & Alerting
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1371,9 +1387,9 @@ La Tabla 4.43 presenta los endpoints de Emergency & Alerting.
 
 ##### Health Monitoring
 
-La Tabla 4.44 presenta los endpoints de Health Monitoring.
+La Tabla 4.45 presenta los endpoints de Health Monitoring.
 
-<a id="tabla-4-44"></a>**Tabla 4.44.** Endpoints de Health Monitoring
+<a id="tabla-4-45"></a>**Tabla 4.45.** Endpoints de Health Monitoring
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1393,9 +1409,9 @@ La Tabla 4.44 presenta los endpoints de Health Monitoring.
 
 ##### Care Routines & Wellness
 
-La Tabla 4.45 presenta los endpoints de Care Routines & Wellness.
+La Tabla 4.46 presenta los endpoints de Care Routines & Wellness.
 
-<a id="tabla-4-45"></a>**Tabla 4.45.** Endpoints de Care Routines & Wellness
+<a id="tabla-4-46"></a>**Tabla 4.46.** Endpoints de Care Routines & Wellness
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1407,9 +1423,9 @@ La Tabla 4.45 presenta los endpoints de Care Routines & Wellness.
 | GET | `/api/v1/medication-stocks/citizen/{personUnderCareId}` | Saldo de dosis y días de suministro proyectados | Path: `personUnderCareId` | 200 / 404 |
 
 
-Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.46:
+Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.47:
 
-<a id="tabla-4-46"></a>**Tabla 4.46.** Procesos de Care Routines & Wellness disparados por el sistema
+<a id="tabla-4-47"></a>**Tabla 4.47.** Procesos de Care Routines & Wellness disparados por el sistema
 
 | Proceso | Componente | Descripción |
 |---|---|---|
@@ -1423,9 +1439,9 @@ Los umbrales son configurables mediante `care-routines-wellness.*` en `applicati
 
 ##### Mobility & Geofencing
 
-La Tabla 4.47 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
+La Tabla 4.48 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
 
-<a id="tabla-4-47"></a>**Tabla 4.47.** Endpoints de Mobility & Geofencing
+<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Mobility & Geofencing
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1440,9 +1456,9 @@ La Tabla 4.47 presenta los endpoints de Mobility & Geofencing, que cubren la adm
 
 ##### Profile
 
-La Tabla 4.48 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
+La Tabla 4.49 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
 
-<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Profile
+<a id="tabla-4-49"></a>**Tabla 4.49.** Endpoints de Profile
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1470,9 +1486,9 @@ En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en
 
 ##### Landing Page
 
-La Tabla 4.49 resume el despliegue del Landing Page.
+La Tabla 4.50 resume el despliegue del Landing Page.
 
-<a id="tabla-4-49"></a>**Tabla 4.49.** Despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-50"></a>**Tabla 4.50.** Despliegue del Landing Page en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1483,9 +1499,9 @@ La Tabla 4.49 resume el despliegue del Landing Page.
 | **Versión desplegada** | `v1.0.0` |
 | **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
 
-El despliegue se realizó en los pasos de la Tabla 4.50:
+El despliegue se realizó en los pasos de la Tabla 4.51:
 
-<a id="tabla-4-50"></a>**Tabla 4.50.** Pasos del despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-51"></a>**Tabla 4.51.** Pasos del despliegue del Landing Page en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1495,9 +1511,9 @@ El despliegue se realizó en los pasos de la Tabla 4.50:
 | **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
 | **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
 
-La Tabla 4.51 presenta los resultados de Lighthouse sobre la URL pública:
+La Tabla 4.52 presenta los resultados de Lighthouse sobre la URL pública:
 
-<a id="tabla-4-51"></a>**Tabla 4.51.** Resultados de Lighthouse del Landing Page
+<a id="tabla-4-52"></a>**Tabla 4.52.** Resultados de Lighthouse del Landing Page
 
 | Categoría | Mobile | Desktop |
 |---|---|---|
@@ -1506,17 +1522,17 @@ La Tabla 4.51 presenta los resultados de Lighthouse sobre la URL pública:
 | **Best Practices** | 100 | 100 |
 | **SEO** | 100 | 100 |
 
-La Figura 4.7 muestra el Landing Page publicado.
+La Figura 4.8 muestra el Landing Page publicado.
 
-<a id="figura-4-7"></a>**Figura 4.7.** Landing Page publicado en Cloudflare Pages
+<a id="figura-4-8"></a>**Figura 4.8.** Landing Page publicado en Cloudflare Pages
 
 ![landing-page-deployment](../assets/images/chatper4/sprint1/landing-page-deployment.png)
 
 ##### Web Services
 
-La Tabla 4.52 resume el despliegue de los Web Services.
+La Tabla 4.53 resume el despliegue de los Web Services.
 
-<a id="tabla-4-52"></a>**Tabla 4.52.** Despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-53"></a>**Tabla 4.53.** Despliegue de los Web Services en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1529,9 +1545,9 @@ La Tabla 4.52 resume el despliegue de los Web Services.
 | **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
 | **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
 
-El despliegue se realizó en los pasos de la Tabla 4.53:
+El despliegue se realizó en los pasos de la Tabla 4.54:
 
-<a id="tabla-4-53"></a>**Tabla 4.53.** Pasos del despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-54"></a>**Tabla 4.54.** Pasos del despliegue de los Web Services en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1543,41 +1559,41 @@ El despliegue se realizó en los pasos de la Tabla 4.53:
 | **6** | Integración de Health Monitoring, Profile y la conexión con el IoT Simulator (Pull Requests #12, #13 y #14). | Tres despliegues consecutivos completados, el último el 6 de octubre de 2026. |
 | **7** | Validación de la API publicada. | `/v3/api-docs` y Swagger UI responden por HTTPS, y las solicitudes HTTP se redirigen automáticamente a HTTPS. |
 
-El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services, como se muestra en la Figura 4.8.
+El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services, como se muestra en la Figura 4.9.
 
-<a id="figura-4-8"></a>**Figura 4.8.** Grupo de recursos guardian-plus-rg en Azure
+<a id="figura-4-9"></a>**Figura 4.9.** Grupo de recursos guardian-plus-rg en Azure
 
 ![azure-resource-group](../assets/images/chatper4/sprint1/azure-resource-group.png)
 
-La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API, como se muestra en la Figura 4.9.
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API, como se muestra en la Figura 4.10.
 
-<a id="figura-4-9"></a>**Figura 4.9.** Máquina virtual guardian-plus-vm en Azure
+<a id="figura-4-10"></a>**Figura 4.10.** Máquina virtual guardian-plus-vm en Azure
 
 ![azure-virtual-machine](../assets/images/chatper4/sprint1/azure-virtual-machine.png)
 
-El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`, como se muestra en la Figura 4.10.
+El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`, como se muestra en la Figura 4.11.
 
-<a id="figura-4-10"></a>**Figura 4.10.** Servidor de Azure Database for PostgreSQL
+<a id="figura-4-11"></a>**Figura 4.11.** Servidor de Azure Database for PostgreSQL
 
 ![azure-postgresql](../assets/images/chatper4/sprint1/azure-postgresql.png)
 
-Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`, como se muestra en la Figura 4.11.
+Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`, como se muestra en la Figura 4.12.
 
-<a id="figura-4-11"></a>**Figura 4.11.** Ejecuciones de los workflows de GitHub Actions
+<a id="figura-4-12"></a>**Figura 4.12.** Ejecuciones de los workflows de GitHub Actions
 
 ![github-actions-workflows](../assets/images/chatper4/sprint1/github-actions-workflows.png)
 
-Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI, como se muestra en la Figura 4.12.
+Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI, como se muestra en la Figura 4.13.
 
-<a id="figura-4-12"></a>**Figura 4.12.** Documentación de los Web Services en Swagger UI
+<a id="figura-4-13"></a>**Figura 4.13.** Documentación de los Web Services en Swagger UI
 
 ![web-services-swagger](../assets/images/chatper4/sprint1/web-services-swagger.png)
 
 ##### IoT Simulator
 
-En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.54 resume este despliegue.
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.55 resume este despliegue.
 
-<a id="tabla-4-54"></a>**Tabla 4.54.** Despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-55"></a>**Tabla 4.55.** Despliegue del IoT Simulator en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1588,9 +1604,9 @@ En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la config
 | **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
 | **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
 
-El despliegue se realizó en los pasos de la Tabla 4.55:
+El despliegue se realizó en los pasos de la Tabla 4.56:
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Pasos del despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-56"></a>**Tabla 4.56.** Pasos del despliegue del IoT Simulator en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1606,27 +1622,27 @@ El despliegue se realizó en los pasos de la Tabla 4.55:
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
 
-**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra los insights del repositorio de los Web Services.
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de los Web Services.
 
-<a id="figura-4-13"></a>**Figura 4.13.** Insights del repositorio de los Web Services
+<a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de los Web Services
 
 ![backend-insights](../assets/images/chatper4/sprint1/insights/backend-insights.png)
 
-**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de la aplicación móvil.
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.15 muestra los insights del repositorio de la aplicación móvil.
 
-<a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de la aplicación móvil
+<a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](../assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
 
-**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra los insights del repositorio del Landing Page.
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.16 muestra los insights del repositorio del Landing Page.
 
-<a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio del Landing Page
+<a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del Landing Page
 
 ![website-insights](../assets/images/chatper4/sprint1/insights/website-insights.png)
 
-**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra los insights del repositorio del IoT Simulator.
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.17 muestra los insights del repositorio del IoT Simulator.
 
-<a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del IoT Simulator
+<a id="figura-4-17"></a>**Figura 4.17.** Insights del repositorio del IoT Simulator
 
 ![iot-simulator-insights](../assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
 
@@ -1674,9 +1690,9 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.56 presenta los datos de la entrevistada.
+La Tabla 4.57 presenta los datos de la entrevistada.
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Rocio Alvarado
+<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Rocio Alvarado
 
 | Campo | Valor |
 |---|---|
@@ -1684,9 +1700,9 @@ La Tabla 4.56 presenta los datos de la entrevistada.
 | Edad | 22 |
 | Distrito | Jesus María |
 
-La Figura 4.17 muestra una captura de la entrevista de validación a Rocio Alvarado.
+La Figura 4.18 muestra una captura de la entrevista de validación a Rocio Alvarado.
 
-<a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Rocio Alvarado
+<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Rocio Alvarado
 
 ![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_1.png)
 
@@ -1698,9 +1714,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.57 presenta los datos del entrevistado.
+La Tabla 4.58 presenta los datos del entrevistado.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -1708,9 +1724,9 @@ La Tabla 4.57 presenta los datos del entrevistado.
 | Edad | 33 |
 | Distrito | San Juan Bautista |
 
-La Figura 4.18 muestra una captura de la entrevista de validación a Junior Antenor.
+La Figura 4.19 muestra una captura de la entrevista de validación a Junior Antenor.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Junior Antenor
+<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Junior Antenor
 
 ![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
 
@@ -1723,9 +1739,9 @@ La Figura 4.18 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.58 presenta los datos de la entrevistada.
+La Tabla 4.59 presenta los datos de la entrevistada.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-59"></a>**Tabla 4.59.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1733,9 +1749,9 @@ La Tabla 4.58 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.19 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.20 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -1745,9 +1761,9 @@ La Figura 4.19 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.59 presenta los datos del entrevistado.
+La Tabla 4.60 presenta los datos del entrevistado.
 
-<a id="tabla-4-59"></a>**Tabla 4.59.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1755,9 +1771,9 @@ La Tabla 4.59 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.20 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.21 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -1767,9 +1783,9 @@ La Figura 4.20 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.60 presenta los datos de la entrevistada.
+La Tabla 4.61 presenta los datos de la entrevistada.
 
-<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -1777,9 +1793,9 @@ La Tabla 4.60 presenta los datos de la entrevistada.
 | Edad | 21 |
 | Distrito | Santa Anita |
 
-La Figura 4.21 muestra una captura de la entrevista de validación a Gabriela Cuadros.
+La Figura 4.22 muestra una captura de la entrevista de validación a Gabriela Cuadros.
 
-<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Gabriela Cuadros
+<a id="figura-4-22"></a>**Figura 4.22.** Captura de la entrevista de validación a Gabriela Cuadros
 
 ![Captura Entrevista Validación Cuidador 3](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_3.png)
 
@@ -1792,9 +1808,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.61 presenta los datos generales de la evaluación.
+La Tabla 4.62 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** Datos generales de la evaluación heurística
+<a id="tabla-4-62"></a>**Tabla 4.62.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1825,9 +1841,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.62 define la escala de severidad utilizada.
+La Tabla 4.63 define la escala de severidad utilizada.
 
-<a id="tabla-4-62"></a>**Tabla 4.62.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-63"></a>**Tabla 4.63.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1839,9 +1855,9 @@ La Tabla 4.62 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.63 resume los problemas encontrados.
+La Tabla 4.64 resume los problemas encontrados.
 
-<a id="tabla-4-63"></a>**Tabla 4.63.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-64"></a>**Tabla 4.64.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -1860,17 +1876,17 @@ La Tabla 4.63 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.22 a 4.24 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.23 a 4.25 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -1884,9 +1900,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.25 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.26 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Contactos de emergencia
+<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -1901,9 +1917,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.26 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.27 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-26"></a>**Figura 4.26.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-27"></a>**Figura 4.27.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -1918,9 +1934,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.27 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.28 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-27"></a>**Figura 4.27.** Pantalla Exportar expediente
+<a id="figura-4-28"></a>**Figura 4.28.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -1935,9 +1951,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.28 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.29 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-28"></a>**Figura 4.28.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-29"></a>**Figura 4.29.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
