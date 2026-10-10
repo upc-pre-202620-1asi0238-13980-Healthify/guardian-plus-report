@@ -1421,15 +1421,58 @@ Los demás comandos del contexto no se exponen por REST, porque los dispara el s
 
 Los umbrales son configurables mediante `care-routines-wellness.*` en `application.properties`: tolerancia de reemisión (10 min), ventana de sueño (22:00–06:00), umbral de reabastecimiento (3 días), consumo diario por defecto (1 dosis) y frecuencia de los schedulers (30 s y 60 s).
 
+##### Mobility & Geofencing
+
+La Tabla 4.47 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
+
+<a id="tabla-4-47"></a>**Tabla 4.47.** Endpoints de Mobility & Geofencing
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/safe-zones` | Crea una zona segura circular para la persona bajo cuidado | Body: `fragileCitizenId`, `name`, `centerLatitude`, `centerLongitude`, `radiusInMeters` | 201 identificador de la zona segura |
+| PUT | `/api/v1/safe-zones/{safeZoneId}` | Actualiza el nombre, el centro y el radio de una zona segura | Path: `safeZoneId`. Body: `name`, `centerLatitude`, `centerLongitude`, `radiusInMeters` | 200 |
+| PATCH | `/api/v1/safe-zones/{safeZoneId}/activate` | Activa una zona segura | Path: `safeZoneId` | 200 |
+| PATCH | `/api/v1/safe-zones/{safeZoneId}/deactivate` | Desactiva una zona segura | Path: `safeZoneId` | 200 |
+| GET | `/api/v1/safe-zones/fragile-citizen/{fragileCitizenId}/active` | Zona segura activa de la persona bajo cuidado | Path: `fragileCitizenId` | 200 `SafeZoneResource` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/current` | Última ubicación registrada | Path: `fragileCitizenId` | 200 `CurrentLocationResource` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/status` | Estado actual de la ubicación respecto de la zona segura | Path: `fragileCitizenId` | 200 `WITHIN_SAFE_ZONE` u `OUTSIDE_SAFE_ZONE` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/history` | Historial de ubicaciones en un rango de tiempo (por defecto, las últimas 24 horas) | Path: `fragileCitizenId`. Query: `start`, `end` | 200 lista de `LocationHistoryResource` |
+
+##### Profile
+
+La Tabla 4.48 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
+
+<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Profile
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/user-profiles` | Crea el perfil de un usuario | Body: `userId`, `firstName`, `lastName`, `phoneNumber`, `profileImageUrl` | 201 `UserProfileResource` / 400 / 409 |
+| GET | `/api/v1/user-profiles/user/{userId}` | Perfil de un usuario | Path: `userId` | 200 `UserProfileResource` / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}` | Actualiza los datos personales | Path: `userProfileId`. Body: `firstName`, `lastName` | 200 `UserProfileResource` / 400 / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}/contact-information` | Actualiza la información de contacto | Path: `userProfileId`. Body: `phoneNumber` | 200 `UserProfileResource` / 400 / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}/profile-image` | Actualiza la imagen de perfil | Path: `userProfileId`. Body: `profileImageUrl` | 200 `UserProfileResource` / 404 |
+| GET | `/api/v1/user-preferences/user/{userId}` | Preferencias de un usuario | Path: `userId` | 200 `UserPreferencesResource` / 404 |
+| PUT | `/api/v1/user-preferences/user/{userId}/application` | Actualiza las preferencias de la aplicación | Path: `userId`. Body: `notificationsEnabled` | 200 `UserPreferencesResource` / 400 |
+| PUT | `/api/v1/user-preferences/user/{userId}/language-accessibility` | Actualiza el idioma y las opciones de accesibilidad | Path: `userId`. Body: `language`, `highContrastEnabled`, `reduceMotionEnabled`, `fontScale` | 200 `UserPreferencesResource` / 400 / 404 |
+| POST | `/api/v1/care-recipient-profiles` | Crea el perfil de una persona bajo cuidado | Body: `createdByUserId`, `firstName`, `lastName`, `birthDate`, `profileImageUrl` | 201 `CareRecipientProfileResource` / 400 |
+| GET | `/api/v1/care-recipient-profiles/{careRecipientProfileId}` | Perfil de una persona bajo cuidado | Path: `careRecipientProfileId` | 200 `CareRecipientProfileResource` / 404 |
+| GET | `/api/v1/care-recipient-profiles/created-by/{userId}` | Perfiles de personas bajo cuidado creados por un usuario | Path: `userId` | 200 lista |
+| PUT | `/api/v1/care-recipient-profiles/{careRecipientProfileId}` | Actualiza el perfil de una persona bajo cuidado | Path: `careRecipientProfileId`. Body: `firstName`, `lastName`, `birthDate` | 200 `CareRecipientProfileResource` / 400 / 404 |
+| PUT | `/api/v1/care-recipient-profiles/{careRecipientProfileId}/profile-image` | Actualiza la imagen de perfil de la persona bajo cuidado | Path: `careRecipientProfileId`. Body: `profileImageUrl` | 200 `CareRecipientProfileResource` / 404 |
+| POST | `/api/v1/care-relationships` | Establece una relación de cuidado entre un usuario y una persona bajo cuidado | Body: `userId`, `careRecipientProfileId`, `relationshipType` | 201 `CareRelationshipResource` / 400 / 404 / 409 |
+| GET | `/api/v1/care-relationships/user/{userId}` | Relaciones de cuidado activas de un usuario | Path: `userId` | 200 lista |
+| GET | `/api/v1/care-relationships/care-recipient/{careRecipientProfileId}` | Relaciones de cuidado activas de una persona bajo cuidado | Path: `careRecipientProfileId` | 200 lista |
+| DELETE | `/api/v1/care-relationships/{careRelationshipId}` | Finaliza una relación de cuidado | Path: `careRelationshipId` | 200 `CareRelationshipResource` / 404 / 422 |
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en Cloudflare Pages y de los Web Services en Microsoft Azure, además del IoT Simulator en Google Cloud, siguiendo la configuración descrita en la sección 4.1.4. En el Landing Page, cada integración en la rama `main` publica automáticamente una nueva versión del sitio; en los Web Services, cada integración en `develop` ejecuta las pruebas y actualiza la API publicada mediante GitHub Actions.
 
 ##### Landing Page
 
-La Tabla 4.47 resume el despliegue del Landing Page.
+La Tabla 4.49 resume el despliegue del Landing Page.
 
-<a id="tabla-4-47"></a>**Tabla 4.47.** Despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-49"></a>**Tabla 4.49.** Despliegue del Landing Page en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1440,9 +1483,9 @@ La Tabla 4.47 resume el despliegue del Landing Page.
 | **Versión desplegada** | `v1.0.0` |
 | **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
 
-El despliegue se realizó en los pasos de la Tabla 4.48:
+El despliegue se realizó en los pasos de la Tabla 4.50:
 
-<a id="tabla-4-48"></a>**Tabla 4.48.** Pasos del despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-50"></a>**Tabla 4.50.** Pasos del despliegue del Landing Page en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1452,9 +1495,9 @@ El despliegue se realizó en los pasos de la Tabla 4.48:
 | **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
 | **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
 
-La Tabla 4.49 presenta los resultados de Lighthouse sobre la URL pública:
+La Tabla 4.51 presenta los resultados de Lighthouse sobre la URL pública:
 
-<a id="tabla-4-49"></a>**Tabla 4.49.** Resultados de Lighthouse del Landing Page
+<a id="tabla-4-51"></a>**Tabla 4.51.** Resultados de Lighthouse del Landing Page
 
 | Categoría | Mobile | Desktop |
 |---|---|---|
@@ -1471,9 +1514,9 @@ La Figura 4.7 muestra el Landing Page publicado.
 
 ##### Web Services
 
-La Tabla 4.50 resume el despliegue de los Web Services.
+La Tabla 4.52 resume el despliegue de los Web Services.
 
-<a id="tabla-4-50"></a>**Tabla 4.50.** Despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-52"></a>**Tabla 4.52.** Despliegue de los Web Services en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1486,9 +1529,9 @@ La Tabla 4.50 resume el despliegue de los Web Services.
 | **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
 | **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
 
-El despliegue se realizó en los pasos de la Tabla 4.51:
+El despliegue se realizó en los pasos de la Tabla 4.53:
 
-<a id="tabla-4-51"></a>**Tabla 4.51.** Pasos del despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-53"></a>**Tabla 4.53.** Pasos del despliegue de los Web Services en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1532,9 +1575,9 @@ Finalmente, la documentación de los Web Services queda disponible públicamente
 
 ##### IoT Simulator
 
-En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.52 resume este despliegue.
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.54 resume este despliegue.
 
-<a id="tabla-4-52"></a>**Tabla 4.52.** Despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-54"></a>**Tabla 4.54.** Despliegue del IoT Simulator en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1545,9 +1588,9 @@ En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la config
 | **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
 | **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
 
-El despliegue se realizó en los pasos de la Tabla 4.53:
+El despliegue se realizó en los pasos de la Tabla 4.55:
 
-<a id="tabla-4-53"></a>**Tabla 4.53.** Pasos del despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-55"></a>**Tabla 4.55.** Pasos del despliegue del IoT Simulator en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1631,9 +1674,9 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.54 presenta los datos de la entrevistada.
+La Tabla 4.56 presenta los datos de la entrevistada.
 
-<a id="tabla-4-54"></a>**Tabla 4.54.** Datos de la entrevista de validación a Rocio Alvarado
+<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Rocio Alvarado
 
 | Campo | Valor |
 |---|---|
@@ -1655,9 +1698,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.55 presenta los datos del entrevistado.
+La Tabla 4.57 presenta los datos del entrevistado.
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -1680,9 +1723,9 @@ La Figura 4.18 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.56 presenta los datos de la entrevistada.
+La Tabla 4.58 presenta los datos de la entrevistada.
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1702,9 +1745,9 @@ La Figura 4.19 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.57 presenta los datos del entrevistado.
+La Tabla 4.59 presenta los datos del entrevistado.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-59"></a>**Tabla 4.59.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1724,9 +1767,9 @@ La Figura 4.20 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.58 presenta los datos de la entrevistada.
+La Tabla 4.60 presenta los datos de la entrevistada.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -1749,9 +1792,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.59 presenta los datos generales de la evaluación.
+La Tabla 4.61 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-59"></a>**Tabla 4.59.** Datos generales de la evaluación heurística
+<a id="tabla-4-61"></a>**Tabla 4.61.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1782,9 +1825,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.60 define la escala de severidad utilizada.
+La Tabla 4.62 define la escala de severidad utilizada.
 
-<a id="tabla-4-60"></a>**Tabla 4.60.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-62"></a>**Tabla 4.62.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1796,9 +1839,9 @@ La Tabla 4.60 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.61 resume los problemas encontrados.
+La Tabla 4.63 resume los problemas encontrados.
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-63"></a>**Tabla 4.63.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
