@@ -1944,15 +1944,20 @@ A partir del análisis de los eventos, comandos, actores, políticas, agregados 
 
 Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto. De la misma manera, por practicidad, se adjuntan nuevamente los eventos encontrados en el Big Picture Eventstorming.
 
-###### Eventos obtenidos previamente
+##### Eventos obtenidos previamente
+
+La Figura 2.16 retoma los eventos identificados en el Big Picture EventStorming, que sirvieron como punto de partida para descubrir los Bounded Contexts candidatos.
+
+<a id="figura-2-16"></a>**Figura 2.16.** Eventos del Big Picture EventStorming usados como punto de partida
+
 ![Big Picture EventStorming - Guardian+](../assets/images/chapterII/bigPicture/bigPictureStorming.png)
 
 
 ##### Emergency & Alerting Bounded Context (Core Domain)
 
-La Figura 2.16 presenta el EventStorming del Bounded Context Emergency & Alerting.
+La Figura 2.17 presenta el EventStorming del Bounded Context Emergency & Alerting.
 
-<a id="figura-2-16"></a>**Figura 2.16.** EventStorming del Bounded Context Emergency & Alerting
+<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Emergency & Alerting
 
 ![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.jpg)
 
@@ -1966,9 +1971,9 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 ##### Health Monitoring Bounded Context (Core Domain)
 
-La Figura 2.17 presenta el EventStorming del Bounded Context Health Monitoring.
+La Figura 2.18 presenta el EventStorming del Bounded Context Health Monitoring.
 
-<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Health Monitoring
+<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Health Monitoring
 
 ![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
@@ -1982,9 +1987,9 @@ Se clasificó como parte del **Core Domain** porque el monitoreo continuo del es
 
 ##### Care Routines & Wellness Bounded Context (Supporting Domain)
 
-La Figura 2.18 presenta el EventStorming del Bounded Context Care Routines & Wellness.
+La Figura 2.19 presenta el EventStorming del Bounded Context Care Routines & Wellness.
 
-<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Care Routines & Wellness
+<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStorming/careRoutine.png)
 
@@ -1998,9 +2003,9 @@ Fue clasificado como **Supporting Domain**, ya que complementa las capacidades p
 
 ##### Mobility & Geofencing Bounded Context (Supporting Domain)
 
-La Figura 2.19 presenta el EventStorming del Bounded Context Mobility & Geofencing.
+La Figura 2.20 presenta el EventStorming del Bounded Context Mobility & Geofencing.
 
-<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Mobility & Geofencing
+<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStorming/MOBILITY.png)
 
@@ -2014,9 +2019,9 @@ Se clasificó como **Supporting Domain**, debido a que aporta información conte
 
 ##### IAM Bounded Context (Generic Domain)
 
-La Figura 2.20 presenta el EventStorming del Bounded Context IAM.
+La Figura 2.21 presenta el EventStorming del Bounded Context IAM.
 
-<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context IAM
+<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context IAM
 
 ![IAM EventStorming](../assets/images/chapterII/EventStorming/IAM.png)
 
@@ -2029,9 +2034,9 @@ Se clasificó como **Generic Domain** porque representa una capacidad necesaria 
 
 ##### Profile Bounded Context (Generic Domain)
 
-La Figura 2.21 presenta el EventStorming del Bounded Context Profile.
+La Figura 2.22 presenta el EventStorming del Bounded Context Profile.
 
-<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context Profile
+<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Profile
 
 El Bounded Context **Profile** concentra las capacidades relacionadas con la administración de la información descriptiva de los usuarios de Guardian+, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de la aplicación. Mediante la sesión de EventStorming se identificaron los principales actores, comandos y eventos de dominio involucrados en estos procesos, permitiendo delimitar las responsabilidades correspondientes a este contexto.
 
@@ -2057,9 +2062,9 @@ El contexto **Profile** se clasificó como **Generic Domain**, debido a que sus 
 
 El Bounded Context **Subscriptions** concentra las capacidades relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Mediante la sesión de EventStorming se identificaron los principales actores, comandos, eventos de dominio, reglas de decisión y sistemas externos involucrados en los procesos de solicitud, activación, cambio de plan, cancelación, expiración y renovación de una suscripción, así como en la actualización de los beneficios asociados a cada plan.
 
-La Figura 2.22 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
+La Figura 2.23 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
 
-<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Subscriptions
+<a id="figura-2-23"></a>**Figura 2.23.** EventStorming del Bounded Context Subscriptions
 
 ![Subscriptions EventStorming](../assets/images/chapterII/EventStorming/Subscription.png)
 
@@ -2384,7 +2389,7 @@ Tal como se observa en la Figura 2.31, el Bounded Context Health Monitoring est�
 <div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Assign Wearable Device</div>
 <div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Define Vital Sign Threshold</div>
 <div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Compile Weekly Summary</div></td></tr>
-<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Wearable Hardware</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Dispositivo físico externo que provee los datos biométricos crudos ingeridos como Vital Sign (distinto del registro interno WearableDevice, que solo administra la asignación del dispositivo al Care Recipient)</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Wearable Device</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Dispositivo físico externo que provee los datos biométricos crudos ingeridos como Vital Sign (distinto del registro interno WearableDevice, que solo administra la asignación del dispositivo al Care Recipient)</div></td></tr>
 <tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile / IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Resuelve el Care Recipient Profile y el usuario autenticado que solicita un Health Report</div></td></tr>
 </table>
 </td>
@@ -2423,7 +2428,7 @@ Tal como se observa en la Figura 2.31, el Bounded Context Health Monitoring est�
 <tr>
 <td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
 <div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
-<div style="font-size: 8pt; margin-bottom: 3px;">- El Wearable Hardware entrega lecturas con la frecuencia y precisión necesarias para evaluar los Vital Sign Thresholds.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- El Wearable Device entrega lecturas con la frecuencia y precisión necesarias para evaluar los Vital Sign Thresholds.</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- Tres lecturas consecutivas fuera de umbral filtran el ruido del sensor sin retrasar la detección de una anomalía real.</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- Emergency &amp; Alerting solo necesita recibir anomalías confirmadas y no la telemetría completa.</div>
 </td>
@@ -2858,7 +2863,7 @@ En la Figura 2.34, el Bounded Context Profile está catalogado como un Generic D
 
 ##### Bounded Context: Mobility & Geofencing (Supporting Domain)
 
-Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing está catalogado como un Supporting Domain cuyo propósito es gestionar el seguimiento de ubicación en tiempo real de la persona cuidada y administrar las geocercas configuradas para detectar cualquier violación de zona. El contexto procesa de manera entrante la telemetría del hardware externo (Wearable Device) mediante una capa de anticorrupción (ACL), y asocia estas coordenadas con los datos contextuales provistos por el dominio de Profile; aplicando rigurosas reglas de negocio como una política de validación de ubicación (coordenadas válidas y marca temporal correcta) y una política de límites de zona segura, este componente evalúa la posición y emite de forma saliente el evento de integración SafeZoneBreached hacia el contexto de Emergency & Alerting para iniciar el flujo de atención ante emergencias.
+Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing está catalogado como un Supporting Domain cuyo propósito es gestionar el seguimiento de ubicación en tiempo real de la persona cuidada y administrar las geocercas configuradas para detectar cualquier violación de zona. El contexto procesa de manera entrante la telemetría del hardware externo (Wearable Device) mediante una capa de anticorrupción (ACL), y asocia estas coordenadas con los datos contextuales provistos por el dominio de Profile; aplicando rigurosas reglas de negocio como una política de validación de ubicación (coordenadas válidas y marca temporal correcta) y una política de límites de zona segura, este componente evalúa la posición y emite de forma saliente el evento de integración SafeZoneViolation hacia el contexto de Emergency & Alerting para iniciar el flujo de atención ante emergencias.
 
 <a id="figura-2-35"></a>**Figura 2.35.** Bounded Context Canvas de Mobility & Geofencing
 
@@ -2967,7 +2972,7 @@ Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing est�
 <div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
 <table width="100%" style="border-collapse: collapse;">
 <tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
-<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume el evento SafeZoneBreached generado cuando la ubicación del adulto mayor se encuentra fuera de los límites de una zona segura.</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Published Language</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume el evento SafeZoneViolation generado cuando la ubicación del adulto mayor se encuentra fuera de los límites de una zona segura.</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Published Language</span></td></tr>
 </table>
 </td>
 </tr>
@@ -2979,13 +2984,13 @@ Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing est�
 <td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
 <div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- La ubicación reportada por el Wearable Device o Location Provider es lo bastante precisa para evaluar los límites de una Safe Zone.</div>
-<div style="font-size: 8pt; margin-bottom: 3px;">- Emergency &amp; Alerting solo necesita el evento SafeZoneBreached y no el historial completo de coordenadas.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Emergency &amp; Alerting solo necesita el evento SafeZoneViolation y no el historial completo de coordenadas.</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- Una única Safe Zone activa por persona cubre los escenarios de cuidado iniciales.</div>
 </td>
 <td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
 <div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de violaciones de zona segura descartadas como falsas alarmas.</div>
-<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo entre la recepción de una ubicación fuera de zona y la emisión de SafeZoneBreached.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo entre la recepción de una ubicación fuera de zona y la emisión de SafeZoneViolation.</div>
 <div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de ubicaciones rechazadas por la Location Validation Policy.</div>
 </td>
 <td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">

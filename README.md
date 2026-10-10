@@ -44,6 +44,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 |---|---|---|---|
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
+| 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
 
 # Project Report Collaboration Insights
 
@@ -350,32 +351,41 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.30. User Stories comprometidas en el Sprint 1](#tabla-4-30)
 - [Tabla 4.31. Leadership-and-Collaboration Matrix del Sprint 1](#tabla-4-31)
 - [Tabla 4.32. Sprint Backlog 1](#tabla-4-32)
-- [Tabla 4.33. Commits de Web Services: Emergency & Alerting](#tabla-4-33)
-- [Tabla 4.34. Commits de Web Services: Care Routines & Wellness](#tabla-4-34)
-- [Tabla 4.35. Commits de Web Services: Health Monitoring](#tabla-4-35)
-- [Tabla 4.36. Commits de Mobile App: Emergency & Alerting](#tabla-4-36)
-- [Tabla 4.37. Commits de Mobile App: Health Monitoring](#tabla-4-37)
-- [Tabla 4.38. Commits de IoT Simulator](#tabla-4-38)
-- [Tabla 4.39. Unit Tests del Bounded Context Profile](#tabla-4-39)
-- [Tabla 4.40. Commit de los Unit Tests de Profile](#tabla-4-40)
-- [Tabla 4.41. Video de ejecución del Landing Page](#tabla-4-41)
-- [Tabla 4.42. Video de ejecución de la aplicación móvil](#tabla-4-42)
-- [Tabla 4.43. Endpoints de Emergency & Alerting](#tabla-4-43)
-- [Tabla 4.44. Endpoints de Health Monitoring](#tabla-4-44)
-- [Tabla 4.45. Endpoints de Care Routines & Wellness](#tabla-4-45)
-- [Tabla 4.46. Procesos de Care Routines & Wellness disparados por el sistema](#tabla-4-46)
-- [Tabla 4.47. Despliegue del Landing Page en el Sprint 1](#tabla-4-47)
-- [Tabla 4.48. Pasos del despliegue del Landing Page en el Sprint 1](#tabla-4-48)
-- [Tabla 4.49. Resultados de Lighthouse del Landing Page](#tabla-4-49)
-- [Tabla 4.50. Despliegue de los Web Services en el Sprint 1](#tabla-4-50)
-- [Tabla 4.51. Pasos del despliegue de los Web Services en el Sprint 1](#tabla-4-51)
-- [Tabla 4.52. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-52)
-- [Tabla 4.53. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-53)
-- [Tabla 4.54. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-54)
-- [Tabla 4.55. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-55)
-- [Tabla 4.56. Datos generales de la evaluación heurística](#tabla-4-56)
-- [Tabla 4.57. Escala de severidad de la evaluación heurística](#tabla-4-57)
-- [Tabla 4.58. Resumen de problemas de la evaluación heurística](#tabla-4-58)
+- [Tabla 4.33. Commits del Landing Page](#tabla-4-33)
+- [Tabla 4.34. Commits de Web Services: Emergency & Alerting](#tabla-4-34)
+- [Tabla 4.35. Commits de Web Services: Care Routines & Wellness](#tabla-4-35)
+- [Tabla 4.36. Commits de Web Services: Health Monitoring](#tabla-4-36)
+- [Tabla 4.37. Commits de Web Services: Mobility & Geofencing](#tabla-4-37)
+- [Tabla 4.38. Commits de Web Services: Profile](#tabla-4-38)
+- [Tabla 4.39. Commits de Mobile App: Emergency & Alerting](#tabla-4-39)
+- [Tabla 4.40. Commits de Mobile App: Health Monitoring](#tabla-4-40)
+- [Tabla 4.41. Commits de IoT Simulator](#tabla-4-41)
+- [Tabla 4.42. Unit Tests del Bounded Context Profile](#tabla-4-42)
+- [Tabla 4.43. Commit de los Unit Tests de Profile](#tabla-4-43)
+- [Tabla 4.44. Video de ejecución del Landing Page](#tabla-4-44)
+- [Tabla 4.45. Video de ejecución de la aplicación móvil](#tabla-4-45)
+- [Tabla 4.46. Video de ejecución de los Web Services](#tabla-4-46)
+- [Tabla 4.47. Endpoints de Emergency & Alerting](#tabla-4-47)
+- [Tabla 4.48. Endpoints de Health Monitoring](#tabla-4-48)
+- [Tabla 4.49. Endpoints de Care Routines & Wellness](#tabla-4-49)
+- [Tabla 4.50. Procesos de Care Routines & Wellness disparados por el sistema](#tabla-4-50)
+- [Tabla 4.51. Endpoints de Mobility & Geofencing](#tabla-4-51)
+- [Tabla 4.52. Endpoints de Profile](#tabla-4-52)
+- [Tabla 4.53. Despliegue del Landing Page en el Sprint 1](#tabla-4-53)
+- [Tabla 4.54. Pasos del despliegue del Landing Page en el Sprint 1](#tabla-4-54)
+- [Tabla 4.55. Resultados de Lighthouse del Landing Page](#tabla-4-55)
+- [Tabla 4.56. Despliegue de los Web Services en el Sprint 1](#tabla-4-56)
+- [Tabla 4.57. Pasos del despliegue de los Web Services en el Sprint 1](#tabla-4-57)
+- [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-58)
+- [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-59)
+- [Tabla 4.60. Datos de la entrevista de validación a Rocio Alvarado](#tabla-4-60)
+- [Tabla 4.61. Datos de la entrevista de validación a Junior Antenor](#tabla-4-61)
+- [Tabla 4.62. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-62)
+- [Tabla 4.63. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-63)
+- [Tabla 4.64. Datos de la entrevista de validación a Gabriela Cuadros](#tabla-4-64)
+- [Tabla 4.65. Datos generales de la evaluación heurística](#tabla-4-65)
+- [Tabla 4.66. Escala de severidad de la evaluación heurística](#tabla-4-66)
+- [Tabla 4.67. Resumen de problemas de la evaluación heurística](#tabla-4-67)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -403,57 +413,56 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.13. Empathy Map del segmento de cuidadores](#figura-2-13)
 - [Figura 2.14. Big Picture EventStorming de Guardian+](#figura-2-14)
 - [Figura 2.15. Impact Mapping de Guardian+](#figura-2-15)
-- [Figura 2.16. EventStorming del Bounded Context Emergency & Alerting](#figura-2-16)
-- [Figura 2.17. EventStorming del Bounded Context Health Monitoring](#figura-2-17)
-- [Figura 2.18. EventStorming del Bounded Context Care Routines & Wellness](#figura-2-18)
-- [Figura 2.19. EventStorming del Bounded Context Mobility & Geofencing](#figura-2-19)
-- [Figura 2.20. EventStorming del Bounded Context IAM](#figura-2-20)
-- [Figura 2.21. EventStorming del Bounded Context Profile](#figura-2-21)
-- [Figura 2.22. EventStorming del Bounded Context Subscriptions (parte 1)](#figura-2-22)
-- [Figura 2.23. EventStorming del Bounded Context Subscriptions (parte 2)](#figura-2-23)
+- [Figura 2.16. Eventos del Big Picture EventStorming usados como punto de partida](#figura-2-16)
+- [Figura 2.17. EventStorming del Bounded Context Emergency & Alerting](#figura-2-17)
+- [Figura 2.18. EventStorming del Bounded Context Health Monitoring](#figura-2-18)
+- [Figura 2.19. EventStorming del Bounded Context Care Routines & Wellness](#figura-2-19)
+- [Figura 2.20. EventStorming del Bounded Context Mobility & Geofencing](#figura-2-20)
+- [Figura 2.21. EventStorming del Bounded Context IAM](#figura-2-21)
+- [Figura 2.22. EventStorming del Bounded Context Profile](#figura-2-22)
+- [Figura 2.23. EventStorming del Bounded Context Subscriptions](#figura-2-23)
 - [Figura 2.24. Domain message flow del flujo de caída confirmada](#figura-2-24)
-- [Figura 2.25. Domain storytelling del flujo de caída confirmada](#figura-2-25)
-- [Figura 2.26. Domain message flow del flujo de SOS manual](#figura-2-26)
+- [Figura 2.25. Domain message flow del flujo de SOS manual](#figura-2-25)
+- [Figura 2.26. Domain message flow del flujo de anomalía biométrica reconocida a tiempo](#figura-2-26)
 - [Figura 2.27. Domain message flow del flujo de anomalía biométrica escalada](#figura-2-27)
-- [Figura 2.28. Domain storytelling del flujo de anomalía biométrica escalada](#figura-2-28)
-- [Figura 2.29. Domain storytelling del flujo de recordatorio enviado](#figura-2-29)
-- [Figura 2.30. Domain storytelling del flujo de inactividad prolongada](#figura-2-30)
-- [Figura 2.31. Bounded Context Canvas de Emergency & Alerting](#figura-2-31)
-- [Figura 2.32. Bounded Context Canvas de Health Monitoring](#figura-2-32)
-- [Figura 2.33. Bounded Context Canvas de Care Routines & Wellness](#figura-2-33)
-- [Figura 2.34. Bounded Context Canvas de Subscriptions](#figura-2-34)
-- [Figura 2.35. Bounded Context Canvas de Profile](#figura-2-35)
-- [Figura 2.36. Bounded Context Canvas de Mobility & Geofencing](#figura-2-36)
-- [Figura 2.37. Bounded Context Canvas de IAM](#figura-2-37)
-- [Figura 2.38. Context Map global de Guardian+](#figura-2-38)
-- [Figura 2.39. Context Map de las señales que disparan alertas](#figura-2-39)
-- [Figura 2.40. Context Map de identidad y sistemas externos](#figura-2-40)
-- [Figura 2.41. Diagrama de contexto de Guardian+](#figura-2-41)
-- [Figura 2.42. Diagrama de contenedores de Guardian+](#figura-2-42)
-- [Figura 2.43. Diagrama de componentes de la Guardian+ REST API](#figura-2-43)
-- [Figura 2.44. Diagrama de despliegue de Guardian+](#figura-2-44)
-- [Figura 2.45. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-45)
-- [Figura 2.46. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-46)
-- [Figura 2.47. Diagrama de base de datos de Emergency & Alerting](#figura-2-47)
-- [Figura 2.48. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-48)
-- [Figura 2.49. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-49)
-- [Figura 2.50. Diagrama de base de datos de Health Monitoring](#figura-2-50)
-- [Figura 2.51. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-51)
-- [Figura 2.52. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-52)
-- [Figura 2.53. Diagrama de base de datos de Subscriptions](#figura-2-53)
-- [Figura 2.54. Diagrama de componentes del Bounded Context Profile](#figura-2-54)
-- [Figura 2.55. Diagrama de clases de la Domain Layer de Profile](#figura-2-55)
-- [Figura 2.56. Diagrama de base de datos de Profile](#figura-2-56)
-- [Figura 2.57. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-57)
-- [Figura 2.58. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-58)
-- [Figura 2.59. Diagrama de base de datos de Care Routines & Wellness](#figura-2-59)
-- [Figura 2.60. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-60)
-- [Figura 2.61. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-61)
-- [Figura 2.62. Diagrama de base de datos de Mobility & Geofencing](#figura-2-62)
-- [Figura 2.63. Diagrama de componentes del Bounded Context IAM](#figura-2-63)
-- [Figura 2.64. Diagrama de clases de la Domain Layer de IAM](#figura-2-64)
-- [Figura 2.65. Diagrama de base de datos de IAM](#figura-2-65)
-- [Figura 2.66. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-66)
+- [Figura 2.28. Domain message flow del flujo de recordatorio de medicación reemitido](#figura-2-28)
+- [Figura 2.29. Domain message flow del flujo de inactividad prolongada](#figura-2-29)
+- [Figura 2.30. Bounded Context Canvas de Emergency & Alerting](#figura-2-30)
+- [Figura 2.31. Bounded Context Canvas de Health Monitoring](#figura-2-31)
+- [Figura 2.32. Bounded Context Canvas de Care Routines & Wellness](#figura-2-32)
+- [Figura 2.33. Bounded Context Canvas de Subscriptions](#figura-2-33)
+- [Figura 2.34. Bounded Context Canvas de Profile](#figura-2-34)
+- [Figura 2.35. Bounded Context Canvas de Mobility & Geofencing](#figura-2-35)
+- [Figura 2.36. Bounded Context Canvas de IAM](#figura-2-36)
+- [Figura 2.37. Context Map global de Guardian+](#figura-2-37)
+- [Figura 2.38. Context Map de las señales que disparan alertas](#figura-2-38)
+- [Figura 2.39. Context Map de identidad y sistemas externos](#figura-2-39)
+- [Figura 2.40. Diagrama de contexto de Guardian+](#figura-2-40)
+- [Figura 2.41. Diagrama de contenedores de Guardian+](#figura-2-41)
+- [Figura 2.42. Diagrama de componentes de la Guardian+ REST API](#figura-2-42)
+- [Figura 2.43. Diagrama de despliegue de Guardian+](#figura-2-43)
+- [Figura 2.44. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-44)
+- [Figura 2.45. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-45)
+- [Figura 2.46. Diagrama de base de datos de Emergency & Alerting](#figura-2-46)
+- [Figura 2.47. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-47)
+- [Figura 2.48. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-48)
+- [Figura 2.49. Diagrama de base de datos de Health Monitoring](#figura-2-49)
+- [Figura 2.50. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-50)
+- [Figura 2.51. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-51)
+- [Figura 2.52. Diagrama de base de datos de Subscriptions](#figura-2-52)
+- [Figura 2.53. Diagrama de componentes del Bounded Context Profile](#figura-2-53)
+- [Figura 2.54. Diagrama de clases de la Domain Layer de Profile](#figura-2-54)
+- [Figura 2.55. Diagrama de base de datos de Profile](#figura-2-55)
+- [Figura 2.56. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-56)
+- [Figura 2.57. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-57)
+- [Figura 2.58. Diagrama de base de datos de Care Routines & Wellness](#figura-2-58)
+- [Figura 2.59. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-59)
+- [Figura 2.60. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-60)
+- [Figura 2.61. Diagrama de base de datos de Mobility & Geofencing](#figura-2-61)
+- [Figura 2.62. Diagrama de componentes del Bounded Context IAM](#figura-2-62)
+- [Figura 2.63. Diagrama de clases de la Domain Layer de IAM](#figura-2-63)
+- [Figura 2.64. Diagrama de base de datos de IAM](#figura-2-64)
+- [Figura 2.65. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-65)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -538,25 +547,29 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.4. Ejecución de los Unit Tests de Profile](#figura-4-4)
 - [Figura 4.5. Landing Page en ejecución](#figura-4-5)
 - [Figura 4.6. Aplicación móvil en ejecución en el emulador](#figura-4-6)
-- [Figura 4.7. Landing Page publicado en Cloudflare Pages](#figura-4-7)
-- [Figura 4.8. Grupo de recursos guardian-plus-rg en Azure](#figura-4-8)
-- [Figura 4.9. Máquina virtual guardian-plus-vm en Azure](#figura-4-9)
-- [Figura 4.10. Servidor de Azure Database for PostgreSQL](#figura-4-10)
-- [Figura 4.11. Ejecuciones de los workflows de GitHub Actions](#figura-4-11)
-- [Figura 4.12. Documentación de los Web Services en Swagger UI](#figura-4-12)
-- [Figura 4.13. Insights del repositorio de los Web Services](#figura-4-13)
-- [Figura 4.14. Insights del repositorio de la aplicación móvil](#figura-4-14)
-- [Figura 4.15. Insights del repositorio del Landing Page](#figura-4-15)
-- [Figura 4.16. Insights del repositorio del IoT Simulator](#figura-4-16)
-- [Figura 4.17. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-17)
-- [Figura 4.18. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-18)
-- [Figura 4.19. Pantalla Nueva toma del módulo de Rutinas](#figura-4-19)
-- [Figura 4.20. Pantalla Nueva cita del módulo de Rutinas](#figura-4-20)
-- [Figura 4.21. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-21)
-- [Figura 4.22. Pantalla Contactos de emergencia](#figura-4-22)
-- [Figura 4.23. Panel Buscar y filtrar del módulo de Salud](#figura-4-23)
-- [Figura 4.24. Pantalla Exportar expediente](#figura-4-24)
-- [Figura 4.25. Pantalla Sueño del módulo de Rutinas](#figura-4-25)
+- [Figura 4.7. Web Services en ejecución en Swagger UI](#figura-4-7)
+- [Figura 4.8. Landing Page publicado en Cloudflare Pages](#figura-4-8)
+- [Figura 4.9. Grupo de recursos guardian-plus-rg en Azure](#figura-4-9)
+- [Figura 4.10. Máquina virtual guardian-plus-vm en Azure](#figura-4-10)
+- [Figura 4.11. Servidor de Azure Database for PostgreSQL](#figura-4-11)
+- [Figura 4.12. Ejecuciones de los workflows de GitHub Actions](#figura-4-12)
+- [Figura 4.13. Documentación de los Web Services en Swagger UI](#figura-4-13)
+- [Figura 4.14. Insights del repositorio de los Web Services](#figura-4-14)
+- [Figura 4.15. Insights del repositorio de la aplicación móvil](#figura-4-15)
+- [Figura 4.16. Insights del repositorio del Landing Page](#figura-4-16)
+- [Figura 4.17. Insights del repositorio del IoT Simulator](#figura-4-17)
+- [Figura 4.18. Captura de la entrevista de validación a Rocio Alvarado](#figura-4-18)
+- [Figura 4.19. Captura de la entrevista de validación a Junior Antenor](#figura-4-19)
+- [Figura 4.20. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-20)
+- [Figura 4.21. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-21)
+- [Figura 4.22. Captura de la entrevista de validación a Gabriela Cuadros](#figura-4-22)
+- [Figura 4.23. Pantalla Nueva toma del módulo de Rutinas](#figura-4-23)
+- [Figura 4.24. Pantalla Nueva cita del módulo de Rutinas](#figura-4-24)
+- [Figura 4.25. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-25)
+- [Figura 4.26. Pantalla Contactos de emergencia](#figura-4-26)
+- [Figura 4.27. Panel Buscar y filtrar del módulo de Salud](#figura-4-27)
+- [Figura 4.28. Pantalla Exportar expediente](#figura-4-28)
+- [Figura 4.29. Pantalla Sueño del módulo de Rutinas](#figura-4-29)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -594,7 +607,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <br><br>
 <strong>López Monroy, Rodrigo Alfredo</strong><br>
 <em>AV1:</em> Apliqué Domain-Driven Design en sus dos niveles para diseñar el Bounded Context Emergency & Alerting, que es el Core Domain de Guardian+. En lo estratégico partí del EventStorming para delimitar el contexto y armar su Bounded Context Canvas, y en lo táctico definí sus agregados, value objects y eventos de dominio sobre una arquitectura de cuatro capas. Modelé el recorrido completo de una emergencia, desde la señal de riesgo hasta la respuesta del cuidador, con sus reglas de despacho y escalamiento. Para documentarlo aprendí por mi cuenta Mermaid y Graphviz, que no vimos en clase, y me permitieron mantener los diagramas como código versionado junto al informe.<br>
-<em>TB1:</em> Desarrollé los Labelling Systems y Navigation Systems de la arquitectura de información. Para ello investigué los tipos de navegación (global, local, contextual, secuencial y suplementaria) y las recomendaciones de Material Design para la bottom navigation bar, que limitan los destinos principales a cinco, lo que me llevó a reubicar Perfil en la barra superior. Traduje el Ubiquitous Language a etiquetas de interfaz y relacioné cada sección de la app con su Bounded Context y sus User Stories, de modo que el diseño visual quedara alineado con el modelo de dominio. También documenté el Software Development Environment Configuration a partir de lo configurado en los repositorios del equipo, y evalué opciones de despliegue para el Landing Page, los Web Services y la base de datos considerando las limitaciones de sus planes gratuitos.
+<em>TB1:</em> Desarrollé los Labelling Systems y Navigation Systems de la arquitectura de información. Para ello investigué los tipos de navegación y las recomendaciones de Material Design para la bottom navigation bar, que limitan los destinos principales a cinco, lo que me llevó a reubicar Perfil en la barra superior. Implementé el Bounded Context Emergency & Alerting en los Web Services con Spring Boot y sus pantallas en la aplicación móvil con Kotlin y Jetpack Compose, además de construir el Landing Page con React. Para publicar el backend aprendí a desplegarlo en una máquina virtual de Azure con Docker Compose, Caddy y Azure Database for PostgreSQL, y a automatizar ese despliegue con GitHub Actions. También conecté el prototipo navegable en Figma y rehíce el Context Map con la notación de DDD Crew usando Context Mapper.
 <br><br>
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.<br>
@@ -620,7 +633,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <br><br>
 <strong>López Monroy, Rodrigo Alfredo</strong><br>
 <em>AV1:</em> Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.<br>
-<em>TB1:</em> Al definir la navegación de la app antes de que existieran sus wireframes, entendí que las decisiones de arquitectura de información condicionan el trabajo de diseño que viene después, por lo que deben documentarse y comunicarse al equipo en lugar de quedarse como supuestos personales. Al revisar los repositorios para documentar el entorno de desarrollo, noté que las versiones de lenguajes, frameworks y servicios cambian con rapidez y que las condiciones de los servicios en la nube, como la duración de sus planes gratuitos, influyen directamente en la viabilidad de un despliegue. Esto me confirma que elegir herramientas es una decisión que tendré que volver a investigar en cada proyecto.
+<em>TB1:</em> Al definir la navegación de la app antes de que existieran sus wireframes, entendí que las decisiones de arquitectura de información condicionan el trabajo de diseño que viene después, por lo que deben documentarse y comunicarse al equipo. Pasar del diseño de Emergency & Alerting a su implementación me obligó a ajustar el modelo que había planteado en el AV1, porque varias reglas de escalamiento solo se entendieron bien al programarlas. El despliegue en Azure tampoco salió a la primera: tuve que aprender sobre la marcha a leer los registros de un pipeline y a trabajar con los límites de memoria de la máquina virtual. Esto me confirma que cada entrega me va a exigir herramientas que todavía no conozco.
 <br><br>
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.<br>
@@ -2834,15 +2847,22 @@ Una vez detallados los flujos mediante Design-Level EventStorming, se procedió 
 
 A partir del análisis de los eventos, comandos, actores, políticas, agregados y sistemas externos identificados durante el EventStorming, fue posible reconocer límites naturales dentro del dominio de Guardian+. Estas agrupaciones permitieron proponer contextos candidatos que posteriormente servirán como base para la descomposición del sistema en módulos independientes y con responsabilidades claramente diferenciadas.
 
-Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto.
+Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto. De la misma manera, por practicidad, se adjuntan nuevamente los eventos encontrados en el Big Picture Eventstorming.
 
+##### Eventos obtenidos previamente
+
+La Figura 2.16 retoma los eventos identificados en el Big Picture EventStorming, que sirvieron como punto de partida para descubrir los Bounded Contexts candidatos.
+
+<a id="figura-2-16"></a>**Figura 2.16.** Eventos del Big Picture EventStorming usados como punto de partida
+
+![Big Picture EventStorming - Guardian+](assets/images/chapterII/bigPicture/bigPictureStorming.png)
 
 
 ##### Emergency & Alerting Bounded Context (Core Domain)
 
-La Figura 2.16 presenta el EventStorming del Bounded Context Emergency & Alerting.
+La Figura 2.17 presenta el EventStorming del Bounded Context Emergency & Alerting.
 
-<a id="figura-2-16"></a>**Figura 2.16.** EventStorming del Bounded Context Emergency & Alerting
+<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Emergency & Alerting
 
 ![Emergency & Alerting EventStorming](assets/images/chapterII/EventStorming/Emergency.jpg)
 
@@ -2856,9 +2876,9 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 ##### Health Monitoring Bounded Context (Core Domain)
 
-La Figura 2.17 presenta el EventStorming del Bounded Context Health Monitoring.
+La Figura 2.18 presenta el EventStorming del Bounded Context Health Monitoring.
 
-<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Health Monitoring
+<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Health Monitoring
 
 ![alt text](assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
@@ -2872,9 +2892,9 @@ Se clasificó como parte del **Core Domain** porque el monitoreo continuo del es
 
 ##### Care Routines & Wellness Bounded Context (Supporting Domain)
 
-La Figura 2.18 presenta el EventStorming del Bounded Context Care Routines & Wellness.
+La Figura 2.19 presenta el EventStorming del Bounded Context Care Routines & Wellness.
 
-<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Care Routines & Wellness
+<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness EventStorming](assets/images/chapterII/EventStorming/careRoutine.png)
 
@@ -2888,9 +2908,9 @@ Fue clasificado como **Supporting Domain**, ya que complementa las capacidades p
 
 ##### Mobility & Geofencing Bounded Context (Supporting Domain)
 
-La Figura 2.19 presenta el EventStorming del Bounded Context Mobility & Geofencing.
+La Figura 2.20 presenta el EventStorming del Bounded Context Mobility & Geofencing.
 
-<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Mobility & Geofencing
+<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing EventStorming](assets/images/chapterII/EventStorming/MOBILITY.png)
 
@@ -2904,9 +2924,9 @@ Se clasificó como **Supporting Domain**, debido a que aporta información conte
 
 ##### IAM Bounded Context (Generic Domain)
 
-La Figura 2.20 presenta el EventStorming del Bounded Context IAM.
+La Figura 2.21 presenta el EventStorming del Bounded Context IAM.
 
-<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context IAM
+<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context IAM
 
 ![IAM EventStorming](assets/images/chapterII/EventStorming/IAM.png)
 
@@ -2919,39 +2939,55 @@ Se clasificó como **Generic Domain** porque representa una capacidad necesaria 
 
 ##### Profile Bounded Context (Generic Domain)
 
-La Figura 2.21 presenta el EventStorming del Bounded Context Profile.
+La Figura 2.22 presenta el EventStorming del Bounded Context Profile.
 
-<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context Profile
+<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Profile
+
+El Bounded Context **Profile** concentra las capacidades relacionadas con la administración de la información descriptiva de los usuarios de Guardian+, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de la aplicación. Mediante la sesión de EventStorming se identificaron los principales actores, comandos y eventos de dominio involucrados en estos procesos, permitiendo delimitar las responsabilidades correspondientes a este contexto.
+
+La siguiente figura presenta el EventStorming correspondiente al **Profile Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro del dominio.
 
 ![Profile EventStorming](assets/images/chapterII/EventStorming/PROFILE.png)
 
-Este contexto candidato gestiona la información asociada a los perfiles de los usuarios y de las personas bajo cuidado, así como las relaciones existentes entre familiares, cuidadores y Care Recipients. También contempla la gestión de información de contacto y preferencias de uso de la aplicación.
+**Figura: EventStorming del Profile Bounded Context.**
 
-Su Lenguaje Ubicuo incluye conceptos como perfil de usuario, perfil de persona bajo cuidado, relación de cuidado, información de contacto, preferencias de aplicación, idioma y accesibilidad.
+En el diagrama, las notas amarillas representan los actores que interactúan con el contexto, las notas azules representan los comandos que expresan una intención o acción sobre el dominio y las notas naranjas representan los eventos de dominio producidos como resultado de dichas acciones. Esta organización permite visualizar los principales flujos bajo la secuencia **Actor → Command → Domain Event**.
 
-Se clasificó como **Generic Domain** debido a que proporciona información fundamental para que otros contextos puedan operar correctamente, pero sus capacidades corresponden principalmente a gestión de perfiles y relaciones, y no constituyen el núcleo diferenciador de Guardian+.
+En la parte superior izquierda de la figura se agrupan las operaciones relacionadas con el perfil del usuario. El actor `Guardian+ User` puede ejecutar los comandos `Create Profile`, `Update Profile` y `Update Contact Information`, generando respectivamente los eventos `Profile Created`, `Profile Updated` y `Contact Information Updated`. Estos flujos representan las acciones necesarias para crear y mantener actualizada la información descriptiva de una persona usuaria de Guardian+.
 
+En la parte superior derecha se representan las operaciones relacionadas con las personas bajo cuidado y las relaciones de cuidado. Un `Family Member / Caregiver` puede ejecutar `Create Care Recipient Profile` para registrar a una persona bajo cuidado, generando `Care Recipient Profile Created`. Asimismo, puede establecer o finalizar una relación de cuidado mediante los comandos `Establish Care Relationship` y `End Care Relationship`, produciendo los eventos `Relationship Established` y `Relationship Ended`.
 
+Finalmente, en la parte inferior se encuentran las operaciones asociadas a las preferencias del usuario. El actor `Guardian+ User` puede modificar las preferencias generales de la aplicación mediante `Update Application Preferences`, así como configurar aspectos de idioma y accesibilidad mediante `Update Language & Accessibility Preferences`. Como resultado se generan los eventos `Application Preferences Updated` y `Language & Accessibility Preferences Updated`.
+
+A partir de estos flujos se identificó un Lenguaje Ubicuo compuesto por conceptos como **User Profile**, **Care Recipient Profile**, **Care Relationship**, **Contact Information**, **Application Preferences**, **Language** y **Accessibility Preferences**, los cuales permiten mantener una terminología consistente entre el modelado del dominio y su posterior implementación.
+
+El contexto **Profile** se clasificó como **Generic Domain**, debido a que sus capacidades de administración de perfiles, relaciones y preferencias son necesarias para el funcionamiento de Guardian+, pero corresponden a funcionalidades comunes que no constituyen el principal elemento diferenciador de la propuesta de valor del producto.
 
 ##### Subscriptions Bounded Context (Generic Domain)
 
-Las Figuras 2.22 y 2.23 presentan el EventStorming del Bounded Context Subscriptions, dividido en dos partes por su extensión.
+El Bounded Context **Subscriptions** concentra las capacidades relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Mediante la sesión de EventStorming se identificaron los principales actores, comandos, eventos de dominio, reglas de decisión y sistemas externos involucrados en los procesos de solicitud, activación, cambio de plan, cancelación, expiración y renovación de una suscripción, así como en la actualización de los beneficios asociados a cada plan.
 
-<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Subscriptions (parte 1)
+La Figura 2.23 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
 
-![Subscriptions EventStorming - Parte 1](assets/images/chapterII/EventStorming/subscription1.png)
+<a id="figura-2-23"></a>**Figura 2.23.** EventStorming del Bounded Context Subscriptions
 
-<a id="figura-2-23"></a>**Figura 2.23.** EventStorming del Bounded Context Subscriptions (parte 2)
+![Subscriptions EventStorming](assets/images/chapterII/EventStorming/Subscription.png)
 
-![Subscriptions EventStorming - Parte 2](assets/images/chapterII/EventStorming/Subscription2.png)
+En el diagrama, las notas amarillas representan los actores que interactúan con el contexto, las notas azules representan los comandos ejecutados sobre el dominio, las notas naranjas corresponden a los eventos de dominio generados como resultado de dichas acciones, las notas moradas representan reglas o decisiones que determinan el comportamiento del proceso y las notas verdes representan sistemas externos o componentes de soporte, como `Billing Scheduler` y `Payment Provider`.
 
-Este contexto candidato concentra las reglas relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Incluye la solicitud y activación de suscripciones, cambios de plan, renovación, cancelación, expiración y administración de los beneficios asociados a cada plan.
+En la parte superior izquierda se representa el proceso de solicitud y activación de una suscripción. El actor `Subscriber` inicia el flujo mediante `Request Subscription`, generando `Subscription Requested`. A partir de `Determine Subscription Activation Requirements`, el proceso puede continuar directamente hacia la activación cuando corresponde a un plan gratuito o iniciar el flujo de pago mediante `Initiate Subscription Payment`. En este último caso, el resultado del proveedor de pagos determina si la suscripción puede activarse mediante `Activate Subscription After Successful Payment` o si el proceso finaliza con un pago fallido.
 
-Su Lenguaje Ubicuo se encuentra relacionado con conceptos como suscripción, plan, pago, renovación, cancelación, expiración y entitlement.
+La parte central izquierda reúne los flujos relacionados con la consulta del estado de la suscripción y la administración de entitlements. El usuario puede consultar el estado de su suscripción mediante `Check Subscription Status` y revisar los beneficios disponibles mediante `Check Available Entitlements`. Asimismo, las reglas `Determine Entitlements After Activation`, `Recalculate Plan Entitlements`, `Recalculate Entitlements After Cancellation` y `Determine Remaining Entitlements` permiten actualizar los beneficios asociados a la suscripción mediante `Update Entitlements`.
 
-Se clasificó como **Generic Domain** porque permite implementar el modelo comercial y controlar los beneficios disponibles para los usuarios, pero no representa la principal fuente de innovación o diferenciación de Guardian+.
+En la parte superior derecha se presenta el proceso de cancelación. Luego de `Request Subscription Cancellation`, la regla `Determine Cancellation Effective Date` permite distinguir entre una cancelación inmediata y una cancelación efectiva al finalizar el ciclo de facturación. En el primer caso se ejecuta `Cancel Subscription`, mientras que en el segundo interviene `Billing Scheduler` para ejecutar `Expire Scheduled Subscription`.
 
+En la parte inferior izquierda se representa el cambio de plan. El flujo inicia con `Request Plan Change`, continúa con `Determine Plan Change Conditions` y `Apply Plan Change`, y posteriormente recalcula y actualiza los entitlements correspondientes al nuevo plan.
 
+Finalmente, la parte inferior derecha agrupa los procesos de expiración y renovación. `Billing Scheduler` evalúa periódicamente si una suscripción debe expirar o renovarse. En el proceso de expiración se utilizan `Evaluate Subscription Expiration`, `Determine Expiration Conditions` y `Expire Subscription`. En el proceso de renovación se ejecutan `Evaluate Subscription Renewal`, `Determine Renewal Requirements` e `Initiate Renewal Payment`, incorporando la interacción con `Payment Provider` y contemplando tanto la confirmación como el fallo del pago antes de renovar la suscripción.
+
+A partir de estos flujos se identificó un Lenguaje Ubicuo compuesto por conceptos como **Subscription**, **Plan**, **Payment**, **Renewal**, **Cancellation**, **Expiration** y **Entitlement**, permitiendo mantener una terminología consistente entre el modelado del dominio y su posterior implementación.
+
+El contexto **Subscriptions** se clasificó como **Generic Domain**, debido a que sus capacidades permiten implementar el modelo comercial de Guardian+ y controlar los beneficios disponibles para los usuarios, pero corresponden a funcionalidades comunes que no representan la principal fuente de innovación o diferenciación de la solución.
 
 Como resultado del Candidate Context Discovery, el equipo estableció una primera descomposición estratégica del dominio de Guardian+. Los contextos **Emergency & Alerting** y **Health Monitoring** fueron reconocidos como parte del Core Domain debido a su relación directa con la propuesta de valor principal de la solución. **Care Routines & Wellness** y **Mobility & Geofencing** fueron clasificados como Supporting Domains debido a que complementan y fortalecen las capacidades centrales de cuidado. Finalmente, **IAM**, **Profile** y **Subscriptions** fueron identificados como Generic Domains al representar capacidades necesarias para el funcionamiento de la plataforma, pero comunes a otros tipos de sistemas.
 
@@ -2963,1565 +2999,1054 @@ En esta sección se documentan los principales flujos de mensajes (comandos, eve
 
 ##### Bounded Context: Emergency & Alerting
 
+Los diagramas siguen la notación de Domain Message Flow Modelling de DDD Crew. Los actores se representan con la figura de una persona, los Bounded Contexts con nubes y los sistemas externos con un engranaje. Cada mensaje es una nota numerada según el orden en que ocurre, con su nombre y los datos que transporta: en azul los comandos y en naranja los eventos. Las flechas punteadas indican la dirección del mensaje, desde el emisor hasta el receptor. Las notas amarillas con reloj marcan las condiciones de tiempo, las etiquetas grises indican la policy que emite el mensaje y las notas amarillas sin reloj aclaran una regla del escenario. Los mensajes que Emergency & Alerting procesa internamente se ubican sobre la línea punteada que sale de la nube del contexto y regresa a ella.
+
 **Flujo 1 — Caída confirmada**
 
-La Figura 2.24 presenta el diagrama de secuencia del flujo de caída confirmada y la Figura 2.25, su domain storytelling.
+El escenario inicia cuando el Wearable Device detecta una caída y envía el comando Trigger Alert (1) a Emergency & Alerting, con el Care Recipient, el origen `FALL_DETECTED`, la referencia del dispositivo y la hora de disparo. El contexto registra Alert Triggered (2) con severidad `CRITICAL` y estado `PENDING_CONFIRMATION`, y abre la Ventana de Confirmación de Caída. Si el Fragile Citizen no cancela la alerta dentro de los 20 segundos, se emite Confirm Alert (3) y se registra Alert Confirmed (4); si la cancela, la alerta se descarta como falso positivo y el escenario termina.
+
+Con la alerta confirmada, la policy Dispatch Strategy Selector emite Dispatch Alert (5). Como la severidad es `CRITICAL` y la configuración del Fragile Citizen tiene activada la difusión inmediata de alertas críticas (`broadcastCriticalImmediately`), la alerta se difunde a todos los contactos activos: Alert Broadcasted (6) llega al Family Member por sus canales habilitados más `SMS`. Con la configuración por defecto, en cambio, la alerta comenzaría en el contacto primario y escalaría por niveles, como en el Flujo 3b. El Family Member reconoce la alerta con Acknowledge Alert (7) y el contexto registra Alert Acknowledged (8). Luego, la policy Escalation Stopper detiene el escalamiento y emite Open Incident (9), que abre el incidente en estado `IN_ATTENTION` (Incident Opened, 10).
+
+La Figura 2.24 presenta el domain message flow del flujo de caída confirmada.
 
 <a id="figura-2-24"></a>**Figura 2.24.** Domain message flow del flujo de caída confirmada
 
-![Domain Message Flow - Caída confirmada](assets/images/chapterII/domain-message-flows/emergency-alerting-flow1-fall-confirmed.png)
-
-<a id="figura-2-25"></a>**Figura 2.25.** Domain storytelling del flujo de caída confirmada
-
-![alt text](assets/images/chapterII/domain-message-flows/fall-storytelling.png)
+![Domain Message Flow - Caída confirmada](assets/images/chapterII/domain-message-flows/flujo-1-caida-confirmada.png)
 
 **Flujo 2 — SOS manual**
 
-La Figura 2.26 presenta el diagrama de secuencia del flujo de SOS manual.
+En este escenario es el propio Fragile Citizen quien dispara la alerta al presionar el botón SOS de la pulsera. El Wearable Device envía Trigger Alert (1) con el origen `SOS_TRIGGERED` y Emergency & Alerting registra Alert Triggered (2) con severidad `CRITICAL`. A diferencia de la caída, el SOS no requiere ventana de confirmación, por lo que el contexto emite Confirm Alert (3) de inmediato y registra Alert Confirmed (4).
 
-<a id="figura-2-26"></a>**Figura 2.26.** Domain message flow del flujo de SOS manual
+Después, la policy Dispatch Strategy Selector emite Dispatch Alert (5) y, con la difusión inmediata de alertas críticas activada, Alert Broadcasted (6) llega a todos los contactos activos, entre ellos el Family Member, por sus canales habilitados más `SMS`. Desde este punto el escenario continúa igual que el Flujo 1: el reconocimiento de la alerta detiene el escalamiento y abre el incidente.
 
-![Domain Message Flow - SOS manual](assets/images/chapterII/domain-message-flows/emergency-alerting-flow2-sos-triggered.png)
+La Figura 2.25 presenta el domain message flow del flujo de SOS manual.
 
-**Flujo 3 — Anomalía biométrica escalada**
+<a id="figura-2-25"></a>**Figura 2.25.** Domain message flow del flujo de SOS manual
 
-La Figura 2.27 presenta el diagrama de secuencia del flujo de anomalía biométrica escalada y la Figura 2.28, su domain storytelling.
+![Domain Message Flow - SOS manual](assets/images/chapterII/domain-message-flows/flujo-2-sos-manual.png)
+
+**Flujo 3 — Anomalía biométrica**
+
+Este flujo se presenta en dos escenarios, porque su desenlace depende de si el contacto primario reconoce la alerta a tiempo. Los mensajes 1 al 8 son comunes a ambos.
+
+El Wearable Device envía cada lectura a Health Monitoring con Detect Vital Signs (1). Cuando la policy Regla de Tolerancia confirma tres lecturas consecutivas fuera del umbral vigente, Health Monitoring publica el evento de integración Vital Sign Anomaly Detected (2), con el Care Recipient, el tipo de signo vital, el umbral transgredido, el valor y su clasificación. Emergency & Alerting consume ese evento y emite Trigger Alert (3) con el origen `VITAL_SIGN_ANOMALY`, y registra Alert Triggered (4) con severidad `HIGH`. Como este origen no requiere ventana de confirmación, emite Confirm Alert (5) y registra Alert Confirmed (6) de inmediato. La policy Dispatch Strategy Selector emite Dispatch Alert (7) y, por tratarse de una alerta `HIGH`, el despacho inicia en el contacto primario: Alert Dispatched (8) llega al Caregiver con el nivel `PRIMARY` y los identificadores de las entregas.
+
+En el primer escenario, el Caregiver responde antes de que venza el Ack Timeout y envía Acknowledge Alert (9). El contexto registra Alert Acknowledged (10), la policy Escalation Stopper detiene el escalamiento y emite Open Incident (11), y el incidente queda abierto en estado `IN_ATTENTION` (Incident Opened, 12).
+
+La Figura 2.26 presenta el domain message flow de la anomalía biométrica reconocida a tiempo.
+
+<a id="figura-2-26"></a>**Figura 2.26.** Domain message flow del flujo de anomalía biométrica reconocida a tiempo
+
+![Domain Message Flow - Anomalía biométrica reconocida a tiempo](assets/images/chapterII/domain-message-flows/flujo-3a-anomalia-biometrica-reconocida.png)
+
+En el segundo escenario, el Caregiver no reconoce la alerta. Al vencer el Ack Timeout del contacto primario (60 segundos por defecto), Emergency & Alerting emite Escalate Alert (9) y registra Alert Escalated (10): la alerta pasa a estado `ESCALATED` y se entrega a los contactos del nivel `SECONDARY`. Si no existen contactos secundarios, el escalamiento pasa directamente al nivel `BROADCAST`. Si el Ack Timeout vence nuevamente sin reconocimiento, la policy Critical Broadcast Fallback emite Broadcast Alert (11) como último recurso, y Alert Broadcasted (12) difunde la alerta a todos los contactos activos, añadiendo `SMS` a sus canales habilitados. Cuando un contacto reconoce la alerta en cualquiera de estos niveles, el escenario continúa como en la Figura 2.26.
+
+La Figura 2.27 presenta el domain message flow de la anomalía biométrica escalada.
 
 <a id="figura-2-27"></a>**Figura 2.27.** Domain message flow del flujo de anomalía biométrica escalada
 
-![Domain Message Flow - Anomalía biométrica escalada](assets/images/chapterII/domain-message-flows/emergency-alerting-flow3-biometric-anomaly-escalated.png)
+![Domain Message Flow - Anomalía biométrica escalada](assets/images/chapterII/domain-message-flows/flujo-3b-anomalia-biometrica-escalada.png)
 
-<a id="figura-2-28"></a>**Figura 2.28.** Domain storytelling del flujo de anomalía biométrica escalada
+**Flujo 4 — Recordatorio de medicación reemitido**
 
-![alt text](assets/images/chapterII/domain-message-flows/vitalsign-anomaly-storytelling.png)
+Care Routines & Wellness emite Reminder Issued (1) cuando llega la hora programada de un recordatorio de medicación, y este llega al Fragile Citizen con el tipo `MEDICATION` y la hora programada. Si el Fragile Citizen no confirma la toma dentro de los 10 minutos de tolerancia, la policy Reminder Reissue Policy reemite el recordatorio: Reminder Reissued (2) vuelve a llegar al Fragile Citizen y, al mismo tiempo, el contexto publica el evento de integración Reminder Reissued (3) hacia Emergency & Alerting.
 
-**Flujo 4 - Reminder sent**
+Emergency & Alerting traduce ese evento en Trigger Alert (4) con el origen `REMINDER_REISSUED` y registra Alert Triggered (5) con severidad `MEDIUM`. Como este origen no requiere ventana de confirmación, emite Confirm Alert (6) y registra Alert Confirmed (7) de inmediato. La policy Dispatch Strategy Selector emite Dispatch Alert (8) y, por tratarse de una alerta `MEDIUM`, notifica solo al contacto primario y nunca escala: Alert Dispatched (9) llega al Caregiver para que verifique que se cumpla la medicación.
 
-La Figura 2.29 presenta el domain storytelling del flujo de recordatorio enviado.
+La Figura 2.28 presenta el domain message flow del flujo de recordatorio de medicación reemitido.
 
-<a id="figura-2-29"></a>**Figura 2.29.** Domain storytelling del flujo de recordatorio enviado
+<a id="figura-2-28"></a>**Figura 2.28.** Domain message flow del flujo de recordatorio de medicación reemitido
 
-![alt text](assets/images/chapterII/domain-message-flows/reminder-storytelling.png)
+![Domain Message Flow - Recordatorio de medicación reemitido](assets/images/chapterII/domain-message-flows/flujo-4-recordatorio-reemitido.png)
 
+**Flujo 5 — Inactividad prolongada**
 
-**Flujo 5 - Inactivity**
+El Wearable Device reporta la telemetría de actividad del Fragile Citizen. Cuando este permanece más de 60 minutos sin movimiento en horario diurno, Care Routines & Wellness recibe Record Prolonged Inactivity (1) con la persona bajo cuidado y la hora de detección. El ActivityMonitor pasa de `NORMAL` a `INACTIVITY_DETECTED` y el contexto publica el evento de integración Prolonged Inactivity Detected (2) hacia Emergency & Alerting.
 
-La Figura 2.30 presenta el domain storytelling del flujo de inactividad prolongada.
+Emergency & Alerting emite Trigger Alert (3) con el origen `PROLONGED_INACTIVITY` y registra Alert Triggered (4) con severidad `HIGH`. Como este origen no requiere ventana de confirmación, emite Confirm Alert (5) y registra Alert Confirmed (6) de inmediato. La policy Dispatch Strategy Selector emite Dispatch Alert (7) y el despacho inicia en el contacto primario: Alert Dispatched (8) llega al Caregiver. Si el Caregiver no reconoce la alerta, el escalamiento sigue las mismas reglas del segundo escenario del Flujo 3.
 
-<a id="figura-2-30"></a>**Figura 2.30.** Domain storytelling del flujo de inactividad prolongada
+La Figura 2.29 presenta el domain message flow del flujo de inactividad prolongada.
 
-![alt text](assets/images/chapterII/domain-message-flows/inactivity-storytelling.png)
+<a id="figura-2-29"></a>**Figura 2.29.** Domain message flow del flujo de inactividad prolongada
 
+![Domain Message Flow - Inactividad prolongada](assets/images/chapterII/domain-message-flows/flujo-5-inactividad-prolongada.png)
 
 #### 2.5.1.3. Bounded Context Canvases
-En esta sección se detallan los diseños de los Bounded Contexts candidatos identificados, priorizando aquellos clasificados como Core Domain por su impacto estratégico en Guardian+. El diseño aplica rigurosamente la estructura visual del **Bounded Context Design Canvas V1 (Nick Tune)**, utilizando el formato estándar de tablas Markdown para asegurar compatibilidad absoluta con cualquier procesador de texto (GitHub, Notion, Word, PDF). Se define la interfaz pública mediante Actions y Queries, aislando el Ubiquitous Language y las Policies.
+
+En esta sección se presentan los Bounded Context Canvases de los siete Bounded Contexts candidatos de Guardian+, elaborados con la plantilla **Bounded Context Canvas V5** de DDD Crew. Cada canvas reúne el nombre, el propósito, la clasificación estratégica, el rol de dominio, la comunicación entrante y saliente con sus colaboradores, el Ubiquitous Language, las decisiones de negocio, los supuestos, las métricas de verificación y las preguntas abiertas del contexto. Los mensajes se distinguen por color: queries en verde, commands en azul, eventos en amarillo y decisiones de negocio en morado.
 
 ##### Bounded Context: Emergency & Alerting (Core Domain)
 
-<!-- CANVAS: EMERGENCY & ALERTING (NICK TUNE V1 TEMPLATE) -->
+En la Figura 2.30 se observa el Bounded Context Emergency & Alerting está clasificado como un Core Domain cuyo propósito es centralizar, gobernar y despachar de forma oportuna las alertas ante señales que comprometan la seguridad de la persona cuidada. Para garantizar una respuesta humana efectiva, el sistema consume asíncronamente eventos de riesgo de otros contextos (como anomalías biométricas de Health Monitoring o violaciones de geocercas de Mobility & Geofencing) y ejecuta complejas reglas de negocio como una ventana de confirmación de caídas, tiempos límite de reconocimiento (Ack Timeout) y una cadena de escalamiento progresivo que finaliza en el despacho de notificaciones push y SMS a través de proveedores externos.
 
-La Figura 2.31 presenta el Bounded Context Canvas de Emergency & Alerting.
+<a id="figura-2-30"></a>**Figura 2.30.** Bounded Context Canvas de Emergency & Alerting
 
-<a id="figura-2-31"></a>**Figura 2.31.** Bounded Context Canvas de Emergency & Alerting
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Emergency &amp; Alerting</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Core - </strong> Principal diferenciador de Guardian+: garantiza una respuesta humana oportuna ante eventos que comprometen la seguridad del Fragile Citizen.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citizen, las despacha a sus Emergency Contacts según la severidad, gobierna el escalamiento progresivo hasta obtener un reconocimiento efectivo y registra la atención del Incident hasta su cierre.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Dispatch Strategy Selector (escalamiento por niveles; difusión inmediata de CRITICAL configurable)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ventana de Confirmación de Caída (20 s)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Ack Timeout del contacto primario (60 s por defecto)</td>
-</tr>
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Escalation Stopper (el reconocimiento abre el Incident)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Critical Broadcast Fallback ante cadena agotada</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Override de Silent Mode solo en severidad CRITICAL</td>
-</tr>
-</table>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-<tr>
-<td width="50%" valign="top">
-• Alert<br>
-• Incident<br>
-• Emergency Contact<br>
-• Escalation Chain<br>
-• Alert Settings
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Emergency &amp; Alerting</span>
 </td>
-<td width="50%" valign="top">
-• Severity<br>
-• Acknowledgment<br>
-• Emergency Contact<br>
-• Silent Mode
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
 </td>
 </tr>
 </table>
-</td>
-
-<td width="58%" valign="top" style="padding: 0;">
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-<div align="center">
-<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
-</div>
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Active Alerts</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Alert History</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Pending Alerts</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Alert Settings</td></tr>
-</table>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Dispara las Alerts ante señales que comprometen la seguridad del Fragile Citizen, las despacha a sus Emergency Contacts según la severidad, gobierna el escalamiento progresivo hasta obtener un reconocimiento efectivo y registra la atención del Incident hasta su cierre.</div>
 </td>
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Trigger Alert</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Dismiss Alert</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Dispatch / Broadcast Alert</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Escalate Alert</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Acknowledge Alert / Close Incident</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Manage Settings &amp; Emergency Contacts</td></tr>
-</table>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- core</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- supporting</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- generic</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- engagement</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- custom built</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- commodity</div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Core - </strong>Principal diferenciador de Guardian+: garantiza una respuesta humana oportuna ante eventos que comprometen la seguridad del Fragile Citizen.</div>
+</td>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- execution context</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- analysis context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other</div>
 </td>
 </tr>
 </table>
-</div>
-
-<div style="padding: 12px;">
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
-</div>
-<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td>Health Monitoring</td>
-<td>Consume anomalías biométricas confirmadas</td>
-<td>Internal</td>
-<td>In (Customer/Supplier)</td>
-</tr>
-<tr>
-<td>Mobility &amp; Geofencing</td>
-<td>Consume violaciones de zona segura y consulta la última ubicación para la notificación</td>
-<td>Internal</td>
-<td>In (Customer/Supplier)</td>
-</tr>
-<tr>
-<td>Care Routines &amp; Wellness</td>
-<td>Consume inactividad prolongada, recordatorios reemitidos y sugerencias de reabastecimiento</td>
-<td>Internal</td>
-<td>In (Customer/Supplier)</td>
-</tr>
-<tr>
-<td>Profile</td>
-<td>Sincroniza los Emergency Contacts con las relaciones de cuidado</td>
-<td>Internal</td>
-<td>In (ECST)</td>
-</tr>
-<tr>
-<td>IAM</td>
-<td>Valida identidad y autorización de cada comando</td>
-<td>Internal</td>
-<td>In (OHS)</td>
-</tr>
-<tr>
-<td>Notification Providers</td>
-<td>Despacha las notificaciones push y SMS al Care Circle</td>
-<td>External</td>
-<td>Out (ACL)</td>
-</tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Active Alerts</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Alert History</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Pending Alerts</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Alert Settings</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Trigger Alert</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Confirm / Dismiss Alert</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Dispatch / Broadcast Alert</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Escalate Alert</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Acknowledge Alert / Close Incident</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Manage Settings &amp; Emergency Contacts</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Health Monitoring</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Customer/Supplier</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume anomalías biométricas confirmadas</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Mobility &amp; Geofencing</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Customer/Supplier</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume violaciones de zona segura y consulta la última ubicación para la notificación</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Care Routines &amp; Wellness</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Customer/Supplier</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume inactividad prolongada, recordatorios reemitidos y sugerencias de reabastecimiento</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">ECST</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Sincroniza los Emergency Contacts con las relaciones de cuidado</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Valida identidad y autorización de cada comando</div></td></tr>
 </table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Alert</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Incident</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Emergency Contact</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Escalation Chain</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Alert Settings</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Severity</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Acknowledgment</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Silent Mode</div>
+</div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Dispatch Strategy Selector (escalamiento por niveles; difusión inmediata de CRITICAL configurable)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Ventana de Confirmación de Caída (20 s)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Ack Timeout del contacto primario (60 s por defecto)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Escalation Stopper (el reconocimiento abre el Incident)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Critical Broadcast Fallback ante cadena agotada</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Override de Silent Mode solo en severidad CRITICAL</div>
 </div>
 </td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Despacha las notificaciones push y SMS al Care Circle</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Notification Providers</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td></tr>
+</table>
+</td>
 </tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los Emergency Contacts del Care Circle reconocen la mayoría de las alertas dentro del Ack Timeout de 60 s.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los Notification Providers entregan las notificaciones push y SMS con una latencia compatible con el despacho de emergencias en menos de 5 segundos.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- La proyección local del Care Circle sincronizada desde Profile basta para despachar alertas sin consultar a Profile durante un incidente.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo promedio entre el evento detectado y la primera acción del responsable.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tasa de respuesta a las alertas y tiempo hasta el primer contacto.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de alertas que requieren escalamiento o Critical Broadcast Fallback.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿El Ack Timeout debe configurarse por Emergency Contact o por severidad?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Qué canal se utiliza cuando fallan a la vez la notificación push y el SMS?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: Health Monitoring (Core Domain)
 
-<!-- CANVAS: HEALTH MONITORING (NICK TUNE V1 TEMPLATE) -->
+Tal como se observa en la Figura 2.31, el Bounded Context Health Monitoring está catalogado como un Core Domain esencial, cuyo propósito es administrar los dispositivos wearables, ingerir datos biométricos en vivo y consolidar reportes de salud preventivos. El sistema recibe la telemetría del hardware externo a través de una capa de anticorrupción (ACL), valida la integridad de los signos vitales y evalúa cada lectura contra un umbral configurable (Vital Sign Threshold) por paciente; al aplicar reglas de negocio clave como la regla de tolerancia de tres lecturas consecutivas fuera de rango para filtrar falsos positivos, este contexto aísla las anomalías confirmadas y las emite asíncronamente para que sean consumidas por el contexto de Emergency & Alerting.
 
-La Figura 2.32 presenta el Bounded Context Canvas de Health Monitoring.
+<a id="figura-2-31"></a>**Figura 2.31.** Bounded Context Canvas de Health Monitoring
 
-<a id="figura-2-32"></a>**Figura 2.32.** Bounded Context Canvas de Health Monitoring
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Health Monitoring</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Core - </strong> Esencial para habilitar el monitoreo clínico continuo y la prevención de crisis.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Administra los Wearable Devices asignados a un Care Recipient, ingesta y emite en vivo cada Vital Sign detectado, lo evalúa contra un Vital Sign Threshold configurable por paciente y tipo, y consolida Health Reports preventivos.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Validación de Integridad de Vital Signs</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Regla de Tolerancia (3 lecturas consecutivas)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Política de Compilación Semanal</td>
-</tr>
-</table>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-<tr>
-<td width="50%" valign="top">
-• Vital Sign<br>
-• Vital Sign Type<br>
-• Vital Sign Threshold
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Health Monitoring</span>
 </td>
-<td width="50%" valign="top">
-• Wearable Device<br>
-• Care Recipient<br>
-• Health Report
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
 </td>
 </tr>
 </table>
-</td>
-
-<td width="58%" valign="top" style="padding: 0;">
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-<div align="center">
-<strong style="font-size: 1em;">Capabilities & Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
-</div>
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Live Vital Signs</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Vital Sign Thresholds</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Historical Health Report</td></tr>
-</table>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Administra los Wearable Devices asignados a un Care Recipient, ingesta y emite en vivo cada Vital Sign detectado, lo evalúa contra un Vital Sign Threshold configurable por paciente y tipo, y consolida Health Reports preventivos.</div>
 </td>
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Detect / Emit Vital Signs</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Evaluate Vital Signs Thresholds</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Assign Wearable Device</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Define Vital Sign Threshold</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Compile Weekly Summary</td></tr>
-</table>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- core</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- supporting</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- generic</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- engagement</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- custom built</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- commodity</div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Core - </strong>Esencial para habilitar el monitoreo clínico continuo y la prevención de crisis.</div>
+</td>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- execution context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- analysis context</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other</div>
 </td>
 </tr>
 </table>
-</div>
-
-<div style="padding: 12px;">
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
-</div>
-<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td>Wearable Hardware</td>
-<td>Dispositivo físico externo que provee los datos biométricos crudos ingeridos como Vital Sign (distinto del registro interno WearableDevice, que solo administra la asignación del dispositivo al Care Recipient)</td>
-<td>External</td>
-<td>In (ACL)</td>
-</tr>
-<tr>
-<td>Emergency & Alerting</td>
-<td>Consume anomalías de signos vitales (eventos)</td>
-<td>Internal</td>
-<td>Out (Supplier)</td>
-</tr>
-<tr>
-<td>Profile / IAM</td>
-<td>Resuelve el Care Recipient Profile y el usuario autenticado que solicita un Health Report</td>
-<td>Internal</td>
-<td>In (OHS)</td>
-</tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Live Vital Signs</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Vital Sign Thresholds</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Historical Health Report</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Detect / Emit Vital Signs</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Evaluate Vital Signs Thresholds</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Assign Wearable Device</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Define Vital Sign Threshold</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Compile Weekly Summary</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Wearable Device</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Dispositivo físico externo que provee los datos biométricos crudos ingeridos como Vital Sign (distinto del registro interno WearableDevice, que solo administra la asignación del dispositivo al Care Recipient)</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile / IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Resuelve el Care Recipient Profile y el usuario autenticado que solicita un Health Report</div></td></tr>
 </table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Vital Sign</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Vital Sign Type</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Vital Sign Threshold</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Wearable Device</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Care Recipient</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Health Report</div>
+</div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Validación de Integridad de Vital Signs</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Regla de Tolerancia (3 lecturas consecutivas)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Política de Compilación Semanal</div>
 </div>
 </td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume anomalías de signos vitales (eventos)</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Supplier</span></td></tr>
+</table>
+</td>
 </tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- El Wearable Device entrega lecturas con la frecuencia y precisión necesarias para evaluar los Vital Sign Thresholds.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tres lecturas consecutivas fuera de umbral filtran el ruido del sensor sin retrasar la detección de una anomalía real.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Emergency &amp; Alerting solo necesita recibir anomalías confirmadas y no la telemetría completa.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de anomalías emitidas que los Emergency Contacts descartan como falsas.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Número de Health Reports revisados y tasa de retención semanal.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Frecuencia de consultas a los signos vitales en vivo.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Quién define los Vital Sign Thresholds iniciales de un nuevo Care Recipient?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Cómo se gestiona la pérdida temporal de conexión del Wearable Device?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: Care Routines & Wellness (Supporting Domain)
 
-<!-- CANVAS: CARE ROUTINES & WELLNESS (NICK TUNE V1 TEMPLATE) -->
+En la Figura 2.32 se detalla el Bounded Context Care Routines & Wellness está clasificado como un Supporting Domain encargado de gestionar las rutinas diarias (medicación, citas, actividad física e hidratación), clasificar los ciclos de sueño y controlar el inventario de medicamentos. El sistema absorbe datos de actividad e inactividad desde el hardware del Wearable Device, aplicando reglas esenciales como la política de emisión de recordatorios (ventanas de sueño) y un umbral mínimo de 3 días para sugerir el reabastecimiento de fármacos; ante desvíos críticos, como un estado de inactividad prolongada no justificado o el incumplimiento reiterado de una tarea, este contexto genera y expone los eventos correspondientes para ser consumidos por el dominio de Emergency & Alerting.
 
-La Figura 2.33 presenta el Bounded Context Canvas de Care Routines & Wellness.
+<a id="figura-2-32"></a>**Figura 2.32.** Bounded Context Canvas de Care Routines & Wellness
 
-<a id="figura-2-33"></a>**Figura 2.33.** Bounded Context Canvas de Care Routines & Wellness
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">Care Routines &amp; Wellness</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Supporting - </strong> Da soporte al valor central de Guardian+ asegurando que las rutinas de bienestar del Fragile Citizen se cumplan.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, actividad física e hidratación), registra y clasifica los Sleep Cycles, detecta Prolonged Inactivity mediante el Activity Monitor, y controla el Medication Stock sugiriendo su reabastecimiento.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Reminder Issuance Policy (Sleep Window)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Reminder Reissue Policy (10 min)</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Medication Stock Policy (umbral 3 días)</td>
-</tr>
-</table>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-<tr>
-<td width="50%" valign="top">
-- Reminder<br>
-- Sleep Cycle
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Care Routines &amp; Wellness</span>
 </td>
-<td width="50%" valign="top">
-- Activity Monitor<br>
-- Medication Stock
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
 </td>
 </tr>
 </table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Gestiona el ciclo de vida de los Reminders de rutina (medicación, citas, actividad física e hidratación), registra y clasifica los Sleep Cycles, detecta Prolonged Inactivity mediante el Activity Monitor, y controla el Medication Stock sugiriendo su reabastecimiento.</div>
 </td>
-
-<td width="58%" valign="top" style="padding: 0;">
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-<div align="center">
-<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
-</div>
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
-<tr>
-<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Reminder Status</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get Medication Stock Status</td></tr>
-</table>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- core</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- supporting</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- generic</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- engagement</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- custom built</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- commodity</div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Supporting - </strong>Da soporte al valor central de Guardian+ asegurando que las rutinas de bienestar del Fragile Citizen se cumplan.</div>
 </td>
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Schedule / Issue / Reissue Reminder</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm / Cancel Reminder</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Record Activity &amp; Sleep Telemetry</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Confirm Medication Acquisition</td></tr>
-</table>
-</td>
-</tr>
-</table>
-</div>
-
-<div style="padding: 12px;">
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
-</div>
-<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
-<tr>
-<td>Wearable Device</td>
-<td>Provee telemetría de actividad, inactividad y sueño</td>
-<td>External</td>
-<td>In (ACL)</td>
-</tr>
-<tr>
-<td>Profile / IAM</td>
-<td>Resuelve identidad y perfil de la persona bajo cuidado</td>
-<td>Internal</td>
-<td>In (OHS)</td>
-</tr>
-<tr>
-<td>Emergency &amp; Alerting</td>
-<td>Consume inactividad prolongada, reemisión y reabastecimiento</td>
-<td>Internal</td>
-<td>Out (Supplier)</td>
-</tr>
-</table>
-</div>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- execution context</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- analysis context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other</div>
 </td>
 </tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Reminder Status</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Medication Stock Status</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Schedule / Issue / Reissue Reminder</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Confirm / Cancel Reminder</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Record Activity &amp; Sleep Telemetry</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Confirm Medication Acquisition</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Wearable Device</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee telemetría de actividad, inactividad y sueño</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile / IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Resuelve identidad y perfil de la persona bajo cuidado</div></td></tr>
+</table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Reminder</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Sleep Cycle</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Activity Monitor</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Medication Stock</div>
+</div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Reminder Issuance Policy (Sleep Window)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Reminder Reissue Policy (10 min)</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Medication Stock Policy (umbral 3 días)</div>
+</div>
+</td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume inactividad prolongada, reemisión y reabastecimiento</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Supplier</span></td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Las rutinas de cuidado toleran reintentos y no requieren el mismo nivel de servicio que las alertas de emergencia.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- La telemetría de actividad y sueño del Wearable Device permite distinguir el descanso de la Prolonged Inactivity.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Un umbral de 3 días de Medication Stock da margen suficiente para reabastecer la medicación.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de Reminders confirmados sin necesidad de reemisión.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Número de avisos de Prolonged Inactivity descartados por los Emergency Contacts.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de sugerencias de reabastecimiento atendidas antes de agotar el stock.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Cuántas reemisiones de un Reminder se permiten antes de notificar a Emergency &amp; Alerting?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿La Sleep Window se configura por persona o se infiere de los Sleep Cycles registrados?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: Subscriptions (Generic Domain)
 
-<!-- CANVAS: SUBSCRIPTIONS (NICK TUNE V1 TEMPLATE) -->
+Según se observa en la Figura 2.33, el Bounded Context Subscriptions está clasificado como un Generic Domain diseñado para gestionar de forma integral el ciclo de vida de los planes comerciales, las solicitudes de activación, las renovaciones y las cancelaciones. Este contexto se comunica con la pasarela de pagos externa Stripe mediante una capa de anticorrupción (ACL) para procesar transacciones mediante webhooks y, bajo un conjunto de reglas de negocio que incluyen políticas de verificación de pago y de sincronización de derechos (Entitlements), expone de forma saliente el estado de las capacidades activas para que los demás contextos de la aplicación puedan habilitar o restringir las funcionalidades correspondientes a cada usuario.
 
-La Figura 2.34 presenta el Bounded Context Canvas de Subscriptions.
+<a id="figura-2-33"></a>**Figura 2.33.** Bounded Context Canvas de Subscriptions
 
-<a id="figura-2-34"></a>**Figura 2.34.** Bounded Context Canvas de Subscriptions
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
-Subscriptions
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-core/supportive/generic/other
-</div>
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Generic - </strong>
-Gestiona el modelo comercial de Guardian+, controlando el ciclo de vida de las suscripciones, planes y beneficios disponibles para cada usuario.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-Summary of purpose and responsibilities - not implementation
-</div>
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona el ciclo de vida de una Subscription desde su solicitud y activación hasta su renovación, cambio de Plan, cancelación y expiración. Coordina los pagos requeridos con el Payment Provider y mantiene sincronizados los Entitlements que determinan las capacidades disponibles para el Subscriber.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
-Key business rules and policies
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Payment Verification Policy
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Subscriptions</span>
 </td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Renewal Scheduler Policy
-</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Entitlement Synchronization Policy
-</td>
-</tr>
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Subscription Activation Requirements
-</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Cancellation Effective Date Policy
-</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Plan Change Conditions Policy
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
 </td>
 </tr>
 </table>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
-Key domain terminology
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0"
-       style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-<tr>
-<td width="50%" valign="top">
-• Subscription<br>
-• Plan<br>
-• Subscriber<br>
-• Renewal
-</td>
-<td width="50%" valign="top">
-• Entitlement<br>
-• Payment Attempt<br>
-• Cancellation<br>
-• Expiration
-</td>
-</tr>
-</table>
-
-</td>
-
-<td width="58%" valign="top" style="padding: 0;">
-
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-
-<div align="center">
-<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
-</div>
-
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
-<tr>
-
-<td width="50%" valign="top" align="center"
-    style="border-right: 1px solid #ddd; padding-right: 10px;">
-
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Subscription Status
-</td>
-</tr>
-</table>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Current Plan
-</td>
-</tr>
-</table>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center;">
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Check Available Entitlements
-</td>
-</tr>
-</table>
-
-</td>
-
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Request / Activate Subscription
 </td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Renew Subscription
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Request / Apply Plan Change
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Request / Execute Cancellation
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Process Payment Result
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Entitlements
-</td></tr>
-</table>
-
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Gestiona el ciclo de vida de una Subscription desde su solicitud y activación hasta su renovación, cambio de Plan, cancelación y expiración. Coordina los pagos requeridos con el Payment Provider y mantiene sincronizados los Entitlements que determinan las capacidades disponibles para el Subscriber.</div>
+</td>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- core</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- supporting</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- generic</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- revenue</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- engagement</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- custom built</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- product</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- commodity</div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Generic - </strong>Gestiona el modelo comercial de Guardian+, controlando el ciclo de vida de las suscripciones, planes y beneficios disponibles para cada usuario.</div>
+</td>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- execution context</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- analysis context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other</div>
 </td>
 </tr>
 </table>
-</div>
-
-<div style="padding: 12px;">
-
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">
-Interactions with other bounded contexts and services
-</span>
-</div>
-
-<table width="100%" border="1" cellpadding="6" cellspacing="0"
-       style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
-
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td>IAM</td>
-<td>Provee la identidad autenticada y el UserId del Subscriber</td>
-<td>Internal</td>
-<td>In (OHS / PL)</td>
-</tr>
-
-<tr>
-<td>Stripe</td>
-<td>Procesa pagos de activación y renovación y devuelve confirmaciones o fallos mediante webhooks</td>
-<td>External</td>
-<td>In / Out (ACL)</td>
-</tr>
-
-<tr>
-<td>Guardian+ Feature Contexts</td>
-<td>Consumen el estado de los Entitlements para habilitar capacidades asociadas al plan activo</td>
-<td>Internal</td>
-<td>Out (OHS / PL)</td>
-</tr>
-
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Subscription Status</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Current Plan</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Check Available Entitlements</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Request / Activate Subscription</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Renew Subscription</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Request / Apply Plan Change</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Request / Execute Cancellation</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Process Payment Result</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Update Entitlements</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS / PL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee la identidad autenticada y el UserId del Subscriber</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Stripe</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">In / Out (ACL)</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Procesa pagos de activación y renovación y devuelve confirmaciones o fallos mediante webhooks</div></td></tr>
 </table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Subscription</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Plan</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Subscriber</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Renewal</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Entitlement</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Payment Attempt</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Cancellation</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Expiration</div>
 </div>
-
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Payment Verification Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Renewal Scheduler Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Entitlement Synchronization Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Subscription Activation Requirements</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Cancellation Effective Date Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Plan Change Conditions Policy</div>
+</div>
+</td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Procesa pagos de activación y renovación y devuelve confirmaciones o fallos mediante webhooks</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Stripe</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">In / Out (ACL)</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consumen el estado de los Entitlements para habilitar capacidades asociadas al plan activo</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Guardian+ Feature Contexts</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS / PL</span></td></tr>
+</table>
 </td>
 </tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los usuarios aceptan un modelo freemium con un plan básico gratuito y un plan premium con reportes e historial detallado.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Stripe confirma o rechaza cada pago de forma confiable mediante webhooks.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los demás contextos habilitan sus capacidades consultando únicamente el estado de los Entitlements.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tasa de conversión del plan gratuito al plan premium.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Proporción de renovaciones exitosas frente a pagos fallidos.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo entre la confirmación del pago y la actualización de los Entitlements.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Qué ocurre con los Entitlements mientras se reintenta un pago fallido?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Un cambio de Plan se aplica de inmediato o al cierre del periodo vigente?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: Profile (Generic Domain)
 
-<!-- CANVAS: PROFILE (NICK TUNE V1 TEMPLATE) -->
+En la Figura 2.34, el Bounded Context Profile está catalogado como un Generic Domain encargado de gestionar la identidad descriptiva, la información personal de contacto y las relaciones de cuidado (Care Relationships) entre los usuarios y las personas protegidas. Este contexto recibe la identidad autenticada desde IAM resguardando la propiedad de las credenciales, valida la integridad de los datos mediante una política de completitud del perfil y administra las preferencias de idioma y accesibilidad de la aplicación; de manera saliente, distribuye asíncronamente estos datos descriptivos hacia múltiples contextos dependientes (como Emergency & Alerting, Health Monitoring, Care Routines & Wellness y Mobility & Geofencing) para permitir la correcta asignación de rutinas, zonas seguras y el mantenimiento actualizado del círculo de cuidado.
 
-La Figura 2.35 presenta el Bounded Context Canvas de Profile.
+<a id="figura-2-34"></a>**Figura 2.34.** Bounded Context Canvas de Profile
 
-<a id="figura-2-35"></a>**Figura 2.35.** Bounded Context Canvas de Profile
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-
-<td width="42%" valign="top"
-    style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
-Profile
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-core/supportive/generic/other
-</div>
-
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Generic - </strong>
-Proporciona la identidad descriptiva, las relaciones de cuidado y las preferencias necesarias para que los demás contextos de Guardian+ operen sobre usuarios y personas bajo cuidado.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-Summary of purpose and responsibilities - not implementation
-</div>
-
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona los User Profiles y Care Recipient Profiles de Guardian+, mantiene la información personal y de contacto, establece y finaliza Care Relationships entre usuarios y personas bajo cuidado, y administra las preferencias de idioma, accesibilidad y experiencia de uso.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
-Key business rules and policies
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Profile</span>
+</td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Profile Completeness Policy
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Gestiona los User Profiles y Care Recipient Profiles de Guardian+, mantiene la información personal y de contacto, establece y finaliza Care Relationships entre usuarios y personas bajo cuidado, y administra las preferencias de idioma, accesibilidad y experiencia de uso.</div>
 </td>
-
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Care Relationship Lifecycle Policy
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- core</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- supporting</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- generic</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- engagement</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- custom built</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- commodity</strong></div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Generic - </strong>Proporciona la identidad descriptiva, las relaciones de cuidado y las preferencias necesarias para que los demás contextos de Guardian+ operen sobre usuarios y personas bajo cuidado.</div>
 </td>
-
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-IAM Identity Ownership Boundary
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- execution context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- analysis context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- other: specification context</strong></div>
 </td>
 </tr>
-
-<tr>
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Profile Completeness Policy
-</td>
-
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Care Recipient Linking Policy
-</td>
-
-<td width="32%" bgcolor="#e8eaf6"
-    style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Preference Validation Policy
-</td>
-</tr>
-
 </table>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
-Key domain terminology
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get User Profile</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Care Recipient Profile</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Care Relationships</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get User Preferences</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Create / Update Profile</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Update Contact Information</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Create Care Recipient Profile</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Establish / End Care Relationship</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Update Language &amp; Accessibility</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Update Application Preferences</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS / PL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee la identidad autenticada y el UserId asociado al Profile sin transferir la propiedad de credenciales</div></td></tr>
+</table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">User Profile</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Care Recipient Profile</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Care Relationship</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Profile Completeness</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">User Preferences</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Contact Information</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Language Preference</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Accessibility Preference</div>
 </div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0"
-       style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-
-<tr>
-<td width="50%" valign="top">
-• User Profile<br>
-• Care Recipient Profile<br>
-• Care Relationship<br>
-• Profile Completeness
-</td>
-
-<td width="50%" valign="top">
-• User Preferences<br>
-• Contact Information<br>
-• Language Preference<br>
-• Accessibility Preference
-</td>
-</tr>
-
-</table>
-
-</td>
-
-<td width="58%" valign="top" style="padding: 0;">
-
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-
-<div align="center">
-<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Profile Completeness Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Care Relationship Lifecycle Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">IAM Identity Ownership Boundary</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Care Recipient Linking Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Preference Validation Policy</div>
 </div>
-
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
-
-<tr>
-
-<td width="50%" valign="top" align="center"
-    style="border-right: 1px solid #ddd; padding-right: 10px;">
-
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get User Profile
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Care Recipient Profile
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Care Relationships
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0"
-       bgcolor="#e8f5e9"
-       style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get User Preferences
-</td></tr>
-</table>
-
 </td>
-
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Create / Update Profile
-</td></tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume cambios en Care Relationships y contactos para mantener una proyección local del Care Circle</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Customer / Supplier + ECST</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume la identidad del Care Recipient necesaria para asociar información de monitoreo</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Health Monitoring</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Supplier</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume la identidad del Care Recipient y sus relaciones de cuidado para asignar rutinas</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Care Routines &amp; Wellness</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Supplier</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume la identidad de la persona bajo cuidado para asociar zonas seguras y seguimiento</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Mobility &amp; Geofencing</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Supplier</span></td></tr>
 </table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Contact Information
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Create Care Recipient Profile
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Establish / End Care Relationship
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Language &amp; Accessibility
-</td></tr>
-</table>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0"
-       bgcolor="#e3f2fd"
-       style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Application Preferences
-</td></tr>
-</table>
-
 </td>
 </tr>
 </table>
-
-</div>
-
-<div style="padding: 12px;">
-
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">
-Interactions with other bounded contexts and services
-</span>
-</div>
-
-<table width="100%" border="1" cellpadding="6" cellspacing="0"
-       style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
-
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td>IAM</td>
-<td>Provee la identidad autenticada y el UserId asociado al Profile sin transferir la propiedad de credenciales</td>
-<td>Internal</td>
-<td>In (OHS / PL)</td>
-</tr>
-
-<tr>
-<td>Emergency &amp; Alerting</td>
-<td>Consume cambios en Care Relationships y contactos para mantener una proyección local del Care Circle</td>
-<td>Internal</td>
-<td>Out (Customer / Supplier + ECST)</td>
-</tr>
-
-<tr>
-<td>Health Monitoring</td>
-<td>Consume la identidad del Care Recipient necesaria para asociar información de monitoreo</td>
-<td>Internal</td>
-<td>Out (Supplier)</td>
-</tr>
-
-<tr>
-<td>Care Routines &amp; Wellness</td>
-<td>Consume la identidad del Care Recipient y sus relaciones de cuidado para asignar rutinas</td>
-<td>Internal</td>
-<td>Out (Supplier)</td>
-</tr>
-
-<tr>
-<td>Mobility &amp; Geofencing</td>
-<td>Consume la identidad de la persona bajo cuidado para asociar zonas seguras y seguimiento</td>
-<td>Internal</td>
-<td>Out (Supplier)</td>
-</tr>
-
-</table>
-
-</div>
-
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Un cuidador puede mantener varias Care Relationships activas con distintos Care Recipients.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los usuarios tienen niveles variados de familiaridad tecnológica, por lo que las preferencias de idioma y accesibilidad influyen en su experiencia.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los eventos CareRelationshipEstablished y CareRelationshipEnded bastan para mantener sincronizado el Care Circle de Emergency &amp; Alerting.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de perfiles que cumplen la Profile Completeness Policy.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo de propagación de un cambio de Care Relationship hacia Emergency &amp; Alerting.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de usuarios que configuran sus preferencias de idioma y accesibilidad.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Qué ocurre con los Emergency Contacts si se finaliza una Care Relationship durante un incidente abierto?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿El Care Recipient puede gestionar su propio perfil o solo sus cuidadores?</div>
 </td>
 </tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: Mobility & Geofencing (Supporting Domain)
-<!-- CANVAS: MOBILITY & GEOFENCING (NICK TUNE V1 TEMPLATE) -->
 
-La Figura 2.36 presenta el Bounded Context Canvas de Mobility & Geofencing.
+Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing está catalogado como un Supporting Domain cuyo propósito es gestionar el seguimiento de ubicación en tiempo real de la persona cuidada y administrar las geocercas configuradas para detectar cualquier violación de zona. El contexto procesa de manera entrante la telemetría del hardware externo (Wearable Device) mediante una capa de anticorrupción (ACL), y asocia estas coordenadas con los datos contextuales provistos por el dominio de Profile; aplicando rigurosas reglas de negocio como una política de validación de ubicación (coordenadas válidas y marca temporal correcta) y una política de límites de zona segura, este componente evalúa la posición y emite de forma saliente el evento de integración SafeZoneViolation hacia el contexto de Emergency & Alerting para iniciar el flujo de atención ante emergencias.
 
-<a id="figura-2-36"></a>**Figura 2.36.** Bounded Context Canvas de Mobility & Geofencing
+<a id="figura-2-35"></a>**Figura 2.35.** Bounded Context Canvas de Mobility & Geofencing
 
-<table class="canvas" table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">
-Mobility &amp; Geofencing
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: Mobility &amp; Geofencing</span>
+</td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Gestiona el seguimiento de ubicación de la persona bajo cuidado, administra las Safe Zones configuradas y evalúa las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una violación de dicha zona.</div>
+</td>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- core</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- supporting</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- generic</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- engagement</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- compliance</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- custom built</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- commodity</div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Supporting - </strong>Proporciona capacidades de seguimiento de ubicación y control de zonas seguras que complementan las funciones principales de monitoreo y respuesta ante emergencias de Guardian+.</div>
+</td>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- execution context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- analysis context</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other</div>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Current Location</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Location History</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Active Safe Zone</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get Location Status</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Create Safe Zone</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Update Safe Zone</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Receive Location</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Evaluate Location</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Record Location Status</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Record Safe Zone Violation</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Wearable Device / Location Provider</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Proporciona las coordenadas de ubicación utilizadas para evaluar la posición del adulto mayor respecto a las zonas seguras configuradas.</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Customer/Supplier</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Permite asociar las geocercas con el adulto mayor y resolver la información contextual necesaria para su configuración.</div></td></tr>
+<tr><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>IAM</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS</span></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Valida la autenticación y autorización de las operaciones de creación, actualización y gestión de geocercas.</div></td></tr>
+</table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Geofence</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Safe Zone</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Location</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Location Tracking</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Location Status</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Zone Violation</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Coordinates</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Safe Zone Boundary</div>
 </div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-core/supportive/generic/other
-</div>
-
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Supporting - </strong>
-Proporciona capacidades de seguimiento de ubicación y control de zonas seguras que complementan las funciones principales de monitoreo y respuesta ante emergencias de Guardian+.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">
-Summary of purpose and responsibilities - not implementation
-</div>
-
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona el seguimiento de ubicación de la persona bajo cuidado, administra las Safe Zones configuradas y evalúa las ubicaciones recibidas para determinar si la persona permanece dentro de una zona segura o si se ha producido una violación de dicha zona.
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">
-Key business rules and policies
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-
-<tr>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Safe Zone Boundary Policy
-</td>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Location Validation Policy
-</td>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Zone Violation Detection Policy
-</td>
-
-</tr>
-
-<tr>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-La ubicación se evalúa respecto a la zona segura activa configurada.
-</td>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Solo se procesan ubicaciones que contengan coordenadas válidas y una marca temporal válida.
-</td>
-
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">
-Una salida de la zona segura genera un evento de violación para iniciar el flujo de atención correspondiente.
-</td>
-
-</tr>
-
-</table>
-
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">
-Ubiquitous Language
-</div>
-
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">
-Key domain terminology
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-
-<tr>
-
-<td width="50%" valign="top">
-• Geofence<br>
-• Safe Zone<br>
-• Location<br>
-• Location Tracking
-</td>
-
-<td width="50%" valign="top">
-• Location Status<br>
-• Zone Violation<br>
-• Coordinates<br>
-• Safe Zone Boundary
-</td>
-
-</tr>
-
-</table>
-
-</td>
-
-
-<td width="58%" valign="top" style="padding: 0;">
-
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-
-<div align="center">
-<strong style="font-size: 1em;">
-Capabilities &amp; Responsibilities
-</strong>
-<br>
-<span style="font-size: 0.75em; color: #777;">
-Services provided to consumers
-</span>
-</div>
-
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
-
-<tr>
-
-<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-
-<strong style="font-size: 0.85em;">
-Informational
-</strong>
-
-<br>
-
-<span style="font-size: 0.7em; color: #777;">
-Queries, reports, etc.
-</span>
-
-<br><br>
-
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Current Location
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Location History
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Active Safe Zone
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">
-Get Location Status
-</td>
-</tr>
-
-</table>
-
-</td>
-
-
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-
-<strong style="font-size: 0.85em;">
-Actions
-</strong>
-
-<br>
-
-<span style="font-size: 0.7em; color: #777;">
-Invokable commands, scheduled tasks, etc.
-</span>
-
-<br><br>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Create Safe Zone
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Update Safe Zone
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Receive Location
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Evaluate Location
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Record Location Status
-</td>
-</tr>
-
-</table>
-
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-
-<tr>
-<td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">
-Record Safe Zone Violation
-</td>
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div style="padding: 12px;">
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">
-Interactions with other bounded contexts and services
-</span>
-</div>
-
-<table width="100%" border="1" cellpadding="6" cellspacing="0"
-style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
-
-<tr>
-<td>Wearable Device / Location Provider</td>
-<td>
-Proporciona las coordenadas de ubicación utilizadas
-para evaluar la posición del adulto mayor respecto
-a las zonas seguras configuradas.
-</td>
-<td>External</td>
-<td>In (ACL)</td>
-</tr>
-
-<tr>
-<td>Profile</td>
-<td>
-Permite asociar las geocercas con el adulto mayor
-y resolver la información contextual necesaria
-para su configuración.
-</td>
-<td>Internal</td>
-<td>In (Customer/Supplier)</td>
-</tr>
-
-<tr>
-<td>IAM</td>
-<td>
-Valida la autenticación y autorización de las
-operaciones de creación, actualización y gestión
-de geocercas.
-</td>
-<td>Internal</td>
-<td>In (OHS)</td>
-</tr>
-
-<tr>
-<td>Emergency &amp; Alerting</td>
-<td>
-Consume el evento SafeZoneBreached generado cuando
-la ubicación del adulto mayor se encuentra fuera
-de los límites de una zona segura.
-</td>
-<td>Internal</td>
-<td>Out (Published Language)</td>
-</tr>
-
-</table>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Safe Zone Boundary Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Location Validation Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Zone Violation Detection Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">La ubicación se evalúa respecto a la zona segura activa configurada.</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Solo se procesan ubicaciones que contengan coordenadas válidas y una marca temporal válida.</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Una salida de la zona segura genera un evento de violación para iniciar el flujo de atención correspondiente.</div>
 </div>
 </td>
-
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Consume el evento SafeZoneViolation generado cuando la ubicación del adulto mayor se encuentra fuera de los límites de una zona segura.</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">Published Language</span></td></tr>
+</table>
+</td>
 </tr>
-
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- La ubicación reportada por el Wearable Device o Location Provider es lo bastante precisa para evaluar los límites de una Safe Zone.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Emergency &amp; Alerting solo necesita el evento SafeZoneViolation y no el historial completo de coordenadas.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Una única Safe Zone activa por persona cubre los escenarios de cuidado iniciales.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de violaciones de zona segura descartadas como falsas alarmas.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo entre la recepción de una ubicación fuera de zona y la emisión de SafeZoneViolation.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de ubicaciones rechazadas por la Location Validation Policy.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Se requiere un margen de tolerancia en el límite de la Safe Zone para compensar la imprecisión del GPS?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Las Safe Zones deben admitir horarios distintos según el día?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ##### Bounded Context: IAM (Generic Domain)
 
-<!-- CANVAS: IAM (NICK TUNE V1 TEMPLATE) -->
+En la Figura 2.36, el Bounded Context IAM (Identity & Access Management) está clasificado como un Generic Domain encargado de gestionar el ciclo de vida completo de la identidad digital de los usuarios, incluyendo el registro de credenciales, el restablecimiento seguro de contraseñas y la autenticación reforzada mediante segundo factor (2FA/OTP). Este contexto actúa bajo el patrón de arquitectura Open Host Service (OHS), aplicando reglas de negocio estrictas como una política de unicidad de correo electrónico y una política de autenticación obligatoria por OTP; de forma saliente, despacha notificaciones transaccionales a través de un proveedor externo de correo utilizando una capa de anticorrupción (ACL), y provee la identidad autenticada (UserId) para validar de manera centralizada la autorización de cada comando en los contextos dependientes de Profile, Subscriptions, Health Monitoring, Emergency & Alerting y Mobility & Geofencing.
 
-La Figura 2.37 presenta el Bounded Context Canvas de IAM.
+<a id="figura-2-36"></a>**Figura 2.36.** Bounded Context Canvas de IAM
 
-<a id="figura-2-37"></a>**Figura 2.37.** Bounded Context Canvas de IAM
-
-<table class="canvas" table border="1" width="100%" cellpadding="10" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif;">
+<table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="42%" valign="top" style="border-right: 2px solid #333; border-bottom: none; padding: 15px;">
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Name</div>
-<div style="color: #c62828; font-size: 1.3em; font-weight: bold; margin-top: 4px; margin-bottom: 12px;">IAM</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Strategic Classification</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">core/supportive/generic/other</div>
-<div style="color: #c62828; font-size: 1em; margin-bottom: 12px;">
-<strong>Generic - </strong> Provee acceso seguro a la plataforma mediante un problema común a cualquier sistema de software (identidad y autenticación), sin constituir un diferenciador propio de Guardian+.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Description</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 4px;">Summary of purpose and responsibilities - not implementation</div>
-<div style="color: #c62828; font-size: 0.95em; line-height: 1.4; margin-bottom: 15px;">
-Gestiona el ciclo de vida completo de la identidad digital de cuidadores y familiares registrados en Guardian+: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña. Actúa como el Open Host Service que emite y valida la identidad autenticada consumida por el resto de los Bounded Contexts.
-</div>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Business Policies</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 8px;">Key business rules and policies</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="4" style="text-align: center;">
-<tr>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Email Uniqueness Policy</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Mandatory Email Verification Policy</td>
-<td width="32%" bgcolor="#e8eaf6" style="border: 1px solid #3f51b5; padding: 8px; font-size: 0.8em;">Two-Factor OTP Authentication Policy</td>
-</tr>
-</table>
-<hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-
-<div style="font-size: 0.9em; font-weight: bold; color: #222;">Ubiquitous Language</div>
-<div style="font-size: 0.75em; color: #777; margin-bottom: 6px;">Key domain terminology</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #c62828; font-weight: bold; font-size: 0.85em;">
-<tr>
-<td width="50%" valign="top">
-• UserAccount<br>
-• Credentials<br>
-• Email Verification<br>
-• One-Time Password (OTP)<br>
-• Password Reset Token
+<td width="63%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<span style="font-size: 15pt; font-weight: bold; color: #212121;">Name: IAM</span>
 </td>
-<td width="50%" valign="top">
-• Password Reset Token<br>
-• Authenticated User<br>
-• Login Session<br>
-• Two-Factor Authentication (2FA)
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; background: #e0e0e0;">
+<div style="font-size: 8pt; font-weight: bold; color: #757575;">V5</div><div style="font-size: 8pt; font-weight: bold; color: #757575;">github.com/ddd-crew/bounded-context-canvas</div>
 </td>
 </tr>
 </table>
-</td>
-
-<td width="58%" valign="top" style="padding: 0;">
-<div style="padding: 12px; border-bottom: 2px solid #333;">
-<div align="center">
-<strong style="font-size: 1em;">Capabilities &amp; Responsibilities</strong><br>
-<span style="font-size: 0.75em; color: #777;">Services provided to consumers</span>
-</div>
-<table width="100%" border="0" cellpadding="8" cellspacing="0" style="margin-top: 8px;">
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td width="50%" valign="top" align="center" style="border-right: 1px solid #ddd; padding-right: 10px;">
-<strong style="font-size: 0.85em;">Informational</strong><br>
-<span style="font-size: 0.7em; color: #777;">Queries, reports, etc.</span><br><br>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Id</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center; margin-bottom: 8px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Get User Account By Email</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="8" cellspacing="0" bgcolor="#e8f5e9" style="border: 1px solid #2e7d32; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #1b5e20;">Check Email Availability</td></tr>
-</table>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Purpose</div>
+<div style="font-size: 8.5pt; line-height: 1.4; margin-top: 4px;">Gestiona el ciclo de vida completo de la identidad digital de cuidadores y familiares registrados en Guardian+: registro y verificación de credenciales, autenticación reforzada mediante un segundo factor (OTP) y recuperación segura de contraseña. Actúa como el Open Host Service que emite y valida la identidad autenticada consumida por el resto de los Bounded Contexts.</div>
 </td>
-<td width="50%" valign="top" align="center" style="padding-left: 10px;">
-<strong style="font-size: 0.85em;">Actions</strong><br>
-<span style="font-size: 0.7em; color: #777;">Invokable commands, scheduled tasks, etc.</span><br><br>
-
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Register User Credentials</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Issue Email Verification Code</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Verify Email</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Login (Validate Credentials)</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Trigger / Verify OTP (2FA)</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center; margin-bottom: 6px;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Request Password Reset</td></tr>
-</table>
-<table width="90%" border="0" cellpadding="6" cellspacing="0" bgcolor="#e3f2fd" style="border: 1px solid #1565c0; text-align: center;">
-<tr><td style="font-size: 0.8em; font-weight: bold; color: #0d47a1;">Reset Password</td></tr>
-</table>
+<td width="41%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Strategic Classification</div>
+<table width="100%" style="border-collapse: collapse; margin-top: 4px;"><tr>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Domain</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- core</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- supporting</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- generic</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- other?</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Business Model</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- revenue</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- engagement</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- compliance</strong></div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- cost reduction</div></td>
+<td valign="top" style="border: none; padding: 0 4px; vertical-align: top;"><div style="font-size: 8.5pt; font-weight: bold; color: #616161;">Evolution</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- genesis</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- custom built</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- product</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- commodity</strong></div></td>
+</tr></table>
+<div style="font-size: 8pt; line-height: 1.4; margin-top: 6px;"><strong>Generic - </strong>Provee acceso seguro a la plataforma mediante un problema común a cualquier sistema de software (identidad y autenticación), sin constituir un diferenciador propio de Guardian+.</div>
+</td>
+<td width="23%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Domain Roles</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #616161; margin-top: 4px;">Role Types</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- draft context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- execution context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- analysis context</div>
+<div style="font-size: 8pt; color: #9e9e9e; padding: 0 3px;">- gateway context</div>
+<div style="font-size: 8pt; font-weight: bold; color: #212121; background: #e0e0e0; padding: 0 3px;"><strong>- other: enforcer context</strong></div>
 </td>
 </tr>
 </table>
-</div>
-
-<div style="padding: 12px;">
-<div align="center" style="margin-bottom: 8px;">
-<strong style="font-size: 1em;">Dependencies</strong><br>
-<span style="font-size: 0.75em; color: #777;">Interactions with other bounded contexts and services</span>
-</div>
-<table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size: 0.8em; text-align: left;">
-<tr bgcolor="#f5f5f5">
-<th>Name</th>
-<th>Reason</th>
-<th>System</th>
-<th>Relationship</th>
-</tr>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
 <tr>
-<td>Email Provider</td>
-<td>Envía los correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña</td>
-<td>External</td>
-<td>Out (ACL)</td>
-</tr>
-<tr>
-<td>Profile</td>
-<td>Provee identidad autenticada (UserId) para que Profile asocie la información descriptiva del usuario</td>
-<td>Internal</td>
-<td>Out (OHS/PL)</td>
-</tr>
-<tr>
-<td>Subscriptions</td>
-<td>Provee identidad autenticada (UserId) para resolver el titular de la suscripción</td>
-<td>Internal</td>
-<td>Out (OHS/PL)</td>
-</tr>
-<tr>
-<td>Health Monitoring</td>
-<td>Provee identidad autenticada (UserId) para autorizar el acceso a la telemetría del Fragile Citizen</td>
-<td>Internal</td>
-<td>Out (OHS/PL)</td>
-</tr>
-<tr>
-<td>Emergency &amp; Alerting</td>
-<td>Valida identidad y autorización de cada comando de incidentes, alertas y escalamiento</td>
-<td>Internal</td>
-<td>Out (OHS/PL)</td>
-</tr>
-<tr>
-<td>Mobility &amp; Geofencing</td>
-<td>Valida la autenticación y autorización de las operaciones de creación y gestión de geocercas</td>
-<td>Internal</td>
-<td>Out (OHS/PL)</td>
-</tr>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Inbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td><td width="8%" style="border: none;"></td><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0; font-size: 8pt;"><strong>Consumers</strong> <span style="color: #757575;">(Services provided to consumers)</span></td></tr>
+<tr><td colspan="3" style="border: none; padding: 2px 0 6px 0;"><div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get User Account By Id</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Get User Account By Email</div>
+<div style="display: inline-block; background: #eef7c8; border: 2px solid #c5e17a; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Check Email Availability</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Register User Credentials</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Issue Email Verification Code</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Verify Email</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Login (Validate Credentials)</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Trigger / Verify OTP (2FA)</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Request Password Reset</div>
+<div style="display: inline-block; background: #d6e6f7; border: 2px solid #8fb8e6; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Reset Password</div></td></tr>
 </table>
+</td>
+<td width="26%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top; border: 2px solid #9e9e9e; background: #ffffff;">
+<div style="text-align: center; margin-bottom: 6px;"><span style="background: #424242; color: #ffffff; font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">The Bounded Context Canvas V5</span></div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center;">Ubiquitous Language</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Context-specific domain terminology</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">UserAccount</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Credentials</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Email Verification</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">One-Time Password (OTP)</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Password Reset Token</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Authenticated User</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Login Session</div>
+<div style="display: inline-block; background: #f5f5f5; border: 1px dashed #9e9e9e; padding: 3px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; font-weight: bold; color: #212121;">Two-Factor Authentication (2FA)</div>
+</div>
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121; text-align: center; margin-top: 12px;">Business Decisions</div>
+<div style="font-size: 7.5pt; color: #9e9e9e; text-align: center; font-weight: bold; margin-bottom: 6px;">Key business rules, policies, and decisions</div>
+<div style="text-align: center;">
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Email Uniqueness Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Mandatory Email Verification Policy</div>
+<div style="display: inline-block; background: #e4d7ee; border: 2px solid #a481c9; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Two-Factor OTP Authentication Policy</div>
 </div>
 </td>
+<td width="37%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Outbound Communication</div>
+<table width="100%" style="border-collapse: collapse;">
+<tr><td width="58%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Messages</td><td width="8%" style="border: none;"></td><td width="34%" style="border: none; padding: 0 0 4px 0; font-size: 8.5pt; font-weight: bold; color: #9e9e9e;">Collaborator</td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Envía los correos de verificación de cuenta, códigos OTP y enlaces de recuperación de contraseña</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Email Provider</strong><br><span style="color: #757575;">External</span><br><span style="color: #757575;">ACL</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee identidad autenticada (UserId) para que Profile asocie la información descriptiva del usuario</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Profile</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS/PL</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee identidad autenticada (UserId) para resolver el titular de la suscripción</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Subscriptions</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS/PL</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Provee identidad autenticada (UserId) para autorizar el acceso a la telemetría del Fragile Citizen</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Health Monitoring</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS/PL</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Valida identidad y autorización de cada comando de incidentes, alertas y escalamiento</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Emergency &amp; Alerting</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS/PL</span></td></tr>
+<tr><td width="58%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 0; vertical-align: top;"><div style="display: inline-block; background: #fbf3cc; border: 2px solid #f0d36b; padding: 4px 6px; margin: 0 3px 4px 0; font-size: 7.5pt; color: #212121;">Valida la autenticación y autorización de las operaciones de creación y gestión de geocercas</div></td><td width="8%" valign="middle" style="border: none; padding: 4px 0; text-align: center; color: #bdbdbd; font-size: 14pt;">&#10140;</td><td width="34%" valign="top" style="border: none; border-top: 1px solid #eeeeee; padding: 4px 4px 4px 0; vertical-align: top; font-size: 8pt;"><strong>Mobility &amp; Geofencing</strong><br><span style="color: #757575;">Internal</span><br><span style="color: #757575;">OHS/PL</span></td></tr>
+</table>
+</td>
 </tr>
+</table>
+</td></tr>
+<tr><td style="padding: 0; border: none;">
+<table width="100%" style="border-collapse: collapse; table-layout: fixed;">
+<tr>
+<td width="40%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Assumptions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los cuidadores y familiares aceptan un segundo factor OTP al iniciar sesión sin abandonar la aplicación.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- El Email Provider entrega los códigos OTP y los enlaces de recuperación en pocos segundos.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Los demás contextos solo requieren el UserId autenticado y nunca los datos de credenciales.</div>
+</td>
+<td width="36%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Verification Metrics</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tasa de registros que completan la verificación de correo.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Porcentaje de inicios de sesión que fallan en la verificación OTP.</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- Tiempo promedio de entrega de los correos de verificación y OTP.</div>
+</td>
+<td width="24%" valign="top" style="border: 2px solid #212121; padding: 8px 10px; vertical-align: top;">
+<div style="font-size: 11.5pt; font-weight: bold; color: #212121;">Open Questions</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Cuál es la vigencia de un OTP y de un Password Reset Token?</div>
+<div style="font-size: 8pt; margin-bottom: 3px;">- ¿Se bloquea la cuenta tras varios intentos fallidos de inicio de sesión?</div>
+</td>
+</tr>
+</table>
+</td></tr>
 </table>
 
 ### 2.5.2. Context Mapping
@@ -4578,21 +4103,21 @@ La Tabla 2.52 presenta la leyenda de los patrones usados en los diagramas.
 | **ACL** | Anticorruption Layer | El downstream traduce el modelo del upstream a su propio Ubiquitous Language para que no contamine su dominio. |
 | Borde punteado | Sistema externo | Sistema fuera de Guardian+ con el que se integra un Bounded Context. |
 
-La Figura 2.38 presenta el Context Map global con todas las relaciones entre los Bounded Contexts y los sistemas externos.
+La Figura 2.37 presenta el Context Map global con todas las relaciones entre los Bounded Contexts y los sistemas externos.
 
-<a id="figura-2-38"></a>**Figura 2.38.** Context Map global de Guardian+
+<a id="figura-2-37"></a>**Figura 2.37.** Context Map global de Guardian+
 
 ![global-context-map](assets/images/chapterII/context-mapping/global-context-map.png)
 
-La Figura 2.39 responde qué señales disparan alertas en Emergency & Alerting.
+La Figura 2.38 responde qué señales disparan alertas en Emergency & Alerting.
 
-<a id="figura-2-39"></a>**Figura 2.39.** Context Map de las señales que disparan alertas
+<a id="figura-2-38"></a>**Figura 2.38.** Context Map de las señales que disparan alertas
 
 ![alerting-context-map](assets/images/chapterII/context-mapping/alerting-context-map.png)
 
-La Figura 2.40 muestra cómo se integran con Guardian+ la identidad provista por IAM y los sistemas externos.
+La Figura 2.39 muestra cómo se integran con Guardian+ la identidad provista por IAM y los sistemas externos.
 
-<a id="figura-2-40"></a>**Figura 2.40.** Context Map de identidad y sistemas externos
+<a id="figura-2-39"></a>**Figura 2.39.** Context Map de identidad y sistemas externos
 
 ![identity-external-context-map](assets/images/chapterII/context-mapping/identity-external-context-map.png)
 
@@ -4611,11 +4136,11 @@ La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patr�
 | Mobility & Geofencing → Emergency & Alerting | Mobility & Geofencing (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL**; **ACL** en Emergency & Alerting | Cuando una ubicación del Fragile Citizen queda fuera de su zona segura activa, Mobility & Geofencing emite de forma asíncrona el evento `SafeZoneViolation`, que Emergency & Alerting consume para disparar una alerta de severidad alta y activar el despacho a los contactos de emergencia. Para incluir la ubicación en la notificación, Emergency & Alerting consulta la última ubicación conocida mediante su ACL `MobilityContextAcl`, sin persistirla. |
 | Care Routines & Wellness → Emergency & Alerting | Care Routines & Wellness (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL** | El contexto de rutinas monitorea la actividad diaria del paciente. Si se registra una inactividad prolongada no justificada en horas diurnas (US27), emite el evento `ProlongedInactivityDetected`, consumido por Emergency & Alerting para ejecutar la verificación de bienestar. Del mismo modo, `ReminderReissued` y `MedicationRestockSuggested` se consumen como alertas de severidad media dirigidas al contacto primario. |
 | Profile → Emergency & Alerting | Profile (supplier) | Emergency & Alerting (customer) | **Customer/Supplier**; **ACL** en Emergency & Alerting | Emergency & Alerting requiere conocer qué integrantes del Care Circle pueden recibir alertas para el escalamiento a 60 segundos. Para no depender de Profile durante el despacho, mantiene su propia tabla `emergency_contacts` y consulta a Profile solo mediante su ACL `ProfileContextAcl`: al registrar un contacto verifica que exista una relación de cuidado activa y, al componer la notificación, obtiene el nombre del Fragile Citizen. Los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` de Profile son el contrato previsto para activar o desactivar los contactos (sección 2.6.4). |
-| Profile → Mobility & Geofencing | Profile | Mobility & Geofencing | **ACL** en Mobility & Geofencing | Mobility & Geofencing verifica los datos del Fragile Citizen mediante su componente Profile ACL, el adaptador anticorrupción que consume la información de identidad del contexto Profile (Figura 2.60). La columna `fragile_citizen_id` de sus tablas referencia los perfiles gobernados por Profile. |
+| Profile → Mobility & Geofencing | Profile | Mobility & Geofencing | **ACL** en Mobility & Geofencing | Mobility & Geofencing verifica los datos del Fragile Citizen mediante su componente Profile ACL, el adaptador anticorrupción que consume la información de identidad del contexto Profile (Figura 2.59). La columna `fragile_citizen_id` de sus tablas referencia los perfiles gobernados por Profile. |
 | IAM → Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing, Profile, Subscriptions | IAM | Los seis Bounded Contexts de negocio | **OHS** con **PL** | IAM provee autenticación y autorización mediante tokens de acceso estándar (JSON Web Tokens firmados) con un Published Language documentado. Los contextos descendentes validan la firma de los tokens y extraen el `UserId` y los roles sin consultar la base de datos de identidad en cada petición. |
 | Stripe → Subscriptions | Stripe (sistema externo) | Subscriptions | **ACL** | La gestión de pagos depende de las librerías oficiales del proveedor externo. Subscriptions implementa adaptadores (`PaymentWebhookController` y `PaymentProviderAdapter`) que traducen los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`). |
 | Notification Providers → Emergency & Alerting | Notification Providers (sistema externo) | Emergency & Alerting | **ACL** | Emergency & Alerting despacha las notificaciones mediante adaptadores por canal (`PushNotificationProviderAdapter` y `SmsProviderAdapter`) y recibe el resultado de cada entrega en `NotificationDeliveryWebhookController`, de modo que los formatos de los proveedores de push y SMS no alcancen al modelo de alertas. |
-| Email Provider → IAM | Email Provider (sistema externo) | IAM | **ACL** | IAM envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña mediante `EmailProviderAdapter`, ubicado en el paquete `infrastructure/notifications/adapters` (Figura 2.63), de modo que el proveedor de correo no alcance al modelo de identidad. |
+| Email Provider → IAM | Email Provider (sistema externo) | IAM | **ACL** | IAM envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña mediante `EmailProviderAdapter`, ubicado en el paquete `infrastructure/notifications/adapters` (Figura 2.62), de modo que el proveedor de correo no alcance al modelo de identidad. |
 
 ### 2.5.3. Software Architecture
 
@@ -4627,9 +4152,9 @@ En esta sección se presenta la vista de contexto de Guardian+ aplicando el C4 M
 
 Guardian+ es utilizado por tres tipos de actores: el Familiar, quien supervisa remotamente el bienestar de la persona bajo cuidado sin estar presente de forma permanente; el Cuidador, encargado del cuidado frecuente o permanente de dicha persona, ya sea de forma particular o institucional; y la Persona bajo cuidado (adulto mayor, persona con discapacidad o en situación de dependencia), quien interactúa con el sistema físicamente a través de la pulsera IoT.
 
-El sistema se integra con cuatro servicios externos, cada uno resolviendo una necesidad específica que Guardian+ no implementa por sí mismo: Stripe, para el procesamiento de pagos y suscripciones; un servicio de notificaciones push/SMS, para el despacho de alertas y recordatorios; un servicio de videollamada, que habilita la comunicación directa en tiempo real entre familiar/cuidador y la persona bajo cuidado; y Google Maps, utilizado tanto para la geocodificación y el cálculo de geocercas en el backend como para la visualización del mapa y la ubicación en tiempo real dentro de la aplicación móvil. La Figura 2.41 presenta el diagrama de contexto.
+El sistema se integra con cuatro servicios externos, cada uno resolviendo una necesidad específica que Guardian+ no implementa por sí mismo: Stripe, para el procesamiento de pagos y suscripciones; un servicio de notificaciones push/SMS, para el despacho de alertas y recordatorios; un servicio de videollamada, que habilita la comunicación directa en tiempo real entre familiar/cuidador y la persona bajo cuidado; y Google Maps, utilizado tanto para la geocodificación y el cálculo de geocercas en el backend como para la visualización del mapa y la ubicación en tiempo real dentro de la aplicación móvil. La Figura 2.40 presenta el diagrama de contexto.
 
-<a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contexto de Guardian+
+<a id="figura-2-40"></a>**Figura 2.40.** Diagrama de contexto de Guardian+
 
 ![context-diagram](assets/images/chapterII/c4-diagrams/system-context.png)
 
@@ -4639,10 +4164,10 @@ Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las u
 
 La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
 
-Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.42 presenta el diagrama de contenedores.
+Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
 
 
-<a id="figura-2-42"></a>**Figura 2.42.** Diagrama de contenedores de Guardian+
+<a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contenedores de Guardian+
 
 ![containers-diagram](assets/images/chapterII/c4-diagrams/containers.png)
 
@@ -4652,9 +4177,9 @@ Esta sección presenta la vista de componentes de la Guardian+ REST API, ilustra
 
 El backend se organiza en siete componentes, correspondientes uno a uno con los Bounded Contexts definidos en el diseño estratégico de Domain-Driven Design del equipo: Emergency & Alerting y Health Monitoring como Core Domains, encargados respectivamente de la detección/escalamiento de emergencias y del monitoreo de signos vitales — los diferenciadores centrales de la propuesta de valor de Guardian+; Care Routines & Wellness y Mobility & Geofencing como Supporting Domains, que dan soporte a la gestión de rutinas de bienestar y a la localización/geocercas; y IAM, Profile y Subscriptions como Generic Domains, que resuelven capacidades transversales reutilizables (identidad y autorización, gestión de perfiles, y planes de suscripción).
 
-Todos los componentes de negocio dependen de IAM para validar identidad y autorización mediante una capa anticorrupción (ACL), asegurando que cada comando solo pueda ser ejecutado por el actor correspondiente (por ejemplo, solo el Cuidador puede cancelar un recordatorio, o solo la persona bajo cuidado puede confirmarlo). Asimismo, Emergency & Alerting escucha eventos de integración emitidos por Health Monitoring, Care Routines & Wellness y Mobility & Geofencing — anomalías en signos vitales, inactividad prolongada y salida de zona segura respectivamente — reaccionando automáticamente para generar y escalar alertas; esta relación es la traducción directa de las políticas ya definidas en el Event Storming del equipo. Finalmente, Emergency & Alerting es también responsable de despachar las notificaciones push/SMS y de orquestar las sesiones de videollamada hacia los servicios externos correspondientes, mientras que Subscriptions se comunica con Stripe para el procesamiento de pagos. La Figura 2.43 presenta el diagrama de componentes.
+Todos los componentes de negocio dependen de IAM para validar identidad y autorización mediante una capa anticorrupción (ACL), asegurando que cada comando solo pueda ser ejecutado por el actor correspondiente (por ejemplo, solo el Cuidador puede cancelar un recordatorio, o solo la persona bajo cuidado puede confirmarlo). Asimismo, Emergency & Alerting escucha eventos de integración emitidos por Health Monitoring, Care Routines & Wellness y Mobility & Geofencing — anomalías en signos vitales, inactividad prolongada y salida de zona segura respectivamente — reaccionando automáticamente para generar y escalar alertas; esta relación es la traducción directa de las políticas ya definidas en el Event Storming del equipo. Finalmente, Emergency & Alerting es también responsable de despachar las notificaciones push/SMS y de orquestar las sesiones de videollamada hacia los servicios externos correspondientes, mientras que Subscriptions se comunica con Stripe para el procesamiento de pagos. La Figura 2.42 presenta el diagrama de componentes.
 
-<a id="figura-2-43"></a>**Figura 2.43.** Diagrama de componentes de la Guardian+ REST API
+<a id="figura-2-42"></a>**Figura 2.42.** Diagrama de componentes de la Guardian+ REST API
 
 ![components-diagram](assets/images/chapterII/c4-diagrams/components.png)
 
@@ -4664,9 +4189,9 @@ En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4
 
 La Guardian+ Landing Page se publica en Cloudflare Pages, que la distribuye a través de la red global de entrega de contenido de Cloudflare. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 26 dentro de una máquina virtual de Microsoft Azure con Ubuntu 24.04, detrás del proxy inverso Caddy, que la publica por HTTPS, y persiste su información en la Guardian+ Database, alojada en el servicio gestionado Azure Database for PostgreSQL. Ambos servicios se ubican en la región Chile Central para reducir la latencia entre el backend y la base de datos.
 
-La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.44 presenta el diagrama de despliegue.
+La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.43 presenta el diagrama de despliegue.
 
-<a id="figura-2-44"></a>**Figura 2.44.** Diagrama de despliegue de Guardian+
+<a id="figura-2-43"></a>**Figura 2.43.** Diagrama de despliegue de Guardian+
 
 ![deployment-diagram](assets/images/chapterII/c4-diagrams/deployment.png)
 
@@ -5113,9 +4638,9 @@ Implementa la persistencia técnica en PostgreSQL, la integración con los prove
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.45 presenta los componentes del Bounded Context **Emergency & Alerting** organizados por capa: los controladores REST, el consumidor de eventos de integración y el webhook de entrega en la Interface Layer; los servicios, event handlers y schedulers en la Application Layer; los agregados y servicios de dominio en la Domain Layer; y los adaptadores de persistencia y notificación en la Infrastructure Layer.
+La Figura 2.44 presenta los componentes del Bounded Context **Emergency & Alerting** organizados por capa: los controladores REST, el consumidor de eventos de integración y el webhook de entrega en la Interface Layer; los servicios, event handlers y schedulers en la Application Layer; los agregados y servicios de dominio en la Domain Layer; y los adaptadores de persistencia y notificación en la Infrastructure Layer.
 
-<a id="figura-2-45"></a>**Figura 2.45.** Diagrama de componentes del Bounded Context Emergency & Alerting
+<a id="figura-2-44"></a>**Figura 2.44.** Diagrama de componentes del Bounded Context Emergency & Alerting
 
 ![Emergency & Alerting Component Diagram](assets/images/chapterII/c4-diagrams/EmergencyAlerting_Layers_Component.png)
 
@@ -5125,17 +4650,17 @@ En esta sección se presenta la estructura interna del Bounded Context **Emergen
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.46 presenta la Domain Layer de **Emergency & Alerting**, organizada alrededor de los agregados `Alert`, `Incident`, `AlertSettings`, `EmergencyContact` y `AlertChannelSetting`, junto con sus entidades, Value Objects, servicios de dominio y repositorios.
+El diagrama UML de la Figura 2.45 presenta la Domain Layer de **Emergency & Alerting**, organizada alrededor de los agregados `Alert`, `Incident`, `AlertSettings`, `EmergencyContact` y `AlertChannelSetting`, junto con sus entidades, Value Objects, servicios de dominio y repositorios.
 
-<a id="figura-2-46"></a>**Figura 2.46.** Diagrama de clases de la Domain Layer de Emergency & Alerting
+<a id="figura-2-45"></a>**Figura 2.45.** Diagrama de clases de la Domain Layer de Emergency & Alerting
 
 ![Emergency & Alerting Domain Class Diagram](assets/images/chapterII/classDiagrams/EmergencyAlertingDomainClassDiagram.png)
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.47 presenta el diseño de persistencia de **Emergency & Alerting**. La tabla `alerts` concentra el ciclo de vida de cada alerta y se relaciona con `alert_deliveries`, `alert_responses` e `incidents`, mientras que `alert_settings`, `emergency_contacts` y `alert_channel_settings` guardan la configuración del Care Circle. Las tablas `user_accounts` y `care_recipient_profiles` se muestran como referencias externas.
+La Figura 2.46 presenta el diseño de persistencia de **Emergency & Alerting**. La tabla `alerts` concentra el ciclo de vida de cada alerta y se relaciona con `alert_deliveries`, `alert_responses` e `incidents`, mientras que `alert_settings`, `emergency_contacts` y `alert_channel_settings` guardan la configuración del Care Circle. Las tablas `user_accounts` y `care_recipient_profiles` se muestran como referencias externas.
 
-<a id="figura-2-47"></a>**Figura 2.47.** Diagrama de base de datos de Emergency & Alerting
+<a id="figura-2-46"></a>**Figura 2.46.** Diagrama de base de datos de Emergency & Alerting
 
 ![Emergency & Alerting Database Design Diagram](assets/images/chapterII/databaseDiagrams/emergency-alerting-db-diagram.png)
 
@@ -5445,9 +4970,9 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.48 presenta las cuatro capas del Bounded Context **Health Monitoring**, su comunicación con la aplicación móvil y con el broker MQTT que entrega la telemetría del wearable, y la publicación de eventos de integración hacia Emergency & Alerting.
+La Figura 2.47 presenta las cuatro capas del Bounded Context **Health Monitoring**, su comunicación con la aplicación móvil y con el broker MQTT que entrega la telemetría del wearable, y la publicación de eventos de integración hacia Emergency & Alerting.
 
-<a id="figura-2-48"></a>**Figura 2.48.** Diagrama de componentes del Bounded Context Health Monitoring
+<a id="figura-2-47"></a>**Figura 2.47.** Diagrama de componentes del Bounded Context Health Monitoring
 
 ![Health Monitoring Component Diagram](assets/images/chapterII/c4-diagrams/HealthMonitoring_Layers_Component.png)
 
@@ -5457,18 +4982,18 @@ En esta sección se presenta la estructura interna del Bounded Context **Health 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.49 presenta la Domain Layer de **Health Monitoring**, con los agregados `VitalSignType`, `VitalSignThreshold`, `VitalSign`, `WearableDevice` y `HealthReport`, sus Value Objects y las interfaces de repositorio que los gestionan.
+El diagrama UML de la Figura 2.48 presenta la Domain Layer de **Health Monitoring**, con los agregados `VitalSignType`, `VitalSignThreshold`, `VitalSign`, `WearableDevice` y `HealthReport`, sus Value Objects y las interfaces de repositorio que los gestionan.
 
-<a id="figura-2-49"></a>**Figura 2.49.** Diagrama de clases de la Domain Layer de Health Monitoring
+<a id="figura-2-48"></a>**Figura 2.48.** Diagrama de clases de la Domain Layer de Health Monitoring
 
 ![Health Monitoring Domain Class Diagram](assets/images/chapterII/classDiagrams/health-monitoring-classDiagram.png)
 
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.50 presenta el diseño de persistencia de **Health Monitoring**: `wearable_devices` registra los dispositivos asignados a cada persona bajo cuidado, `vital_sign_types` y `vital_sign_thresholds` definen el catálogo de signos vitales y sus umbrales, `vital_sign_readings` almacena cada lectura recibida y `health_reports` guarda los reportes generados.
+La Figura 2.49 presenta el diseño de persistencia de **Health Monitoring**: `wearable_devices` registra los dispositivos asignados a cada persona bajo cuidado, `vital_sign_types` y `vital_sign_thresholds` definen el catálogo de signos vitales y sus umbrales, `vital_sign_readings` almacena cada lectura recibida y `health_reports` guarda los reportes generados.
 
-<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de base de datos de Health Monitoring
+<a id="figura-2-49"></a>**Figura 2.49.** Diagrama de base de datos de Health Monitoring
 
 ![Health Monitoring Database Design Diagram](assets/images/chapterII/databaseDiagrams/health-monitoring-new-db.png)
 
@@ -6108,11 +5633,11 @@ Publica los eventos producidos por el ciclo de vida de las suscripciones para qu
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.51 presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
+La Figura 2.50 presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
 
 La **Interface Layer** se encuentra representada por los controladores REST de suscripciones y el controlador de webhooks de pagos. La **Application Layer** coordina los casos de uso mediante `Subscription Application Service` y `Payment Application Service`. La lógica central del dominio se concentra en los aggregates `Subscription` y `Entitlement Set`, junto con las políticas de suscripción. Finalmente, la **Infrastructure Layer** implementa los adaptadores de repositorio, publicación de eventos e integración con Stripe.
 
-<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de componentes del Bounded Context Subscriptions
+<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de componentes del Bounded Context Subscriptions
 
 ![Subscriptions Component Level Diagram](assets/images/chapterII/Subscriptions/SubscriptionComponents.png)
 
@@ -6128,9 +5653,9 @@ En esta sección se presenta la estructura interna del Bounded Context **Subscri
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.52 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
+El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
 
-<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de clases de la Domain Layer de Subscriptions
+<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de clases de la Domain Layer de Subscriptions
 
 ![Subscriptions Domain Layer Class Diagram](assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
@@ -6142,9 +5667,9 @@ Los estados principales de las suscripciones, los pagos y los beneficios efectiv
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.53 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
+La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
 
-<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de base de datos de Subscriptions
+<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de base de datos de Subscriptions
 
 ![Subscriptions Database Design Diagram](assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
 
@@ -7090,9 +6615,9 @@ Esta decisión mantiene preparado el diseño para una futura integración sin in
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.54 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
+La Figura 2.53 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
 
-<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de componentes del Bounded Context Profile
+<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de componentes del Bounded Context Profile
 
 ![Profile Component Level Diagram](assets/images/chapterII/Profile/ProofileComponents.png)
 
@@ -7114,9 +6639,9 @@ En esta sección se documenta la estructura interna del Bounded Context **Profil
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.55 presenta la organización general de la Domain Layer de **Profile**.
+El diagrama UML de la Figura 2.54 presenta la organización general de la Domain Layer de **Profile**.
 
-<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de clases de la Domain Layer de Profile
+<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de clases de la Domain Layer de Profile
 
 ![Profile Domain Layer Class Diagram](assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
 
@@ -7127,9 +6652,9 @@ El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, 
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.56 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
+La Figura 2.55 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
 
-<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de base de datos de Profile
+<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de base de datos de Profile
 
 ![Profile Database Design Diagram](assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
 
@@ -7416,9 +6941,9 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.57 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
+La Figura 2.56 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
 
-<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de componentes del Bounded Context Care Routines & Wellness
+<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de componentes del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness Component Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
 
@@ -7428,19 +6953,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Care Ro
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.58 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
+El diagrama UML de la Figura 2.57 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
 
-<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
+<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
 
 ![Care Routines & Wellness Domain Class Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.59 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
+La Figura 2.58 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
 
 Las columnas `person_under_care_id` y `wearable_device_id` referencian, respectivamente, los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring, de modo que la telemetría registrada mantiene su trazabilidad hacia el dispositivo que la originó sin que este contexto administre ninguna de las dos entidades.
 
-<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de base de datos de Care Routines & Wellness
+<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de base de datos de Care Routines & Wellness
 
 ![Care Routines & Wellness Database Design Diagram](assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
@@ -7984,9 +7509,9 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.60 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
+La Figura 2.59 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
 
-<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de componentes del Bounded Context Mobility & Geofencing
+<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de componentes del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing Component Diagram](assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
@@ -7996,19 +7521,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Mobilit
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.61 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
+El diagrama UML de la Figura 2.60 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
 
-<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
+<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
 
 ![Mobility & Geofencing Domain Class Diagram](assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.62 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
+La Figura 2.61 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
 
 Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring. La resolución de una violación no se persiste en este contexto: su responsabilidad termina en la detección y el registro, mientras que la atención y el cierre pertenecen a Emergency & Alerting.
 
-<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de base de datos de Mobility & Geofencing
+<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de base de datos de Mobility & Geofencing
 
 ![Mobility & Geofencing Database Design Diagram](assets/images/chapterII/databaseDiagrams/mobility-and-geofencing-db-diagram.png)
 
@@ -8302,9 +7827,9 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.63 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
+La Figura 2.62 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
 
-<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de componentes del Bounded Context IAM
+<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de componentes del Bounded Context IAM
 
 ![IAM Component Diagram](assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
@@ -8314,27 +7839,27 @@ En esta sección se presenta la estructura interna del Bounded Context **IAM** a
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.64 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
+El diagrama UML de la Figura 2.63 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
 
-<a id="figura-2-64"></a>**Figura 2.64.** Diagrama de clases de la Domain Layer de IAM
+<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de clases de la Domain Layer de IAM
 
 ![IAM Domain Class Diagram](assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.65 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
+La Figura 2.64 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
 
-<a id="figura-2-65"></a>**Figura 2.65.** Diagrama de base de datos de IAM
+<a id="figura-2-64"></a>**Figura 2.64.** Diagrama de base de datos de IAM
 
 ![IAM Database Design Diagram](assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 ### Guardian+ Physical Database Schema
 
-Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.66 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
+Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.65 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
 
 El Physical Schema ERD integra las principales tablas utilizadas por los distintos contextos del sistema y permite visualizar de manera conjunta sus claves primarias, claves foráneas y relaciones. Esta representación facilita la comprensión de cómo los datos persistentes de identidad, perfiles, suscripciones, monitoreo de salud, alertas, rutinas de cuidado y demás capacidades de Guardian+ se relacionan dentro de la infraestructura de almacenamiento.
 
-<a id="figura-2-66"></a>**Figura 2.66.** Esquema físico consolidado de la base de datos de Guardian+
+<a id="figura-2-65"></a>**Figura 2.65.** Esquema físico consolidado de la base de datos de Guardian+
 
 ![Guardian+ Physical Schema ERD](assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
 
@@ -11614,11 +11139,27 @@ La Tabla 4.32 detalla las tareas del Sprint 1 y su estado.
 
 En esta sección se registran los commits que implementan las User Stories del Sprint 1 en cada repositorio.
 
+##### Landing Page
+
+Implementación del Landing Page de Guardian+ (US30, US31, US32 y US33): navegación entre secciones, presentación de las funcionalidades y beneficios, comparación de planes de suscripción y formulario de contacto, a partir de los tokens de diseño de las Style Guidelines. Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website/pull/1) y se publicó como versión 1.0.0. La Tabla 4.33 presenta los commits del Landing Page.
+
+<a id="tabla-4-33"></a>**Tabla 4.33.** Commits del Landing Page
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `afa00cc` | `feat(styles): add design tokens and base styles from the style guidelines` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `c70c557` | `feat(navigation): add sticky header with active section, mobile menu and footer` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `121bc43` | `feat(landing): add hero, pain points and how it works sections` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `3b06be6` | `feat(landing): add benefits with expandable details and why guardian+ sections` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `15c1f4d` | `feat(pricing): add subscription plans comparison` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `cc3359e` | `feat(contact): add contact form with validation and submission service` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `556f945` | `test(landing): add tests for navigation, benefits, pricing and contact form` | 2026-09-28 |
+
 ##### Web Services — Emergency & Alerting
 
-Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits de Emergency & Alerting en los Web Services.
+Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.34 presenta los commits de Emergency & Alerting en los Web Services.
 
-<a id="tabla-4-33"></a>**Tabla 4.33.** Commits de Web Services: Emergency & Alerting
+<a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11636,9 +11177,9 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 
 ##### Web Services — Care Routines & Wellness
 
-Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits de Care Routines & Wellness en los Web Services.
+Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.35 presenta los commits de Care Routines & Wellness en los Web Services.
 
-<a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Care Routines & Wellness
+<a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Care Routines & Wellness
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11650,9 +11191,9 @@ Implementación anticipada del Bounded Context Care Routines & Wellness (US06, U
 
 ##### Web Services — Health Monitoring
 
-Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits de Health Monitoring en los Web Services.
+Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.36 presenta los commits de Health Monitoring en los Web Services.
 
-<a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Health Monitoring
+<a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Web Services: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11750,11 +11291,43 @@ Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iot-connection` | `3bd33dd` | `docs(deploy): document vital sign telemetry settings for production` | 2026-10-06 |
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iot-connection` | `0d775e0` | `docs(readme): document the local IoT stack and telemetry settings` | 2026-10-06 |
 
+##### Web Services — Mobility & Geofencing
+
+Implementación del Bounded Context Mobility & Geofencing (US18), que recibe la ubicación del wearable, mantiene el seguimiento de la persona bajo cuidado y expone su ubicación actual, su estado y su historial. Incluye de forma anticipada la administración de zonas seguras y la detección de sus violaciones (US28). Se integró a `develop` mediante el Pull Request [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/11). La Tabla 4.37 presenta los commits de Mobility & Geofencing en los Web Services.
+
+<a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Web Services: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `0856a96` | `feat(mobilitygeofencing): add SafeZone aggregate root` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `6b3cec4` | `refactor(mobilitygeofencing): introduce LocationTracking aggregate root for domain state management` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `7c02fd6` | `refactor(mobilitygeofencing): implement ZoneViolation entity within the domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `12f7df1` | `feat refactor(mobilitygeofencing): implement WearableLocationTransformer to map external telemetry to domain commands` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `f8a2374` | `refactor(mobilitygeofencing): implement database persistence adapter for LocationTracking aggregate` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `ebb4c64` | `feat(mobilitygeofencing): expose controller http metods endpoints for current location, status, and history tracking` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `b25d298` | `feat(mobilitygeofencing): expose REST controller for safe zone CRUD and lifecycle management and feat identifier zone violationID` | 2026-10-04 |
+
+##### Web Services — Profile
+
+Implementación del Bounded Context Profile, que gestiona los perfiles de usuario, los perfiles de las personas bajo cuidado, las relaciones de cuidado y las preferencias de idioma y accesibilidad que utiliza la sección Perfil de la aplicación. Se integró a `develop` mediante el Pull Request [#13](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/13). La Tabla 4.38 presenta los commits de Profile en los Web Services.
+
+<a id="tabla-4-38"></a>**Tabla 4.38.** Commits de Web Services: Profile
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `b447710` | `feat(profile): add user and care recipient domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `12dd1c1` | `feat(profile): add jpa persistence entities and repositories` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `399d5a3` | `feat(profile): implement command and query services` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `1103d1d` | `feat(profile): add care relationship domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `01ca094` | `feat(profile): add user preferences domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `251e137` | `feat(profile): add user profile rest endpoints` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `9e4e959` | `feat(profile): add care relationship rest endpoints` | 2026-10-04 |
+
 ##### Mobile App — Emergency & Alerting
 
-Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits de Emergency & Alerting en la aplicación móvil.
+Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.39 presenta los commits de Emergency & Alerting en la aplicación móvil.
 
-<a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Mobile App: Emergency & Alerting
+<a id="tabla-4-39"></a>**Tabla 4.39.** Commits de Mobile App: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11765,9 +11338,9 @@ Implementación de las pantallas del Bounded Context Emergency & Alerting en la 
 
 ##### Mobile App — Health Monitoring
 
-Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits de Health Monitoring en la aplicación móvil.
+Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.40 presenta los commits de Health Monitoring en la aplicación móvil.
 
-<a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Mobile App: Health Monitoring
+<a id="tabla-4-40"></a>**Tabla 4.40.** Commits de Mobile App: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11799,9 +11372,9 @@ Implementación de la capa de dominio, infraestructura y presentación del Bound
 
 ##### IoT Simulator
 
-Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits del IoT Simulator.
+Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.41 presenta los commits del IoT Simulator.
 
-<a id="tabla-4-38"></a>**Tabla 4.38.** Commits de IoT Simulator
+<a id="tabla-4-41"></a>**Tabla 4.41.** Commits de IoT Simulator
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -11833,9 +11406,9 @@ En el presente avance, la evidencia automatizada desarrollada para Profile corre
 
 Las pruebas desarrolladas para Profile verifican las principales reglas y comportamientos de los Aggregate Roots `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`.
 
-Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada. La Tabla 4.39 resume las pruebas implementadas.
+Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada. La Tabla 4.42 resume las pruebas implementadas.
 
-<a id="tabla-4-39"></a>**Tabla 4.39.** Unit Tests del Bounded Context Profile
+<a id="tabla-4-42"></a>**Tabla 4.42.** Unit Tests del Bounded Context Profile
 
 | Test Class | Class Under Test | Test | Behavior Verified |
 |---|---|---|---|
@@ -11968,9 +11541,9 @@ profile
 
 ##### Testing Commits
 
-El commit de la Tabla 4.40 contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
+El commit de la Tabla 4.43 contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
 
-<a id="tabla-4-40"></a>**Tabla 4.40.** Commit de los Unit Tests de Profile
+<a id="tabla-4-43"></a>**Tabla 4.43.** Commit de los Unit Tests de Profile
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
@@ -11982,7 +11555,7 @@ Este commit incorpora las pruebas unitarias correspondientes a los cuatro Aggreg
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
-Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado y con una primera versión de la aplicación móvil conectada a los Web Services. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia.
+Al cierre del Sprint 1, Guardian+ cuenta con el Landing Page desplegado, con una primera versión de la aplicación móvil y con los Web Services desplegados que esta consume. En el Landing Page se completaron las User Stories US30, US31, US32 y US33: el visitante puede recorrer las secciones del sitio desde el menú, conocer las funcionalidades y beneficios de la pulsera y la aplicación, comparar los planes de suscripción y enviar una solicitud de contacto. En la aplicación móvil se implementaron el inicio de sesión, la pantalla de Inicio, la sección de Salud y la sección de Alertas con sus alertas activas, el detalle de cada alerta, el historial, la configuración de alertas y los contactos de emergencia. Los Web Services exponen los endpoints de Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile desde su despliegue en Microsoft Azure.
 
 ##### Landing Page
 
@@ -11992,9 +11565,9 @@ El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guar
 
 ![landing-page-execution](assets/images/chatper4/sprint1/landing-page-execution.png)
 
-La Tabla 4.41 presenta el enlace al video de ejecución del Landing Page.
+La Tabla 4.44 presenta el enlace al video de ejecución del Landing Page.
 
-<a id="tabla-4-41"></a>**Tabla 4.41.** Video de ejecución del Landing Page
+<a id="tabla-4-44"></a>**Tabla 4.44.** Video de ejecución del Landing Page
 
 | Producto | Video de ejecución |
 |---|---|
@@ -12008,13 +11581,29 @@ La Figura 4.6 muestra la pantalla de Inicio de la aplicación móvil ejecutándo
 
 ![mobile-app-execution](assets/images/chatper4/sprint1/mobile-app-execution.png)
 
-La Tabla 4.42 presenta el enlace al video de ejecución de la aplicación móvil.
+La Tabla 4.45 presenta el enlace al video de ejecución de la aplicación móvil.
 
-<a id="tabla-4-42"></a>**Tabla 4.42.** Video de ejecución de la aplicación móvil
+<a id="tabla-4-45"></a>**Tabla 4.45.** Video de ejecución de la aplicación móvil
 
 | Producto | Video de ejecución |
 |---|---|
 | Mobile Application | [Guardian+ — Mobile Application (Sprint 1)](https://www.youtube.com/watch?v=Q-VMpyzhfJM) |
+
+##### Web Services
+
+Los Web Services se encuentran publicados en Microsoft Azure y su documentación puede consultarse en [Swagger UI](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html). La Figura 4.7 muestra los endpoints disponibles en el entorno desplegado.
+
+<a id="figura-4-7"></a>**Figura 4.7.** Web Services en ejecución en Swagger UI
+
+![web-services-execution](assets/images/chatper4/sprint1/web-services-swagger.png)
+
+La Tabla 4.46 presenta el enlace al video de ejecución de los Web Services.
+
+<a id="tabla-4-46"></a>**Tabla 4.46.** Video de ejecución de los Web Services
+
+| Producto | Video de ejecución |
+|---|---|
+| Web Services | [Guardian+ — Web Services (Sprint 1)](https://youtu.be/GIFvYs21GDY) |
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
@@ -12022,9 +11611,9 @@ Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especi
 
 ##### Emergency & Alerting
 
-La Tabla 4.43 presenta los endpoints de Emergency & Alerting.
+La Tabla 4.47 presenta los endpoints de Emergency & Alerting.
 
-<a id="tabla-4-43"></a>**Tabla 4.43.** Endpoints de Emergency & Alerting
+<a id="tabla-4-47"></a>**Tabla 4.47.** Endpoints de Emergency & Alerting
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -12054,9 +11643,9 @@ La Tabla 4.43 presenta los endpoints de Emergency & Alerting.
 
 ##### Health Monitoring
 
-La Tabla 4.44 presenta los endpoints de Health Monitoring.
+La Tabla 4.48 presenta los endpoints de Health Monitoring.
 
-<a id="tabla-4-44"></a>**Tabla 4.44.** Endpoints de Health Monitoring
+<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Health Monitoring
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -12076,9 +11665,9 @@ La Tabla 4.44 presenta los endpoints de Health Monitoring.
 
 ##### Care Routines & Wellness
 
-La Tabla 4.45 presenta los endpoints de Care Routines & Wellness.
+La Tabla 4.49 presenta los endpoints de Care Routines & Wellness.
 
-<a id="tabla-4-45"></a>**Tabla 4.45.** Endpoints de Care Routines & Wellness
+<a id="tabla-4-49"></a>**Tabla 4.49.** Endpoints de Care Routines & Wellness
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -12090,9 +11679,9 @@ La Tabla 4.45 presenta los endpoints de Care Routines & Wellness.
 | GET | `/api/v1/medication-stocks/citizen/{personUnderCareId}` | Saldo de dosis y días de suministro proyectados | Path: `personUnderCareId` | 200 / 404 |
 
 
-Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.46:
+Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.50:
 
-<a id="tabla-4-46"></a>**Tabla 4.46.** Procesos de Care Routines & Wellness disparados por el sistema
+<a id="tabla-4-50"></a>**Tabla 4.50.** Procesos de Care Routines & Wellness disparados por el sistema
 
 | Proceso | Componente | Descripción |
 |---|---|---|
@@ -12104,15 +11693,58 @@ Los demás comandos del contexto no se exponen por REST, porque los dispara el s
 
 Los umbrales son configurables mediante `care-routines-wellness.*` en `application.properties`: tolerancia de reemisión (10 min), ventana de sueño (22:00–06:00), umbral de reabastecimiento (3 días), consumo diario por defecto (1 dosis) y frecuencia de los schedulers (30 s y 60 s).
 
+##### Mobility & Geofencing
+
+La Tabla 4.51 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
+
+<a id="tabla-4-51"></a>**Tabla 4.51.** Endpoints de Mobility & Geofencing
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/safe-zones` | Crea una zona segura circular para la persona bajo cuidado | Body: `fragileCitizenId`, `name`, `centerLatitude`, `centerLongitude`, `radiusInMeters` | 201 identificador de la zona segura |
+| PUT | `/api/v1/safe-zones/{safeZoneId}` | Actualiza el nombre, el centro y el radio de una zona segura | Path: `safeZoneId`. Body: `name`, `centerLatitude`, `centerLongitude`, `radiusInMeters` | 200 |
+| PATCH | `/api/v1/safe-zones/{safeZoneId}/activate` | Activa una zona segura | Path: `safeZoneId` | 200 |
+| PATCH | `/api/v1/safe-zones/{safeZoneId}/deactivate` | Desactiva una zona segura | Path: `safeZoneId` | 200 |
+| GET | `/api/v1/safe-zones/fragile-citizen/{fragileCitizenId}/active` | Zona segura activa de la persona bajo cuidado | Path: `fragileCitizenId` | 200 `SafeZoneResource` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/current` | Última ubicación registrada | Path: `fragileCitizenId` | 200 `CurrentLocationResource` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/status` | Estado actual de la ubicación respecto de la zona segura | Path: `fragileCitizenId` | 200 `WITHIN_SAFE_ZONE` u `OUTSIDE_SAFE_ZONE` / 404 |
+| GET | `/api/v1/location-tracking/{fragileCitizenId}/history` | Historial de ubicaciones en un rango de tiempo (por defecto, las últimas 24 horas) | Path: `fragileCitizenId`. Query: `start`, `end` | 200 lista de `LocationHistoryResource` |
+
+##### Profile
+
+La Tabla 4.52 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
+
+<a id="tabla-4-52"></a>**Tabla 4.52.** Endpoints de Profile
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/user-profiles` | Crea el perfil de un usuario | Body: `userId`, `firstName`, `lastName`, `phoneNumber`, `profileImageUrl` | 201 `UserProfileResource` / 400 / 409 |
+| GET | `/api/v1/user-profiles/user/{userId}` | Perfil de un usuario | Path: `userId` | 200 `UserProfileResource` / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}` | Actualiza los datos personales | Path: `userProfileId`. Body: `firstName`, `lastName` | 200 `UserProfileResource` / 400 / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}/contact-information` | Actualiza la información de contacto | Path: `userProfileId`. Body: `phoneNumber` | 200 `UserProfileResource` / 400 / 404 |
+| PUT | `/api/v1/user-profiles/{userProfileId}/profile-image` | Actualiza la imagen de perfil | Path: `userProfileId`. Body: `profileImageUrl` | 200 `UserProfileResource` / 404 |
+| GET | `/api/v1/user-preferences/user/{userId}` | Preferencias de un usuario | Path: `userId` | 200 `UserPreferencesResource` / 404 |
+| PUT | `/api/v1/user-preferences/user/{userId}/application` | Actualiza las preferencias de la aplicación | Path: `userId`. Body: `notificationsEnabled` | 200 `UserPreferencesResource` / 400 |
+| PUT | `/api/v1/user-preferences/user/{userId}/language-accessibility` | Actualiza el idioma y las opciones de accesibilidad | Path: `userId`. Body: `language`, `highContrastEnabled`, `reduceMotionEnabled`, `fontScale` | 200 `UserPreferencesResource` / 400 / 404 |
+| POST | `/api/v1/care-recipient-profiles` | Crea el perfil de una persona bajo cuidado | Body: `createdByUserId`, `firstName`, `lastName`, `birthDate`, `profileImageUrl` | 201 `CareRecipientProfileResource` / 400 |
+| GET | `/api/v1/care-recipient-profiles/{careRecipientProfileId}` | Perfil de una persona bajo cuidado | Path: `careRecipientProfileId` | 200 `CareRecipientProfileResource` / 404 |
+| GET | `/api/v1/care-recipient-profiles/created-by/{userId}` | Perfiles de personas bajo cuidado creados por un usuario | Path: `userId` | 200 lista |
+| PUT | `/api/v1/care-recipient-profiles/{careRecipientProfileId}` | Actualiza el perfil de una persona bajo cuidado | Path: `careRecipientProfileId`. Body: `firstName`, `lastName`, `birthDate` | 200 `CareRecipientProfileResource` / 400 / 404 |
+| PUT | `/api/v1/care-recipient-profiles/{careRecipientProfileId}/profile-image` | Actualiza la imagen de perfil de la persona bajo cuidado | Path: `careRecipientProfileId`. Body: `profileImageUrl` | 200 `CareRecipientProfileResource` / 404 |
+| POST | `/api/v1/care-relationships` | Establece una relación de cuidado entre un usuario y una persona bajo cuidado | Body: `userId`, `careRecipientProfileId`, `relationshipType` | 201 `CareRelationshipResource` / 400 / 404 / 409 |
+| GET | `/api/v1/care-relationships/user/{userId}` | Relaciones de cuidado activas de un usuario | Path: `userId` | 200 lista |
+| GET | `/api/v1/care-relationships/care-recipient/{careRecipientProfileId}` | Relaciones de cuidado activas de una persona bajo cuidado | Path: `careRecipientProfileId` | 200 lista |
+| DELETE | `/api/v1/care-relationships/{careRelationshipId}` | Finaliza una relación de cuidado | Path: `careRelationshipId` | 200 `CareRelationshipResource` / 404 / 422 |
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en Cloudflare Pages y de los Web Services en Microsoft Azure, además del IoT Simulator en Google Cloud, siguiendo la configuración descrita en la sección 4.1.4. En el Landing Page, cada integración en la rama `main` publica automáticamente una nueva versión del sitio; en los Web Services, cada integración en `develop` ejecuta las pruebas y actualiza la API publicada mediante GitHub Actions.
 
 ##### Landing Page
 
-La Tabla 4.47 resume el despliegue del Landing Page.
+La Tabla 4.53 resume el despliegue del Landing Page.
 
-<a id="tabla-4-47"></a>**Tabla 4.47.** Despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-53"></a>**Tabla 4.53.** Despliegue del Landing Page en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -12123,9 +11755,9 @@ La Tabla 4.47 resume el despliegue del Landing Page.
 | **Versión desplegada** | `v1.0.0` |
 | **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
 
-El despliegue se realizó en los pasos de la Tabla 4.48:
+El despliegue se realizó en los pasos de la Tabla 4.54:
 
-<a id="tabla-4-48"></a>**Tabla 4.48.** Pasos del despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-54"></a>**Tabla 4.54.** Pasos del despliegue del Landing Page en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -12135,9 +11767,9 @@ El despliegue se realizó en los pasos de la Tabla 4.48:
 | **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
 | **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
 
-La Tabla 4.49 presenta los resultados de Lighthouse sobre la URL pública:
+La Tabla 4.55 presenta los resultados de Lighthouse sobre la URL pública:
 
-<a id="tabla-4-49"></a>**Tabla 4.49.** Resultados de Lighthouse del Landing Page
+<a id="tabla-4-55"></a>**Tabla 4.55.** Resultados de Lighthouse del Landing Page
 
 | Categoría | Mobile | Desktop |
 |---|---|---|
@@ -12146,17 +11778,17 @@ La Tabla 4.49 presenta los resultados de Lighthouse sobre la URL pública:
 | **Best Practices** | 100 | 100 |
 | **SEO** | 100 | 100 |
 
-La Figura 4.7 muestra el Landing Page publicado.
+La Figura 4.8 muestra el Landing Page publicado.
 
-<a id="figura-4-7"></a>**Figura 4.7.** Landing Page publicado en Cloudflare Pages
+<a id="figura-4-8"></a>**Figura 4.8.** Landing Page publicado en Cloudflare Pages
 
 ![landing-page-deployment](assets/images/chatper4/sprint1/landing-page-deployment.png)
 
 ##### Web Services
 
-La Tabla 4.50 resume el despliegue de los Web Services.
+La Tabla 4.56 resume el despliegue de los Web Services.
 
-<a id="tabla-4-50"></a>**Tabla 4.50.** Despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-56"></a>**Tabla 4.56.** Despliegue de los Web Services en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -12169,9 +11801,9 @@ La Tabla 4.50 resume el despliegue de los Web Services.
 | **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
 | **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
 
-El despliegue se realizó en los pasos de la Tabla 4.51:
+El despliegue se realizó en los pasos de la Tabla 4.57:
 
-<a id="tabla-4-51"></a>**Tabla 4.51.** Pasos del despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-57"></a>**Tabla 4.57.** Pasos del despliegue de los Web Services en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -12183,41 +11815,41 @@ El despliegue se realizó en los pasos de la Tabla 4.51:
 | **6** | Integración de Health Monitoring, Profile y la conexión con el IoT Simulator (Pull Requests #12, #13 y #14). | Tres despliegues consecutivos completados, el último el 6 de octubre de 2026. |
 | **7** | Validación de la API publicada. | `/v3/api-docs` y Swagger UI responden por HTTPS, y las solicitudes HTTP se redirigen automáticamente a HTTPS. |
 
-El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services, como se muestra en la Figura 4.8.
+El grupo de recursos `guardian-plus-rg` reúne todos los recursos de Azure de los Web Services, como se muestra en la Figura 4.9.
 
-<a id="figura-4-8"></a>**Figura 4.8.** Grupo de recursos guardian-plus-rg en Azure
+<a id="figura-4-9"></a>**Figura 4.9.** Grupo de recursos guardian-plus-rg en Azure
 
 ![azure-resource-group](assets/images/chatper4/sprint1/azure-resource-group.png)
 
-La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API, como se muestra en la Figura 4.9.
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con el nombre DNS público de la API, como se muestra en la Figura 4.10.
 
-<a id="figura-4-9"></a>**Figura 4.9.** Máquina virtual guardian-plus-vm en Azure
+<a id="figura-4-10"></a>**Figura 4.10.** Máquina virtual guardian-plus-vm en Azure
 
 ![azure-virtual-machine](assets/images/chatper4/sprint1/azure-virtual-machine.png)
 
-El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`, como se muestra en la Figura 4.10.
+El servidor de Azure Database for PostgreSQL aloja la base de datos `guardian_plus`, como se muestra en la Figura 4.11.
 
-<a id="figura-4-10"></a>**Figura 4.10.** Servidor de Azure Database for PostgreSQL
+<a id="figura-4-11"></a>**Figura 4.11.** Servidor de Azure Database for PostgreSQL
 
 ![azure-postgresql](assets/images/chatper4/sprint1/azure-postgresql.png)
 
-Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`, como se muestra en la Figura 4.11.
+Las ejecuciones de GitHub Actions muestran los workflows `CI`, ejecutado en cada Pull Request, y `Deploy`, ejecutado en cada integración en `develop`, como se muestra en la Figura 4.12.
 
-<a id="figura-4-11"></a>**Figura 4.11.** Ejecuciones de los workflows de GitHub Actions
+<a id="figura-4-12"></a>**Figura 4.12.** Ejecuciones de los workflows de GitHub Actions
 
 ![github-actions-workflows](assets/images/chatper4/sprint1/github-actions-workflows.png)
 
-Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI, como se muestra en la Figura 4.12.
+Finalmente, la documentación de los Web Services queda disponible públicamente en Swagger UI, como se muestra en la Figura 4.13.
 
-<a id="figura-4-12"></a>**Figura 4.12.** Documentación de los Web Services en Swagger UI
+<a id="figura-4-13"></a>**Figura 4.13.** Documentación de los Web Services en Swagger UI
 
 ![web-services-swagger](assets/images/chatper4/sprint1/web-services-swagger.png)
 
 ##### IoT Simulator
 
-En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.52 resume este despliegue.
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.58 resume este despliegue.
 
-<a id="tabla-4-52"></a>**Tabla 4.52.** Despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-58"></a>**Tabla 4.58.** Despliegue del IoT Simulator en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -12228,9 +11860,9 @@ En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la config
 | **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
 | **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
 
-El despliegue se realizó en los pasos de la Tabla 4.53:
+El despliegue se realizó en los pasos de la Tabla 4.59:
 
-<a id="tabla-4-53"></a>**Tabla 4.53.** Pasos del despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-59"></a>**Tabla 4.59.** Pasos del despliegue del IoT Simulator en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -12239,34 +11871,34 @@ El despliegue se realizó en los pasos de la Tabla 4.53:
 | **3** | Habilitación de `iam.googleapis.com` y `cloudresourcemanager.googleapis.com`, y nueva ejecución de `terraform apply`. | Se crearon la cuenta de servicio, sus permisos y la máquina virtual. En total, 8 recursos. |
 | **4** | Ejecución del script de arranque de la VM. | Mosquitto y el simulador quedaron instalados y en ejecución como servicios. |
 | **5** | Validación del estado en `/health`. | El simulador responde `status: ok`, con `mqttConnected: true` y `loopRunning: true`. |
-| **6** | Carga de los wearables desde `GET /api/v1/wearable-devices` y verificación en `/signals`.  |
+| **6** | Carga de los wearables desde `GET /api/v1/wearable-devices` y verificación en `/signals`. | El backend devuelve las 4 pulseras registradas (`GP-ESP32-S3-0001` a `GP-ESP32-S3-0004`) y el simulador publica su telemetría: `GET /api/v1/vital-signs/live/{careRecipientProfileId}` entrega lecturas actualizadas cada segundo, con `liveSignal: true`. |
 
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
 Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo trabajó en los repositorios de cada producto mediante ramas por funcionalidad integradas con pull requests. A continuación se muestran las analíticas de colaboración (Pulse) de cada repositorio.
 
-**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.13 muestra los insights del repositorio de los Web Services.
+**Backend (Web Services):** 13 pull requests fusionados y 1 abierto, con 180 commits de 5 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de los Web Services.
 
-<a id="figura-4-13"></a>**Figura 4.13.** Insights del repositorio de los Web Services
+<a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de los Web Services
 
 ![backend-insights](assets/images/chatper4/sprint1/insights/backend-insights.png)
 
-**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.14 muestra los insights del repositorio de la aplicación móvil.
+**Mobile App:** 6 pull requests fusionados, con 46 commits de 2 autores en todas las ramas. La Figura 4.15 muestra los insights del repositorio de la aplicación móvil.
 
-<a id="figura-4-14"></a>**Figura 4.14.** Insights del repositorio de la aplicación móvil
+<a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](assets/images/chatper4/sprint1/insights/mobile-app-insights.png)
 
-**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.15 muestra los insights del repositorio del Landing Page.
+**Website (Landing Page):** 4 pull requests fusionados, con 25 commits de 2 autores en main. La Figura 4.16 muestra los insights del repositorio del Landing Page.
 
-<a id="figura-4-15"></a>**Figura 4.15.** Insights del repositorio del Landing Page
+<a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del Landing Page
 
 ![website-insights](assets/images/chatper4/sprint1/insights/website-insights.png)
 
-**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.16 muestra los insights del repositorio del IoT Simulator.
+**IoT Simulator:** 1 pull request fusionado, con 7 commits de 1 autor en main. La Figura 4.17 muestra los insights del repositorio del IoT Simulator.
 
-<a id="figura-4-16"></a>**Figura 4.16.** Insights del repositorio del IoT Simulator
+<a id="figura-4-17"></a>**Figura 4.17.** Insights del repositorio del IoT Simulator
 
 ![iot-simulator-insights](assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
 
@@ -12312,15 +11944,60 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Entrevistado 1**
 
+**Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+
+La Tabla 4.60 presenta los datos de la entrevistada.
+
+<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Rocio Alvarado
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Rocío Miranda Alvarado Silva |
+| Edad | 22 |
+| Distrito | Jesus María |
+
+La Figura 4.18 muestra una captura de la entrevista de validación a Rocio Alvarado.
+
+<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Rocio Alvarado
+
+![Captura Entrevista Validación Familiar 1](assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_1.png)
+
+**Análisis de la entrevista:** Rocío Alvarado, familiar de una persona con esquizofrenia, recorrió el Landing Page completo y mostró una comprensión clara de la propuesta de valor de Guardian+. Al leer la pantalla inicial lo describió como una app con pulsera inteligente que acompaña a quienes necesitan cuidados, y calificó la sección "Cómo funciona" como sencilla y fácil de entender, sin dudas en ninguno de sus tres pasos. De las preocupaciones de la sección Pain Points se identificó con la pregunta sobre la medicación, porque su familiar requiere medicación constante y una rutina estable. Coherentemente con ello, valoró del apartado de la pulsera el recordatorio con vibración y la confirmación de la toma con un solo toque, y eligió "Rutinas sin olvidos" como el beneficio más importante, ya que le permite asegurar que se cumplan la medicación y las citas.
+
+Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja muy bien la forma en que quiere enterarse del estado de su familiar durante el día, porque muestra lo primordial y le daría más confianza. Respecto a las Zonas Seguras, destacó que le alertarían si su familiar sale de casa, algo relevante por el riesgo de que se pierda o le ocurra algún incidente. También se sintió identificada con el testimonio, pues trabaja y estar informada le da tranquilidad mientras está fuera. Entre los planes, eligió Guardian+ porque incluye la pulsera, cubre lo esencial y se adecúa a su presupuesto. Finalmente, del formulario de contacto esperaría recibir atención de un operador que resuelva sus dudas por teléfono, correo o WhatsApp.
+
+**Entrevistado 2**
+
+**Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
+
+La Tabla 4.61 presenta los datos del entrevistado.
+
+<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Junior Antenor
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Junior Antenor Ayala |
+| Edad | 33 |
+| Distrito | San Juan Bautista |
+
+La Figura 4.19 muestra una captura de la entrevista de validación a Junior Antenor.
+
+<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Junior Antenor
+
+![Captura Entrevista Validación Familiar 1](assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
+
+**Análisis de la entrevista:** El entrevistado entiende Guardián+ como una plataforma que utiliza una pulsera inteligente para monitorear la salud, ubicación y seguridad de un familiar, destacando su utilidad para recibir alertas ante situaciones como caídas, problemas de salud o falta de respuesta. Considera especialmente valiosas la geolocalización, las alertas y las opciones de comunicación, ya que le permitirían reaccionar con mayor rapidez ante una emergencia y reducir la preocupación durante el día, incluso mientras trabaja o se encuentra lejos de su familiar. También percibe como útiles funciones como el monitoreo de signos vitales, rutinas y recordatorios de medicamentos, calificando la propuesta como completa. En cuanto a los planes, muestra interés por el plan más avanzado, aunque señala que inicialmente podría comenzar con el de $19 para conocer mejor el funcionamiento de la plataforma. Finalmente, espera que el formulario de contacto presente información breve, directa, clara y sin términos técnicos.
+
+
 ##### Segmento 2: Cuidadores
 
 **Entrevistado 1**
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.54 presenta los datos de la entrevistada.
+La Tabla 4.62 presenta los datos de la entrevistada.
 
-<a id="tabla-4-54"></a>**Tabla 4.54.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-62"></a>**Tabla 4.62.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -12328,9 +12005,9 @@ La Tabla 4.54 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.20 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-17"></a>**Figura 4.17.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -12340,9 +12017,9 @@ La Figura 4.17 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.55 presenta los datos del entrevistado.
+La Tabla 4.63 presenta los datos del entrevistado.
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-63"></a>**Tabla 4.63.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -12350,13 +12027,35 @@ La Tabla 4.55 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.18 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.21 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
 **Análisis de la entrevista:** Piero comprendió que Guardian+ integra una pulsera y una aplicación para centralizar el seguimiento de la salud, la seguridad, las rutinas y las alertas de la persona bajo cuidado. Desde su experiencia como cuidador, destacó principalmente la detección automática de caídas, el botón SOS, la ubicación mediante GPS y el escalamiento de alertas, ya que estas funciones podrían ayudarle a reaccionar con mayor rapidez cuando no se encuentra junto al paciente. También valoró que la aplicación reúna signos vitales, medicación, pendientes y alertas en un solo lugar, lo que facilitaría el seguimiento diario, la entrega de turnos y la coordinación con familiares u otros cuidadores. Como oportunidades de mejora, señaló la necesidad de aclarar quién confirma la atención de una emergencia, diferenciar la confirmación de un recordatorio de la toma real de un medicamento, incorporar pendientes y observaciones del cuidador, y evitar inconsistencias visuales como mostrar notificaciones cuando el estado general indica que el paciente se encuentra bien. Asimismo, consideró útiles las zonas seguras para pacientes con riesgo de desorientación, aunque indicó que permanecer dentro de una zona no garantiza por sí solo su bienestar. Finalmente, manifestó interés por los planes Guardian+ y Cuidado Pro, pero señaló que antes de contratar necesitaría conocer con claridad el costo total, la autonomía y conectividad de la pulsera, la precisión de las mediciones y el procedimiento de respuesta ante emergencias, considerando una demostración del servicio como un elemento importante para generar confianza.
+
+**Entrevistado 3**
+
+**Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
+
+La Tabla 4.64 presenta los datos de la entrevistada.
+
+<a id="tabla-4-64"></a>**Tabla 4.64.** Datos de la entrevista de validación a Gabriela Cuadros
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | Gabriela Cuadros Curihuaman |
+| Edad | 21 |
+| Distrito | Santa Anita |
+
+La Figura 4.22 muestra una captura de la entrevista de validación a Gabriela Cuadros.
+
+<a id="figura-4-22"></a>**Figura 4.22.** Captura de la entrevista de validación a Gabriela Cuadros
+
+![Captura Entrevista Validación Cuidador 3](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_3.png)
+
+**Análisis de la entrevista:**  Gabriela entiende Guardián+ como una herramienta integral que combina una pulsera inteligente para monitorear la salud y seguridad del paciente, recibir alertas y mantener conectado al círculo de cuidado. Considera que el principal riesgo que monitorea diariamente son las caídas, especialmente cuando no tiene al paciente a la vista, y valora funciones como el botón SOS, la detección de caídas y las alertas automáticas, ya que reducirían su esfuerzo y la necesidad de supervisión constante. También encuentra útil un dashboard que concentre signos vitales, recordatorios, alertas y cambios importantes, siempre que la información sea clara y no esté saturada. Las zonas seguras y la geolocalización le permitirían reducir el monitoreo continuo, mientras que destaca como diferencial la integración de seguridad, salud, rutinas y comunicación, junto con un sistema de escalamiento de alertas. Para un paciente con necesidades intensivas recomendaría el plan Cuidado Pro, por sus cuidados ilimitados, reportes avanzados, historial extendido y soporte prioritario. Finalmente, espera que el formulario de contacto proporcione una comparación clara de planes, precios y funciones, además de información sobre la pulsera, configuración de alertas y privacidad de datos.
 
 ### 4.3.3. Evaluaciones según heurísticas
 
@@ -12365,9 +12064,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.56 presenta los datos generales de la evaluación.
+La Tabla 4.65 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Datos generales de la evaluación heurística
+<a id="tabla-4-65"></a>**Tabla 4.65.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -12398,9 +12097,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.57 define la escala de severidad utilizada.
+La Tabla 4.66 define la escala de severidad utilizada.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-66"></a>**Tabla 4.66.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -12412,9 +12111,9 @@ La Tabla 4.57 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.58 resume los problemas encontrados.
+La Tabla 4.67 resume los problemas encontrados.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-67"></a>**Tabla 4.67.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -12433,17 +12132,17 @@ La Tabla 4.58 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.19 a 4.21 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.23 a 4.25 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-20"></a>**Figura 4.20.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-21"></a>**Figura 4.21.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -12457,9 +12156,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.22 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.26 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Contactos de emergencia
+<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -12474,9 +12173,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.23 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.27 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-23"></a>**Figura 4.23.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-27"></a>**Figura 4.27.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -12491,9 +12190,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.24 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.28 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Exportar expediente
+<a id="figura-4-28"></a>**Figura 4.28.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -12508,9 +12207,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.25 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.29 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-29"></a>**Figura 4.29.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
