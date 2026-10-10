@@ -3,7 +3,8 @@
 Keeps the README front matter (cover, version registry, insights, contents, student outcome
 and SMART objectives) and the closing sections (conclusions and bibliography), regenerates the
 table and figure indexes from the captions in each chapter, and inserts the chapters with their
-image paths adjusted to the repository root.
+image paths adjusted to the repository root. The front matter is also written to
+report/00-chapter.md, with its image paths relative to that folder, so both stay identical.
 
 Usage, from the repository root:
     python3 scripts/build_readme.py
@@ -42,6 +43,9 @@ if '- [Índice de tablas]' not in front:
     front = front.replace('- [Capítulo I: Presentación]',
                           '- [Índice de tablas](#índice-de-tablas)\n- [Índice de figuras](#índice-de-figuras)\n'
                           '- [Capítulo I: Presentación]', 1)
+
+open('report/00-chapter.md', 'w', encoding='utf-8').write(
+    re.sub(r'(\]\(<?|src=")assets/', r'\1../assets/', front))
 
 body = '\n'.join([front] + chapters + [closing])
 body = re.sub(r'(\]\(<?|src=")\.\./assets/', r'\1assets/', body)

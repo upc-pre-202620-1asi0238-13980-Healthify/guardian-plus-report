@@ -44,6 +44,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 |---|---|---|---|
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
+| 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
 
 # Project Report Collaboration Insights
 
@@ -53,11 +54,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 
 **AV1:**
 
-![Insights del repositorio del informe en el AV1](<assets/images/Insights/chapter 1/report-insights-cover.png>)
+![Insights del repositorio del informe en el AV1](<../assets/images/Insights/chapter 1/report-insights-cover.png>)
 
 **TB1:**
 
-![Insights del repositorio del informe en el TB1](assets/images/Insights/tb1/report-insights-tb1.png)
+![Insights del repositorio del informe en el TB1](../assets/images/Insights/tb1/report-insights-tb1.png)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -360,22 +361,28 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.40. Commit de los Unit Tests de Profile](#tabla-4-40)
 - [Tabla 4.41. Video de ejecución del Landing Page](#tabla-4-41)
 - [Tabla 4.42. Video de ejecución de la aplicación móvil](#tabla-4-42)
-- [Tabla 4.43. Endpoints de Emergency & Alerting](#tabla-4-43)
-- [Tabla 4.44. Endpoints de Health Monitoring](#tabla-4-44)
-- [Tabla 4.45. Endpoints de Care Routines & Wellness](#tabla-4-45)
-- [Tabla 4.46. Procesos de Care Routines & Wellness disparados por el sistema](#tabla-4-46)
-- [Tabla 4.47. Despliegue del Landing Page en el Sprint 1](#tabla-4-47)
-- [Tabla 4.48. Pasos del despliegue del Landing Page en el Sprint 1](#tabla-4-48)
-- [Tabla 4.49. Resultados de Lighthouse del Landing Page](#tabla-4-49)
-- [Tabla 4.50. Despliegue de los Web Services en el Sprint 1](#tabla-4-50)
-- [Tabla 4.51. Pasos del despliegue de los Web Services en el Sprint 1](#tabla-4-51)
-- [Tabla 4.52. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-52)
-- [Tabla 4.53. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-53)
-- [Tabla 4.54. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-54)
-- [Tabla 4.55. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-55)
-- [Tabla 4.56. Datos generales de la evaluación heurística](#tabla-4-56)
-- [Tabla 4.57. Escala de severidad de la evaluación heurística](#tabla-4-57)
-- [Tabla 4.58. Resumen de problemas de la evaluación heurística](#tabla-4-58)
+- [Tabla 4.43. Video de ejecución de los Web Services](#tabla-4-43)
+- [Tabla 4.44. Endpoints de Emergency & Alerting](#tabla-4-44)
+- [Tabla 4.45. Endpoints de Health Monitoring](#tabla-4-45)
+- [Tabla 4.46. Endpoints de Care Routines & Wellness](#tabla-4-46)
+- [Tabla 4.47. Procesos de Care Routines & Wellness disparados por el sistema](#tabla-4-47)
+- [Tabla 4.48. Endpoints de Mobility & Geofencing](#tabla-4-48)
+- [Tabla 4.49. Endpoints de Profile](#tabla-4-49)
+- [Tabla 4.50. Despliegue del Landing Page en el Sprint 1](#tabla-4-50)
+- [Tabla 4.51. Pasos del despliegue del Landing Page en el Sprint 1](#tabla-4-51)
+- [Tabla 4.52. Resultados de Lighthouse del Landing Page](#tabla-4-52)
+- [Tabla 4.53. Despliegue de los Web Services en el Sprint 1](#tabla-4-53)
+- [Tabla 4.54. Pasos del despliegue de los Web Services en el Sprint 1](#tabla-4-54)
+- [Tabla 4.55. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-55)
+- [Tabla 4.56. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-56)
+- [Tabla 4.57. Datos de la entrevista de validación a Rocio Alvarado](#tabla-4-57)
+- [Tabla 4.58. Datos de la entrevista de validación a Junior Antenor](#tabla-4-58)
+- [Tabla 4.59. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-59)
+- [Tabla 4.60. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-60)
+- [Tabla 4.61. Datos de la entrevista de validación a Gabriela Cuadros](#tabla-4-61)
+- [Tabla 4.62. Datos generales de la evaluación heurística](#tabla-4-62)
+- [Tabla 4.63. Escala de severidad de la evaluación heurística](#tabla-4-63)
+- [Tabla 4.64. Resumen de problemas de la evaluación heurística](#tabla-4-64)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -403,57 +410,56 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.13. Empathy Map del segmento de cuidadores](#figura-2-13)
 - [Figura 2.14. Big Picture EventStorming de Guardian+](#figura-2-14)
 - [Figura 2.15. Impact Mapping de Guardian+](#figura-2-15)
-- [Figura 2.16. EventStorming del Bounded Context Emergency & Alerting](#figura-2-16)
-- [Figura 2.17. EventStorming del Bounded Context Health Monitoring](#figura-2-17)
-- [Figura 2.18. EventStorming del Bounded Context Care Routines & Wellness](#figura-2-18)
-- [Figura 2.19. EventStorming del Bounded Context Mobility & Geofencing](#figura-2-19)
-- [Figura 2.20. EventStorming del Bounded Context IAM](#figura-2-20)
-- [Figura 2.21. EventStorming del Bounded Context Profile](#figura-2-21)
-- [Figura 2.22. EventStorming del Bounded Context Subscriptions (parte 1)](#figura-2-22)
-- [Figura 2.23. EventStorming del Bounded Context Subscriptions (parte 2)](#figura-2-23)
+- [Figura 2.16. Eventos del Big Picture EventStorming usados como punto de partida](#figura-2-16)
+- [Figura 2.17. EventStorming del Bounded Context Emergency & Alerting](#figura-2-17)
+- [Figura 2.18. EventStorming del Bounded Context Health Monitoring](#figura-2-18)
+- [Figura 2.19. EventStorming del Bounded Context Care Routines & Wellness](#figura-2-19)
+- [Figura 2.20. EventStorming del Bounded Context Mobility & Geofencing](#figura-2-20)
+- [Figura 2.21. EventStorming del Bounded Context IAM](#figura-2-21)
+- [Figura 2.22. EventStorming del Bounded Context Profile](#figura-2-22)
+- [Figura 2.23. EventStorming del Bounded Context Subscriptions](#figura-2-23)
 - [Figura 2.24. Domain message flow del flujo de caída confirmada](#figura-2-24)
-- [Figura 2.25. Domain storytelling del flujo de caída confirmada](#figura-2-25)
-- [Figura 2.26. Domain message flow del flujo de SOS manual](#figura-2-26)
+- [Figura 2.25. Domain message flow del flujo de SOS manual](#figura-2-25)
+- [Figura 2.26. Domain message flow del flujo de anomalía biométrica reconocida a tiempo](#figura-2-26)
 - [Figura 2.27. Domain message flow del flujo de anomalía biométrica escalada](#figura-2-27)
-- [Figura 2.28. Domain storytelling del flujo de anomalía biométrica escalada](#figura-2-28)
-- [Figura 2.29. Domain storytelling del flujo de recordatorio enviado](#figura-2-29)
-- [Figura 2.30. Domain storytelling del flujo de inactividad prolongada](#figura-2-30)
-- [Figura 2.31. Bounded Context Canvas de Emergency & Alerting](#figura-2-31)
-- [Figura 2.32. Bounded Context Canvas de Health Monitoring](#figura-2-32)
-- [Figura 2.33. Bounded Context Canvas de Care Routines & Wellness](#figura-2-33)
-- [Figura 2.34. Bounded Context Canvas de Subscriptions](#figura-2-34)
-- [Figura 2.35. Bounded Context Canvas de Profile](#figura-2-35)
-- [Figura 2.36. Bounded Context Canvas de Mobility & Geofencing](#figura-2-36)
-- [Figura 2.37. Bounded Context Canvas de IAM](#figura-2-37)
-- [Figura 2.38. Context Map global de Guardian+](#figura-2-38)
-- [Figura 2.39. Context Map de las señales que disparan alertas](#figura-2-39)
-- [Figura 2.40. Context Map de identidad y sistemas externos](#figura-2-40)
-- [Figura 2.41. Diagrama de contexto de Guardian+](#figura-2-41)
-- [Figura 2.42. Diagrama de contenedores de Guardian+](#figura-2-42)
-- [Figura 2.43. Diagrama de componentes de la Guardian+ REST API](#figura-2-43)
-- [Figura 2.44. Diagrama de despliegue de Guardian+](#figura-2-44)
-- [Figura 2.45. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-45)
-- [Figura 2.46. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-46)
-- [Figura 2.47. Diagrama de base de datos de Emergency & Alerting](#figura-2-47)
-- [Figura 2.48. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-48)
-- [Figura 2.49. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-49)
-- [Figura 2.50. Diagrama de base de datos de Health Monitoring](#figura-2-50)
-- [Figura 2.51. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-51)
-- [Figura 2.52. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-52)
-- [Figura 2.53. Diagrama de base de datos de Subscriptions](#figura-2-53)
-- [Figura 2.54. Diagrama de componentes del Bounded Context Profile](#figura-2-54)
-- [Figura 2.55. Diagrama de clases de la Domain Layer de Profile](#figura-2-55)
-- [Figura 2.56. Diagrama de base de datos de Profile](#figura-2-56)
-- [Figura 2.57. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-57)
-- [Figura 2.58. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-58)
-- [Figura 2.59. Diagrama de base de datos de Care Routines & Wellness](#figura-2-59)
-- [Figura 2.60. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-60)
-- [Figura 2.61. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-61)
-- [Figura 2.62. Diagrama de base de datos de Mobility & Geofencing](#figura-2-62)
-- [Figura 2.63. Diagrama de componentes del Bounded Context IAM](#figura-2-63)
-- [Figura 2.64. Diagrama de clases de la Domain Layer de IAM](#figura-2-64)
-- [Figura 2.65. Diagrama de base de datos de IAM](#figura-2-65)
-- [Figura 2.66. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-66)
+- [Figura 2.28. Domain message flow del flujo de recordatorio de medicación reemitido](#figura-2-28)
+- [Figura 2.29. Domain message flow del flujo de inactividad prolongada](#figura-2-29)
+- [Figura 2.30. Bounded Context Canvas de Emergency & Alerting](#figura-2-30)
+- [Figura 2.31. Bounded Context Canvas de Health Monitoring](#figura-2-31)
+- [Figura 2.32. Bounded Context Canvas de Care Routines & Wellness](#figura-2-32)
+- [Figura 2.33. Bounded Context Canvas de Subscriptions](#figura-2-33)
+- [Figura 2.34. Bounded Context Canvas de Profile](#figura-2-34)
+- [Figura 2.35. Bounded Context Canvas de Mobility & Geofencing](#figura-2-35)
+- [Figura 2.36. Bounded Context Canvas de IAM](#figura-2-36)
+- [Figura 2.37. Context Map global de Guardian+](#figura-2-37)
+- [Figura 2.38. Context Map de las señales que disparan alertas](#figura-2-38)
+- [Figura 2.39. Context Map de identidad y sistemas externos](#figura-2-39)
+- [Figura 2.40. Diagrama de contexto de Guardian+](#figura-2-40)
+- [Figura 2.41. Diagrama de contenedores de Guardian+](#figura-2-41)
+- [Figura 2.42. Diagrama de componentes de la Guardian+ REST API](#figura-2-42)
+- [Figura 2.43. Diagrama de despliegue de Guardian+](#figura-2-43)
+- [Figura 2.44. Diagrama de componentes del Bounded Context Emergency & Alerting](#figura-2-44)
+- [Figura 2.45. Diagrama de clases de la Domain Layer de Emergency & Alerting](#figura-2-45)
+- [Figura 2.46. Diagrama de base de datos de Emergency & Alerting](#figura-2-46)
+- [Figura 2.47. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-47)
+- [Figura 2.48. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-48)
+- [Figura 2.49. Diagrama de base de datos de Health Monitoring](#figura-2-49)
+- [Figura 2.50. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-50)
+- [Figura 2.51. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-51)
+- [Figura 2.52. Diagrama de base de datos de Subscriptions](#figura-2-52)
+- [Figura 2.53. Diagrama de componentes del Bounded Context Profile](#figura-2-53)
+- [Figura 2.54. Diagrama de clases de la Domain Layer de Profile](#figura-2-54)
+- [Figura 2.55. Diagrama de base de datos de Profile](#figura-2-55)
+- [Figura 2.56. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-56)
+- [Figura 2.57. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-57)
+- [Figura 2.58. Diagrama de base de datos de Care Routines & Wellness](#figura-2-58)
+- [Figura 2.59. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-59)
+- [Figura 2.60. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-60)
+- [Figura 2.61. Diagrama de base de datos de Mobility & Geofencing](#figura-2-61)
+- [Figura 2.62. Diagrama de componentes del Bounded Context IAM](#figura-2-62)
+- [Figura 2.63. Diagrama de clases de la Domain Layer de IAM](#figura-2-63)
+- [Figura 2.64. Diagrama de base de datos de IAM](#figura-2-64)
+- [Figura 2.65. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-65)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -538,25 +544,29 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.4. Ejecución de los Unit Tests de Profile](#figura-4-4)
 - [Figura 4.5. Landing Page en ejecución](#figura-4-5)
 - [Figura 4.6. Aplicación móvil en ejecución en el emulador](#figura-4-6)
-- [Figura 4.7. Landing Page publicado en Cloudflare Pages](#figura-4-7)
-- [Figura 4.8. Grupo de recursos guardian-plus-rg en Azure](#figura-4-8)
-- [Figura 4.9. Máquina virtual guardian-plus-vm en Azure](#figura-4-9)
-- [Figura 4.10. Servidor de Azure Database for PostgreSQL](#figura-4-10)
-- [Figura 4.11. Ejecuciones de los workflows de GitHub Actions](#figura-4-11)
-- [Figura 4.12. Documentación de los Web Services en Swagger UI](#figura-4-12)
-- [Figura 4.13. Insights del repositorio de los Web Services](#figura-4-13)
-- [Figura 4.14. Insights del repositorio de la aplicación móvil](#figura-4-14)
-- [Figura 4.15. Insights del repositorio del Landing Page](#figura-4-15)
-- [Figura 4.16. Insights del repositorio del IoT Simulator](#figura-4-16)
-- [Figura 4.17. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-17)
-- [Figura 4.18. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-18)
-- [Figura 4.19. Pantalla Nueva toma del módulo de Rutinas](#figura-4-19)
-- [Figura 4.20. Pantalla Nueva cita del módulo de Rutinas](#figura-4-20)
-- [Figura 4.21. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-21)
-- [Figura 4.22. Pantalla Contactos de emergencia](#figura-4-22)
-- [Figura 4.23. Panel Buscar y filtrar del módulo de Salud](#figura-4-23)
-- [Figura 4.24. Pantalla Exportar expediente](#figura-4-24)
-- [Figura 4.25. Pantalla Sueño del módulo de Rutinas](#figura-4-25)
+- [Figura 4.7. Web Services en ejecución en Swagger UI](#figura-4-7)
+- [Figura 4.8. Landing Page publicado en Cloudflare Pages](#figura-4-8)
+- [Figura 4.9. Grupo de recursos guardian-plus-rg en Azure](#figura-4-9)
+- [Figura 4.10. Máquina virtual guardian-plus-vm en Azure](#figura-4-10)
+- [Figura 4.11. Servidor de Azure Database for PostgreSQL](#figura-4-11)
+- [Figura 4.12. Ejecuciones de los workflows de GitHub Actions](#figura-4-12)
+- [Figura 4.13. Documentación de los Web Services en Swagger UI](#figura-4-13)
+- [Figura 4.14. Insights del repositorio de los Web Services](#figura-4-14)
+- [Figura 4.15. Insights del repositorio de la aplicación móvil](#figura-4-15)
+- [Figura 4.16. Insights del repositorio del Landing Page](#figura-4-16)
+- [Figura 4.17. Insights del repositorio del IoT Simulator](#figura-4-17)
+- [Figura 4.18. Captura de la entrevista de validación a Rocio Alvarado](#figura-4-18)
+- [Figura 4.19. Captura de la entrevista de validación a Junior Antenor](#figura-4-19)
+- [Figura 4.20. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-20)
+- [Figura 4.21. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-21)
+- [Figura 4.22. Captura de la entrevista de validación a Gabriela Cuadros](#figura-4-22)
+- [Figura 4.23. Pantalla Nueva toma del módulo de Rutinas](#figura-4-23)
+- [Figura 4.24. Pantalla Nueva cita del módulo de Rutinas](#figura-4-24)
+- [Figura 4.25. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-25)
+- [Figura 4.26. Pantalla Contactos de emergencia](#figura-4-26)
+- [Figura 4.27. Panel Buscar y filtrar del módulo de Salud](#figura-4-27)
+- [Figura 4.28. Pantalla Exportar expediente](#figura-4-28)
+- [Figura 4.29. Pantalla Sueño del módulo de Rutinas](#figura-4-29)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -590,10 +600,11 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <br><br>
 <strong>Luis Miranda, Diego Andres</strong><br>
 <em>AV1:</em> Identifique a nuestro público objetivo a quienes van dirigido el producto cuidadores y familiares. Al realizar las entrevistas me permitieron transformar sus necesidades en requerimientos funcionales. Además, elaboré la descripción de la startup y diseñé un bounded context de Mobility & Geofencing, complementado con sesiones de event storming, canvas estratégico y la aplicación de Tactical Domain Driven Design dividido en capas (interface, domain, application, infrastructure). Finalmente, desarrollé diagramas de base de datos y modelos arquitectónicos C4, lo que me exigió investigar y aplicar herramientas de modelado avanzadas. Estas actividades reflejan mi capacidad de aprender de manera autónoma y aplicar ese aprendizaje en la práctica.
+<em>TB1:</em> Me encargué de realizar la UI (mock-ups, wireframes y flows) para el Bounded Context Mobility & Geofencing teniendo en cuenta la arquitectura de información, nuestras User Stories y los criterios de aceptación para cumplir un user goal. Además, participé en la implementación de este contexto en el backend, con la arquitectura por capas definida (DDD). También apoyé en el apartado Development Evidence for Sprint Review, documentando cada evidencia del avance del proyecto (Web Services, Landing Page y Mobile App).
 <br><br>
 <strong>López Monroy, Rodrigo Alfredo</strong><br>
 <em>AV1:</em> Apliqué Domain-Driven Design en sus dos niveles para diseñar el Bounded Context Emergency & Alerting, que es el Core Domain de Guardian+. En lo estratégico partí del EventStorming para delimitar el contexto y armar su Bounded Context Canvas, y en lo táctico definí sus agregados, value objects y eventos de dominio sobre una arquitectura de cuatro capas. Modelé el recorrido completo de una emergencia, desde la señal de riesgo hasta la respuesta del cuidador, con sus reglas de despacho y escalamiento. Para documentarlo aprendí por mi cuenta Mermaid y Graphviz, que no vimos en clase, y me permitieron mantener los diagramas como código versionado junto al informe.<br>
-<em>TB1:</em> Desarrollé los Labelling Systems y Navigation Systems de la arquitectura de información. Para ello investigué los tipos de navegación (global, local, contextual, secuencial y suplementaria) y las recomendaciones de Material Design para la bottom navigation bar, que limitan los destinos principales a cinco, lo que me llevó a reubicar Perfil en la barra superior. Traduje el Ubiquitous Language a etiquetas de interfaz y relacioné cada sección de la app con su Bounded Context y sus User Stories, de modo que el diseño visual quedara alineado con el modelo de dominio. También documenté el Software Development Environment Configuration a partir de lo configurado en los repositorios del equipo, y evalué opciones de despliegue para el Landing Page, los Web Services y la base de datos considerando las limitaciones de sus planes gratuitos.
+<em>TB1:</em> Desarrollé los Labelling Systems y Navigation Systems de la arquitectura de información. Para ello investigué los tipos de navegación y las recomendaciones de Material Design para la bottom navigation bar, que limitan los destinos principales a cinco, lo que me llevó a reubicar Perfil en la barra superior. Implementé el Bounded Context Emergency & Alerting en los Web Services con Spring Boot y sus pantallas en la aplicación móvil con Kotlin y Jetpack Compose, además de construir el Landing Page con React. Para publicar el backend aprendí a desplegarlo en una máquina virtual de Azure con Docker Compose, Caddy y Azure Database for PostgreSQL, y a automatizar ese despliegue con GitHub Actions. También conecté el prototipo navegable en Figma y rehíce el Context Map con la notación de DDD Crew usando Context Mapper.
 <br><br>
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> Durante el desarrollo de Guardian+ profundicé y apliqué conceptos de Domain-Driven Design y arquitectura de software para diseñar y documentar los Bounded Contexts Subscriptions y Profile. Trabajé desde el EventStorming y los Bounded Context Canvases hasta el diseño táctico, definiendo Aggregate Roots, Entities, Value Objects, Domain Policies, Repository Interfaces y las capas Interface, Application, Domain e Infrastructure. Además, aprendí y apliqué Structurizr DSL para elaborar los diagramas de componentes C4 y reforcé el modelado UML en Lucidchart para mantener los Code Level Diagrams alineados con el modelo de persistencia. Durante la revisión también identifiqué y corregí inconsistencias entre los modelos de dominio, los diagramas de componentes y el ERD, manteniendo coherencia entre las reglas de negocio, la arquitectura y la base de datos.<br>
@@ -615,9 +626,11 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 <strong>Luis Miranda, Diego Andres</strong><br>
 <em>AV1:</em> Desde la perpectiva de identificación del público objetivo y la realización de entrevistas con cuidadores y familiares, hasta la elaboración de la propuesta de la startup y el diseño del bounded context de Mobility & Geofencing, tuve que incorporar metodologías de análisis de usuarios, técnicas de Domain Driven Design, hacer correcion y herramientas de modelado arquitectónico como diagramas de base de datos y C4. Este proceso evidenció que el desempeño en soluciones de software requiere una actitud constante de aprendizaje, exploración de nuevas prácticas y adaptación a contextos cambiantes, lo cual fortalece mi capacidad de crecer profesionalmente.
 <br><br>
+<em>TB1:</em> Amplié y apliqué mis conocimientos en diseño de interfaces, arquitectura de información, user stories y criterios de aceptación para desarrollar los mockups, wireframes y flujos correspondientes al bounded context de Mobility & Geofencing. Asimismo, reforcé mis conocimientos sobre Domain-Driven Design (DDD) y arquitectura por capas mediante mi participación en la implementación del backend de este contexto y su integración con la arquitectura definida para el proyecto. Complementariamente, participé en la documentación de las evidencias de desarrollo para el Sprint Review, recopilando y organizando los avances relacionados con los web services, landing page y aplicación móvil. Estas actividades me permitieron aprender y adaptarme a diferentes aspectos del desarrollo de software, demostrando que la actualización constante de conocimientos es necesaria para responder a los requerimientos del proyecto y mejorar la calidad de las soluciones desarrolladas.
+<br><br>
 <strong>López Monroy, Rodrigo Alfredo</strong><br>
 <em>AV1:</em> Modelar reglas de temporización y escalamiento me tomó varias iteraciones y discusiones con el equipo hasta llegar a un modelo que representara el negocio y no solo mis supuestos. También aprendí que mantener alineados los distintos diagramas no es algo que ocurra solo: si cada uno avanza por su lado, terminan describiendo cosas distintas del mismo dominio. Hacia adelante quiero especializarme en sistemas embebidos, que tiene estándares y restricciones bastante distintos a los del desarrollo web, así que doy por hecho que voy a seguir aprendiendo por mi cuenta después de la carrera.<br>
-<em>TB1:</em> Al definir la navegación de la app antes de que existieran sus wireframes, entendí que las decisiones de arquitectura de información condicionan el trabajo de diseño que viene después, por lo que deben documentarse y comunicarse al equipo en lugar de quedarse como supuestos personales. Al revisar los repositorios para documentar el entorno de desarrollo, noté que las versiones de lenguajes, frameworks y servicios cambian con rapidez y que las condiciones de los servicios en la nube, como la duración de sus planes gratuitos, influyen directamente en la viabilidad de un despliegue. Esto me confirma que elegir herramientas es una decisión que tendré que volver a investigar en cada proyecto.
+<em>TB1:</em> Al definir la navegación de la app antes de que existieran sus wireframes, entendí que las decisiones de arquitectura de información condicionan el trabajo de diseño que viene después, por lo que deben documentarse y comunicarse al equipo. Pasar del diseño de Emergency & Alerting a su implementación me obligó a ajustar el modelo que había planteado en el AV1, porque varias reglas de escalamiento solo se entendieron bien al programarlas. El despliegue en Azure tampoco salió a la primera: tuve que aprender sobre la marcha a leer los registros de un pipeline y a trabajar con los límites de memoria de la máquina virtual. Esto me confirma que cada entrega me va a exigir herramientas que todavía no conozco.
 <br><br>
 <strong>Sanchez Cuadrado, Juan Antonio</strong><br>
 <em>AV1:</em> El desarrollo de Guardian+ me permitió reconocer que los conocimientos aprendidos en clase necesitan complementarse continuamente con investigación y práctica autónoma. Para completar mis responsabilidades tuve que aprender a relacionar artefactos de distintos niveles, como EventStorming, Bounded Context Canvas, C4, UML y modelos relacionales, entendiendo cómo un cambio en el dominio puede afectar también la arquitectura y la persistencia. Asimismo, investigué por mi cuenta el uso de Structurizr DSL y conceptos de integración y desacoplamiento entre Bounded Contexts. Esta experiencia me permitió comprender que, en el desarrollo profesional de software, las herramientas, tecnologías y decisiones de diseño evolucionan constantemente, por lo que será necesario continuar actualizando mis conocimientos técnicos durante toda mi carrera.<br>
