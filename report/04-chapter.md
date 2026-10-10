@@ -931,11 +931,27 @@ La Tabla 4.32 detalla las tareas del Sprint 1 y su estado.
 
 En esta sección se registran los commits que implementan las User Stories del Sprint 1 en cada repositorio.
 
+##### Landing Page
+
+Implementación del Landing Page de Guardian+ (US30, US31, US32 y US33): navegación entre secciones, presentación de las funcionalidades y beneficios, comparación de planes de suscripción y formulario de contacto, a partir de los tokens de diseño de las Style Guidelines. Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website/pull/1) y se publicó como versión 1.0.0. La Tabla 4.33 presenta los commits del Landing Page.
+
+<a id="tabla-4-33"></a>**Tabla 4.33.** Commits del Landing Page
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `afa00cc` | `feat(styles): add design tokens and base styles from the style guidelines` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `c70c557` | `feat(navigation): add sticky header with active section, mobile menu and footer` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `121bc43` | `feat(landing): add hero, pain points and how it works sections` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `3b06be6` | `feat(landing): add benefits with expandable details and why guardian+ sections` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `15c1f4d` | `feat(pricing): add subscription plans comparison` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `cc3359e` | `feat(contact): add contact form with validation and submission service` | 2026-09-28 |
+| [guardian-plus-website](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-website) | `feat/landing-page-first-iteration` | `556f945` | `test(landing): add tests for navigation, benefits, pricing and contact form` | 2026-09-28 |
+
 ##### Web Services — Emergency & Alerting
 
-Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.33 presenta los commits de Emergency & Alerting en los Web Services.
+Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15 y US16), integrada a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/7) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/6). Este último corrige el manejo compartido de solicitudes mal formadas. La Tabla 4.34 presenta los commits de Emergency & Alerting en los Web Services.
 
-<a id="tabla-4-33"></a>**Tabla 4.33.** Commits de Web Services: Emergency & Alerting
+<a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -953,9 +969,9 @@ Implementación del Bounded Context Emergency & Alerting (US08, US09, US11, US15
 
 ##### Web Services — Care Routines & Wellness
 
-Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.34 presenta los commits de Care Routines & Wellness en los Web Services.
+Implementación anticipada del Bounded Context Care Routines & Wellness (US06, US13, US14, US17, US26, US27 y US29), correspondiente a la épica EP02, planificada para Sprints posteriores. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/3) y [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/5). La Tabla 4.35 presenta los commits de Care Routines & Wellness en los Web Services.
 
-<a id="tabla-4-34"></a>**Tabla 4.34.** Commits de Web Services: Care Routines & Wellness
+<a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Care Routines & Wellness
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -967,9 +983,9 @@ Implementación anticipada del Bounded Context Care Routines & Wellness (US06, U
 
 ##### Web Services — Health Monitoring
 
-Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.35 presenta los commits de Health Monitoring en los Web Services.
+Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US03, US04, US05, US07 y US24), correspondiente a la épica EP01, planificada para Sprints posteriores. Incluye la recepción de la telemetría de signos vitales del simulador IoT por MQTT sobre WebSocket y la generación de alertas ante signos vitales fuera de rango en Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#12](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/12) y [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/14). La Tabla 4.36 presenta los commits de Health Monitoring en los Web Services.
 
-<a id="tabla-4-35"></a>**Tabla 4.35.** Commits de Web Services: Health Monitoring
+<a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Web Services: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -1067,11 +1083,43 @@ Implementación anticipada del Bounded Context Health Monitoring (US01, US02, US
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iot-connection` | `3bd33dd` | `docs(deploy): document vital sign telemetry settings for production` | 2026-10-06 |
 | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iot-connection` | `0d775e0` | `docs(readme): document the local IoT stack and telemetry settings` | 2026-10-06 |
 
+##### Web Services — Mobility & Geofencing
+
+Implementación del Bounded Context Mobility & Geofencing (US18), que recibe la ubicación del wearable, mantiene el seguimiento de la persona bajo cuidado y expone su ubicación actual, su estado y su historial. Incluye de forma anticipada la administración de zonas seguras y la detección de sus violaciones (US28). Se integró a `develop` mediante el Pull Request [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/11). La Tabla 4.37 presenta los commits de Mobility & Geofencing en los Web Services.
+
+<a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Web Services: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `0856a96` | `feat(mobilitygeofencing): add SafeZone aggregate root` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `6b3cec4` | `refactor(mobilitygeofencing): introduce LocationTracking aggregate root for domain state management` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `7c02fd6` | `refactor(mobilitygeofencing): implement ZoneViolation entity within the domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `12f7df1` | `feat refactor(mobilitygeofencing): implement WearableLocationTransformer to map external telemetry to domain commands` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `f8a2374` | `refactor(mobilitygeofencing): implement database persistence adapter for LocationTracking aggregate` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `ebb4c64` | `feat(mobilitygeofencing): expose controller http metods endpoints for current location, status, and history tracking` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `b25d298` | `feat(mobilitygeofencing): expose REST controller for safe zone CRUD and lifecycle management and feat identifier zone violationID` | 2026-10-04 |
+
+##### Web Services — Profile
+
+Implementación del Bounded Context Profile, que gestiona los perfiles de usuario, los perfiles de las personas bajo cuidado, las relaciones de cuidado y las preferencias de idioma y accesibilidad que utiliza la sección Perfil de la aplicación. Se integró a `develop` mediante el Pull Request [#13](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/13). La Tabla 4.38 presenta los commits de Profile en los Web Services.
+
+<a id="tabla-4-38"></a>**Tabla 4.38.** Commits de Web Services: Profile
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `b447710` | `feat(profile): add user and care recipient domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `12dd1c1` | `feat(profile): add jpa persistence entities and repositories` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `399d5a3` | `feat(profile): implement command and query services` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `1103d1d` | `feat(profile): add care relationship domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `01ca094` | `feat(profile): add user preferences domain model` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `251e137` | `feat(profile): add user profile rest endpoints` | 2026-10-04 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/profile-bounded-context` | `9e4e959` | `feat(profile): add care relationship rest endpoints` | 2026-10-04 |
+
 ##### Mobile App — Emergency & Alerting
 
-Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.36 presenta los commits de Emergency & Alerting en la aplicación móvil.
+Implementación de las pantallas del Bounded Context Emergency & Alerting en la aplicación móvil: alertas activas, detalle de alerta, historial, contactos de emergencia y configuración de alertas, conectadas a los Web Services del mismo contexto (US08, US09, US11, US15 y US16). Se integró a `develop` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/1). La Tabla 4.39 presenta los commits de Emergency & Alerting en la aplicación móvil.
 
-<a id="tabla-4-36"></a>**Tabla 4.36.** Commits de Mobile App: Emergency & Alerting
+<a id="tabla-4-39"></a>**Tabla 4.39.** Commits de Mobile App: Emergency & Alerting
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -1082,9 +1130,9 @@ Implementación de las pantallas del Bounded Context Emergency & Alerting en la 
 
 ##### Mobile App — Health Monitoring
 
-Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.37 presenta los commits de Health Monitoring en la aplicación móvil.
+Implementación de la capa de dominio, infraestructura y presentación del Bounded Context Health Monitoring en la aplicación móvil: pantalla de inicio, signos vitales en tiempo real e historial semanal de lecturas. Se integró a `develop` mediante los Pull Requests [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/3), [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/5) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/6). La Tabla 4.40 presenta los commits de Health Monitoring en la aplicación móvil.
 
-<a id="tabla-4-37"></a>**Tabla 4.37.** Commits de Mobile App: Health Monitoring
+<a id="tabla-4-40"></a>**Tabla 4.40.** Commits de Mobile App: Health Monitoring
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -1116,9 +1164,9 @@ Implementación de la capa de dominio, infraestructura y presentación del Bound
 
 ##### IoT Simulator
 
-Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.38 presenta los commits del IoT Simulator.
+Implementación del simulador de la pulsera Guardian+: catálogo de señales y generador con estado por dispositivo, publicación por MQTT en canales por Bounded Context, API HTTP de control y monitoreo, y CLI. La imagen de contenedor del simulador se integró a `main` mediante el Pull Request [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/1). La Tabla 4.41 presenta los commits del IoT Simulator.
 
-<a id="tabla-4-38"></a>**Tabla 4.38.** Commits de IoT Simulator
+<a id="tabla-4-41"></a>**Tabla 4.41.** Commits de IoT Simulator
 
 | Repository | Branch | Commit Id | Commit Message | Committed on |
 |---|---|---|---|---|
@@ -1150,9 +1198,9 @@ En el presente avance, la evidencia automatizada desarrollada para Profile corre
 
 Las pruebas desarrolladas para Profile verifican las principales reglas y comportamientos de los Aggregate Roots `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`.
 
-Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada. La Tabla 4.39 resume las pruebas implementadas.
+Adicionalmente, se incluye una prueba del servicio `UserProfileCommandServiceImpl`, utilizando Mockito para reemplazar temporalmente la implementación del repositorio y verificar el comportamiento del servicio de manera aislada. La Tabla 4.42 resume las pruebas implementadas.
 
-<a id="tabla-4-39"></a>**Tabla 4.39.** Unit Tests del Bounded Context Profile
+<a id="tabla-4-42"></a>**Tabla 4.42.** Unit Tests del Bounded Context Profile
 
 | Test Class | Class Under Test | Test | Behavior Verified |
 |---|---|---|---|
@@ -1285,9 +1333,9 @@ profile
 
 ##### Testing Commits
 
-El commit de la Tabla 4.40 contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
+El commit de la Tabla 4.43 contiene la implementación de los Unit Tests correspondientes al Bounded Context Profile durante el presente Sprint.
 
-<a id="tabla-4-40"></a>**Tabla 4.40.** Commit de los Unit Tests de Profile
+<a id="tabla-4-43"></a>**Tabla 4.43.** Commit de los Unit Tests de Profile
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
@@ -1309,9 +1357,9 @@ El Landing Page se encuentra publicado en [guardian-plus.pages.dev](https://guar
 
 ![landing-page-execution](../assets/images/chatper4/sprint1/landing-page-execution.png)
 
-La Tabla 4.41 presenta el enlace al video de ejecución del Landing Page.
+La Tabla 4.44 presenta el enlace al video de ejecución del Landing Page.
 
-<a id="tabla-4-41"></a>**Tabla 4.41.** Video de ejecución del Landing Page
+<a id="tabla-4-44"></a>**Tabla 4.44.** Video de ejecución del Landing Page
 
 | Producto | Video de ejecución |
 |---|---|
@@ -1325,9 +1373,9 @@ La Figura 4.6 muestra la pantalla de Inicio de la aplicación móvil ejecutándo
 
 ![mobile-app-execution](../assets/images/chatper4/sprint1/mobile-app-execution.png)
 
-La Tabla 4.42 presenta el enlace al video de ejecución de la aplicación móvil.
+La Tabla 4.45 presenta el enlace al video de ejecución de la aplicación móvil.
 
-<a id="tabla-4-42"></a>**Tabla 4.42.** Video de ejecución de la aplicación móvil
+<a id="tabla-4-45"></a>**Tabla 4.45.** Video de ejecución de la aplicación móvil
 
 | Producto | Video de ejecución |
 |---|---|
@@ -1341,9 +1389,9 @@ Los Web Services se encuentran publicados en Microsoft Azure y su documentación
 
 ![web-services-execution](../assets/images/chatper4/sprint1/web-services-swagger.png)
 
-La Tabla 4.43 presenta el enlace al video de ejecución de los Web Services.
+La Tabla 4.46 presenta el enlace al video de ejecución de los Web Services.
 
-<a id="tabla-4-43"></a>**Tabla 4.43.** Video de ejecución de los Web Services
+<a id="tabla-4-46"></a>**Tabla 4.46.** Video de ejecución de los Web Services
 
 | Producto | Video de ejecución |
 |---|---|
@@ -1355,9 +1403,9 @@ Los Web Services se documentan con OpenAPI mediante springdoc-openapi. La especi
 
 ##### Emergency & Alerting
 
-La Tabla 4.44 presenta los endpoints de Emergency & Alerting.
+La Tabla 4.47 presenta los endpoints de Emergency & Alerting.
 
-<a id="tabla-4-44"></a>**Tabla 4.44.** Endpoints de Emergency & Alerting
+<a id="tabla-4-47"></a>**Tabla 4.47.** Endpoints de Emergency & Alerting
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1387,9 +1435,9 @@ La Tabla 4.44 presenta los endpoints de Emergency & Alerting.
 
 ##### Health Monitoring
 
-La Tabla 4.45 presenta los endpoints de Health Monitoring.
+La Tabla 4.48 presenta los endpoints de Health Monitoring.
 
-<a id="tabla-4-45"></a>**Tabla 4.45.** Endpoints de Health Monitoring
+<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Health Monitoring
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1409,9 +1457,9 @@ La Tabla 4.45 presenta los endpoints de Health Monitoring.
 
 ##### Care Routines & Wellness
 
-La Tabla 4.46 presenta los endpoints de Care Routines & Wellness.
+La Tabla 4.49 presenta los endpoints de Care Routines & Wellness.
 
-<a id="tabla-4-46"></a>**Tabla 4.46.** Endpoints de Care Routines & Wellness
+<a id="tabla-4-49"></a>**Tabla 4.49.** Endpoints de Care Routines & Wellness
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1423,9 +1471,9 @@ La Tabla 4.46 presenta los endpoints de Care Routines & Wellness.
 | GET | `/api/v1/medication-stocks/citizen/{personUnderCareId}` | Saldo de dosis y días de suministro proyectados | Path: `personUnderCareId` | 200 / 404 |
 
 
-Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.47:
+Los demás comandos del contexto no se exponen por REST, porque los dispara el sistema, como se detalla en la Tabla 4.50:
 
-<a id="tabla-4-47"></a>**Tabla 4.47.** Procesos de Care Routines & Wellness disparados por el sistema
+<a id="tabla-4-50"></a>**Tabla 4.50.** Procesos de Care Routines & Wellness disparados por el sistema
 
 | Proceso | Componente | Descripción |
 |---|---|---|
@@ -1439,9 +1487,9 @@ Los umbrales son configurables mediante `care-routines-wellness.*` en `applicati
 
 ##### Mobility & Geofencing
 
-La Tabla 4.48 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
+La Tabla 4.51 presenta los endpoints de Mobility & Geofencing, que cubren la administración de zonas seguras y la consulta de la ubicación de la persona bajo cuidado.
 
-<a id="tabla-4-48"></a>**Tabla 4.48.** Endpoints de Mobility & Geofencing
+<a id="tabla-4-51"></a>**Tabla 4.51.** Endpoints de Mobility & Geofencing
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1456,9 +1504,9 @@ La Tabla 4.48 presenta los endpoints de Mobility & Geofencing, que cubren la adm
 
 ##### Profile
 
-La Tabla 4.49 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
+La Tabla 4.52 presenta los endpoints de Profile, organizados en perfiles de usuario, preferencias, perfiles de personas bajo cuidado y relaciones de cuidado.
 
-<a id="tabla-4-49"></a>**Tabla 4.49.** Endpoints de Profile
+<a id="tabla-4-52"></a>**Tabla 4.52.** Endpoints de Profile
 
 | Verbo | Endpoint | Acción | Parámetros | Respuesta |
 |---|---|---|---|---|
@@ -1486,9 +1534,9 @@ En este Sprint se realizó el primer despliegue del Landing Page de Guardian+ en
 
 ##### Landing Page
 
-La Tabla 4.50 resume el despliegue del Landing Page.
+La Tabla 4.53 resume el despliegue del Landing Page.
 
-<a id="tabla-4-50"></a>**Tabla 4.50.** Despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-53"></a>**Tabla 4.53.** Despliegue del Landing Page en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1499,9 +1547,9 @@ La Tabla 4.50 resume el despliegue del Landing Page.
 | **Versión desplegada** | `v1.0.0` |
 | **Configuración de build** | *Framework preset* `Create React App`, *Build command* `npm run build`, *Build output directory* `build` y `NODE_VERSION` con el valor `24` |
 
-El despliegue se realizó en los pasos de la Tabla 4.51:
+El despliegue se realizó en los pasos de la Tabla 4.54:
 
-<a id="tabla-4-51"></a>**Tabla 4.51.** Pasos del despliegue del Landing Page en el Sprint 1
+<a id="tabla-4-54"></a>**Tabla 4.54.** Pasos del despliegue del Landing Page en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1511,9 +1559,9 @@ El despliegue se realizó en los pasos de la Tabla 4.51:
 | **4** | Integración de `release/v1.0.0` en `main` mediante el Pull Request #2. | Despliegue automático en Cloudflare Pages y publicación del sitio en la URL pública. |
 | **5** | Validación del sitio publicado. | Navegación entre secciones, meta tags de la sección 3.1.2.3 y resultados de Lighthouse verificados. |
 
-La Tabla 4.52 presenta los resultados de Lighthouse sobre la URL pública:
+La Tabla 4.55 presenta los resultados de Lighthouse sobre la URL pública:
 
-<a id="tabla-4-52"></a>**Tabla 4.52.** Resultados de Lighthouse del Landing Page
+<a id="tabla-4-55"></a>**Tabla 4.55.** Resultados de Lighthouse del Landing Page
 
 | Categoría | Mobile | Desktop |
 |---|---|---|
@@ -1530,9 +1578,9 @@ La Figura 4.8 muestra el Landing Page publicado.
 
 ##### Web Services
 
-La Tabla 4.53 resume el despliegue de los Web Services.
+La Tabla 4.56 resume el despliegue de los Web Services.
 
-<a id="tabla-4-53"></a>**Tabla 4.53.** Despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-56"></a>**Tabla 4.56.** Despliegue de los Web Services en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1545,9 +1593,9 @@ La Tabla 4.53 resume el despliegue de los Web Services.
 | **Automatización** | Workflow `Deploy` de GitHub Actions: `test` → `build` → `deploy` |
 | **Bounded Contexts publicados** | Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, con 63 rutas documentadas en Swagger UI |
 
-El despliegue se realizó en los pasos de la Tabla 4.54:
+El despliegue se realizó en los pasos de la Tabla 4.57:
 
-<a id="tabla-4-54"></a>**Tabla 4.54.** Pasos del despliegue de los Web Services en el Sprint 1
+<a id="tabla-4-57"></a>**Tabla 4.57.** Pasos del despliegue de los Web Services en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1591,9 +1639,9 @@ Finalmente, la documentación de los Web Services queda disponible públicamente
 
 ##### IoT Simulator
 
-En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.55 resume este despliegue.
+En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la configuración descrita en la sección 4.1.4. La Tabla 4.58 resume este despliegue.
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-58"></a>**Tabla 4.58.** Despliegue del IoT Simulator en el Sprint 1
 
 | Aspecto | Detalle |
 |---|---|
@@ -1604,9 +1652,9 @@ En este Sprint se desplegó el IoT Simulator en Google Cloud siguiendo la config
 | **Infraestructura** | VM `e2-small` con Debian 12, IP estática, 2 reglas de firewall y cuenta de servicio con permisos mínimos |
 | **Servicios en la VM** | `mosquitto` y `guardian-simulator` (`systemd`, con reinicio automático) |
 
-El despliegue se realizó en los pasos de la Tabla 4.56:
+El despliegue se realizó en los pasos de la Tabla 4.59:
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Pasos del despliegue del IoT Simulator en el Sprint 1
+<a id="tabla-4-59"></a>**Tabla 4.59.** Pasos del despliegue del IoT Simulator en el Sprint 1
 
 | Step | Acción | Resultado |
 |---|---|---|
@@ -1690,9 +1738,9 @@ A continuación se presenta el registro de las entrevistas de validación del La
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.57 presenta los datos de la entrevistada.
+La Tabla 4.60 presenta los datos de la entrevistada.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Rocio Alvarado
+<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Rocio Alvarado
 
 | Campo | Valor |
 |---|---|
@@ -1714,9 +1762,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.58 presenta los datos del entrevistado.
+La Tabla 4.61 presenta los datos del entrevistado.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -1739,9 +1787,9 @@ La Figura 4.19 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.59 presenta los datos de la entrevistada.
+La Tabla 4.62 presenta los datos de la entrevistada.
 
-<a id="tabla-4-59"></a>**Tabla 4.59.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-62"></a>**Tabla 4.62.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1761,9 +1809,9 @@ La Figura 4.20 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.60 presenta los datos del entrevistado.
+La Tabla 4.63 presenta los datos del entrevistado.
 
-<a id="tabla-4-60"></a>**Tabla 4.60.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-63"></a>**Tabla 4.63.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1783,9 +1831,9 @@ La Figura 4.21 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.61 presenta los datos de la entrevistada.
+La Tabla 4.64 presenta los datos de la entrevistada.
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-64"></a>**Tabla 4.64.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -1808,9 +1856,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.62 presenta los datos generales de la evaluación.
+La Tabla 4.65 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-62"></a>**Tabla 4.62.** Datos generales de la evaluación heurística
+<a id="tabla-4-65"></a>**Tabla 4.65.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1841,9 +1889,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.63 define la escala de severidad utilizada.
+La Tabla 4.66 define la escala de severidad utilizada.
 
-<a id="tabla-4-63"></a>**Tabla 4.63.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-66"></a>**Tabla 4.66.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1855,9 +1903,9 @@ La Tabla 4.63 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.64 resume los problemas encontrados.
+La Tabla 4.67 resume los problemas encontrados.
 
-<a id="tabla-4-64"></a>**Tabla 4.64.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-67"></a>**Tabla 4.67.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
