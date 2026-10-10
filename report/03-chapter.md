@@ -138,7 +138,7 @@ La Figura 3.3 muestra el espaciado, los bordes y las elevaciones definidos.
 
 <a id="figura-3-3"></a>**Figura 3.3.** Espaciado, bordes y elevaciones del design system
 
-    ![espaciado bordes y elevaciones](../assets/images/chapterIII/general-style-guidelines/elevations.png)
+![espaciado bordes y elevaciones](../assets/images/chapterIII/general-style-guidelines/elevations.png)
 
 **Justificación de diseño.** *Por qué una cuadrícula de 8px y espacios generosos.* La retícula no se elige por comodidad de implementación, sino porque la alineación es lo que el usuario lee como calidad: una pantalla donde todos los márgenes son múltiplos de una misma unidad se percibe cuidada y, por extensión, fiable. En un producto cuyo argumento de venta es la confianza, la pulcritud de la composición forma parte de la promesa. El espacio en blanco que resulta de aplicar esa retícula con holgura cumple una función expresiva propia: una aplicación de monitoreo administra muchos indicadores a la vez y, sin aire entre ellos, adoptaría el aspecto de un panel de control saturado, precisamente la sensación que el producto quiere evitar. Al distribuir las tarjetas con márgenes amplios, la pantalla se lee reposada y la abundancia de datos deja de percibirse como complejidad.
 
