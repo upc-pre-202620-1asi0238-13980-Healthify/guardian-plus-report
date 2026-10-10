@@ -1944,15 +1944,20 @@ A partir del análisis de los eventos, comandos, actores, políticas, agregados 
 
 Como resultado del análisis se identificaron siete Bounded Contexts candidatos, clasificados de acuerdo con su relevancia estratégica dentro del dominio de Guardian+: dos pertenecientes al Core Domain, dos al Supporting Domain y tres al Generic Domain. A continuación, se presentan los resultados de EventStorming utilizados para sustentar el descubrimiento de cada contexto. De la misma manera, por practicidad, se adjuntan nuevamente los eventos encontrados en el Big Picture Eventstorming.
 
-###### Eventos obtenidos previamente
+##### Eventos obtenidos previamente
+
+La Figura 2.16 retoma los eventos identificados en el Big Picture EventStorming, que sirvieron como punto de partida para descubrir los Bounded Contexts candidatos.
+
+<a id="figura-2-16"></a>**Figura 2.16.** Eventos del Big Picture EventStorming usados como punto de partida
+
 ![Big Picture EventStorming - Guardian+](../assets/images/chapterII/bigPicture/bigPictureStorming.png)
 
 
 ##### Emergency & Alerting Bounded Context (Core Domain)
 
-La Figura 2.16 presenta el EventStorming del Bounded Context Emergency & Alerting.
+La Figura 2.17 presenta el EventStorming del Bounded Context Emergency & Alerting.
 
-<a id="figura-2-16"></a>**Figura 2.16.** EventStorming del Bounded Context Emergency & Alerting
+<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Emergency & Alerting
 
 ![Emergency & Alerting EventStorming](../assets/images/chapterII/EventStorming/Emergency.jpg)
 
@@ -1966,9 +1971,9 @@ Se clasificó como parte del **Core Domain** debido a que representa una de las 
 
 ##### Health Monitoring Bounded Context (Core Domain)
 
-La Figura 2.17 presenta el EventStorming del Bounded Context Health Monitoring.
+La Figura 2.18 presenta el EventStorming del Bounded Context Health Monitoring.
 
-<a id="figura-2-17"></a>**Figura 2.17.** EventStorming del Bounded Context Health Monitoring
+<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Health Monitoring
 
 ![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
@@ -1982,9 +1987,9 @@ Se clasificó como parte del **Core Domain** porque el monitoreo continuo del es
 
 ##### Care Routines & Wellness Bounded Context (Supporting Domain)
 
-La Figura 2.18 presenta el EventStorming del Bounded Context Care Routines & Wellness.
+La Figura 2.19 presenta el EventStorming del Bounded Context Care Routines & Wellness.
 
-<a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Care Routines & Wellness
+<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness EventStorming](../assets/images/chapterII/EventStorming/careRoutine.png)
 
@@ -1998,9 +2003,9 @@ Fue clasificado como **Supporting Domain**, ya que complementa las capacidades p
 
 ##### Mobility & Geofencing Bounded Context (Supporting Domain)
 
-La Figura 2.19 presenta el EventStorming del Bounded Context Mobility & Geofencing.
+La Figura 2.20 presenta el EventStorming del Bounded Context Mobility & Geofencing.
 
-<a id="figura-2-19"></a>**Figura 2.19.** EventStorming del Bounded Context Mobility & Geofencing
+<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing EventStorming](../assets/images/chapterII/EventStorming/MOBILITY.png)
 
@@ -2014,9 +2019,9 @@ Se clasificó como **Supporting Domain**, debido a que aporta información conte
 
 ##### IAM Bounded Context (Generic Domain)
 
-La Figura 2.20 presenta el EventStorming del Bounded Context IAM.
+La Figura 2.21 presenta el EventStorming del Bounded Context IAM.
 
-<a id="figura-2-20"></a>**Figura 2.20.** EventStorming del Bounded Context IAM
+<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context IAM
 
 ![IAM EventStorming](../assets/images/chapterII/EventStorming/IAM.png)
 
@@ -2029,9 +2034,9 @@ Se clasificó como **Generic Domain** porque representa una capacidad necesaria 
 
 ##### Profile Bounded Context (Generic Domain)
 
-La Figura 2.21 presenta el EventStorming del Bounded Context Profile.
+La Figura 2.22 presenta el EventStorming del Bounded Context Profile.
 
-<a id="figura-2-21"></a>**Figura 2.21.** EventStorming del Bounded Context Profile
+<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Profile
 
 El Bounded Context **Profile** concentra las capacidades relacionadas con la administración de la información descriptiva de los usuarios de Guardian+, las personas bajo cuidado, las relaciones de cuidado y las preferencias de uso de la aplicación. Mediante la sesión de EventStorming se identificaron los principales actores, comandos y eventos de dominio involucrados en estos procesos, permitiendo delimitar las responsabilidades correspondientes a este contexto.
 
@@ -2057,9 +2062,9 @@ El contexto **Profile** se clasificó como **Generic Domain**, debido a que sus 
 
 El Bounded Context **Subscriptions** concentra las capacidades relacionadas con el ciclo de vida comercial de las suscripciones de Guardian+. Mediante la sesión de EventStorming se identificaron los principales actores, comandos, eventos de dominio, reglas de decisión y sistemas externos involucrados en los procesos de solicitud, activación, cambio de plan, cancelación, expiración y renovación de una suscripción, así como en la actualización de los beneficios asociados a cada plan.
 
-La Figura 2.22 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
+La Figura 2.23 presenta el EventStorming correspondiente al **Subscriptions Bounded Context**, organizado de acuerdo con los principales procesos identificados dentro de este dominio.
 
-<a id="figura-2-22"></a>**Figura 2.22.** EventStorming del Bounded Context Subscriptions
+<a id="figura-2-23"></a>**Figura 2.23.** EventStorming del Bounded Context Subscriptions
 
 ![Subscriptions EventStorming](../assets/images/chapterII/EventStorming/Subscription.png)
 

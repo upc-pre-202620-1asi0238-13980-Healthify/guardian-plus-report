@@ -1655,9 +1655,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.55 presenta los datos de la entrevistada.
+La Tabla 4.55 presenta los datos del entrevistado.
 
-<a id="tabla-4-54"></a>**Tabla 4.55.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -1667,7 +1667,7 @@ La Tabla 4.55 presenta los datos de la entrevistada.
 
 La Figura 4.18 muestra una captura de la entrevista de validación a Junior Antenor.
 
-<a id="figura-4-17"></a>**Figura 4.18.** Captura de la entrevista de validación a Junior Antenor
+<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Junior Antenor
 
 ![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
 
@@ -1680,9 +1680,9 @@ La Figura 4.18 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.55 presenta los datos de la entrevistada.
+La Tabla 4.56 presenta los datos de la entrevistada.
 
-<a id="tabla-4-55"></a>**Tabla 4.55.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1690,9 +1690,9 @@ La Tabla 4.55 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.18 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.19 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -1702,9 +1702,9 @@ La Figura 4.18 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.56 presenta los datos del entrevistado.
+La Tabla 4.57 presenta los datos del entrevistado.
 
-<a id="tabla-4-56"></a>**Tabla 4.56.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-57"></a>**Tabla 4.57.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1712,9 +1712,9 @@ La Tabla 4.56 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.19 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.20 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -1724,9 +1724,9 @@ La Figura 4.19 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.57 presenta los datos del entrevistado.
+La Tabla 4.58 presenta los datos de la entrevistada.
 
-<a id="tabla-4-56"></a>**Tabla 4.57.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-58"></a>**Tabla 4.58.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -1734,9 +1734,9 @@ La Tabla 4.57 presenta los datos del entrevistado.
 | Edad | 21 |
 | Distrito | Santa Anita |
 
-La Figura 4.20 muestra una captura de la entrevista de validación a Gabriela Cuadros.
+La Figura 4.21 muestra una captura de la entrevista de validación a Gabriela Cuadros.
 
-<a id="figura-4-19"></a>**Figura 4.20.** Captura de la entrevista de validación a Gabriela Cuadros
+<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Gabriela Cuadros
 
 ![Captura Entrevista Validación Cuidador 3](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_3.png)
 
@@ -1749,9 +1749,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.57 presenta los datos generales de la evaluación.
+La Tabla 4.59 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-57"></a>**Tabla 4.57.** Datos generales de la evaluación heurística
+<a id="tabla-4-59"></a>**Tabla 4.59.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1782,9 +1782,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.58 define la escala de severidad utilizada.
+La Tabla 4.60 define la escala de severidad utilizada.
 
-<a id="tabla-4-58"></a>**Tabla 4.58.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-60"></a>**Tabla 4.60.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1796,9 +1796,9 @@ La Tabla 4.58 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.59 resume los problemas encontrados.
+La Tabla 4.61 resume los problemas encontrados.
 
-<a id="tabla-4-59"></a>**Tabla 4.59.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-61"></a>**Tabla 4.61.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -1817,17 +1817,17 @@ La Tabla 4.59 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.20 a 4.22 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.22 a 4.24 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-20"></a>**Figura 4.20.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-21"></a>**Figura 4.21.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-22"></a>**Figura 4.22.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -1841,9 +1841,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.23 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.25 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-23"></a>**Figura 4.23.** Pantalla Contactos de emergencia
+<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -1858,9 +1858,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.24 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.26 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-24"></a>**Figura 4.24.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-26"></a>**Figura 4.26.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -1875,9 +1875,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.25 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.27 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Exportar expediente
+<a id="figura-4-27"></a>**Figura 4.27.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -1892,9 +1892,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.26 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.28 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-28"></a>**Figura 4.28.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
