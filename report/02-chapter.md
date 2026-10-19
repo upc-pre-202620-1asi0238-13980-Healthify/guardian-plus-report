@@ -2174,6 +2174,8 @@ En esta sección se presentan los Bounded Context Canvases de los siete Bounded 
 
 En la Figura 2.30 se observa el Bounded Context Emergency & Alerting está clasificado como un Core Domain cuyo propósito es centralizar, gobernar y despachar de forma oportuna las alertas ante señales que comprometan la seguridad de la persona cuidada. Para garantizar una respuesta humana efectiva, el sistema consume asíncronamente eventos de riesgo de otros contextos (como anomalías biométricas de Health Monitoring o violaciones de geocercas de Mobility & Geofencing) y ejecuta complejas reglas de negocio como una ventana de confirmación de caídas, tiempos límite de reconocimiento (Ack Timeout) y una cadena de escalamiento progresivo que finaliza en el despacho de notificaciones push y SMS a través de proveedores externos.
 
+<div style="page-break-before: always; break-before: page;"></div>
+
 <a id="figura-2-30"></a>**Figura 2.30.** Bounded Context Canvas de Emergency & Alerting
 
 <table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
@@ -2318,6 +2320,8 @@ En la Figura 2.30 se observa el Bounded Context Emergency & Alerting está clasi
 
 Tal como se observa en la Figura 2.31, el Bounded Context Health Monitoring está catalogado como un Core Domain esencial, cuyo propósito es administrar los dispositivos wearables, ingerir datos biométricos en vivo y consolidar reportes de salud preventivos. El sistema recibe la telemetría del hardware externo a través de una capa de anticorrupción (ACL), valida la integridad de los signos vitales y evalúa cada lectura contra un umbral configurable (Vital Sign Threshold) por paciente; al aplicar reglas de negocio clave como la regla de tolerancia de tres lecturas consecutivas fuera de rango para filtrar falsos positivos, este contexto aísla las anomalías confirmadas y las emite asíncronamente para que sean consumidas por el contexto de Emergency & Alerting.
 
+<div style="page-break-before: always; break-before: page;"></div>
+
 <a id="figura-2-31"></a>**Figura 2.31.** Bounded Context Canvas de Health Monitoring
 
 <table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
@@ -2452,6 +2456,8 @@ Tal como se observa en la Figura 2.31, el Bounded Context Health Monitoring est�
 
 En la Figura 2.32 se detalla el Bounded Context Care Routines & Wellness está clasificado como un Supporting Domain encargado de gestionar las rutinas diarias (medicación, citas, actividad física e hidratación), clasificar los ciclos de sueño y controlar el inventario de medicamentos. El sistema absorbe datos de actividad e inactividad desde el hardware del Wearable Device, aplicando reglas esenciales como la política de emisión de recordatorios (ventanas de sueño) y un umbral mínimo de 3 días para sugerir el reabastecimiento de fármacos; ante desvíos críticos, como un estado de inactividad prolongada no justificado o el incumplimiento reiterado de una tarea, este contexto genera y expone los eventos correspondientes para ser consumidos por el dominio de Emergency & Alerting.
 
+<div style="page-break-before: always; break-before: page;"></div>
+
 <a id="figura-2-32"></a>**Figura 2.32.** Bounded Context Canvas de Care Routines & Wellness
 
 <table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
@@ -2581,6 +2587,8 @@ En la Figura 2.32 se detalla el Bounded Context Care Routines & Wellness está c
 ##### Bounded Context: Subscriptions (Generic Domain)
 
 Según se observa en la Figura 2.33, el Bounded Context Subscriptions está clasificado como un Generic Domain diseñado para gestionar de forma integral el ciclo de vida de los planes comerciales, las solicitudes de activación, las renovaciones y las cancelaciones. Este contexto se comunica con la pasarela de pagos externa Stripe mediante una capa de anticorrupción (ACL) para procesar transacciones mediante webhooks y, bajo un conjunto de reglas de negocio que incluyen políticas de verificación de pago y de sincronización de derechos (Entitlements), expone de forma saliente el estado de las capacidades activas para que los demás contextos de la aplicación puedan habilitar o restringir las funcionalidades correspondientes a cada usuario.
+
+<div style="page-break-before: always; break-before: page;"></div>
 
 <a id="figura-2-33"></a>**Figura 2.33.** Bounded Context Canvas de Subscriptions
 
@@ -2722,6 +2730,8 @@ Según se observa en la Figura 2.33, el Bounded Context Subscriptions está clas
 ##### Bounded Context: Profile (Generic Domain)
 
 En la Figura 2.34, el Bounded Context Profile está catalogado como un Generic Domain encargado de gestionar la identidad descriptiva, la información personal de contacto y las relaciones de cuidado (Care Relationships) entre los usuarios y las personas protegidas. Este contexto recibe la identidad autenticada desde IAM resguardando la propiedad de las credenciales, valida la integridad de los datos mediante una política de completitud del perfil y administra las preferencias de idioma y accesibilidad de la aplicación; de manera saliente, distribuye asíncronamente estos datos descriptivos hacia múltiples contextos dependientes (como Emergency & Alerting, Health Monitoring, Care Routines & Wellness y Mobility & Geofencing) para permitir la correcta asignación de rutinas, zonas seguras y el mantenimiento actualizado del círculo de cuidado.
+
+<div style="page-break-before: always; break-before: page;"></div>
 
 <a id="figura-2-34"></a>**Figura 2.34.** Bounded Context Canvas de Profile
 
@@ -2865,6 +2875,8 @@ En la Figura 2.34, el Bounded Context Profile está catalogado como un Generic D
 
 Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing está catalogado como un Supporting Domain cuyo propósito es gestionar el seguimiento de ubicación en tiempo real de la persona cuidada y administrar las geocercas configuradas para detectar cualquier violación de zona. El contexto procesa de manera entrante la telemetría del hardware externo (Wearable Device) mediante una capa de anticorrupción (ACL), y asocia estas coordenadas con los datos contextuales provistos por el dominio de Profile; aplicando rigurosas reglas de negocio como una política de validación de ubicación (coordenadas válidas y marca temporal correcta) y una política de límites de zona segura, este componente evalúa la posición y emite de forma saliente el evento de integración SafeZoneViolation hacia el contexto de Emergency & Alerting para iniciar el flujo de atención ante emergencias.
 
+<div style="page-break-before: always; break-before: page;"></div>
+
 <a id="figura-2-35"></a>**Figura 2.35.** Bounded Context Canvas de Mobility & Geofencing
 
 <table class="canvas" width="100%" style="border-collapse: collapse; border: 3px solid #212121; font-family: Arial, sans-serif; color: #212121;">
@@ -3006,6 +3018,8 @@ Como se aprecia en la Figura 2.35, el Bounded Context Mobility & Geofencing est�
 ##### Bounded Context: IAM (Generic Domain)
 
 En la Figura 2.36, el Bounded Context IAM (Identity & Access Management) está clasificado como un Generic Domain encargado de gestionar el ciclo de vida completo de la identidad digital de los usuarios, incluyendo el registro de credenciales, el restablecimiento seguro de contraseñas y la autenticación reforzada mediante segundo factor (2FA/OTP). Este contexto actúa bajo el patrón de arquitectura Open Host Service (OHS), aplicando reglas de negocio estrictas como una política de unicidad de correo electrónico y una política de autenticación obligatoria por OTP; de forma saliente, despacha notificaciones transaccionales a través de un proveedor externo de correo utilizando una capa de anticorrupción (ACL), y provee la identidad autenticada (UserId) para validar de manera centralizada la autorización de cada comando en los contextos dependientes de Profile, Subscriptions, Health Monitoring, Emergency & Alerting y Mobility & Geofencing.
+
+<div style="page-break-before: always; break-before: page;"></div>
 
 <a id="figura-2-36"></a>**Figura 2.36.** Bounded Context Canvas de IAM
 
