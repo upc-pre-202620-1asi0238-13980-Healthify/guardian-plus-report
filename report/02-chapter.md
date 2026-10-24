@@ -4098,7 +4098,7 @@ El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y 
 
 Este contexto mantiene las reglas comerciales desacopladas de otros Bounded Contexts, como IAM, Profile, Health Monitoring y Emergency & Alerting. Para ello utiliza identificadores propios, como `SubscriberId`, sin incorporar directamente los modelos de usuario pertenecientes a otros contextos.
 
-Asimismo, las capacidades relacionadas con procesamiento de pagos y evaluación temporal del ciclo de vida se resuelven mediante servicios de aplicación y adaptadores de infraestructura. La implementación actual utiliza un proveedor de pagos simulado, manteniendo una abstracción mediante `PaymentProvider` que permite sustituir dicho adaptador por un proveedor externo, como Stripe, en una evolución futura sin modificar las reglas centrales del dominio.
+Asimismo, las capacidades relacionadas con el procesamiento de pagos y la evaluación temporal del ciclo de vida se resuelven mediante servicios de aplicación y adaptadores de infraestructura. El procesamiento de pagos se mantiene desacoplado mediante la abstracción `PaymentProvider`, cuya implementación actual utiliza un proveedor simulado, permitiendo sustituirlo posteriormente por otro adaptador sin modificar las reglas centrales del dominio.
 
 #### 2.6.3.1. Domain Layer
 
@@ -4135,7 +4135,7 @@ Una nueva suscripción es creada inicialmente con estado `PENDING`. La activaci�
 - `cancel(updatedAt: Instant): void`
 - `expire(updatedAt: Instant): void`
 
-El aggregate protege las transiciones válidas del ciclo de vida. Por ejemplo, una renovación solamente puede aplicarse a una suscripción activa que no se encuentre programada para cancelación, y el nuevo periodo debe extender el periodo vigente.
+El aggregate protege las transiciones válidas del ciclo de vida. Una renovación solamente puede aplicarse a una suscripción activa que no se encuentre programada para cancelación y el nuevo periodo debe extender el periodo vigente.
 
 Cuando el usuario solicita cancelar el servicio al finalizar el periodo contratado, la suscripción pasa a `CANCELLATION_SCHEDULED` y establece `cancelAtPeriodEnd` en `true`. De esta manera, los beneficios permanecen disponibles hasta que finaliza el periodo vigente y posteriormente se ejecuta la cancelación efectiva.
 
@@ -4151,17 +4151,11 @@ Cuando el usuario solicita cancelar el servicio al finalizar el periodo contrata
 
 **Operaciones principales:**
 
-- reemplazar el conjunto actual de entitlements;
-- otorgar un entitlement;
-- revocar un entitlement;
-- comprobar si un beneficio se encuentra disponible;
-- revocar todos los entitlements.
-
-Entre las operaciones utilizadas por la Application Layer se encuentran:
-
 - `replaceWith(entitlements: Set<Entitlement>, updatedAt: Instant): void`
-- `revokeAll(updatedAt: Instant): void`
+- `grant(entitlement: Entitlement): void`
+- `revoke(entitlement: Entitlement): void`
 - `contains(code: EntitlementCode): Boolean`
+- `revokeAll(updatedAt: Instant): void`
 
 El conjunto se sincroniza después de operaciones como activación o cambio de plan. Cuando una suscripción se cancela definitivamente o expira, sus entitlements son revocados.
 
@@ -4186,11 +4180,11 @@ El conjunto se sincroniza después de operaciones como activación o cambio de p
 - `requiresPayment(): Boolean`
 - `includes(entitlementCode: EntitlementCode): Boolean`
 
-La propiedad `active` permite impedir la contratación o utilización de planes que ya no se encuentren disponibles comercialmente.
+La propiedad `active` permite controlar qué planes se encuentran disponibles comercialmente.
 
 ###### Entitlement
 
-`Entitlement` representa un beneficio o capacidad comercial habilitable mediante un plan de suscripción.
+`Entitlement` representa un beneficio o capacidad comercial que puede habilitarse como parte de un plan de suscripción.
 
 **Atributos principales:**
 
@@ -4202,7 +4196,7 @@ La propiedad `active` permite impedir la contratación o utilización de planes 
 
 - `matches(code: EntitlementCode): Boolean`
 
-Los entitlements permiten desacoplar las funcionalidades habilitadas de la identidad concreta del plan. De esta manera, las demás capacidades de Guardian+ pueden consultar beneficios específicos sin depender directamente del nombre comercial de un plan.
+Los entitlements permiten desacoplar las funcionalidades habilitadas de la identidad concreta del plan. De esta manera, otras capacidades de Guardian+ pueden consultar beneficios específicos sin depender directamente del nombre comercial de un plan.
 
 ##### Value Objects
 
@@ -4254,16 +4248,15 @@ Representa el estado actual dentro del ciclo de vida de una suscripción.
 - `CANCELLED`
 - `EXPIRED`
 
-`PENDING` representa una suscripción solicitada cuya activación todavía no ha sido completada. `ACTIVE` indica que el servicio se encuentra vigente. `CANCELLATION_SCHEDULED` indica que la cancelación fue solicitada pero el servicio continúa disponible hasta finalizar el periodo contratado. Finalmente, `CANCELLED` y `EXPIRED` representan estados terminales del ciclo vigente.
+`PENDING` representa una suscripción solicitada cuya activación todavía no ha sido completada. `ACTIVE` indica que el servicio se encuentra vigente. `CANCELLATION_SCHEDULED` indica que la cancelación fue solicitada pero el servicio continúa disponible hasta finalizar el periodo contratado. `CANCELLED` y `EXPIRED` representan estados terminales del ciclo vigente.
 
 ##### Domain Rules
 
-En la implementación actual las reglas centrales del dominio no se encuentran modeladas mediante clases independientes denominadas `SubscriptionActivationPolicy`, `SubscriptionLifecyclePolicy` o `EntitlementPolicy`. Las invariantes de transición se protegen directamente dentro de los aggregates, mientras que la coordinación de pagos, renovación, expiración y sincronización de entitlements se realiza desde la Application Layer.
+Las reglas centrales del dominio se encuentran protegidas directamente dentro de los aggregates `Subscription` y `EntitlementSet`. Las invariantes relacionadas con activación, renovación, cancelación, expiración y sincronización de beneficios se ejecutan mediante operaciones propias del dominio, mientras que la coordinación de los diferentes casos de uso corresponde a la Application Layer.
 
 Entre las principales reglas implementadas se encuentran:
 
 - una suscripción nueva inicia en estado `PENDING`;
-- únicamente una suscripción válida puede ser activada;
 - una suscripción activa puede solicitar cancelación al término de su periodo;
 - una suscripción programada para cancelación no puede renovarse;
 - una renovación debe extender el `currentPeriodEnd` existente;
@@ -4430,17 +4423,15 @@ Los endpoints expuestos por `SubscriptionController` se encuentran documentados 
 
 La documentación permite revisar las operaciones HTTP disponibles, los parámetros requeridos, los recursos de entrada y las posibles respuestas del Bounded Context.
 
-En la implementación actual, las operaciones relacionadas con confirmación o fallo de pagos **no se exponen mediante endpoints públicos ni mediante un `PaymentWebhookController`**. El procesamiento de pagos utilizado para la versión académica se ejecuta internamente mediante servicios de aplicación y un proveedor simulado.
-
-Por esta razón, no se requiere actualmente un webhook externo de Stripe. La arquitectura mantiene el procesamiento de pagos desacoplado mediante la abstracción `PaymentProvider`, permitiendo incorporar en una evolución futura un adaptador conectado a Stripe Sandbox o a otro proveedor sin modificar el contrato REST principal de Subscriptions.
+El procesamiento de pagos se ejecuta internamente mediante servicios de aplicación y el puerto `PaymentProvider`. De esta manera, el contrato REST de Subscriptions permanece desacoplado del mecanismo concreto utilizado para procesar pagos.
 
 #### 2.6.3.3. Application Layer
 
 La Application Layer del Bounded Context **Subscriptions** coordina los casos de uso relacionados con la creación, activación, cambio de plan, renovación, cancelación, expiración y consulta de suscripciones.
 
-Esta capa utiliza los aggregates y repositorios definidos por el dominio, pero evita modificar directamente el estado interno de los aggregates. Las transiciones son ejecutadas mediante métodos de `Subscription` y `EntitlementSet`, preservando las invariantes definidas en la Domain Layer.
+Esta capa utiliza los aggregates y repositorios definidos por el dominio, manteniendo las reglas de negocio dentro de la Domain Layer. Las transiciones son ejecutadas mediante operaciones de `Subscription` y `EntitlementSet`, mientras que la Application Layer se encarga de coordinar los flujos necesarios para completar cada caso de uso.
 
-Asimismo, la Application Layer define puertos de salida para capacidades externas, como el procesamiento de pagos y la búsqueda de suscripciones cuyo ciclo de vida debe ser evaluado. Las implementaciones concretas de estos puertos pertenecen a la Infrastructure Layer.
+Asimismo, esta capa define puertos de salida para capacidades externas, como el procesamiento de pagos y la identificación de suscripciones que requieren una evaluación de su ciclo de vida.
 
 ##### Subscription Command Service
 
@@ -4448,7 +4439,7 @@ Asimismo, la Application Layer define puertos de salida para capacidades externa
 
 `SubscriptionCommandService` constituye el servicio principal encargado de coordinar las operaciones que modifican el ciclo de vida de una suscripción.
 
-La implementación concreta se encuentra en `SubscriptionCommandServiceImpl`.
+Su implementación concreta se encuentra en `SubscriptionCommandServiceImpl`.
 
 Entre los comandos procesados se encuentran:
 
@@ -4484,7 +4475,7 @@ La activación establece:
 - el estado `ACTIVE`;
 - la fecha de actualización.
 
-Después de activar la suscripción se sincronizan los entitlements correspondientes al plan.
+Después de activar la suscripción se sincronizan los entitlements correspondientes al plan seleccionado.
 
 ###### ApplyPlanChangeCommand
 
@@ -4496,13 +4487,13 @@ El servicio recupera el nuevo plan, valida su existencia y disponibilidad, ejecu
 
 Coordina la renovación del periodo de servicio de una suscripción activa.
 
-La operación utiliza el método `renew(...)` del aggregate `Subscription`, que verifica que la suscripción pueda renovarse y que el nuevo periodo extienda correctamente el periodo actual.
+La operación utiliza el método `renew(...)` del aggregate `Subscription`, verificando que el nuevo periodo extienda correctamente la vigencia existente.
 
 ###### RequestSubscriptionCancellationCommand
 
 Permite solicitar la cancelación de una suscripción al finalizar el periodo contratado.
 
-La suscripción pasa a estado:
+La suscripción pasa al estado:
 
 `CANCELLATION_SCHEDULED`
 
@@ -4534,6 +4525,12 @@ Los principales comandos utilizados son:
 - `SyncEntitlementsFromPlanCommand`
 - `RevokeAllEntitlementsCommand`
 
+###### UpdateEntitlementsCommand
+
+Permite actualizar el conjunto efectivo de beneficios asociado a una suscripción.
+
+El servicio recupera el `EntitlementSet`, aplica los cambios correspondientes y persiste el nuevo estado mediante `EntitlementSetRepository`.
+
 ###### SyncEntitlementsFromPlanCommand
 
 Sincroniza el `EntitlementSet` utilizando los códigos de beneficios configurados en el plan vigente.
@@ -4544,7 +4541,7 @@ Para completar esta operación, el servicio utiliza:
 - `EntitlementCatalogRepository`
 - `EntitlementSetRepository`
 
-De esta manera, los códigos configurados en `Plan` son transformados en objetos `Entitlement` completos antes de actualizar el conjunto efectivo de beneficios de la suscripción.
+De esta manera, los códigos configurados en `Plan` son transformados en objetos `Entitlement` antes de actualizar el conjunto efectivo de beneficios de la suscripción.
 
 ###### RevokeAllEntitlementsCommand
 
@@ -4554,15 +4551,15 @@ Este comando se utiliza principalmente después de una cancelación definitiva o
 
 ##### Payment Application Services
 
-El procesamiento de pagos se encuentra desacoplado del proveedor concreto mediante handlers de aplicación y un puerto denominado `PaymentProvider`.
+El procesamiento de pagos se encuentra desacoplado del proveedor concreto mediante handlers de aplicación y el puerto `PaymentProvider`.
 
-La implementación actual no realiza transacciones monetarias reales. Los handlers procesan los mismos escenarios de confirmación y fallo que podrían producirse mediante un proveedor externo, mientras que la Infrastructure Layer utiliza un adaptador simulado para generar dichos resultados.
+La Application Layer coordina los escenarios de inicio, confirmación y fallo de un pago, mientras que la implementación concreta encargada de iniciar la operación pertenece a Infrastructure.
 
 ##### Payment Provider Port
 
 ###### PaymentProvider
 
-`PaymentProvider` define el contrato utilizado por la Application Layer para iniciar una operación de pago sin depender de Stripe u otro proveedor concreto.
+`PaymentProvider` define el contrato utilizado por la Application Layer para iniciar una operación de pago sin depender de un proveedor concreto.
 
 La operación principal es:
 
@@ -4592,7 +4589,7 @@ Valores implementados:
 
 ###### PaymentStatus
 
-Representa el estado devuelto por el proveedor de pagos.
+Representa el estado de una operación de pago.
 
 Valores implementados:
 
@@ -4602,15 +4599,13 @@ Valores implementados:
 
 ###### PaymentInitiationResult
 
-Representa el resultado de iniciar un proceso de pago.
+Representa el resultado obtenido al iniciar una operación de pago.
 
-Contiene:
+Contiene información como:
 
 - proveedor utilizado;
 - referencia externa;
 - estado inicial de la operación.
-
-La implementación simulada genera referencias con el formato `pay_test_*`.
 
 ##### Subscription Activation Payment Handlers
 
@@ -4618,50 +4613,51 @@ La implementación simulada genera referencias con el formato `pay_test_*`.
 
 Coordina el inicio del pago requerido para activar una nueva suscripción.
 
-Su implementación valida:
+Antes de iniciar el proceso valida:
 
 - que la suscripción exista;
 - que se encuentre en estado `PENDING`;
-- que el plan exista y se encuentre activo;
+- que el plan exista;
+- que el plan se encuentre activo;
 - que el plan requiera pago.
 
-Cuando las condiciones son válidas, construye un `PaymentRequest` con propósito `SUBSCRIPTION_ACTIVATION` y lo envía al puerto `PaymentProvider`.
+Cuando las condiciones son válidas, construye un `PaymentRequest` con propósito `SUBSCRIPTION_ACTIVATION` y lo envía mediante `PaymentProvider`.
 
 ###### PaymentConfirmedHandler
 
-Procesa la confirmación exitosa de un pago inicial.
+Procesa la confirmación exitosa del pago asociado a una activación.
 
 Cuando el pago es confirmado:
 
-1. se recupera la suscripción;
-2. se valida que permanezca en estado `PENDING`;
-3. se recupera el plan;
-4. se calcula el periodo correspondiente según su `BillingCycle`;
-5. se ejecuta `subscription.activate(...)`;
-6. se sincronizan los entitlements del plan;
-7. se persiste la suscripción activa.
+1. recupera la suscripción;
+2. valida que continúe en estado `PENDING`;
+3. recupera el plan correspondiente;
+4. calcula el periodo de vigencia según `BillingCycle`;
+5. ejecuta `subscription.activate(...)`;
+6. sincroniza los entitlements del plan;
+7. persiste la suscripción.
 
-Para un plan `MONTHLY`, el periodo se extiende un mes, mientras que para un plan `ANNUAL` se extiende un año.
+Para un plan `MONTHLY`, el periodo se extiende un mes. Para un plan `ANNUAL`, se extiende un año.
 
 ###### PaymentFailedHandler
 
-Procesa el fallo de un pago de activación.
+Procesa el fallo del pago asociado a una activación.
 
-Cuando el pago falla, la suscripción no es activada y permanece en estado `PENDING`, permitiendo que el proceso pueda ser intentado nuevamente.
+Cuando el pago no es confirmado, la suscripción permanece en estado `PENDING` y no se habilitan los beneficios correspondientes al plan.
 
 ##### Renewal Payment Handlers
 
 ###### InitiateRenewalPaymentHandler
 
-Inicia el proceso de pago asociado a la renovación de una suscripción.
+Coordina el inicio del pago asociado a la renovación de una suscripción.
 
-Antes de generar la solicitud valida:
+Antes de iniciar el proceso valida:
 
 - que la suscripción exista;
-- que se encuentre `ACTIVE`;
+- que se encuentre en estado `ACTIVE`;
 - que posea un `currentPeriodEnd`;
-- que no se encuentre programada para cancelación;
-- que el plan esté activo;
+- que no tenga una cancelación programada;
+- que el plan se encuentre activo;
 - que el plan requiera pago.
 
 El `PaymentRequest` generado utiliza el propósito:
@@ -4672,29 +4668,27 @@ El `PaymentRequest` generado utiliza el propósito:
 
 Procesa una renovación cuyo pago fue confirmado.
 
-A diferencia de una activación inicial, el nuevo periodo no se calcula desde la fecha actual, sino desde el `currentPeriodEnd` vigente.
+El nuevo periodo se calcula a partir del `currentPeriodEnd` vigente.
 
-Por ejemplo:
+Para un plan mensual:
 
 `currentPeriodEnd → +1 mes`
 
-para planes mensuales, o:
+Para un plan anual:
 
 `currentPeriodEnd → +1 año`
 
-para planes anuales.
-
-Posteriormente se utiliza `subscription.renew(...)` y se persiste el nuevo periodo.
+Posteriormente se ejecuta `subscription.renew(...)` y se persiste el nuevo periodo de vigencia.
 
 ###### RenewalPaymentFailedHandler
 
 Procesa un intento fallido de pago de renovación.
 
-El handler no renueva ni modifica automáticamente la suscripción. La decisión posterior de expiración es responsabilidad del flujo de evaluación del ciclo de vida.
+El handler no modifica automáticamente la suscripción. La decisión de expiración posterior corresponde al flujo encargado de evaluar el ciclo de vida.
 
 ##### Lifecycle Evaluation
 
-La Application Layer también contiene los servicios encargados de determinar qué acción corresponde ejecutar cuando una suscripción alcanza el final de su periodo.
+La Application Layer contiene los servicios encargados de determinar qué acción debe ejecutarse cuando una suscripción alcanza el final de su periodo.
 
 ###### RenewalEvaluation
 
@@ -4712,14 +4706,14 @@ Evalúa si una suscripción se encuentra en condiciones de iniciar una renovaci�
 
 Una renovación es considerada `DUE` cuando:
 
-- la suscripción se encuentra `ACTIVE`;
-- no tiene cancelación programada;
-- posee un `currentPeriodEnd`;
+- la suscripción se encuentra en estado `ACTIVE`;
+- no posee una cancelación programada;
+- tiene un `currentPeriodEnd`;
 - `currentPeriodEnd` es menor o igual al instante evaluado.
 
-Si todavía no llegó el final del periodo, devuelve `NOT_DUE`.
+Cuando todavía no se alcanza el final del periodo se obtiene `NOT_DUE`.
 
-Si la suscripción no puede renovarse, devuelve `NOT_ELIGIBLE`.
+Cuando la suscripción no cumple las condiciones necesarias para una renovación se obtiene `NOT_ELIGIBLE`.
 
 ###### ExpirationEvaluation
 
@@ -4733,17 +4727,15 @@ Valores:
 
 ###### EvaluateSubscriptionExpirationHandler
 
-Evalúa si una suscripción activa ya alcanzó el final de su periodo.
+Evalúa si una suscripción activa ya alcanzó el final de su periodo y puede ser marcada como expirada.
 
-La expiración es considerada `DUE` cuando `currentPeriodEnd` es menor o igual al instante evaluado.
-
-La evaluación no ejecuta directamente la expiración; únicamente determina si la acción corresponde.
+La evaluación únicamente determina si corresponde ejecutar la expiración y no modifica directamente el aggregate.
 
 ##### Subscription Lifecycle Orchestration
 
 ###### SubscriptionLifecycleAction
 
-Representa la acción que debe realizarse después de evaluar completamente el estado de una suscripción.
+Representa la acción que debe realizarse después de evaluar el estado completo de una suscripción.
 
 Valores implementados:
 
@@ -4754,17 +4746,17 @@ Valores implementados:
 
 ###### EvaluateSubscriptionLifecycleHandler
 
-`EvaluateSubscriptionLifecycleHandler` centraliza la decisión de alto nivel sobre el siguiente paso del ciclo de vida.
+`EvaluateSubscriptionLifecycleHandler` centraliza la decisión sobre la siguiente acción del ciclo de vida.
 
-Su comportamiento principal es:
+Su comportamiento considera principalmente los siguientes escenarios:
 
-- una suscripción `CANCELLATION_SCHEDULED` cuyo periodo terminó produce `CANCELLATION_DUE`;
+- una suscripción `CANCELLATION_SCHEDULED` cuyo periodo finalizó produce `CANCELLATION_DUE`;
 - una suscripción `ACTIVE` cuyo periodo todavía no finalizó produce `NONE`;
 - una suscripción `ACTIVE` vencida y elegible para renovación produce `RENEWAL_DUE`;
 - después de un intento de renovación fallido, una suscripción vencida puede producir `EXPIRATION_DUE`;
-- una suscripción que no requiere ninguna acción produce `NONE`.
+- cuando no corresponde ninguna transición se produce `NONE`.
 
-Este diseño permite separar la **evaluación** de una condición temporal de la **ejecución** de la acción correspondiente.
+Esta separación permite distinguir la evaluación de las reglas temporales de la ejecución posterior de la transición correspondiente.
 
 ##### Query Services
 
@@ -4772,7 +4764,7 @@ Este diseño permite separar la **evaluación** de una condición temporal de la
 
 `SubscriptionApplicationQueryService` coordina las consultas de lectura del Bounded Context.
 
-Su implementación concreta recupera información mediante los repositorios de dominio y devuelve resultados de aplicación sin modificar el estado de las suscripciones.
+Su implementación recupera información mediante los repositorios del dominio sin modificar el estado de los aggregates.
 
 Las consultas implementadas son:
 
@@ -4787,56 +4779,40 @@ La consulta utiliza:
 
 `SubscriptionRepository.findActiveBySubscriberId(...)`
 
-Una suscripción con estado `ACTIVE` o `CANCELLATION_SCHEDULED` es considerada vigente para efectos de consulta.
+Para efectos de consulta se considera vigente una suscripción en estado `ACTIVE` o `CANCELLATION_SCHEDULED`.
 
 ###### GetAvailableEntitlementsQuery
 
-Permite obtener los beneficios disponibles para el suscriptor.
+Permite obtener los beneficios actualmente disponibles para un suscriptor.
 
-El flujo primero recupera la suscripción vigente y posteriormente consulta su `EntitlementSet`.
+El flujo recupera primero la suscripción vigente y posteriormente consulta el `EntitlementSet` asociado.
 
-Si no existe una suscripción vigente, el resultado es tratado como recurso no encontrado.
+Si no existe una suscripción vigente, la consulta no retorna un conjunto de beneficios disponible.
 
 ##### Outbound Ports
 
 Además de los repositorios definidos por el dominio, la Application Layer utiliza puertos para desacoplar capacidades técnicas externas.
 
-Entre los principales se encuentran:
-
 ###### PaymentProvider
 
 Abstrae el mecanismo utilizado para iniciar operaciones de pago.
 
-La Application Layer no conoce si la implementación utiliza un simulador, Stripe Sandbox u otro proveedor.
+La Application Layer depende únicamente de este contrato y no de su implementación concreta.
 
 ###### SubscriptionLifecycleCandidateFinder
 
-Define el contrato utilizado para localizar suscripciones cuyo periodo ya alcanzó la fecha de evaluación y que deben ser procesadas por el ciclo automático de billing.
+Define el contrato utilizado para localizar suscripciones cuyo periodo ha alcanzado la fecha de evaluación y que deben ser procesadas por el ciclo automático de billing.
 
-La implementación concreta de este puerto se encuentra en Infrastructure.
+La implementación concreta de este puerto pertenece a la Infrastructure Layer.
 
-##### Application Layer Design Considerations
+##### Command and Handler Organization
 
-La implementación actual no utiliza clases independientes denominadas:
-
-- `RequestSubscriptionHandler`
-- `ActivateSubscriptionHandler`
-- `RequestPlanChangeHandler`
-- `ApplyPlanChangeHandler`
-- `RequestSubscriptionCancellationHandler`
-- `CancelSubscriptionHandler`
-- `RenewSubscriptionHandler`
-- `ExpireSubscriptionHandler`
-- `UpdateEntitlementsHandler`
-
-como handlers individuales para cada operación.
-
-Estas responsabilidades son agrupadas principalmente en:
+Las operaciones generales relacionadas con el ciclo de vida de las suscripciones se concentran principalmente en:
 
 - `SubscriptionCommandService`
 - `EntitlementSetCommandService`
 
-Por otro lado, las operaciones de pago y evaluación temporal sí utilizan handlers especializados, entre ellos:
+Las responsabilidades asociadas al procesamiento de pagos y evaluación temporal utilizan handlers especializados:
 
 - `InitiateSubscriptionPaymentHandler`
 - `PaymentConfirmedHandler`
@@ -4848,8 +4824,7 @@ Por otro lado, las operaciones de pago y evaluación temporal sí utilizan handl
 - `EvaluateSubscriptionExpirationHandler`
 - `EvaluateSubscriptionLifecycleHandler`
 
-De esta manera, la documentación refleja la estructura efectivamente implementada en el backend, evitando describir componentes conceptuales que no existen actualmente como clases independientes.
-
+Esta organización mantiene separada la coordinación general de las suscripciones de los procesos especializados relacionados con pagos, renovación y evaluación temporal del ciclo de vida.
 
 #### 2.6.3.4. Infrastructure Layer
 
@@ -4863,11 +4838,11 @@ Las principales responsabilidades de esta capa son:
 - implementar el proveedor de pagos utilizado por la aplicación;
 - identificar suscripciones que requieren evaluación temporal;
 - ejecutar automáticamente renovaciones, cancelaciones y expiraciones;
-- proporcionar configuraciones técnicas para habilitar o deshabilitar el procesamiento automático.
+- proporcionar configuraciones técnicas para controlar el procesamiento automático.
 
 ##### Persistence
 
-La persistencia del Bounded Context se encuentra implementada mediante adaptadores que satisfacen los contratos definidos en la Domain Layer.
+La persistencia del Bounded Context se implementa mediante adaptadores que satisfacen los contratos definidos en la Domain Layer.
 
 Las principales abstracciones utilizadas son:
 
@@ -4925,7 +4900,7 @@ Su operación principal es:
 
 `findAllByCodes(codes)`
 
-Esta separación evita almacenar directamente objetos completos de `Entitlement` dentro de `Plan`.
+Esta separación permite que `Plan` mantenga únicamente las referencias a los beneficios, mientras que el catálogo proporciona las definiciones completas de los entitlements.
 
 ##### Payment Provider Adapter
 
@@ -4933,11 +4908,11 @@ El procesamiento de pagos se encuentra desacoplado de la Application Layer media
 
 `PaymentProvider`
 
-La implementación utilizada actualmente es:
+La implementación utilizada es:
 
 `SimulatedPaymentProviderAdapter`
 
-Este adaptador permite reproducir el comportamiento de un proveedor externo sin utilizar tarjetas reales, información financiera, claves privadas ni llamadas hacia servicios externos.
+Este adaptador reproduce el comportamiento necesario para ejecutar los casos de uso relacionados con pagos sin incorporar dependencias financieras dentro del dominio.
 
 ###### SimulatedPaymentProviderAdapter
 
@@ -4955,29 +4930,29 @@ y devuelve inicialmente el estado:
 
 `PENDING`
 
-A partir de este resultado, los servicios de aplicación pueden simular posteriormente una confirmación o un fallo.
+A partir de este resultado, los servicios de aplicación pueden procesar posteriormente una confirmación o un fallo.
 
-El flujo permite representar los siguientes estados:
+Los estados contemplados durante el flujo son:
 
 - `PENDING`
 - `CONFIRMED`
 - `FAILED`
 
-Esta implementación permite probar los mismos escenarios de negocio que existirían al utilizar un proveedor real, manteniendo el backend independiente de una integración específica.
+Esta implementación permite ejecutar y validar los escenarios de negocio asociados al procesamiento de pagos manteniendo el backend independiente de una integración externa específica.
 
 ##### Simulated Payment Flows
 
-Además del adaptador de pago, Infrastructure contiene servicios que permiten ejecutar de forma controlada los flujos simulados de activación y renovación.
+Además del adaptador de pago, la infraestructura dispone de servicios que permiten ejecutar de forma controlada los flujos simulados de activación y renovación.
 
-Estos servicios coordinan los handlers de Application Layer para representar una respuesta positiva o negativa del proveedor.
+Estos componentes coordinan los handlers definidos en la Application Layer para representar una respuesta positiva o negativa del proveedor.
 
 ###### Simulated Subscription Payment Flow
 
 El flujo simulado de activación realiza la siguiente secuencia:
 
 1. inicia el pago mediante `InitiateSubscriptionPaymentHandler`;
-2. obtiene una referencia simulada;
-3. recibe un resultado configurado como `CONFIRMED` o `FAILED`;
+2. obtiene una referencia de pago simulada;
+3. procesa un resultado `CONFIRMED` o `FAILED`;
 4. ejecuta el handler correspondiente.
 
 Cuando el resultado es `CONFIRMED`, se utiliza:
@@ -4988,7 +4963,7 @@ Cuando el resultado es `FAILED`, se utiliza:
 
 `PaymentFailedHandler`
 
-De esta manera, el simulador no modifica directamente el aggregate `Subscription`.
+De esta manera, el adaptador de infraestructura no modifica directamente el aggregate `Subscription`.
 
 ###### Simulated Renewal Payment Flow
 
@@ -5003,42 +4978,21 @@ y posteriormente procesa uno de los siguientes resultados:
 - `RenewalPaymentConfirmedHandler`
 - `RenewalPaymentFailedHandler`
 
-Esto permite evaluar tanto una renovación exitosa como el escenario en el que el pago no puede confirmarse.
+Esto permite representar tanto una renovación exitosa como un intento de renovación fallido.
 
-##### Stripe as Future Payment Adapter
+##### Payment Provider Extensibility
 
-Stripe fue evaluado como alternativa técnicamente viable para el procesamiento de pagos de Guardian+.
+La arquitectura mantiene el procesamiento de pagos desacoplado mediante el puerto `PaymentProvider`.
 
-La arquitectura actual no integra directamente Stripe ni utiliza actualmente:
-
-- Stripe SDK;
-- Payment Intents reales;
-- tarjetas de pago;
-- claves privadas de Stripe;
-- webhooks de Stripe;
-- operaciones financieras reales.
-
-Sin embargo, la existencia del puerto `PaymentProvider` permite incorporar posteriormente una implementación como:
-
-`StripePaymentProviderAdapter`
-
-sin modificar las reglas centrales del dominio ni los handlers que reaccionan ante pagos confirmados o fallidos.
-
-Para ambientes de desarrollo, una integración futura podría utilizar **Stripe Sandbox**, permitiendo ejecutar operaciones con tarjetas de prueba sin realizar transacciones monetarias reales.
-
-La diferencia se limitaría principalmente al adaptador encargado de obtener el resultado del pago.
-
-Actualmente:
+La implementación utilizada por el sistema es:
 
 `PaymentProvider → SimulatedPaymentProviderAdapter`
 
-En una evolución futura:
-
-`PaymentProvider → StripePaymentProviderAdapter`
+Esta separación permite incorporar otro adaptador compatible con `PaymentProvider` sin modificar las reglas centrales del dominio ni los handlers encargados de procesar los resultados de pago.
 
 ##### Subscription Lifecycle Candidate Finder
 
-La ejecución automática del ciclo de vida necesita identificar qué suscripciones han alcanzado el final de su periodo.
+La ejecución automática del ciclo de vida requiere identificar qué suscripciones han alcanzado el final de su periodo.
 
 Para desacoplar esta búsqueda de la Application Layer se utiliza el puerto:
 
@@ -5054,13 +5008,13 @@ La implementación utilizada es:
 
 `JdbcSubscriptionLifecycleCandidateFinder` utiliza `JdbcTemplate` para consultar directamente las suscripciones cuyo periodo ya finalizó.
 
-La consulta considera suscripciones que cumplen las siguientes condiciones:
+La búsqueda considera suscripciones que cumplen las siguientes condiciones:
 
 - estado `ACTIVE` o `CANCELLATION_SCHEDULED`;
 - `currentPeriodEnd` definido;
 - `currentPeriodEnd` menor o igual al instante evaluado.
 
-Conceptualmente, la consulta utilizada sigue la siguiente condición:
+La consulta utilizada sigue la siguiente estructura:
 
 ```sql
 SELECT id
@@ -5069,51 +5023,47 @@ WHERE status IN ('ACTIVE', 'CANCELLATION_SCHEDULED')
   AND current_period_end IS NOT NULL
   AND current_period_end <= ?
 ORDER BY current_period_end
-
 ```
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista organiza los componentes responsables de exponer las operaciones de suscripción, coordinar los casos de uso, proteger las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, pagos simulados y procesamiento automático del ciclo de vida.
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista organiza los componentes responsables de exponer las operaciones de suscripción, coordinar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, procesamiento de pagos y evaluación automática del ciclo de vida.
 
-La arquitectura mantiene la separación establecida por Layered Architecture mediante las capas **Interface**, **Application**, **Domain** e **Infrastructure**.
+La arquitectura mantiene una separación por capas mediante **Interface**, **Application**, **Domain** e **Infrastructure**, permitiendo que las reglas de negocio permanezcan desacopladas de los mecanismos técnicos utilizados por la aplicación.
 
 ![Subscriptions Component Level Diagram](../assets/images/chapterII/Subscriptions/SubscriptionComponents.png)
 
-
 ##### Interface Layer
 
-La **Interface Layer** está representada principalmente por `SubscriptionController`, responsable de exponer las operaciones REST públicas del Bounded Context.
+La **Interface Layer** está representada principalmente por `SubscriptionController`, responsable de exponer mediante HTTP las operaciones disponibles del Bounded Context.
 
 El controlador permite:
 
 - solicitar una nueva suscripción;
-- cambiar el plan de una suscripción;
-- solicitar una cancelación al final del periodo;
-- consultar el estado de la suscripción vigente de un usuario;
+- cambiar el plan asociado a una suscripción;
+- solicitar una cancelación al finalizar el periodo vigente;
+- consultar el estado de la suscripción de un usuario;
 - consultar los entitlements disponibles.
 
-Las solicitudes HTTP son transformadas en comandos o consultas que posteriormente son procesados por la Application Layer.
-
-En la implementación actual no existe un `PaymentWebhookController`, debido a que el procesamiento de pagos se realiza mediante un proveedor simulado y no existe comunicación entrante desde Stripe u otra plataforma financiera externa.
+Las solicitudes recibidas son transformadas en comandos o consultas que posteriormente son procesados por la Application Layer.
 
 ##### Application Layer
 
-La **Application Layer** coordina los casos de uso del Bounded Context y actúa como intermediaria entre las interfaces externas, el dominio y los adaptadores de infraestructura.
+La **Application Layer** coordina los casos de uso del Bounded Context y actúa como intermediaria entre la Interface Layer, el dominio y los adaptadores de infraestructura.
 
-Las operaciones principales sobre el ciclo de vida de una suscripción se concentran en:
+Las operaciones principales relacionadas con las suscripciones se concentran en:
 
 - `SubscriptionCommandService`
 - `SubscriptionApplicationQueryService`
 - `EntitlementSetCommandService`
 
-`SubscriptionCommandService` coordina operaciones como solicitud, activación, cambio de plan, renovación, cancelación y expiración.
+`SubscriptionCommandService` coordina operaciones como solicitud, activación, cambio de plan, renovación, cancelación y expiración de suscripciones.
 
-`EntitlementSetCommandService` mantiene sincronizados los beneficios efectivos de una suscripción con los configurados en el plan correspondiente.
+`EntitlementSetCommandService` mantiene sincronizados los beneficios efectivos de una suscripción con los entitlements definidos por el plan vigente.
 
-`SubscriptionApplicationQueryService` resuelve las consultas relacionadas con el estado de la suscripción y los entitlements disponibles para un suscriptor.
+`SubscriptionApplicationQueryService` resuelve las consultas relacionadas con el estado de la suscripción y los beneficios habilitados para cada suscriptor.
 
-Además, la Application Layer contiene handlers especializados para los procesos relacionados con pagos y evaluación del ciclo de vida, entre ellos:
+La capa también contiene handlers especializados para el procesamiento de pagos y la evaluación del ciclo de vida, entre ellos:
 
 - `InitiateSubscriptionPaymentHandler`
 - `PaymentConfirmedHandler`
@@ -5125,18 +5075,16 @@ Además, la Application Layer contiene handlers especializados para los procesos
 - `EvaluateSubscriptionExpirationHandler`
 - `EvaluateSubscriptionLifecycleHandler`
 
-Estos componentes permiten mantener separadas las operaciones comerciales generales de aquellas que requieren procesamiento especializado.
-
 ##### Domain Layer
 
-La **Domain Layer** concentra las reglas fundamentales del negocio.
+La **Domain Layer** concentra las reglas fundamentales del negocio asociadas al ciclo de vida de las suscripciones.
 
-Los principales aggregates son:
+Los principales Aggregate Roots son:
 
 - `Subscription`
 - `EntitlementSet`
 
-`Subscription` controla las transiciones válidas de una suscripción entre los estados:
+`Subscription` controla las transiciones entre los estados:
 
 - `PENDING`
 - `ACTIVE`
@@ -5144,9 +5092,9 @@ Los principales aggregates son:
 - `CANCELLED`
 - `EXPIRED`
 
-También mantiene el periodo de vigencia mediante `currentPeriodStart` y `currentPeriodEnd`.
+También mantiene el periodo vigente mediante `currentPeriodStart` y `currentPeriodEnd`.
 
-`EntitlementSet` representa el conjunto efectivo de beneficios habilitados para una suscripción y permite sincronizarlos o revocarlos cuando cambia el estado comercial del usuario.
+`EntitlementSet` representa el conjunto efectivo de beneficios habilitados para una suscripción y permite sincronizarlos o revocarlos de acuerdo con los cambios producidos en el ciclo de vida.
 
 El dominio también incluye las entidades:
 
@@ -5161,61 +5109,48 @@ y Value Objects como:
 - `EntitlementCode`
 - `Money`
 
-Las reglas de transición se encuentran protegidas directamente por los aggregates. La implementación actual no utiliza clases independientes denominadas `SubscriptionActivationPolicy`, `SubscriptionLifecyclePolicy` o `EntitlementPolicy`.
-
 ##### Infrastructure Layer
 
-La **Infrastructure Layer** proporciona las implementaciones técnicas necesarias para persistencia, pagos simulados y ejecución automática del ciclo de billing.
+La **Infrastructure Layer** proporciona las implementaciones técnicas necesarias para persistencia, procesamiento simulado de pagos y ejecución automática del ciclo de vida.
 
-Los repositorios de infraestructura implementan los contratos definidos por el dominio para:
+Los adaptadores de persistencia implementan los contratos definidos por:
 
 - `SubscriptionRepository`
 - `PlanRepository`
 - `EntitlementSetRepository`
 - `EntitlementCatalogRepository`
 
-Para el procesamiento de pagos, la aplicación define el puerto:
+El procesamiento de pagos utiliza el puerto:
 
 `PaymentProvider`
 
-cuya implementación actual es:
+cuya implementación corresponde a:
 
 `SimulatedPaymentProviderAdapter`
 
-Este adaptador genera referencias simuladas con formato `pay_test_*` y permite representar escenarios de pago confirmado o fallido sin procesar dinero real ni utilizar información financiera.
-
-La abstracción mediante `PaymentProvider` permite que, en una evolución futura, el simulador pueda ser sustituido por un adaptador conectado a Stripe Sandbox u otro proveedor externo sin modificar las reglas principales del dominio.
+Este adaptador permite iniciar y representar operaciones de pago manteniendo la lógica del dominio desacoplada de un proveedor específico.
 
 ##### Subscription Lifecycle Components
 
-El procesamiento temporal de las suscripciones se encuentra soportado por componentes específicos de Infrastructure.
+El procesamiento automático del ciclo de vida utiliza `BillingSchedulerConsumer` para iniciar periódicamente la evaluación de las suscripciones cuyo periodo ha finalizado.
 
-`BillingSchedulerConsumer` ejecuta periódicamente la búsqueda de suscripciones cuyo periodo ha finalizado.
-
-Para obtener dichas suscripciones utiliza:
+Para localizar dichas suscripciones se utiliza el puerto:
 
 `SubscriptionLifecycleCandidateFinder`
 
-cuya implementación concreta es:
+implementado por:
 
 `JdbcSubscriptionLifecycleCandidateFinder`
 
-Las suscripciones encontradas son procesadas por:
+Los identificadores encontrados son procesados por:
 
 `SubscriptionLifecycleExecutionService`
 
-Este servicio utiliza `EvaluateSubscriptionLifecycleHandler` para determinar si corresponde ejecutar alguna de las siguientes acciones:
-
-- renovación;
-- cancelación definitiva;
-- expiración;
-- ninguna acción.
-
-Cuando corresponde una renovación, el servicio utiliza el flujo de pago simulado y procesa el resultado correspondiente.
+Este servicio utiliza `EvaluateSubscriptionLifecycleHandler` para determinar si corresponde realizar una renovación, una cancelación definitiva, una expiración o ninguna acción.
 
 ##### Payment Component Interaction
 
-La interacción relacionada con pagos sigue la siguiente secuencia conceptual:
+El flujo de procesamiento de pagos sigue la siguiente secuencia:
 
 `Application Layer`
 
@@ -5229,11 +5164,11 @@ La interacción relacionada con pagos sigue la siguiente secuencia conceptual:
 
 → `Subscription`
 
-La infraestructura no activa ni renueva directamente una suscripción. El resultado del proveedor es traducido nuevamente hacia handlers de aplicación, que utilizan los métodos definidos por el aggregate.
+La Infrastructure Layer no modifica directamente el estado de la suscripción. Los resultados obtenidos durante el procesamiento de pagos son enviados hacia los handlers de aplicación, que ejecutan las operaciones correspondientes sobre el aggregate.
 
 ##### Lifecycle Component Interaction
 
-El procesamiento automático del ciclo de vida sigue conceptualmente la siguiente secuencia:
+El procesamiento automático del ciclo de vida sigue la siguiente secuencia:
 
 `BillingSchedulerConsumer`
 
@@ -5247,39 +5182,38 @@ El procesamiento automático del ciclo de vida sigue conceptualmente la siguient
 
 → acción correspondiente sobre `Subscription`
 
-Este diseño mantiene separadas las responsabilidades de detección temporal, decisión de negocio y ejecución técnica.
+Esta organización permite mantener separadas las responsabilidades de exposición de servicios, coordinación de casos de uso, reglas de dominio, persistencia, procesamiento de pagos y evaluación temporal de las suscripciones.
 
-En consecuencia, el Bounded Context **Subscriptions** mantiene el dominio independiente de tecnologías específicas de pago, persistencia o scheduling, permitiendo sustituir adaptadores de infraestructura sin modificar las reglas centrales de suscripción.
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
-En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado para implementar el ciclo de vida de las suscripciones y sus beneficios asociados.
+En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado para implementar el ciclo de vida de las suscripciones y la gestión de los beneficios asociados.
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor de los Aggregate Roots `Subscription` y `EntitlementSet`, responsables respectivamente del ciclo de vida de la suscripción y de los beneficios efectivos asociados al plan vigente.
+El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor de los Aggregate Roots `Subscription` y `EntitlementSet`, responsables respectivamente de controlar el ciclo de vida de una suscripción y administrar los beneficios efectivos asociados al plan vigente.
 
 <a id="figura-2-51"></a>**Figura 2.51.** Diagrama de clases de la Domain Layer de Subscriptions
 
 ![Subscriptions Domain Layer Class Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
-`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación programada, cancelación definitiva y expiración. `Plan` representa la configuración comercial de cada alternativa disponible, mientras que `Entitlement` representa cada beneficio que puede ser habilitado mediante un plan.
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación programada, cancelación definitiva y expiración. `Plan` representa la configuración comercial de las alternativas disponibles, mientras que `Entitlement` representa cada beneficio que puede ser habilitado mediante un plan.
 
-`EntitlementSet` mantiene el conjunto efectivo de `Entitlement` asociado a una suscripción y permite sincronizar o revocar estos beneficios según los cambios producidos en su ciclo de vida. El dominio utiliza Value Objects como `SubscriptionId`, `SubscriberId`, `PlanId`, `EntitlementCode` y `Money` para representar conceptos propios del contexto.
+`EntitlementSet` mantiene el conjunto efectivo de `Entitlement` asociado a una suscripción y permite sincronizar o revocar estos beneficios de acuerdo con los cambios producidos durante su ciclo de vida. El dominio utiliza Value Objects como `SubscriptionId`, `SubscriberId`, `PlanId`, `EntitlementCode` y `Money` para representar conceptos propios del contexto y evitar el uso de valores primitivos sin significado de negocio.
 
-Los estados de una suscripción se representan mediante `SubscriptionStatus`, cuyos valores implementados son `PENDING`, `ACTIVE`, `CANCELLATION_SCHEDULED`, `CANCELLED` y `EXPIRED`. Asimismo, `BillingCycle` define los ciclos `MONTHLY` y `ANNUAL`.
+Los estados de una suscripción se representan mediante `SubscriptionStatus`, cuyos valores implementados son `PENDING`, `ACTIVE`, `CANCELLATION_SCHEDULED`, `CANCELLED` y `EXPIRED`. Asimismo, `BillingCycle` define los ciclos de facturación `MONTHLY` y `ANNUAL`.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. La persistencia mantiene la información necesaria para administrar suscripciones, planes y beneficios, mientras que el procesamiento de pagos permanece desacoplado mediante la abstracción `PaymentProvider`.
+La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. El modelo almacena la información necesaria para administrar suscripciones, planes y beneficios, manteniendo separadas las responsabilidades de persistencia respecto del procesamiento de pagos.
 
 <a id="figura-2-52"></a>**Figura 2.52.** Diagrama de base de datos de Subscriptions
 
 ![Subscriptions Database Design Diagram](../assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
 
-La persistencia de `Subscription` almacena el suscriptor, plan contratado, estado, periodo vigente y configuración de cancelación al final del periodo. Los planes mantienen su precio, ciclo de facturación, disponibilidad y los códigos de entitlements asociados.
+La persistencia de `Subscription` conserva la información relacionada con el suscriptor, el plan contratado, el estado de la suscripción, el periodo vigente y la configuración de cancelación al finalizar dicho periodo. Los planes mantienen su información comercial, incluyendo precio, ciclo de facturación, disponibilidad y códigos de entitlements asociados.
 
-Los beneficios disponibles son administrados mediante el catálogo de `Entitlement` y el `EntitlementSet` correspondiente a cada suscripción. A diferencia del diseño inicial, la implementación actual no utiliza una entidad `PaymentAttempt` ni una tabla `payments`, ya que los intentos de pago simulados no se almacenan de forma persistente.
+Los beneficios disponibles son administrados mediante el catálogo de `Entitlement` y el `EntitlementSet` correspondiente a cada suscripción. Los resultados generados durante los flujos de pago simulados son tratados de manera transitoria por la Application Layer, por lo que el diseño de persistencia no requiere una entidad `PaymentAttempt` ni una tabla `payments`.
 
 
 ### 2.6.4. Bounded Context: Profile
