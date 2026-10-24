@@ -3,3 +3,5 @@ temp_auto_push.bat
 README.html
 report.html.gitignore
 branch_structure.json
+config.bat
+node_modules
