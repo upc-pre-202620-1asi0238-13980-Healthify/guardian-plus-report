@@ -1694,6 +1694,843 @@ Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo tra
 
 ![iot-simulator-insights](../assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
 
+### 4.2.2. Sprint 2
+
+En esta sección se documenta el Sprint 2 de Guardian+: su planificación, la distribución de responsabilidades, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue presentadas en el Sprint Review, y los insights de colaboración del equipo.
+
+#### 4.2.2.1. Sprint Planning 2
+
+El Sprint 2 se ejecuta entre el 20 de octubre y el 13 de noviembre de 2026 y concluye con la entrega AV2 de la semana 12. Su planificación se realizó en una reunión sincrónica del equipo al inicio del Sprint, en la que se revisaron los resultados del Sprint 1, se recalculó la capacidad del equipo con la velocidad observada y se seleccionaron del Product Backlog de la sección 2.4.3 las User Stories asignadas al Sprint 2.
+
+El alcance comprometido corresponde a las nueve User Stories que el Product Backlog asigna al Sprint 2. La primera parte completa la épica EP01: la visualización en tiempo real de los cinco signos vitales que mide la pulsera (US01 a US05) y la sincronización de las lecturas que el wearable almacena mientras no tiene conexión (US21). La segunda parte continúa la épica EP03 sobre el circuito de emergencia entregado en el Sprint 1: la confirmación de bienestar tras un incidente (US10), el aviso de batería crítica de la pulsera (US20) y el despacho simultáneo de las alertas críticas a todo el Care Circle (US25).
+
+Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran como User Stories en el Product Backlog y que absorben la capacidad restante del Sprint. El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
+
+<a id="tabla-4-60"></a>**Tabla 4.60.** Sprint Planning del Sprint 2
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 2026-10-20 |
+| Time | 07:00 PM |
+| Location | Reunión virtual mediante Discord, en el canal de voz del equipo. |
+| Prepared By | Equipo Healthify — Guardian+ |
+| Attendees (to planning meeting) | Azama Fukuda, Juan Pablo / Lopez Monroy, Rodrigo Alfredo / Luis Miranda, Diego Andres / Mechan Montenegro, Luciana Carolina / Sanchez Cuadrado, Juan Antonio |
+| Sprint 1 Review Summary | El Sprint 1 cerró con las 10 User Stories comprometidas implementadas (39 Story Points). El Landing Page quedó publicado en Cloudflare Pages en su versión `v1.0.0`, con las User Stories US30 a US33. Los Web Services quedaron desplegados en Microsoft Azure con los Bounded Contexts Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, y 63 rutas documentadas en Swagger UI. La aplicación móvil en Kotlin implementó las pantallas de Inicio, Salud y Alertas conectadas a esos servicios, y el IoT Simulator publicó la telemetría de cuatro pulseras desde Google Cloud. Como avance no comprometido, Health Monitoring y Care Routines & Wellness se implementaron en el backend antes de su Sprint planificado. |
+| Sprint 1 Retrospective Summary | El equipo identificó tres aspectos por mejorar. Primero, el tablero de ClickUp no reflejó el avance real: varias tareas implementadas permanecieron en estado *To-do*. Segundo, la integración del Pull Request #11 de Mobility & Geofencing hizo fallar el job `test` del workflow `Deploy`, por lo que esa versión no se publicó hasta la integración siguiente. Tercero, la mayor parte de las integraciones se concentró en los dos últimos días del Sprint (5 y 6 de octubre). Los acuerdos para el Sprint 2 fueron actualizar el estado de cada tarea al abrir y al integrar su Pull Request, ejecutar las pruebas del backend antes de solicitar la revisión e integrar cada Bounded Context apenas esté listo, sin esperar al cierre del Sprint. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | *Our focus is on letting a family follow the vital signs of the person under their care as they happen —heart rate, blood pressure, oxygen saturation, temperature and respiratory rate— without losing the readings taken while the wristband was offline, and on making a critical alert reach the whole care circle at the same time.*<br><br>*We believe it delivers to caregivers a continuous and trustworthy picture of the health of the person under their care, and a faster response when an emergency happens, because every member of the care circle is warned at once instead of one after another.*<br><br>*This will be confirmed when a caregiver opens the Health section and sees each vital sign refreshed live and classified against its normal range, when the readings the wristband kept while offline appear in the history after it reconnects, and when a critical alert reaches the phone of every emergency contact as a push notification.*<br><br>**Métrica de cumplimiento:** la sección Salud muestra la última lectura de los cinco signos vitales con su clasificación (normal, en observación o fuera de rango) según los rangos de US01 a US05; las lecturas enviadas en lote por el wearable tras recuperar la conexión se registran en el historial en su orden cronológico (US21); una alerta crítica con difusión inmediata se entrega como notificación push a todos los contactos de emergencia activos, y cuando uno asume la respuesta los demás son informados (US25); y las 9 User Stories del alcance quedan verificadas contra sus criterios de aceptación (31 Story Points completados). |
+| Sprint 2 Velocity | 40 Story Points. El equipo mantuvo la velocidad del Sprint 1, cuya estimación se confirmó al completarse los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
+| Sum of Story Points | 31 Story Points. |
+
+Las User Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
+
+<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories comprometidas en el Sprint 2
+
+| # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
+|---|---|---|---|---|
+| 1 | US01 | Visualización de ritmo cardíaco en tiempo real | 3 | Health Monitoring |
+| 2 | US02 | Visualización de presión arterial estimada | 3 | Health Monitoring |
+| 3 | US03 | Visualización de saturación de oxígeno periférico (SpO₂) | 3 | Health Monitoring |
+| 4 | US04 | Supervisión de temperatura corporal continua | 3 | Health Monitoring |
+| 5 | US05 | Visualización de frecuencia respiratoria estimada | 3 | Health Monitoring |
+| 6 | US10 | Confirmación manual de estado de bienestar tras incidente | 3 | Emergency & Alerting |
+| 7 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Emergency & Alerting |
+| 8 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Emergency & Alerting |
+| 9 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Health Monitoring |
+| | | **Total** | **31** | |
+
+La suma de 31 Story Points se ubica 9 puntos por debajo de la velocidad establecida. Ese margen se reservó para los dos frentes acordados en la reunión que no están representados como User Stories: los Bounded Contexts IAM y Profile & Subscriptions, de los que dependen el inicio de sesión con cuentas reales y el contexto de cuidado de cada usuario, y la implementación de la aplicación en Flutter.
+
+#### 4.2.2.2. Aspect Leaders and Collaborators
+
+Para el Sprint 2 el equipo mantuvo los ocho aspectos del Sprint 1 y agregó dos: **Mobile App (Flutter)**, que comprende la segunda implementación de la aplicación móvil, y **Push Notifications**, que comprende la configuración de Firebase Cloud Messaging en el backend y en la aplicación. La Direct Communication, incorporada en este Sprint, se considera parte del aspecto Mobility & Geofencing, porque su punto de entrada es la pantalla de ubicación de la persona bajo cuidado.
+
+La Leadership-and-Collaboration Matrix (LACX) de la Tabla 4.62 indica el líder (L) y los colaboradores (C) de cada aspecto.
+
+<a id="tabla-4-62"></a>**Tabla 4.62.** Leadership-and-Collaboration Matrix del Sprint 2
+
+| Team Member (Last Name, First Name) | GitHub Username | UX/UI Design | Health Monitoring | Emergency & Alerting | Mobility & Geofencing | Care Routines & Wellness | IAM | Profile & Subscriptions | Push Notifications | Mobile App (Flutter) | Testing |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Azama Fukuda, Juan Pablo | Llummo | L | L | C | C | C | L | C | C | L | C |
+| Mechan Montenegro, Luciana Carolina | luuu6 | C | C | C | C | L | C | C | C | C | C |
+| Luis Miranda, Diego Andres | Andrewdmr | C | C | C | L | C | C | C | C | C | C |
+| López Monroy, Rodrigo Alfredo | rodrigolopezu | C | C | L | C | C | C | C | L | C | C |
+| Sanchez Cuadrado, Juan Antonio | JuanASC05 | C | C | C | C | C | C | L | C | C | L |
+
+#### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es que la familia siga en tiempo real los signos vitales de la persona bajo cuidado, sin perder las lecturas tomadas sin conexión, y que una alerta crítica llegue a la vez a todo el Care Circle. Para lograrlo, el equipo organizó el trabajo en la lista *Sprint Backlog AV2* de ClickUp, con una tarea por User Story comprometida, una tarea por cada Bounded Context incorporado o completado en la aplicación y las tareas de validación y de video de la entrega.
+
+El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708) Las Figuras 4.18 y 4.19 muestran el tablero.
+
+<a id="figura-4-18"></a>**Figura 4.18.** Tablero del Sprint 2 en ClickUp (parte 1)
+
+![sprint-2-board-1](../assets/images/chatper4/sprint2/sprint-2-board-1.png)
+
+<a id="figura-4-19"></a>**Figura 4.19.** Tablero del Sprint 2 en ClickUp (parte 2)
+
+![sprint-2-board-2](../assets/images/chatper4/sprint2/sprint-2-board-2.png)
+
+La Tabla 4.63 detalla las tareas del Sprint 2 y su estado al cierre del Sprint. Las tareas US06, US07, US13, US23 y US28 pertenecen al Sprint 3 en el Product Backlog y se registran porque su implementación se adelantó durante este Sprint.
+
+<a id="tabla-4-63"></a>**Tabla 4.63.** Sprint Backlog 2
+
+| Sprint # | Sprint 2 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story Id** | **User Story Title** | **Work-Item / Task Id** | **Work-Item / Task Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
+| — | — | TA-00 | Sprint Planning 2 meeting | Revisar los resultados del Sprint 1, recalcular la velocidad y seleccionar las User Stories del Sprint 2. | 2 | Mechan Montenegro, Luciana Carolina / Azama Fukuda, Juan Pablo / Lopez Monroy, Rodrigo Alfredo / Luis Miranda, Diego Andres / Sanchez Cuadrado, Juan Antonio | Done |
+| US01 | Visualización de ritmo cardíaco en tiempo real | TA-19 | US01 - Visualización de ritmo cardíaco en tiempo real | Mostrar la frecuencia cardíaca en vivo y clasificarla contra el rango de 60 a 100 lpm. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US02 | Visualización de presión arterial estimada | TA-20 | US02 - Visualización de presión arterial estimada | Mostrar la presión sistólica y diastólica en vivo y señalar los picos hipertensivos. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US03 | Visualización de saturación de oxígeno periférico (SpO₂) | TA-21 | US03 - Visualización de saturación de oxígeno periférico (SpO₂) | Mostrar la SpO₂ en vivo y señalar la hipoxemia bajo el 90 %. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US04 | Supervisión de temperatura corporal continua | TA-22 | US04 - Supervisión de temperatura corporal continua | Mostrar la temperatura en vivo y registrar su serie temporal en el historial. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US05 | Visualización de frecuencia respiratoria estimada | TA-23 | US05 - Visualización de frecuencia respiratoria estimada | Mostrar la frecuencia respiratoria en vivo y señalar los valores fuera de 12 a 20 rpm. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | TA-27 | US21 - Sincronización y persistencia resiliente de telemetría (Offline Sync) | Registrar en orden cronológico las lecturas que el wearable envía en lote al recuperar la conexión. | 16 | Azama Fukuda, Juan Pablo | Done |
+| US10 | Confirmación manual de estado de bienestar tras incidente | TA-24 | US10 - Confirmación manual de estado de bienestar tras incidente | Permitir descartar una advertencia desde la pulsera y avisar al cuidador que fue descartada. | 6 | Lopez Monroy, Rodrigo Alfredo | In Progress |
+| US20 | Notificación de nivel crítico de batería en wearable | TA-25 | US20 - Notificación de nivel crítico de batería en wearable | Avisar al cuidador cuando la batería de la pulsera baje del 20 % y del 5 %. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
+| US25 | Despacho simultáneo a múltiples contactos de auxilio | TA-26 | US25 - Despacho simultáneo a múltiples contactos de auxilio | Difundir las alertas críticas a todo el Care Circle por notificación push e informar quién asumió la respuesta. | 6 | Lopez Monroy, Rodrigo Alfredo | Done |
+| — | — | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
+| — | — | TA-03 | Bounded context routines | Conectar las pantallas de Rutinas de la aplicación a los Web Services de Care Routines & Wellness. | 16 | Mechan Montenegro, Luciana Carolina | Done |
+| — | — | TA-04 | Bounded context mobility | Implementar las pantallas de ubicación y zonas seguras de la aplicación y completar sus Web Services. | 16 | Luis Miranda, Diego Andres | Done |
+| — | — | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
+| US06 | Emisión y confirmación de recordatorios de medicación | TA-28 | US06 - Emisión y confirmación de recordatorios de medicación | Programar, confirmar y marcar como omitidos los recordatorios de medicación desde la aplicación. | 10 | Mechan Montenegro, Luciana Carolina | In Progress |
+| US13 | Programación y notificación de consultas médicas | TA-31 | US13 - Programación y notificación de consultas médicas | Programar citas médicas y notificarlas por push a los cuidadores antes de su hora. | 6 | Mechan Montenegro, Luciana Carolina | Done |
+| US07 | Análisis comparativo y tendencias históricas de signos vitales | TA-29 | US07 - Análisis comparativo y tendencias históricas de signos vitales | Filtrar el historial por periodo, signo vital y estado y comparar sus tendencias. | 10 | Azama Fukuda, Juan Pablo | In Progress |
+| US23 | Establecimiento de canal de comunicación directa | TA-33 | US23 - Establecimiento de canal de comunicación directa | Iniciar llamadas de voz o video con la pulsera y registrar las llamadas no atendidas. | 10 | Luis Miranda, Diego Andres | In Progress |
+| US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | TA-35 | US28 - Delimitación y monitoreo perimetral mediante geocercas múltiples | Administrar varias zonas seguras por persona y alertar cuando sale de la zona activa. | 10 | Luis Miranda, Diego Andres / Lopez Monroy, Rodrigo Alfredo | In Progress |
+| — | — | TA-01 | Validation interviews | Realizar las entrevistas de validación de la aplicación móvil. | 8 | Azama Fukuda, Juan Pablo / Luis Miranda, Diego Andres / Lopez Monroy, Rodrigo Alfredo / Mechan Montenegro, Luciana Carolina / Sanchez Cuadrado, Juan Antonio | To-do |
+| — | — | TA-02 | App Validation Video | Grabar el video de validación de la aplicación móvil. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
+| — | — | TA-07 | About the team | Grabar el video de presentación del equipo. | 2 | Lopez Monroy, Rodrigo Alfredo / Azama Fukuda, Juan Pablo | To-do |
+| — | — | TA-08 | Video About the Product | Grabar el video de presentación del producto. | 4 | Azama Fukuda, Juan Pablo | To-do |
+
+#### 4.2.2.4. Development Evidence for Sprint Review
+
+En esta sección se registran los commits que implementan el alcance del Sprint 2 en cada repositorio. Para los Bounded Contexts con un volumen alto de commits se presentan los más representativos de cada Pull Request. Se incluyen además los commits integrados el 8 y el 9 de octubre, posteriores al cierre del Sprint 1, que no se registraron en la sección 4.2.1.4. El Landing Page no tuvo cambios funcionales en este Sprint, y en el IoT Simulator solo se integró una corrección de seguridad del entorno de desarrollo (Pull Request [#2](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/2)).
+
+##### Web Services — IAM
+
+Implementación del Bounded Context IAM: registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP de seis dígitos enviado por correo mediante Brevo, recuperación de contraseña, emisión de tokens de sesión JWT firmados con RS256 y una cadena de seguridad sin estado. Las contraseñas se almacenan con BCrypt y los códigos con HMAC-SHA256, y la emisión de códigos se limita a cinco por cada quince minutos. Se integró a `develop` mediante el Pull Request [#17](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/17), y el inicio de sesión con Google, que valida el ID token con Nimbus y vincula la cuenta existente con el mismo correo, mediante el Pull Request [#26](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/26). La Tabla 4.64 presenta los commits de IAM en los Web Services.
+
+<a id="tabla-4-64"></a>**Tabla 4.64.** Commits de Web Services: IAM
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `bf5f4c2` | `chore: add security dependency` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `df71fb7` | `feat(iam): add user account aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `b27ea4d` | `feat(iam): add one-time password aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `2724d20` | `refactor(iam): move the password reset token into the user account aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1e4c149` | `feat(iam): add user account, one-time password and authentication command services` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `4ff079f` | `feat(iam): add registration, login and e-mail verified policies` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `db56552` | `feat(iam): add user account and one-time password JPA persistence` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1a4e406` | `feat(iam): add BCrypt, HMAC-SHA256 and SecureRandom security adapters` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1cbf6ed` | `feat(iam): add RS256 JWT session tokens` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `6603aae` | `feat(iam): add stateless security filter chain` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `8373c1a` | `feat(iam): add Brevo e-mail provider adapter` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `6235c01` | `feat(iam): add Guardian+ e-mail templates based on the mobile app palette` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `edc624d` | `feat(iam): rate limit one-time passwords and resend the login code during a login` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `082027e` | `feat(iam): add the signed-in account endpoint (/user-accounts/me)` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `617277a` | `test(iam): add command service tests` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `cb243e6` | `test(iam): add auth controller tests` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `932f2a3` | `feat(iam): let a user account sign up and link with google` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `76e82aa` | `feat(iam): verify google id tokens with nimbus` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `7e0eec5` | `feat(iam): add the google sign-in endpoint` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `74a52ef` | `test(iam): cover google sign-in in the authentication service` | 2026-11-12 |
+
+##### Web Services — Emergency & Alerting
+
+Implementación de la entrega de alertas como notificaciones push mediante Firebase Cloud Messaging (US25): cada alerta se envía a los teléfonos que el Care Circle registró en el canal `PUSH`, de modo que la difusión inmediata de una alerta crítica (`BROADCAST`) llega a todos los contactos activos a la vez. Incluye la alerta por salida de la zona segura, generada a partir del evento de integración de Mobility & Geofencing, y, de forma anticipada, el envío por push de los recordatorios de citas médicas a todos los cuidadores de la persona (US13), que obtiene a través de la fachada del contexto Profile. Se integró a `develop` mediante los Pull Requests [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/19), [#23](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/23) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.65 presenta los commits de Emergency & Alerting en los Web Services.
+
+<a id="tabla-4-65"></a>**Tabla 4.65.** Commits de Web Services: Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `fc72826` | `feat(emergency-alerting): raise a safe zone violation alert from mobility's integration event` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-fcm-push-delivery` | `900c60f` | `feat(emergency-alerting): send push alerts through firebase cloud messaging` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-fcm-push-delivery` | `12b9046` | `chore(emergency-alerting): document the firebase service account setting` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `366aa35` | `feat(emergency-alerting): read caregivers through the profile context facade` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `2884c81` | `feat(emergency-alerting): send appointment reminders to every caregiver` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `cc5b205` | `feat(emergency-alerting): push appointment reminders through FCM` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `823a513` | `test(emergency-alerting): cover appointment reminder push notifications` | 2026-11-12 |
+
+##### Web Services — Mobility & Geofencing
+
+Continuación del Bounded Context Mobility & Geofencing: eliminación de zonas seguras y sus eventos de ciclo de vida, documentación OpenAPI de sus endpoints y recepción de la ubicación del wearable desde el broker MQTT en el tópico `guardian/location/+`. Las violaciones de la zona segura se publican como evento de integración para Emergency & Alerting. De forma anticipada (US28), se agregó la consulta de todas las zonas seguras de una persona, con una sola zona activa a la vez, y el estado `UNKNOWN` mientras el wearable no envía su primera ubicación. Se integró a `develop` mediante los Pull Requests [#16](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/16), [#18](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/18), [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/19), [#22](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/22) y [#24](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/24). La Tabla 4.66 presenta los commits de Mobility & Geofencing en los Web Services.
+
+<a id="tabla-4-66"></a>**Tabla 4.66.** Commits de Web Services: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `6aa39eb` | `feat(mobilitygeogfencing): Add event safe zone activate, desactiva, deleted and updated` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `412f27f` | `feat(mobilitygeogfencing): add command service delete safe zone` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `8ba1556` | `feat(mobilitygeogfencing): documentation endpoinds controller safe zone and location tracking` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `0514b07` | `feat(mobility-geofencing): consume the wearable location from the MQTT broker` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `0c6332b` | `test(mobility-geofencing): add wearable location message handler tests` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `e6de505` | `chore(mobility-geofencing): document the location telemetry settings` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `8e63401` | `feat(mobility-geofencing): publish safe zone violations as an integration event` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `38fdced` | `test(mobility-geofencing): add safe zone violation event handler tests` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `3f83522` | `refactor(mobilitygeogfencing):  location status resource factory fix` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `504f2d0` | `fix(mobility-geofencing): list a fragile citizen's safe zones and keep one active zone at a time` | 2026-10-28 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `2bbf844` | `test(mobility-geofencing): add safe zone command service tests` | 2026-10-28 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `e8a785c` | `fix(mobility-geofencing): report an unknown status until the wearable sends a location` | 2026-10-28 |
+
+##### Web Services — Direct Communication
+
+Implementación anticipada de la comunicación directa con la pulsera (US23): inicio y fin de sesiones de llamada de voz o video, consulta de las capacidades del dispositivo, registro de las llamadas no atendidas tras 30 segundos y envío de alertas hápticas al wearable. Se integró a `develop` mediante el Pull Request [#25](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/25). La Tabla 4.67 presenta los commits de Direct Communication en los Web Services.
+
+<a id="tabla-4-67"></a>**Tabla 4.67.** Commits de Web Services: Direct Communication
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `451bfec` | `feat(communication): implement CommunicationCommandService for call management and alerts` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `409c59c` | `feat(communication): add CommunicationQueryService, CallSession, and CallLogEntry for call management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `866e544` | `feat(communication): add CallSessionRepository, CallStatus, and CallType for call management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `670310f` | `feat(communication): add CallSessionJpaEntity and SpringDataCallSessionRepository for call session management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `fdbcb42` | `feat(communication): implement CommunicationController for managing direct communication and call sessions` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `66415ef` | `feat(communication): add CallSessionResource and DeviceCapabilitiesResource for call session and device capability representation` | 2026-11-12 |
+
+##### Web Services — Care Routines & Wellness
+
+Alineación del Bounded Context Care Routines & Wellness con las pantallas de la aplicación: recurrencia de los recordatorios, recordatorios omitidos y resumen de adherencia, registro y consumo del stock de medicación, plan de hidratación, detección de inactividad y registros de ciclos de sueño. En este Sprint se agregó la publicación de un evento de integración al emitirse un recordatorio de cita médica, que Emergency & Alerting envía por push. Se integró a `develop` mediante los Pull Requests [#15](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/15) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.68 presenta los commits de Care Routines & Wellness en los Web Services.
+
+<a id="tabla-4-68"></a>**Tabla 4.68.** Commits de Web Services: Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `4481f76` | `feat(care-routines): add reminder recurrence, missed handling and adherence summary` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `1d37506` | `feat(care-routines): add medication stock registration and consumption tracking` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `11fa615` | `feat(care-routines): add hydration plan aggregate, progress query and REST endpoints` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `3f12fdf` | `feat(care-routines): add activity log, inactivity detection settings and movement/walk events` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `9ed097c` | `feat(care-routines): add sleep cycle records query service and REST endpoint` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `08258e6` | `test(care-routines): add unit tests for care routines and wellness bounded context` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `c60ec55` | `feat(care-routines): update reminder REST resources and schedule endpoint` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `6153a07` | `feat(care-routines-wellness): publish an integration event when an appointment reminder is issued` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `f3f82c9` | `test(care-routines-wellness): cover the appointment reminder integration event` | 2026-11-12 |
+
+##### Web Services — Health Monitoring
+
+Los endpoints de signos vitales en vivo, historial y sincronización en lote que soportan US01 a US05 y US21 se implementaron en el Sprint 1 (sección 4.2.1.4). En este Sprint se agregó la desvinculación de un wearable de la persona bajo cuidado, que la aplicación utiliza desde el detalle de la pulsera. Se integró a `develop` mediante el Pull Request [#28](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/28). La Tabla 4.69 presenta los commits de Health Monitoring en los Web Services.
+
+<a id="tabla-4-69"></a>**Tabla 4.69.** Commits de Web Services: Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `7ae7564` | `feat(health-monitoring): add the unlink wearable device command` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `3e41361` | `feat(health-monitoring): unlink wearable devices in the command service` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `0e88f76` | `feat(health-monitoring): add the unlink wearable device endpoint` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `533aefd` | `test(health-monitoring): cover unlinking wearable devices` | 2026-11-12 |
+
+##### Web Services — Profile & Subscriptions
+
+Implementación del ciclo de vida de la suscripción: solicitud, activación tras el pago, cambio de plan, cancelación programada, renovación y consulta de los beneficios (*entitlements*) del plan, con un proveedor de pagos simulado. Incluye la conservación de los campos de auditoría de Profile en las actualizaciones y la fachada del contexto Profile que consume Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#20](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/20), [#21](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/21) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.70 presenta los commits de Profile & Subscriptions en los Web Services.
+
+<a id="tabla-4-70"></a>**Tabla 4.70.** Commits de Web Services: Profile & Subscriptions
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/subscriptions-backend-final` | `d0270aa` | `feat: implement subscriptions lifecycle and payment flow` | 2026-10-24 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/profile-audit-fields-final` | `5a907df` | `fix(profile): preserve persistence audit fields on updates` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `48ec9e3` | `feat(profile): add the profile context facade` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `38ac332` | `test(profile): cover the profile context facade` | 2026-11-12 |
+
+##### Mobile App — IAM & Profile
+
+Reemplazo del inicio de sesión simulado por el de IAM: pantallas de registro, código OTP obligatorio en cada inicio de sesión, recuperación de contraseña e inicio de sesión y registro con Google mediante Credential Manager. La sesión se conserva en el dispositivo con su vencimiento y su token se envía en cada solicitud. Tras iniciar sesión, la aplicación carga el contexto de cuidado de la cuenta y, si no existe, guía al usuario en el registro de la persona bajo cuidado; desde Inicio el usuario puede cambiar entre las personas que cuida. Se integró a `develop` mediante los Pull Requests [#8](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/8), [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/11), [#23](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/23), [#27](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/27), [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/29) y [#31](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/31). La Tabla 4.71 presenta los commits de IAM y Profile en la aplicación móvil.
+
+<a id="tabla-4-71"></a>**Tabla 4.71.** Commits de Mobile App: IAM & Profile
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/nag-login` | `aaba93b` | `feat(auth): add login route and navigation graph` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `0d2da36` | `feat(iam): model the user account aggregate with its status and login outcome` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `5094c19` | `feat(iam): keep the session on the device and send its token with every request` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `411cb58` | `feat(iam): sign in through IAM instead of the mocked login` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `23c056f` | `feat(iam): add the sign-up screen and its email verification step` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `24a7985` | `feat(iam): add the two-factor OTP challenge screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `6f48755` | `feat(iam): add the password recovery screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `3ce38a6` | `refactor(iam): make the OTP mandatory on every sign-in` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `6527ec5` | `feat(iam): connect the auth repositories to the platform` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `0626767` | `feat(profile): load the care context and complete the onboarding` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `e8db5d2` | `feat(profile): add the session start and onboarding screens` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `5a1dfd5` | `test(iam): update the auth tests to the platform contract` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/oauth` | `b6dc4dd` | `feat(iam): exchange a Google ID token for a session through the platform` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/oauth` | `795046b` | `feat(iam): request the Google ID token through Credential Manager` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/google-sign-up` | `6f3d9bf` | `feat(iam): sign up with Google from the register screen` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/remove-biometric-button` | `2e0c000` | `feat(iam): remove the biometric access button from the login screen` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `dd9a012` | `feat(profile): add the use cases to list and switch people under care` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `37d9771` | `feat(profile): add the sheet to switch the person under care` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `f6147f1` | `test(profile): cover choosing the person under care` | 2026-11-12 |
+
+##### Mobile App — Emergency & Alerting
+
+Registro del teléfono en el canal `PUSH` mientras hay una sesión iniciada, recepción de las alertas como notificaciones de Firebase Cloud Messaging en un canal de alta prioridad y apertura del detalle de la alerta al tocar la notificación (US25). El detalle de la alerta muestra el contexto del incidente a partir de las últimas lecturas de la pulsera y el lugar donde ocurrió a partir de su última ubicación. Se integró a `develop` mediante los Pull Requests [#13](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/13), [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/14), [#18](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/18) y [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/19). La Tabla 4.72 presenta los commits de Emergency & Alerting en la aplicación móvil.
+
+<a id="tabla-4-72"></a>**Tabla 4.72.** Commits de Mobile App: Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-live-alert-context` | `b96ddae` | `feat(emergency-alerting): read the alert context from the wristband's live readings` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-live-alert-context` | `c177886` | `test(emergency-alerting): add alert context repository tests` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-alert-location` | `5cf0e8f` | `feat(emergency-alerting): show where the alert happened from the wristband's last location` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-alert-location` | `6cb83d1` | `test(emergency-alerting): cover the alert location in the context repository tests` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `6a3a004` | `chore(build): add firebase cloud messaging and the definitive application id` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `d595077` | `feat(emergency-alerting): register this phone for push alerts while an account is signed in` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `aede612` | `test(emergency-alerting): add push device registration tests` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-notifications` | `1fac9ee` | `feat(emergency-alerting): show push alerts and open the alert from its notification` | 2026-10-26 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-notifications` | `f607ffb` | `test(emergency-alerting): add alert notification channel tests` | 2026-10-26 |
+
+##### Mobile App — Health Monitoring
+
+Rediseño de la pestaña *Ahora* de la sección Salud según el prototipo, con la última lectura de cada signo vital y su tendencia del día (US01 a US05); búsqueda y filtrado del historial por periodo, signo vital y estado; reportes de salud con su exportación a PDF; y vinculación y desvinculación de la pulsera desde Inicio y desde su detalle. Se integró a `develop` mediante los Pull Requests [#9](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/9), [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/11) y [#30](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/30). La Tabla 4.73 presenta los commits de Health Monitoring en la aplicación móvil.
+
+<a id="tabla-4-73"></a>**Tabla 4.73.** Commits de Mobile App: Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `e58f028` | `feat(health-monitoring): add the search bar and the search and filter sheet` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `0032291` | `feat(health-monitoring): filter the history by period, vital sign and state` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `4d206f0` | `feat(health-monitoring): add health reports and their platform client` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `4e5e417` | `feat(health-monitoring): generate the weekly report from the history` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `73ac45f` | `feat(health-monitoring): export health reports as PDF` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `d5053bc` | `feat(health-monitoring): add the link wearable sheet` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `eddde5d` | `feat(health-monitoring): link the wearable from the Home status card` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/unlink-wearable-device` | `372d55e` | `feat(health-monitoring): add the unlink wearable device use case` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/unlink-wearable-device` | `2178267` | `feat(health-monitoring): unlink the wristband from its details page` | 2026-11-12 |
+
+##### Mobile App — Care Routines & Wellness
+
+Implementación de la sección Rutinas conectada a los Web Services: inicio de rutinas, medicación y su formulario, stock de medicación, citas médicas y su formulario, plan de hidratación, ciclo de sueño, registro de actividad y detección de inactividad. Los repositorios simulados se reemplazaron por implementaciones remotas con Retrofit. De forma anticipada (US13), la aplicación muestra los recordatorios de citas en un canal de notificación propio y abre las citas al tocar la notificación. Se integró a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/7), [#10](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/10) y [#33](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/33). La Tabla 4.74 presenta los commits de Care Routines & Wellness en la aplicación móvil.
+
+<a id="tabla-4-74"></a>**Tabla 4.74.** Commits de Mobile App: Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/routines-and-wellness-screens` | `e4dd4fd` | `feat(care-routines): add care routines and wellness feature screens` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `13c9437` | `feat(care-routines): add reminder remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `9e8b544` | `feat(care-routines): add hydration plan remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `f256093` | `feat(care-routines): add medication stock remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `18f521d` | `feat(care-routines): add reminder use cases (schedule, confirm, cancel, mark as missed)` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `7bfcde6` | `feat(care-routines): rework routines home screen and view model with remote data` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `2458a42` | `feat(care-routines): add appointments list and appointment form screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `8797625` | `feat(care-routines): add medication list and medication form screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `d85150b` | `feat(care-routines): add hydration plan screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `39d0dc6` | `feat(care-routines): add sleep cycle screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `e78414d` | `feat(care-routines): add inactivity detection settings screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `e377fe4` | `test(care-routines): add unit tests for care routines and wellness feature` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/appointment-reminder-push` | `adc2de0` | `feat(care-routines-wellness): add the appointment reminders notification channel` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/appointment-reminder-push` | `2a64f1e` | `feat(care-routines-wellness): open the appointments from a reminder notification` | 2026-11-12 |
+
+##### Mobile App — Mobility & Geofencing
+
+Implementación de la sección Ubicación: posición de la persona bajo cuidado en el mapa con la zona segura activa dibujada, administración de las zonas seguras con su activación, edición y eliminación, y, de forma anticipada (US23), las opciones de llamada de voz y video con la pulsera desde la pantalla de ubicación. Se integró a `develop` mediante los Pull Requests [#15](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/15), [#17](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/17), [#20](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/20), [#21](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/21) y [#22](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/22). La Tabla 4.75 presenta los commits de Mobility & Geofencing en la aplicación móvil.
+
+<a id="tabla-4-75"></a>**Tabla 4.75.** Commits de Mobile App: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `e1a8b17` | `feat(mobilitygeofencing): add core domain models for tracking and safe zones` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8288768` | `feat(mobility-geofencing): add Retrofit API endpoints for location tracking and safe zone management` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `e80deef` | `feat(mobility-geofencing): implement repository for location tracking and safe zone operations` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `704cc87` | `feat(mobility-geofencing): add location tracking screen with realtime location UI and navigation actions` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8cc159b` | `feat(mobility-geofencing): implement safe zones screen with status toggle` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8de95ca` | `fix(mobility-geofencing): repair navigation, toplevel destination` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8edb962` | `feat(mobility-geofencing):  add funcionality edit compose, mobility navigation refactor update, view model` | 2026-10-27 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/mobility-geofencing-safe-zone-endpoints` | `38e5a50` | `fix(mobility-geofencing): draw the real safe zone on the map and stop showing sample location data` | 2026-10-28 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/mobility-geofencing-safe-zone-endpoints` | `b8fe2f8` | `test(mobility-geofencing): add location tracking state tests` | 2026-10-28 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `c64a6ef` | `feat(communication): implement device communication models and repository methods for call management` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `79c6e66` | `feat(communication): add VideoCallViewModel and VoiceCallScreen for managing video and voice calls` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `0d9fa93` | `feat(communication): add communication options in LocationTrackingScreen with modal for video and voice calls` | 2026-11-12 |
+
+##### Mobile App — Profile & Subscriptions
+
+Implementación de las secciones de perfil y configuración de la aplicación y de la gestión del plan de suscripción conectada a los Web Services de Subscriptions. Se integró a `develop` mediante el Pull Request [#16](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/16). La Tabla 4.76 presenta los commits de Profile & Subscriptions en la aplicación móvil.
+
+<a id="tabla-4-76"></a>**Tabla 4.76.** Commits de Mobile App: Profile & Subscriptions
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/profile-subscriptions-final` | `6bcb2bf` | `feat(profile): add profile extras and settings flows` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/profile-subscriptions-final` | `fab6edc` | `feat(subscriptions): integrate mobile plan with backend` | 2026-10-24 |
+
+##### Mobile App (Flutter) — Base de la aplicación e IAM
+
+Creación del proyecto Flutter con la arquitectura de cuatro capas por Bounded Context (domain, application, infrastructure y presentation), inyección de dependencias con `get_it`, cliente HTTP con `http`, tema con la paleta y las tipografías de la guía de estilos, pantalla de inicio de sesión y página principal con la barra de navegación. Se integró a `develop` mediante los Pull Requests [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/1) y [#2](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/2). La Tabla 4.77 presenta los commits de la base de la aplicación en Flutter.
+
+<a id="tabla-4-77"></a>**Tabla 4.77.** Commits de Mobile App (Flutter): base de la aplicación e IAM
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `093d645` | `chore: initial project setup` | 2026-11-01 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `6ed00f4` | `feat: add app theme` | 2026-11-06 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `f42275f` | `feat: add login viewmodel` | 2026-11-06 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `01d7878` | `feat(auth): add login page with hero stats and login sheet` | 2026-11-11 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `5a63b46` | `feat(auth): add Google and biometric sign-in options to login sheet` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `b45a685` | `chore: add http, get_it, brand fonts and the Guardian+ theme` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `c888458` | `feat(core): add the api client and the care context of the signed-in account` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `f50b9e1` | `feat: add the main page with the routines and alerts tabs and open it from the login` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Emergency & Alerting
+
+Implementación del Bounded Context Emergency & Alerting en Flutter: configuración de alertas, contactos de emergencia, pestaña Alertas con las alertas activas y el historial, y detalle de la alerta con el recorrido del incidente. El reloj de la aplicación sigue la cabecera `Date` del servidor para calcular los tiempos transcurridos. Se integró a `develop` mediante los Pull Requests [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/1) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/6). La Tabla 4.78 presenta los commits de Emergency & Alerting en la aplicación Flutter.
+
+<a id="tabla-4-78"></a>**Tabla 4.78.** Commits de Mobile App (Flutter): Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `3e7a943` | `feat(emergency-alerting): add emergency contacts and alert settings domain, use cases and api` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `7fca814` | `feat(emergency-alerting): add the alert settings and emergency contacts screens` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `51da8d8` | `test(emergency-alerting): add api client, repository, view model and screen tests` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `3b6f8e9` | `refactor(emergency-alerting): register its dependencies from its own file` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `3d269cd` | `feat(core): add a server clock that follows the platform's Date header` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `87882b2` | `feat(emergency-alerting): add alerts and incidents domain, use cases and api` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `f90f973` | `feat(emergency-alerting): add the alert detail with the incident route` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `ca10b3a` | `feat(emergency-alerting): add the alerts tab with the active alerts and the history` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `7f1eacb` | `test(emergency-alerting): add alert, incident and alerts screen tests` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Health Monitoring
+
+Implementación del Bounded Context Health Monitoring en Flutter: Inicio con el estado de la persona bajo cuidado, signos vitales en vivo, historial con filtros, vinculación y detalle de la pulsera y cierre de sesión desde el avatar. Se integró a `develop` mediante el Pull Request [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/5). La Tabla 4.79 presenta los commits de Health Monitoring en la aplicación Flutter.
+
+<a id="tabla-4-79"></a>**Tabla 4.79.** Commits de Mobile App (Flutter): Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `dbcb328` | `feat(health-monitoring): add domain models` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `e60a888` | `feat(health-monitoring): add home page and live vitals view model` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `8f801ec` | `feat(health-monitoring): add live vitals page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0b459ac` | `feat(health-monitoring): add vital history page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `47b8685` | `feat(health-monitoring): add health page with now and history tabs` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0d59242` | `feat(health-monitoring): add vital sign and wearable infrastructure` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0818209` | `feat(main): add the floating bottom bar with the raised alerts button` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `fe6e188` | `feat(health-monitoring): add wearable details page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `f3e36bc` | `feat(auth): add logout use case and confirmation dialog` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `9dee3ce` | `test(health-monitoring): cover the home dashboard end to end` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `3661122` | `test(health-monitoring): cover the health tab end to end` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Care Routines & Wellness
+
+Implementación del Bounded Context Care Routines & Wellness en Flutter: dominio de recordatorios, adherencia, hidratación, stock de medicación, actividad y sueño; sus clientes de API; y las pantallas de rutinas, medicación, citas, hidratación, actividad, detección de inactividad, sueño y stock. Se integró a `develop` mediante el Pull Request [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/3). La Tabla 4.80 presenta los commits de Care Routines & Wellness en la aplicación Flutter.
+
+<a id="tabla-4-80"></a>**Tabla 4.80.** Commits de Mobile App (Flutter): Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `645ad73` | `feat(care-routines-wellness): add reminder entity, schedule request and repository` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `17427e5` | `feat(care-routines-wellness): add reminder and adherence use cases` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `7e505b0` | `feat(care-routines-wellness): add reminder and adherence api with dtos` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `2422507` | `feat(care-routines-wellness): add repository implementations` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `40d467e` | `feat(care-routines-wellness): add routines home state and view model` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `ef1d1fd` | `feat(care-routines-wellness): add routines home screen and components` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `48728b9` | `feat(care-routines-wellness): add medication screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `e6d0b25` | `feat(care-routines-wellness): add appointments screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `3cf8b47` | `feat(care-routines-wellness): add hydration screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `0f956c0` | `feat(care-routines-wellness): add sleep screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `385f5ac` | `feat(care-routines-wellness): add navigation between routine screens` | 2026-11-12 |
+
+#### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+En el Sprint 2 las pruebas automatizadas se ampliaron a los tres productos de software que se modificaron: los Web Services, la aplicación móvil en Kotlin y la aplicación móvil en Flutter. Cada Pull Request incorporó las pruebas de los comportamientos que agregaba, y en los Web Services el workflow `CI` ejecuta la suite completa sobre PostgreSQL 17 antes de permitir la integración a `develop`.
+
+Las pruebas siguen el patrón **Arrange - Act - Assert (AAA)** del Sprint 1. En los Web Services se utilizan **JUnit Jupiter** y **Mockito** para las pruebas de dominio y de servicios de aplicación, **MockMvc** para las pruebas de los controladores REST y **Cucumber** para las pruebas de aceptación en Gherkin. En la aplicación en Kotlin se utiliza **JUnit 4** sobre la JVM, y en la aplicación en Flutter, el paquete **flutter_test** con pruebas unitarias y de widgets que reemplazan el cliente HTTP por respuestas simuladas.
+
+##### Unit Tests - Web Services
+
+La Tabla 4.81 resume las clases de prueba agregadas en el Sprint 2 en los Web Services, agrupadas por Bounded Context.
+
+<a id="tabla-4-81"></a>**Tabla 4.81.** Pruebas agregadas en los Web Services en el Sprint 2
+
+| Bounded Context | Test Class | Tests | Behavior Verified |
+|---|---|---|---|
+| IAM | `UserAccountTest` | 17 | Registro pendiente de verificación, activación al verificar el correo, inicio de sesión solo con la contraseña correcta y la cuenta verificada, restablecimiento con un token vigente y vinculación con Google sin perder la contraseña de una cuenta verificada. |
+| IAM | `OneTimePasswordTest`, `EmailTest` | 18 | Vencimiento y uso único de los códigos OTP y validación del formato del correo. |
+| IAM | `AuthenticationCommandServiceImplTest` | 10 | Inicio de sesión en dos pasos, rechazo y conteo de un OTP incorrecto, misma respuesta ante un correo desconocido o una contraseña incorrecta, y primer acceso o vinculación con Google. |
+| IAM | `UserAccountCommandServiceImplTest`, `OneTimePasswordCommandServiceImplTest` | 16 | Registro de credenciales, verificación del correo, reenvío de códigos y límite de cinco códigos por cada quince minutos. |
+| IAM | `NimbusGoogleIdTokenVerifierAdapterTest` | 7 | Aceptación del ID token de Google solo para los clientes y emisores configurados, con el correo verificado y sin vencer. |
+| IAM | `JwtTokenProviderAdapterTest`, `HmacSha256SecretHasherAdapterTest`, `SecureRandomSecretGeneratorAdapterTest`, `IamEmailTemplatesTest` | 14 | Firma y validación de los tokens de sesión RS256, hash de los códigos, generación de secretos y plantillas de correo. |
+| IAM | `AuthControllerTest`, `UserAccountsControllerTest` | 12 | Respuestas HTTP de los endpoints de autenticación y de la cuenta con sesión iniciada. |
+| Subscriptions | `SubscriptionTest`, `EntitlementSetTest` | 7 | Creación pendiente, activación, renovación y cancelación programada de la suscripción, y conjunto de beneficios del plan. |
+| Subscriptions | 22 clases de servicios de aplicación, pagos simulados y programación | 100 | Pago inicial y de renovación confirmado o fallido, cambio de plan, evaluación de renovación y vencimiento, y ejecución programada del ciclo de vida. |
+| Subscriptions | 5 clases de persistencia JPA | 20 | Ensambladores y repositorios de la suscripción y sus beneficios. |
+| Subscriptions | `SubscriptionControllerTest`, `SubscriptionControllerValidationTest` | 15 | Respuestas HTTP de solicitud, cambio de plan, cancelación, estado y beneficios, y validación de las solicitudes. |
+| Mobility & Geofencing | `SafeZoneCommandServiceTest` | 5 | Una sola zona activa por persona, sin afectar a otras personas, y reporte de zonas inexistentes sin excepciones. |
+| Mobility & Geofencing | `WearableLocationMessageHandlerTest` | 3 | Registro de la ubicación recibida por MQTT y descarte de los mensajes mal formados o sin persona. |
+| Mobility & Geofencing | `SafeZoneViolationDetectedEventHandlerTest` | 1 | Publicación de la violación de la zona segura para Emergency & Alerting. |
+| Emergency & Alerting | `ReminderNotificationSenderTest` | 4 | Envío del recordatorio de cita a cada cuidador con un token push habilitado, sin detenerse ante un fallo del proveedor. |
+| Emergency & Alerting | `PushNotificationTextsTest` | 2 | Textos de las notificaciones push de los recordatorios de cita. |
+| Care Routines & Wellness | `ReminderTest`, `RecurrenceRuleTest`, `MedicationStockTest`, `ActivityMonitorTest`, `HydrationPlanTest`, `SleepCycleRecordTest`, `AdherenceSummaryTest` | 40 | Ciclo de vida de los recordatorios con recurrencia, consumo del stock de medicación, detección de inactividad, plan de hidratación, ciclos de sueño y resumen de adherencia. |
+| Care Routines & Wellness | `AppointmentReminderIssuedEventHandlerTest` | 2 | Publicación del evento de integración solo para los recordatorios de cita emitidos. |
+| Profile | `ProfileContextFacadeImplTest` | 4 | Consulta de los cuidadores de una persona bajo cuidado desde otros contextos. |
+| Health Monitoring | `WearableDeviceCommandServiceImplTest`, `WearableDevicesAndVitalSignTypesControllersIntegrationTest` | 4 | Desvinculación de un wearable existente y respuesta `404` ante uno inexistente, en el servicio y en el endpoint. |
+
+##### Unit Tests - Mobile Application
+
+La Tabla 4.82 resume las clases de prueba de la aplicación móvil en Kotlin y de la aplicación en Flutter.
+
+<a id="tabla-4-82"></a>**Tabla 4.82.** Pruebas de las aplicaciones móviles
+
+| Aplicación | Bounded Context | Test Class / File | Tests | Behavior Verified |
+|---|---|---|---|---|
+| Kotlin | IAM | `EmailTest`, `UserAccountTest`, `AuthenticatedSessionTest`, `LoginUseCaseTest`, `UserAccountMappersTest`, `EmailInputTest`, `OtpVerificationUiStateTest` | 21 | Validación del correo, estado de la cuenta, vencimiento de la sesión, inicio de sesión contra la plataforma y estado de la pantalla OTP. |
+| Kotlin | Profile | `CareRecipientSelectionTest` | 4 | Elección y cambio de la persona bajo cuidado al cargar el contexto de cuidado. |
+| Kotlin | Emergency & Alerting | `RegisterPushDeviceUseCaseTest`, `AlertNotificationsTest`, `AlertContextRepositoryImplTest` | 12 | Registro del teléfono para push, canal de notificación de alertas y contexto y ubicación del incidente a partir de la pulsera. |
+| Kotlin | Health Monitoring | `LiveVitalsUiStateTest`, `VitalFilterTest`, `VitalHistoryUiStateTest`, `WeeklyReportTest`, `HealthReportLabelsTest` | 30 | Estado de los signos vitales en vivo, filtros e historial, reporte semanal y etiquetas de los reportes. |
+| Kotlin | Care Routines & Wellness | `NextOccurrenceTest`, `ReminderNotificationsTest` | 7 | Próxima ocurrencia de una rutina y reconocimiento de las notificaciones de citas. |
+| Kotlin | Mobility & Geofencing | `LocationTrackingUiStateTest` | 2 | Estado de la pantalla de ubicación con la zona segura real. |
+| Flutter | Core | `api_client_test.dart` | 5 | Cliente HTTP: cabeceras, errores del servidor y reloj del servidor. |
+| Flutter | Emergency & Alerting | `domain_test.dart`, `alert_rules_test.dart`, `infrastructure_test.dart`, `alert_infrastructure_test.dart` | 22 | Reglas de las alertas y los contactos, y lectura de las respuestas de la API. |
+| Flutter | Emergency & Alerting | `alert_view_models_test.dart`, `alert_detail_state_test.dart`, `alert_settings_view_model_test.dart`, `emergency_contacts_view_model_test.dart`, `alert_pages_test.dart`, `emergency_alerting_pages_test.dart` | 39 | ViewModels y pantallas de alertas, detalle, configuración y contactos. |
+| Flutter | Health Monitoring | `home_page_test.dart`, `health_page_test.dart` | 7 | Inicio, sección Salud, detalle de la pulsera y cierre de sesión de principio a fin con la API simulada. |
+
+##### Testing Execution Evidence
+
+Las pruebas de los Web Services se ejecutaron con Maven sobre una base de datos PostgreSQL 17 local, la misma versión que utiliza el workflow `CI`:
+
+~~~bash
+./mvnw -B test
+~~~
+
+~~~text
+Tests run: 460, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+~~~
+
+Las 460 pruebas se distribuyen entre Subscriptions (142), Health Monitoring (139, de las cuales 21 son escenarios de aceptación en Gherkin), IAM (94), Care Routines & Wellness (46), Profile (23), Mobility & Geofencing (9), Emergency & Alerting (6) y la carga del contexto de la aplicación (1). La Figura 4.20 muestra el reporte de Surefire generado a partir de esa ejecución con `./mvnw surefire-report:report-only`.
+
+<a id="figura-4-20"></a>**Figura 4.20.** Ejecución de las pruebas de los Web Services
+
+![web-services-tests-execution](../assets/images/chatper4/sprint2/web-services-tests-execution.png)
+
+Las pruebas de la aplicación móvil en Kotlin se ejecutaron con Gradle:
+
+~~~bash
+./gradlew testDebugUnitTest
+~~~
+
+La ejecución comprende **77 pruebas** en 20 clases, sin fallos. La Figura 4.21 muestra el reporte HTML que Gradle genera en `app/build/reports/tests/testDebugUnitTest`.
+
+<a id="figura-4-21"></a>**Figura 4.21.** Ejecución de las pruebas de la aplicación móvil en Kotlin
+
+![mobile-app-tests-execution](../assets/images/chatper4/sprint2/mobile-app-tests-execution.png)
+
+Las pruebas de la aplicación en Flutter se ejecutaron con:
+
+~~~bash
+flutter test
+~~~
+
+~~~text
+00:02 +73: All tests passed!
+~~~
+
+La Figura 4.22 muestra la ejecución de las **73 pruebas** de la aplicación en Flutter.
+
+<a id="figura-4-22"></a>**Figura 4.22.** Ejecución de las pruebas de la aplicación en Flutter
+
+![flutter-app-tests-execution](../assets/images/chatper4/sprint2/flutter-app-tests-execution.png)
+
+##### Integration Tests and Acceptance Tests
+
+En los Web Services, las pruebas de los controladores de IAM y Subscriptions levantan la capa web con MockMvc y verifican los códigos HTTP y el cuerpo de las respuestas. Las pruebas de integración REST y los 21 escenarios de aceptación en Gherkin de Health Monitoring, incorporados en el Sprint 1, se mantienen en la suite y se ejecutan en cada Pull Request, por lo que verifican que los cambios del Sprint 2 no alteraron el comportamiento de US01 a US05, US09 y US21. En la aplicación en Flutter, las pruebas de `home_page_test.dart` y `health_page_test.dart` recorren las pantallas de principio a fin con la API simulada.
+
+##### Testing Repository
+
+Las pruebas se encuentran en los repositorios de cada producto, junto con su implementación. La Tabla 4.83 resume su ubicación.
+
+<a id="tabla-4-83"></a>**Tabla 4.83.** Ubicación de las pruebas automatizadas
+
+| Repository | Branch | Testing source path |
+|---|---|---|
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `develop` | `src/test/java/com/healthify/guardian/platform` y `src/test/resources/features` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `develop` | `app/src/test/java/com/example/guardian_plus_mobile_app/features` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `develop` | `test/core` y `test/features` |
+
+##### Testing Commits
+
+Los commits de la Tabla 4.84 contienen las pruebas automatizadas incorporadas durante el Sprint 2.
+
+<a id="tabla-4-84"></a>**Tabla 4.84.** Commits de las pruebas del Sprint 2
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `0efbf64` | `test(iam): add user account and email domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `0e2b140` | `test(iam): add one-time password domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `70a093a` | `test(iam): add password reset token domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `617277a` | `test(iam): add command service tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `e1f0401` | `test(iam): add security adapter tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `cb243e6` | `test(iam): add auth controller tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `2db409c` | `test(iam): add e-mail template tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `ff2869e` | `test(iam): cover the unverified login, the code rate limit and the login code resend` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `06d78de` | `test(iam): cover google sign-up and linking on the user account` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `931e8a0` | `test(iam): cover the google id token verifier` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `74a52ef` | `test(iam): cover google sign-in in the authentication service` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `3c3ad7c` | `test(iam): cover the google sign-in endpoint` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/subscriptions-backend-final` | `d0270aa` | `feat: implement subscriptions lifecycle and payment flow` | — | `2026-10-24` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/mobility-wearable-location-mqtt` | `0c6332b` | `test(mobility-geofencing): add wearable location message handler tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/emergency-alerting-safe-zone-violation-alerts` | `38fdced` | `test(mobility-geofencing): add safe zone violation event handler tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `fix/mobility-geofencing-safe-zone-endpoints` | `2bbf844` | `test(mobility-geofencing): add safe zone command service tests` | — | `2026-10-28` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `823a513` | `test(emergency-alerting): cover appointment reminder push notifications` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/care-routines-wellness-frontend-alignment` | `08258e6` | `test(care-routines): add unit tests for care routines and wellness bounded context` | — | `2026-10-08` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `f3f82c9` | `test(care-routines-wellness): cover the appointment reminder integration event` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `38ac332` | `test(profile): cover the profile context facade` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/unlink-wearable-device` | `533aefd` | `test(health-monitoring): cover unlinking wearable devices` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/iam-implementation` | `5a1dfd5` | `test(iam): update the auth tests to the platform contract` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/switch-care-recipient` | `f6147f1` | `test(profile): cover choosing the person under care` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-live-alert-context` | `c177886` | `test(emergency-alerting): add alert context repository tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-alert-location` | `6cb83d1` | `test(emergency-alerting): cover the alert location in the context repository tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-push-device-registration` | `aede612` | `test(emergency-alerting): add push device registration tests` | — | `2026-10-25` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-push-notifications` | `f607ffb` | `test(emergency-alerting): add alert notification channel tests` | — | `2026-10-26` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/care-routines-and-wellness` | `e377fe4` | `test(care-routines): add unit tests for care routines and wellness feature` | — | `2026-10-21` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/appointment-reminder-push` | `9a75dca` | `test(care-routines-wellness): cover recognizing appointment reminder pushes` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `fix/mobility-geofencing-safe-zone-endpoints` | `b8fe2f8` | `test(mobility-geofencing): add location tracking state tests` | — | `2026-10-28` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/emergency-alerting-contacts-and-settings` | `51da8d8` | `test(emergency-alerting): add api client, repository, view model and screen tests` | — | `2026-11-08` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/emergency-alerting-alerts-and-detail` | `7f1eacb` | `test(emergency-alerting): add alert, incident and alerts screen tests` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `9dee3ce` | `test(health-monitoring): cover the home dashboard end to end` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `3661122` | `test(health-monitoring): cover the health tab end to end` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `2cc966d` | `test(health-monitoring): cover the wristband details` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `cd1701d` | `test(health-monitoring): cover signing out from home` | — | `2026-11-12` |
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales: el usuario se registra, verifica su correo, inicia sesión con un código OTP o con Google y registra a la persona bajo cuidado. En la sección Salud se muestran en vivo los cinco signos vitales de la pulsera con su clasificación (US01 a US05), y las lecturas que el wearable envía en lote tras recuperar la conexión se integran al historial (US21). Las alertas críticas llegan como notificaciones push a todos los contactos del Care Circle y abren su detalle al tocarlas (US25). Como avance del Sprint 3, la aplicación incorpora la sección Rutinas conectada a los Web Services, la sección Ubicación con las zonas seguras, las llamadas con la pulsera y los recordatorios de citas por push.
+
+De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
+
+##### Mobile Application
+
+La Figura 4.23 muestra la aplicación móvil en Kotlin ejecutándose en el emulador de Android Studio.
+
+<a id="figura-4-23"></a>**Figura 4.23.** Aplicación móvil en Kotlin en ejecución
+
+![mobile-app-execution](../assets/images/chatper4/sprint2/mobile-app-execution.png)
+
+La Figura 4.24 muestra la aplicación en Flutter ejecutándose en el emulador.
+
+<a id="figura-4-24"></a>**Figura 4.24.** Aplicación móvil en Flutter en ejecución
+
+![flutter-app-execution](../assets/images/chatper4/sprint2/flutter-app-execution.png)
+
+La Tabla 4.85 presenta los enlaces a los videos de ejecución de las aplicaciones móviles.
+
+<a id="tabla-4-85"></a>**Tabla 4.85.** Videos de ejecución de las aplicaciones móviles
+
+| Producto | Video de ejecución |
+|---|---|
+| Mobile Application (Kotlin) | [Guardian+ — Mobile Application (Sprint 2)](COMPLETAR-ENLACE-VIDEO-KOTLIN) |
+| Mobile Application (Flutter) | [Guardian+ — Mobile Application Flutter (Sprint 2)](COMPLETAR-ENLACE-VIDEO-FLUTTER) |
+
+##### Web Services
+
+Los Web Services se encuentran publicados en Microsoft Azure y su documentación puede consultarse en [Swagger UI](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html). Al cierre del Sprint 2 exponen 105 operaciones en 97 rutas, frente a las 63 rutas del Sprint 1. La Figura 4.25 muestra los endpoints disponibles en el entorno desplegado.
+
+<a id="figura-4-25"></a>**Figura 4.25.** Web Services en ejecución en Swagger UI
+
+![web-services-execution](../assets/images/chatper4/sprint2/web-services-swagger.png)
+
+La Tabla 4.86 presenta el enlace al video de ejecución de los Web Services.
+
+<a id="tabla-4-86"></a>**Tabla 4.86.** Video de ejecución de los Web Services
+
+| Producto | Video de ejecución |
+|---|---|
+| Web Services | [Guardian+ — Web Services (Sprint 2)](COMPLETAR-ENLACE-VIDEO-WEB-SERVICES) |
+
+#### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+Los Web Services se documentan con OpenAPI mediante springdoc-openapi, del mismo modo que en el Sprint 1 (sección 4.2.1.7). En esta sección se presentan los endpoints agregados o modificados en el Sprint 2. Los endpoints de signos vitales en vivo, historial y sincronización en lote que soportan US01 a US05 y US21 se documentaron en la Tabla 4.48 y no cambiaron.
+
+##### IAM
+
+La Tabla 4.87 presenta los endpoints de IAM. El inicio de sesión se realiza en dos pasos: `POST /api/v1/auth/login` valida la contraseña y envía un código OTP al correo, y `POST /api/v1/auth/otp/verify` valida el código y entrega el token de sesión.
+
+<a id="tabla-4-87"></a>**Tabla 4.87.** Endpoints de IAM
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/auth/register` | Registra las credenciales y envía el código de verificación del correo | Body: `email`, `password` | 201 `UserAccountResource` / 400 / 409 |
+| POST | `/api/v1/auth/verify-email` | Verifica el correo con el código recibido y activa la cuenta | Body: `userAccountId`, `code` | 200 `UserAccountResource` / 400 / 404 / 422 |
+| POST | `/api/v1/auth/verify-email/resend` | Envía un nuevo código de verificación del correo | Body: `userAccountId` | 202 `MessageResource` / 404 / 422 |
+| POST | `/api/v1/auth/login` | Valida la contraseña y envía el código de inicio de sesión (paso 1 de 2) | Body: `email`, `password` | 202 `OtpChallengeResource` / 401 / 403 |
+| POST | `/api/v1/auth/otp/verify` | Valida el código y entrega el token de sesión (paso 2 de 2) | Body: `userAccountId`, `code` | 200 `AuthenticatedSessionResource` / 400 / 401 |
+| POST | `/api/v1/auth/otp/resend` | Envía un nuevo código de inicio de sesión | Body: `userAccountId` | 202 `MessageResource` / 401 / 422 |
+| POST | `/api/v1/auth/google` | Inicia sesión o registra la cuenta con un ID token de Google | Body: `idToken` | 200 `AuthenticatedSessionResource` / 400 / 401 |
+| POST | `/api/v1/auth/password-reset/request` | Envía al correo el token de recuperación de contraseña | Body: `email` | 202 `MessageResource` / 400 / 404 |
+| POST | `/api/v1/auth/password-reset/confirm` | Establece una nueva contraseña con el token de recuperación | Body: `token`, `newPassword` | 200 `MessageResource` / 400 |
+| GET | `/api/v1/user-accounts/me` | Cuenta de la sesión iniciada | Header: `Authorization` | 200 `UserAccountResource` / 401 / 404 |
+| GET | `/api/v1/user-accounts/{userAccountId}` | Detalle de una cuenta | Path: `userAccountId` | 200 `UserAccountResource` / 404 |
+| GET | `/api/v1/user-accounts/availability` | Indica si un correo está disponible para el registro | Query: `email` | 200 `EmailAvailabilityResource` / 400 |
+
+##### Subscriptions
+
+La Tabla 4.88 presenta los endpoints de Subscriptions.
+
+<a id="tabla-4-88"></a>**Tabla 4.88.** Endpoints de Subscriptions
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/subscriptions` | Solicita una suscripción a un plan e inicia su pago | Body: `subscriberId`, `planId` | 201 `SubscriptionResource` / 400 |
+| PATCH | `/api/v1/subscriptions/{subscriptionId}/plan` | Cambia el plan de la suscripción | Path: `subscriptionId`. Body: `newPlanId` | 200 `SubscriptionResource` / 400 |
+| POST | `/api/v1/subscriptions/{subscriptionId}/cancellation` | Programa la cancelación de la suscripción | Path: `subscriptionId` | 200 `SubscriptionResource` / 400 |
+| GET | `/api/v1/subscriptions/subscriber/{subscriberId}/status` | Suscripción vigente del suscriptor | Path: `subscriberId` | 200 `SubscriptionResource` / 404 |
+| GET | `/api/v1/subscriptions/subscriber/{subscriberId}/entitlements` | Beneficios habilitados por el plan | Path: `subscriberId` | 200 `EntitlementSetResource` / 404 |
+
+##### Direct Communication
+
+La Tabla 4.89 presenta los endpoints de Direct Communication.
+
+<a id="tabla-4-89"></a>**Tabla 4.89.** Endpoints de Direct Communication
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/communication/calls/start` | Inicia una llamada de voz o video con la pulsera | Body: `fragileCitizenId`, `requestedType` | 200 `CallSessionResource` / 400 |
+| POST | `/api/v1/communication/calls/{callId}/end` | Finaliza una llamada en curso | Path: `callId` | 200 `CallSessionResource` / 404 |
+| POST | `/api/v1/communication/calls/log-unanswered` | Registra una llamada no atendida tras 30 segundos | Body: `fragileCitizenId`, `attemptedType`, `reason` | 200 `CallLogEntryResource` / 400 |
+| GET | `/api/v1/communication/{fragileCitizenId}/call-logs` | Historial de llamadas | Path: `fragileCitizenId` | 200 lista de `CallLogEntryResource` |
+| GET | `/api/v1/communication/{fragileCitizenId}/device-capabilities` | Capacidades de la pulsera: cámara, pantalla, micrófono, parlante y vibración | Path: `fragileCitizenId` | 200 `DeviceCapabilitiesResource` |
+| POST | `/api/v1/communication/haptic-alert` | Envía una alerta háptica a la pulsera | Body: `fragileCitizenId`, `message` | 200 / 400 |
+
+##### Mobility & Geofencing
+
+La Tabla 4.90 presenta los endpoints de Mobility & Geofencing agregados en el Sprint 2. Los demás se mantienen como se documentaron en la Tabla 4.51; la activación de una zona segura desactiva ahora la que estaba activa, y la consulta del estado devuelve `UNKNOWN` mientras no exista una ubicación registrada.
+
+<a id="tabla-4-90"></a>**Tabla 4.90.** Endpoints agregados en Mobility & Geofencing
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| GET | `/api/v1/safe-zones/fragile-citizen/{fragileCitizenId}` | Zonas seguras de la persona bajo cuidado | Path: `fragileCitizenId` | 200 lista de `SafeZoneResource` |
+| DELETE | `/api/v1/safe-zones/{safeZoneId}` | Elimina una zona segura | Path: `safeZoneId` | 204 / 404 |
+
+##### Care Routines & Wellness
+
+La Tabla 4.91 presenta los endpoints de Care Routines & Wellness agregados para las pantallas de Rutinas de la aplicación.
+
+<a id="tabla-4-91"></a>**Tabla 4.91.** Endpoints agregados en Care Routines & Wellness
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/reminders` | Programa un recordatorio con su recurrencia y sus datos de medicación o cita | Body: `personUnderCareId`, `type`, `scheduledTime`, `title`, `dosage`, `instructions`, `location`, `durationMinutes`, `leadTimeMinutes`, `medicationStockId`, `recurrence` | 201 `ReminderResource` / 400 / 404 |
+| GET | `/api/v1/reminders/{reminderId}` | Detalle de un recordatorio | Path: `reminderId` | 200 `ReminderResource` / 404 |
+| PUT | `/api/v1/reminders/{reminderId}/miss` | Marca un recordatorio como omitido | Path: `reminderId` | 200 `ReminderResource` / 404 / 422 |
+| GET | `/api/v1/reminders/citizen/{personUnderCareId}/adherence` | Adherencia a los recordatorios en un periodo | Path: `personUnderCareId`. Query: `type`, `from`, `to` | 200 `AdherenceResource` / 400 |
+| POST | `/api/v1/medication-stocks` | Registra el stock de un medicamento | Body: `personUnderCareId`, `medicationName`, `dosage`, `dailyConsumption`, `packageSize`, `initialDoses` | 201 `MedicationStockResource` / 400 / 409 |
+| GET | `/api/v1/medication-stocks/{medicationStockId}` | Detalle de un stock de medicación | Path: `medicationStockId` | 200 `MedicationStockResource` / 404 |
+| PUT | `/api/v1/medication-stocks/{medicationStockId}/acquisition` | Confirma la adquisición de un envase | Path: `medicationStockId`. Body: `dosesAdded` | 200 `MedicationStockResource` / 400 / 404 |
+| GET / PUT | `/api/v1/hydration-plans/citizen/{personUnderCareId}` | Consulta o configura el plan de hidratación | Path: `personUnderCareId`. Body: `active`, `dailyGoalGlasses`, `intervalHours`, `respectSleepWindow` | 200 `HydrationPlanResource` / 400 / 404 |
+| GET | `/api/v1/activity-monitors/citizen/{personUnderCareId}` | Estado de actividad de la persona bajo cuidado | Path: `personUnderCareId` | 200 `ActivityMonitorResource` / 404 |
+| GET | `/api/v1/activity-monitors/citizen/{personUnderCareId}/log-entries` | Actividad reciente | Path: `personUnderCareId`. Query: `limit` | 200 lista / 400 |
+| PUT | `/api/v1/activity-monitors/citizen/{personUnderCareId}/inactivity-detection` | Configura la detección de inactividad prolongada | Path: `personUnderCareId`. Body: `enabled`, `thresholdMinutes` | 200 `ActivityMonitorResource` / 400 |
+| GET | `/api/v1/sleep-cycle-records/citizen/{personUnderCareId}` | Ciclos de sueño en un periodo | Path: `personUnderCareId`. Query: `from`, `to` | 200 lista de `SleepCycleRecordResource` |
+
+##### Health Monitoring
+
+La Tabla 4.92 presenta el endpoint agregado en Health Monitoring.
+
+<a id="tabla-4-92"></a>**Tabla 4.92.** Endpoint agregado en Health Monitoring
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| DELETE | `/api/v1/wearable-devices/{wearableDeviceId}` | Desvincula un wearable de la persona bajo cuidado | Path: `wearableDeviceId` | 200 `WearableDeviceResource` / 404 |
+
+##### Emergency & Alerting
+
+Los endpoints de Emergency & Alerting se mantienen como se documentaron en la Tabla 4.47. Para recibir notificaciones push, la aplicación registra el token de Firebase del teléfono con `PUT /api/v1/alert-channel-settings/user/{userId}/channels/PUSH`, enviando `enabled` y `deviceToken`. Los procesos del Sprint 2 que el sistema dispara sin un endpoint propio se detallan en la Tabla 4.93.
+
+<a id="tabla-4-93"></a>**Tabla 4.93.** Procesos de integración incorporados en el Sprint 2
+
+| Proceso | Componente | Descripción |
+|---|---|---|
+| Entrega push de alertas | `PushNotificationProviderAdapter` | Envía cada entrega del canal `PUSH` mediante Firebase Cloud Messaging con la cuenta de servicio de `FIREBASE_SERVICE_ACCOUNT_BASE64`. En el nivel `BROADCAST` la alerta se entrega a la vez a todos los contactos activos (US25). |
+| Ubicación del wearable | `WearableLocationMessageHandler` | Se suscribe al tópico MQTT `guardian/location/+` y registra la ubicación recibida en el seguimiento de la persona bajo cuidado. |
+| Violación de la zona segura | `SafeZoneViolationDetectedEventHandler` | Publica `SafeZoneViolationDetectedIntegrationEvent` cuando la ubicación sale de la zona activa; Emergency & Alerting lo convierte en una alerta. |
+| Recordatorio de cita médica | `AppointmentReminderIssuedEventHandler`, `ReminderNotificationSender` | Al emitirse un recordatorio de cita, Care Routines & Wellness publica un evento de integración y Emergency & Alerting notifica por push a cada cuidador de la persona, obtenido mediante `ProfileContextFacade`. |
+| Limpieza de códigos OTP | Scheduler de IAM | Cada hora elimina los códigos OTP vencidos (`iam.otp.cleanup.cron`). |
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+En el Sprint 2 se actualizaron los Web Services desplegados en Microsoft Azure con cada integración en `develop`, y se configuró Firebase Cloud Messaging para las notificaciones push de la aplicación móvil. El Landing Page y el IoT Simulator se mantienen con los despliegues del Sprint 1 (sección 4.2.1.8), porque no tuvieron cambios funcionales.
+
+##### Web Services
+
+La Tabla 4.94 resume el despliegue de los Web Services al cierre del Sprint 2.
+
+<a id="tabla-4-94"></a>**Tabla 4.94.** Despliegue de los Web Services en el Sprint 2
+
+| Aspecto | Detalle |
+|---|---|
+| **Plataforma** | Microsoft Azure (suscripción Azure for Students), región Chile Central |
+| **URL pública** | [guardian-plus-api.chilecentral.cloudapp.azure.com](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html) |
+| **Repositorio** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) |
+| **Rama desplegada** | `develop` (commit `6dd5f9f`) |
+| **Infraestructura** | Máquina virtual `guardian-plus-vm` y Azure Database for PostgreSQL `guardian-plus-db-54c33b`, sin cambios respecto del Sprint 1 |
+| **Variables agregadas al `.env`** | `BREVO_API_KEY`, `IAM_EMAIL_SENDER`, `IAM_SECRETS_HMAC_KEY`, `IAM_JWT_PRIVATE_KEY`, `IAM_JWT_PUBLIC_KEY`, `MOBILITY_GEOFENCING_MQTT_ENABLED`, `MOBILITY_GEOFENCING_MQTT_BROKER_URL` y `FIREBASE_SERVICE_ACCOUNT_BASE64` |
+| **Bounded Contexts publicados** | Los cinco del Sprint 1 más IAM, Subscriptions y Direct Communication, con 97 rutas documentadas en Swagger UI |
+
+El despliegue se realizó en los pasos de la Tabla 4.95:
+
+<a id="tabla-4-95"></a>**Tabla 4.95.** Pasos del despliegue de los Web Services en el Sprint 2
+
+| Step | Acción | Resultado |
+|---|---|---|
+| **1** | Registro en el `.env` de la máquina virtual de las variables de IAM: la clave de Brevo, el remitente de los correos, la clave HMAC y el par de claves RSA de los tokens de sesión. | Los correos de verificación y los códigos OTP se envían desde el entorno publicado. |
+| **2** | Integración de IAM, de la ubicación por MQTT, de la alerta por zona segura y de Subscriptions (Pull Requests #17 a #21, del 22 al 24 de octubre). | Cinco despliegues consecutivos completados por el workflow `Deploy`. |
+| **3** | Integración de Mobility & Geofencing (Pull Request #22). | El job `test` falló por un error de compilación en `SafeZone`, por lo que el workflow omitió `build` y `deploy`. La corrección se integró la misma noche y su despliegue se completó. |
+| **4** | Creación del proyecto `guardian-plus-1f1dd` en Firebase, generación de la clave de su cuenta de servicio y registro de esta en `FIREBASE_SERVICE_ACCOUNT_BASE64`. Integración del envío push (Pull Request #23). | Despliegue completado el 25 de octubre y alertas entregadas por Firebase Cloud Messaging. |
+| **5** | Integraciones del 21 de octubre (Pull Request #16) y del 28 de octubre al 12 de noviembre (Pull Requests #24 a #28), y sus reejecuciones. | El job `deploy` falló en `ssh-keyscan` porque la máquina virtual estaba detenida para ahorrar el crédito de Azure for Students; los jobs `test` y `build` se completaron y las imágenes quedaron publicadas en GHCR. |
+| **6** | Encendido de la máquina virtual y de la base de datos, verificación del `.env` e integración del Pull Request #29. | Despliegue completado el 12 de noviembre de 2026 con el commit `6dd5f9f`, que incluye todas las integraciones del Sprint. |
+| **7** | Validación de la API publicada. | `/v3/api-docs` responde por HTTPS con 97 rutas y 105 operaciones en 25 grupos. |
+
+Las ejecuciones del workflow `Deploy` del Sprint 2 se muestran en la Figura 4.26.
+
+<a id="figura-4-26"></a>**Figura 4.26.** Ejecuciones del workflow Deploy en el Sprint 2
+
+![github-actions-workflows](../assets/images/chatper4/sprint2/github-actions-workflows.png)
+
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con la versión del cierre del Sprint, como se muestra en la Figura 4.27.
+
+<a id="figura-4-27"></a>**Figura 4.27.** Máquina virtual guardian-plus-vm en Azure al cierre del Sprint 2
+
+![azure-virtual-machine](../assets/images/chatper4/sprint2/azure-virtual-machine.png)
+
+##### Mobile Application — Firebase Cloud Messaging
+
+La Tabla 4.96 resume la configuración de Firebase para las notificaciones push de la aplicación móvil en Kotlin.
+
+<a id="tabla-4-96"></a>**Tabla 4.96.** Configuración de Firebase Cloud Messaging
+
+| Aspecto | Detalle |
+|---|---|
+| **Proyecto de Firebase** | `guardian-plus-1f1dd` |
+| **Aplicación Android registrada** | `com.healthify.guardianplus`, identificador definitivo de la aplicación |
+| **Configuración en la aplicación** | `app/google-services.json` y la dependencia `firebase-messaging` |
+| **Configuración en el backend** | Cuenta de servicio de Firebase en la variable `FIREBASE_SERVICE_ACCOUNT_BASE64` del `.env` de la máquina virtual |
+| **Canales de notificación** | Alertas, con prioridad alta, y recordatorios de citas médicas |
+
+La Figura 4.28 muestra el proyecto de Firebase con la aplicación Android registrada.
+
+<a id="figura-4-28"></a>**Figura 4.28.** Proyecto guardian-plus-1f1dd en Firebase
+
+![firebase-project](../assets/images/chatper4/sprint2/firebase-project.png)
+
+#### 4.2.2.9. Team Collaboration Insights during Sprint
+
+Durante el Sprint 2 el equipo trabajó en los repositorios de los Web Services, de la aplicación móvil en Kotlin y de la aplicación en Flutter mediante ramas por funcionalidad integradas con Pull Requests. A continuación se muestran las analíticas de colaboración (Pulse) del último mes de cada repositorio, del 12 de octubre al 12 de noviembre de 2026. En los Web Services y en la aplicación en Kotlin, Pulse no muestra el resumen de commits porque se calcula sobre la rama `main`, que no recibió cambios en el periodo: todo el trabajo del Sprint se integró en `develop`. Por eso, el número de commits de esos dos repositorios se obtuvo del historial de todas sus ramas.
+
+**Backend (Web Services):** 14 pull requests fusionados por los 5 integrantes, con 139 commits en todas las ramas. La Figura 4.29 muestra los insights del repositorio de los Web Services.
+
+<a id="figura-4-29"></a>**Figura 4.29.** Insights del repositorio de los Web Services
+
+![backend-insights](../assets/images/chatper4/sprint2/insights/backend-insights.png)
+
+**Mobile App (Kotlin):** 24 pull requests fusionados por los 5 integrantes, con 162 commits en todas las ramas. La Figura 4.30 muestra los insights del repositorio de la aplicación móvil.
+
+<a id="figura-4-30"></a>**Figura 4.30.** Insights del repositorio de la aplicación móvil
+
+![mobile-app-insights](../assets/images/chatper4/sprint2/insights/mobile-app-insights.png)
+
+**Mobile App (Flutter):** 6 pull requests fusionados por 3 integrantes, con 88 commits de 3 autores en todas las ramas, 3 de ellos en `main`. La Figura 4.31 muestra los insights del repositorio de la aplicación en Flutter.
+
+<a id="figura-4-31"></a>**Figura 4.31.** Insights del repositorio de la aplicación en Flutter
+
+![flutter-app-insights](../assets/images/chatper4/sprint2/insights/flutter-app-insights.png)
+
 ## 4.3. Validation Interviews
 
 En esta sección se presentan las entrevistas de validación del Landing Page realizadas con familiares y cuidadores, junto con su diseño y su registro, y la evaluación heurística del prototipo de la aplicación móvil.
@@ -1732,15 +2569,15 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
 
-El video de las entrevistas de validación del Landing Page se encuentra publicado en SharePoint. La Figura 4.18 muestra una captura del video.
+El video de las entrevistas de validación del Landing Page se encuentra publicado en SharePoint. La Figura 4.32 muestra una captura del video.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Video de las entrevistas de validación del Landing Page
+<a id="figura-4-32"></a>**Figura 4.32.** Video de las entrevistas de validación del Landing Page
 
 ![Video de las entrevistas de validación](../assets/images/chatper4/validation-interviews/validation-interviews-video.png)
 
-La Tabla 4.60 presenta el enlace al video de las entrevistas de validación.
+La Tabla 4.97 presenta el enlace al video de las entrevistas de validación.
 
-<a id="tabla-4-60"></a>**Tabla 4.60.** Video de las entrevistas de validación
+<a id="tabla-4-97"></a>**Tabla 4.97.** Video de las entrevistas de validación
 
 | Recurso | Enlace |
 |---|---|
@@ -1752,9 +2589,9 @@ La Tabla 4.60 presenta el enlace al video de las entrevistas de validación.
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.61 presenta los datos de la entrevistada.
+La Tabla 4.98 presenta los datos de la entrevistada.
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Rocio Alvarado
+<a id="tabla-4-98"></a>**Tabla 4.98.** Datos de la entrevista de validación a Rocio Alvarado
 
 | Campo | Valor |
 |---|---|
@@ -1762,9 +2599,9 @@ La Tabla 4.61 presenta los datos de la entrevistada.
 | Edad | 22 |
 | Distrito | Jesus María |
 
-La Figura 4.19 muestra una captura de la entrevista de validación a Rocio Alvarado.
+La Figura 4.33 muestra una captura de la entrevista de validación a Rocio Alvarado.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Rocio Alvarado
+<a id="figura-4-33"></a>**Figura 4.33.** Captura de la entrevista de validación a Rocio Alvarado
 
 ![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_1.png)
 
@@ -1776,9 +2613,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.62 presenta los datos del entrevistado.
+La Tabla 4.99 presenta los datos del entrevistado.
 
-<a id="tabla-4-62"></a>**Tabla 4.62.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-99"></a>**Tabla 4.99.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -1786,9 +2623,9 @@ La Tabla 4.62 presenta los datos del entrevistado.
 | Edad | 33 |
 | Distrito | San Juan Bautista |
 
-La Figura 4.20 muestra una captura de la entrevista de validación a Junior Antenor.
+La Figura 4.34 muestra una captura de la entrevista de validación a Junior Antenor.
 
-<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Junior Antenor
+<a id="figura-4-34"></a>**Figura 4.34.** Captura de la entrevista de validación a Junior Antenor
 
 ![Captura Entrevista Validación Familiar 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
 
@@ -1801,9 +2638,9 @@ La Figura 4.20 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.63 presenta los datos de la entrevistada.
+La Tabla 4.100 presenta los datos de la entrevistada.
 
-<a id="tabla-4-63"></a>**Tabla 4.63.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-100"></a>**Tabla 4.100.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -1811,9 +2648,9 @@ La Tabla 4.63 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.21 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.35 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-35"></a>**Figura 4.35.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -1823,9 +2660,9 @@ La Figura 4.21 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.64 presenta los datos del entrevistado.
+La Tabla 4.101 presenta los datos del entrevistado.
 
-<a id="tabla-4-64"></a>**Tabla 4.64.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-101"></a>**Tabla 4.101.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -1833,9 +2670,9 @@ La Tabla 4.64 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.22 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.36 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-22"></a>**Figura 4.22.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-36"></a>**Figura 4.36.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -1845,9 +2682,9 @@ La Figura 4.22 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.65 presenta los datos de la entrevistada.
+La Tabla 4.102 presenta los datos de la entrevistada.
 
-<a id="tabla-4-65"></a>**Tabla 4.65.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-102"></a>**Tabla 4.102.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -1855,9 +2692,9 @@ La Tabla 4.65 presenta los datos de la entrevistada.
 | Edad | 21 |
 | Distrito | Santa Anita |
 
-La Figura 4.23 muestra una captura de la entrevista de validación a Gabriela Cuadros.
+La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cuadros.
 
-<a id="figura-4-23"></a>**Figura 4.23.** Captura de la entrevista de validación a Gabriela Cuadros
+<a id="figura-4-37"></a>**Figura 4.37.** Captura de la entrevista de validación a Gabriela Cuadros
 
 ![Captura Entrevista Validación Cuidador 3](../assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_3.png)
 
@@ -1870,9 +2707,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.66 presenta los datos generales de la evaluación.
+La Tabla 4.103 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-66"></a>**Tabla 4.66.** Datos generales de la evaluación heurística
+<a id="tabla-4-103"></a>**Tabla 4.103.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -1903,9 +2740,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.67 define la escala de severidad utilizada.
+La Tabla 4.104 define la escala de severidad utilizada.
 
-<a id="tabla-4-67"></a>**Tabla 4.67.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-104"></a>**Tabla 4.104.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -1917,9 +2754,9 @@ La Tabla 4.67 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.68 resume los problemas encontrados.
+La Tabla 4.105 resume los problemas encontrados.
 
-<a id="tabla-4-68"></a>**Tabla 4.68.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-105"></a>**Tabla 4.105.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -1938,17 +2775,17 @@ La Tabla 4.68 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.24 a 4.26 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.38 a 4.40 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-38"></a>**Figura 4.38.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-39"></a>**Figura 4.39.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-40"></a>**Figura 4.40.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -1962,9 +2799,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.27 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.41 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-27"></a>**Figura 4.27.** Pantalla Contactos de emergencia
+<a id="figura-4-41"></a>**Figura 4.41.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -1979,9 +2816,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.28 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.42 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-28"></a>**Figura 4.28.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-42"></a>**Figura 4.42.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -1996,9 +2833,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.29 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.43 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-29"></a>**Figura 4.29.** Pantalla Exportar expediente
+<a id="figura-4-43"></a>**Figura 4.43.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -2013,9 +2850,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.30 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.44 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-30"></a>**Figura 4.30.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-44"></a>**Figura 4.44.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
