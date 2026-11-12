@@ -12463,7 +12463,7 @@ La Leadership-and-Collaboration Matrix (LACX) de la Tabla 4.62 indica el líder 
 
 El objetivo del Sprint 2 es que la familia siga en tiempo real los signos vitales de la persona bajo cuidado, sin perder las lecturas tomadas sin conexión, y que una alerta crítica llegue a la vez a todo el Care Circle. Para lograrlo, el equipo organizó el trabajo en la lista *Sprint Backlog AV2* de ClickUp, con una tarea por User Story comprometida, una tarea por cada Bounded Context incorporado o completado en la aplicación y las tareas de validación y de video de la entrega.
 
-El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](COMPLETAR-ENLACE-CLICKUP) Las Figuras 4.18 y 4.19 muestran el tablero.
+El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708) Las Figuras 4.18 y 4.19 muestran el tablero.
 
 <a id="figura-4-18"></a>**Figura 4.18.** Tablero del Sprint 2 en ClickUp (parte 1)
 
@@ -13212,21 +13212,21 @@ La Figura 4.28 muestra el proyecto de Firebase con la aplicación Android regist
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-Durante el Sprint 2 el equipo trabajó en los repositorios de los Web Services, de la aplicación móvil en Kotlin y de la aplicación en Flutter mediante ramas por funcionalidad integradas con Pull Requests. A continuación se muestran las analíticas de colaboración (Pulse) del último mes de cada repositorio, del 13 de octubre al 12 de noviembre de 2026.
+Durante el Sprint 2 el equipo trabajó en los repositorios de los Web Services, de la aplicación móvil en Kotlin y de la aplicación en Flutter mediante ramas por funcionalidad integradas con Pull Requests. A continuación se muestran las analíticas de colaboración (Pulse) del último mes de cada repositorio, del 12 de octubre al 12 de noviembre de 2026. En los Web Services y en la aplicación en Kotlin, Pulse no muestra el resumen de commits porque se calcula sobre la rama `main`, que no recibió cambios en el periodo: todo el trabajo del Sprint se integró en `develop`. Por eso, el número de commits de esos dos repositorios se obtuvo del historial de todas sus ramas.
 
-**Backend (Web Services):** 14 pull requests fusionados y 1 abierto, con 139 commits de 5 autores en todas las ramas. La Figura 4.29 muestra los insights del repositorio de los Web Services.
+**Backend (Web Services):** 14 pull requests fusionados por los 5 integrantes, con 139 commits en todas las ramas. La Figura 4.29 muestra los insights del repositorio de los Web Services.
 
 <a id="figura-4-29"></a>**Figura 4.29.** Insights del repositorio de los Web Services
 
 ![backend-insights](assets/images/chatper4/sprint2/insights/backend-insights.png)
 
-**Mobile App (Kotlin):** 23 pull requests fusionados, con 158 commits de 5 autores en todas las ramas. La Figura 4.30 muestra los insights del repositorio de la aplicación móvil.
+**Mobile App (Kotlin):** 24 pull requests fusionados por los 5 integrantes, con 162 commits en todas las ramas. La Figura 4.30 muestra los insights del repositorio de la aplicación móvil.
 
 <a id="figura-4-30"></a>**Figura 4.30.** Insights del repositorio de la aplicación móvil
 
 ![mobile-app-insights](assets/images/chatper4/sprint2/insights/mobile-app-insights.png)
 
-**Mobile App (Flutter):** 6 pull requests fusionados, con 88 commits de 3 autores en todas las ramas. La Figura 4.31 muestra los insights del repositorio de la aplicación en Flutter.
+**Mobile App (Flutter):** 6 pull requests fusionados por 3 integrantes, con 88 commits de 3 autores en todas las ramas, 3 de ellos en `main`. La Figura 4.31 muestra los insights del repositorio de la aplicación en Flutter.
 
 <a id="figura-4-31"></a>**Figura 4.31.** Insights del repositorio de la aplicación en Flutter
 
