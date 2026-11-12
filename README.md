@@ -283,9 +283,6 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 2.51. Alternativas de Context Mapping evaluadas](#tabla-2-51)
 - [Tabla 2.52. Leyenda de patrones del Context Map](#tabla-2-52)
 - [Tabla 2.53. Catálogo de relaciones del Context Map](#tabla-2-53)
-- [Tabla 2.54. Command Handlers de Subscriptions](#tabla-2-54)
-- [Tabla 2.55. Query Handlers de Subscriptions](#tabla-2-55)
-- [Tabla 2.56. Event Handlers de Subscriptions](#tabla-2-56)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -378,15 +375,52 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.57. Pasos del despliegue de los Web Services en el Sprint 1](#tabla-4-57)
 - [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-58)
 - [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-59)
-- [Tabla 4.60. Video de las entrevistas de validación](#tabla-4-60)
-- [Tabla 4.61. Datos de la entrevista de validación a Rocio Alvarado](#tabla-4-61)
-- [Tabla 4.62. Datos de la entrevista de validación a Junior Antenor](#tabla-4-62)
-- [Tabla 4.63. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-63)
-- [Tabla 4.64. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-64)
-- [Tabla 4.65. Datos de la entrevista de validación a Gabriela Cuadros](#tabla-4-65)
-- [Tabla 4.66. Datos generales de la evaluación heurística](#tabla-4-66)
-- [Tabla 4.67. Escala de severidad de la evaluación heurística](#tabla-4-67)
-- [Tabla 4.68. Resumen de problemas de la evaluación heurística](#tabla-4-68)
+- [Tabla 4.60. Sprint Planning del Sprint 2](#tabla-4-60)
+- [Tabla 4.61. User Stories comprometidas en el Sprint 2](#tabla-4-61)
+- [Tabla 4.62. Leadership-and-Collaboration Matrix del Sprint 2](#tabla-4-62)
+- [Tabla 4.63. Sprint Backlog 2](#tabla-4-63)
+- [Tabla 4.64. Commits de Web Services: IAM](#tabla-4-64)
+- [Tabla 4.65. Commits de Web Services: Emergency & Alerting](#tabla-4-65)
+- [Tabla 4.66. Commits de Web Services: Mobility & Geofencing](#tabla-4-66)
+- [Tabla 4.67. Commits de Web Services: Direct Communication](#tabla-4-67)
+- [Tabla 4.68. Commits de Web Services: Care Routines & Wellness](#tabla-4-68)
+- [Tabla 4.69. Commits de Web Services: Health Monitoring](#tabla-4-69)
+- [Tabla 4.70. Commits de Web Services: Profile & Subscriptions](#tabla-4-70)
+- [Tabla 4.71. Commits de Mobile App: IAM & Profile](#tabla-4-71)
+- [Tabla 4.72. Commits de Mobile App: Emergency & Alerting](#tabla-4-72)
+- [Tabla 4.73. Commits de Mobile App: Health Monitoring](#tabla-4-73)
+- [Tabla 4.74. Commits de Mobile App: Care Routines & Wellness](#tabla-4-74)
+- [Tabla 4.75. Commits de Mobile App: Mobility & Geofencing](#tabla-4-75)
+- [Tabla 4.76. Commits de Mobile App: Profile & Subscriptions](#tabla-4-76)
+- [Tabla 4.77. Commits de Mobile App (Flutter): base de la aplicación e IAM](#tabla-4-77)
+- [Tabla 4.78. Commits de Mobile App (Flutter): Emergency & Alerting](#tabla-4-78)
+- [Tabla 4.79. Commits de Mobile App (Flutter): Health Monitoring](#tabla-4-79)
+- [Tabla 4.80. Commits de Mobile App (Flutter): Care Routines & Wellness](#tabla-4-80)
+- [Tabla 4.81. Pruebas agregadas en los Web Services en el Sprint 2](#tabla-4-81)
+- [Tabla 4.82. Pruebas de las aplicaciones móviles](#tabla-4-82)
+- [Tabla 4.83. Ubicación de las pruebas automatizadas](#tabla-4-83)
+- [Tabla 4.84. Commits de las pruebas del Sprint 2](#tabla-4-84)
+- [Tabla 4.85. Videos de ejecución de las aplicaciones móviles](#tabla-4-85)
+- [Tabla 4.86. Video de ejecución de los Web Services](#tabla-4-86)
+- [Tabla 4.87. Endpoints de IAM](#tabla-4-87)
+- [Tabla 4.88. Endpoints de Subscriptions](#tabla-4-88)
+- [Tabla 4.89. Endpoints de Direct Communication](#tabla-4-89)
+- [Tabla 4.90. Endpoints agregados en Mobility & Geofencing](#tabla-4-90)
+- [Tabla 4.91. Endpoints agregados en Care Routines & Wellness](#tabla-4-91)
+- [Tabla 4.92. Endpoint agregado en Health Monitoring](#tabla-4-92)
+- [Tabla 4.93. Procesos de integración incorporados en el Sprint 2](#tabla-4-93)
+- [Tabla 4.94. Despliegue de los Web Services en el Sprint 2](#tabla-4-94)
+- [Tabla 4.95. Pasos del despliegue de los Web Services en el Sprint 2](#tabla-4-95)
+- [Tabla 4.96. Configuración de Firebase Cloud Messaging](#tabla-4-96)
+- [Tabla 4.97. Video de las entrevistas de validación](#tabla-4-97)
+- [Tabla 4.98. Datos de la entrevista de validación a Rocio Alvarado](#tabla-4-98)
+- [Tabla 4.99. Datos de la entrevista de validación a Junior Antenor](#tabla-4-99)
+- [Tabla 4.100. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-100)
+- [Tabla 4.101. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-101)
+- [Tabla 4.102. Datos de la entrevista de validación a Gabriela Cuadros](#tabla-4-102)
+- [Tabla 4.103. Datos generales de la evaluación heurística](#tabla-4-103)
+- [Tabla 4.104. Escala de severidad de la evaluación heurística](#tabla-4-104)
+- [Tabla 4.105. Resumen de problemas de la evaluación heurística](#tabla-4-105)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -448,7 +482,6 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.47. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-47)
 - [Figura 2.48. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-48)
 - [Figura 2.49. Diagrama de base de datos de Health Monitoring](#figura-2-49)
-- [Figura 2.50. Diagrama de componentes del Bounded Context Subscriptions](#figura-2-50)
 - [Figura 2.51. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-51)
 - [Figura 2.52. Diagrama de base de datos de Subscriptions](#figura-2-52)
 - [Figura 2.53. Diagrama de componentes del Bounded Context Profile](#figura-2-53)
@@ -559,19 +592,33 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.15. Insights del repositorio de la aplicación móvil](#figura-4-15)
 - [Figura 4.16. Insights del repositorio del Landing Page](#figura-4-16)
 - [Figura 4.17. Insights del repositorio del IoT Simulator](#figura-4-17)
-- [Figura 4.18. Video de las entrevistas de validación del Landing Page](#figura-4-18)
-- [Figura 4.19. Captura de la entrevista de validación a Rocio Alvarado](#figura-4-19)
-- [Figura 4.20. Captura de la entrevista de validación a Junior Antenor](#figura-4-20)
-- [Figura 4.21. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-21)
-- [Figura 4.22. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-22)
-- [Figura 4.23. Captura de la entrevista de validación a Gabriela Cuadros](#figura-4-23)
-- [Figura 4.24. Pantalla Nueva toma del módulo de Rutinas](#figura-4-24)
-- [Figura 4.25. Pantalla Nueva cita del módulo de Rutinas](#figura-4-25)
-- [Figura 4.26. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-26)
-- [Figura 4.27. Pantalla Contactos de emergencia](#figura-4-27)
-- [Figura 4.28. Panel Buscar y filtrar del módulo de Salud](#figura-4-28)
-- [Figura 4.29. Pantalla Exportar expediente](#figura-4-29)
-- [Figura 4.30. Pantalla Sueño del módulo de Rutinas](#figura-4-30)
+- [Figura 4.18. Tablero del Sprint 2 en ClickUp (parte 1)](#figura-4-18)
+- [Figura 4.19. Tablero del Sprint 2 en ClickUp (parte 2)](#figura-4-19)
+- [Figura 4.20. Ejecución de las pruebas de los Web Services](#figura-4-20)
+- [Figura 4.21. Ejecución de las pruebas de la aplicación móvil en Kotlin](#figura-4-21)
+- [Figura 4.22. Ejecución de las pruebas de la aplicación en Flutter](#figura-4-22)
+- [Figura 4.23. Aplicación móvil en Kotlin en ejecución](#figura-4-23)
+- [Figura 4.24. Aplicación móvil en Flutter en ejecución](#figura-4-24)
+- [Figura 4.25. Web Services en ejecución en Swagger UI](#figura-4-25)
+- [Figura 4.26. Ejecuciones del workflow Deploy en el Sprint 2](#figura-4-26)
+- [Figura 4.27. Máquina virtual guardian-plus-vm en Azure al cierre del Sprint 2](#figura-4-27)
+- [Figura 4.28. Proyecto guardian-plus-1f1dd en Firebase](#figura-4-28)
+- [Figura 4.29. Insights del repositorio de los Web Services](#figura-4-29)
+- [Figura 4.30. Insights del repositorio de la aplicación móvil](#figura-4-30)
+- [Figura 4.31. Insights del repositorio de la aplicación en Flutter](#figura-4-31)
+- [Figura 4.32. Video de las entrevistas de validación del Landing Page](#figura-4-32)
+- [Figura 4.33. Captura de la entrevista de validación a Rocio Alvarado](#figura-4-33)
+- [Figura 4.34. Captura de la entrevista de validación a Junior Antenor](#figura-4-34)
+- [Figura 4.35. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-35)
+- [Figura 4.36. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-36)
+- [Figura 4.37. Captura de la entrevista de validación a Gabriela Cuadros](#figura-4-37)
+- [Figura 4.38. Pantalla Nueva toma del módulo de Rutinas](#figura-4-38)
+- [Figura 4.39. Pantalla Nueva cita del módulo de Rutinas](#figura-4-39)
+- [Figura 4.40. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-40)
+- [Figura 4.41. Pantalla Contactos de emergencia](#figura-4-41)
+- [Figura 4.42. Panel Buscar y filtrar del módulo de Salud](#figura-4-42)
+- [Figura 4.43. Pantalla Exportar expediente](#figura-4-43)
+- [Figura 4.44. Pantalla Sueño del módulo de Rutinas](#figura-4-44)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -5001,683 +5048,1127 @@ La Figura 2.49 presenta el diseño de persistencia de **Health Monitoring**: `we
 
 ### 2.6.3. Bounded Context: Subscriptions
 
-El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar el ciclo de vida comercial de las suscripciones de la plataforma: la solicitud y activación de una suscripción, los cambios de plan, la renovación, la cancelación, la expiración y la determinación de los beneficios (entitlements) asociados al plan vigente.
+El Bounded Context **Subscriptions** pertenece al Generic Domain de Guardian+ y es responsable de gestionar el ciclo de vida comercial de las suscripciones de la plataforma. Comprende la solicitud y activación de suscripciones, cambios de plan, renovaciones, cancelaciones programadas, cancelaciones efectivas, expiraciones y la administración de los beneficios o *entitlements* asociados al plan vigente.
 
-Este contexto mantiene aisladas las reglas comerciales de Guardian+ respecto de la identidad, los perfiles, el monitoreo de salud y la gestión de emergencias. La integración con Stripe se realiza mediante adaptadores que traducen sus notificaciones de pago a las transiciones de estado del agregado `Subscription`, y la evaluación periódica de renovaciones y expiraciones se delega a un mecanismo de programación temporal, de modo que ninguna de estas dependencias forme parte del modelo de dominio.
+Este contexto mantiene las reglas comerciales desacopladas de otros Bounded Contexts, como IAM, Profile, Health Monitoring y Emergency & Alerting. Para ello utiliza identificadores propios, como `SubscriberId`, sin incorporar directamente los modelos de usuario pertenecientes a otros contextos.
 
-La arquitectura táctica se diseñó sobre Java y Spring Boot con la misma estructura de paquetes de cuatro capas que el resto de Bounded Contexts: domain, interfaces, application e infrastructure. Su código se organizará en el paquete `com.healthify.guardian.platform.subscriptions` del repositorio `guardian-plus-platform`, con la siguiente estructura:
-
-```
-com.healthify.guardian.platform.subscriptions/
-├── domain/
-│   ├── model/
-│   │   ├── aggregates/
-│   │   ├── commands/
-│   │   ├── entities/
-│   │   ├── events/
-│   │   ├── queries/
-│   │   └── valueobjects/
-│   ├── repositories/
-│   └── services/
-├── interfaces/
-│   ├── events/
-│   └── rest/
-│       ├── resources/
-│       └── transform/
-├── application/
-│   ├── commandservices/
-│   ├── internal/
-│   │   ├── commandservices/
-│   │   ├── eventhandlers/
-│   │   └── queryservices/
-│   └── queryservices/
-└── infrastructure/
-    ├── payments/
-    │   └── adapters/
-    ├── persistence/
-    │   └── jpa/
-    │       ├── adapters/
-    │       ├── assemblers/
-    │       ├── entities/
-    │       └── repositories/
-    └── scheduling/
-```
+Asimismo, las capacidades relacionadas con el procesamiento de pagos y la evaluación temporal del ciclo de vida se resuelven mediante servicios de aplicación y adaptadores de infraestructura. El procesamiento de pagos se mantiene desacoplado mediante la abstracción `PaymentProvider`, cuya implementación actual utiliza un proveedor simulado, permitiendo sustituirlo posteriormente por otro adaptador sin modificar las reglas centrales del dominio.
 
 #### 2.6.3.1. Domain Layer
 
-La Domain Layer concentra las reglas de negocio relacionadas con el ciclo de vida de las suscripciones, la definición de planes comerciales, el procesamiento de pagos y la determinación de los entitlements habilitados para cada suscripción. Esta capa se mantiene independiente de proveedores de pago, tecnologías de persistencia y mecanismos externos de programación.
+La Domain Layer concentra las reglas e invariantes asociadas al ciclo de vida de una suscripción y a los beneficios habilitados para cada usuario. Esta capa no depende de controladores REST, mecanismos de persistencia, schedulers ni proveedores externos de pago.
 
-##### Aggregates
+Las transiciones de estado se encuentran protegidas principalmente por los aggregates `Subscription` y `EntitlementSet`, evitando que la Application Layer modifique directamente su estado interno.
 
-**`Subscription`**
+##### Aggregate Roots
 
-Representa una suscripción de Guardian+ y constituye el Aggregate Root principal del ciclo de vida comercial. Controla su activación, renovación, cambio de plan, cancelación y expiración.
+###### Subscription
+
+`Subscription` representa una suscripción comercial de Guardian+ y constituye el Aggregate Root principal del bounded context. Es responsable de controlar sus transiciones de estado y mantener la información correspondiente al periodo de servicio vigente.
 
 **Atributos principales:**
 
 - `id: SubscriptionId`
-- `subscriberUserId: UserId`
+- `subscriberId: SubscriberId`
 - `planId: PlanId`
 - `status: SubscriptionStatus`
-- `currentPeriod: Period`
+- `currentPeriodStart: Instant`
+- `currentPeriodEnd: Instant`
 - `cancelAtPeriodEnd: Boolean`
-- `cancelledAt: Instant`
 - `createdAt: Instant`
 - `updatedAt: Instant`
 
+Una nueva suscripción es creada inicialmente con estado `PENDING`. La activación posterior establece el periodo de vigencia y cambia su estado a `ACTIVE`.
+
 **Métodos principales:**
 
-- `activate(): void`
-- `renew(period: Period): void`
-- `changePlan(planId: PlanId): void`
-- `requestCancellation(): void`
-- `cancel(): void`
-- `expire(): void`
-- `isActive(): Boolean`
+- `activate(planId: PlanId, currentPeriodStart: Instant, currentPeriodEnd: Instant, updatedAt: Instant): void`
+- `changePlan(newPlanId: PlanId, updatedAt: Instant): void`
+- `renew(newPeriodEnd: Instant, updatedAt: Instant): void`
+- `requestCancellation(updatedAt: Instant): void`
+- `cancel(updatedAt: Instant): void`
+- `expire(updatedAt: Instant): void`
 
-**Relaciones principales:**
+El aggregate protege las transiciones válidas del ciclo de vida. Una renovación solamente puede aplicarse a una suscripción activa que no se encuentre programada para cancelación y el nuevo periodo debe extender el periodo vigente.
 
-- Una `Subscription` se encuentra asociada a un `Plan`.
-- Una `Subscription` puede registrar múltiples `PaymentAttempt`.
-- Una `Subscription` puede disponer de un `EntitlementSet` con los beneficios efectivos habilitados.
+Cuando el usuario solicita cancelar el servicio al finalizar el periodo contratado, la suscripción pasa a `CANCELLATION_SCHEDULED` y establece `cancelAtPeriodEnd` en `true`. De esta manera, los beneficios permanecen disponibles hasta que finaliza el periodo vigente y posteriormente se ejecuta la cancelación efectiva.
 
-**`Plan`**
+###### EntitlementSet
 
-Representa una alternativa comercial disponible en Guardian+. Mantiene la configuración utilizada para determinar el precio, ciclo de facturación y beneficios asociados a una suscripción.
+`EntitlementSet` representa el conjunto efectivo de beneficios habilitados para una suscripción. Su objetivo es mantener sincronizadas las capacidades disponibles para el usuario de acuerdo con el plan vigente.
+
+**Atributos principales:**
+
+- `subscriptionId: SubscriptionId`
+- `entitlements: Set<Entitlement>`
+- `updatedAt: Instant`
+
+**Operaciones principales:**
+
+- `replaceWith(entitlements: Set<Entitlement>, updatedAt: Instant): void`
+- `grant(entitlement: Entitlement): void`
+- `revoke(entitlement: Entitlement): void`
+- `contains(code: EntitlementCode): Boolean`
+- `revokeAll(updatedAt: Instant): void`
+
+El conjunto se sincroniza después de operaciones como activación o cambio de plan. Cuando una suscripción se cancela definitivamente o expira, sus entitlements son revocados.
+
+##### Entities
+
+###### Plan
+
+`Plan` representa una alternativa comercial disponible dentro de Guardian+. Contiene el precio, ciclo de facturación y beneficios asociados al plan.
 
 **Atributos principales:**
 
 - `id: PlanId`
 - `name: String`
-- `description: String`
 - `price: Money`
 - `billingCycle: BillingCycle`
 - `active: Boolean`
-- `createdAt: Instant`
-- `updatedAt: Instant`
+- `entitlementCodes: Set<EntitlementCode>`
 
 **Métodos principales:**
 
-- `activate(): void`
-- `deactivate(): void`
-- `changePrice(price: Money): void`
+- `isFree(): Boolean`
+- `requiresPayment(): Boolean`
+- `includes(entitlementCode: EntitlementCode): Boolean`
 
-**Relaciones principales:**
+La propiedad `active` permite controlar qué planes se encuentran disponibles comercialmente.
 
-- Un `Plan` puede estar asociado a múltiples suscripciones.
-- Un `Plan` puede habilitar múltiples `Entitlement`.
-- Un mismo `Entitlement` puede formar parte de distintos planes.
+###### Entitlement
 
-**`EntitlementSet`**
-
-Representa el conjunto efectivo de beneficios habilitados para una suscripción. Permite mantener sincronizados los entitlements que corresponden según el plan contratado y el estado vigente de la suscripción. Cada beneficio efectivo se representa mediante un `SubscriptionEntitlement`, que conserva su estado y su periodo de vigencia en lugar de una simple pertenencia al conjunto.
+`Entitlement` representa un beneficio o capacidad comercial que puede habilitarse como parte de un plan de suscripción.
 
 **Atributos principales:**
 
-- `subscriptionId: SubscriptionId`
-- `items: List<SubscriptionEntitlement>`
-- `updatedAt: Instant`
-
-**Métodos principales:**
-
-- `replaceWith(entitlementIds: Set<EntitlementId>, effectiveFrom: Instant): void`
-- `revoke(entitlementId: EntitlementId, effectiveTo: Instant): void`
-- `revokeAll(effectiveTo: Instant): void`
-- `contains(entitlementId: EntitlementId): Boolean`
-- `activeItems(): List<SubscriptionEntitlement>`
-
-**Relaciones principales:**
-
-- Un `EntitlementSet` pertenece a una suscripción.
-- Un `EntitlementSet` puede contener múltiples `SubscriptionEntitlement`.
-- Cada `SubscriptionEntitlement` referencia por identidad a un `Entitlement` del catálogo.
-
-**`Entitlement`**
-
-Representa un beneficio o capacidad comercial del catálogo de Guardian+, que puede estar habilitado por uno o más planes de suscripción. Constituye un Aggregate Root propio porque es un catálogo compartido entre planes y suscripciones, con identidad y ciclo de vida independientes de ambos.
-
-**Atributos principales:**
-
-- `id: EntitlementId`
-- `code: String`
+- `code: EntitlementCode`
 - `name: String`
 - `description: String`
 
 **Métodos principales:**
 
-- `matches(code: String): Boolean`
+- `matches(code: EntitlementCode): Boolean`
 
-**Relaciones principales:**
-
-- Un `Entitlement` puede formar parte de múltiples `Plan`, mediante la relación `plan_entitlements`.
-- Un `Entitlement` puede encontrarse habilitado dentro de distintos `EntitlementSet`, mediante `SubscriptionEntitlement`.
-
-##### Entities
-
-**`PaymentAttempt`**
-
-Representa un intento de pago asociado a una suscripción, ya sea para su activación inicial o para una renovación.
-
-**Atributos principales:**
-
-- `id: UUID`
-- `subscriptionId: SubscriptionId`
-- `paymentType: PaymentType`
-- `amount: Money`
-- `provider: String`
-- `status: PaymentStatus`
-- `providerReference: String`
-- `createdAt: Instant`
-- `paidAt: Instant`
-
-**Métodos principales:**
-
-- `markConfirmed(reference: String): void`
-- `markFailed(): void`
-- `isSuccessful(): Boolean`
-
-**Relaciones principales:**
-
-- Cada `PaymentAttempt` se encuentra asociado a una `Subscription`.
-
-**`SubscriptionEntitlement`**
-
-Representa un beneficio efectivo habilitado para una suscripción durante un periodo determinado. Es la entidad interna de `EntitlementSet` y conserva el estado y la vigencia que no pueden expresarse mediante la simple pertenencia a un conjunto.
-
-**Atributos principales:**
-
-- `id: UUID`
-- `entitlementId: EntitlementId`
-- `status: SubscriptionEntitlementStatus`
-- `effectivePeriod: Period`
-
-**Métodos principales:**
-
-- `revoke(effectiveTo: Instant): void`
-- `isEffectiveAt(date: Instant): Boolean`
-
-**Relaciones principales:**
-
-- Cada `SubscriptionEntitlement` pertenece a un `EntitlementSet`.
-- Cada `SubscriptionEntitlement` referencia un `Entitlement` del catálogo mediante `EntitlementId`.
+Los entitlements permiten desacoplar las funcionalidades habilitadas de la identidad concreta del plan. De esta manera, otras capacidades de Guardian+ pueden consultar beneficios específicos sin depender directamente del nombre comercial de un plan.
 
 ##### Value Objects
 
-**`SubscriptionId`**
+###### SubscriptionId
 
-Identificador inmutable utilizado para distinguir una suscripción.
+Identificador único e inmutable de una suscripción. Internamente utiliza un valor `UUID`.
 
-**Atributos:**
+###### SubscriberId
 
-- `value: UUID`
+Identificador del titular de la suscripción. Permite referenciar al usuario propietario sin incorporar directamente las entidades pertenecientes a IAM o Profile dentro del Bounded Context Subscriptions.
 
-**`PlanId`**
+###### PlanId
 
-Identificador inmutable utilizado para distinguir un plan comercial.
+Identificador único e inmutable de un plan comercial.
 
-**Atributos:**
+###### EntitlementCode
 
-- `value: UUID`
+Código utilizado para identificar de manera única una capacidad o beneficio comercial.
 
-**`UserId`**
-
-Identificador externo utilizado para referenciar al usuario propietario de una suscripción sin incorporar el modelo interno del Bounded Context IAM.
-
-**Atributos:**
-
-- `value: UUID`
-
-**`EntitlementId`**
-
-Identificador inmutable utilizado para distinguir un entitlement.
-
-**Atributos:**
-
-- `value: UUID`
-
-**`Money`**
+###### Money
 
 Representa un monto monetario junto con su moneda.
 
 **Atributos:**
 
-- `amount: Decimal`
-- `currency: String`
+- `amount: BigDecimal`
+- `currency: Currency`
 
-**Métodos principales:**
+Este Value Object permite representar tanto planes gratuitos como planes que requieren procesamiento de pago.
 
-- `isPositive(): Boolean`
+###### BillingCycle
 
-**`Period`**
+Representa la periodicidad de renovación asociada a un plan.
 
-Representa el intervalo temporal vigente de una suscripción.
+**Valores implementados:**
 
-**Atributos:**
+- `MONTHLY`
+- `ANNUAL`
 
-- `start: Instant`
-- `end: Instant`
+###### SubscriptionStatus
 
-**Métodos principales:**
+Representa el estado actual dentro del ciclo de vida de una suscripción.
 
-- `contains(date: Instant): Boolean`
-- `durationInDays(): Long`
-
-##### Enumerations
-
-**`SubscriptionStatus`**
-
-Representa el estado vigente de una suscripción.
+**Valores implementados:**
 
 - `PENDING`
 - `ACTIVE`
+- `CANCELLATION_SCHEDULED`
 - `CANCELLED`
 - `EXPIRED`
 
-**`PaymentStatus`**
+`PENDING` representa una suscripción solicitada cuya activación todavía no ha sido completada. `ACTIVE` indica que el servicio se encuentra vigente. `CANCELLATION_SCHEDULED` indica que la cancelación fue solicitada pero el servicio continúa disponible hasta finalizar el periodo contratado. `CANCELLED` y `EXPIRED` representan estados terminales del ciclo vigente.
 
-Representa el resultado o estado de un intento de pago.
+##### Domain Rules
 
-- `PENDING`
-- `CONFIRMED`
-- `FAILED`
+Las reglas centrales del dominio se encuentran protegidas directamente dentro de los aggregates `Subscription` y `EntitlementSet`. Las invariantes relacionadas con activación, renovación, cancelación, expiración y sincronización de beneficios se ejecutan mediante operaciones propias del dominio, mientras que la coordinación de los diferentes casos de uso corresponde a la Application Layer.
 
-**`PaymentType`**
+Entre las principales reglas implementadas se encuentran:
 
-Permite distinguir el propósito de una operación de pago.
+- una suscripción nueva inicia en estado `PENDING`;
+- una suscripción activa puede solicitar cancelación al término de su periodo;
+- una suscripción programada para cancelación no puede renovarse;
+- una renovación debe extender el `currentPeriodEnd` existente;
+- una cancelación definitiva revoca los entitlements disponibles;
+- una expiración revoca los entitlements disponibles;
+- la activación y el cambio de plan sincronizan los entitlements correspondientes al plan seleccionado.
 
-- `INITIAL`
-- `RENEWAL`
+##### Repository Interfaces
 
-**`BillingCycle`**
+###### SubscriptionRepository
 
-Representa la periodicidad comercial configurada para un plan.
-
-- `MONTHLY`
-- `YEARLY`
-
-**`SubscriptionEntitlementStatus`**
-
-Representa el estado de un beneficio efectivo dentro de una suscripción.
-
-- `ACTIVE`
-- `REVOKED`
-
-##### Domain Policies
-
-**`SubscriptionActivationPolicy`**
-
-Evalúa las condiciones necesarias para iniciar y activar una suscripción de acuerdo con el plan seleccionado.
-
-**Operaciones principales:**
-
-- `requiresPayment(plan: Plan): Boolean`
-- `canActivate(plan: Plan): Boolean`
-
-**`SubscriptionLifecyclePolicy`**
-
-Agrupa las reglas de negocio relacionadas con los cambios de plan, cancelación, renovación y expiración de una suscripción.
-
-**Operaciones principales:**
-
-- `canChangePlan(subscription: Subscription, newPlan: Plan): Boolean`
-- `determineCancellationEffectiveDate(subscription: Subscription): Instant`
-- `canRenew(subscription: Subscription, plan: Plan): Boolean`
-- `canExpire(subscription: Subscription): Boolean`
-
-**`EntitlementPolicy`**
-
-Determina los beneficios efectivos que deben mantenerse habilitados como consecuencia de los cambios producidos durante el ciclo de vida de una suscripción.
-
-**Operaciones principales:**
-
-- `afterActivation(subscription: Subscription, plan: Plan): Set<EntitlementId>`
-- `afterPlanChange(subscription: Subscription, plan: Plan): Set<EntitlementId>`
-- `afterCancellation(subscription: Subscription): Set<EntitlementId>`
-- `afterExpiration(subscription: Subscription): Set<EntitlementId>`
-
-##### Commands & Queries (Domain Model)
-
-- `RequestSubscriptionCommand(UUID subscriberUserId, UUID planId)`
-- `ActivateSubscriptionCommand(UUID subscriptionId)`
-- `InitiateSubscriptionPaymentCommand(UUID subscriptionId)`
-- `RequestPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
-- `ApplyPlanChangeCommand(UUID subscriptionId, UUID newPlanId)`
-- `RequestSubscriptionCancellationCommand(UUID subscriptionId)`
-- `CancelSubscriptionCommand(UUID subscriptionId)`
-- `EvaluateSubscriptionRenewalCommand(UUID subscriptionId)`
-- `InitiateRenewalPaymentCommand(UUID subscriptionId)`
-- `RenewSubscriptionCommand(UUID subscriptionId, Period newPeriod)`
-- `EvaluateSubscriptionExpirationCommand(UUID subscriptionId)`
-- `ExpireSubscriptionCommand(UUID subscriptionId)`
-- `UpdateEntitlementsCommand(UUID subscriptionId)`
-- `GetSubscriptionStatusQuery(SubscriptionId subscriptionId)`
-- `GetCurrentPlanQuery(SubscriptionId subscriptionId)`
-- `GetAvailableEntitlementsQuery(SubscriptionId subscriptionId)`
-
-##### Domain Events
-
-- `SubscriptionActivated`: Emitido cuando una suscripción cumple las condiciones de activación definidas por `SubscriptionActivationPolicy`.
-- `SubscriptionPlanChanged`: Emitido al aplicarse efectivamente un cambio de plan sobre una suscripción vigente.
-- `SubscriptionCancelled`: Emitido cuando la cancelación se hace efectiva según la fecha determinada por `SubscriptionLifecyclePolicy`.
-- `SubscriptionRenewed`: Emitido al establecerse el nuevo periodo de vigencia de una suscripción renovada.
-- `SubscriptionExpired`: Emitido cuando una suscripción finaliza su vigencia sin renovación.
-- `PaymentConfirmed`: Emitido al confirmarse el pago inicial requerido para la activación.
-- `PaymentFailed`: Emitido cuando el pago inicial no pudo completarse, sin activar la suscripción.
-- `RenewalPaymentConfirmed`: Emitido al confirmarse el pago de una renovación.
-- `RenewalPaymentFailed`: Emitido cuando el pago de renovación falla, sin extender el periodo vigente.
-- `EntitlementsUpdated`: Emitido cuando `EntitlementPolicy` determina un nuevo conjunto de beneficios efectivos y el `EntitlementSet` se sincroniza.
-
-##### Repositories (Domain Interfaces)
-
-**`SubscriptionRepository`**
-
-Abstracción utilizada para recuperar y persistir el Aggregate Root `Subscription`.
+Abstracción encargada de recuperar y persistir aggregates `Subscription`.
 
 **Operaciones principales:**
 
 - `findById(id: SubscriptionId): Optional<Subscription>`
-- `findActiveBySubscriberUserId(userId: UserId): Optional<Subscription>`
+- `findActiveBySubscriberId(subscriberId: SubscriberId): Optional<Subscription>`
 - `save(subscription: Subscription): Subscription`
 
-**`PlanRepository`**
+La búsqueda de suscripción vigente considera tanto una suscripción `ACTIVE` como una suscripción `CANCELLATION_SCHEDULED`, debido a que esta última continúa proporcionando servicio hasta el término del periodo contratado.
 
-Abstracción utilizada para consultar y persistir los planes comerciales administrados por Subscriptions.
+###### PlanRepository
+
+Abstracción utilizada para recuperar la configuración comercial de los planes.
 
 **Operaciones principales:**
 
 - `findById(id: PlanId): Optional<Plan>`
 - `findActivePlans(): List<Plan>`
 
-**`EntitlementRepository`**
+###### EntitlementSetRepository
 
-Abstracción utilizada para consultar el catálogo de beneficios comerciales de Guardian+.
-
-**Operaciones principales:**
-
-- `findById(id: EntitlementId): Optional<Entitlement>`
-- `findByCode(code: String): Optional<Entitlement>`
-- `findAll(): List<Entitlement>`
-- `findByPlanId(planId: PlanId): List<Entitlement>`
-
-**`EntitlementSetRepository`**
-
-Abstracción utilizada para recuperar y persistir los beneficios efectivos asociados a una suscripción.
+Abstracción utilizada para recuperar y persistir los beneficios efectivos de una suscripción.
 
 **Operaciones principales:**
 
 - `findBySubscriptionId(subscriptionId: SubscriptionId): Optional<EntitlementSet>`
 - `save(entitlementSet: EntitlementSet): EntitlementSet`
 
-El modelo de persistencia no replica de manera uno a uno todos los objetos del dominio. Los Value Objects se almacenan como parte de las entidades correspondientes, mientras que las asociaciones entre planes y entitlements y los beneficios efectivos de una suscripción se representan mediante las relaciones definidas en el modelo de base de datos.
+###### EntitlementCatalogRepository
+
+Abstracción utilizada para recuperar la definición de los beneficios asociados a los códigos configurados en un plan.
+
+**Operación principal:**
+
+- `findAllByCodes(codes: Set<EntitlementCode>): Set<Entitlement>`
+
+Esta separación permite que `Plan` mantenga únicamente los códigos de los beneficios asociados, mientras que el catálogo de entitlements proporciona sus definiciones completas cuando la Application Layer necesita sincronizar el `EntitlementSet`.
 
 #### 2.6.3.2. Interface Layer
 
-La Interface Layer expone las capacidades del Bounded Context **Subscriptions** hacia los clientes de Guardian+ y recibe mensajes provenientes de integraciones externas. Su responsabilidad es transformar solicitudes HTTP, notificaciones externas y señales temporales en comandos o consultas que serán procesados por la Application Layer, sin incorporar reglas de negocio ni acceder directamente a la persistencia.
+La Interface Layer expone las capacidades implementadas por el Bounded Context **Subscriptions** hacia los clientes de Guardian+ mediante una API REST. Su responsabilidad consiste en recibir las solicitudes HTTP, validar los datos de entrada, transformarlos en comandos o consultas de aplicación y convertir los resultados obtenidos en recursos HTTP.
 
-##### REST Controllers
+Esta capa no contiene reglas de negocio relacionadas con el ciclo de vida de una suscripción. Dichas reglas permanecen en la Domain Layer y su coordinación es realizada por la Application Layer.
 
-**`SubscriptionController`**
+##### Backend API
 
-Expone las operaciones relacionadas con el ciclo de vida y consulta de las suscripciones.
+###### SubscriptionController
 
-**Operaciones principales:**
+`SubscriptionController` expone las operaciones REST actualmente disponibles para administrar y consultar las suscripciones de Guardian+.
 
-- `requestSubscription()`
-- `requestPlanChange()`
-- `requestCancellation()`
-- `getSubscriptionStatus()`
-- `getAvailableEntitlements()`
+La ruta base utilizada por el controlador es:
 
-**Relaciones principales:**
+`/api/v1/subscriptions`
 
-- recibe solicitudes de los clientes de Guardian+;
-- delega comandos y consultas a los handlers correspondientes de la Application Layer;
-- no accede directamente a los repositories ni a la base de datos.
+Las operaciones implementadas son las siguientes:
 
-**`PaymentWebhookController`**
+**Solicitar una suscripción**
 
-Recibe las notificaciones enviadas por el proveedor externo de pagos y las transforma en acciones de aplicación relacionadas con la confirmación o fallo de pagos de activación y renovación.
+`POST /api/v1/subscriptions`
 
-**Operaciones principales:**
+Permite solicitar una nueva suscripción indicando el identificador del suscriptor y el plan seleccionado.
 
-- `handlePaymentConfirmed()`
-- `handlePaymentFailed()`
+El request utiliza `RequestSubscriptionResource`, que contiene principalmente:
 
-**Relaciones principales:**
+- `subscriberId: UUID`
+- `planId: UUID`
 
-- recibe notificaciones del Payment Provider;
-- delega el procesamiento de los resultados de pago a la Application Layer;
-- no modifica directamente el estado de `Subscription` ni de `PaymentAttempt`.
+Cuando la solicitud es válida, el sistema crea una nueva suscripción y devuelve el recurso correspondiente con HTTP `201 Created`.
 
-##### Message Consumers
+**Cambiar el plan de una suscripción**
 
-**`BillingSchedulerConsumer`**
+`PATCH /api/v1/subscriptions/{subscriptionId}/plan`
 
-Recibe las señales temporales utilizadas para iniciar la evaluación de renovaciones y expiraciones de suscripciones.
+Permite cambiar el plan asociado a una suscripción existente.
 
-**Operaciones principales:**
+El request utiliza `ChangeSubscriptionPlanResource`, que contiene:
 
-- `handleRenewalEvaluation()`
-- `handleExpirationEvaluation()`
+- `newPlanId: UUID`
 
-**Relaciones principales:**
+Cuando la operación es válida, el sistema actualiza el plan de la suscripción y sincroniza los entitlements asociados al nuevo plan.
 
-- recibe señales generadas por el mecanismo de scheduling;
-- delega las evaluaciones correspondientes a la Application Layer;
-- no contiene reglas para decidir si una suscripción debe renovarse o expirar.
+**Solicitar cancelación de una suscripción**
+
+`POST /api/v1/subscriptions/{subscriptionId}/cancellation`
+
+Permite programar la cancelación de una suscripción activa.
+
+La operación no elimina inmediatamente los beneficios contratados. La suscripción pasa al estado `CANCELLATION_SCHEDULED` y mantiene sus entitlements hasta finalizar el periodo vigente.
+
+**Consultar el estado de la suscripción de un usuario**
+
+`GET /api/v1/subscriptions/subscriber/{subscriberId}/status`
+
+Permite recuperar la suscripción vigente asociada a un `subscriberId`.
+
+La consulta considera como suscripción vigente tanto una suscripción en estado `ACTIVE` como una suscripción en estado `CANCELLATION_SCHEDULED`.
+
+Cuando no existe una suscripción vigente para el usuario, el servicio devuelve HTTP `404 Not Found`.
+
+**Consultar los entitlements disponibles**
+
+`GET /api/v1/subscriptions/subscriber/{subscriberId}/entitlements`
+
+Permite recuperar el conjunto de beneficios actualmente habilitados para la suscripción vigente de un usuario.
+
+Estos beneficios son derivados del plan contratado y se mantienen sincronizados mediante el `EntitlementSet`.
+
+Cuando no existe una suscripción vigente para el usuario, el servicio devuelve HTTP `404 Not Found`.
+
+##### REST Resources
+
+La Interface Layer utiliza recursos específicos para separar la representación HTTP del modelo interno del dominio.
+
+Entre los principales recursos se encuentran:
+
+- `RequestSubscriptionResource`
+- `ChangeSubscriptionPlanResource`
+- `SubscriptionResource`
+- `EntitlementResource`
+- `EntitlementSetResource`
+- `ApiErrorResource`
+
+`SubscriptionResource` representa hacia el cliente la información relevante de una suscripción, mientras que `EntitlementSetResource` permite exponer los beneficios actualmente disponibles.
+
+Los recursos de entrada utilizan validaciones antes de ser transformados en comandos de aplicación.
+
+##### REST Assemblers
+
+La transformación entre los recursos utilizados por la API y los objetos manejados por las capas internas se realiza mediante assemblers.
+
+De esta manera, el controlador no necesita conocer los detalles de construcción de los comandos ni exponer directamente aggregates o entidades de dominio.
+
+Este mecanismo mantiene desacoplado el contrato HTTP de la representación interna del Bounded Context.
+
+##### Error Handling
+
+###### SubscriptionRestExceptionHandler
+
+`SubscriptionRestExceptionHandler` centraliza la conversión de errores de la API de Subscriptions a respuestas HTTP consistentes.
+
+Entre los casos tratados se encuentran:
+
+- errores de validación de los recursos recibidos;
+- cuerpos HTTP mal formados;
+- valores incompatibles con los tipos requeridos;
+- errores producidos durante la ejecución de operaciones sobre suscripciones.
+
+Las respuestas de error utilizan `ApiErrorResource` para mantener una representación uniforme hacia el cliente.
+
+##### OpenAPI Documentation
+
+Los endpoints expuestos por `SubscriptionController` se encuentran documentados mediante OpenAPI y pueden visualizarse utilizando Swagger UI.
+
+La documentación permite revisar las operaciones HTTP disponibles, los parámetros requeridos, los recursos de entrada y las posibles respuestas del Bounded Context.
+
+El procesamiento de pagos se ejecuta internamente mediante servicios de aplicación y el puerto `PaymentProvider`. De esta manera, el contrato REST de Subscriptions permanece desacoplado del mecanismo concreto utilizado para procesar pagos.
 
 #### 2.6.3.3. Application Layer
 
-La Application Layer coordina los casos de uso del Bounded Context **Subscriptions** utilizando los Aggregate Roots, Domain Policies y Repository Interfaces definidos en la Domain Layer. Esta capa organiza el flujo de cada operación, pero delega las reglas de negocio al modelo de dominio.
+La Application Layer del Bounded Context **Subscriptions** coordina los casos de uso relacionados con la creación, activación, cambio de plan, renovación, cancelación, expiración y consulta de suscripciones.
 
-Los handlers no mantienen estado de negocio propio. Sus principales dependencias corresponden a los repositories y políticas necesarias para recuperar los aggregates, ejecutar las reglas del dominio y persistir los cambios resultantes.
+Esta capa utiliza los aggregates y repositorios definidos por el dominio, manteniendo las reglas de negocio dentro de la Domain Layer. Las transiciones son ejecutadas mediante operaciones de `Subscription` y `EntitlementSet`, mientras que la Application Layer se encarga de coordinar los flujos necesarios para completar cada caso de uso.
 
-##### Command Handlers
+Asimismo, esta capa define puertos de salida para capacidades externas, como el procesamiento de pagos y la identificación de suscripciones que requieren una evaluación de su ciclo de vida.
 
-La Tabla 2.54 describe los command handlers del contexto y la operación principal de cada uno.
+##### Subscription Command Service
 
-<a id="tabla-2-54"></a>**Tabla 2.54.** Command Handlers de Subscriptions
+###### SubscriptionCommandService
 
-| Class | Purpose | Main Operation |
-|---|---|---|
-| `RequestSubscriptionHandler` | Procesa una nueva solicitud de suscripción y determina las condiciones iniciales según el plan seleccionado. | `handle(RequestSubscriptionCommand)` |
-| `ActivateSubscriptionHandler` | Activa una suscripción cuando se cumplen las condiciones definidas por el dominio. | `handle(ActivateSubscriptionCommand)` |
-| `InitiateSubscriptionPaymentHandler` | Coordina el inicio del pago requerido para activar una suscripción de pago. | `handle(InitiateSubscriptionPaymentCommand)` |
-| `RequestPlanChangeHandler` | Recibe la solicitud de cambio de plan y evalúa si el cambio puede realizarse. | `handle(RequestPlanChangeCommand)` |
-| `ApplyPlanChangeHandler` | Aplica el nuevo plan sobre una suscripción luego de cumplir las condiciones correspondientes. | `handle(ApplyPlanChangeCommand)` |
-| `RequestSubscriptionCancellationHandler` | Procesa una solicitud de cancelación y determina cuándo debe hacerse efectiva. | `handle(RequestSubscriptionCancellationCommand)` |
-| `CancelSubscriptionHandler` | Ejecuta la cancelación efectiva de una suscripción. | `handle(CancelSubscriptionCommand)` |
-| `EvaluateSubscriptionRenewalHandler` | Evalúa una suscripción próxima al final de su periodo para determinar si corresponde iniciar su renovación. | `handle(EvaluateSubscriptionRenewalCommand)` |
-| `InitiateRenewalPaymentHandler` | Coordina el pago requerido para renovar una suscripción de pago. | `handle(InitiateRenewalPaymentCommand)` |
-| `RenewSubscriptionHandler` | Renueva una suscripción y establece su nuevo periodo de vigencia. | `handle(RenewSubscriptionCommand)` |
-| `EvaluateSubscriptionExpirationHandler` | Evalúa si una suscripción debe finalizar su vigencia. | `handle(EvaluateSubscriptionExpirationCommand)` |
-| `ExpireSubscriptionHandler` | Cambia una suscripción al estado expirado cuando se cumplen las condiciones del dominio. | `handle(ExpireSubscriptionCommand)` |
-| `UpdateEntitlementsHandler` | Actualiza los beneficios efectivos de una suscripción después de cambios relevantes en su ciclo de vida. | `handle(UpdateEntitlementsCommand)` |
+`SubscriptionCommandService` constituye el servicio principal encargado de coordinar las operaciones que modifican el ciclo de vida de una suscripción.
 
-##### Query Handlers
+Su implementación concreta se encuentra en `SubscriptionCommandServiceImpl`.
 
-La Tabla 2.55 describe los query handlers del contexto.
+Entre los comandos procesados se encuentran:
 
-<a id="tabla-2-55"></a>**Tabla 2.55.** Query Handlers de Subscriptions
+- `RequestSubscriptionCommand`
+- `ActivateSubscriptionCommand`
+- `ApplyPlanChangeCommand`
+- `RenewSubscriptionCommand`
+- `RequestSubscriptionCancellationCommand`
+- `CancelSubscriptionCommand`
+- `ExpireSubscriptionCommand`
 
-| Class | Purpose | Main Operation |
-|---|---|---|
-| `GetSubscriptionStatusHandler` | Recupera el estado vigente de una suscripción. | `handle(GetSubscriptionStatusQuery)` |
-| `GetCurrentPlanHandler` | Recupera el plan actualmente asociado a una suscripción. | `handle(GetCurrentPlanQuery)` |
-| `GetAvailableEntitlementsHandler` | Recupera los entitlements efectivos habilitados para una suscripción. | `handle(GetAvailableEntitlementsQuery)` |
+###### RequestSubscriptionCommand
 
-##### Event Handlers
+Permite registrar la intención de un usuario de contratar un plan.
 
-La Tabla 2.56 describe los event handlers del contexto y el evento al que reacciona cada uno.
+Antes de crear la suscripción, el servicio valida:
 
-<a id="tabla-2-56"></a>**Tabla 2.56.** Event Handlers de Subscriptions
+- que el plan solicitado exista;
+- que el plan se encuentre activo;
+- que el suscriptor no posea otra suscripción vigente.
 
-| Class | Purpose | Main Operation |
-|---|---|---|
-| `SubscriptionActivatedHandler` | Reacciona a la activación de una suscripción para sincronizar sus entitlements. | `handle(SubscriptionActivated)` |
-| `SubscriptionPlanChangedHandler` | Recalcula los entitlements luego de un cambio de plan. | `handle(SubscriptionPlanChanged)` |
-| `SubscriptionCancelledHandler` | Actualiza los beneficios efectivos cuando una suscripción es cancelada. | `handle(SubscriptionCancelled)` |
-| `SubscriptionExpiredHandler` | Revoca o actualiza los entitlements cuando una suscripción expira. | `handle(SubscriptionExpired)` |
-| `PaymentConfirmedHandler` | Procesa la confirmación del pago inicial y permite continuar con la activación de la suscripción. | `handle(PaymentConfirmed)` |
-| `PaymentFailedHandler` | Procesa el fallo del pago inicial sin activar la suscripción. | `handle(PaymentFailed)` |
-| `RenewalPaymentConfirmedHandler` | Procesa la confirmación de un pago de renovación y permite continuar con la renovación de la suscripción. | `handle(RenewalPaymentConfirmed)` |
-| `RenewalPaymentFailedHandler` | Procesa el fallo de un pago de renovación sin extender el periodo de la suscripción. | `handle(RenewalPaymentFailed)` |
+Cuando las condiciones son válidas, se crea una nueva instancia de `Subscription` con estado inicial `PENDING`.
 
+###### ActivateSubscriptionCommand
+
+Coordina la activación de una suscripción que se encuentra pendiente.
+
+La activación establece:
+
+- el plan vigente;
+- `currentPeriodStart`;
+- `currentPeriodEnd`;
+- el estado `ACTIVE`;
+- la fecha de actualización.
+
+Después de activar la suscripción se sincronizan los entitlements correspondientes al plan seleccionado.
+
+###### ApplyPlanChangeCommand
+
+Permite aplicar un cambio de plan sobre una suscripción existente.
+
+El servicio recupera el nuevo plan, valida su existencia y disponibilidad, ejecuta `changePlan(...)` sobre el aggregate y posteriormente sincroniza el conjunto de entitlements asociado al nuevo plan.
+
+###### RenewSubscriptionCommand
+
+Coordina la renovación del periodo de servicio de una suscripción activa.
+
+La operación utiliza el método `renew(...)` del aggregate `Subscription`, verificando que el nuevo periodo extienda correctamente la vigencia existente.
+
+###### RequestSubscriptionCancellationCommand
+
+Permite solicitar la cancelación de una suscripción al finalizar el periodo contratado.
+
+La suscripción pasa al estado:
+
+`CANCELLATION_SCHEDULED`
+
+y mantiene sus beneficios hasta alcanzar `currentPeriodEnd`.
+
+###### CancelSubscriptionCommand
+
+Ejecuta la cancelación definitiva de una suscripción.
+
+Además de cambiar el estado de la suscripción a `CANCELLED`, el flujo revoca los entitlements asociados mediante `EntitlementSetCommandService`.
+
+###### ExpireSubscriptionCommand
+
+Ejecuta la expiración definitiva de una suscripción cuando su periodo finaliza y no corresponde una renovación exitosa.
+
+La operación cambia el estado a `EXPIRED` y revoca los entitlements efectivos de la suscripción.
+
+##### Entitlement Command Service
+
+###### EntitlementSetCommandService
+
+`EntitlementSetCommandService` coordina la administración de los beneficios efectivos asociados a cada suscripción.
+
+Su implementación concreta es `EntitlementSetCommandServiceImpl`.
+
+Los principales comandos utilizados son:
+
+- `UpdateEntitlementsCommand`
+- `SyncEntitlementsFromPlanCommand`
+- `RevokeAllEntitlementsCommand`
+
+###### UpdateEntitlementsCommand
+
+Permite actualizar el conjunto efectivo de beneficios asociado a una suscripción.
+
+El servicio recupera el `EntitlementSet`, aplica los cambios correspondientes y persiste el nuevo estado mediante `EntitlementSetRepository`.
+
+###### SyncEntitlementsFromPlanCommand
+
+Sincroniza el `EntitlementSet` utilizando los códigos de beneficios configurados en el plan vigente.
+
+Para completar esta operación, el servicio utiliza:
+
+- `PlanRepository`
+- `EntitlementCatalogRepository`
+- `EntitlementSetRepository`
+
+De esta manera, los códigos configurados en `Plan` son transformados en objetos `Entitlement` antes de actualizar el conjunto efectivo de beneficios de la suscripción.
+
+###### RevokeAllEntitlementsCommand
+
+Elimina todos los beneficios efectivos asociados a una suscripción.
+
+Este comando se utiliza principalmente después de una cancelación definitiva o expiración.
+
+##### Payment Application Services
+
+El procesamiento de pagos se encuentra desacoplado del proveedor concreto mediante handlers de aplicación y el puerto `PaymentProvider`.
+
+La Application Layer coordina los escenarios de inicio, confirmación y fallo de un pago, mientras que la implementación concreta encargada de iniciar la operación pertenece a Infrastructure.
+
+##### Payment Provider Port
+
+###### PaymentProvider
+
+`PaymentProvider` define el contrato utilizado por la Application Layer para iniciar una operación de pago sin depender de un proveedor concreto.
+
+La operación principal es:
+
+`initiatePayment(request: PaymentRequest): PaymentInitiationResult`
+
+###### PaymentRequest
+
+Representa la información requerida para iniciar un pago.
+
+Incluye:
+
+- `subscriptionId`
+- `subscriberId`
+- `planId`
+- `amount`
+- `currency`
+- `purpose`
+
+###### PaymentPurpose
+
+Define el propósito de una operación de pago.
+
+Valores implementados:
+
+- `SUBSCRIPTION_ACTIVATION`
+- `SUBSCRIPTION_RENEWAL`
+
+###### PaymentStatus
+
+Representa el estado de una operación de pago.
+
+Valores implementados:
+
+- `PENDING`
+- `CONFIRMED`
+- `FAILED`
+
+###### PaymentInitiationResult
+
+Representa el resultado obtenido al iniciar una operación de pago.
+
+Contiene información como:
+
+- proveedor utilizado;
+- referencia externa;
+- estado inicial de la operación.
+
+##### Subscription Activation Payment Handlers
+
+###### InitiateSubscriptionPaymentHandler
+
+Coordina el inicio del pago requerido para activar una nueva suscripción.
+
+Antes de iniciar el proceso valida:
+
+- que la suscripción exista;
+- que se encuentre en estado `PENDING`;
+- que el plan exista;
+- que el plan se encuentre activo;
+- que el plan requiera pago.
+
+Cuando las condiciones son válidas, construye un `PaymentRequest` con propósito `SUBSCRIPTION_ACTIVATION` y lo envía mediante `PaymentProvider`.
+
+###### PaymentConfirmedHandler
+
+Procesa la confirmación exitosa del pago asociado a una activación.
+
+Cuando el pago es confirmado:
+
+1. recupera la suscripción;
+2. valida que continúe en estado `PENDING`;
+3. recupera el plan correspondiente;
+4. calcula el periodo de vigencia según `BillingCycle`;
+5. ejecuta `subscription.activate(...)`;
+6. sincroniza los entitlements del plan;
+7. persiste la suscripción.
+
+Para un plan `MONTHLY`, el periodo se extiende un mes. Para un plan `ANNUAL`, se extiende un año.
+
+###### PaymentFailedHandler
+
+Procesa el fallo del pago asociado a una activación.
+
+Cuando el pago no es confirmado, la suscripción permanece en estado `PENDING` y no se habilitan los beneficios correspondientes al plan.
+
+##### Renewal Payment Handlers
+
+###### InitiateRenewalPaymentHandler
+
+Coordina el inicio del pago asociado a la renovación de una suscripción.
+
+Antes de iniciar el proceso valida:
+
+- que la suscripción exista;
+- que se encuentre en estado `ACTIVE`;
+- que posea un `currentPeriodEnd`;
+- que no tenga una cancelación programada;
+- que el plan se encuentre activo;
+- que el plan requiera pago.
+
+El `PaymentRequest` generado utiliza el propósito:
+
+`SUBSCRIPTION_RENEWAL`
+
+###### RenewalPaymentConfirmedHandler
+
+Procesa una renovación cuyo pago fue confirmado.
+
+El nuevo periodo se calcula a partir del `currentPeriodEnd` vigente.
+
+Para un plan mensual:
+
+`currentPeriodEnd → +1 mes`
+
+Para un plan anual:
+
+`currentPeriodEnd → +1 año`
+
+Posteriormente se ejecuta `subscription.renew(...)` y se persiste el nuevo periodo de vigencia.
+
+###### RenewalPaymentFailedHandler
+
+Procesa un intento fallido de pago de renovación.
+
+El handler no modifica automáticamente la suscripción. La decisión de expiración posterior corresponde al flujo encargado de evaluar el ciclo de vida.
+
+##### Lifecycle Evaluation
+
+La Application Layer contiene los servicios encargados de determinar qué acción debe ejecutarse cuando una suscripción alcanza el final de su periodo.
+
+###### RenewalEvaluation
+
+Representa el resultado de evaluar si una suscripción debe renovarse.
+
+Valores:
+
+- `DUE`
+- `NOT_DUE`
+- `NOT_ELIGIBLE`
+
+###### EvaluateSubscriptionRenewalHandler
+
+Evalúa si una suscripción se encuentra en condiciones de iniciar una renovación.
+
+Una renovación es considerada `DUE` cuando:
+
+- la suscripción se encuentra en estado `ACTIVE`;
+- no posee una cancelación programada;
+- tiene un `currentPeriodEnd`;
+- `currentPeriodEnd` es menor o igual al instante evaluado.
+
+Cuando todavía no se alcanza el final del periodo se obtiene `NOT_DUE`.
+
+Cuando la suscripción no cumple las condiciones necesarias para una renovación se obtiene `NOT_ELIGIBLE`.
+
+###### ExpirationEvaluation
+
+Representa el resultado de evaluar una posible expiración.
+
+Valores:
+
+- `DUE`
+- `NOT_DUE`
+- `NOT_ELIGIBLE`
+
+###### EvaluateSubscriptionExpirationHandler
+
+Evalúa si una suscripción activa ya alcanzó el final de su periodo y puede ser marcada como expirada.
+
+La evaluación únicamente determina si corresponde ejecutar la expiración y no modifica directamente el aggregate.
+
+##### Subscription Lifecycle Orchestration
+
+###### SubscriptionLifecycleAction
+
+Representa la acción que debe realizarse después de evaluar el estado completo de una suscripción.
+
+Valores implementados:
+
+- `NONE`
+- `RENEWAL_DUE`
+- `CANCELLATION_DUE`
+- `EXPIRATION_DUE`
+
+###### EvaluateSubscriptionLifecycleHandler
+
+`EvaluateSubscriptionLifecycleHandler` centraliza la decisión sobre la siguiente acción del ciclo de vida.
+
+Su comportamiento considera principalmente los siguientes escenarios:
+
+- una suscripción `CANCELLATION_SCHEDULED` cuyo periodo finalizó produce `CANCELLATION_DUE`;
+- una suscripción `ACTIVE` cuyo periodo todavía no finalizó produce `NONE`;
+- una suscripción `ACTIVE` vencida y elegible para renovación produce `RENEWAL_DUE`;
+- después de un intento de renovación fallido, una suscripción vencida puede producir `EXPIRATION_DUE`;
+- cuando no corresponde ninguna transición se produce `NONE`.
+
+Esta separación permite distinguir la evaluación de las reglas temporales de la ejecución posterior de la transición correspondiente.
+
+##### Query Services
+
+###### SubscriptionApplicationQueryService
+
+`SubscriptionApplicationQueryService` coordina las consultas de lectura del Bounded Context.
+
+Su implementación recupera información mediante los repositorios del dominio sin modificar el estado de los aggregates.
+
+Las consultas implementadas son:
+
+- `GetSubscriptionStatusQuery`
+- `GetAvailableEntitlementsQuery`
+
+###### GetSubscriptionStatusQuery
+
+Permite consultar la suscripción vigente utilizando el `subscriberId`.
+
+La consulta utiliza:
+
+`SubscriptionRepository.findActiveBySubscriberId(...)`
+
+Para efectos de consulta se considera vigente una suscripción en estado `ACTIVE` o `CANCELLATION_SCHEDULED`.
+
+###### GetAvailableEntitlementsQuery
+
+Permite obtener los beneficios actualmente disponibles para un suscriptor.
+
+El flujo recupera primero la suscripción vigente y posteriormente consulta el `EntitlementSet` asociado.
+
+Si no existe una suscripción vigente, la consulta no retorna un conjunto de beneficios disponible.
+
+##### Outbound Ports
+
+Además de los repositorios definidos por el dominio, la Application Layer utiliza puertos para desacoplar capacidades técnicas externas.
+
+###### PaymentProvider
+
+Abstrae el mecanismo utilizado para iniciar operaciones de pago.
+
+La Application Layer depende únicamente de este contrato y no de su implementación concreta.
+
+###### SubscriptionLifecycleCandidateFinder
+
+Define el contrato utilizado para localizar suscripciones cuyo periodo ha alcanzado la fecha de evaluación y que deben ser procesadas por el ciclo automático de billing.
+
+La implementación concreta de este puerto pertenece a la Infrastructure Layer.
+
+##### Command and Handler Organization
+
+Las operaciones generales relacionadas con el ciclo de vida de las suscripciones se concentran principalmente en:
+
+- `SubscriptionCommandService`
+- `EntitlementSetCommandService`
+
+Las responsabilidades asociadas al procesamiento de pagos y evaluación temporal utilizan handlers especializados:
+
+- `InitiateSubscriptionPaymentHandler`
+- `PaymentConfirmedHandler`
+- `PaymentFailedHandler`
+- `InitiateRenewalPaymentHandler`
+- `RenewalPaymentConfirmedHandler`
+- `RenewalPaymentFailedHandler`
+- `EvaluateSubscriptionRenewalHandler`
+- `EvaluateSubscriptionExpirationHandler`
+- `EvaluateSubscriptionLifecycleHandler`
+
+Esta organización mantiene separada la coordinación general de las suscripciones de los procesos especializados relacionados con pagos, renovación y evaluación temporal del ciclo de vida.
 
 #### 2.6.3.4. Infrastructure Layer
 
-La Infrastructure Layer contiene las implementaciones técnicas necesarias para persistir el estado del Bounded Context **Subscriptions** y comunicarse con servicios externos. Esta capa implementa las abstracciones utilizadas por las capas internas sin incorporar reglas propias del dominio.
+La Infrastructure Layer del Bounded Context **Subscriptions** contiene las implementaciones técnicas necesarias para persistencia, procesamiento simulado de pagos y ejecución automática del ciclo de vida de las suscripciones.
 
-##### Persistence JPA Entities
+Esta capa implementa las abstracciones definidas por las capas internas sin introducir dependencias de infraestructura dentro del modelo de dominio.
 
-*   `SubscriptionPersistenceEntity`: Mapea la tabla `subscriptions`. Columnas: `id`, `subscriber_user_id`, `plan_id`, `status`, `current_period_start`, `current_period_end`, `cancel_at_period_end`, `cancelled_at`, `created_at`, `updated_at`. Mantiene una relación `@OneToMany` hacia `PaymentPersistenceEntity`.
-*   `PaymentPersistenceEntity`: Mapea la tabla `payments`. Columnas: `id`, `subscription_id`, `payment_type`, `amount`, `currency`, `provider`, `provider_reference`, `status`, `paid_at`, `created_at`. Las columnas `amount` y `currency` componen el Value Object `Money`.
-*   `SubscriptionPlanPersistenceEntity`: Mapea la tabla `subscription_plans`. Columnas: `id`, `name`, `description`, `price`, `currency`, `billing_cycle`, `active`, `created_at`, `updated_at`.
-*   `EntitlementPersistenceEntity`: Mapea la tabla `entitlements`. Columnas: `id`, `code`, `name`, `description`.
-*   `PlanEntitlementPersistenceEntity`: Mapea la tabla de relación `plan_entitlements`. Columnas: `id`, `plan_id`, `entitlement_id`. Resuelve la asociación muchos a muchos entre planes y beneficios del catálogo.
-*   `SubscriptionEntitlementPersistenceEntity`: Mapea la tabla `subscription_entitlements`. Columnas: `id`, `subscription_id`, `entitlement_id`, `status`, `effective_from`, `effective_to`. Las columnas `effective_from` y `effective_to` componen el Value Object `Period`.
-*   *Converters:* `SubscriptionStatusConverter`, `PaymentStatusConverter`, `PaymentTypeConverter`, `BillingCycleConverter` y `SubscriptionEntitlementStatusConverter` traducen los enums de dominio hacia columnas `VARCHAR(30)`.
+Las principales responsabilidades de esta capa son:
 
-##### Repository Implementations
+- persistir suscripciones, planes y entitlements;
+- implementar el proveedor de pagos utilizado por la aplicación;
+- identificar suscripciones que requieren evaluación temporal;
+- ejecutar automáticamente renovaciones, cancelaciones y expiraciones;
+- proporcionar configuraciones técnicas para controlar el procesamiento automático.
 
-**`SubscriptionRepositoryImpl`**
+##### Persistence
 
-Implementa `SubscriptionRepository` y gestiona la persistencia del Aggregate Root `Subscription`.
+La persistencia del Bounded Context se implementa mediante adaptadores que satisfacen los contratos definidos en la Domain Layer.
 
-**Responsabilidades principales:**
+Las principales abstracciones utilizadas son:
 
-- recuperar una suscripción por su identificador;
-- recuperar la suscripción activa asociada a un usuario;
-- persistir los cambios de estado, periodo, plan y cancelación de una suscripción;
-- persistir los `PaymentAttempt` asociados al ciclo de vida de la suscripción.
+- `SubscriptionRepository`
+- `PlanRepository`
+- `EntitlementSetRepository`
+- `EntitlementCatalogRepository`
 
-**Relaciones principales:**
+De esta manera, la Application Layer y la Domain Layer trabajan únicamente con interfaces de repositorio y no dependen directamente de la tecnología utilizada para almacenar la información.
 
-- implementa `SubscriptionRepository`;
-- persiste información mediante las tablas `subscriptions` y `payments`.
+###### Subscription Repository
 
-**`PlanRepositoryImpl`**
+El repositorio de suscripciones permite recuperar una suscripción mediante su identificador, localizar la suscripción vigente de un usuario y persistir los cambios realizados sobre el aggregate `Subscription`.
 
-Implementa `PlanRepository` y permite consultar la configuración comercial de los planes disponibles.
+Entre sus operaciones principales se encuentran:
 
-**Responsabilidades principales:**
+- `findById(subscriptionId)`
+- `findActiveBySubscriberId(subscriberId)`
+- `save(subscription)`
 
-- recuperar un plan mediante su identificador;
-- recuperar los planes activos disponibles.
+La búsqueda de una suscripción vigente considera los estados:
 
-**Relaciones principales:**
+- `ACTIVE`
+- `CANCELLATION_SCHEDULED`
 
-- implementa `PlanRepository`;
-- utiliza la información almacenada en `subscription_plans` y su asociación con `plan_entitlements`.
+debido a que una suscripción cuya cancelación está programada continúa proporcionando servicio hasta alcanzar el final de su periodo.
 
-**`EntitlementSetRepositoryImpl`**
+###### Plan Repository
 
-Implementa `EntitlementSetRepository` y gestiona la persistencia de los beneficios efectivos asociados a cada suscripción.
+El repositorio de planes proporciona acceso a la configuración comercial de los planes disponibles en Guardian+.
 
-**Responsabilidades principales:**
+Permite principalmente:
 
-- recuperar el `EntitlementSet` asociado a una suscripción, con el estado y la vigencia de cada `SubscriptionEntitlement`;
-- persistir los beneficios efectivos habilitados para una suscripción, registrando su revocación sin eliminar el historial.
+- recuperar un plan mediante `PlanId`;
+- obtener los planes activos disponibles.
 
-**Relaciones principales:**
+El plan contiene información como precio, moneda, ciclo de facturación y códigos de entitlements asociados.
 
-- implementa `EntitlementSetRepository` y `EntitlementRepository`;
-- utiliza `entitlements` como catálogo y `subscription_entitlements` para reconstruir y persistir el conjunto efectivo de beneficios.
+###### Entitlement Set Repository
 
-##### External Service Adapters
+`EntitlementSetRepository` permite recuperar y persistir el conjunto efectivo de beneficios asociado a una suscripción.
 
-**`PaymentProviderAdapter`**
+La información almacenada corresponde al estado actual de los beneficios habilitados para el usuario y puede actualizarse después de:
 
-Encapsula la comunicación con el proveedor externo encargado de procesar los pagos requeridos para activaciones y renovaciones.
+- una activación;
+- un cambio de plan;
+- una cancelación definitiva;
+- una expiración.
 
-**Operaciones principales:**
+###### Entitlement Catalog Repository
 
-- `initiatePayment()`
-- `validatePaymentNotification()`
+`EntitlementCatalogRepository` permite obtener las definiciones completas de los beneficios a partir de los códigos configurados en un `Plan`.
 
-**Relaciones principales:**
+Su operación principal es:
 
-- es utilizado por la Application Layer para iniciar operaciones de pago;
-- traduce las respuestas del proveedor externo al modelo utilizado por Guardian+;
-- trabaja junto con `PaymentWebhookController` para procesar confirmaciones y fallos de pago.
+`findAllByCodes(codes)`
 
-La selección del proveedor permanece desacoplada del dominio. Stripe se mantiene como candidato de implementación mientras no se haya definido de manera definitiva el proveedor externo.
+Esta separación permite que `Plan` mantenga únicamente las referencias a los beneficios, mientras que el catálogo proporciona las definiciones completas de los entitlements.
 
-**`BillingSchedulerAdapter`**
+##### Payment Provider Adapter
 
-Implementa el mecanismo técnico utilizado para generar las señales temporales necesarias para evaluar renovaciones y expiraciones.
+El procesamiento de pagos se encuentra desacoplado de la Application Layer mediante el puerto:
 
-**Operaciones principales:**
+`PaymentProvider`
 
-- `scheduleRenewalEvaluation()`
-- `scheduleExpirationEvaluation()`
+La implementación utilizada es:
 
-**Relaciones principales:**
+`SimulatedPaymentProviderAdapter`
 
-- genera las señales consumidas por `BillingSchedulerConsumer`;
-- no contiene las reglas que determinan si una suscripción debe renovarse o expirar.
+Este adaptador reproduce el comportamiento necesario para ejecutar los casos de uso relacionados con pagos sin incorporar dependencias financieras dentro del dominio.
 
-##### Event Publishing
+###### SimulatedPaymentProviderAdapter
 
-**`EventPublisher`**
+`SimulatedPaymentProviderAdapter` implementa `PaymentProvider` y simula el inicio de una operación de pago.
 
-Publica los eventos producidos por el ciclo de vida de las suscripciones para que puedan ser consumidos por otros Bounded Contexts de Guardian+.
+Cuando recibe un `PaymentRequest`, genera una referencia externa con un formato similar a:
 
-**Operaciones principales:**
+`pay_test_<UUID>`
 
-- `publish(event)`
+El proveedor se identifica internamente como:
 
-**Relaciones principales:**
+`stripe-simulator`
 
-- recibe desde la Application Layer los eventos que deben comunicarse externamente;
-- publica cambios relevantes como activación, cambio de plan, cancelación, expiración y actualización de entitlements;
-- no modifica directamente el estado de los aggregates.
+y devuelve inicialmente el estado:
+
+`PENDING`
+
+A partir de este resultado, los servicios de aplicación pueden procesar posteriormente una confirmación o un fallo.
+
+Los estados contemplados durante el flujo son:
+
+- `PENDING`
+- `CONFIRMED`
+- `FAILED`
+
+Esta implementación permite ejecutar y validar los escenarios de negocio asociados al procesamiento de pagos manteniendo el backend independiente de una integración externa específica.
+
+##### Simulated Payment Flows
+
+Además del adaptador de pago, la infraestructura dispone de servicios que permiten ejecutar de forma controlada los flujos simulados de activación y renovación.
+
+Estos componentes coordinan los handlers definidos en la Application Layer para representar una respuesta positiva o negativa del proveedor.
+
+###### Simulated Subscription Payment Flow
+
+El flujo simulado de activación realiza la siguiente secuencia:
+
+1. inicia el pago mediante `InitiateSubscriptionPaymentHandler`;
+2. obtiene una referencia de pago simulada;
+3. procesa un resultado `CONFIRMED` o `FAILED`;
+4. ejecuta el handler correspondiente.
+
+Cuando el resultado es `CONFIRMED`, se utiliza:
+
+`PaymentConfirmedHandler`
+
+Cuando el resultado es `FAILED`, se utiliza:
+
+`PaymentFailedHandler`
+
+De esta manera, el adaptador de infraestructura no modifica directamente el aggregate `Subscription`.
+
+###### Simulated Renewal Payment Flow
+
+El flujo de renovación funciona de manera equivalente.
+
+Primero ejecuta:
+
+`InitiateRenewalPaymentHandler`
+
+y posteriormente procesa uno de los siguientes resultados:
+
+- `RenewalPaymentConfirmedHandler`
+- `RenewalPaymentFailedHandler`
+
+Esto permite representar tanto una renovación exitosa como un intento de renovación fallido.
+
+##### Payment Provider Extensibility
+
+La arquitectura mantiene el procesamiento de pagos desacoplado mediante el puerto `PaymentProvider`.
+
+La implementación utilizada por el sistema es:
+
+`PaymentProvider → SimulatedPaymentProviderAdapter`
+
+Esta separación permite incorporar otro adaptador compatible con `PaymentProvider` sin modificar las reglas centrales del dominio ni los handlers encargados de procesar los resultados de pago.
+
+##### Subscription Lifecycle Candidate Finder
+
+La ejecución automática del ciclo de vida requiere identificar qué suscripciones han alcanzado el final de su periodo.
+
+Para desacoplar esta búsqueda de la Application Layer se utiliza el puerto:
+
+`SubscriptionLifecycleCandidateFinder`
+
+Su responsabilidad consiste en recuperar los identificadores de las suscripciones que deben ser evaluadas en un instante determinado.
+
+La implementación utilizada es:
+
+`JdbcSubscriptionLifecycleCandidateFinder`
+
+###### JdbcSubscriptionLifecycleCandidateFinder
+
+`JdbcSubscriptionLifecycleCandidateFinder` utiliza `JdbcTemplate` para consultar directamente las suscripciones cuyo periodo ya finalizó.
+
+La búsqueda considera suscripciones que cumplen las siguientes condiciones:
+
+- estado `ACTIVE` o `CANCELLATION_SCHEDULED`;
+- `currentPeriodEnd` definido;
+- `currentPeriodEnd` menor o igual al instante evaluado.
+
+La consulta utilizada sigue la siguiente estructura:
+
+```sql
+SELECT id
+FROM subscriptions
+WHERE status IN ('ACTIVE', 'CANCELLATION_SCHEDULED')
+  AND current_period_end IS NOT NULL
+  AND current_period_end <= ?
+ORDER BY current_period_end
+```
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.50 presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista descompone el backend de Guardian+ en los componentes responsables de exponer las operaciones de suscripción, orquestar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, publicación de eventos e integración con el proveedor de pagos.
+El siguiente diagrama presenta la arquitectura a nivel de componentes del Bounded Context **Subscriptions**. La vista organiza los componentes responsables de exponer las operaciones de suscripción, coordinar los casos de uso, aplicar las reglas del dominio y resolver las dependencias técnicas relacionadas con persistencia, procesamiento de pagos y evaluación automática del ciclo de vida.
 
-La **Interface Layer** se encuentra representada por los controladores REST de suscripciones y el controlador de webhooks de pagos. La **Application Layer** coordina los casos de uso mediante `Subscription Application Service` y `Payment Application Service`. La lógica central del dominio se concentra en los aggregates `Subscription` y `Entitlement Set`, junto con las políticas de suscripción. Finalmente, la **Infrastructure Layer** implementa los adaptadores de repositorio, publicación de eventos e integración con Stripe.
-
-<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de componentes del Bounded Context Subscriptions
+La arquitectura mantiene una separación por capas mediante **Interface**, **Application**, **Domain** e **Infrastructure**, permitiendo que las reglas de negocio permanezcan desacopladas de los mecanismos técnicos utilizados por la aplicación.
 
 ![Subscriptions Component Level Diagram](assets/images/chapterII/Subscriptions/SubscriptionComponents.png)
 
-El componente `Subscriptions REST Controllers` recibe las solicitudes relacionadas con activación, renovación, cambio de plan, cancelación y consulta del estado de la suscripción, delegando su procesamiento a la capa de aplicación.
+##### Interface Layer
 
-`Subscription Application Service` coordina las operaciones sobre el ciclo de vida de las suscripciones y utiliza los aggregates y políticas del dominio para mantener las reglas de negocio. Asimismo, utiliza los adaptadores de persistencia y el publicador de eventos para almacenar los cambios producidos y comunicar eventos relevantes hacia otros bounded contexts.
+La **Interface Layer** está representada principalmente por `SubscriptionController`, responsable de exponer mediante HTTP las operaciones disponibles del Bounded Context.
 
-Para las operaciones que requieren pagos, `Payment Application Service` utiliza `Stripe Adapter`, que encapsula la comunicación con el proveedor externo Stripe. Las confirmaciones o fallos de pago regresan hacia Guardian+ mediante el `Payment Webhook Controller`.
+El controlador permite:
+
+- solicitar una nueva suscripción;
+- cambiar el plan asociado a una suscripción;
+- solicitar una cancelación al finalizar el periodo vigente;
+- consultar el estado de la suscripción de un usuario;
+- consultar los entitlements disponibles.
+
+Las solicitudes recibidas son transformadas en comandos o consultas que posteriormente son procesados por la Application Layer.
+
+##### Application Layer
+
+La **Application Layer** coordina los casos de uso del Bounded Context y actúa como intermediaria entre la Interface Layer, el dominio y los adaptadores de infraestructura.
+
+Las operaciones principales relacionadas con las suscripciones se concentran en:
+
+- `SubscriptionCommandService`
+- `SubscriptionApplicationQueryService`
+- `EntitlementSetCommandService`
+
+`SubscriptionCommandService` coordina operaciones como solicitud, activación, cambio de plan, renovación, cancelación y expiración de suscripciones.
+
+`EntitlementSetCommandService` mantiene sincronizados los beneficios efectivos de una suscripción con los entitlements definidos por el plan vigente.
+
+`SubscriptionApplicationQueryService` resuelve las consultas relacionadas con el estado de la suscripción y los beneficios habilitados para cada suscriptor.
+
+La capa también contiene handlers especializados para el procesamiento de pagos y la evaluación del ciclo de vida, entre ellos:
+
+- `InitiateSubscriptionPaymentHandler`
+- `PaymentConfirmedHandler`
+- `PaymentFailedHandler`
+- `InitiateRenewalPaymentHandler`
+- `RenewalPaymentConfirmedHandler`
+- `RenewalPaymentFailedHandler`
+- `EvaluateSubscriptionRenewalHandler`
+- `EvaluateSubscriptionExpirationHandler`
+- `EvaluateSubscriptionLifecycleHandler`
+
+##### Domain Layer
+
+La **Domain Layer** concentra las reglas fundamentales del negocio asociadas al ciclo de vida de las suscripciones.
+
+Los principales Aggregate Roots son:
+
+- `Subscription`
+- `EntitlementSet`
+
+`Subscription` controla las transiciones entre los estados:
+
+- `PENDING`
+- `ACTIVE`
+- `CANCELLATION_SCHEDULED`
+- `CANCELLED`
+- `EXPIRED`
+
+También mantiene el periodo vigente mediante `currentPeriodStart` y `currentPeriodEnd`.
+
+`EntitlementSet` representa el conjunto efectivo de beneficios habilitados para una suscripción y permite sincronizarlos o revocarlos de acuerdo con los cambios producidos en el ciclo de vida.
+
+El dominio también incluye las entidades:
+
+- `Plan`
+- `Entitlement`
+
+y Value Objects como:
+
+- `SubscriptionId`
+- `SubscriberId`
+- `PlanId`
+- `EntitlementCode`
+- `Money`
+
+##### Infrastructure Layer
+
+La **Infrastructure Layer** proporciona las implementaciones técnicas necesarias para persistencia, procesamiento simulado de pagos y ejecución automática del ciclo de vida.
+
+Los adaptadores de persistencia implementan los contratos definidos por:
+
+- `SubscriptionRepository`
+- `PlanRepository`
+- `EntitlementSetRepository`
+- `EntitlementCatalogRepository`
+
+El procesamiento de pagos utiliza el puerto:
+
+`PaymentProvider`
+
+cuya implementación corresponde a:
+
+`SimulatedPaymentProviderAdapter`
+
+Este adaptador permite iniciar y representar operaciones de pago manteniendo la lógica del dominio desacoplada de un proveedor específico.
+
+##### Subscription Lifecycle Components
+
+El procesamiento automático del ciclo de vida utiliza `BillingSchedulerConsumer` para iniciar periódicamente la evaluación de las suscripciones cuyo periodo ha finalizado.
+
+Para localizar dichas suscripciones se utiliza el puerto:
+
+`SubscriptionLifecycleCandidateFinder`
+
+implementado por:
+
+`JdbcSubscriptionLifecycleCandidateFinder`
+
+Los identificadores encontrados son procesados por:
+
+`SubscriptionLifecycleExecutionService`
+
+Este servicio utiliza `EvaluateSubscriptionLifecycleHandler` para determinar si corresponde realizar una renovación, una cancelación definitiva, una expiración o ninguna acción.
+
+##### Payment Component Interaction
+
+El flujo de procesamiento de pagos sigue la siguiente secuencia:
+
+`Application Layer`
+
+→ `PaymentProvider`
+
+→ `SimulatedPaymentProviderAdapter`
+
+→ `CONFIRMED / FAILED`
+
+→ handlers de confirmación o fallo
+
+→ `Subscription`
+
+La Infrastructure Layer no modifica directamente el estado de la suscripción. Los resultados obtenidos durante el procesamiento de pagos son enviados hacia los handlers de aplicación, que ejecutan las operaciones correspondientes sobre el aggregate.
+
+##### Lifecycle Component Interaction
+
+El procesamiento automático del ciclo de vida sigue la siguiente secuencia:
+
+`BillingSchedulerConsumer`
+
+→ `SubscriptionLifecycleCandidateFinder`
+
+→ `JdbcSubscriptionLifecycleCandidateFinder`
+
+→ `SubscriptionLifecycleExecutionService`
+
+→ `EvaluateSubscriptionLifecycleHandler`
+
+→ acción correspondiente sobre `Subscription`
+
+Esta organización permite mantener separadas las responsabilidades de exposición de servicios, coordinación de casos de uso, reglas de dominio, persistencia, procesamiento de pagos y evaluación temporal de las suscripciones.
+
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
-En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado como referencia para la implementación del contexto.
+En esta sección se presenta la estructura interna del Bounded Context **Subscriptions** a nivel de código. Se incluyen el modelo de clases correspondiente a la Domain Layer y el diseño de persistencia utilizado para implementar el ciclo de vida de las suscripciones y la gestión de los beneficios asociados.
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor del Aggregate Root `Subscription`, encargado de controlar el ciclo de vida de una suscripción, y del Aggregate Root `EntitlementSet`, responsable de administrar los beneficios disponibles de acuerdo con el plan vigente.
+El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor de los Aggregate Roots `Subscription` y `EntitlementSet`, responsables respectivamente de controlar el ciclo de vida de una suscripción y administrar los beneficios efectivos asociados al plan vigente.
 
 <a id="figura-2-51"></a>**Figura 2.51.** Diagrama de clases de la Domain Layer de Subscriptions
 
 ![Subscriptions Domain Layer Class Diagram](assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
-`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación y expiración, y contiene la entidad `PaymentAttempt`, que registra cada intento de pago de su ciclo de vida. `Plan` y `Entitlement` son Aggregate Roots propios: el primero concentra la configuración comercial y el segundo actúa como catálogo de beneficios compartido entre planes y suscripciones.
+`Subscription` mantiene las reglas relacionadas con activación, renovación, cambio de plan, cancelación programada, cancelación definitiva y expiración. `Plan` representa la configuración comercial de las alternativas disponibles, mientras que `Entitlement` representa cada beneficio que puede ser habilitado mediante un plan.
 
-`EntitlementSet` administra los `SubscriptionEntitlement` habilitados para una suscripción, cada uno con su estado y su periodo de vigencia. El dominio utiliza Value Objects como `SubscriptionId`, `PlanId`, `EntitlementId`, `Money` y `Period` para representar conceptos con semántica propia y evitar el uso de valores primitivos sin significado de negocio.
+`EntitlementSet` mantiene el conjunto efectivo de `Entitlement` asociado a una suscripción y permite sincronizar o revocar estos beneficios de acuerdo con los cambios producidos durante su ciclo de vida. El dominio utiliza Value Objects como `SubscriptionId`, `SubscriberId`, `PlanId`, `EntitlementCode` y `Money` para representar conceptos propios del contexto y evitar el uso de valores primitivos sin significado de negocio.
 
-Los estados principales de las suscripciones, los pagos y los beneficios efectivos se representan mediante las enumeraciones `SubscriptionStatus`, `PaymentStatus` y `SubscriptionEntitlementStatus`, permitiendo controlar explícitamente las transiciones válidas dentro del dominio.
+Los estados de una suscripción se representan mediante `SubscriptionStatus`, cuyos valores implementados son `PENDING`, `ACTIVE`, `CANCELLATION_SCHEDULED`, `CANCELLED` y `EXPIRED`. Asimismo, `BillingCycle` define los ciclos de facturación `MONTHLY` y `ANNUAL`.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. Las tablas reflejan las entidades y aggregates que requieren almacenamiento persistente en el backend, manteniendo las relaciones necesarias para administrar planes, suscripciones, pagos y entitlements.
+La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. El modelo almacena la información necesaria para administrar suscripciones, planes y beneficios, manteniendo separadas las responsabilidades de persistencia respecto del procesamiento de pagos.
 
 <a id="figura-2-52"></a>**Figura 2.52.** Diagrama de base de datos de Subscriptions
 
 ![Subscriptions Database Design Diagram](assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
 
-La tabla `subscriptions` constituye el elemento central del modelo de persistencia y relaciona al usuario suscriptor con el plan contratado. `subscription_plans` almacena la configuración comercial de los planes disponibles, mientras que `payments` registra las operaciones de pago asociadas al ciclo de vida de cada suscripción.
+La persistencia de `Subscription` conserva la información relacionada con el suscriptor, el plan contratado, el estado de la suscripción, el periodo vigente y la configuración de cancelación al finalizar dicho periodo. Los planes mantienen su información comercial, incluyendo precio, ciclo de facturación, disponibilidad y códigos de entitlements asociados.
 
-Los beneficios disponibles se representan mediante `entitlements`. La relación entre planes y beneficios se mantiene mediante `plan_entitlements`, mientras que `subscription_entitlements` permite registrar los beneficios efectivos asociados a una suscripción durante un determinado periodo.
+Los beneficios disponibles son administrados mediante el catálogo de `Entitlement` y el `EntitlementSet` correspondiente a cada suscripción. Los resultados generados durante los flujos de pago simulados son tratados de manera transitoria por la Application Layer, por lo que el diseño de persistencia no requiere una entidad `PaymentAttempt` ni una tabla `payments`.
+
 
 ### 2.6.4. Bounded Context: Profile
 
@@ -11904,6 +12395,843 @@ Durante el Sprint 1 (del 6 de septiembre al 6 de octubre de 2026), el equipo tra
 
 ![iot-simulator-insights](assets/images/chatper4/sprint1/insights/iot-simulator-insights.png)
 
+### 4.2.2. Sprint 2
+
+En esta sección se documenta el Sprint 2 de Guardian+: su planificación, la distribución de responsabilidades, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue presentadas en el Sprint Review, y los insights de colaboración del equipo.
+
+#### 4.2.2.1. Sprint Planning 2
+
+El Sprint 2 se ejecuta entre el 20 de octubre y el 13 de noviembre de 2026 y concluye con la entrega AV2 de la semana 12. Su planificación se realizó en una reunión sincrónica del equipo al inicio del Sprint, en la que se revisaron los resultados del Sprint 1, se recalculó la capacidad del equipo con la velocidad observada y se seleccionaron del Product Backlog de la sección 2.4.3 las User Stories asignadas al Sprint 2.
+
+El alcance comprometido corresponde a las nueve User Stories que el Product Backlog asigna al Sprint 2. La primera parte completa la épica EP01: la visualización en tiempo real de los cinco signos vitales que mide la pulsera (US01 a US05) y la sincronización de las lecturas que el wearable almacena mientras no tiene conexión (US21). La segunda parte continúa la épica EP03 sobre el circuito de emergencia entregado en el Sprint 1: la confirmación de bienestar tras un incidente (US10), el aviso de batería crítica de la pulsera (US20) y el despacho simultáneo de las alertas críticas a todo el Care Circle (US25).
+
+Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran como User Stories en el Product Backlog y que absorben la capacidad restante del Sprint. El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
+
+<a id="tabla-4-60"></a>**Tabla 4.60.** Sprint Planning del Sprint 2
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 2026-10-20 |
+| Time | 07:00 PM |
+| Location | Reunión virtual mediante Discord, en el canal de voz del equipo. |
+| Prepared By | Equipo Healthify — Guardian+ |
+| Attendees (to planning meeting) | Azama Fukuda, Juan Pablo / Lopez Monroy, Rodrigo Alfredo / Luis Miranda, Diego Andres / Mechan Montenegro, Luciana Carolina / Sanchez Cuadrado, Juan Antonio |
+| Sprint 1 Review Summary | El Sprint 1 cerró con las 10 User Stories comprometidas implementadas (39 Story Points). El Landing Page quedó publicado en Cloudflare Pages en su versión `v1.0.0`, con las User Stories US30 a US33. Los Web Services quedaron desplegados en Microsoft Azure con los Bounded Contexts Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing y Profile, y 63 rutas documentadas en Swagger UI. La aplicación móvil en Kotlin implementó las pantallas de Inicio, Salud y Alertas conectadas a esos servicios, y el IoT Simulator publicó la telemetría de cuatro pulseras desde Google Cloud. Como avance no comprometido, Health Monitoring y Care Routines & Wellness se implementaron en el backend antes de su Sprint planificado. |
+| Sprint 1 Retrospective Summary | El equipo identificó tres aspectos por mejorar. Primero, el tablero de ClickUp no reflejó el avance real: varias tareas implementadas permanecieron en estado *To-do*. Segundo, la integración del Pull Request #11 de Mobility & Geofencing hizo fallar el job `test` del workflow `Deploy`, por lo que esa versión no se publicó hasta la integración siguiente. Tercero, la mayor parte de las integraciones se concentró en los dos últimos días del Sprint (5 y 6 de octubre). Los acuerdos para el Sprint 2 fueron actualizar el estado de cada tarea al abrir y al integrar su Pull Request, ejecutar las pruebas del backend antes de solicitar la revisión e integrar cada Bounded Context apenas esté listo, sin esperar al cierre del Sprint. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | *Our focus is on letting a family follow the vital signs of the person under their care as they happen —heart rate, blood pressure, oxygen saturation, temperature and respiratory rate— without losing the readings taken while the wristband was offline, and on making a critical alert reach the whole care circle at the same time.*<br><br>*We believe it delivers to caregivers a continuous and trustworthy picture of the health of the person under their care, and a faster response when an emergency happens, because every member of the care circle is warned at once instead of one after another.*<br><br>*This will be confirmed when a caregiver opens the Health section and sees each vital sign refreshed live and classified against its normal range, when the readings the wristband kept while offline appear in the history after it reconnects, and when a critical alert reaches the phone of every emergency contact as a push notification.*<br><br>**Métrica de cumplimiento:** la sección Salud muestra la última lectura de los cinco signos vitales con su clasificación (normal, en observación o fuera de rango) según los rangos de US01 a US05; las lecturas enviadas en lote por el wearable tras recuperar la conexión se registran en el historial en su orden cronológico (US21); una alerta crítica con difusión inmediata se entrega como notificación push a todos los contactos de emergencia activos, y cuando uno asume la respuesta los demás son informados (US25); y las 9 User Stories del alcance quedan verificadas contra sus criterios de aceptación (31 Story Points completados). |
+| Sprint 2 Velocity | 40 Story Points. El equipo mantuvo la velocidad del Sprint 1, cuya estimación se confirmó al completarse los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
+| Sum of Story Points | 31 Story Points. |
+
+Las User Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
+
+<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories comprometidas en el Sprint 2
+
+| # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
+|---|---|---|---|---|
+| 1 | US01 | Visualización de ritmo cardíaco en tiempo real | 3 | Health Monitoring |
+| 2 | US02 | Visualización de presión arterial estimada | 3 | Health Monitoring |
+| 3 | US03 | Visualización de saturación de oxígeno periférico (SpO₂) | 3 | Health Monitoring |
+| 4 | US04 | Supervisión de temperatura corporal continua | 3 | Health Monitoring |
+| 5 | US05 | Visualización de frecuencia respiratoria estimada | 3 | Health Monitoring |
+| 6 | US10 | Confirmación manual de estado de bienestar tras incidente | 3 | Emergency & Alerting |
+| 7 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Emergency & Alerting |
+| 8 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Emergency & Alerting |
+| 9 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Health Monitoring |
+| | | **Total** | **31** | |
+
+La suma de 31 Story Points se ubica 9 puntos por debajo de la velocidad establecida. Ese margen se reservó para los dos frentes acordados en la reunión que no están representados como User Stories: los Bounded Contexts IAM y Profile & Subscriptions, de los que dependen el inicio de sesión con cuentas reales y el contexto de cuidado de cada usuario, y la implementación de la aplicación en Flutter.
+
+#### 4.2.2.2. Aspect Leaders and Collaborators
+
+Para el Sprint 2 el equipo mantuvo los ocho aspectos del Sprint 1 y agregó dos: **Mobile App (Flutter)**, que comprende la segunda implementación de la aplicación móvil, y **Push Notifications**, que comprende la configuración de Firebase Cloud Messaging en el backend y en la aplicación. La Direct Communication, incorporada en este Sprint, se considera parte del aspecto Mobility & Geofencing, porque su punto de entrada es la pantalla de ubicación de la persona bajo cuidado.
+
+La Leadership-and-Collaboration Matrix (LACX) de la Tabla 4.62 indica el líder (L) y los colaboradores (C) de cada aspecto.
+
+<a id="tabla-4-62"></a>**Tabla 4.62.** Leadership-and-Collaboration Matrix del Sprint 2
+
+| Team Member (Last Name, First Name) | GitHub Username | UX/UI Design | Health Monitoring | Emergency & Alerting | Mobility & Geofencing | Care Routines & Wellness | IAM | Profile & Subscriptions | Push Notifications | Mobile App (Flutter) | Testing |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Azama Fukuda, Juan Pablo | Llummo | L | L | C | C | C | L | C | C | L | C |
+| Mechan Montenegro, Luciana Carolina | luuu6 | C | C | C | C | L | C | C | C | C | C |
+| Luis Miranda, Diego Andres | Andrewdmr | C | C | C | L | C | C | C | C | C | C |
+| López Monroy, Rodrigo Alfredo | rodrigolopezu | C | C | L | C | C | C | C | L | C | C |
+| Sanchez Cuadrado, Juan Antonio | JuanASC05 | C | C | C | C | C | C | L | C | C | L |
+
+#### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es que la familia siga en tiempo real los signos vitales de la persona bajo cuidado, sin perder las lecturas tomadas sin conexión, y que una alerta crítica llegue a la vez a todo el Care Circle. Para lograrlo, el equipo organizó el trabajo en la lista *Sprint Backlog AV2* de ClickUp, con una tarea por User Story comprometida, una tarea por cada Bounded Context incorporado o completado en la aplicación y las tareas de validación y de video de la entrega.
+
+El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](COMPLETAR-ENLACE-CLICKUP) Las Figuras 4.18 y 4.19 muestran el tablero.
+
+<a id="figura-4-18"></a>**Figura 4.18.** Tablero del Sprint 2 en ClickUp (parte 1)
+
+![sprint-2-board-1](assets/images/chatper4/sprint2/sprint-2-board-1.png)
+
+<a id="figura-4-19"></a>**Figura 4.19.** Tablero del Sprint 2 en ClickUp (parte 2)
+
+![sprint-2-board-2](assets/images/chatper4/sprint2/sprint-2-board-2.png)
+
+La Tabla 4.63 detalla las tareas del Sprint 2 y su estado al cierre del Sprint. Las tareas US06, US07, US13, US23 y US28 pertenecen al Sprint 3 en el Product Backlog y se registran porque su implementación se adelantó durante este Sprint.
+
+<a id="tabla-4-63"></a>**Tabla 4.63.** Sprint Backlog 2
+
+| Sprint # | Sprint 2 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story Id** | **User Story Title** | **Work-Item / Task Id** | **Work-Item / Task Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
+| — | — | TA-00 | Sprint Planning 2 meeting | Revisar los resultados del Sprint 1, recalcular la velocidad y seleccionar las User Stories del Sprint 2. | 2 | Mechan Montenegro, Luciana Carolina / Azama Fukuda, Juan Pablo / Lopez Monroy, Rodrigo Alfredo / Luis Miranda, Diego Andres / Sanchez Cuadrado, Juan Antonio | Done |
+| US01 | Visualización de ritmo cardíaco en tiempo real | TA-19 | US01 - Visualización de ritmo cardíaco en tiempo real | Mostrar la frecuencia cardíaca en vivo y clasificarla contra el rango de 60 a 100 lpm. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US02 | Visualización de presión arterial estimada | TA-20 | US02 - Visualización de presión arterial estimada | Mostrar la presión sistólica y diastólica en vivo y señalar los picos hipertensivos. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US03 | Visualización de saturación de oxígeno periférico (SpO₂) | TA-21 | US03 - Visualización de saturación de oxígeno periférico (SpO₂) | Mostrar la SpO₂ en vivo y señalar la hipoxemia bajo el 90 %. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US04 | Supervisión de temperatura corporal continua | TA-22 | US04 - Supervisión de temperatura corporal continua | Mostrar la temperatura en vivo y registrar su serie temporal en el historial. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US05 | Visualización de frecuencia respiratoria estimada | TA-23 | US05 - Visualización de frecuencia respiratoria estimada | Mostrar la frecuencia respiratoria en vivo y señalar los valores fuera de 12 a 20 rpm. | 6 | Azama Fukuda, Juan Pablo | Done |
+| US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | TA-27 | US21 - Sincronización y persistencia resiliente de telemetría (Offline Sync) | Registrar en orden cronológico las lecturas que el wearable envía en lote al recuperar la conexión. | 16 | Azama Fukuda, Juan Pablo | Done |
+| US10 | Confirmación manual de estado de bienestar tras incidente | TA-24 | US10 - Confirmación manual de estado de bienestar tras incidente | Permitir descartar una advertencia desde la pulsera y avisar al cuidador que fue descartada. | 6 | Lopez Monroy, Rodrigo Alfredo | In Progress |
+| US20 | Notificación de nivel crítico de batería en wearable | TA-25 | US20 - Notificación de nivel crítico de batería en wearable | Avisar al cuidador cuando la batería de la pulsera baje del 20 % y del 5 %. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
+| US25 | Despacho simultáneo a múltiples contactos de auxilio | TA-26 | US25 - Despacho simultáneo a múltiples contactos de auxilio | Difundir las alertas críticas a todo el Care Circle por notificación push e informar quién asumió la respuesta. | 6 | Lopez Monroy, Rodrigo Alfredo | Done |
+| — | — | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
+| — | — | TA-03 | Bounded context routines | Conectar las pantallas de Rutinas de la aplicación a los Web Services de Care Routines & Wellness. | 16 | Mechan Montenegro, Luciana Carolina | Done |
+| — | — | TA-04 | Bounded context mobility | Implementar las pantallas de ubicación y zonas seguras de la aplicación y completar sus Web Services. | 16 | Luis Miranda, Diego Andres | Done |
+| — | — | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
+| US06 | Emisión y confirmación de recordatorios de medicación | TA-28 | US06 - Emisión y confirmación de recordatorios de medicación | Programar, confirmar y marcar como omitidos los recordatorios de medicación desde la aplicación. | 10 | Mechan Montenegro, Luciana Carolina | In Progress |
+| US13 | Programación y notificación de consultas médicas | TA-31 | US13 - Programación y notificación de consultas médicas | Programar citas médicas y notificarlas por push a los cuidadores antes de su hora. | 6 | Mechan Montenegro, Luciana Carolina | Done |
+| US07 | Análisis comparativo y tendencias históricas de signos vitales | TA-29 | US07 - Análisis comparativo y tendencias históricas de signos vitales | Filtrar el historial por periodo, signo vital y estado y comparar sus tendencias. | 10 | Azama Fukuda, Juan Pablo | In Progress |
+| US23 | Establecimiento de canal de comunicación directa | TA-33 | US23 - Establecimiento de canal de comunicación directa | Iniciar llamadas de voz o video con la pulsera y registrar las llamadas no atendidas. | 10 | Luis Miranda, Diego Andres | In Progress |
+| US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | TA-35 | US28 - Delimitación y monitoreo perimetral mediante geocercas múltiples | Administrar varias zonas seguras por persona y alertar cuando sale de la zona activa. | 10 | Luis Miranda, Diego Andres / Lopez Monroy, Rodrigo Alfredo | In Progress |
+| — | — | TA-01 | Validation interviews | Realizar las entrevistas de validación de la aplicación móvil. | 8 | Azama Fukuda, Juan Pablo / Luis Miranda, Diego Andres / Lopez Monroy, Rodrigo Alfredo / Mechan Montenegro, Luciana Carolina / Sanchez Cuadrado, Juan Antonio | To-do |
+| — | — | TA-02 | App Validation Video | Grabar el video de validación de la aplicación móvil. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
+| — | — | TA-07 | About the team | Grabar el video de presentación del equipo. | 2 | Lopez Monroy, Rodrigo Alfredo / Azama Fukuda, Juan Pablo | To-do |
+| — | — | TA-08 | Video About the Product | Grabar el video de presentación del producto. | 4 | Azama Fukuda, Juan Pablo | To-do |
+
+#### 4.2.2.4. Development Evidence for Sprint Review
+
+En esta sección se registran los commits que implementan el alcance del Sprint 2 en cada repositorio. Para los Bounded Contexts con un volumen alto de commits se presentan los más representativos de cada Pull Request. Se incluyen además los commits integrados el 8 y el 9 de octubre, posteriores al cierre del Sprint 1, que no se registraron en la sección 4.2.1.4. El Landing Page no tuvo cambios funcionales en este Sprint, y en el IoT Simulator solo se integró una corrección de seguridad del entorno de desarrollo (Pull Request [#2](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-iot-simulator/pull/2)).
+
+##### Web Services — IAM
+
+Implementación del Bounded Context IAM: registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP de seis dígitos enviado por correo mediante Brevo, recuperación de contraseña, emisión de tokens de sesión JWT firmados con RS256 y una cadena de seguridad sin estado. Las contraseñas se almacenan con BCrypt y los códigos con HMAC-SHA256, y la emisión de códigos se limita a cinco por cada quince minutos. Se integró a `develop` mediante el Pull Request [#17](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/17), y el inicio de sesión con Google, que valida el ID token con Nimbus y vincula la cuenta existente con el mismo correo, mediante el Pull Request [#26](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/26). La Tabla 4.64 presenta los commits de IAM en los Web Services.
+
+<a id="tabla-4-64"></a>**Tabla 4.64.** Commits de Web Services: IAM
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `bf5f4c2` | `chore: add security dependency` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `df71fb7` | `feat(iam): add user account aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `b27ea4d` | `feat(iam): add one-time password aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `2724d20` | `refactor(iam): move the password reset token into the user account aggregate` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1e4c149` | `feat(iam): add user account, one-time password and authentication command services` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `4ff079f` | `feat(iam): add registration, login and e-mail verified policies` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `db56552` | `feat(iam): add user account and one-time password JPA persistence` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1a4e406` | `feat(iam): add BCrypt, HMAC-SHA256 and SecureRandom security adapters` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `1cbf6ed` | `feat(iam): add RS256 JWT session tokens` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `6603aae` | `feat(iam): add stateless security filter chain` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `8373c1a` | `feat(iam): add Brevo e-mail provider adapter` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `6235c01` | `feat(iam): add Guardian+ e-mail templates based on the mobile app palette` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `edc624d` | `feat(iam): rate limit one-time passwords and resend the login code during a login` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `082027e` | `feat(iam): add the signed-in account endpoint (/user-accounts/me)` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `617277a` | `test(iam): add command service tests` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/iam` | `cb243e6` | `test(iam): add auth controller tests` | 2026-10-22 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `932f2a3` | `feat(iam): let a user account sign up and link with google` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `76e82aa` | `feat(iam): verify google id tokens with nimbus` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `7e0eec5` | `feat(iam): add the google sign-in endpoint` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/oauth` | `74a52ef` | `test(iam): cover google sign-in in the authentication service` | 2026-11-12 |
+
+##### Web Services — Emergency & Alerting
+
+Implementación de la entrega de alertas como notificaciones push mediante Firebase Cloud Messaging (US25): cada alerta se envía a los teléfonos que el Care Circle registró en el canal `PUSH`, de modo que la difusión inmediata de una alerta crítica (`BROADCAST`) llega a todos los contactos activos a la vez. Incluye la alerta por salida de la zona segura, generada a partir del evento de integración de Mobility & Geofencing, y, de forma anticipada, el envío por push de los recordatorios de citas médicas a todos los cuidadores de la persona (US13), que obtiene a través de la fachada del contexto Profile. Se integró a `develop` mediante los Pull Requests [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/19), [#23](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/23) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.65 presenta los commits de Emergency & Alerting en los Web Services.
+
+<a id="tabla-4-65"></a>**Tabla 4.65.** Commits de Web Services: Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `fc72826` | `feat(emergency-alerting): raise a safe zone violation alert from mobility's integration event` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-fcm-push-delivery` | `900c60f` | `feat(emergency-alerting): send push alerts through firebase cloud messaging` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-fcm-push-delivery` | `12b9046` | `chore(emergency-alerting): document the firebase service account setting` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `366aa35` | `feat(emergency-alerting): read caregivers through the profile context facade` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `2884c81` | `feat(emergency-alerting): send appointment reminders to every caregiver` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `cc5b205` | `feat(emergency-alerting): push appointment reminders through FCM` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `823a513` | `test(emergency-alerting): cover appointment reminder push notifications` | 2026-11-12 |
+
+##### Web Services — Mobility & Geofencing
+
+Continuación del Bounded Context Mobility & Geofencing: eliminación de zonas seguras y sus eventos de ciclo de vida, documentación OpenAPI de sus endpoints y recepción de la ubicación del wearable desde el broker MQTT en el tópico `guardian/location/+`. Las violaciones de la zona segura se publican como evento de integración para Emergency & Alerting. De forma anticipada (US28), se agregó la consulta de todas las zonas seguras de una persona, con una sola zona activa a la vez, y el estado `UNKNOWN` mientras el wearable no envía su primera ubicación. Se integró a `develop` mediante los Pull Requests [#16](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/16), [#18](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/18), [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/19), [#22](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/22) y [#24](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/24). La Tabla 4.66 presenta los commits de Mobility & Geofencing en los Web Services.
+
+<a id="tabla-4-66"></a>**Tabla 4.66.** Commits de Web Services: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `6aa39eb` | `feat(mobilitygeogfencing): Add event safe zone activate, desactiva, deleted and updated` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `412f27f` | `feat(mobilitygeogfencing): add command service delete safe zone` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `8ba1556` | `feat(mobilitygeogfencing): documentation endpoinds controller safe zone and location tracking` | 2026-10-21 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `0514b07` | `feat(mobility-geofencing): consume the wearable location from the MQTT broker` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `0c6332b` | `test(mobility-geofencing): add wearable location message handler tests` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-wearable-location-mqtt` | `e6de505` | `chore(mobility-geofencing): document the location telemetry settings` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `8e63401` | `feat(mobility-geofencing): publish safe zone violations as an integration event` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/emergency-alerting-safe-zone-violation-alerts` | `38fdced` | `test(mobility-geofencing): add safe zone violation event handler tests` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/mobility-geofencing-context` | `3f83522` | `refactor(mobilitygeogfencing):  location status resource factory fix` | 2026-10-25 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `504f2d0` | `fix(mobility-geofencing): list a fragile citizen's safe zones and keep one active zone at a time` | 2026-10-28 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `2bbf844` | `test(mobility-geofencing): add safe zone command service tests` | 2026-10-28 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/mobility-geofencing-safe-zone-endpoints` | `e8a785c` | `fix(mobility-geofencing): report an unknown status until the wearable sends a location` | 2026-10-28 |
+
+##### Web Services — Direct Communication
+
+Implementación anticipada de la comunicación directa con la pulsera (US23): inicio y fin de sesiones de llamada de voz o video, consulta de las capacidades del dispositivo, registro de las llamadas no atendidas tras 30 segundos y envío de alertas hápticas al wearable. Se integró a `develop` mediante el Pull Request [#25](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/25). La Tabla 4.67 presenta los commits de Direct Communication en los Web Services.
+
+<a id="tabla-4-67"></a>**Tabla 4.67.** Commits de Web Services: Direct Communication
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `451bfec` | `feat(communication): implement CommunicationCommandService for call management and alerts` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `409c59c` | `feat(communication): add CommunicationQueryService, CallSession, and CallLogEntry for call management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `866e544` | `feat(communication): add CallSessionRepository, CallStatus, and CallType for call management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `670310f` | `feat(communication): add CallSessionJpaEntity and SpringDataCallSessionRepository for call session management` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `fdbcb42` | `feat(communication): implement CommunicationController for managing direct communication and call sessions` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/comunications` | `66415ef` | `feat(communication): add CallSessionResource and DeviceCapabilitiesResource for call session and device capability representation` | 2026-11-12 |
+
+##### Web Services — Care Routines & Wellness
+
+Alineación del Bounded Context Care Routines & Wellness con las pantallas de la aplicación: recurrencia de los recordatorios, recordatorios omitidos y resumen de adherencia, registro y consumo del stock de medicación, plan de hidratación, detección de inactividad y registros de ciclos de sueño. En este Sprint se agregó la publicación de un evento de integración al emitirse un recordatorio de cita médica, que Emergency & Alerting envía por push. Se integró a `develop` mediante los Pull Requests [#15](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/15) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.68 presenta los commits de Care Routines & Wellness en los Web Services.
+
+<a id="tabla-4-68"></a>**Tabla 4.68.** Commits de Web Services: Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `4481f76` | `feat(care-routines): add reminder recurrence, missed handling and adherence summary` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `1d37506` | `feat(care-routines): add medication stock registration and consumption tracking` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `11fa615` | `feat(care-routines): add hydration plan aggregate, progress query and REST endpoints` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `3f12fdf` | `feat(care-routines): add activity log, inactivity detection settings and movement/walk events` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `9ed097c` | `feat(care-routines): add sleep cycle records query service and REST endpoint` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `08258e6` | `test(care-routines): add unit tests for care routines and wellness bounded context` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/care-routines-wellness-frontend-alignment` | `c60ec55` | `feat(care-routines): update reminder REST resources and schedule endpoint` | 2026-10-08 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `6153a07` | `feat(care-routines-wellness): publish an integration event when an appointment reminder is issued` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `f3f82c9` | `test(care-routines-wellness): cover the appointment reminder integration event` | 2026-11-12 |
+
+##### Web Services — Health Monitoring
+
+Los endpoints de signos vitales en vivo, historial y sincronización en lote que soportan US01 a US05 y US21 se implementaron en el Sprint 1 (sección 4.2.1.4). En este Sprint se agregó la desvinculación de un wearable de la persona bajo cuidado, que la aplicación utiliza desde el detalle de la pulsera. Se integró a `develop` mediante el Pull Request [#28](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/28). La Tabla 4.69 presenta los commits de Health Monitoring en los Web Services.
+
+<a id="tabla-4-69"></a>**Tabla 4.69.** Commits de Web Services: Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `7ae7564` | `feat(health-monitoring): add the unlink wearable device command` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `3e41361` | `feat(health-monitoring): unlink wearable devices in the command service` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `0e88f76` | `feat(health-monitoring): add the unlink wearable device endpoint` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/unlink-wearable-device` | `533aefd` | `test(health-monitoring): cover unlinking wearable devices` | 2026-11-12 |
+
+##### Web Services — Profile & Subscriptions
+
+Implementación del ciclo de vida de la suscripción: solicitud, activación tras el pago, cambio de plan, cancelación programada, renovación y consulta de los beneficios (*entitlements*) del plan, con un proveedor de pagos simulado. Incluye la conservación de los campos de auditoría de Profile en las actualizaciones y la fachada del contexto Profile que consume Emergency & Alerting. Se integró a `develop` mediante los Pull Requests [#20](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/20), [#21](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/21) y [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform/pull/29). La Tabla 4.70 presenta los commits de Profile & Subscriptions en los Web Services.
+
+<a id="tabla-4-70"></a>**Tabla 4.70.** Commits de Web Services: Profile & Subscriptions
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/subscriptions-backend-final` | `d0270aa` | `feat: implement subscriptions lifecycle and payment flow` | 2026-10-24 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `fix/profile-audit-fields-final` | `5a907df` | `fix(profile): preserve persistence audit fields on updates` | 2026-10-23 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `48ec9e3` | `feat(profile): add the profile context facade` | 2026-11-12 |
+| [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) | `feat/appointment-reminder-push` | `38ac332` | `test(profile): cover the profile context facade` | 2026-11-12 |
+
+##### Mobile App — IAM & Profile
+
+Reemplazo del inicio de sesión simulado por el de IAM: pantallas de registro, código OTP obligatorio en cada inicio de sesión, recuperación de contraseña e inicio de sesión y registro con Google mediante Credential Manager. La sesión se conserva en el dispositivo con su vencimiento y su token se envía en cada solicitud. Tras iniciar sesión, la aplicación carga el contexto de cuidado de la cuenta y, si no existe, guía al usuario en el registro de la persona bajo cuidado; desde Inicio el usuario puede cambiar entre las personas que cuida. Se integró a `develop` mediante los Pull Requests [#8](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/8), [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/11), [#23](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/23), [#27](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/27), [#29](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/29) y [#31](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/31). La Tabla 4.71 presenta los commits de IAM y Profile en la aplicación móvil.
+
+<a id="tabla-4-71"></a>**Tabla 4.71.** Commits de Mobile App: IAM & Profile
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/nag-login` | `aaba93b` | `feat(auth): add login route and navigation graph` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `0d2da36` | `feat(iam): model the user account aggregate with its status and login outcome` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `5094c19` | `feat(iam): keep the session on the device and send its token with every request` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `411cb58` | `feat(iam): sign in through IAM instead of the mocked login` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `23c056f` | `feat(iam): add the sign-up screen and its email verification step` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `24a7985` | `feat(iam): add the two-factor OTP challenge screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `6f48755` | `feat(iam): add the password recovery screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `3ce38a6` | `refactor(iam): make the OTP mandatory on every sign-in` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `6527ec5` | `feat(iam): connect the auth repositories to the platform` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `0626767` | `feat(profile): load the care context and complete the onboarding` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `e8db5d2` | `feat(profile): add the session start and onboarding screens` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `5a1dfd5` | `test(iam): update the auth tests to the platform contract` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/oauth` | `b6dc4dd` | `feat(iam): exchange a Google ID token for a session through the platform` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/oauth` | `795046b` | `feat(iam): request the Google ID token through Credential Manager` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/google-sign-up` | `6f3d9bf` | `feat(iam): sign up with Google from the register screen` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/remove-biometric-button` | `2e0c000` | `feat(iam): remove the biometric access button from the login screen` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `dd9a012` | `feat(profile): add the use cases to list and switch people under care` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `37d9771` | `feat(profile): add the sheet to switch the person under care` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/switch-care-recipient` | `f6147f1` | `test(profile): cover choosing the person under care` | 2026-11-12 |
+
+##### Mobile App — Emergency & Alerting
+
+Registro del teléfono en el canal `PUSH` mientras hay una sesión iniciada, recepción de las alertas como notificaciones de Firebase Cloud Messaging en un canal de alta prioridad y apertura del detalle de la alerta al tocar la notificación (US25). El detalle de la alerta muestra el contexto del incidente a partir de las últimas lecturas de la pulsera y el lugar donde ocurrió a partir de su última ubicación. Se integró a `develop` mediante los Pull Requests [#13](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/13), [#14](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/14), [#18](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/18) y [#19](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/19). La Tabla 4.72 presenta los commits de Emergency & Alerting en la aplicación móvil.
+
+<a id="tabla-4-72"></a>**Tabla 4.72.** Commits de Mobile App: Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-live-alert-context` | `b96ddae` | `feat(emergency-alerting): read the alert context from the wristband's live readings` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-live-alert-context` | `c177886` | `test(emergency-alerting): add alert context repository tests` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-alert-location` | `5cf0e8f` | `feat(emergency-alerting): show where the alert happened from the wristband's last location` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-alert-location` | `6cb83d1` | `test(emergency-alerting): cover the alert location in the context repository tests` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `6a3a004` | `chore(build): add firebase cloud messaging and the definitive application id` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `d595077` | `feat(emergency-alerting): register this phone for push alerts while an account is signed in` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-device-registration` | `aede612` | `test(emergency-alerting): add push device registration tests` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-notifications` | `1fac9ee` | `feat(emergency-alerting): show push alerts and open the alert from its notification` | 2026-10-26 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/emergency-alerting-push-notifications` | `f607ffb` | `test(emergency-alerting): add alert notification channel tests` | 2026-10-26 |
+
+##### Mobile App — Health Monitoring
+
+Rediseño de la pestaña *Ahora* de la sección Salud según el prototipo, con la última lectura de cada signo vital y su tendencia del día (US01 a US05); búsqueda y filtrado del historial por periodo, signo vital y estado; reportes de salud con su exportación a PDF; y vinculación y desvinculación de la pulsera desde Inicio y desde su detalle. Se integró a `develop` mediante los Pull Requests [#9](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/9), [#11](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/11) y [#30](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/30). La Tabla 4.73 presenta los commits de Health Monitoring en la aplicación móvil.
+
+<a id="tabla-4-73"></a>**Tabla 4.73.** Commits de Mobile App: Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `e58f028` | `feat(health-monitoring): add the search bar and the search and filter sheet` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `0032291` | `feat(health-monitoring): filter the history by period, vital sign and state` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `4d206f0` | `feat(health-monitoring): add health reports and their platform client` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `4e5e417` | `feat(health-monitoring): generate the weekly report from the history` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/health-monitoring` | `73ac45f` | `feat(health-monitoring): export health reports as PDF` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `d5053bc` | `feat(health-monitoring): add the link wearable sheet` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/iam-implementation` | `eddde5d` | `feat(health-monitoring): link the wearable from the Home status card` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/unlink-wearable-device` | `372d55e` | `feat(health-monitoring): add the unlink wearable device use case` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/unlink-wearable-device` | `2178267` | `feat(health-monitoring): unlink the wristband from its details page` | 2026-11-12 |
+
+##### Mobile App — Care Routines & Wellness
+
+Implementación de la sección Rutinas conectada a los Web Services: inicio de rutinas, medicación y su formulario, stock de medicación, citas médicas y su formulario, plan de hidratación, ciclo de sueño, registro de actividad y detección de inactividad. Los repositorios simulados se reemplazaron por implementaciones remotas con Retrofit. De forma anticipada (US13), la aplicación muestra los recordatorios de citas en un canal de notificación propio y abre las citas al tocar la notificación. Se integró a `develop` mediante los Pull Requests [#7](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/7), [#10](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/10) y [#33](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/33). La Tabla 4.74 presenta los commits de Care Routines & Wellness en la aplicación móvil.
+
+<a id="tabla-4-74"></a>**Tabla 4.74.** Commits de Mobile App: Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/routines-and-wellness-screens` | `e4dd4fd` | `feat(care-routines): add care routines and wellness feature screens` | 2026-10-09 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `13c9437` | `feat(care-routines): add reminder remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `9e8b544` | `feat(care-routines): add hydration plan remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `f256093` | `feat(care-routines): add medication stock remote service, dto and repository implementation` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `18f521d` | `feat(care-routines): add reminder use cases (schedule, confirm, cancel, mark as missed)` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `7bfcde6` | `feat(care-routines): rework routines home screen and view model with remote data` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `2458a42` | `feat(care-routines): add appointments list and appointment form screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `8797625` | `feat(care-routines): add medication list and medication form screens` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `d85150b` | `feat(care-routines): add hydration plan screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `39d0dc6` | `feat(care-routines): add sleep cycle screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `e78414d` | `feat(care-routines): add inactivity detection settings screen` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/care-routines-and-wellness` | `e377fe4` | `test(care-routines): add unit tests for care routines and wellness feature` | 2026-10-21 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/appointment-reminder-push` | `adc2de0` | `feat(care-routines-wellness): add the appointment reminders notification channel` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/appointment-reminder-push` | `2a64f1e` | `feat(care-routines-wellness): open the appointments from a reminder notification` | 2026-11-12 |
+
+##### Mobile App — Mobility & Geofencing
+
+Implementación de la sección Ubicación: posición de la persona bajo cuidado en el mapa con la zona segura activa dibujada, administración de las zonas seguras con su activación, edición y eliminación, y, de forma anticipada (US23), las opciones de llamada de voz y video con la pulsera desde la pantalla de ubicación. Se integró a `develop` mediante los Pull Requests [#15](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/15), [#17](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/17), [#20](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/20), [#21](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/21) y [#22](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/22). La Tabla 4.75 presenta los commits de Mobility & Geofencing en la aplicación móvil.
+
+<a id="tabla-4-75"></a>**Tabla 4.75.** Commits de Mobile App: Mobility & Geofencing
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `e1a8b17` | `feat(mobilitygeofencing): add core domain models for tracking and safe zones` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8288768` | `feat(mobility-geofencing): add Retrofit API endpoints for location tracking and safe zone management` | 2026-10-22 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `e80deef` | `feat(mobility-geofencing): implement repository for location tracking and safe zone operations` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `704cc87` | `feat(mobility-geofencing): add location tracking screen with realtime location UI and navigation actions` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8cc159b` | `feat(mobility-geofencing): implement safe zones screen with status toggle` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8de95ca` | `fix(mobility-geofencing): repair navigation, toplevel destination` | 2026-10-25 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/mobility-and-geofencing` | `8edb962` | `feat(mobility-geofencing):  add funcionality edit compose, mobility navigation refactor update, view model` | 2026-10-27 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/mobility-geofencing-safe-zone-endpoints` | `38e5a50` | `fix(mobility-geofencing): draw the real safe zone on the map and stop showing sample location data` | 2026-10-28 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `fix/mobility-geofencing-safe-zone-endpoints` | `b8fe2f8` | `test(mobility-geofencing): add location tracking state tests` | 2026-10-28 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `c64a6ef` | `feat(communication): implement device communication models and repository methods for call management` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `79c6e66` | `feat(communication): add VideoCallViewModel and VoiceCallScreen for managing video and voice calls` | 2026-11-12 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/comunications` | `0d9fa93` | `feat(communication): add communication options in LocationTrackingScreen with modal for video and voice calls` | 2026-11-12 |
+
+##### Mobile App — Profile & Subscriptions
+
+Implementación de las secciones de perfil y configuración de la aplicación y de la gestión del plan de suscripción conectada a los Web Services de Subscriptions. Se integró a `develop` mediante el Pull Request [#16](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app/pull/16). La Tabla 4.76 presenta los commits de Profile & Subscriptions en la aplicación móvil.
+
+<a id="tabla-4-76"></a>**Tabla 4.76.** Commits de Mobile App: Profile & Subscriptions
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/profile-subscriptions-final` | `6bcb2bf` | `feat(profile): add profile extras and settings flows` | 2026-10-23 |
+| [guardian-plus-mobile-app](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app) | `feat/profile-subscriptions-final` | `fab6edc` | `feat(subscriptions): integrate mobile plan with backend` | 2026-10-24 |
+
+##### Mobile App (Flutter) — Base de la aplicación e IAM
+
+Creación del proyecto Flutter con la arquitectura de cuatro capas por Bounded Context (domain, application, infrastructure y presentation), inyección de dependencias con `get_it`, cliente HTTP con `http`, tema con la paleta y las tipografías de la guía de estilos, pantalla de inicio de sesión y página principal con la barra de navegación. Se integró a `develop` mediante los Pull Requests [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/1) y [#2](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/2). La Tabla 4.77 presenta los commits de la base de la aplicación en Flutter.
+
+<a id="tabla-4-77"></a>**Tabla 4.77.** Commits de Mobile App (Flutter): base de la aplicación e IAM
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `093d645` | `chore: initial project setup` | 2026-11-01 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `6ed00f4` | `feat: add app theme` | 2026-11-06 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `f42275f` | `feat: add login viewmodel` | 2026-11-06 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `01d7878` | `feat(auth): add login page with hero stats and login sheet` | 2026-11-11 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/basic-screens` | `5a63b46` | `feat(auth): add Google and biometric sign-in options to login sheet` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `b45a685` | `chore: add http, get_it, brand fonts and the Guardian+ theme` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `c888458` | `feat(core): add the api client and the care context of the signed-in account` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `f50b9e1` | `feat: add the main page with the routines and alerts tabs and open it from the login` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Emergency & Alerting
+
+Implementación del Bounded Context Emergency & Alerting en Flutter: configuración de alertas, contactos de emergencia, pestaña Alertas con las alertas activas y el historial, y detalle de la alerta con el recorrido del incidente. El reloj de la aplicación sigue la cabecera `Date` del servidor para calcular los tiempos transcurridos. Se integró a `develop` mediante los Pull Requests [#1](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/1) y [#6](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/6). La Tabla 4.78 presenta los commits de Emergency & Alerting en la aplicación Flutter.
+
+<a id="tabla-4-78"></a>**Tabla 4.78.** Commits de Mobile App (Flutter): Emergency & Alerting
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `3e7a943` | `feat(emergency-alerting): add emergency contacts and alert settings domain, use cases and api` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `7fca814` | `feat(emergency-alerting): add the alert settings and emergency contacts screens` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `51da8d8` | `test(emergency-alerting): add api client, repository, view model and screen tests` | 2026-11-08 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-contacts-and-settings` | `3b6f8e9` | `refactor(emergency-alerting): register its dependencies from its own file` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `3d269cd` | `feat(core): add a server clock that follows the platform's Date header` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `87882b2` | `feat(emergency-alerting): add alerts and incidents domain, use cases and api` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `f90f973` | `feat(emergency-alerting): add the alert detail with the incident route` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `ca10b3a` | `feat(emergency-alerting): add the alerts tab with the active alerts and the history` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/emergency-alerting-alerts-and-detail` | `7f1eacb` | `test(emergency-alerting): add alert, incident and alerts screen tests` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Health Monitoring
+
+Implementación del Bounded Context Health Monitoring en Flutter: Inicio con el estado de la persona bajo cuidado, signos vitales en vivo, historial con filtros, vinculación y detalle de la pulsera y cierre de sesión desde el avatar. Se integró a `develop` mediante el Pull Request [#5](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/5). La Tabla 4.79 presenta los commits de Health Monitoring en la aplicación Flutter.
+
+<a id="tabla-4-79"></a>**Tabla 4.79.** Commits de Mobile App (Flutter): Health Monitoring
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `dbcb328` | `feat(health-monitoring): add domain models` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `e60a888` | `feat(health-monitoring): add home page and live vitals view model` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `8f801ec` | `feat(health-monitoring): add live vitals page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0b459ac` | `feat(health-monitoring): add vital history page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `47b8685` | `feat(health-monitoring): add health page with now and history tabs` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0d59242` | `feat(health-monitoring): add vital sign and wearable infrastructure` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `0818209` | `feat(main): add the floating bottom bar with the raised alerts button` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `fe6e188` | `feat(health-monitoring): add wearable details page` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `f3e36bc` | `feat(auth): add logout use case and confirmation dialog` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `9dee3ce` | `test(health-monitoring): cover the home dashboard end to end` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/monitoring-context` | `3661122` | `test(health-monitoring): cover the health tab end to end` | 2026-11-12 |
+
+##### Mobile App (Flutter) — Care Routines & Wellness
+
+Implementación del Bounded Context Care Routines & Wellness en Flutter: dominio de recordatorios, adherencia, hidratación, stock de medicación, actividad y sueño; sus clientes de API; y las pantallas de rutinas, medicación, citas, hidratación, actividad, detección de inactividad, sueño y stock. Se integró a `develop` mediante el Pull Request [#3](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter/pull/3). La Tabla 4.80 presenta los commits de Care Routines & Wellness en la aplicación Flutter.
+
+<a id="tabla-4-80"></a>**Tabla 4.80.** Commits de Mobile App (Flutter): Care Routines & Wellness
+
+| Repository | Branch | Commit Id | Commit Message | Committed on |
+|---|---|---|---|---|
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `645ad73` | `feat(care-routines-wellness): add reminder entity, schedule request and repository` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `17427e5` | `feat(care-routines-wellness): add reminder and adherence use cases` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `7e505b0` | `feat(care-routines-wellness): add reminder and adherence api with dtos` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `2422507` | `feat(care-routines-wellness): add repository implementations` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `40d467e` | `feat(care-routines-wellness): add routines home state and view model` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `ef1d1fd` | `feat(care-routines-wellness): add routines home screen and components` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `48728b9` | `feat(care-routines-wellness): add medication screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `e6d0b25` | `feat(care-routines-wellness): add appointments screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `3cf8b47` | `feat(care-routines-wellness): add hydration screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `0f956c0` | `feat(care-routines-wellness): add sleep screen` | 2026-11-12 |
+| [guardian-plus-mobile-app-flutter](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter) | `feat/care-routines-wellness` | `385f5ac` | `feat(care-routines-wellness): add navigation between routine screens` | 2026-11-12 |
+
+#### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+En el Sprint 2 las pruebas automatizadas se ampliaron a los tres productos de software que se modificaron: los Web Services, la aplicación móvil en Kotlin y la aplicación móvil en Flutter. Cada Pull Request incorporó las pruebas de los comportamientos que agregaba, y en los Web Services el workflow `CI` ejecuta la suite completa sobre PostgreSQL 17 antes de permitir la integración a `develop`.
+
+Las pruebas siguen el patrón **Arrange - Act - Assert (AAA)** del Sprint 1. En los Web Services se utilizan **JUnit Jupiter** y **Mockito** para las pruebas de dominio y de servicios de aplicación, **MockMvc** para las pruebas de los controladores REST y **Cucumber** para las pruebas de aceptación en Gherkin. En la aplicación en Kotlin se utiliza **JUnit 4** sobre la JVM, y en la aplicación en Flutter, el paquete **flutter_test** con pruebas unitarias y de widgets que reemplazan el cliente HTTP por respuestas simuladas.
+
+##### Unit Tests - Web Services
+
+La Tabla 4.81 resume las clases de prueba agregadas en el Sprint 2 en los Web Services, agrupadas por Bounded Context.
+
+<a id="tabla-4-81"></a>**Tabla 4.81.** Pruebas agregadas en los Web Services en el Sprint 2
+
+| Bounded Context | Test Class | Tests | Behavior Verified |
+|---|---|---|---|
+| IAM | `UserAccountTest` | 17 | Registro pendiente de verificación, activación al verificar el correo, inicio de sesión solo con la contraseña correcta y la cuenta verificada, restablecimiento con un token vigente y vinculación con Google sin perder la contraseña de una cuenta verificada. |
+| IAM | `OneTimePasswordTest`, `EmailTest` | 18 | Vencimiento y uso único de los códigos OTP y validación del formato del correo. |
+| IAM | `AuthenticationCommandServiceImplTest` | 10 | Inicio de sesión en dos pasos, rechazo y conteo de un OTP incorrecto, misma respuesta ante un correo desconocido o una contraseña incorrecta, y primer acceso o vinculación con Google. |
+| IAM | `UserAccountCommandServiceImplTest`, `OneTimePasswordCommandServiceImplTest` | 16 | Registro de credenciales, verificación del correo, reenvío de códigos y límite de cinco códigos por cada quince minutos. |
+| IAM | `NimbusGoogleIdTokenVerifierAdapterTest` | 7 | Aceptación del ID token de Google solo para los clientes y emisores configurados, con el correo verificado y sin vencer. |
+| IAM | `JwtTokenProviderAdapterTest`, `HmacSha256SecretHasherAdapterTest`, `SecureRandomSecretGeneratorAdapterTest`, `IamEmailTemplatesTest` | 14 | Firma y validación de los tokens de sesión RS256, hash de los códigos, generación de secretos y plantillas de correo. |
+| IAM | `AuthControllerTest`, `UserAccountsControllerTest` | 12 | Respuestas HTTP de los endpoints de autenticación y de la cuenta con sesión iniciada. |
+| Subscriptions | `SubscriptionTest`, `EntitlementSetTest` | 7 | Creación pendiente, activación, renovación y cancelación programada de la suscripción, y conjunto de beneficios del plan. |
+| Subscriptions | 22 clases de servicios de aplicación, pagos simulados y programación | 100 | Pago inicial y de renovación confirmado o fallido, cambio de plan, evaluación de renovación y vencimiento, y ejecución programada del ciclo de vida. |
+| Subscriptions | 5 clases de persistencia JPA | 20 | Ensambladores y repositorios de la suscripción y sus beneficios. |
+| Subscriptions | `SubscriptionControllerTest`, `SubscriptionControllerValidationTest` | 15 | Respuestas HTTP de solicitud, cambio de plan, cancelación, estado y beneficios, y validación de las solicitudes. |
+| Mobility & Geofencing | `SafeZoneCommandServiceTest` | 5 | Una sola zona activa por persona, sin afectar a otras personas, y reporte de zonas inexistentes sin excepciones. |
+| Mobility & Geofencing | `WearableLocationMessageHandlerTest` | 3 | Registro de la ubicación recibida por MQTT y descarte de los mensajes mal formados o sin persona. |
+| Mobility & Geofencing | `SafeZoneViolationDetectedEventHandlerTest` | 1 | Publicación de la violación de la zona segura para Emergency & Alerting. |
+| Emergency & Alerting | `ReminderNotificationSenderTest` | 4 | Envío del recordatorio de cita a cada cuidador con un token push habilitado, sin detenerse ante un fallo del proveedor. |
+| Emergency & Alerting | `PushNotificationTextsTest` | 2 | Textos de las notificaciones push de los recordatorios de cita. |
+| Care Routines & Wellness | `ReminderTest`, `RecurrenceRuleTest`, `MedicationStockTest`, `ActivityMonitorTest`, `HydrationPlanTest`, `SleepCycleRecordTest`, `AdherenceSummaryTest` | 40 | Ciclo de vida de los recordatorios con recurrencia, consumo del stock de medicación, detección de inactividad, plan de hidratación, ciclos de sueño y resumen de adherencia. |
+| Care Routines & Wellness | `AppointmentReminderIssuedEventHandlerTest` | 2 | Publicación del evento de integración solo para los recordatorios de cita emitidos. |
+| Profile | `ProfileContextFacadeImplTest` | 4 | Consulta de los cuidadores de una persona bajo cuidado desde otros contextos. |
+| Health Monitoring | `WearableDeviceCommandServiceImplTest`, `WearableDevicesAndVitalSignTypesControllersIntegrationTest` | 4 | Desvinculación de un wearable existente y respuesta `404` ante uno inexistente, en el servicio y en el endpoint. |
+
+##### Unit Tests - Mobile Application
+
+La Tabla 4.82 resume las clases de prueba de la aplicación móvil en Kotlin y de la aplicación en Flutter.
+
+<a id="tabla-4-82"></a>**Tabla 4.82.** Pruebas de las aplicaciones móviles
+
+| Aplicación | Bounded Context | Test Class / File | Tests | Behavior Verified |
+|---|---|---|---|---|
+| Kotlin | IAM | `EmailTest`, `UserAccountTest`, `AuthenticatedSessionTest`, `LoginUseCaseTest`, `UserAccountMappersTest`, `EmailInputTest`, `OtpVerificationUiStateTest` | 21 | Validación del correo, estado de la cuenta, vencimiento de la sesión, inicio de sesión contra la plataforma y estado de la pantalla OTP. |
+| Kotlin | Profile | `CareRecipientSelectionTest` | 4 | Elección y cambio de la persona bajo cuidado al cargar el contexto de cuidado. |
+| Kotlin | Emergency & Alerting | `RegisterPushDeviceUseCaseTest`, `AlertNotificationsTest`, `AlertContextRepositoryImplTest` | 12 | Registro del teléfono para push, canal de notificación de alertas y contexto y ubicación del incidente a partir de la pulsera. |
+| Kotlin | Health Monitoring | `LiveVitalsUiStateTest`, `VitalFilterTest`, `VitalHistoryUiStateTest`, `WeeklyReportTest`, `HealthReportLabelsTest` | 30 | Estado de los signos vitales en vivo, filtros e historial, reporte semanal y etiquetas de los reportes. |
+| Kotlin | Care Routines & Wellness | `NextOccurrenceTest`, `ReminderNotificationsTest` | 7 | Próxima ocurrencia de una rutina y reconocimiento de las notificaciones de citas. |
+| Kotlin | Mobility & Geofencing | `LocationTrackingUiStateTest` | 2 | Estado de la pantalla de ubicación con la zona segura real. |
+| Flutter | Core | `api_client_test.dart` | 5 | Cliente HTTP: cabeceras, errores del servidor y reloj del servidor. |
+| Flutter | Emergency & Alerting | `domain_test.dart`, `alert_rules_test.dart`, `infrastructure_test.dart`, `alert_infrastructure_test.dart` | 22 | Reglas de las alertas y los contactos, y lectura de las respuestas de la API. |
+| Flutter | Emergency & Alerting | `alert_view_models_test.dart`, `alert_detail_state_test.dart`, `alert_settings_view_model_test.dart`, `emergency_contacts_view_model_test.dart`, `alert_pages_test.dart`, `emergency_alerting_pages_test.dart` | 39 | ViewModels y pantallas de alertas, detalle, configuración y contactos. |
+| Flutter | Health Monitoring | `home_page_test.dart`, `health_page_test.dart` | 7 | Inicio, sección Salud, detalle de la pulsera y cierre de sesión de principio a fin con la API simulada. |
+
+##### Testing Execution Evidence
+
+Las pruebas de los Web Services se ejecutaron con Maven sobre una base de datos PostgreSQL 17 local, la misma versión que utiliza el workflow `CI`:
+
+~~~bash
+./mvnw -B test
+~~~
+
+~~~text
+Tests run: 460, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+~~~
+
+Las 460 pruebas se distribuyen entre Subscriptions (142), Health Monitoring (139, de las cuales 21 son escenarios de aceptación en Gherkin), IAM (94), Care Routines & Wellness (46), Profile (23), Mobility & Geofencing (9), Emergency & Alerting (6) y la carga del contexto de la aplicación (1). La Figura 4.20 muestra el reporte de Surefire generado a partir de esa ejecución con `./mvnw surefire-report:report-only`.
+
+<a id="figura-4-20"></a>**Figura 4.20.** Ejecución de las pruebas de los Web Services
+
+![web-services-tests-execution](assets/images/chatper4/sprint2/web-services-tests-execution.png)
+
+Las pruebas de la aplicación móvil en Kotlin se ejecutaron con Gradle:
+
+~~~bash
+./gradlew testDebugUnitTest
+~~~
+
+La ejecución comprende **77 pruebas** en 20 clases, sin fallos. La Figura 4.21 muestra el reporte HTML que Gradle genera en `app/build/reports/tests/testDebugUnitTest`.
+
+<a id="figura-4-21"></a>**Figura 4.21.** Ejecución de las pruebas de la aplicación móvil en Kotlin
+
+![mobile-app-tests-execution](assets/images/chatper4/sprint2/mobile-app-tests-execution.png)
+
+Las pruebas de la aplicación en Flutter se ejecutaron con:
+
+~~~bash
+flutter test
+~~~
+
+~~~text
+00:02 +73: All tests passed!
+~~~
+
+La Figura 4.22 muestra la ejecución de las **73 pruebas** de la aplicación en Flutter.
+
+<a id="figura-4-22"></a>**Figura 4.22.** Ejecución de las pruebas de la aplicación en Flutter
+
+![flutter-app-tests-execution](assets/images/chatper4/sprint2/flutter-app-tests-execution.png)
+
+##### Integration Tests and Acceptance Tests
+
+En los Web Services, las pruebas de los controladores de IAM y Subscriptions levantan la capa web con MockMvc y verifican los códigos HTTP y el cuerpo de las respuestas. Las pruebas de integración REST y los 21 escenarios de aceptación en Gherkin de Health Monitoring, incorporados en el Sprint 1, se mantienen en la suite y se ejecutan en cada Pull Request, por lo que verifican que los cambios del Sprint 2 no alteraron el comportamiento de US01 a US05, US09 y US21. En la aplicación en Flutter, las pruebas de `home_page_test.dart` y `health_page_test.dart` recorren las pantallas de principio a fin con la API simulada.
+
+##### Testing Repository
+
+Las pruebas se encuentran en los repositorios de cada producto, junto con su implementación. La Tabla 4.83 resume su ubicación.
+
+<a id="tabla-4-83"></a>**Tabla 4.83.** Ubicación de las pruebas automatizadas
+
+| Repository | Branch | Testing source path |
+|---|---|---|
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `develop` | `src/test/java/com/healthify/guardian/platform` y `src/test/resources/features` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `develop` | `app/src/test/java/com/example/guardian_plus_mobile_app/features` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `develop` | `test/core` y `test/features` |
+
+##### Testing Commits
+
+Los commits de la Tabla 4.84 contienen las pruebas automatizadas incorporadas durante el Sprint 2.
+
+<a id="tabla-4-84"></a>**Tabla 4.84.** Commits de las pruebas del Sprint 2
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `0efbf64` | `test(iam): add user account and email domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `0e2b140` | `test(iam): add one-time password domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `70a093a` | `test(iam): add password reset token domain tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `617277a` | `test(iam): add command service tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `e1f0401` | `test(iam): add security adapter tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `cb243e6` | `test(iam): add auth controller tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `2db409c` | `test(iam): add e-mail template tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/iam` | `ff2869e` | `test(iam): cover the unverified login, the code rate limit and the login code resend` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `06d78de` | `test(iam): cover google sign-up and linking on the user account` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `931e8a0` | `test(iam): cover the google id token verifier` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `74a52ef` | `test(iam): cover google sign-in in the authentication service` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/oauth` | `3c3ad7c` | `test(iam): cover the google sign-in endpoint` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/subscriptions-backend-final` | `d0270aa` | `feat: implement subscriptions lifecycle and payment flow` | — | `2026-10-24` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/mobility-wearable-location-mqtt` | `0c6332b` | `test(mobility-geofencing): add wearable location message handler tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/emergency-alerting-safe-zone-violation-alerts` | `38fdced` | `test(mobility-geofencing): add safe zone violation event handler tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `fix/mobility-geofencing-safe-zone-endpoints` | `2bbf844` | `test(mobility-geofencing): add safe zone command service tests` | — | `2026-10-28` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `823a513` | `test(emergency-alerting): cover appointment reminder push notifications` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/care-routines-wellness-frontend-alignment` | `08258e6` | `test(care-routines): add unit tests for care routines and wellness bounded context` | — | `2026-10-08` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `f3f82c9` | `test(care-routines-wellness): cover the appointment reminder integration event` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/appointment-reminder-push` | `38ac332` | `test(profile): cover the profile context facade` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform` | `feat/unlink-wearable-device` | `533aefd` | `test(health-monitoring): cover unlinking wearable devices` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/iam-implementation` | `5a1dfd5` | `test(iam): update the auth tests to the platform contract` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/switch-care-recipient` | `f6147f1` | `test(profile): cover choosing the person under care` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-live-alert-context` | `c177886` | `test(emergency-alerting): add alert context repository tests` | — | `2026-10-22` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-alert-location` | `6cb83d1` | `test(emergency-alerting): cover the alert location in the context repository tests` | — | `2026-10-23` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-push-device-registration` | `aede612` | `test(emergency-alerting): add push device registration tests` | — | `2026-10-25` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/emergency-alerting-push-notifications` | `f607ffb` | `test(emergency-alerting): add alert notification channel tests` | — | `2026-10-26` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/care-routines-and-wellness` | `e377fe4` | `test(care-routines): add unit tests for care routines and wellness feature` | — | `2026-10-21` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `feat/appointment-reminder-push` | `9a75dca` | `test(care-routines-wellness): cover recognizing appointment reminder pushes` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app` | `fix/mobility-geofencing-safe-zone-endpoints` | `b8fe2f8` | `test(mobility-geofencing): add location tracking state tests` | — | `2026-10-28` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/emergency-alerting-contacts-and-settings` | `51da8d8` | `test(emergency-alerting): add api client, repository, view model and screen tests` | — | `2026-11-08` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/emergency-alerting-alerts-and-detail` | `7f1eacb` | `test(emergency-alerting): add alert, incident and alerts screen tests` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `9dee3ce` | `test(health-monitoring): cover the home dashboard end to end` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `3661122` | `test(health-monitoring): cover the health tab end to end` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `2cc966d` | `test(health-monitoring): cover the wristband details` | — | `2026-11-12` |
+| `upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-mobile-app-flutter` | `feat/monitoring-context` | `cd1701d` | `test(health-monitoring): cover signing out from home` | — | `2026-11-12` |
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales: el usuario se registra, verifica su correo, inicia sesión con un código OTP o con Google y registra a la persona bajo cuidado. En la sección Salud se muestran en vivo los cinco signos vitales de la pulsera con su clasificación (US01 a US05), y las lecturas que el wearable envía en lote tras recuperar la conexión se integran al historial (US21). Las alertas críticas llegan como notificaciones push a todos los contactos del Care Circle y abren su detalle al tocarlas (US25). Como avance del Sprint 3, la aplicación incorpora la sección Rutinas conectada a los Web Services, la sección Ubicación con las zonas seguras, las llamadas con la pulsera y los recordatorios de citas por push.
+
+De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
+
+##### Mobile Application
+
+La Figura 4.23 muestra la aplicación móvil en Kotlin ejecutándose en el emulador de Android Studio.
+
+<a id="figura-4-23"></a>**Figura 4.23.** Aplicación móvil en Kotlin en ejecución
+
+![mobile-app-execution](assets/images/chatper4/sprint2/mobile-app-execution.png)
+
+La Figura 4.24 muestra la aplicación en Flutter ejecutándose en el emulador.
+
+<a id="figura-4-24"></a>**Figura 4.24.** Aplicación móvil en Flutter en ejecución
+
+![flutter-app-execution](assets/images/chatper4/sprint2/flutter-app-execution.png)
+
+La Tabla 4.85 presenta los enlaces a los videos de ejecución de las aplicaciones móviles.
+
+<a id="tabla-4-85"></a>**Tabla 4.85.** Videos de ejecución de las aplicaciones móviles
+
+| Producto | Video de ejecución |
+|---|---|
+| Mobile Application (Kotlin) | [Guardian+ — Mobile Application (Sprint 2)](COMPLETAR-ENLACE-VIDEO-KOTLIN) |
+| Mobile Application (Flutter) | [Guardian+ — Mobile Application Flutter (Sprint 2)](COMPLETAR-ENLACE-VIDEO-FLUTTER) |
+
+##### Web Services
+
+Los Web Services se encuentran publicados en Microsoft Azure y su documentación puede consultarse en [Swagger UI](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html). Al cierre del Sprint 2 exponen 105 operaciones en 97 rutas, frente a las 63 rutas del Sprint 1. La Figura 4.25 muestra los endpoints disponibles en el entorno desplegado.
+
+<a id="figura-4-25"></a>**Figura 4.25.** Web Services en ejecución en Swagger UI
+
+![web-services-execution](assets/images/chatper4/sprint2/web-services-swagger.png)
+
+La Tabla 4.86 presenta el enlace al video de ejecución de los Web Services.
+
+<a id="tabla-4-86"></a>**Tabla 4.86.** Video de ejecución de los Web Services
+
+| Producto | Video de ejecución |
+|---|---|
+| Web Services | [Guardian+ — Web Services (Sprint 2)](COMPLETAR-ENLACE-VIDEO-WEB-SERVICES) |
+
+#### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+Los Web Services se documentan con OpenAPI mediante springdoc-openapi, del mismo modo que en el Sprint 1 (sección 4.2.1.7). En esta sección se presentan los endpoints agregados o modificados en el Sprint 2. Los endpoints de signos vitales en vivo, historial y sincronización en lote que soportan US01 a US05 y US21 se documentaron en la Tabla 4.48 y no cambiaron.
+
+##### IAM
+
+La Tabla 4.87 presenta los endpoints de IAM. El inicio de sesión se realiza en dos pasos: `POST /api/v1/auth/login` valida la contraseña y envía un código OTP al correo, y `POST /api/v1/auth/otp/verify` valida el código y entrega el token de sesión.
+
+<a id="tabla-4-87"></a>**Tabla 4.87.** Endpoints de IAM
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/auth/register` | Registra las credenciales y envía el código de verificación del correo | Body: `email`, `password` | 201 `UserAccountResource` / 400 / 409 |
+| POST | `/api/v1/auth/verify-email` | Verifica el correo con el código recibido y activa la cuenta | Body: `userAccountId`, `code` | 200 `UserAccountResource` / 400 / 404 / 422 |
+| POST | `/api/v1/auth/verify-email/resend` | Envía un nuevo código de verificación del correo | Body: `userAccountId` | 202 `MessageResource` / 404 / 422 |
+| POST | `/api/v1/auth/login` | Valida la contraseña y envía el código de inicio de sesión (paso 1 de 2) | Body: `email`, `password` | 202 `OtpChallengeResource` / 401 / 403 |
+| POST | `/api/v1/auth/otp/verify` | Valida el código y entrega el token de sesión (paso 2 de 2) | Body: `userAccountId`, `code` | 200 `AuthenticatedSessionResource` / 400 / 401 |
+| POST | `/api/v1/auth/otp/resend` | Envía un nuevo código de inicio de sesión | Body: `userAccountId` | 202 `MessageResource` / 401 / 422 |
+| POST | `/api/v1/auth/google` | Inicia sesión o registra la cuenta con un ID token de Google | Body: `idToken` | 200 `AuthenticatedSessionResource` / 400 / 401 |
+| POST | `/api/v1/auth/password-reset/request` | Envía al correo el token de recuperación de contraseña | Body: `email` | 202 `MessageResource` / 400 / 404 |
+| POST | `/api/v1/auth/password-reset/confirm` | Establece una nueva contraseña con el token de recuperación | Body: `token`, `newPassword` | 200 `MessageResource` / 400 |
+| GET | `/api/v1/user-accounts/me` | Cuenta de la sesión iniciada | Header: `Authorization` | 200 `UserAccountResource` / 401 / 404 |
+| GET | `/api/v1/user-accounts/{userAccountId}` | Detalle de una cuenta | Path: `userAccountId` | 200 `UserAccountResource` / 404 |
+| GET | `/api/v1/user-accounts/availability` | Indica si un correo está disponible para el registro | Query: `email` | 200 `EmailAvailabilityResource` / 400 |
+
+##### Subscriptions
+
+La Tabla 4.88 presenta los endpoints de Subscriptions.
+
+<a id="tabla-4-88"></a>**Tabla 4.88.** Endpoints de Subscriptions
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/subscriptions` | Solicita una suscripción a un plan e inicia su pago | Body: `subscriberId`, `planId` | 201 `SubscriptionResource` / 400 |
+| PATCH | `/api/v1/subscriptions/{subscriptionId}/plan` | Cambia el plan de la suscripción | Path: `subscriptionId`. Body: `newPlanId` | 200 `SubscriptionResource` / 400 |
+| POST | `/api/v1/subscriptions/{subscriptionId}/cancellation` | Programa la cancelación de la suscripción | Path: `subscriptionId` | 200 `SubscriptionResource` / 400 |
+| GET | `/api/v1/subscriptions/subscriber/{subscriberId}/status` | Suscripción vigente del suscriptor | Path: `subscriberId` | 200 `SubscriptionResource` / 404 |
+| GET | `/api/v1/subscriptions/subscriber/{subscriberId}/entitlements` | Beneficios habilitados por el plan | Path: `subscriberId` | 200 `EntitlementSetResource` / 404 |
+
+##### Direct Communication
+
+La Tabla 4.89 presenta los endpoints de Direct Communication.
+
+<a id="tabla-4-89"></a>**Tabla 4.89.** Endpoints de Direct Communication
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/communication/calls/start` | Inicia una llamada de voz o video con la pulsera | Body: `fragileCitizenId`, `requestedType` | 200 `CallSessionResource` / 400 |
+| POST | `/api/v1/communication/calls/{callId}/end` | Finaliza una llamada en curso | Path: `callId` | 200 `CallSessionResource` / 404 |
+| POST | `/api/v1/communication/calls/log-unanswered` | Registra una llamada no atendida tras 30 segundos | Body: `fragileCitizenId`, `attemptedType`, `reason` | 200 `CallLogEntryResource` / 400 |
+| GET | `/api/v1/communication/{fragileCitizenId}/call-logs` | Historial de llamadas | Path: `fragileCitizenId` | 200 lista de `CallLogEntryResource` |
+| GET | `/api/v1/communication/{fragileCitizenId}/device-capabilities` | Capacidades de la pulsera: cámara, pantalla, micrófono, parlante y vibración | Path: `fragileCitizenId` | 200 `DeviceCapabilitiesResource` |
+| POST | `/api/v1/communication/haptic-alert` | Envía una alerta háptica a la pulsera | Body: `fragileCitizenId`, `message` | 200 / 400 |
+
+##### Mobility & Geofencing
+
+La Tabla 4.90 presenta los endpoints de Mobility & Geofencing agregados en el Sprint 2. Los demás se mantienen como se documentaron en la Tabla 4.51; la activación de una zona segura desactiva ahora la que estaba activa, y la consulta del estado devuelve `UNKNOWN` mientras no exista una ubicación registrada.
+
+<a id="tabla-4-90"></a>**Tabla 4.90.** Endpoints agregados en Mobility & Geofencing
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| GET | `/api/v1/safe-zones/fragile-citizen/{fragileCitizenId}` | Zonas seguras de la persona bajo cuidado | Path: `fragileCitizenId` | 200 lista de `SafeZoneResource` |
+| DELETE | `/api/v1/safe-zones/{safeZoneId}` | Elimina una zona segura | Path: `safeZoneId` | 204 / 404 |
+
+##### Care Routines & Wellness
+
+La Tabla 4.91 presenta los endpoints de Care Routines & Wellness agregados para las pantallas de Rutinas de la aplicación.
+
+<a id="tabla-4-91"></a>**Tabla 4.91.** Endpoints agregados en Care Routines & Wellness
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/reminders` | Programa un recordatorio con su recurrencia y sus datos de medicación o cita | Body: `personUnderCareId`, `type`, `scheduledTime`, `title`, `dosage`, `instructions`, `location`, `durationMinutes`, `leadTimeMinutes`, `medicationStockId`, `recurrence` | 201 `ReminderResource` / 400 / 404 |
+| GET | `/api/v1/reminders/{reminderId}` | Detalle de un recordatorio | Path: `reminderId` | 200 `ReminderResource` / 404 |
+| PUT | `/api/v1/reminders/{reminderId}/miss` | Marca un recordatorio como omitido | Path: `reminderId` | 200 `ReminderResource` / 404 / 422 |
+| GET | `/api/v1/reminders/citizen/{personUnderCareId}/adherence` | Adherencia a los recordatorios en un periodo | Path: `personUnderCareId`. Query: `type`, `from`, `to` | 200 `AdherenceResource` / 400 |
+| POST | `/api/v1/medication-stocks` | Registra el stock de un medicamento | Body: `personUnderCareId`, `medicationName`, `dosage`, `dailyConsumption`, `packageSize`, `initialDoses` | 201 `MedicationStockResource` / 400 / 409 |
+| GET | `/api/v1/medication-stocks/{medicationStockId}` | Detalle de un stock de medicación | Path: `medicationStockId` | 200 `MedicationStockResource` / 404 |
+| PUT | `/api/v1/medication-stocks/{medicationStockId}/acquisition` | Confirma la adquisición de un envase | Path: `medicationStockId`. Body: `dosesAdded` | 200 `MedicationStockResource` / 400 / 404 |
+| GET / PUT | `/api/v1/hydration-plans/citizen/{personUnderCareId}` | Consulta o configura el plan de hidratación | Path: `personUnderCareId`. Body: `active`, `dailyGoalGlasses`, `intervalHours`, `respectSleepWindow` | 200 `HydrationPlanResource` / 400 / 404 |
+| GET | `/api/v1/activity-monitors/citizen/{personUnderCareId}` | Estado de actividad de la persona bajo cuidado | Path: `personUnderCareId` | 200 `ActivityMonitorResource` / 404 |
+| GET | `/api/v1/activity-monitors/citizen/{personUnderCareId}/log-entries` | Actividad reciente | Path: `personUnderCareId`. Query: `limit` | 200 lista / 400 |
+| PUT | `/api/v1/activity-monitors/citizen/{personUnderCareId}/inactivity-detection` | Configura la detección de inactividad prolongada | Path: `personUnderCareId`. Body: `enabled`, `thresholdMinutes` | 200 `ActivityMonitorResource` / 400 |
+| GET | `/api/v1/sleep-cycle-records/citizen/{personUnderCareId}` | Ciclos de sueño en un periodo | Path: `personUnderCareId`. Query: `from`, `to` | 200 lista de `SleepCycleRecordResource` |
+
+##### Health Monitoring
+
+La Tabla 4.92 presenta el endpoint agregado en Health Monitoring.
+
+<a id="tabla-4-92"></a>**Tabla 4.92.** Endpoint agregado en Health Monitoring
+
+| Verbo | Endpoint | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| DELETE | `/api/v1/wearable-devices/{wearableDeviceId}` | Desvincula un wearable de la persona bajo cuidado | Path: `wearableDeviceId` | 200 `WearableDeviceResource` / 404 |
+
+##### Emergency & Alerting
+
+Los endpoints de Emergency & Alerting se mantienen como se documentaron en la Tabla 4.47. Para recibir notificaciones push, la aplicación registra el token de Firebase del teléfono con `PUT /api/v1/alert-channel-settings/user/{userId}/channels/PUSH`, enviando `enabled` y `deviceToken`. Los procesos del Sprint 2 que el sistema dispara sin un endpoint propio se detallan en la Tabla 4.93.
+
+<a id="tabla-4-93"></a>**Tabla 4.93.** Procesos de integración incorporados en el Sprint 2
+
+| Proceso | Componente | Descripción |
+|---|---|---|
+| Entrega push de alertas | `PushNotificationProviderAdapter` | Envía cada entrega del canal `PUSH` mediante Firebase Cloud Messaging con la cuenta de servicio de `FIREBASE_SERVICE_ACCOUNT_BASE64`. En el nivel `BROADCAST` la alerta se entrega a la vez a todos los contactos activos (US25). |
+| Ubicación del wearable | `WearableLocationMessageHandler` | Se suscribe al tópico MQTT `guardian/location/+` y registra la ubicación recibida en el seguimiento de la persona bajo cuidado. |
+| Violación de la zona segura | `SafeZoneViolationDetectedEventHandler` | Publica `SafeZoneViolationDetectedIntegrationEvent` cuando la ubicación sale de la zona activa; Emergency & Alerting lo convierte en una alerta. |
+| Recordatorio de cita médica | `AppointmentReminderIssuedEventHandler`, `ReminderNotificationSender` | Al emitirse un recordatorio de cita, Care Routines & Wellness publica un evento de integración y Emergency & Alerting notifica por push a cada cuidador de la persona, obtenido mediante `ProfileContextFacade`. |
+| Limpieza de códigos OTP | Scheduler de IAM | Cada hora elimina los códigos OTP vencidos (`iam.otp.cleanup.cron`). |
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+En el Sprint 2 se actualizaron los Web Services desplegados en Microsoft Azure con cada integración en `develop`, y se configuró Firebase Cloud Messaging para las notificaciones push de la aplicación móvil. El Landing Page y el IoT Simulator se mantienen con los despliegues del Sprint 1 (sección 4.2.1.8), porque no tuvieron cambios funcionales.
+
+##### Web Services
+
+La Tabla 4.94 resume el despliegue de los Web Services al cierre del Sprint 2.
+
+<a id="tabla-4-94"></a>**Tabla 4.94.** Despliegue de los Web Services en el Sprint 2
+
+| Aspecto | Detalle |
+|---|---|
+| **Plataforma** | Microsoft Azure (suscripción Azure for Students), región Chile Central |
+| **URL pública** | [guardian-plus-api.chilecentral.cloudapp.azure.com](https://guardian-plus-api.chilecentral.cloudapp.azure.com/swagger-ui/index.html) |
+| **Repositorio** | [guardian-plus-platform](https://github.com/upc-pre-202620-1asi0238-13980-Healthify/guardian-plus-platform) |
+| **Rama desplegada** | `develop` (commit `6dd5f9f`) |
+| **Infraestructura** | Máquina virtual `guardian-plus-vm` y Azure Database for PostgreSQL `guardian-plus-db-54c33b`, sin cambios respecto del Sprint 1 |
+| **Variables agregadas al `.env`** | `BREVO_API_KEY`, `IAM_EMAIL_SENDER`, `IAM_SECRETS_HMAC_KEY`, `IAM_JWT_PRIVATE_KEY`, `IAM_JWT_PUBLIC_KEY`, `MOBILITY_GEOFENCING_MQTT_ENABLED`, `MOBILITY_GEOFENCING_MQTT_BROKER_URL` y `FIREBASE_SERVICE_ACCOUNT_BASE64` |
+| **Bounded Contexts publicados** | Los cinco del Sprint 1 más IAM, Subscriptions y Direct Communication, con 97 rutas documentadas en Swagger UI |
+
+El despliegue se realizó en los pasos de la Tabla 4.95:
+
+<a id="tabla-4-95"></a>**Tabla 4.95.** Pasos del despliegue de los Web Services en el Sprint 2
+
+| Step | Acción | Resultado |
+|---|---|---|
+| **1** | Registro en el `.env` de la máquina virtual de las variables de IAM: la clave de Brevo, el remitente de los correos, la clave HMAC y el par de claves RSA de los tokens de sesión. | Los correos de verificación y los códigos OTP se envían desde el entorno publicado. |
+| **2** | Integración de IAM, de la ubicación por MQTT, de la alerta por zona segura y de Subscriptions (Pull Requests #17 a #21, del 22 al 24 de octubre). | Cinco despliegues consecutivos completados por el workflow `Deploy`. |
+| **3** | Integración de Mobility & Geofencing (Pull Request #22). | El job `test` falló por un error de compilación en `SafeZone`, por lo que el workflow omitió `build` y `deploy`. La corrección se integró la misma noche y su despliegue se completó. |
+| **4** | Creación del proyecto `guardian-plus-1f1dd` en Firebase, generación de la clave de su cuenta de servicio y registro de esta en `FIREBASE_SERVICE_ACCOUNT_BASE64`. Integración del envío push (Pull Request #23). | Despliegue completado el 25 de octubre y alertas entregadas por Firebase Cloud Messaging. |
+| **5** | Integraciones del 21 de octubre (Pull Request #16) y del 28 de octubre al 12 de noviembre (Pull Requests #24 a #28), y sus reejecuciones. | El job `deploy` falló en `ssh-keyscan` porque la máquina virtual estaba detenida para ahorrar el crédito de Azure for Students; los jobs `test` y `build` se completaron y las imágenes quedaron publicadas en GHCR. |
+| **6** | Encendido de la máquina virtual y de la base de datos, verificación del `.env` e integración del Pull Request #29. | Despliegue completado el 12 de noviembre de 2026 con el commit `6dd5f9f`, que incluye todas las integraciones del Sprint. |
+| **7** | Validación de la API publicada. | `/v3/api-docs` responde por HTTPS con 97 rutas y 105 operaciones en 25 grupos. |
+
+Las ejecuciones del workflow `Deploy` del Sprint 2 se muestran en la Figura 4.26.
+
+<a id="figura-4-26"></a>**Figura 4.26.** Ejecuciones del workflow Deploy en el Sprint 2
+
+![github-actions-workflows](assets/images/chatper4/sprint2/github-actions-workflows.png)
+
+La máquina virtual `guardian-plus-vm` se encuentra en ejecución con la versión del cierre del Sprint, como se muestra en la Figura 4.27.
+
+<a id="figura-4-27"></a>**Figura 4.27.** Máquina virtual guardian-plus-vm en Azure al cierre del Sprint 2
+
+![azure-virtual-machine](assets/images/chatper4/sprint2/azure-virtual-machine.png)
+
+##### Mobile Application — Firebase Cloud Messaging
+
+La Tabla 4.96 resume la configuración de Firebase para las notificaciones push de la aplicación móvil en Kotlin.
+
+<a id="tabla-4-96"></a>**Tabla 4.96.** Configuración de Firebase Cloud Messaging
+
+| Aspecto | Detalle |
+|---|---|
+| **Proyecto de Firebase** | `guardian-plus-1f1dd` |
+| **Aplicación Android registrada** | `com.healthify.guardianplus`, identificador definitivo de la aplicación |
+| **Configuración en la aplicación** | `app/google-services.json` y la dependencia `firebase-messaging` |
+| **Configuración en el backend** | Cuenta de servicio de Firebase en la variable `FIREBASE_SERVICE_ACCOUNT_BASE64` del `.env` de la máquina virtual |
+| **Canales de notificación** | Alertas, con prioridad alta, y recordatorios de citas médicas |
+
+La Figura 4.28 muestra el proyecto de Firebase con la aplicación Android registrada.
+
+<a id="figura-4-28"></a>**Figura 4.28.** Proyecto guardian-plus-1f1dd en Firebase
+
+![firebase-project](assets/images/chatper4/sprint2/firebase-project.png)
+
+#### 4.2.2.9. Team Collaboration Insights during Sprint
+
+Durante el Sprint 2 el equipo trabajó en los repositorios de los Web Services, de la aplicación móvil en Kotlin y de la aplicación en Flutter mediante ramas por funcionalidad integradas con Pull Requests. A continuación se muestran las analíticas de colaboración (Pulse) del último mes de cada repositorio, del 13 de octubre al 12 de noviembre de 2026.
+
+**Backend (Web Services):** 14 pull requests fusionados y 1 abierto, con 139 commits de 5 autores en todas las ramas. La Figura 4.29 muestra los insights del repositorio de los Web Services.
+
+<a id="figura-4-29"></a>**Figura 4.29.** Insights del repositorio de los Web Services
+
+![backend-insights](assets/images/chatper4/sprint2/insights/backend-insights.png)
+
+**Mobile App (Kotlin):** 23 pull requests fusionados, con 158 commits de 5 autores en todas las ramas. La Figura 4.30 muestra los insights del repositorio de la aplicación móvil.
+
+<a id="figura-4-30"></a>**Figura 4.30.** Insights del repositorio de la aplicación móvil
+
+![mobile-app-insights](assets/images/chatper4/sprint2/insights/mobile-app-insights.png)
+
+**Mobile App (Flutter):** 6 pull requests fusionados, con 88 commits de 3 autores en todas las ramas. La Figura 4.31 muestra los insights del repositorio de la aplicación en Flutter.
+
+<a id="figura-4-31"></a>**Figura 4.31.** Insights del repositorio de la aplicación en Flutter
+
+![flutter-app-insights](assets/images/chatper4/sprint2/insights/flutter-app-insights.png)
+
 ## 4.3. Validation Interviews
 
 En esta sección se presentan las entrevistas de validación del Landing Page realizadas con familiares y cuidadores, junto con su diseño y su registro, y la evaluación heurística del prototipo de la aplicación móvil.
@@ -11942,15 +13270,15 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
 
-El video de las entrevistas de validación del Landing Page se encuentra publicado en SharePoint. La Figura 4.18 muestra una captura del video.
+El video de las entrevistas de validación del Landing Page se encuentra publicado en SharePoint. La Figura 4.32 muestra una captura del video.
 
-<a id="figura-4-18"></a>**Figura 4.18.** Video de las entrevistas de validación del Landing Page
+<a id="figura-4-32"></a>**Figura 4.32.** Video de las entrevistas de validación del Landing Page
 
 ![Video de las entrevistas de validación](assets/images/chatper4/validation-interviews/validation-interviews-video.png)
 
-La Tabla 4.60 presenta el enlace al video de las entrevistas de validación.
+La Tabla 4.97 presenta el enlace al video de las entrevistas de validación.
 
-<a id="tabla-4-60"></a>**Tabla 4.60.** Video de las entrevistas de validación
+<a id="tabla-4-97"></a>**Tabla 4.97.** Video de las entrevistas de validación
 
 | Recurso | Enlace |
 |---|---|
@@ -11962,9 +13290,9 @@ La Tabla 4.60 presenta el enlace al video de las entrevistas de validación.
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241b843_upc_edu_pe/IQBKYPpWt5CVTKNKT1KQHr26Aaz4_Jr5SuOov7l5OLCPyUE?e=EdUJcA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.61 presenta los datos de la entrevistada.
+La Tabla 4.98 presenta los datos de la entrevistada.
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** Datos de la entrevista de validación a Rocio Alvarado
+<a id="tabla-4-98"></a>**Tabla 4.98.** Datos de la entrevista de validación a Rocio Alvarado
 
 | Campo | Valor |
 |---|---|
@@ -11972,9 +13300,9 @@ La Tabla 4.61 presenta los datos de la entrevistada.
 | Edad | 22 |
 | Distrito | Jesus María |
 
-La Figura 4.19 muestra una captura de la entrevista de validación a Rocio Alvarado.
+La Figura 4.33 muestra una captura de la entrevista de validación a Rocio Alvarado.
 
-<a id="figura-4-19"></a>**Figura 4.19.** Captura de la entrevista de validación a Rocio Alvarado
+<a id="figura-4-33"></a>**Figura 4.33.** Captura de la entrevista de validación a Rocio Alvarado
 
 ![Captura Entrevista Validación Familiar 1](assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_1.png)
 
@@ -11986,9 +13314,9 @@ Sobre el resto de secciones, indicó que la pantalla de Inicio de la app refleja
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQABOx69dgUqQJVteesEI7SjAdyRmsIZdNLA461ekIXLgtg?e=7FNzjH)
 
-La Tabla 4.62 presenta los datos del entrevistado.
+La Tabla 4.99 presenta los datos del entrevistado.
 
-<a id="tabla-4-62"></a>**Tabla 4.62.** Datos de la entrevista de validación a Junior Antenor
+<a id="tabla-4-99"></a>**Tabla 4.99.** Datos de la entrevista de validación a Junior Antenor
 
 | Campo | Valor |
 |---|---|
@@ -11996,9 +13324,9 @@ La Tabla 4.62 presenta los datos del entrevistado.
 | Edad | 33 |
 | Distrito | San Juan Bautista |
 
-La Figura 4.20 muestra una captura de la entrevista de validación a Junior Antenor.
+La Figura 4.34 muestra una captura de la entrevista de validación a Junior Antenor.
 
-<a id="figura-4-20"></a>**Figura 4.20.** Captura de la entrevista de validación a Junior Antenor
+<a id="figura-4-34"></a>**Figura 4.34.** Captura de la entrevista de validación a Junior Antenor
 
 ![Captura Entrevista Validación Familiar 1](assets/images/chatper4/validation-interviews/entrevista_validacion_familiar_2.png)
 
@@ -12011,9 +13339,9 @@ La Figura 4.20 muestra una captura de la entrevista de validación a Junior Ante
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQD8oJT2Z8TpSoJBUXSMSMGhAfeo7eDVGKMqM2Pu5ygx8Ys?e=Uh9lJl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-La Tabla 4.63 presenta los datos de la entrevistada.
+La Tabla 4.100 presenta los datos de la entrevistada.
 
-<a id="tabla-4-63"></a>**Tabla 4.63.** Datos de la entrevista de validación a Roxana Paola Diana
+<a id="tabla-4-100"></a>**Tabla 4.100.** Datos de la entrevista de validación a Roxana Paola Diana
 
 | Campo | Valor |
 |---|---|
@@ -12021,9 +13349,9 @@ La Tabla 4.63 presenta los datos de la entrevistada.
 | Edad | 39 |
 | Distrito | Surco |
 
-La Figura 4.21 muestra una captura de la entrevista de validación a Roxana Paola Diana.
+La Figura 4.35 muestra una captura de la entrevista de validación a Roxana Paola Diana.
 
-<a id="figura-4-21"></a>**Figura 4.21.** Captura de la entrevista de validación a Roxana Paola Diana
+<a id="figura-4-35"></a>**Figura 4.35.** Captura de la entrevista de validación a Roxana Paola Diana
 
 ![Captura Entrevista Validación Cuidador 1](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_1.png)
 
@@ -12033,9 +13361,9 @@ La Figura 4.21 muestra una captura de la entrevista de validación a Roxana Paol
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319404_upc_edu_pe/IQDoaeLwjz7pRrzg8-g7O6AzAdLOTQcjJpGE6qaMDAqHBEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5m6P3a)
 
-La Tabla 4.64 presenta los datos del entrevistado.
+La Tabla 4.101 presenta los datos del entrevistado.
 
-<a id="tabla-4-64"></a>**Tabla 4.64.** Datos de la entrevista de validación a Piero Segurda Cardenas
+<a id="tabla-4-101"></a>**Tabla 4.101.** Datos de la entrevista de validación a Piero Segurda Cardenas
 
 | Campo | Valor |
 |---|---|
@@ -12043,9 +13371,9 @@ La Tabla 4.64 presenta los datos del entrevistado.
 | Edad | 20 |
 | Distrito | Callao |
 
-La Figura 4.22 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
+La Figura 4.36 muestra una captura de la entrevista de validación a Piero Segurda Cardenas.
 
-<a id="figura-4-22"></a>**Figura 4.22.** Captura de la entrevista de validación a Piero Segurda Cardenas
+<a id="figura-4-36"></a>**Figura 4.36.** Captura de la entrevista de validación a Piero Segurda Cardenas
 
 ![Captura Entrevista Validación Cuidador 2](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_2.png)
 
@@ -12055,9 +13383,9 @@ La Figura 4.22 muestra una captura de la entrevista de validación a Piero Segur
 
 **Enlace a la grabación de la entrevista:** [Ver grabación en SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d185_upc_edu_pe/IQB7Nk6PrMXqS5-kBKUcezySARYOt3pUCZya8d1mWq2jZBE?e=0Sqbtb)
 
-La Tabla 4.65 presenta los datos de la entrevistada.
+La Tabla 4.102 presenta los datos de la entrevistada.
 
-<a id="tabla-4-65"></a>**Tabla 4.65.** Datos de la entrevista de validación a Gabriela Cuadros
+<a id="tabla-4-102"></a>**Tabla 4.102.** Datos de la entrevista de validación a Gabriela Cuadros
 
 | Campo | Valor |
 |---|---|
@@ -12065,9 +13393,9 @@ La Tabla 4.65 presenta los datos de la entrevistada.
 | Edad | 21 |
 | Distrito | Santa Anita |
 
-La Figura 4.23 muestra una captura de la entrevista de validación a Gabriela Cuadros.
+La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cuadros.
 
-<a id="figura-4-23"></a>**Figura 4.23.** Captura de la entrevista de validación a Gabriela Cuadros
+<a id="figura-4-37"></a>**Figura 4.37.** Captura de la entrevista de validación a Gabriela Cuadros
 
 ![Captura Entrevista Validación Cuidador 3](assets/images/chatper4/validation-interviews/entrevista_validacion_cuidador_3.png)
 
@@ -12080,9 +13408,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.66 presenta los datos generales de la evaluación.
+La Tabla 4.103 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-66"></a>**Tabla 4.66.** Datos generales de la evaluación heurística
+<a id="tabla-4-103"></a>**Tabla 4.103.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -12113,9 +13441,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.67 define la escala de severidad utilizada.
+La Tabla 4.104 define la escala de severidad utilizada.
 
-<a id="tabla-4-67"></a>**Tabla 4.67.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-104"></a>**Tabla 4.104.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -12127,9 +13455,9 @@ La Tabla 4.67 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.68 resume los problemas encontrados.
+La Tabla 4.105 resume los problemas encontrados.
 
-<a id="tabla-4-68"></a>**Tabla 4.68.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-105"></a>**Tabla 4.105.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -12148,17 +13476,17 @@ La Tabla 4.68 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.24 a 4.26 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.38 a 4.40 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-24"></a>**Figura 4.24.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-38"></a>**Figura 4.38.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-25"></a>**Figura 4.25.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-39"></a>**Figura 4.39.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-26"></a>**Figura 4.26.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-40"></a>**Figura 4.40.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -12172,9 +13500,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.27 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.41 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-27"></a>**Figura 4.27.** Pantalla Contactos de emergencia
+<a id="figura-4-41"></a>**Figura 4.41.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -12189,9 +13517,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.28 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.42 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-28"></a>**Figura 4.28.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-42"></a>**Figura 4.42.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -12206,9 +13534,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.29 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.43 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-29"></a>**Figura 4.29.** Pantalla Exportar expediente
+<a id="figura-4-43"></a>**Figura 4.43.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -12223,9 +13551,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.30 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.44 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-30"></a>**Figura 4.30.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-44"></a>**Figura 4.44.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 
