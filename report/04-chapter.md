@@ -2533,7 +2533,7 @@ Durante el Sprint 2 el equipo trabajó en los repositorios de los Web Services, 
 
 ## 4.3. Validation Interviews
 
-En esta sección se presentan las entrevistas de validación del Landing Page realizadas con familiares y cuidadores, junto con su diseño y su registro, y la evaluación heurística del prototipo de la aplicación móvil.
+En esta sección se presentan las entrevistas de validación del Landing Page realizadas con familiares y cuidadores y la entrevista de validación de la aplicación móvil del Sprint 2, junto con su diseño y su registro, y la evaluación heurística del prototipo de la aplicación móvil.
 
 ### 4.3.1. Diseño de Entrevistas
 
@@ -2564,6 +2564,18 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 8. **Por qué Guardian+:** Como cuidador profesional, ¿qué tanta confianza te generan estos diferenciadores frente a lo que usas hoy, y por qué?
 9. **Planes:** Si tú recomendaras un plan a la familia de tu paciente, ¿cuál sugerirías según las necesidades que observas en tu trabajo, y por qué ese?
 10. **Contacto:** Si necesitaras orientación sobre el plan adecuado para tu paciente, ¿qué información esperarías recibir al usar este formulario de contacto?
+
+#### Aplicación móvil — Sprint 2
+
+Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las funcionalidades implementadas al cierre del Sprint (sección 4.2.2.6), conectada a los Web Services desplegados en Microsoft Azure y con los signos vitales en vivo que envía el simulador IoT. La sesión es un recorrido guiado (think-aloud) en el que el entrevistado usa la aplicación en el orden de su barra de navegación: Inicio → Salud → Alertas → Rutinas → Ubicación. Las preguntas son las mismas para familiares y cuidadores, ya que en la aplicación ambos cumplen el rol de miembro del Care Circle, y cada una busca verificar si el entrevistado entiende la información de la pantalla y si le resulta útil para atender a la persona bajo su cuidado.
+
+1. **Inicio:** Al abrir la aplicación, ¿qué entiendes sobre el estado actual de la persona que cuidas? ¿Qué información te falta o te sobra para quedarte tranquilo?
+2. **Salud → Ahora:** Mientras los signos vitales se actualizan en vivo, ¿cuál revisarías primero y cómo identificas si un valor es normal o preocupante?
+3. **Salud → Historial:** Si quisieras saber cómo estuvo la persona que cuidas durante la semana, ¿cómo usarías esta pantalla y qué harías con esa información?
+4. **Alertas:** Ante la alerta crítica de caída, ¿qué harías primero? ¿Qué te dice el detalle de la alerta sobre lo que pasó y sobre quién más fue avisado?
+5. **Contactos de emergencia:** Al agregar un contacto, ¿a quiénes incluirías en el círculo de cuidado y en qué orden, y por qué?
+6. **Rutinas:** Al revisar la medicación y las citas, ¿qué tan claro te queda qué dosis se tomaron, cuáles faltan y cuándo hay que reponer el medicamento?
+7. **Ubicación:** Al ver la ubicación y las zonas seguras, ¿en qué situaciones de tu día a día usarías esta función y qué te daría más confianza al usarla?
 
 ### 4.3.2. Registro de Entrevistas
 
@@ -2700,6 +2712,33 @@ La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cu
 
 **Análisis de la entrevista:**  Gabriela entiende Guardián+ como una herramienta integral que combina una pulsera inteligente para monitorear la salud y seguridad del paciente, recibir alertas y mantener conectado al círculo de cuidado. Considera que el principal riesgo que monitorea diariamente son las caídas, especialmente cuando no tiene al paciente a la vista, y valora funciones como el botón SOS, la detección de caídas y las alertas automáticas, ya que reducirían su esfuerzo y la necesidad de supervisión constante. También encuentra útil un dashboard que concentre signos vitales, recordatorios, alertas y cambios importantes, siempre que la información sea clara y no esté saturada. Las zonas seguras y la geolocalización le permitirían reducir el monitoreo continuo, mientras que destaca como diferencial la integración de seguridad, salud, rutinas y comunicación, junto con un sistema de escalamiento de alertas. Para un paciente con necesidades intensivas recomendaría el plan Cuidado Pro, por sus cuidados ilimitados, reportes avanzados, historial extendido y soporte prioritario. Finalmente, espera que el formulario de contacto proporcione una comparación clara de planes, precios y funciones, además de información sobre la pulsera, configuración de alertas y privacidad de datos.
 
+#### Aplicación móvil — Sprint 2
+
+A continuación se presenta el registro de la entrevista de validación de la aplicación móvil.
+
+**Entrevistado 1**
+
+**Enlace a la grabación de la entrevista:** [Ver grabación](COMPLETAR-ENLACE-VIDEO-VALIDACION-APP)
+
+La Tabla 4.103 presenta los datos del entrevistado.
+
+<a id="tabla-4-103"></a>**Tabla 4.103.** Datos de la entrevista de validación de la aplicación móvil
+
+| Campo | Valor |
+|---|---|
+| Nombre y apellido | COMPLETAR |
+| Edad | COMPLETAR |
+| Distrito | COMPLETAR |
+| Segmento | COMPLETAR |
+
+La Figura 4.38 muestra una captura de la entrevista de validación de la aplicación móvil.
+
+<a id="figura-4-38"></a>**Figura 4.38.** Captura de la entrevista de validación de la aplicación móvil
+
+![Captura Entrevista Validación Aplicación Móvil](../assets/images/chatper4/validation-interviews/entrevista_validacion_app_1.png)
+
+**Análisis de la entrevista:** COMPLETAR
+
 ### 4.3.3. Evaluaciones según heurísticas
 
 La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación.
@@ -2707,9 +2746,9 @@ La evaluación heurística se realizó sobre el prototipo de alta fidelidad de l
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
 
-La Tabla 4.103 presenta los datos generales de la evaluación.
+La Tabla 4.104 presenta los datos generales de la evaluación.
 
-<a id="tabla-4-103"></a>**Tabla 4.103.** Datos generales de la evaluación heurística
+<a id="tabla-4-104"></a>**Tabla 4.104.** Datos generales de la evaluación heurística
 
 | | |
 |---|---|
@@ -2740,9 +2779,9 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-La Tabla 4.104 define la escala de severidad utilizada.
+La Tabla 4.105 define la escala de severidad utilizada.
 
-<a id="tabla-4-104"></a>**Tabla 4.104.** Escala de severidad de la evaluación heurística
+<a id="tabla-4-105"></a>**Tabla 4.105.** Escala de severidad de la evaluación heurística
 
 | Nivel | Descripción |
 |---|---|
@@ -2754,9 +2793,9 @@ La Tabla 4.104 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.105 resume los problemas encontrados.
+La Tabla 4.106 resume los problemas encontrados.
 
-<a id="tabla-4-105"></a>**Tabla 4.105.** Resumen de problemas de la evaluación heurística
+<a id="tabla-4-106"></a>**Tabla 4.106.** Resumen de problemas de la evaluación heurística
 
 | # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
@@ -2775,17 +2814,17 @@ La Tabla 4.105 resume los problemas encontrados.
 **Problema:**
 En las pantallas "Nueva toma", "Nueva cita" y "Nueva actividad" del módulo de Rutinas, los campos "Hora de la toma", "Fecha"/"Hora" y "Hora del aviso" se muestran como recuadros completamente vacíos, sin placeholder (ej. "14:00" o "HH:MM") ni un ícono de reloj/calendario que indique que son selectores. Esto contrasta con el formulario "Nuevo contacto de emergencia" del módulo de Alertas, que sí incluye placeholders claros (ej. "Ej. Carlos Rojas", "999 999 999"), evidenciando además una inconsistencia de patrones entre bounded contexts.
 
-Las Figuras 4.38 a 4.40 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
+Las Figuras 4.39 a 4.41 muestran las pantallas Nueva toma, Nueva cita y Nueva actividad.
 
-<a id="figura-4-38"></a>**Figura 4.38.** Pantalla Nueva toma del módulo de Rutinas
+<a id="figura-4-39"></a>**Figura 4.39.** Pantalla Nueva toma del módulo de Rutinas
 
 ![Vista de nueva toma de medicamento](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-1.png)
 
-<a id="figura-4-39"></a>**Figura 4.39.** Pantalla Nueva cita del módulo de Rutinas
+<a id="figura-4-40"></a>**Figura 4.40.** Pantalla Nueva cita del módulo de Rutinas
 
 ![Vista de agendar nueva cita](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-2.png)
 
-<a id="figura-4-40"></a>**Figura 4.40.** Pantalla Nueva actividad del módulo de Rutinas
+<a id="figura-4-41"></a>**Figura 4.41.** Pantalla Nueva actividad del módulo de Rutinas
 
 ![Vista para registrar una nueva actividad](../assets/images/chatper4/heuristics-evaluations/routines-and-care-screen-3.png)
 
@@ -2799,9 +2838,9 @@ Agregar placeholders con el formato esperado y un ícono reconocible de reloj/ca
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.41 muestra la pantalla Contactos de emergencia.
+En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de un contacto es "Mantén presionado y arrastra", un gesto que puede ser difícil de ejecutar con precisión para usuarios con limitaciones motrices o destreza reducida —un perfil de usuario especialmente relevante considerando que muchos cuidadores y familiares de Guardian+ son personas de edad avanzada. No se ofrece una alternativa como botones de subir/bajar o un menú de "mover a posición". La Figura 4.42 muestra la pantalla Contactos de emergencia.
 
-<a id="figura-4-41"></a>**Figura 4.41.** Pantalla Contactos de emergencia
+<a id="figura-4-42"></a>**Figura 4.42.** Pantalla Contactos de emergencia
 
 ![Vista de contactos de emergencia](../assets/images/chatper4/heuristics-evaluations/emergency-contacts.png)
 
@@ -2816,9 +2855,9 @@ Agregar una alternativa accesible al drag-and-drop, como botones de flecha arrib
 **Heurística violada:** Usability - Reconocimiento antes que recuerdo
 
 **Problema:**
-En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.42 muestra el panel Buscar y filtrar del módulo de Salud.
+En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco, Presión arterial, Día, Semana, etc.) se muestran como filas de texto plano, sin checkbox, radio button ni ningún indicador visual de selección. Sin embargo, el botón inferior "Aplicar · 0" confirma que se trata de una selección múltiple con conteo. El usuario no puede reconocer a simple vista qué opciones están disponibles para seleccionar ni cuáles ya eligió. La Figura 4.43 muestra el panel Buscar y filtrar del módulo de Salud.
 
-<a id="figura-4-42"></a>**Figura 4.42.** Panel Buscar y filtrar del módulo de Salud
+<a id="figura-4-43"></a>**Figura 4.43.** Panel Buscar y filtrar del módulo de Salud
 
 ![Vista de buscar y filtrar del módulo de salud](../assets/images/chatper4/heuristics-evaluations/search-and-filter.png)
 
@@ -2833,9 +2872,9 @@ Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila 
 **Heurística violada:** Information Architecture - Organization Systems
 
 **Problema:**
-En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.43 muestra la pantalla Exportar expediente.
+En "Exportar expediente", las opciones de periodo se presentan en el orden "Últimos 30 días" → "Últimos 7 días" → "Personalizado", invirtiendo la progresión lógica esperada de menor a mayor duración (7 días antes que 30 días), lo que puede dificultar que el usuario escanee rápidamente la opción que busca. La Figura 4.44 muestra la pantalla Exportar expediente.
 
-<a id="figura-4-43"></a>**Figura 4.43.** Pantalla Exportar expediente
+<a id="figura-4-44"></a>**Figura 4.44.** Pantalla Exportar expediente
 
 ![Vista de exportar expediente](../assets/images/chatper4/heuristics-evaluations/export-file.png)
 
@@ -2850,9 +2889,9 @@ Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 dí
 **Heurística violada:** Inclusive Design - Proporciona experiencias comparables
 
 **Problema:**
-En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.44 muestra la pantalla Sueño del módulo de Rutinas.
+En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo, Ligero, Despierta) usando dos tonos de verde muy cercanos entre sí y un tono naranja, sin ningún patrón, textura o forma adicional que refuerce la diferencia. Para personas con daltonismo (especialmente deuteranopia, la forma más común), distinguir entre los dos tonos de verde puede ser difícil, dejándolos sin una forma confiable de leer el gráfico. La Figura 4.45 muestra la pantalla Sueño del módulo de Rutinas.
 
-<a id="figura-4-44"></a>**Figura 4.44.** Pantalla Sueño del módulo de Rutinas
+<a id="figura-4-45"></a>**Figura 4.45.** Pantalla Sueño del módulo de Rutinas
 
 ![Vista de registro del sueño](../assets/images/chatper4/heuristics-evaluations/sleep-record.png)
 

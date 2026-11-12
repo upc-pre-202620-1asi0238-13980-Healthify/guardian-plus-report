@@ -418,9 +418,10 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.100. Datos de la entrevista de validación a Roxana Paola Diana](04-chapter.md#tabla-4-100)
 - [Tabla 4.101. Datos de la entrevista de validación a Piero Segurda Cardenas](04-chapter.md#tabla-4-101)
 - [Tabla 4.102. Datos de la entrevista de validación a Gabriela Cuadros](04-chapter.md#tabla-4-102)
-- [Tabla 4.103. Datos generales de la evaluación heurística](04-chapter.md#tabla-4-103)
-- [Tabla 4.104. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-104)
-- [Tabla 4.105. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-105)
+- [Tabla 4.103. Datos de la entrevista de validación de la aplicación móvil](04-chapter.md#tabla-4-103)
+- [Tabla 4.104. Datos generales de la evaluación heurística](04-chapter.md#tabla-4-104)
+- [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
+- [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -612,13 +613,14 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.35. Captura de la entrevista de validación a Roxana Paola Diana](04-chapter.md#figura-4-35)
 - [Figura 4.36. Captura de la entrevista de validación a Piero Segurda Cardenas](04-chapter.md#figura-4-36)
 - [Figura 4.37. Captura de la entrevista de validación a Gabriela Cuadros](04-chapter.md#figura-4-37)
-- [Figura 4.38. Pantalla Nueva toma del módulo de Rutinas](04-chapter.md#figura-4-38)
-- [Figura 4.39. Pantalla Nueva cita del módulo de Rutinas](04-chapter.md#figura-4-39)
-- [Figura 4.40. Pantalla Nueva actividad del módulo de Rutinas](04-chapter.md#figura-4-40)
-- [Figura 4.41. Pantalla Contactos de emergencia](04-chapter.md#figura-4-41)
-- [Figura 4.42. Panel Buscar y filtrar del módulo de Salud](04-chapter.md#figura-4-42)
-- [Figura 4.43. Pantalla Exportar expediente](04-chapter.md#figura-4-43)
-- [Figura 4.44. Pantalla Sueño del módulo de Rutinas](04-chapter.md#figura-4-44)
+- [Figura 4.38. Captura de la entrevista de validación de la aplicación móvil](04-chapter.md#figura-4-38)
+- [Figura 4.39. Pantalla Nueva toma del módulo de Rutinas](04-chapter.md#figura-4-39)
+- [Figura 4.40. Pantalla Nueva cita del módulo de Rutinas](04-chapter.md#figura-4-40)
+- [Figura 4.41. Pantalla Nueva actividad del módulo de Rutinas](04-chapter.md#figura-4-41)
+- [Figura 4.42. Pantalla Contactos de emergencia](04-chapter.md#figura-4-42)
+- [Figura 4.43. Panel Buscar y filtrar del módulo de Salud](04-chapter.md#figura-4-43)
+- [Figura 4.44. Pantalla Exportar expediente](04-chapter.md#figura-4-44)
+- [Figura 4.45. Pantalla Sueño del módulo de Rutinas](04-chapter.md#figura-4-45)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
