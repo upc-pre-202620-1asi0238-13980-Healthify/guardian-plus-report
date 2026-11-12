@@ -12463,7 +12463,7 @@ La Leadership-and-Collaboration Matrix (LACX) de la Tabla 4.62 indica el líder 
 
 El objetivo del Sprint 2 es que la familia siga en tiempo real los signos vitales de la persona bajo cuidado, sin perder las lecturas tomadas sin conexión, y que una alerta crítica llegue a la vez a todo el Care Circle. Para lograrlo, el equipo organizó el trabajo en la lista *Sprint Backlog AV2* de ClickUp, con una tarea por User Story comprometida, una tarea por cada Bounded Context incorporado o completado en la aplicación y las tareas de validación y de video de la entrega.
 
-El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](https://sharing.clickup.com/9013201240/b/h/6-1400350000000524-2/1612e210bce4708) Las Figuras 4.18 y 4.19 muestran el tablero.
+El tablero del Sprint 2 está disponible en el siguiente enlace: [Sprint Backlog 2 — Guardian+](https://sharing.clickup.com/9013201240/l/h/6-1400350000003933-1/992529f0831298c) Las Figuras 4.18 y 4.19 muestran el tablero.
 
 <a id="figura-4-18"></a>**Figura 4.18.** Tablero del Sprint 2 en ClickUp (parte 1)
 
