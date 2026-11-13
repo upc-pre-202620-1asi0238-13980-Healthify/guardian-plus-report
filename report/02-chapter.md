@@ -6152,6 +6152,8 @@ La validación directa de referencias contra IAM queda pendiente para una etapa 
 
 Esta decisión mantiene preparado el diseño para una futura integración sin incorporar actualmente dependencias hacia componentes inexistentes.
 
+En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (sección 4.2.2.4): registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP, recuperación de contraseña y acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta. Desde entonces, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. La validación directa de `UserId` mediante `IamContextFacade` y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile se incorporarán en un siguiente incremento.
+
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 La Figura 2.53 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
@@ -6171,6 +6173,8 @@ El diagrama conserva algunos elementos correspondientes al diseño arquitectóni
 La **Infrastructure Layer** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
 
 De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
+
+Con la implementación de IAM en el Sprint 2, el contexto del que depende este adaptador ya se encuentra disponible en el backend a través de `IamContextFacade`, por lo que el adaptador hacia IAM representado en el diagrama corresponde al siguiente paso de la integración descrita en la sección anterior.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
