@@ -61,6 +61,10 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 
 ![Insights del repositorio del informe en el TB1](../assets/images/Insights/tb1/report-insights-tb1.png)
 
+**AV2:**
+
+![Insights del repositorio del informe en el AV2](../assets/images/Insights/av2/report-insights-av2.png)
+
 <div style="page-break-before: always; break-before: page;"></div>
 
 # Contenido
