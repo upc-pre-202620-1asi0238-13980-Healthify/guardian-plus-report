@@ -14,7 +14,7 @@
 
 <p>Docente: <strong>Mayta Guillermo, Jorge Luis</strong></p>
 
-<p>Informe del Trabajo Final</p>
+<p>Informe de Trabajo Final</p>
 
 <p>Equipo: Healthify</p>
 
@@ -24,9 +24,9 @@
 
 <p>
 u202411310 - Azama Fukuda, Juan Pablo<br>
-u20241b843 - Mechan Montenegro, Luciana Carolina<br>
-u20241d185 - Luis Miranda, Diego Andres<br>
 u202421866 - López Monroy, Rodrigo Alfredo<br>
+u20241d185 - Luis Miranda, Diego Andres<br>
+u20241b843 - Mechan Montenegro, Luciana Carolina<br>
 u202319404 - Sanchez Cuadrado, Juan Antonio
 </p>
 
