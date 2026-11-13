@@ -32,7 +32,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 
 <p>2026 - 2</p>
 
-<p><em>Octubre, 2026</em></p>
+<p><em>Noviembre, 2026</em></p>
 
 </div>
 
