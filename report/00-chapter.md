@@ -217,6 +217,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.1. Diseño de Entrevistas](04-chapter.md#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](04-chapter.md#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](04-chapter.md#433-evaluaciones-según-heurísticas)
+  - [4.4. Video About-the-Product](04-chapter.md#44-video-about-the-product)
 - [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
 - [Bibliografía](../README.md#bibliografía)
 
@@ -418,10 +419,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.100. Datos de la entrevista de validación a Roxana Paola Diana](04-chapter.md#tabla-4-100)
 - [Tabla 4.101. Datos de la entrevista de validación a Piero Segurda Cardenas](04-chapter.md#tabla-4-101)
 - [Tabla 4.102. Datos de la entrevista de validación a Gabriela Cuadros](04-chapter.md#tabla-4-102)
-- [Tabla 4.103. Datos de la entrevista de validación de la aplicación móvil](04-chapter.md#tabla-4-103)
+- [Tabla 4.103. Datos de la entrevista de validación de la aplicación móvil a Lucía Infante](04-chapter.md#tabla-4-103)
 - [Tabla 4.104. Datos generales de la evaluación heurística](04-chapter.md#tabla-4-104)
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
+- [Tabla 4.107. Video About-the-Product](04-chapter.md#tabla-4-107)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -613,7 +615,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.35. Captura de la entrevista de validación a Roxana Paola Diana](04-chapter.md#figura-4-35)
 - [Figura 4.36. Captura de la entrevista de validación a Piero Segurda Cardenas](04-chapter.md#figura-4-36)
 - [Figura 4.37. Captura de la entrevista de validación a Gabriela Cuadros](04-chapter.md#figura-4-37)
-- [Figura 4.38. Captura de la entrevista de validación de la aplicación móvil](04-chapter.md#figura-4-38)
+- [Figura 4.38. Captura de la entrevista de validación de la aplicación móvil a Lucía Infante](04-chapter.md#figura-4-38)
 - [Figura 4.39. Pantalla Nueva toma del módulo de Rutinas](04-chapter.md#figura-4-39)
 - [Figura 4.40. Pantalla Nueva cita del módulo de Rutinas](04-chapter.md#figura-4-40)
 - [Figura 4.41. Pantalla Nueva actividad del módulo de Rutinas](04-chapter.md#figura-4-41)
@@ -621,6 +623,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.43. Panel Buscar y filtrar del módulo de Salud](04-chapter.md#figura-4-43)
 - [Figura 4.44. Pantalla Exportar expediente](04-chapter.md#figura-4-44)
 - [Figura 4.45. Pantalla Sueño del módulo de Rutinas](04-chapter.md#figura-4-45)
+- [Figura 4.46. Video About-the-Product de Guardian+](04-chapter.md#figura-4-46)
 
 <div style="page-break-before: always; break-before: page;"></div>
 

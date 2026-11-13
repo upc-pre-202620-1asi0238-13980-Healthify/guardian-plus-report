@@ -217,6 +217,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.1. Diseño de Entrevistas](#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](#433-evaluaciones-según-heurísticas)
+  - [4.4. Video About-the-Product](#44-video-about-the-product)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -418,10 +419,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.100. Datos de la entrevista de validación a Roxana Paola Diana](#tabla-4-100)
 - [Tabla 4.101. Datos de la entrevista de validación a Piero Segurda Cardenas](#tabla-4-101)
 - [Tabla 4.102. Datos de la entrevista de validación a Gabriela Cuadros](#tabla-4-102)
-- [Tabla 4.103. Datos de la entrevista de validación de la aplicación móvil](#tabla-4-103)
+- [Tabla 4.103. Datos de la entrevista de validación de la aplicación móvil a Lucía Infante](#tabla-4-103)
 - [Tabla 4.104. Datos generales de la evaluación heurística](#tabla-4-104)
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](#tabla-4-106)
+- [Tabla 4.107. Video About-the-Product](#tabla-4-107)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -613,7 +615,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.35. Captura de la entrevista de validación a Roxana Paola Diana](#figura-4-35)
 - [Figura 4.36. Captura de la entrevista de validación a Piero Segurda Cardenas](#figura-4-36)
 - [Figura 4.37. Captura de la entrevista de validación a Gabriela Cuadros](#figura-4-37)
-- [Figura 4.38. Captura de la entrevista de validación de la aplicación móvil](#figura-4-38)
+- [Figura 4.38. Captura de la entrevista de validación de la aplicación móvil a Lucía Infante](#figura-4-38)
 - [Figura 4.39. Pantalla Nueva toma del módulo de Rutinas](#figura-4-39)
 - [Figura 4.40. Pantalla Nueva cita del módulo de Rutinas](#figura-4-40)
 - [Figura 4.41. Pantalla Nueva actividad del módulo de Rutinas](#figura-4-41)
@@ -621,6 +623,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.43. Panel Buscar y filtrar del módulo de Salud](#figura-4-43)
 - [Figura 4.44. Pantalla Exportar expediente](#figura-4-44)
 - [Figura 4.45. Pantalla Sueño del módulo de Rutinas](#figura-4-45)
+- [Figura 4.46. Video About-the-Product de Guardian+](#figura-4-46)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -13270,15 +13273,15 @@ La sesión de validación consiste en un recorrido guiado (think-aloud) por el L
 
 #### Aplicación móvil — Sprint 2
 
-Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las funcionalidades implementadas al cierre del Sprint (sección 4.2.2.6), conectada a los Web Services desplegados en Microsoft Azure y con los signos vitales en vivo que envía el simulador IoT. La sesión es un recorrido guiado (think-aloud) en el que el entrevistado usa la aplicación en el orden de su barra de navegación: Inicio → Salud → Alertas → Rutinas → Ubicación. Las preguntas son las mismas para familiares y cuidadores, ya que en la aplicación ambos cumplen el rol de miembro del Care Circle, y cada una busca verificar si el entrevistado entiende la información de la pantalla y si le resulta útil para atender a la persona bajo su cuidado.
+Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las funcionalidades implementadas al cierre del Sprint (sección 4.2.2.6), conectada a los Web Services desplegados en Microsoft Azure y con los signos vitales en vivo que envía el simulador IoT. La sesión empieza con el video de presentación del producto y continúa con un recorrido guiado (think-aloud) por la aplicación en el orden de su barra de navegación: Inicio → Salud → Alertas → Rutinas → Ubicación. Las preguntas son las mismas para familiares y cuidadores, ya que en la aplicación ambos cumplen el rol de miembro del Care Circle, y buscan verificar si el entrevistado entiende la información de cada pantalla y si le resulta útil para atender a la persona bajo su cuidado.
 
-1. **Inicio:** Al abrir la aplicación, ¿qué entiendes sobre el estado actual de la persona que cuidas? ¿Qué información te falta o te sobra para quedarte tranquilo?
-2. **Salud → Ahora:** Mientras los signos vitales se actualizan en vivo, ¿cuál revisarías primero y cómo identificas si un valor es normal o preocupante?
-3. **Salud → Historial:** Si quisieras saber cómo estuvo la persona que cuidas durante la semana, ¿cómo usarías esta pantalla y qué harías con esa información?
-4. **Alertas:** Ante la alerta crítica de caída, ¿qué harías primero? ¿Qué te dice el detalle de la alerta sobre lo que pasó y sobre quién más fue avisado?
-5. **Contactos de emergencia:** Al agregar un contacto, ¿a quiénes incluirías en el círculo de cuidado y en qué orden, y por qué?
-6. **Rutinas:** Al revisar la medicación y las citas, ¿qué tan claro te queda qué dosis se tomaron, cuáles faltan y cuándo hay que reponer el medicamento?
-7. **Ubicación:** Al ver la ubicación y las zonas seguras, ¿en qué situaciones de tu día a día usarías esta función y qué te daría más confianza al usarla?
+1. **Interfaz:** Al recorrer la pantalla de Inicio y la barra de navegación, ¿qué opinas del diseño de la aplicación? ¿Qué te resulta claro y qué no?
+2. **Salud → Ahora:** Mientras los signos vitales se actualizan en vivo, ¿cuál revisarías primero y cómo identificarías si un valor es normal o preocupante?
+3. **Alertas:** Ante una alerta de caída, ¿qué harías primero y qué te gustaría ver en el detalle de la alerta sobre lo que pasó?
+4. **Rutinas:** Al ver esta sección, ¿qué entiendes que puedes registrar y configurar, y qué parte te resulta más útil?
+5. **Ubicación:** Al ver la ubicación y las zonas seguras, ¿en qué situaciones de tu día a día usarías esta función y qué te daría confianza al usarla?
+6. **Valoración general:** ¿Qué opinas de la aplicación en general y crees que te sería útil en tu día a día? ¿Por qué?
+7. **Mejoras:** ¿Qué te gustaría que la aplicación incorpore o mejore más adelante?
 
 ### 4.3.2. Registro de Entrevistas
 
@@ -13421,26 +13424,28 @@ A continuación se presenta el registro de la entrevista de validación de la ap
 
 **Entrevistado 1**
 
-**Enlace a la grabación de la entrevista:** [Ver grabación](COMPLETAR-ENLACE-VIDEO-VALIDACION-APP)
+**Enlace a la grabación de la entrevista:** [Ver grabación en YouTube](https://youtu.be/X1aPOoKQ9yE)
 
-La Tabla 4.103 presenta los datos del entrevistado.
+La Tabla 4.103 presenta los datos de la entrevistada.
 
-<a id="tabla-4-103"></a>**Tabla 4.103.** Datos de la entrevista de validación de la aplicación móvil
+<a id="tabla-4-103"></a>**Tabla 4.103.** Datos de la entrevista de validación de la aplicación móvil a Lucía Infante
 
 | Campo | Valor |
 |---|---|
-| Nombre y apellido | COMPLETAR |
-| Edad | COMPLETAR |
-| Distrito | COMPLETAR |
-| Segmento | COMPLETAR |
+| Nombre y apellido | Lucía Infante |
+| Edad | 27 |
+| Distrito | Santiago de Surco |
+| Segmento | Familiares |
 
-La Figura 4.38 muestra una captura de la entrevista de validación de la aplicación móvil.
+La Figura 4.38 muestra una captura de la entrevista de validación de la aplicación móvil a Lucía Infante.
 
-<a id="figura-4-38"></a>**Figura 4.38.** Captura de la entrevista de validación de la aplicación móvil
+<a id="figura-4-38"></a>**Figura 4.38.** Captura de la entrevista de validación de la aplicación móvil a Lucía Infante
 
 ![Captura Entrevista Validación Aplicación Móvil](assets/images/chatper4/validation-interviews/entrevista_validacion_app_1.png)
 
-**Análisis de la entrevista:** COMPLETAR
+**Análisis de la entrevista:** Lucía Infante, que cuida a su padre adulto mayor, vio el video de presentación del producto y recorrió la aplicación móvil. Describió el diseño como intuitivo y atractivo: destacó que los signos vitales se ven con claridad, que los colores van con la temática de la aplicación, que la barra de navegación inferior es fácil de ubicar y que las alertas aparezcan resaltadas, por la importancia que tienen para el usuario. En la pestaña Salud indicó que revisaría primero la frecuencia cardíaca, seguida de la saturación de oxígeno y la presión arterial, y propuso que un valor alterado se distinga en rojo o naranja y genere una alerta para el cuidador, que es como la aplicación ya señala los valores fuera de rango con su etiqueta y su color.
+
+Ante una alerta de caída, esperaría que el detalle muestre los signos vitales registrados en ese momento para saber cómo se encuentra la persona, y que la alerta le llegue a su celular. De la sección Rutinas valoró principalmente el registro de la medicación, para confirmar si su familiar tomó cada pastilla y a qué hora, y el de las citas médicas, para que ninguna se pase; también consideró útiles la actividad, la hidratación y el sueño para conocer el bienestar general de la persona. Usaría la ubicación y las zonas seguras cuando su familiar se queda solo en casa mientras ella trabaja. En su valoración general consideró la aplicación interesante y bastante completa, porque reúne en un solo lugar lo necesario para estar pendiente de su familiar, de sus indicadores y de su actividad del día. No identificó puntos de mejora durante la sesión y comentó que podrían surgir con el uso diario de la aplicación.
 
 ### 4.3.3. Evaluaciones según heurísticas
 
@@ -13600,6 +13605,22 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 
 **Recomendación:**
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
+
+## 4.4. Video About-the-Product
+
+El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
+
+<a id="figura-4-46"></a>**Figura 4.46.** Video About-the-Product de Guardian+
+
+![Video About-the-Product](assets/images/chatper4/about-the-product/about-the-product-video.png)
+
+La Tabla 4.107 presenta el enlace al video.
+
+<a id="tabla-4-107"></a>**Tabla 4.107.** Video About-the-Product
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
 
 <div style="page-break-before: always; break-before: page;"></div>
 
