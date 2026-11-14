@@ -1975,7 +1975,7 @@ La Figura 2.18 presenta el EventStorming del Bounded Context Health Monitoring.
 
 <a id="figura-2-18"></a>**Figura 2.18.** EventStorming del Bounded Context Health Monitoring
 
-![alt text](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
+![EventStorming del Bounded Context Health Monitoring](../assets/images/chapterII/EventStorming/health-monitoring-bc.png)
 
 Este contexto candidato concentra las capacidades relacionadas con el monitoreo de bioseñales, la evaluación de umbrales biométricos, la visualización de información de salud y la generación de reportes y resúmenes periódicos.
 
