@@ -2915,3 +2915,4 @@ La Tabla 4.107 presenta el enlace al video.
 | Recurso | Enlace |
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
+| Video About-the-team | [Guardian+ - About the team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
