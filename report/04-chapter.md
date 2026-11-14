@@ -2757,7 +2757,7 @@ La Tabla 4.104 presenta los datos generales de la evaluación.
 | **CARRERA** | Ingeniería de Software |
 | **CURSO** | 1ACC0238 Aplicaciones para dispositivos móviles |
 | **NRC** | 13980 |
-| **PROFESORES** | Todos |
+| **PROFESORES** | Mayta Guillermo, Jorge Luis |
 | **AUDITOR** | Healthify |
 | **CLIENTE(S)** | Azama Fukuda, Juan Pablo, Mechan Montenegro, Luciana Carolina,Luis Miranda, Diego Andres, López Monroy, Rodrigo Alfredo, Sanchez Cuadrado, Juan Antonio |
 
