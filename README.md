@@ -45,7 +45,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
 | 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
-| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se completo la app de Kotlin aun 100% y se hizo un avance del 30% en la app de flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
+| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se implementaron en la app de Kotlin 7 de las 9 User Stories del Sprint 2 y se hizo un avance del 30% en la app de Flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, el video About-the-Team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
 
 # Project Report Collaboration Insights
 
@@ -223,6 +223,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](#44-video-about-the-product)
+  - [4.5. Video About-the-Team](#45-video-about-the-team)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -429,6 +430,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -490,21 +492,21 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.47. Diagrama de componentes del Bounded Context Health Monitoring](#figura-2-47)
 - [Figura 2.48. Diagrama de clases de la Domain Layer de Health Monitoring](#figura-2-48)
 - [Figura 2.49. Diagrama de base de datos de Health Monitoring](#figura-2-49)
-- [Figura 2.51. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-51)
-- [Figura 2.52. Diagrama de base de datos de Subscriptions](#figura-2-52)
-- [Figura 2.53. Diagrama de componentes del Bounded Context Profile](#figura-2-53)
-- [Figura 2.54. Diagrama de clases de la Domain Layer de Profile](#figura-2-54)
-- [Figura 2.55. Diagrama de base de datos de Profile](#figura-2-55)
-- [Figura 2.56. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-56)
-- [Figura 2.57. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-57)
-- [Figura 2.58. Diagrama de base de datos de Care Routines & Wellness](#figura-2-58)
-- [Figura 2.59. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-59)
-- [Figura 2.60. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-60)
-- [Figura 2.61. Diagrama de base de datos de Mobility & Geofencing](#figura-2-61)
-- [Figura 2.62. Diagrama de componentes del Bounded Context IAM](#figura-2-62)
-- [Figura 2.63. Diagrama de clases de la Domain Layer de IAM](#figura-2-63)
-- [Figura 2.64. Diagrama de base de datos de IAM](#figura-2-64)
-- [Figura 2.65. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-65)
+- [Figura 2.50. Diagrama de clases de la Domain Layer de Subscriptions](#figura-2-50)
+- [Figura 2.51. Diagrama de base de datos de Subscriptions](#figura-2-51)
+- [Figura 2.52. Diagrama de componentes del Bounded Context Profile](#figura-2-52)
+- [Figura 2.53. Diagrama de clases de la Domain Layer de Profile](#figura-2-53)
+- [Figura 2.54. Diagrama de base de datos de Profile](#figura-2-54)
+- [Figura 2.55. Diagrama de componentes del Bounded Context Care Routines & Wellness](#figura-2-55)
+- [Figura 2.56. Diagrama de clases de la Domain Layer de Care Routines & Wellness](#figura-2-56)
+- [Figura 2.57. Diagrama de base de datos de Care Routines & Wellness](#figura-2-57)
+- [Figura 2.58. Diagrama de componentes del Bounded Context Mobility & Geofencing](#figura-2-58)
+- [Figura 2.59. Diagrama de clases de la Domain Layer de Mobility & Geofencing](#figura-2-59)
+- [Figura 2.60. Diagrama de base de datos de Mobility & Geofencing](#figura-2-60)
+- [Figura 2.61. Diagrama de componentes del Bounded Context IAM](#figura-2-61)
+- [Figura 2.62. Diagrama de clases de la Domain Layer de IAM](#figura-2-62)
+- [Figura 2.63. Diagrama de base de datos de IAM](#figura-2-63)
+- [Figura 2.64. Esquema físico consolidado de la base de datos de Guardian+](#figura-2-64)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -4213,11 +4215,11 @@ La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patr�
 | Mobility & Geofencing → Emergency & Alerting | Mobility & Geofencing (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL**; **ACL** en Emergency & Alerting | Cuando una ubicación del Fragile Citizen queda fuera de su zona segura activa, Mobility & Geofencing emite de forma asíncrona el evento `SafeZoneViolation`, que Emergency & Alerting consume para disparar una alerta de severidad alta y activar el despacho a los contactos de emergencia. Para incluir la ubicación en la notificación, Emergency & Alerting consulta la última ubicación conocida mediante su ACL `MobilityContextAcl`, sin persistirla. |
 | Care Routines & Wellness → Emergency & Alerting | Care Routines & Wellness (supplier) | Emergency & Alerting (customer) | **Customer/Supplier** con **PL** | El contexto de rutinas monitorea la actividad diaria del paciente. Si se registra una inactividad prolongada no justificada en horas diurnas (US27), emite el evento `ProlongedInactivityDetected`, consumido por Emergency & Alerting para ejecutar la verificación de bienestar. Del mismo modo, `ReminderReissued` y `MedicationRestockSuggested` se consumen como alertas de severidad media dirigidas al contacto primario. |
 | Profile → Emergency & Alerting | Profile (supplier) | Emergency & Alerting (customer) | **Customer/Supplier**; **ACL** en Emergency & Alerting | Emergency & Alerting requiere conocer qué integrantes del Care Circle pueden recibir alertas para el escalamiento a 60 segundos. Para no depender de Profile durante el despacho, mantiene su propia tabla `emergency_contacts` y consulta a Profile solo mediante su ACL `ProfileContextAcl`: al registrar un contacto verifica que exista una relación de cuidado activa y, al componer la notificación, obtiene el nombre del Fragile Citizen. Los eventos `CareRelationshipEstablished` y `CareRelationshipEnded` de Profile son el contrato previsto para activar o desactivar los contactos (sección 2.6.4). |
-| Profile → Mobility & Geofencing | Profile | Mobility & Geofencing | **ACL** en Mobility & Geofencing | Mobility & Geofencing verifica los datos del Fragile Citizen mediante su componente Profile ACL, el adaptador anticorrupción que consume la información de identidad del contexto Profile (Figura 2.59). La columna `fragile_citizen_id` de sus tablas referencia los perfiles gobernados por Profile. |
+| Profile → Mobility & Geofencing | Profile | Mobility & Geofencing | **ACL** en Mobility & Geofencing | Mobility & Geofencing verifica los datos del Fragile Citizen mediante su componente Profile ACL, el adaptador anticorrupción que consume la información de identidad del contexto Profile (Figura 2.58). La columna `fragile_citizen_id` de sus tablas referencia los perfiles gobernados por Profile. |
 | IAM → Emergency & Alerting, Health Monitoring, Care Routines & Wellness, Mobility & Geofencing, Profile, Subscriptions | IAM | Los seis Bounded Contexts de negocio | **OHS** con **PL** | IAM provee autenticación y autorización mediante tokens de acceso estándar (JSON Web Tokens firmados) con un Published Language documentado. Los contextos descendentes validan la firma de los tokens y extraen el `UserId` y los roles sin consultar la base de datos de identidad en cada petición. |
 | Stripe → Subscriptions | Stripe (sistema externo) | Subscriptions | **ACL** | La gestión de pagos depende de las librerías oficiales del proveedor externo. Subscriptions implementa adaptadores (`PaymentWebhookController` y `PaymentProviderAdapter`) que traducen los eventos de facturación de Stripe (`invoice.paid`, `customer.subscription.deleted`) a las transiciones de estado del agregado `Subscription` (`ACTIVE`, `CANCELLED`, `EXPIRED`). |
 | Notification Providers → Emergency & Alerting | Notification Providers (sistema externo) | Emergency & Alerting | **ACL** | Emergency & Alerting despacha las notificaciones mediante adaptadores por canal (`PushNotificationProviderAdapter` y `SmsProviderAdapter`) y recibe el resultado de cada entrega en `NotificationDeliveryWebhookController`, de modo que los formatos de los proveedores de push y SMS no alcancen al modelo de alertas. |
-| Email Provider → IAM | Email Provider (sistema externo) | IAM | **ACL** | IAM envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña mediante `EmailProviderAdapter`, ubicado en el paquete `infrastructure/notifications/adapters` (Figura 2.62), de modo que el proveedor de correo no alcance al modelo de identidad. |
+| Email Provider → IAM | Email Provider (sistema externo) | IAM | **ACL** | IAM envía los correos de verificación de cuenta, los códigos OTP y los enlaces de recuperación de contraseña mediante `EmailProviderAdapter`, ubicado en el paquete `infrastructure/notifications/adapters` (Figura 2.61), de modo que el proveedor de correo no alcance al modelo de identidad. |
 
 ### 2.5.3. Software Architecture
 
@@ -6173,9 +6175,9 @@ En esta sección se presenta la estructura interna del Bounded Context **Subscri
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.51 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor de los Aggregate Roots `Subscription` y `EntitlementSet`, responsables respectivamente de controlar el ciclo de vida de una suscripción y administrar los beneficios efectivos asociados al plan vigente.
+El diagrama UML de la Figura 2.50 representa los principales elementos que conforman la Domain Layer de **Subscriptions**. El modelo se organiza alrededor de los Aggregate Roots `Subscription` y `EntitlementSet`, responsables respectivamente de controlar el ciclo de vida de una suscripción y administrar los beneficios efectivos asociados al plan vigente.
 
-<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de clases de la Domain Layer de Subscriptions
+<a id="figura-2-50"></a>**Figura 2.50.** Diagrama de clases de la Domain Layer de Subscriptions
 
 ![Subscriptions Domain Layer Class Diagram](assets/images/chapterII/Subscriptions/SubscriptionsCodeLevelDiagram.png)
 
@@ -6187,9 +6189,9 @@ Los estados de una suscripción se representan mediante `SubscriptionStatus`, cu
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.52 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. El modelo almacena la información necesaria para administrar suscripciones, planes y beneficios, manteniendo separadas las responsabilidades de persistencia respecto del procesamiento de pagos.
+La Figura 2.51 presenta el diseño de persistencia correspondiente al Bounded Context **Subscriptions**. El modelo almacena la información necesaria para administrar suscripciones, planes y beneficios, manteniendo separadas las responsabilidades de persistencia respecto del procesamiento de pagos.
 
-<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de base de datos de Subscriptions
+<a id="figura-2-51"></a>**Figura 2.51.** Diagrama de base de datos de Subscriptions
 
 ![Subscriptions Database Design Diagram](assets/images/chapterII/Subscriptions/SubscriptionsDatabaseDesigDiagram.png)
 
@@ -7138,9 +7140,9 @@ En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (secci�
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.53 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
+La Figura 2.52 presenta la arquitectura a nivel de componentes propuesta para el Bounded Context **Profile**. La vista representa la organización general necesaria para administrar perfiles de usuario, perfiles de personas bajo cuidado, relaciones de cuidado y preferencias de aplicación.
 
-<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de componentes del Bounded Context Profile
+<a id="figura-2-52"></a>**Figura 2.52.** Diagrama de componentes del Bounded Context Profile
 
 ![Profile Component Level Diagram](assets/images/chapterII/Profile/ProofileComponents.png)
 
@@ -7164,9 +7166,9 @@ En esta sección se documenta la estructura interna del Bounded Context **Profil
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.54 presenta la organización general de la Domain Layer de **Profile**.
+El diagrama UML de la Figura 2.53 presenta la organización general de la Domain Layer de **Profile**.
 
-<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de clases de la Domain Layer de Profile
+<a id="figura-2-53"></a>**Figura 2.53.** Diagrama de clases de la Domain Layer de Profile
 
 ![Profile Domain Layer Class Diagram](assets/images/chapterII/Profile/ProfileCodeLevelDiagrams.png)
 
@@ -7177,9 +7179,9 @@ El dominio utiliza los Value Objects `UserProfileId`, `CareRecipientProfileId`, 
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.55 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
+La Figura 2.54 representa el diseño de persistencia correspondiente al Bounded Context **Profile**. Las tablas reflejan la información que debe almacenarse en el backend para administrar perfiles, personas bajo cuidado, relaciones de cuidado y preferencias.
 
-<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de base de datos de Profile
+<a id="figura-2-54"></a>**Figura 2.54.** Diagrama de base de datos de Profile
 
 ![Profile Database Design Diagram](assets/images/chapterII/Profile/ProfileDatabaseDesigDiagram.png)
 
@@ -7466,9 +7468,9 @@ Implementa la persistencia técnica en PostgreSQL, la comunicación con el broke
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.56 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
+La Figura 2.55 presenta las cuatro capas del Bounded Context **Care Routines & Wellness**, su relación con la aplicación móvil y con el firmware del wearable, y los eventos de integración que publica hacia Emergency & Alerting.
 
-<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de componentes del Bounded Context Care Routines & Wellness
+<a id="figura-2-55"></a>**Figura 2.55.** Diagrama de componentes del Bounded Context Care Routines & Wellness
 
 ![Care Routines & Wellness Component Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-wellness-component.png)
 
@@ -7478,19 +7480,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Care Ro
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.57 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
+El diagrama UML de la Figura 2.56 presenta la Domain Layer de **Care Routines & Wellness**, con los agregados `Reminder`, `SleepCycleRecord`, `ActivityMonitor` y `MedicationStock`, sus Value Objects y los Domain Services que aplican las políticas de emisión y reemisión de recordatorios y de stock de medicamentos.
 
-<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
+<a id="figura-2-56"></a>**Figura 2.56.** Diagrama de clases de la Domain Layer de Care Routines & Wellness
 
 ![Care Routines & Wellness Domain Class Diagram](assets/images/chapterII/tactical-level-domain-driven-desing/care-routines-and-wellness-bc/care-routines-and-welness.svg)
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.58 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
+La Figura 2.57 presenta el diseño de persistencia del Bounded Context **Care Routines & Wellness**, derivado directamente de sus agregados: `reminders` conserva el ciclo de vida de cada recordatorio junto con su contador de reemisiones, `sleep_cycle_records` almacena cada ciclo de sueño cerrado con su clasificación, `activity_monitors` mantiene un único registro de actividad por persona bajo cuidado y `medication_stocks` el balance de dosis restantes que alimenta la sugerencia de reabastecimiento.
 
 Las columnas `person_under_care_id` y `wearable_device_id` referencian, respectivamente, los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring, de modo que la telemetría registrada mantiene su trazabilidad hacia el dispositivo que la originó sin que este contexto administre ninguna de las dos entidades.
 
-<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de base de datos de Care Routines & Wellness
+<a id="figura-2-57"></a>**Figura 2.57.** Diagrama de base de datos de Care Routines & Wellness
 
 ![Care Routines & Wellness Database Design Diagram](assets/images/chapterII/databaseDiagrams/care-routines-and-wellnes-db-diagram.png)
 
@@ -8034,9 +8036,9 @@ Implementa los mecanismos técnicos que permiten persistir la información del B
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.59 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
+La Figura 2.58 presenta los componentes del Bounded Context **Mobility & Geofencing**: el consumidor de ubicación del wearable y los controladores REST en la Interface Layer; los servicios de comandos y consultas en la Application Layer; los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el servicio de evaluación de geocercas en la Domain Layer; y los adaptadores de persistencia, la ACL hacia Profile y el publicador de eventos en la Infrastructure Layer.
 
-<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de componentes del Bounded Context Mobility & Geofencing
+<a id="figura-2-58"></a>**Figura 2.58.** Diagrama de componentes del Bounded Context Mobility & Geofencing
 
 ![Mobility & Geofencing Component Diagram](assets/images/chapterII/c4-diagrams/MobilityandGeofencing.png)
 
@@ -8046,19 +8048,19 @@ En esta sección se presenta la estructura interna del Bounded Context **Mobilit
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.60 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
+El diagrama UML de la Figura 2.59 presenta la Domain Layer del Bounded Context **Mobility & Geofencing**, organizada alrededor de los agregados `SafeZone` y `LocationTracking`, la entidad `ZoneViolation` y el Domain Service `GeofenceEvaluationService`, que concentra la regla espacial de evaluación de una ubicación contra los límites de una zona segura.
 
-<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
+<a id="figura-2-59"></a>**Figura 2.59.** Diagrama de clases de la Domain Layer de Mobility & Geofencing
 
 ![Mobility & Geofencing Domain Class Diagram](assets/images/chapterII/classDiagrams/geofecingDomainLayerClassDiagram.png)
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.61 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
+La Figura 2.60 presenta el diseño de persistencia del Bounded Context **Mobility & Geofencing**, derivado de sus agregados: `safe_zones` guarda la configuración de cada zona segura con su centro y radio, `location_trackings` mantiene el estado de ubicación vigente de un Fragile Citizen, `location_records` conserva el historial inmutable de ubicaciones recibidas y `zone_violations` registra cada evaluación que resultó externa a una zona segura activa.
 
 Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfiles gobernados por el Bounded Context Profile y los dispositivos gobernados por Health Monitoring. La resolución de una violación no se persiste en este contexto: su responsabilidad termina en la detección y el registro, mientras que la atención y el cierre pertenecen a Emergency & Alerting.
 
-<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de base de datos de Mobility & Geofencing
+<a id="figura-2-60"></a>**Figura 2.60.** Diagrama de base de datos de Mobility & Geofencing
 
 ![Mobility & Geofencing Database Design Diagram](assets/images/chapterII/databaseDiagrams/mobility-and-geofencing-db-diagram.png)
 
@@ -8352,9 +8354,9 @@ Implementa la persistencia técnica en PostgreSQL, el hashing de contraseñas, l
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 2.62 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
+La Figura 2.61 presenta las cuatro capas del Bounded Context **IAM**, su relación con la aplicación móvil, la base de datos y el proveedor de correo, y la emisión del JWT firmado que validan los Bounded Contexts descendentes.
 
-<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de componentes del Bounded Context IAM
+<a id="figura-2-61"></a>**Figura 2.61.** Diagrama de componentes del Bounded Context IAM
 
 ![IAM Component Diagram](assets/images/chapterII/c4-diagrams/IAM_Components.png)
 
@@ -8364,27 +8366,27 @@ En esta sección se presenta la estructura interna del Bounded Context **IAM** a
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-El diagrama UML de la Figura 2.63 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
+El diagrama UML de la Figura 2.62 presenta la Domain Layer de **IAM**, con los agregados `UserAccount`, `OneTimePassword` y `PasswordResetToken`, sus Value Objects y enumeraciones, y las interfaces de repositorio y de hashing que utiliza.
 
-<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de clases de la Domain Layer de IAM
+<a id="figura-2-62"></a>**Figura 2.62.** Diagrama de clases de la Domain Layer de IAM
 
 ![IAM Domain Class Diagram](assets/images/chapterII/classDiagrams/IAM-class-diagram.png)
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-La Figura 2.64 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
+La Figura 2.63 presenta el diseño de persistencia de **IAM**: `user_accounts` almacena las cuentas con su correo, su contraseña cifrada y su estado, mientras que `otp_codes` y `password_reset_tokens` registran los códigos de segundo factor y los tokens de recuperación de contraseña de cada cuenta.
 
-<a id="figura-2-64"></a>**Figura 2.64.** Diagrama de base de datos de IAM
+<a id="figura-2-63"></a>**Figura 2.63.** Diagrama de base de datos de IAM
 
 ![IAM Database Design Diagram](assets/images/chapterII/databaseDiagrams/IAM-database.png)
 
 ### Guardian+ Physical Database Schema
 
-Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.65 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
+Como complemento a los Database Design Diagrams definidos individualmente para cada Bounded Context, la Figura 2.64 presenta una vista consolidada del esquema físico de persistencia de **Guardian+**.
 
 El Physical Schema ERD integra las principales tablas utilizadas por los distintos contextos del sistema y permite visualizar de manera conjunta sus claves primarias, claves foráneas y relaciones. Esta representación facilita la comprensión de cómo los datos persistentes de identidad, perfiles, suscripciones, monitoreo de salud, alertas, rutinas de cuidado y demás capacidades de Guardian+ se relacionan dentro de la infraestructura de almacenamiento.
 
-<a id="figura-2-65"></a>**Figura 2.65.** Esquema físico consolidado de la base de datos de Guardian+
+<a id="figura-2-64"></a>**Figura 2.64.** Esquema físico consolidado de la base de datos de Guardian+
 
 ![Guardian+ Physical Schema ERD](assets/images/chapterII/databaseDiagrams/PhysicalSchemaERD.png)
 
@@ -13648,6 +13650,16 @@ La Tabla 4.107 presenta el enlace al video.
 | Recurso | Enlace |
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
+
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta a los integrantes del equipo Healthify que desarrollan Guardian+. La Tabla 4.108 presenta el enlace al video.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team | [Guardian+ — About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 
 <div style="page-break-before: always; break-before: page;"></div>
 
