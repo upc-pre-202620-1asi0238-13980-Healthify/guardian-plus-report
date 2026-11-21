@@ -45,7 +45,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
 | 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
-| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se completo la app de Kotlin aun 100% y se hizo un avance del 30% en la app de flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
+| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se implementaron en la app de Kotlin 7 de las 9 User Stories del Sprint 2 y se hizo un avance del 30% en la app de Flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, el video About-the-Team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
 
 # Project Report Collaboration Insights
 
@@ -223,6 +223,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.2. Registro de Entrevistas](04-chapter.md#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](04-chapter.md#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](04-chapter.md#44-video-about-the-product)
+  - [4.5. Video About-the-Team](04-chapter.md#45-video-about-the-team)
 - [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
 - [Bibliografía](../README.md#bibliografía)
 
@@ -429,6 +430,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](04-chapter.md#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](04-chapter.md#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -490,21 +492,21 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 2.47. Diagrama de componentes del Bounded Context Health Monitoring](02-chapter.md#figura-2-47)
 - [Figura 2.48. Diagrama de clases de la Domain Layer de Health Monitoring](02-chapter.md#figura-2-48)
 - [Figura 2.49. Diagrama de base de datos de Health Monitoring](02-chapter.md#figura-2-49)
-- [Figura 2.51. Diagrama de clases de la Domain Layer de Subscriptions](02-chapter.md#figura-2-51)
-- [Figura 2.52. Diagrama de base de datos de Subscriptions](02-chapter.md#figura-2-52)
-- [Figura 2.53. Diagrama de componentes del Bounded Context Profile](02-chapter.md#figura-2-53)
-- [Figura 2.54. Diagrama de clases de la Domain Layer de Profile](02-chapter.md#figura-2-54)
-- [Figura 2.55. Diagrama de base de datos de Profile](02-chapter.md#figura-2-55)
-- [Figura 2.56. Diagrama de componentes del Bounded Context Care Routines & Wellness](02-chapter.md#figura-2-56)
-- [Figura 2.57. Diagrama de clases de la Domain Layer de Care Routines & Wellness](02-chapter.md#figura-2-57)
-- [Figura 2.58. Diagrama de base de datos de Care Routines & Wellness](02-chapter.md#figura-2-58)
-- [Figura 2.59. Diagrama de componentes del Bounded Context Mobility & Geofencing](02-chapter.md#figura-2-59)
-- [Figura 2.60. Diagrama de clases de la Domain Layer de Mobility & Geofencing](02-chapter.md#figura-2-60)
-- [Figura 2.61. Diagrama de base de datos de Mobility & Geofencing](02-chapter.md#figura-2-61)
-- [Figura 2.62. Diagrama de componentes del Bounded Context IAM](02-chapter.md#figura-2-62)
-- [Figura 2.63. Diagrama de clases de la Domain Layer de IAM](02-chapter.md#figura-2-63)
-- [Figura 2.64. Diagrama de base de datos de IAM](02-chapter.md#figura-2-64)
-- [Figura 2.65. Esquema físico consolidado de la base de datos de Guardian+](02-chapter.md#figura-2-65)
+- [Figura 2.50. Diagrama de clases de la Domain Layer de Subscriptions](02-chapter.md#figura-2-50)
+- [Figura 2.51. Diagrama de base de datos de Subscriptions](02-chapter.md#figura-2-51)
+- [Figura 2.52. Diagrama de componentes del Bounded Context Profile](02-chapter.md#figura-2-52)
+- [Figura 2.53. Diagrama de clases de la Domain Layer de Profile](02-chapter.md#figura-2-53)
+- [Figura 2.54. Diagrama de base de datos de Profile](02-chapter.md#figura-2-54)
+- [Figura 2.55. Diagrama de componentes del Bounded Context Care Routines & Wellness](02-chapter.md#figura-2-55)
+- [Figura 2.56. Diagrama de clases de la Domain Layer de Care Routines & Wellness](02-chapter.md#figura-2-56)
+- [Figura 2.57. Diagrama de base de datos de Care Routines & Wellness](02-chapter.md#figura-2-57)
+- [Figura 2.58. Diagrama de componentes del Bounded Context Mobility & Geofencing](02-chapter.md#figura-2-58)
+- [Figura 2.59. Diagrama de clases de la Domain Layer de Mobility & Geofencing](02-chapter.md#figura-2-59)
+- [Figura 2.60. Diagrama de base de datos de Mobility & Geofencing](02-chapter.md#figura-2-60)
+- [Figura 2.61. Diagrama de componentes del Bounded Context IAM](02-chapter.md#figura-2-61)
+- [Figura 2.62. Diagrama de clases de la Domain Layer de IAM](02-chapter.md#figura-2-62)
+- [Figura 2.63. Diagrama de base de datos de IAM](02-chapter.md#figura-2-63)
+- [Figura 2.64. Esquema físico consolidado de la base de datos de Guardian+](02-chapter.md#figura-2-64)
 
 **Capítulo III: Solution UI/UX Design**
 

@@ -2915,4 +2915,13 @@ La Tabla 4.107 presenta el enlace al video.
 | Recurso | Enlace |
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
-| Video About-the-team | [Guardian+ - About the team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta a los integrantes del equipo Healthify que desarrollan Guardian+. La Tabla 4.108 presenta el enlace al video.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team | [Guardian+ — About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
