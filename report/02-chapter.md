@@ -5222,7 +5222,7 @@ Los beneficios disponibles son administrados mediante el catálogo de `Entitleme
 
 El Bounded Context **Profile** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la información descriptiva de los usuarios, los perfiles de las personas bajo cuidado, las relaciones de cuidado entre familiares o cuidadores y la persona a su cargo, y las preferencias de idioma, accesibilidad y notificaciones de la aplicación.
 
-Este contexto separa la información personal de la identidad y la autenticación: utiliza `UserId` únicamente como referencia externa al Bounded Context IAM y no almacena contraseñas, tokens ni credenciales. Al establecer o finalizar una relación de cuidado publica los eventos `CareRelationshipEstablished` y `CareRelationshipEnded`, que Emergency & Alerting utiliza para mantener actualizados los contactos de emergencia. La integración directa con IAM queda pendiente hasta que dicho contexto se implemente en el backend.
+Este contexto separa la información personal de la identidad y la autenticación: utiliza `UserId` únicamente como referencia externa al Bounded Context IAM y no almacena contraseñas, tokens ni credenciales. Al establecer o finalizar una relación de cuidado publica los eventos `CareRelationshipEstablished` y `CareRelationshipEnded`, que Emergency & Alerting utiliza para mantener actualizados los contactos de emergencia. El Bounded Context IAM se implementó en los Web Services durante el Sprint 2, y en el Sprint 3 se completó su integración con Profile: la validación de `UserId` mediante la interfaz pública `IamContextFacade` y el consumo del evento `UserAccountRegisteredIntegrationEvent`.
 
 La arquitectura táctica se implementa sobre Java y Spring Boot con una estructura de paquetes dividida en cuatro capas: domain, interfaces, application e infrastructure. Su código se organiza en el paquete `com.healthify.guardian.platform.profile` del repositorio `guardian-plus-platform`, con la siguiente estructura:
 
@@ -6148,13 +6148,9 @@ Esto permite utilizar dichas dependencias mediante inyección sin introducir com
 
 Profile mantiene `UserId` como referencia externa hacia la identidad del usuario, pero no almacena contraseñas, tokens ni información de autenticación.
 
-En el estado actual del backend no existe todavía un Bounded Context IAM implementado en la rama `develop`. Por esta razón, tampoco se encuentra implementado un `IAMQueryAdapter`, `IdentityReferenceAdapter` o componente equivalente dentro de Profile.
+En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (sección 4.2.2.4): registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP, recuperación de contraseña y acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta. La aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile.
 
-La validación directa de referencias contra IAM queda pendiente para una etapa posterior de implementación, una vez que dicho Bounded Context proporcione una interfaz pública que pueda ser consumida sin generar acoplamiento directo entre los modelos internos de ambos contextos.
-
-Esta decisión mantiene preparado el diseño para una futura integración sin incorporar actualmente dependencias hacia componentes inexistentes.
-
-En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (sección 4.2.2.4): registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP, recuperación de contraseña y acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta. Desde entonces, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. La validación directa de `UserId` mediante `IamContextFacade` y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile se incorporarán en un siguiente incremento.
+En el Sprint 3 se completó la integración desde Profile. Antes de crear o consultar su información, Profile valida que el `UserId` recibido corresponda a una cuenta existente mediante `IamContextFacade`, y consume el evento `UserAccountRegisteredIntegrationEvent` para reaccionar al registro de nuevas cuentas. La comunicación se realiza únicamente a través de la interfaz pública de IAM, sin acoplamiento entre los modelos internos de ambos contextos.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -6170,13 +6166,11 @@ Las solicitudes recibidas son delegadas hacia la Application Layer, implementada
 
 La lógica principal del dominio se concentra en cuatro Aggregate Roots: `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`. Adicionalmente, `CareRelationshipPolicy` encapsula la regla que evita establecer relaciones activas duplicadas entre un mismo usuario y una misma persona bajo cuidado.
 
-El diagrama conserva algunos elementos correspondientes al diseño arquitectónico planteado para etapas posteriores del proyecto. En particular, la integración directa mediante un adaptador hacia IAM permanece pendiente debido a que dicho Bounded Context todavía no se encuentra implementado en el backend actual. Profile mantiene por el momento `UserId` únicamente como referencia externa.
+El adaptador hacia IAM representado en el diagrama corresponde a la integración descrita en la sección anterior: IAM se implementó en el Sprint 2 y expone `IamContextFacade`, y en el Sprint 3 Profile incorporó la validación de `UserId` a través de esa interfaz y el consumo de `UserAccountRegisteredIntegrationEvent`.
 
 La **Infrastructure Layer** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
 
-De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
-
-Con la implementación de IAM en el Sprint 2, el contexto del que depende este adaptador ya se encuentra disponible en el backend a través de `IamContextFacade`, por lo que el adaptador hacia IAM representado en el diagrama corresponde al siguiente paso de la integración descrita en la sección anterior.
+De esta manera, el diagrama representa la arquitectura de Profile tal como se encuentra implementada, incluida su integración con IAM.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
