@@ -233,6 +233,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.2. Registro de Entrevistas](04-chapter.md#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](04-chapter.md#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](04-chapter.md#44-video-about-the-product)
+  - [4.5. Video About-the-Team](04-chapter.md#45-video-about-the-team)
 - [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
 - [Bibliografía](../README.md#bibliografía)
 
@@ -439,6 +440,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](04-chapter.md#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](04-chapter.md#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 

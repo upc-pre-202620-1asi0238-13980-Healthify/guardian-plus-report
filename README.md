@@ -233,6 +233,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](#44-video-about-the-product)
+  - [4.5. Video About-the-Team](#45-video-about-the-team)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -439,6 +440,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -13658,6 +13660,18 @@ La Tabla 4.107 presenta el enlace al video.
 | Recurso | Enlace |
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
+
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta a los integrantes del equipo Healthify y su participación en el desarrollo de Guardian+.
+
+La Tabla 4.108 presenta el enlace al video.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 
 <div style="page-break-before: always; break-before: page;"></div>
 
