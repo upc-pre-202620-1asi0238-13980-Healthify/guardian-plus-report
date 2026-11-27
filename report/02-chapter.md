@@ -7078,7 +7078,9 @@ Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfile
 
 ### 2.6.7. Bounded Context: IAM
 
-El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación reforzada con un segundo factor opcional (OTP) y la recuperación segura de la contraseña.
+El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación en dos pasos con un código OTP y la recuperación segura de la contraseña.
+
+En la versión entregada, el código OTP es obligatorio en cada inicio de sesión con correo y contraseña, mientras que el acceso con Google no lo solicita. Los elementos del diseño que permiten habilitar o deshabilitar el segundo factor por cuenta (`twoFactorEnabled`, `EnableTwoFactorCommand`, `DisableTwoFactorCommand`, `TwoFactorSettingChangedEvent` y `PUT /{userAccountId}/two-factor`) corresponden a una opción prevista para versiones posteriores y no forman parte de los Web Services actuales.
 
 A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS), publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados que cada contexto descendente valida localmente, sin consultar la base de datos de identidad.
 
@@ -7235,7 +7237,7 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo con un código de propósito `EMAIL_VERIFICATION`; transiciona la cuenta a `ACTIVE`.
 *   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo y la contraseña.
 *   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
-*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta.
+*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta (previsto para versiones posteriores).
 *   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
 *   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
@@ -7267,14 +7269,14 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
     *   `POST /register`: Registra nuevas credenciales de usuario.
     *   `POST /verify-email`: Confirma el correo electrónico mediante el código de propósito `EMAIL_VERIFICATION` enviado.
     *   `POST /verify-email/resend`: Reemite el código de verificación de correo.
-    *   `POST /login`: Valida correo y contraseña y, si la cuenta tiene el segundo factor habilitado, dispara el desafío OTP.
+    *   `POST /login`: Valida correo y contraseña y dispara el desafío OTP.
     *   `POST /otp/verify`: Verifica el código OTP de propósito `LOGIN` y, de ser correcto, emite el JWT de sesión.
     *   `POST /password-reset/request`: Emite y envía el token de recuperación de contraseña.
     *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir de un token vigente y no consumido.
 *   **UserAccountsController** (`/api/v1/user-accounts`):
     *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
     *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
-    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
+    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta (previsto para versiones posteriores).
 
 ##### Resources & Assemblers
 
@@ -7300,7 +7302,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
     *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
     *   `handle(VerifyEmailCommand command): void`: Recupera el código utilizable de propósito `EMAIL_VERIFICATION`, lo verifica contra su hash, lo marca como usado y transiciona la cuenta a `ACTIVE`.
-    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta.
+    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta (previstos para versiones posteriores).
     *   `handle(ResetPasswordCommand command): void`: Recupera el token utilizable por su hash, lo marca como usado y reemplaza el `HashedPassword` de la cuenta asociada.
 *   **PasswordResetCommandService & PasswordResetCommandServiceImpl:**
     *   `handle(RequestPasswordResetCommand command): Optional<PasswordResetToken>`: Emite un token opaco mediante `SecretGenerator`, persiste únicamente su hash y publica `PasswordResetTokenIssuedEvent`. Si el correo no corresponde a ninguna cuenta, la operación no revela esa condición al solicitante.
@@ -7318,7 +7320,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 ##### Event Handlers
 
 *   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
-*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` con propósito `LOGIN` en cada inicio de sesión con correo y contraseña.
 *   `OtpGeneratedEventHandler`: Despacha el envío del código por correo mediante el adaptador de notificaciones, según el propósito de la emisión.
 *   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand` cuando el propósito es `LOGIN`, cerrando el flujo de autenticación.
 *   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.
