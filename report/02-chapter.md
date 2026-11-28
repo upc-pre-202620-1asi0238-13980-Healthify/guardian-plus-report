@@ -3393,7 +3393,7 @@ Las vistas de contexto, contenedores y componentes representan la arquitectura o
 - **Dispositivo wearable:** la arquitectura objetivo contempla la pulsera basada en ESP32-S3 con el Guardian+ Wearable Firmware. En la versión actual, la pulsera es reemplazada por el IoT Simulator, desplegado en Google Compute Engine (sección 4.1.4).
 - **Comunicación MQTT:** el IoT Simulator publica la telemetría por MQTT sobre TCP (puerto 1883) en el broker Eclipse Mosquitto, y el backend se suscribe a ese broker mediante MQTT sobre WebSocket (puerto 9001).
 - **Pagos:** la arquitectura objetivo integra Stripe. En la versión actual, Subscriptions utiliza flujos de pago simulados (sección 2.6.3), sin conexión con Stripe.
-- **Aplicación móvil:** la arquitectura objetivo considera la aplicación nativa en Kotlin. En la versión actual, además de Kotlin, se desarrolla una versión en Flutter que consume la misma API y que todavía no alcanza todo el alcance de la versión en Kotlin.
+- **Aplicación móvil:** la arquitectura objetivo considera la aplicación nativa en Kotlin. En la versión actual, además de Kotlin, se desarrolla una versión en Flutter que consume la misma API y que todavía no cubre todo el alcance de la versión en Kotlin.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
