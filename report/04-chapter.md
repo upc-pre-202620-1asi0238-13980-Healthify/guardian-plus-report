@@ -2294,6 +2294,8 @@ Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales
 
 De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
 
+El avance de la aplicación en Flutter se midió por pantallas: al cierre del Sprint, la rama `develop` de Flutter (commit `0ced4d7`) tiene 18 de las 47 pantallas que tiene la rama `develop` de Kotlin (commit `d33414a`), es decir, un 38 %. Están implementadas las secciones Salud y Rutinas conectadas a los Web Services, además de la configuración de alertas y los contactos de emergencia. El inicio de sesión todavía no se conecta a IAM y las secciones de perfil, suscripción y Ubicación quedan pendientes para el Sprint 3.
+
 ##### Mobile Application
 
 La Figura 4.23 muestra la aplicación móvil en Kotlin ejecutándose en el emulador de Android Studio.
