@@ -13496,6 +13496,14 @@ Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las f
 6. **Valoración general:** ¿Qué opinas de la aplicación en general y crees que te sería útil en tu día a día? ¿Por qué?
 7. **Mejoras:** ¿Qué te gustaría que la aplicación incorpore o mejore más adelante?
 
+Además de las preguntas, la validación de la aplicación incluye tareas observables, que el participante realiza por su cuenta mientras el entrevistador observa sin intervenir, salvo que el participante pida ayuda:
+
+1. **Identificar una alerta:** encontrar la alerta activa de la persona bajo cuidado, abrir su detalle e indicar qué ocurrió y cuándo.
+2. **Registrar un recordatorio:** programar un recordatorio de medicación con su nombre, dosis y hora.
+3. **Localizar información de la persona bajo cuidado:** encontrar sus signos vitales actuales e indicar si alguno está fuera de rango, y luego ubicarla en el mapa.
+
+Para cada tarea se registra si el participante la completó sin ayuda, con ayuda o no la completó, el tiempo que tomó, la ayuda que necesitó y las dificultades que tuvo. Estas observaciones se registran junto con sus opiniones sobre la utilidad y el diseño de la aplicación. La validación se aplica a participantes de ambos segmentos, con al menos dos familiares y dos cuidadores.
+
 ### 4.3.2. Registro de Entrevistas
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
@@ -13633,7 +13641,7 @@ La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cu
 
 #### Aplicación móvil — Sprint 2
 
-A continuación se presenta el registro de la entrevista de validación de la aplicación móvil.
+A continuación se presenta el registro de la entrevista de validación de la aplicación móvil. Esta sesión, con una participante del segmento Familiares, se realizó con el guion de preguntas, antes de incorporar las tareas observables de la sección 4.3.1. Las sesiones con tareas observables, que incluyen al segmento Cuidadores, se realizarán en el Sprint 3.
 
 **Entrevistado 1**
 
