@@ -3388,7 +3388,7 @@ La Tabla 2.57 detalla cada relación del Context Map, con sus extremos, el patr�
 
 En esta sección se presenta la arquitectura de software de Guardian+ con el C4 Model en sus vistas de contexto, contenedores, componentes y despliegue.
 
-Las vistas de contexto, contenedores y componentes representan la arquitectura objetivo de la solución, mientras que la vista de despliegue describe también cómo se ejecuta la versión actual. Las diferencias entre la arquitectura objetivo y lo desplegado al cierre del Sprint 2 son las siguientes:
+Las vistas de contexto y componentes representan la arquitectura objetivo de la solución. La vista de contenedores muestra la versión actual junto con los elementos previstos, y la vista de despliegue describe también cómo se ejecuta la versión actual. Las diferencias entre la arquitectura objetivo y lo desplegado al cierre del Sprint 2 son las siguientes:
 
 - **Dispositivo wearable:** la arquitectura objetivo contempla la pulsera basada en ESP32-S3 con el Guardian+ Wearable Firmware. En la versión actual, la pulsera es reemplazada por el IoT Simulator, desplegado en Google Compute Engine (sección 4.1.4).
 - **Comunicación MQTT:** el IoT Simulator publica la telemetría por MQTT sobre TCP (puerto 1883) en el broker Eclipse Mosquitto, y el backend se suscribe a ese broker mediante MQTT sobre WebSocket (puerto 9001).
@@ -3415,6 +3415,7 @@ En la arquitectura objetivo, la plataforma está compuesta por cinco contenedore
 
 Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La telemetría del wearable llega al backend mediante MQTT, un protocolo liviano adecuado para telemetría IoT de bajo consumo, a través de un broker al que el dispositivo publica y al que el backend se suscribe, mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
 
+La pulsera que aparece en el diagrama es hipotética: el Guardian+ Wearable Firmware representa el dispositivo previsto para versiones posteriores. En la versión actual predomina el Guardian+ IoT Simulator, que publica la telemetría en el MQTT Broker en lugar de la pulsera. Por eso el contenedor de la pulsera y sus relaciones se muestran con borde punteado y sin color de fondo. Stripe se representa de la misma forma, ya que los pagos todavía se simulan dentro de Subscriptions. El diagrama también incluye las dos aplicaciones móviles, en Kotlin y en Flutter.
 
 <a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contenedores de Guardian+
 
