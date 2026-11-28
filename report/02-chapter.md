@@ -48,7 +48,7 @@ Para nuestra startup (Healthify) es esencial identificar fortalezas y debilidade
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-La aplicación móvil se desarrolla de forma nativa para Android en Kotlin y cuenta con una versión en Flutter que permitirá extenderla a iOS en versiones posteriores. Además, la solución contará con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
+La solución está dirigida inicialmente a dispositivos Android, y se contempla su disponibilidad en iOS en versiones posteriores. Además, contará con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
 
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
 
