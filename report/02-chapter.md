@@ -569,10 +569,11 @@ Las User Stories describen las funcionalidades de Guardian+ desde la perspectiva
 * **EP05 - Presencia Web y Adquisición (Landing Page):** Difusión de la propuesta de valor, planes de suscripción, canales de contacto y educación al usuario respecto al ecosistema Guardian+.
 * **EP06 - Servicios de Integración y Plataforma Backend:** Capacidades técnicas de ingesta de telemetría, consultas RESTful y persistencia segura de datos clínicos e incidentes.
 * **EP07 - Spikes de Investigación Técnica:** Exploración, análisis de compatibilidad y prototipado rápido de dependencias de hardware embebido, protocolos IoT y pasarelas de pago.
+* **EP08 - Aplicación Móvil Multiplataforma:** Segunda implementación de la aplicación móvil en Flutter, con los mismos Bounded Contexts y Web Services que la versión en Kotlin.
 
 ---
 
-Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
+Las Tablas 2.13 a 2.53 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
 
 <a id="tabla-2-13"></a>**Tabla 2.13.** User Story US01: Visualización de ritmo cardíaco en tiempo real
 
@@ -1799,7 +1800,147 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-48"></a>**Tabla 2.48.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
+<a id="tabla-2-48"></a>**Tabla 2.48.** Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS03</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Gestión de identidad y acceso con cuentas reales (IAM)</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el Bounded Context IAM en los Web Services y en la aplicación móvil para que familiares y cuidadores accedan con cuentas reales, verificadas por correo y protegidas con un código OTP.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro y verificación del correo</strong><br>- <strong>Dado que</strong> un usuario se registra con un correo que no está en uso y una contraseña válida.<br>- <strong>Cuando</strong> envía <code>POST /api/v1/auth/register</code> y luego confirma el código recibido con <code>POST /api/v1/auth/verify-email</code>.<br>- <strong>Entonces</strong> la cuenta queda activa y el usuario puede iniciar sesión.<br><br><strong>Escenario 2: Inicio de sesión en dos pasos</strong><br>- <strong>Dado que</strong> la cuenta del usuario está verificada.<br>- <strong>Cuando</strong> envía su correo y contraseña a <code>POST /api/v1/auth/login</code> y luego el código OTP recibido a <code>POST /api/v1/auth/otp/verify</code>.<br>- <strong>Entonces</strong> la API entrega un token de sesión JWT y la aplicación abre la pantalla de Inicio.<br><br><strong>Escenario 3: Recuperación de contraseña</strong><br>- <strong>Dado que</strong> el usuario olvidó su contraseña.<br>- <strong>Cuando</strong> solicita la recuperación con <code>POST /api/v1/auth/password-reset/request</code> y confirma una nueva contraseña con el token recibido.<br>- <strong>Entonces</strong> puede iniciar sesión con la nueva contraseña y el token queda consumido.<br><br><strong>Escenario 4: Acceso con Google</strong><br>- <strong>Dado que</strong> el usuario elige continuar con su cuenta de Google.<br>- <strong>Cuando</strong> la aplicación envía el ID token a <code>POST /api/v1/auth/google</code>.<br>- <strong>Entonces</strong> la API inicia sesión o crea la cuenta y entrega el token de sesión.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-49"></a>**Tabla 2.49.** Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS04</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Integración del perfil y de la persona bajo cuidado en la aplicación</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos conectar la aplicación móvil al Bounded Context Profile para que cada usuario registre su perfil y el de la persona bajo cuidado, y para que todas las secciones de la aplicación trabajen sobre ese contexto de cuidado.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro de la persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario inició sesión y todavía no tiene personas bajo cuidado registradas.<br>- <strong>Cuando</strong> completa sus datos y los de la persona bajo cuidado en la aplicación.<br>- <strong>Entonces</strong> la aplicación crea los perfiles y la relación de cuidado mediante <code>POST /api/v1/care-recipient-profiles</code> y <code>POST /api/v1/care-relationships</code>, y muestra la pantalla de Inicio de esa persona.<br><br><strong>Escenario 2: Cambio de persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario tiene más de una persona bajo cuidado registrada.<br>- <strong>Cuando</strong> selecciona otra persona desde la aplicación.<br>- <strong>Entonces</strong> las secciones Inicio, Salud, Alertas, Rutinas y Ubicación muestran la información de la persona seleccionada.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-50"></a>**Tabla 2.50.** Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS05</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Ciclo de vida de la suscripción con pagos simulados</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el ciclo de vida de la suscripción en el Bounded Context Subscriptions con un proveedor de pagos simulado, para habilitar los beneficios de cada plan sin depender todavía de la integración con Stripe.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Solicitud de suscripción</strong><br>- <strong>Dado que</strong> existe un plan disponible para el suscriptor.<br>- <strong>Cuando</strong> se envía <code>POST /api/v1/subscriptions</code> con el suscriptor y el plan.<br>- <strong>Entonces</strong> se registra la suscripción, se procesa el pago simulado y la suscripción se activa cuando el pago se confirma.<br><br><strong>Escenario 2: Cambio de plan y cancelación</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> cambia de plan con <code>PATCH /api/v1/subscriptions/{subscriptionId}/plan</code> o solicita la cancelación con <code>POST /api/v1/subscriptions/{subscriptionId}/cancellation</code>.<br>- <strong>Entonces</strong> la suscripción refleja el nuevo plan o queda con la cancelación programada.<br><br><strong>Escenario 3: Consulta de beneficios</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> se consulta <code>GET /api/v1/subscriptions/subscriber/{subscriberId}/entitlements</code>.<br>- <strong>Entonces</strong> la API devuelve los beneficios habilitados por su plan.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-51"></a>**Tabla 2.51.** Technical Story TS06: Implementación de la aplicación móvil en Flutter
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS06</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP08 - Aplicación Móvil Multiplataforma</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Implementación de la aplicación móvil en Flutter</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar la aplicación móvil en Flutter con la misma arquitectura de cuatro capas por Bounded Context y los mismos Web Services que la versión en Kotlin, para contar con una segunda versión de la aplicación.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Mismas secciones que la versión en Kotlin</strong><br>- <strong>Dado que</strong> la versión en Kotlin ofrece las secciones Inicio, Salud, Alertas, Rutinas y Ubicación.<br>- <strong>Cuando</strong> el usuario recorre la aplicación en Flutter.<br>- <strong>Entonces</strong> encuentra las mismas secciones con la misma información y las mismas acciones.<br><br><strong>Escenario 2: Conexión con los Web Services</strong><br>- <strong>Dado que</strong> el usuario inició sesión con su cuenta de IAM.<br>- <strong>Cuando</strong> abre cualquiera de las secciones de la aplicación.<br>- <strong>Entonces</strong> la aplicación consulta los Web Services desplegados en Microsoft Azure y muestra los datos de la persona bajo cuidado.<br><br><strong>Escenario 3: Pruebas automatizadas</strong><br>- <strong>Dado que</strong> se modifica una de las capas de un Bounded Context.<br>- <strong>Cuando</strong> se ejecuta <code>flutter test</code>.<br>- <strong>Entonces</strong> las pruebas de dominio, aplicación y presentación terminan sin errores.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-52"></a>**Tabla 2.52.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
 
 <table>
   <tr>
@@ -1834,7 +1975,7 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-49"></a>**Tabla 2.49.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
+<a id="tabla-2-53"></a>**Tabla 2.53.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
 
 <table>
   <tr>
@@ -1889,10 +2030,10 @@ Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Pr
 
 El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
 
-La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. La Tabla 2.50 presenta el Product Backlog priorizado.
+La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. Al cierre del Sprint 2 se agregaron al Product Backlog las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51), que registran el trabajo técnico que el Sprint 2 incluyó fuera de las User Stories: los Bounded Contexts IAM, Profile y Subscriptions y la implementación de la aplicación en Flutter. Su estimación usa la misma escala que las User Stories. La Tabla 2.54 presenta el Product Backlog priorizado.
 
 
-<a id="tabla-2-50"></a>**Tabla 2.50.** Product Backlog de Guardian+
+<a id="tabla-2-54"></a>**Tabla 2.54.** Product Backlog de Guardian+
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 |---|---|---|---|---|
@@ -1915,20 +2056,24 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 | 17 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Sprint 2 |
 | 18 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Sprint 2 |
 | 19 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Sprint 2 |
-| 20 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
-| 21 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
-| 22 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
-| 23 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
-| 24 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
-| 25 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
-| 26 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
-| 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
-| 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
-| 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
-| 30 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
-| 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
-| 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
-| 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
+| 20 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | Sprint 2 |
+| 21 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Sprint 2 |
+| 22 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Sprint 2 |
+| 23 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Sprint 2 |
+| 24 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
+| 25 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
+| 26 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
+| 27 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
+| 28 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
+| 29 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
+| 30 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
+| 31 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
+| 32 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
+| 33 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
+| 34 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
+| 35 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
+| 36 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
+| 37 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
@@ -3171,9 +3316,9 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 
 #### 2.5.2.2. Discusión de Alternativas de Context Mapping Global
 
-La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
+La Tabla 2.55 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
 
-<a id="tabla-2-51"></a>**Tabla 2.51.** Alternativas de Context Mapping evaluadas
+<a id="tabla-2-55"></a>**Tabla 2.55.** Alternativas de Context Mapping evaluadas
 
 | Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
 | :--- | :--- | :--- | :--- | :--- |
@@ -3187,9 +3332,9 @@ La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equip
 
 Siguiendo las recomendaciones de DDD Crew, el Context Map se presenta en un mapa global y en dos mapas enfocados en preguntas concretas. Los diagramas se generan con Context Mapper a partir de archivos CML: cada relación marca el extremo upstream (U) y downstream (D), y junto a cada contexto se indica el patrón que aplica.
 
-La Tabla 2.52 presenta la leyenda de los patrones usados en los diagramas.
+La Tabla 2.56 presenta la leyenda de los patrones usados en los diagramas.
 
-<a id="tabla-2-52"></a>**Tabla 2.52.** Leyenda de patrones del Context Map
+<a id="tabla-2-56"></a>**Tabla 2.56.** Leyenda de patrones del Context Map
 
 | Notación | Patrón | Significado en Guardian+ |
 | :--- | :--- | :--- |
@@ -3220,9 +3365,9 @@ La Figura 2.39 muestra cómo se integran con Guardian+ la identidad provista por
 
 #### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
 
-La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
+La Tabla 2.57 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
 
-<a id="tabla-2-53"></a>**Tabla 2.53.** Catálogo de relaciones del Context Map
+<a id="tabla-2-57"></a>**Tabla 2.57.** Catálogo de relaciones del Context Map
 
 | Relación | Upstream | Downstream | Patrón | Justificación |
 | :--- | :--- | :--- | :--- | :--- |

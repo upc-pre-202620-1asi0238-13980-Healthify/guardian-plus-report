@@ -294,12 +294,16 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 2.45. User Story US33: Visualización comparativa de planes de suscripción Guardian+](02-chapter.md#tabla-2-45)
 - [Tabla 2.46. Technical Story TS01: Endpoint RESTful para consulta y filtrado de incidentes y alertas](02-chapter.md#tabla-2-46)
 - [Tabla 2.47. Technical Story TS02: Endpoint RESTful para ingesta de telemetría biomédica por lotes](02-chapter.md#tabla-2-47)
-- [Tabla 2.48. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](02-chapter.md#tabla-2-48)
-- [Tabla 2.49. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](02-chapter.md#tabla-2-49)
-- [Tabla 2.50. Product Backlog de Guardian+](02-chapter.md#tabla-2-50)
-- [Tabla 2.51. Alternativas de Context Mapping evaluadas](02-chapter.md#tabla-2-51)
-- [Tabla 2.52. Leyenda de patrones del Context Map](02-chapter.md#tabla-2-52)
-- [Tabla 2.53. Catálogo de relaciones del Context Map](02-chapter.md#tabla-2-53)
+- [Tabla 2.48. Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)](02-chapter.md#tabla-2-48)
+- [Tabla 2.49. Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación](02-chapter.md#tabla-2-49)
+- [Tabla 2.50. Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados](02-chapter.md#tabla-2-50)
+- [Tabla 2.51. Technical Story TS06: Implementación de la aplicación móvil en Flutter](02-chapter.md#tabla-2-51)
+- [Tabla 2.52. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](02-chapter.md#tabla-2-52)
+- [Tabla 2.53. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](02-chapter.md#tabla-2-53)
+- [Tabla 2.54. Product Backlog de Guardian+](02-chapter.md#tabla-2-54)
+- [Tabla 2.55. Alternativas de Context Mapping evaluadas](02-chapter.md#tabla-2-55)
+- [Tabla 2.56. Leyenda de patrones del Context Map](02-chapter.md#tabla-2-56)
+- [Tabla 2.57. Catálogo de relaciones del Context Map](02-chapter.md#tabla-2-57)
 
 **Capítulo III: Solution UI/UX Design**
 
