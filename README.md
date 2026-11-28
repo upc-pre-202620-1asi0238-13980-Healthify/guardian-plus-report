@@ -244,6 +244,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 **Capítulo I: Presentación**
 
 - [Tabla 1.1. Perfiles de los integrantes del equipo Healthify](#tabla-1-1)
+- [Tabla 1.2. Línea base, meta y resultado de las hipótesis Lean UX](#tabla-1-2)
 
 **Capítulo II: Requirements Development and Software Solution Design**
 
@@ -973,6 +974,19 @@ A partir de los supuestos anteriores se formularon las siguientes hipótesis, ca
 - **H2:** Creemos que aumentaremos el uso recurrente de la app si los cuidadores logran supervisar sin presencia física mediante un dashboard de indicadores centralizado. *Métrica:* usuarios activos diarios y frecuencia de consultas al dashboard.
 - **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado de la persona a su cuidado. *Métrica:* número de reportes revisados y tasa de retención semanal.
 - **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
+
+La Tabla 1.2 presenta, para cada hipótesis, la línea base de la que se parte, la meta que el equipo espera alcanzar y el resultado obtenido al cierre del Sprint 2.
+
+<a id="tabla-1-2"></a>**Tabla 1.2.** Línea base, meta y resultado de las hipótesis Lean UX
+
+| Hipótesis | Métrica | Línea base | Meta | Resultado al Sprint 2 |
+|---|---|---|---|---|
+| H1 | Tiempo entre el evento detectado y la primera acción del responsable | Sin Guardian+, el responsable se entera del evento por una llamada o al volver a casa (sección 2.2.3); no existe un tiempo medido. | La alerta llega al Care Circle en menos de 5 segundos y el responsable actúa en menos de 5 minutos en el 80 % de las alertas. | Parcial. En las pruebas con el IoT Simulator la alerta llega como notificación push a todo el Care Circle (US25), pero el tiempo no se midió y no hay datos de usuarios reales. |
+| H2 | Usuarios activos diarios y consultas al dashboard | La aplicación todavía no tiene usuarios activos. | El 60 % de los cuidadores usa la aplicación cada día y consulta el dashboard al menos 3 veces al día. | No medido. La aplicación aún no se usa con cuidadores reales. |
+| H3 | Reportes revisados y retención semanal | La aplicación todavía no tiene usuarios activos. | Retención semanal de al menos 70 % a la cuarta semana y al menos una revisión del historial por familia cada semana. | No medido. La aplicación aún no se usa con familias reales. |
+| H4 | Tasa de respuesta a las alertas y tiempo hasta el primer contacto | Sin Guardian+, el contacto depende de que el familiar o cuidador llame por iniciativa propia (sección 2.2.3). | El 90 % de las alertas críticas es atendido por algún miembro del Care Circle y el primer contacto ocurre en menos de 5 minutos. | No medido. La aplicación ya registra quién asume cada alerta (US25), pero no hay datos de usuarios reales. |
+
+La entrevista de validación de la aplicación móvil (sección 4.3.2) recoge la percepción de los usuarios, pero no permite comprobar estas hipótesis por sí sola. Para medirlas, el equipo plantea una prueba piloto de cuatro semanas con familias y cuidadores, en la que H1 y H4 se calcularán con los registros de alertas de Emergency & Alerting (hora en que se genera cada alerta y hora en que un miembro del Care Circle la asume) y H2 y H3 con los registros de uso de la aplicación.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -13839,7 +13853,7 @@ La Tabla 4.108 presenta el enlace al video.
 
 A partir del trabajo realizado, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
 
-En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad de saber a distancia que su familiar se encuentra bien y de ser avisados a tiempo ante una emergencia, mientras que los cuidadores priorizan centralizar el seguimiento de signos vitales, medicación y alertas para reducir la carga que genera la supervisión constante.
+En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad de saber a distancia que su familiar se encuentra bien y de ser avisados a tiempo ante una emergencia, mientras que los cuidadores priorizan centralizar el seguimiento de signos vitales, medicación y alertas para reducir la carga que genera la supervisión constante. En cambio, las hipótesis H1 a H4 todavía no se han comprobado: las entrevistas recogen percepciones y sus métricas se medirán en la prueba piloto descrita en la sección 1.2.2.3.
 
 El diseño estratégico con Domain-Driven Design permitió organizar la solución en siete Bounded Contexts, con Emergency & Alerting y Health Monitoring como Core Domain, y definir sus relaciones mediante eventos de integración que mantienen a cada contexto independiente. Este modelo guió tanto el diseño de la aplicación móvil, cuya navegación se organiza en las secciones Inicio, Salud, Alertas, Rutinas y Ubicación, como la estructura de los Web Services, que replican en su código los mismos contextos y capas.
 

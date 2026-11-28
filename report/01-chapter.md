@@ -143,6 +143,19 @@ A partir de los supuestos anteriores se formularon las siguientes hipótesis, ca
 - **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado de la persona a su cuidado. *Métrica:* número de reportes revisados y tasa de retención semanal.
 - **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
 
+La Tabla 1.2 presenta, para cada hipótesis, la línea base de la que se parte, la meta que el equipo espera alcanzar y el resultado obtenido al cierre del Sprint 2.
+
+<a id="tabla-1-2"></a>**Tabla 1.2.** Línea base, meta y resultado de las hipótesis Lean UX
+
+| Hipótesis | Métrica | Línea base | Meta | Resultado al Sprint 2 |
+|---|---|---|---|---|
+| H1 | Tiempo entre el evento detectado y la primera acción del responsable | Sin Guardian+, el responsable se entera del evento por una llamada o al volver a casa (sección 2.2.3); no existe un tiempo medido. | La alerta llega al Care Circle en menos de 5 segundos y el responsable actúa en menos de 5 minutos en el 80 % de las alertas. | Parcial. En las pruebas con el IoT Simulator la alerta llega como notificación push a todo el Care Circle (US25), pero el tiempo no se midió y no hay datos de usuarios reales. |
+| H2 | Usuarios activos diarios y consultas al dashboard | La aplicación todavía no tiene usuarios activos. | El 60 % de los cuidadores usa la aplicación cada día y consulta el dashboard al menos 3 veces al día. | No medido. La aplicación aún no se usa con cuidadores reales. |
+| H3 | Reportes revisados y retención semanal | La aplicación todavía no tiene usuarios activos. | Retención semanal de al menos 70 % a la cuarta semana y al menos una revisión del historial por familia cada semana. | No medido. La aplicación aún no se usa con familias reales. |
+| H4 | Tasa de respuesta a las alertas y tiempo hasta el primer contacto | Sin Guardian+, el contacto depende de que el familiar o cuidador llame por iniciativa propia (sección 2.2.3). | El 90 % de las alertas críticas es atendido por algún miembro del Care Circle y el primer contacto ocurre en menos de 5 minutos. | No medido. La aplicación ya registra quién asume cada alerta (US25), pero no hay datos de usuarios reales. |
+
+La entrevista de validación de la aplicación móvil (sección 4.3.2) recoge la percepción de los usuarios, pero no permite comprobar estas hipótesis por sí sola. Para medirlas, el equipo plantea una prueba piloto de cuatro semanas con familias y cuidadores, en la que H1 y H4 se calcularán con los registros de alertas de Emergency & Alerting (hora en que se genera cada alerta y hora en que un miembro del Care Circle la asume) y H2 y H3 con los registros de uso de la aplicación.
+
 #### 1.2.2.4. Lean UX Canvas
 
 El Lean UX Canvas de la Figura 1.2 reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.

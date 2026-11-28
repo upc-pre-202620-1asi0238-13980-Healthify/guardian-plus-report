@@ -244,6 +244,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 **Capítulo I: Presentación**
 
 - [Tabla 1.1. Perfiles de los integrantes del equipo Healthify](01-chapter.md#tabla-1-1)
+- [Tabla 1.2. Línea base, meta y resultado de las hipótesis Lean UX](01-chapter.md#tabla-1-2)
 
 **Capítulo II: Requirements Development and Software Solution Design**
 
