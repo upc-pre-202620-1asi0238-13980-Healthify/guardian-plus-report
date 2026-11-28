@@ -45,7 +45,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
 | 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
-| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se completo la app de Kotlin aun 100% y se hizo un avance del 30% en la app de flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
+| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | En la aplicación en Kotlin se completaron 7 de las 9 User Stories comprometidas en el Sprint 2 (26 de 31 Story Points), con US10 en progreso y US20 sin iniciar, y la aplicación en Flutter alcanzó 18 de las 47 pantallas de la versión en Kotlin (38 %). De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
 
 # Project Report Collaboration Insights
 
@@ -218,11 +218,22 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
       - [4.2.1.7. Services Documentation Evidence for Sprint Review](04-chapter.md#4217-services-documentation-evidence-for-sprint-review)
       - [4.2.1.8. Software Deployment Evidence for Sprint Review](04-chapter.md#4218-software-deployment-evidence-for-sprint-review)
       - [4.2.1.9. Team Collaboration Insights during Sprint](04-chapter.md#4219-team-collaboration-insights-during-sprint)
+    - [4.2.2. Sprint 2](04-chapter.md#422-sprint-2)
+      - [4.2.2.1. Sprint Planning 2](04-chapter.md#4221-sprint-planning-2)
+      - [4.2.2.2. Aspect Leaders and Collaborators](04-chapter.md#4222-aspect-leaders-and-collaborators)
+      - [4.2.2.3. Sprint Backlog 2](04-chapter.md#4223-sprint-backlog-2)
+      - [4.2.2.4. Development Evidence for Sprint Review](04-chapter.md#4224-development-evidence-for-sprint-review)
+      - [4.2.2.5. Testing Suite Evidence for Sprint Review](04-chapter.md#4225-testing-suite-evidence-for-sprint-review)
+      - [4.2.2.6. Execution Evidence for Sprint Review](04-chapter.md#4226-execution-evidence-for-sprint-review)
+      - [4.2.2.7. Services Documentation Evidence for Sprint Review](04-chapter.md#4227-services-documentation-evidence-for-sprint-review)
+      - [4.2.2.8. Software Deployment Evidence for Sprint Review](04-chapter.md#4228-software-deployment-evidence-for-sprint-review)
+      - [4.2.2.9. Team Collaboration Insights during Sprint](04-chapter.md#4229-team-collaboration-insights-during-sprint)
   - [4.3. Validation Interviews](04-chapter.md#43-validation-interviews)
     - [4.3.1. Diseño de Entrevistas](04-chapter.md#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](04-chapter.md#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](04-chapter.md#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](04-chapter.md#44-video-about-the-product)
+  - [4.5. Video About-the-Team](04-chapter.md#45-video-about-the-team)
 - [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
 - [Bibliografía](../README.md#bibliografía)
 
@@ -233,6 +244,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 **Capítulo I: Presentación**
 
 - [Tabla 1.1. Perfiles de los integrantes del equipo Healthify](01-chapter.md#tabla-1-1)
+- [Tabla 1.2. Línea base, meta y resultado de las hipótesis Lean UX](01-chapter.md#tabla-1-2)
 
 **Capítulo II: Requirements Development and Software Solution Design**
 
@@ -283,12 +295,16 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 2.45. User Story US33: Visualización comparativa de planes de suscripción Guardian+](02-chapter.md#tabla-2-45)
 - [Tabla 2.46. Technical Story TS01: Endpoint RESTful para consulta y filtrado de incidentes y alertas](02-chapter.md#tabla-2-46)
 - [Tabla 2.47. Technical Story TS02: Endpoint RESTful para ingesta de telemetría biomédica por lotes](02-chapter.md#tabla-2-47)
-- [Tabla 2.48. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](02-chapter.md#tabla-2-48)
-- [Tabla 2.49. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](02-chapter.md#tabla-2-49)
-- [Tabla 2.50. Product Backlog de Guardian+](02-chapter.md#tabla-2-50)
-- [Tabla 2.51. Alternativas de Context Mapping evaluadas](02-chapter.md#tabla-2-51)
-- [Tabla 2.52. Leyenda de patrones del Context Map](02-chapter.md#tabla-2-52)
-- [Tabla 2.53. Catálogo de relaciones del Context Map](02-chapter.md#tabla-2-53)
+- [Tabla 2.48. Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)](02-chapter.md#tabla-2-48)
+- [Tabla 2.49. Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación](02-chapter.md#tabla-2-49)
+- [Tabla 2.50. Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados](02-chapter.md#tabla-2-50)
+- [Tabla 2.51. Technical Story TS06: Implementación de la aplicación móvil en Flutter](02-chapter.md#tabla-2-51)
+- [Tabla 2.52. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](02-chapter.md#tabla-2-52)
+- [Tabla 2.53. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](02-chapter.md#tabla-2-53)
+- [Tabla 2.54. Product Backlog de Guardian+](02-chapter.md#tabla-2-54)
+- [Tabla 2.55. Alternativas de Context Mapping evaluadas](02-chapter.md#tabla-2-55)
+- [Tabla 2.56. Leyenda de patrones del Context Map](02-chapter.md#tabla-2-56)
+- [Tabla 2.57. Catálogo de relaciones del Context Map](02-chapter.md#tabla-2-57)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -382,7 +398,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](04-chapter.md#tabla-4-58)
 - [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](04-chapter.md#tabla-4-59)
 - [Tabla 4.60. Sprint Planning del Sprint 2](04-chapter.md#tabla-4-60)
-- [Tabla 4.61. User Stories comprometidas en el Sprint 2](04-chapter.md#tabla-4-61)
+- [Tabla 4.61. User Stories y Technical Stories comprometidas en el Sprint 2](04-chapter.md#tabla-4-61)
 - [Tabla 4.62. Leadership-and-Collaboration Matrix del Sprint 2](04-chapter.md#tabla-4-62)
 - [Tabla 4.63. Sprint Backlog 2](04-chapter.md#tabla-4-63)
 - [Tabla 4.64. Commits de Web Services: IAM](04-chapter.md#tabla-4-64)
@@ -429,6 +445,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](04-chapter.md#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](04-chapter.md#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 

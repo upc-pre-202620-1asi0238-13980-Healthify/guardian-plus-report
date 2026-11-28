@@ -27,7 +27,7 @@ Reloj de pulsera diseñado específicamente para personas mayores, ancianos o co
 #### Competitive Analysis Landscape
 
 **¿Por qué llevar a cabo este análisis?**
-Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidades frente a la competencia, entender sus estrategias, tomar decisiones informadas, detectar oportunidades de crecimiento, anticipar movimientos y optimizar recursos para mejorar nuestra posición en el mercado. La Tabla 2.1 compara a Guardian+ con cada competidor en sus principales dimensiones.
+Para nuestra startup (Healthify) es esencial identificar fortalezas y debilidades frente a la competencia, entender sus estrategias, tomar decisiones informadas, detectar oportunidades de crecimiento, anticipar movimientos y optimizar recursos para mejorar nuestra posición en el mercado. La Tabla 2.1 compara a Guardian+ con cada competidor en sus principales dimensiones.
 
 <a id="tabla-2-1"></a>**Tabla 2.1.** Competitive Analysis Landscape de Guardian+ frente a sus competidores
 
@@ -48,7 +48,7 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-Nuestra solución contará con compatibilidad completa con dispositivos móviles Android e iOS(teóricamente, dado que en el curso no es 100% necesario trabajar con IOS), así como con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
+La solución está dirigida inicialmente a dispositivos Android, y se contempla su disponibilidad en iOS en versiones posteriores. Además, contará con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
 
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
 
@@ -569,10 +569,11 @@ Las User Stories describen las funcionalidades de Guardian+ desde la perspectiva
 * **EP05 - Presencia Web y Adquisición (Landing Page):** Difusión de la propuesta de valor, planes de suscripción, canales de contacto y educación al usuario respecto al ecosistema Guardian+.
 * **EP06 - Servicios de Integración y Plataforma Backend:** Capacidades técnicas de ingesta de telemetría, consultas RESTful y persistencia segura de datos clínicos e incidentes.
 * **EP07 - Spikes de Investigación Técnica:** Exploración, análisis de compatibilidad y prototipado rápido de dependencias de hardware embebido, protocolos IoT y pasarelas de pago.
+* **EP08 - Aplicación Móvil Multiplataforma:** Segunda implementación de la aplicación móvil en Flutter, con los mismos Bounded Contexts y Web Services que la versión en Kotlin.
 
 ---
 
-Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
+Las Tablas 2.13 a 2.53 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
 
 <a id="tabla-2-13"></a>**Tabla 2.13.** User Story US01: Visualización de ritmo cardíaco en tiempo real
 
@@ -1799,7 +1800,147 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-48"></a>**Tabla 2.48.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
+<a id="tabla-2-48"></a>**Tabla 2.48.** Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS03</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Gestión de identidad y acceso con cuentas reales (IAM)</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el Bounded Context IAM en los Web Services y en la aplicación móvil para que familiares y cuidadores accedan con cuentas reales, verificadas por correo y protegidas con un código OTP.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro y verificación del correo</strong><br>- <strong>Dado que</strong> un usuario se registra con un correo que no está en uso y una contraseña válida.<br>- <strong>Cuando</strong> envía <code>POST /api/v1/auth/register</code> y luego confirma el código recibido con <code>POST /api/v1/auth/verify-email</code>.<br>- <strong>Entonces</strong> la cuenta queda activa y el usuario puede iniciar sesión.<br><br><strong>Escenario 2: Inicio de sesión en dos pasos</strong><br>- <strong>Dado que</strong> la cuenta del usuario está verificada.<br>- <strong>Cuando</strong> envía su correo y contraseña a <code>POST /api/v1/auth/login</code> y luego el código OTP recibido a <code>POST /api/v1/auth/otp/verify</code>.<br>- <strong>Entonces</strong> la API entrega un token de sesión JWT y la aplicación abre la pantalla de Inicio.<br><br><strong>Escenario 3: Recuperación de contraseña</strong><br>- <strong>Dado que</strong> el usuario olvidó su contraseña.<br>- <strong>Cuando</strong> solicita la recuperación con <code>POST /api/v1/auth/password-reset/request</code> y confirma una nueva contraseña con el token recibido.<br>- <strong>Entonces</strong> puede iniciar sesión con la nueva contraseña y el token queda consumido.<br><br><strong>Escenario 4: Acceso con Google</strong><br>- <strong>Dado que</strong> el usuario elige continuar con su cuenta de Google.<br>- <strong>Cuando</strong> la aplicación envía el ID token a <code>POST /api/v1/auth/google</code>.<br>- <strong>Entonces</strong> la API inicia sesión o crea la cuenta y entrega el token de sesión.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-49"></a>**Tabla 2.49.** Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS04</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Integración del perfil y de la persona bajo cuidado en la aplicación</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos conectar la aplicación móvil al Bounded Context Profile para que cada usuario registre su perfil y el de la persona bajo cuidado, y para que todas las secciones de la aplicación trabajen sobre ese contexto de cuidado.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro de la persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario inició sesión y todavía no tiene personas bajo cuidado registradas.<br>- <strong>Cuando</strong> completa sus datos y los de la persona bajo cuidado en la aplicación.<br>- <strong>Entonces</strong> la aplicación crea los perfiles y la relación de cuidado mediante <code>POST /api/v1/care-recipient-profiles</code> y <code>POST /api/v1/care-relationships</code>, y muestra la pantalla de Inicio de esa persona.<br><br><strong>Escenario 2: Cambio de persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario tiene más de una persona bajo cuidado registrada.<br>- <strong>Cuando</strong> selecciona otra persona desde la aplicación.<br>- <strong>Entonces</strong> las secciones Inicio, Salud, Alertas, Rutinas y Ubicación muestran la información de la persona seleccionada.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-50"></a>**Tabla 2.50.** Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS05</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Ciclo de vida de la suscripción con pagos simulados</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el ciclo de vida de la suscripción en el Bounded Context Subscriptions con un proveedor de pagos simulado, para habilitar los beneficios de cada plan sin depender todavía de la integración con Stripe.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Solicitud de suscripción</strong><br>- <strong>Dado que</strong> existe un plan disponible para el suscriptor.<br>- <strong>Cuando</strong> se envía <code>POST /api/v1/subscriptions</code> con el suscriptor y el plan.<br>- <strong>Entonces</strong> se registra la suscripción, se procesa el pago simulado y la suscripción se activa cuando el pago se confirma.<br><br><strong>Escenario 2: Cambio de plan y cancelación</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> cambia de plan con <code>PATCH /api/v1/subscriptions/{subscriptionId}/plan</code> o solicita la cancelación con <code>POST /api/v1/subscriptions/{subscriptionId}/cancellation</code>.<br>- <strong>Entonces</strong> la suscripción refleja el nuevo plan o queda con la cancelación programada.<br><br><strong>Escenario 3: Consulta de beneficios</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> se consulta <code>GET /api/v1/subscriptions/subscriber/{subscriberId}/entitlements</code>.<br>- <strong>Entonces</strong> la API devuelve los beneficios habilitados por su plan.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-51"></a>**Tabla 2.51.** Technical Story TS06: Implementación de la aplicación móvil en Flutter
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS06</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP08 - Aplicación Móvil Multiplataforma</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Implementación de la aplicación móvil en Flutter</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar la aplicación móvil en Flutter con la misma arquitectura de cuatro capas por Bounded Context y los mismos Web Services que la versión en Kotlin, para contar con una segunda versión de la aplicación.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Mismas secciones que la versión en Kotlin</strong><br>- <strong>Dado que</strong> la versión en Kotlin ofrece las secciones Inicio, Salud, Alertas, Rutinas y Ubicación.<br>- <strong>Cuando</strong> el usuario recorre la aplicación en Flutter.<br>- <strong>Entonces</strong> encuentra las mismas secciones con la misma información y las mismas acciones.<br><br><strong>Escenario 2: Conexión con los Web Services</strong><br>- <strong>Dado que</strong> el usuario inició sesión con su cuenta de IAM.<br>- <strong>Cuando</strong> abre cualquiera de las secciones de la aplicación.<br>- <strong>Entonces</strong> la aplicación consulta los Web Services desplegados en Microsoft Azure y muestra los datos de la persona bajo cuidado.<br><br><strong>Escenario 3: Pruebas automatizadas</strong><br>- <strong>Dado que</strong> se modifica una de las capas de un Bounded Context.<br>- <strong>Cuando</strong> se ejecuta <code>flutter test</code>.<br>- <strong>Entonces</strong> las pruebas de dominio, aplicación y presentación terminan sin errores.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-52"></a>**Tabla 2.52.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
 
 <table>
   <tr>
@@ -1834,7 +1975,7 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-49"></a>**Tabla 2.49.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
+<a id="tabla-2-53"></a>**Tabla 2.53.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
 
 <table>
   <tr>
@@ -1889,10 +2030,10 @@ Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Pr
 
 El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
 
-La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. La Tabla 2.50 presenta el Product Backlog priorizado.
+La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. Al cierre del Sprint 2 se agregaron al Product Backlog las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51), que registran el trabajo técnico que el Sprint 2 incluyó fuera de las User Stories: los Bounded Contexts IAM, Profile y Subscriptions y la implementación de la aplicación en Flutter. Su estimación usa la misma escala que las User Stories. La Tabla 2.54 presenta el Product Backlog priorizado.
 
 
-<a id="tabla-2-50"></a>**Tabla 2.50.** Product Backlog de Guardian+
+<a id="tabla-2-54"></a>**Tabla 2.54.** Product Backlog de Guardian+
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 |---|---|---|---|---|
@@ -1915,20 +2056,24 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 | 17 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Sprint 2 |
 | 18 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Sprint 2 |
 | 19 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Sprint 2 |
-| 20 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
-| 21 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
-| 22 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
-| 23 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
-| 24 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
-| 25 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
-| 26 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
-| 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
-| 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
-| 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
-| 30 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
-| 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
-| 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
-| 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
+| 20 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | Sprint 2 |
+| 21 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Sprint 2 |
+| 22 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Sprint 2 |
+| 23 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Sprint 2 |
+| 24 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
+| 25 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
+| 26 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
+| 27 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
+| 28 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
+| 29 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
+| 30 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
+| 31 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
+| 32 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
+| 33 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
+| 34 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
+| 35 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
+| 36 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
+| 37 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
@@ -3171,9 +3316,9 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 
 #### 2.5.2.2. Discusión de Alternativas de Context Mapping Global
 
-La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
+La Tabla 2.55 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
 
-<a id="tabla-2-51"></a>**Tabla 2.51.** Alternativas de Context Mapping evaluadas
+<a id="tabla-2-55"></a>**Tabla 2.55.** Alternativas de Context Mapping evaluadas
 
 | Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
 | :--- | :--- | :--- | :--- | :--- |
@@ -3187,9 +3332,9 @@ La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equip
 
 Siguiendo las recomendaciones de DDD Crew, el Context Map se presenta en un mapa global y en dos mapas enfocados en preguntas concretas. Los diagramas se generan con Context Mapper a partir de archivos CML: cada relación marca el extremo upstream (U) y downstream (D), y junto a cada contexto se indica el patrón que aplica.
 
-La Tabla 2.52 presenta la leyenda de los patrones usados en los diagramas.
+La Tabla 2.56 presenta la leyenda de los patrones usados en los diagramas.
 
-<a id="tabla-2-52"></a>**Tabla 2.52.** Leyenda de patrones del Context Map
+<a id="tabla-2-56"></a>**Tabla 2.56.** Leyenda de patrones del Context Map
 
 | Notación | Patrón | Significado en Guardian+ |
 | :--- | :--- | :--- |
@@ -3220,9 +3365,9 @@ La Figura 2.39 muestra cómo se integran con Guardian+ la identidad provista por
 
 #### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
 
-La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
+La Tabla 2.57 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
 
-<a id="tabla-2-53"></a>**Tabla 2.53.** Catálogo de relaciones del Context Map
+<a id="tabla-2-57"></a>**Tabla 2.57.** Catálogo de relaciones del Context Map
 
 | Relación | Upstream | Downstream | Patrón | Justificación |
 | :--- | :--- | :--- | :--- | :--- |
@@ -3243,6 +3388,13 @@ La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patr�
 
 En esta sección se presenta la arquitectura de software de Guardian+ con el C4 Model en sus vistas de contexto, contenedores, componentes y despliegue.
 
+Las vistas de contexto, contenedores y componentes representan la arquitectura objetivo de la solución, mientras que la vista de despliegue describe también cómo se ejecuta la versión actual. Las diferencias entre la arquitectura objetivo y lo desplegado al cierre del Sprint 2 son las siguientes:
+
+- **Dispositivo wearable:** la arquitectura objetivo contempla la pulsera basada en ESP32-S3 con el Guardian+ Wearable Firmware. En la versión actual, la pulsera es reemplazada por el IoT Simulator, desplegado en Google Compute Engine (sección 4.1.4).
+- **Comunicación MQTT:** el IoT Simulator publica la telemetría por MQTT sobre TCP (puerto 1883) en el broker Eclipse Mosquitto, y el backend se suscribe a ese broker mediante MQTT sobre WebSocket (puerto 9001).
+- **Pagos:** la arquitectura objetivo integra Stripe. En la versión actual, Subscriptions utiliza flujos de pago simulados (sección 2.6.3), sin conexión con Stripe.
+- **Aplicación móvil:** la arquitectura objetivo considera la aplicación nativa en Kotlin. En la versión actual, además de Kotlin, se desarrolla una versión en Flutter que consume la misma API y que todavía no cubre todo el alcance de la versión en Kotlin.
+
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
 En esta sección se presenta la vista de contexto de Guardian+ aplicando el C4 Model, elaborada con Structurizr. Este diagrama posiciona a Guardian+ como un único sistema de software en el centro, y muestra alrededor a los actores que lo utilizan y a los sistemas externos con los que se integra, sin entrar todavía en detalles internos de implementación.
@@ -3259,9 +3411,9 @@ El sistema se integra con cuatro servicios externos, cada uno resolviendo una ne
 
 Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las unidades desplegables independientes que conforman la solución — y muestra cómo se distribuyen las responsabilidades entre ellos, las decisiones tecnológicas adoptadas y los protocolos de comunicación entre contenedores.
 
-La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
+En la arquitectura objetivo, la plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
 
-Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
+Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La telemetría del wearable llega al backend mediante MQTT, un protocolo liviano adecuado para telemetría IoT de bajo consumo, a través de un broker al que el dispositivo publica y al que el backend se suscribe, mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
 
 
 <a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contenedores de Guardian+
@@ -3286,7 +3438,7 @@ En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4
 
 La Guardian+ Landing Page se publica en Cloudflare Pages, que la distribuye a través de la red global de entrega de contenido de Cloudflare. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 26 dentro de una máquina virtual de Microsoft Azure con Ubuntu 24.04, detrás del proxy inverso Caddy, que la publica por HTTPS, y persiste su información en la Guardian+ Database, alojada en el servicio gestionado Azure Database for PostgreSQL. Ambos servicios se ubican en la región Chile Central para reducir la latencia entre el backend y la base de datos.
 
-La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.43 presenta el diagrama de despliegue.
+La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; en la versión actual, este nodo es reemplazado por el IoT Simulator, que se ejecuta en una máquina virtual de Google Compute Engine junto con el broker Eclipse Mosquitto. El simulador publica la telemetría y los eventos del dispositivo en el broker por MQTT sobre TCP, y la REST API se suscribe a él mediante MQTT sobre WebSocket. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe, reemplazado en la versión actual por flujos de pago simulados), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.43 presenta el diagrama de despliegue.
 
 <a id="figura-2-43"></a>**Figura 2.43.** Diagrama de despliegue de Guardian+
 
@@ -5394,7 +5546,7 @@ Referencia inmutable al identificador de un usuario externo al Bounded Context P
 
 - `value: UUID`
 
-A diferencia de los identificadores pertenecientes al propio contexto, `UserId` no es generado por Profile. Se utiliza únicamente como referencia externa hacia el usuario que posteriormente será administrado por el Bounded Context IAM.
+A diferencia de los identificadores pertenecientes al propio contexto, `UserId` no es generado por Profile. Se utiliza únicamente como referencia externa hacia la cuenta de usuario administrada por el Bounded Context IAM.
 
 `UserPreferences` no posee un Value Object `UserPreferencesId`; su identidad dentro del dominio se encuentra asociada directamente a `UserId`.
 
@@ -6148,13 +6300,9 @@ Esto permite utilizar dichas dependencias mediante inyección sin introducir com
 
 Profile mantiene `UserId` como referencia externa hacia la identidad del usuario, pero no almacena contraseñas, tokens ni información de autenticación.
 
-En el estado actual del backend no existe todavía un Bounded Context IAM implementado en la rama `develop`. Por esta razón, tampoco se encuentra implementado un `IAMQueryAdapter`, `IdentityReferenceAdapter` o componente equivalente dentro de Profile.
+El Bounded Context IAM se encuentra implementado en los Web Services (sección 4.2.2.4), con el registro de credenciales y la verificación del correo, el inicio de sesión en dos pasos con un código OTP, la recuperación de contraseña y el acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta.
 
-La validación directa de referencias contra IAM queda pendiente para una etapa posterior de implementación, una vez que dicho Bounded Context proporcione una interfaz pública que pueda ser consumida sin generar acoplamiento directo entre los modelos internos de ambos contextos.
-
-Esta decisión mantiene preparado el diseño para una futura integración sin incorporar actualmente dependencias hacia componentes inexistentes.
-
-En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (sección 4.2.2.4): registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP, recuperación de contraseña y acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta. Desde entonces, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. La validación directa de `UserId` mediante `IamContextFacade` y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile se incorporarán en un siguiente incremento.
+Actualmente, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. Quedan pendientes dos partes de la integración: la validación de `UserId` mediante `IamContextFacade` desde un adaptador dentro de Profile, y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -6170,13 +6318,11 @@ Las solicitudes recibidas son delegadas hacia la Application Layer, implementada
 
 La lógica principal del dominio se concentra en cuatro Aggregate Roots: `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`. Adicionalmente, `CareRelationshipPolicy` encapsula la regla que evita establecer relaciones activas duplicadas entre un mismo usuario y una misma persona bajo cuidado.
 
-El diagrama conserva algunos elementos correspondientes al diseño arquitectónico planteado para etapas posteriores del proyecto. En particular, la integración directa mediante un adaptador hacia IAM permanece pendiente debido a que dicho Bounded Context todavía no se encuentra implementado en el backend actual. Profile mantiene por el momento `UserId` únicamente como referencia externa.
+El diagrama incluye además el adaptador hacia IAM, que corresponde a la integración pendiente descrita en la sección anterior: IAM ya expone `IamContextFacade`, pero Profile todavía no lo consume y mantiene `UserId` únicamente como referencia externa.
 
 La **Infrastructure Layer** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
 
 De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
-
-Con la implementación de IAM en el Sprint 2, el contexto del que depende este adaptador ya se encuentra disponible en el backend a través de `IamContextFacade`, por lo que el adaptador hacia IAM representado en el diagrama corresponde al siguiente paso de la integración descrita en la sección anterior.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -7084,7 +7230,9 @@ Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfile
 
 ### 2.6.7. Bounded Context: IAM
 
-El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación reforzada con un segundo factor opcional (OTP) y la recuperación segura de la contraseña.
+El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación en dos pasos con un código OTP y la recuperación segura de la contraseña.
+
+En la versión entregada, el código OTP es obligatorio en cada inicio de sesión con correo y contraseña, mientras que el acceso con Google no lo solicita. Los elementos del diseño que permiten habilitar o deshabilitar el segundo factor por cuenta (`twoFactorEnabled`, `EnableTwoFactorCommand`, `DisableTwoFactorCommand`, `TwoFactorSettingChangedEvent` y `PUT /{userAccountId}/two-factor`) corresponden a una opción prevista para versiones posteriores y no forman parte de los Web Services actuales.
 
 A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS), publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados que cada contexto descendente valida localmente, sin consultar la base de datos de identidad.
 
@@ -7241,7 +7389,7 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo con un código de propósito `EMAIL_VERIFICATION`; transiciona la cuenta a `ACTIVE`.
 *   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo y la contraseña.
 *   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
-*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta.
+*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta (previsto para versiones posteriores).
 *   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
 *   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
@@ -7273,14 +7421,14 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
     *   `POST /register`: Registra nuevas credenciales de usuario.
     *   `POST /verify-email`: Confirma el correo electrónico mediante el código de propósito `EMAIL_VERIFICATION` enviado.
     *   `POST /verify-email/resend`: Reemite el código de verificación de correo.
-    *   `POST /login`: Valida correo y contraseña y, si la cuenta tiene el segundo factor habilitado, dispara el desafío OTP.
+    *   `POST /login`: Valida correo y contraseña y dispara el desafío OTP.
     *   `POST /otp/verify`: Verifica el código OTP de propósito `LOGIN` y, de ser correcto, emite el JWT de sesión.
     *   `POST /password-reset/request`: Emite y envía el token de recuperación de contraseña.
     *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir de un token vigente y no consumido.
 *   **UserAccountsController** (`/api/v1/user-accounts`):
     *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
     *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
-    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
+    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta (previsto para versiones posteriores).
 
 ##### Resources & Assemblers
 
@@ -7306,7 +7454,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
     *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
     *   `handle(VerifyEmailCommand command): void`: Recupera el código utilizable de propósito `EMAIL_VERIFICATION`, lo verifica contra su hash, lo marca como usado y transiciona la cuenta a `ACTIVE`.
-    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta.
+    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta (previstos para versiones posteriores).
     *   `handle(ResetPasswordCommand command): void`: Recupera el token utilizable por su hash, lo marca como usado y reemplaza el `HashedPassword` de la cuenta asociada.
 *   **PasswordResetCommandService & PasswordResetCommandServiceImpl:**
     *   `handle(RequestPasswordResetCommand command): Optional<PasswordResetToken>`: Emite un token opaco mediante `SecretGenerator`, persiste únicamente su hash y publica `PasswordResetTokenIssuedEvent`. Si el correo no corresponde a ninguna cuenta, la operación no revela esa condición al solicitante.
@@ -7324,7 +7472,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 ##### Event Handlers
 
 *   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
-*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` con propósito `LOGIN` en cada inicio de sesión con correo y contraseña.
 *   `OtpGeneratedEventHandler`: Despacha el envío del código por correo mediante el adaptador de notificaciones, según el propósito de la emisión.
 *   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand` cuando el propósito es `LOGIN`, cerrando el flujo de autenticación.
 *   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.

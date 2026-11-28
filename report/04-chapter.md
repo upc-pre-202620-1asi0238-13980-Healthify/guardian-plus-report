@@ -1704,7 +1704,7 @@ El Sprint 2 se ejecuta entre el 20 de octubre y el 13 de noviembre de 2026 y con
 
 El alcance comprometido corresponde a las nueve User Stories que el Product Backlog asigna al Sprint 2. La primera parte completa la épica EP01: la visualización en tiempo real de los cinco signos vitales que mide la pulsera (US01 a US05) y la sincronización de las lecturas que el wearable almacena mientras no tiene conexión (US21). La segunda parte continúa la épica EP03 sobre el circuito de emergencia entregado en el Sprint 1: la confirmación de bienestar tras un incidente (US10), el aviso de batería crítica de la pulsera (US20) y el despacho simultáneo de las alertas críticas a todo el Care Circle (US25).
 
-Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran como User Stories en el Product Backlog y que absorben la capacidad restante del Sprint. El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
+Junto con ese alcance, el equipo acordó dos frentes de trabajo técnico, registrados en el Product Backlog como las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51). El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
 
 <a id="tabla-4-60"></a>**Tabla 4.60.** Sprint Planning del Sprint 2
 
@@ -1720,12 +1720,12 @@ Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran c
 | Sprint 1 Retrospective Summary | El equipo identificó tres aspectos por mejorar. Primero, el tablero de ClickUp no reflejó el avance real: varias tareas implementadas permanecieron en estado *To-do*. Segundo, la integración del Pull Request #11 de Mobility & Geofencing hizo fallar el job `test` del workflow `Deploy`, por lo que esa versión no se publicó hasta la integración siguiente. Tercero, la mayor parte de las integraciones se concentró en los dos últimos días del Sprint (5 y 6 de octubre). Los acuerdos para el Sprint 2 fueron actualizar el estado de cada tarea al abrir y al integrar su Pull Request, ejecutar las pruebas del backend antes de solicitar la revisión e integrar cada Bounded Context apenas esté listo, sin esperar al cierre del Sprint. |
 | **Sprint Goal & User Stories** | |
 | Sprint 2 Goal | *Our focus is on letting a family follow the vital signs of the person under their care as they happen —heart rate, blood pressure, oxygen saturation, temperature and respiratory rate— without losing the readings taken while the wristband was offline, and on making a critical alert reach the whole care circle at the same time.*<br><br>*We believe it delivers to caregivers a continuous and trustworthy picture of the health of the person under their care, and a faster response when an emergency happens, because every member of the care circle is warned at once instead of one after another.*<br><br>*This will be confirmed when a caregiver opens the Health section and sees each vital sign refreshed live and classified against its normal range, when the readings the wristband kept while offline appear in the history after it reconnects, and when a critical alert reaches the phone of every emergency contact as a push notification.*<br><br>**Métrica de cumplimiento:** la sección Salud muestra la última lectura de los cinco signos vitales con su clasificación (normal, en observación o fuera de rango) según los rangos de US01 a US05; las lecturas enviadas en lote por el wearable tras recuperar la conexión se registran en el historial en su orden cronológico (US21); una alerta crítica con difusión inmediata se entrega como notificación push a todos los contactos de emergencia activos, y cuando uno asume la respuesta los demás son informados (US25); y las 9 User Stories del alcance quedan verificadas contra sus criterios de aceptación (31 Story Points completados). |
-| Sprint 2 Velocity | 40 Story Points. El equipo mantuvo la velocidad del Sprint 1, cuya estimación se confirmó al completarse los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
-| Sum of Story Points | 31 Story Points. |
+| Sprint 2 Velocity | 40 Story Points (velocidad prevista). El equipo tomó como referencia el Sprint 1, en el que se completaron los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
+| Sum of Story Points | 55 Story Points: 31 de User Stories y 24 de Technical Stories. |
 
-Las User Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
+Las User Stories y Technical Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories comprometidas en el Sprint 2
+<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories y Technical Stories comprometidas en el Sprint 2
 
 | # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
 |---|---|---|---|---|
@@ -1738,9 +1738,13 @@ Las User Stories que conforman el alcance comprometido del Sprint 2 son las sigu
 | 7 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Emergency & Alerting |
 | 8 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Emergency & Alerting |
 | 9 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Health Monitoring |
-| | | **Total** | **31** | |
+| 10 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | IAM |
+| 11 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Profile |
+| 12 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Subscriptions |
+| 13 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Mobile App (Flutter) |
+| | | **Total** | **55** | |
 
-La suma de 31 Story Points se ubica 9 puntos por debajo de la velocidad establecida. Ese margen se reservó para los dos frentes acordados en la reunión que no están representados como User Stories: los Bounded Contexts IAM y Profile & Subscriptions, de los que dependen el inicio de sesión con cuentas reales y el contexto de cuidado de cada usuario, y la implementación de la aplicación en Flutter.
+En la reunión de planificación se reservó a estos dos frentes el margen de 9 puntos entre las User Stories y la velocidad prevista. Al registrarlos como Technical Stories, su estimación suma 24 Story Points, por lo que el alcance comprometido de 55 Story Points supera en 15 puntos la velocidad prevista. La sección 4.2.2.6 compara esta velocidad con los puntos completados al cierre del Sprint.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
@@ -1789,10 +1793,10 @@ La Tabla 4.63 detalla las tareas del Sprint 2 y su estado al cierre del Sprint. 
 | US10 | Confirmación manual de estado de bienestar tras incidente | TA-24 | US10 - Confirmación manual de estado de bienestar tras incidente | Permitir descartar una advertencia desde la pulsera y avisar al cuidador que fue descartada. | 6 | Lopez Monroy, Rodrigo Alfredo | In Progress |
 | US20 | Notificación de nivel crítico de batería en wearable | TA-25 | US20 - Notificación de nivel crítico de batería en wearable | Avisar al cuidador cuando la batería de la pulsera baje del 20 % y del 5 %. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
 | US25 | Despacho simultáneo a múltiples contactos de auxilio | TA-26 | US25 - Despacho simultáneo a múltiples contactos de auxilio | Difundir las alertas críticas a todo el Care Circle por notificación push e informar quién asumió la respuesta. | 6 | Lopez Monroy, Rodrigo Alfredo | Done |
-| — | — | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
+| TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
 | — | — | TA-03 | Bounded context routines | Conectar las pantallas de Rutinas de la aplicación a los Web Services de Care Routines & Wellness. | 16 | Mechan Montenegro, Luciana Carolina | Done |
 | — | — | TA-04 | Bounded context mobility | Implementar las pantallas de ubicación y zonas seguras de la aplicación y completar sus Web Services. | 16 | Luis Miranda, Diego Andres | Done |
-| — | — | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
+| TS04 / TS05 | Integración del perfil y ciclo de vida de la suscripción | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
 | US06 | Emisión y confirmación de recordatorios de medicación | TA-28 | US06 - Emisión y confirmación de recordatorios de medicación | Programar, confirmar y marcar como omitidos los recordatorios de medicación desde la aplicación. | 10 | Mechan Montenegro, Luciana Carolina | In Progress |
 | US13 | Programación y notificación de consultas médicas | TA-31 | US13 - Programación y notificación de consultas médicas | Programar citas médicas y notificarlas por push a los cuidadores antes de su hora. | 6 | Mechan Montenegro, Luciana Carolina | Done |
 | US07 | Análisis comparativo y tendencias históricas de signos vitales | TA-29 | US07 - Análisis comparativo y tendencias históricas de signos vitales | Filtrar el historial por periodo, signo vital y estado y comparar sus tendencias. | 10 | Azama Fukuda, Juan Pablo | In Progress |
@@ -2294,6 +2298,10 @@ Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales
 
 De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
 
+De las Technical Stories, TS03 (IAM), TS04 (Profile) y TS05 (Subscriptions) se completaron, con 16 Story Points, y TS06 (Flutter) quedó en progreso. En total se completaron 42 de los 55 Story Points comprometidos, frente a una velocidad prevista de 40 Story Points. Las User Stories del Sprint 3 que se adelantaron no se suman a esta cifra.
+
+El avance de la aplicación en Flutter se midió por pantallas: al cierre del Sprint, la rama `develop` de Flutter (commit `0ced4d7`) tiene 18 de las 47 pantallas que tiene la rama `develop` de Kotlin (commit `d33414a`), es decir, un 38 %. Están implementadas las secciones Salud y Rutinas conectadas a los Web Services, además de la configuración de alertas y los contactos de emergencia. El inicio de sesión todavía no se conecta a IAM y las secciones de perfil, suscripción y Ubicación quedan pendientes para el Sprint 3.
+
 ##### Mobile Application
 
 La Figura 4.23 muestra la aplicación móvil en Kotlin ejecutándose en el emulador de Android Studio.
@@ -2577,6 +2585,14 @@ Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las f
 6. **Valoración general:** ¿Qué opinas de la aplicación en general y crees que te sería útil en tu día a día? ¿Por qué?
 7. **Mejoras:** ¿Qué te gustaría que la aplicación incorpore o mejore más adelante?
 
+Además de las preguntas, la validación de la aplicación incluye tareas observables, que el participante realiza por su cuenta mientras el entrevistador observa sin intervenir, salvo que el participante pida ayuda:
+
+1. **Identificar una alerta:** encontrar la alerta activa de la persona bajo cuidado, abrir su detalle e indicar qué ocurrió y cuándo.
+2. **Registrar un recordatorio:** programar un recordatorio de medicación con su nombre, dosis y hora.
+3. **Localizar información de la persona bajo cuidado:** encontrar sus signos vitales actuales e indicar si alguno está fuera de rango, y luego ubicarla en el mapa.
+
+Para cada tarea se registra si el participante la completó sin ayuda, con ayuda o no la completó, el tiempo que tomó, la ayuda que necesitó y las dificultades que tuvo. Estas observaciones se registran junto con sus opiniones sobre la utilidad y el diseño de la aplicación. La validación se aplica a participantes de ambos segmentos, con al menos dos familiares y dos cuidadores.
+
 ### 4.3.2. Registro de Entrevistas
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
@@ -2714,7 +2730,7 @@ La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cu
 
 #### Aplicación móvil — Sprint 2
 
-A continuación se presenta el registro de la entrevista de validación de la aplicación móvil.
+A continuación se presenta el registro de la entrevista de validación de la aplicación móvil. Esta sesión, con una participante del segmento Familiares, se realizó con el guion de preguntas, antes de incorporar las tareas observables de la sección 4.3.1. Las sesiones con tareas observables, que incluyen al segmento Cuidadores, se realizarán en el Sprint 3.
 
 **Entrevistado 1**
 
@@ -2743,7 +2759,7 @@ Ante una alerta de caída, esperaría que el detalle muestre los signos vitales 
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación.
+La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación. Como la evaluación se hizo sobre el prototipo, para cada problema se indica también su estado en la versión entregada al cierre del Sprint 2, revisado en la rama `develop` de cada aplicación: el commit `d33414a` de Kotlin y el commit `0ced4d7` de Flutter.
 
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
@@ -2761,7 +2777,7 @@ La Tabla 4.104 presenta los datos generales de la evaluación.
 | **AUDITOR** | Healthify |
 | **CLIENTE(S)** | Azama Fukuda, Juan Pablo, Mechan Montenegro, Luciana Carolina,Luis Miranda, Diego Andres, López Monroy, Rodrigo Alfredo, Sanchez Cuadrado, Juan Antonio |
 
-**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas, Rutinas y Ubicación)
+**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas y Rutinas)
 
 **TAREAS A EVALUAR:**
 
@@ -2771,6 +2787,7 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 2. Consultar el historial de signos vitales y aplicar filtros de búsqueda (Health Monitoring)
 3. Exportar el expediente de signos vitales seleccionando un periodo de tiempo (Health Monitoring)
 4. Agregar, editar y reordenar contactos de emergencia (Emergency & Alerting)
+5. Consultar el registro de sueño de la persona bajo cuidado (Care Routines & Wellness)
 
 No están incluidas en esta versión de la evaluación las siguientes tareas:
 
@@ -2795,17 +2812,17 @@ La Tabla 4.105 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.106 resume los problemas encontrados.
+La Tabla 4.106 resume los problemas encontrados y su estado en la versión entregada. Un problema está corregido cuando la pantalla implementada ya no lo presenta, persiste cuando la pantalla lo mantiene y no está implementado cuando la pantalla todavía no existe en esa aplicación.
 
 <a id="tabla-4-106"></a>**Tabla 4.106.** Resumen de problemas de la evaluación heurística
 
-| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
-|---|---|---|---|
-| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores |
-| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables |
-| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo |
-| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems |
-| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables |
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) | Estado en Kotlin | Estado en Flutter |
+|---|---|---|---|---|---|
+| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores | Corregido | Corregido |
+| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables | Corregido | Corregido |
+| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo | Corregido | Corregido |
+| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems | Persiste | No implementado |
+| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables | No implementado | No implementado |
 
 
 **PROBLEMA #1: Campos de fecha/hora sin placeholder ni formato de referencia**
@@ -2833,6 +2850,8 @@ Las Figuras 4.39 a 4.41 muestran las pantallas Nueva toma, Nueva cita y Nueva ac
 **Recomendación:**
 Agregar placeholders con el formato esperado y un ícono reconocible de reloj/calendario en todos los campos de fecha/hora, replicando el estándar de placeholders ya usado en el módulo de contactos de emergencia.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Los campos de fecha y hora son selectores con un ícono de reloj o de calendario y siempre muestran un valor. En Kotlin, `RoutineTimeField` y `RoutineDateField` (`careroutineswellness/presentation/common/RoutineFormFields.kt`) abren un `TimePicker` y un `DatePickerDialog`; en Flutter, `routine_form_fields.dart` usa `showTimePicker` y `showDatePicker` con los íconos `Icons.schedule` e `Icons.calendar_today_outlined`.
+
 ---
 **PROBLEMA #2: Reordenamiento de contactos de emergencia sin alternativa accesible al gesto de arrastre**
 
@@ -2848,6 +2867,8 @@ En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de u
 
 **Recomendación:**
 Agregar una alternativa accesible al drag-and-drop, como botones de flecha arriba/abajo en el menú de tres puntos de cada contacto, o una opción "Cambiar prioridad" dentro de "Editar contacto".
+
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada contacto tiene botones para subir y bajar su prioridad, y no se usa el gesto de arrastre. En Kotlin, `ContactCard.kt` (`emergencyalerting/presentation/emergencycontacts/component`) muestra los botones `ic_arrow_up` e `ic_arrow_down`; en Flutter, `contact_card.dart` muestra los botones "Subir" y "Bajar" con `Icons.keyboard_arrow_up` e `Icons.keyboard_arrow_down`.
 
 ---
 
@@ -2866,6 +2887,8 @@ En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco,
 **Recomendación:**
 Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila seleccionada, de forma que el usuario pueda reconocer su selección sin necesidad de recordarla.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada opción seleccionada cambia de fondo y de borde y muestra un ícono de check, y el botón indica cuántas opciones se eligieron. En Kotlin lo hace `FilterOptionRow` en `VitalFilterSheet.kt`; en Flutter, `vital_filter_sheet.dart`.
+
 ---
 
 **PROBLEMA #4: Orden no intuitivo de las opciones de periodo**
@@ -2882,6 +2905,8 @@ En "Exportar expediente", las opciones de periodo se presentan en el orden "Últ
 
 **Recomendación:**
 Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 días", "Personalizado".
+
+**Estado en la versión entregada:** Persiste en Kotlin: `ExportRecordSheet.kt` (`healthmonitoring/presentation/vitalhistory/component`) muestra "Últimos 30 días" antes que "Últimos 7 días" y deja seleccionada la primera opción. En Flutter no está implementado: el botón "Exportar PDF" del historial muestra un aviso de que la función aún no está disponible. La corrección queda para el Sprint 3.
 
 ---
 
@@ -2900,6 +2925,8 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 **Recomendación:**
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
 
+**Estado en la versión entregada:** No implementado en ninguna de las dos aplicaciones. La pantalla Sueño todavía no muestra las fases Profundo, Ligero y Despierta, sino la continuidad del sueño y los despertares de cada noche. La recomendación se aplicará cuando se implementen las fases de sueño (US17, Sprint 4).
+
 ## 4.4. Video About-the-Product
 
 El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
@@ -2915,4 +2942,15 @@ La Tabla 4.107 presenta el enlace al video.
 | Recurso | Enlace |
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
-| Video About-the-team | [Guardian+ - About the team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta a los integrantes del equipo Healthify y su participación en el desarrollo de Guardian+.
+
+La Tabla 4.108 presenta el enlace al video.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |

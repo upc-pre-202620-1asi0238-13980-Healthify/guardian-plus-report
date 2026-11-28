@@ -45,7 +45,7 @@ u202319404 - Sanchez Cuadrado, Juan Antonio
 | 1.0 | 16/09/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó la documentación relacionada a la investigación inicial de la problemática y el planteamiento de la solución. Asimismo, se agrego el diseño inicial basado en Domain Driven Design del Backend  |
 | 2.0 | 05/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se agregó el Capítulo III con la guía de estilos, la arquitectura de información, el diseño de la Landing Page y el prototipado de la aplicación móvil. Se agregó el Capítulo IV con la configuración del entorno de desarrollo, la gestión del código fuente, la configuración del despliegue y la implementación del Sprint 1. Asimismo, se corrigieron las User Stories y la coherencia de los Bounded Contexts del Capítulo II según la retroalimentación del AV1 |
 | 3.0 | 10/10/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se atendieron las observaciones de la revisión previa a la entrega. En formato: cada capítulo inicia en una nueva página, se homologó la presentación de los integrantes y de los Bounded Contexts, se agregó texto introductorio a cada sección y se numeraron y referenciaron las figuras y tablas, con sus índices. En Domain-Driven Design: se mejoró la presentación del EventStorming, del Domain Message Flow Modelling, de los Bounded Context Canvases (V5) y del Context Mapping según las guías de DDD Crew. Asimismo, se completaron las evidencias de ejecución y de documentación de los Web Services del Sprint 1, las entrevistas de validación y las conclusiones |
-| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | Se completo la app de Kotlin aun 100% y se hizo un avance del 30% en la app de flutter. De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
+| 4.0 | 13/11/2026 | u202411310 - Azama Fukuda, Juan Pablo<br>u20241b843 - Mechan Montenegro, Luciana Carolina<br>u20241d185 - Luis Miranda, Diego Andres<br>u202421866 - López Monroy, Rodrigo Alfredo<br>u202319404 - Sanchez Cuadrado, Juan Antonio | En la aplicación en Kotlin se completaron 7 de las 9 User Stories comprometidas en el Sprint 2 (26 de 31 Story Points), con US10 en progreso y US20 sin iniciar, y la aplicación en Flutter alcanzó 18 de las 47 pantallas de la versión en Kotlin (38 %). De la misma manera, se agregó el Sprint 2 al Capítulo IV con el Sprint Planning, la matriz de líderes y colaboradores, el Sprint Backlog, las evidencias de desarrollo, pruebas, ejecución, documentación y despliegue de los Web Services, y los insights de colaboración del equipo. Asimismo, se agregaron las entrevistas de validación de la aplicación móvil, los videos de evidencia de ejecución, el video About-the-Product, la primera version del video about-the-team, se alineó la documentación del Bounded Context Subscriptions con el backend y se actualizaron el Student Outcome y los Project Report Collaboration Insights para el AV2 |
 
 # Project Report Collaboration Insights
 
@@ -218,11 +218,22 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
       - [4.2.1.7. Services Documentation Evidence for Sprint Review](#4217-services-documentation-evidence-for-sprint-review)
       - [4.2.1.8. Software Deployment Evidence for Sprint Review](#4218-software-deployment-evidence-for-sprint-review)
       - [4.2.1.9. Team Collaboration Insights during Sprint](#4219-team-collaboration-insights-during-sprint)
+    - [4.2.2. Sprint 2](#422-sprint-2)
+      - [4.2.2.1. Sprint Planning 2](#4221-sprint-planning-2)
+      - [4.2.2.2. Aspect Leaders and Collaborators](#4222-aspect-leaders-and-collaborators)
+      - [4.2.2.3. Sprint Backlog 2](#4223-sprint-backlog-2)
+      - [4.2.2.4. Development Evidence for Sprint Review](#4224-development-evidence-for-sprint-review)
+      - [4.2.2.5. Testing Suite Evidence for Sprint Review](#4225-testing-suite-evidence-for-sprint-review)
+      - [4.2.2.6. Execution Evidence for Sprint Review](#4226-execution-evidence-for-sprint-review)
+      - [4.2.2.7. Services Documentation Evidence for Sprint Review](#4227-services-documentation-evidence-for-sprint-review)
+      - [4.2.2.8. Software Deployment Evidence for Sprint Review](#4228-software-deployment-evidence-for-sprint-review)
+      - [4.2.2.9. Team Collaboration Insights during Sprint](#4229-team-collaboration-insights-during-sprint)
   - [4.3. Validation Interviews](#43-validation-interviews)
     - [4.3.1. Diseño de Entrevistas](#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](#433-evaluaciones-según-heurísticas)
   - [4.4. Video About-the-Product](#44-video-about-the-product)
+  - [4.5. Video About-the-Team](#45-video-about-the-team)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -233,6 +244,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 **Capítulo I: Presentación**
 
 - [Tabla 1.1. Perfiles de los integrantes del equipo Healthify](#tabla-1-1)
+- [Tabla 1.2. Línea base, meta y resultado de las hipótesis Lean UX](#tabla-1-2)
 
 **Capítulo II: Requirements Development and Software Solution Design**
 
@@ -283,12 +295,16 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 2.45. User Story US33: Visualización comparativa de planes de suscripción Guardian+](#tabla-2-45)
 - [Tabla 2.46. Technical Story TS01: Endpoint RESTful para consulta y filtrado de incidentes y alertas](#tabla-2-46)
 - [Tabla 2.47. Technical Story TS02: Endpoint RESTful para ingesta de telemetría biomédica por lotes](#tabla-2-47)
-- [Tabla 2.48. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](#tabla-2-48)
-- [Tabla 2.49. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](#tabla-2-49)
-- [Tabla 2.50. Product Backlog de Guardian+](#tabla-2-50)
-- [Tabla 2.51. Alternativas de Context Mapping evaluadas](#tabla-2-51)
-- [Tabla 2.52. Leyenda de patrones del Context Map](#tabla-2-52)
-- [Tabla 2.53. Catálogo de relaciones del Context Map](#tabla-2-53)
+- [Tabla 2.48. Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)](#tabla-2-48)
+- [Tabla 2.49. Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación](#tabla-2-49)
+- [Tabla 2.50. Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados](#tabla-2-50)
+- [Tabla 2.51. Technical Story TS06: Implementación de la aplicación móvil en Flutter](#tabla-2-51)
+- [Tabla 2.52. Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3](#tabla-2-52)
+- [Tabla 2.53. Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe](#tabla-2-53)
+- [Tabla 2.54. Product Backlog de Guardian+](#tabla-2-54)
+- [Tabla 2.55. Alternativas de Context Mapping evaluadas](#tabla-2-55)
+- [Tabla 2.56. Leyenda de patrones del Context Map](#tabla-2-56)
+- [Tabla 2.57. Catálogo de relaciones del Context Map](#tabla-2-57)
 
 **Capítulo III: Solution UI/UX Design**
 
@@ -382,7 +398,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-58)
 - [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-59)
 - [Tabla 4.60. Sprint Planning del Sprint 2](#tabla-4-60)
-- [Tabla 4.61. User Stories comprometidas en el Sprint 2](#tabla-4-61)
+- [Tabla 4.61. User Stories y Technical Stories comprometidas en el Sprint 2](#tabla-4-61)
 - [Tabla 4.62. Leadership-and-Collaboration Matrix del Sprint 2](#tabla-4-62)
 - [Tabla 4.63. Sprint Backlog 2](#tabla-4-63)
 - [Tabla 4.64. Commits de Web Services: IAM](#tabla-4-64)
@@ -429,6 +445,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](#tabla-4-106)
 - [Tabla 4.107. Video About-the-Product](#tabla-4-107)
+- [Tabla 4.108. Video About-the-Team](#tabla-4-108)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -825,7 +842,7 @@ En esta sección se describe la startup detrás de Guardian+ y se presenta a los
 
 ### 1.1.1. Descripción de la Startup
 
-Guardian+ es una startup tecnológica desarrollada por estudiantes de Ingeniería de Software de la UPC que busca mejorar el cuidado y monitoreo de personas vulnerables que requieren cuidado como adultos mayores, personas con discapacidad o en situación de dependencia mediante una aplicación móvil integrada con dispositivos wearables.
+Healthify es una startup tecnológica conformada por estudiantes de Ingeniería de Software de la UPC que desarrolla Guardian+, una solución que busca mejorar el cuidado y monitoreo de personas vulnerables que requieren cuidado como adultos mayores, personas con discapacidad o en situación de dependencia mediante una aplicación móvil integrada con dispositivos wearables.
 
 Surgió ante la necesidad de brindar a familiares y cuidadores una herramienta que les permita realizar un seguimiento más oportuno y eficiente del estado de la persona a su cuidado, especialmente en situaciones donde la supervisión presencial no es constante. Actualmente, los familiares pueden encontrarse ausentes debido a sus responsabilidades laborales o personales, mientras que los cuidadores requieren herramientas que faciliten el seguimiento continuo de las personas bajo su responsabilidad
 
@@ -889,7 +906,7 @@ En esta sección se expone el contexto en el que surge Guardian+, la problemáti
 
 ### 1.2.1. Antecedentes y problemática
 
-En el Perú, una parte importante de la población se encuentra en situación de vulnerabilidad y requiere cuidado y supervisión constante. Según el Censo 2017 del INEI, el 10,4 % de la población (más de 3 millones de personas) presenta algún tipo de discapacidad, y el 40,6 % de ellas depende de otra persona para realizar sus actividades diarias (INEI, ENEDIS). Esta situación se cruza fuertemente con la vejez: 47 de cada 100 personas con discapacidad son adultos mayores (INEI). Además, el envejecimiento poblacional se acelera: durante el tercer trimestre de 2025, el 44,6 % de los hogares del país contaba con al menos un adulto mayor (47,4 % en Lima Metropolitana), y el índice de dependencia de adultos mayores pasará de 23,0 % en 2025 a 41,5 % en 2050 (INEI, 2025). A ello se suman condiciones como la fragilidad, la comorbilidad y el riesgo de caídas: uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, una de las principales causas de hospitalización en esta población (Gobierno del Perú, 2018).
+En el Perú, una parte importante de la población se encuentra en situación de vulnerabilidad y requiere cuidado y supervisión constante. Según el Censo 2017 del INEI, el 10,4 % de la población (más de 3 millones de personas) presenta algún tipo de discapacidad, y el 40,6 % de ellas depende de otra persona para realizar sus actividades diarias (INEI, ENEDIS). Esta situación se cruza fuertemente con la vejez: 47 de cada 100 personas con discapacidad son adultos mayores (INEI). Además, el envejecimiento poblacional se acelera: durante el tercer trimestre de 2025, el 44,6 % de los hogares del país contaba con al menos un adulto mayor (47,4 % en Lima Metropolitana) (INEI, 2025, sección 2.1), y el índice de dependencia de adultos mayores pasará de 23,0 % en 2025 a 41,5 % en 2050 (INEI, 2025, sección 1.2). A ello se suman condiciones como la fragilidad, la comorbilidad y el riesgo de caídas: uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, una de las principales causas de hospitalización en esta población (Gobierno del Perú, 2018).
 
 El punto crítico es que el cuidado de estas personas recae en familiares y cuidadores que no siempre pueden estar presentes. De hecho, entre quienes apoyan a una persona con discapacidad, muchos dejan de trabajar (27,1 %) o de realizar sus quehaceres del hogar (46,7 %) para asumir ese cuidado (INEI, ENEDIS). Cuando la persona vulnerable queda sola, sus familiares y cuidadores carecen de una forma oportuna, centralizada y a distancia de conocer su estado y de ser alertados ante un evento crítico. Guardian+ aborda esta brecha mediante un aplicativo móvil que recibe los datos de un dispositivo wearable, los presenta de forma clara y genera alertas, permitiendo una respuesta rápida sin necesidad de presencia constante.
 
@@ -958,6 +975,19 @@ A partir de los supuestos anteriores se formularon las siguientes hipótesis, ca
 - **H3:** Creemos que incrementaremos la confianza y la retención si los familiares obtienen mayor tranquilidad mediante reportes e historial del estado de la persona a su cuidado. *Métrica:* número de reportes revisados y tasa de retención semanal.
 - **H4:** Creemos que elevaremos la capacidad de respuesta si los familiares y cuidadores pueden actuar de inmediato mediante comunicación directa integrada en la app. *Métrica:* tasa de respuesta a las alertas y tiempo hasta el primer contacto.
 
+La Tabla 1.2 presenta, para cada hipótesis, la línea base de la que se parte, la meta que el equipo espera alcanzar y el resultado obtenido al cierre del Sprint 2.
+
+<a id="tabla-1-2"></a>**Tabla 1.2.** Línea base, meta y resultado de las hipótesis Lean UX
+
+| Hipótesis | Métrica | Línea base | Meta | Resultado al Sprint 2 |
+|---|---|---|---|---|
+| H1 | Tiempo entre el evento detectado y la primera acción del responsable | Sin Guardian+, el responsable se entera del evento por una llamada o al volver a casa (sección 2.2.3); no existe un tiempo medido. | La alerta llega al Care Circle en menos de 5 segundos y el responsable actúa en menos de 5 minutos en el 80 % de las alertas. | Parcial. En las pruebas con el IoT Simulator la alerta llega como notificación push a todo el Care Circle (US25), pero el tiempo no se midió y no hay datos de usuarios reales. |
+| H2 | Usuarios activos diarios y consultas al dashboard | La aplicación todavía no tiene usuarios activos. | El 60 % de los cuidadores usa la aplicación cada día y consulta el dashboard al menos 3 veces al día. | No medido. La aplicación aún no se usa con cuidadores reales. |
+| H3 | Reportes revisados y retención semanal | La aplicación todavía no tiene usuarios activos. | Retención semanal de al menos 70 % a la cuarta semana y al menos una revisión del historial por familia cada semana. | No medido. La aplicación aún no se usa con familias reales. |
+| H4 | Tasa de respuesta a las alertas y tiempo hasta el primer contacto | Sin Guardian+, el contacto depende de que el familiar o cuidador llame por iniciativa propia (sección 2.2.3). | El 90 % de las alertas críticas es atendido por algún miembro del Care Circle y el primer contacto ocurre en menos de 5 minutos. | No medido. La aplicación ya registra quién asume cada alerta (US25), pero no hay datos de usuarios reales. |
+
+La entrevista de validación de la aplicación móvil (sección 4.3.2) recoge la percepción de los usuarios, pero no permite comprobar estas hipótesis por sí sola. Para medirlas, el equipo plantea una prueba piloto de cuatro semanas con familias y cuidadores, en la que H1 y H4 se calcularán con los registros de alertas de Emergency & Alerting (hora en que se genera cada alerta y hora en que un miembro del Care Circle la asume) y H2 y H3 con los registros de uso de la aplicación.
+
 #### 1.2.2.4. Lean UX Canvas
 
 El Lean UX Canvas de la Figura 1.2 reúne en una sola vista el problema de negocio, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis y los resultados esperados de Guardian+.
@@ -968,15 +998,15 @@ El Lean UX Canvas de la Figura 1.2 reúne en una sola vista el problema de negoc
 
 ## 1.3. Segmentos objetivo
 
-Guardian+ está dirigido a dos segmentos que forman parte de nuestro ecosistema, estos segmentos estan relacionado dentro del dominio del problema
+Guardian+ está dirigido a dos segmentos que forman parte de nuestro ecosistema, estos segmentos están relacionados dentro del dominio del problema.
 
 - **Segmento 1: Familiares**
 El primer segmento está dirigido a familiares de personas vulnerables que requieren cuidado (adultos mayores, personas con discapacidad o en situación de dependencia), como hijos, nietos, hermanos u otros responsables, que necesitan supervisar su bienestar sin estar presentes de manera permanente. Este segmento puede enfrentar limitaciones de tiempo, distancia o responsabilidades laborales que dificultan el acompañamiento continuo. Guardian+ les permite acceder a indicadores relevantes de la persona a su cuidado y recibir notificaciones ante eventos críticos, facilitando una supervisión oportuna y una respuesta rápida ante posibles situaciones de emergencia.</br></br>
-Durante el tercer trimestre de 2025, el 44,6% de los hogares del país tenía al menos un miembro adulto mayor, mientras que en Lima Metropolitana la proporción llegó al 47,4%. Esto representa un grupo importante de hogares potencialmente vinculados con necesidades de acompañamiento, supervisión y cuidado. Para los familiares, la propuesta de se centra principalmente en reducir la incertidumbre asociada al cuidado a distancia, proporcionando información y alertas que permitan reaccionar oportunamente ante determinados eventos.
+Durante el tercer trimestre de 2025, el 44,6% de los hogares del país tenía al menos un miembro adulto mayor, mientras que en Lima Metropolitana la proporción llegó al 47,4% (INEI, 2025, sección 2.1). Esto representa un grupo importante de hogares potencialmente vinculados con necesidades de acompañamiento, supervisión y cuidado. Para los familiares, la propuesta se centra principalmente en reducir la incertidumbre asociada al cuidado a distancia, proporcionando información y alertas que permitan reaccionar oportunamente ante determinados eventos.
 
-- **Segmento 1: Cuidadores**  
-El segundo segmento está dirigido a personas encargadas del cuidado frecuente o permanente de personas vulnerables que requieren cuidado (adultos mayores, personas con discapacidad o en situación de dependencia), ya sea de manera particular o como parte de una institución especializada. A diferencia de los familiares, los cuidadores tienen una participación más activa y frecuente en el cuidado de la persona a su cuidado, por lo que requieren herramientas que faciliten la supervisión de varias actividades y permitan identificar rápidamente situaciones que requieran intervención.. Guardian+ les proporciona un dashboard de monitoreo con indicadores relevantes y notificaciones ante eventos críticos, permitiendo centralizar la información y mejorar la capacidad de respuesta ante situaciones que requieran atención.</br></br>
-La necesidad de soluciones de apoyo se relaciona también con el proceso de envejecimiento de la población peruana. El incremento proyectado del índice de dependencia de adultos mayores de 23,0% en 2025 a 41,5% en 2050 evidencia que las necesidades de acompañamiento y cuidado tenderán a adquirir mayor relevancia en los próximos años.
+- **Segmento 2: Cuidadores**  
+El segundo segmento está dirigido a personas encargadas del cuidado frecuente o permanente de personas vulnerables que requieren cuidado (adultos mayores, personas con discapacidad o en situación de dependencia), ya sea de manera particular o como parte de una institución especializada. A diferencia de los familiares, los cuidadores tienen una participación más activa y frecuente en el cuidado de la persona a su cuidado, por lo que requieren herramientas que faciliten la supervisión de varias actividades y permitan identificar rápidamente situaciones que requieran intervención. Guardian+ les proporciona un dashboard de monitoreo con indicadores relevantes y notificaciones ante eventos críticos, permitiendo centralizar la información y mejorar la capacidad de respuesta ante situaciones que requieran atención.</br></br>
+La necesidad de soluciones de apoyo se relaciona también con el proceso de envejecimiento de la población peruana. El incremento proyectado del índice de dependencia de adultos mayores de 23,0% en 2025 a 41,5% en 2050 (INEI, 2025, sección 1.2) evidencia que las necesidades de acompañamiento y cuidado tenderán a adquirir mayor relevancia en los próximos años.
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -1007,7 +1037,7 @@ Reloj de pulsera diseñado específicamente para personas mayores, ancianos o co
 #### Competitive Analysis Landscape
 
 **¿Por qué llevar a cabo este análisis?**
-Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidades frente a la competencia, entender sus estrategias, tomar decisiones informadas, detectar oportunidades de crecimiento, anticipar movimientos y optimizar recursos para mejorar nuestra posición en el mercado. La Tabla 2.1 compara a Guardian+ con cada competidor en sus principales dimensiones.
+Para nuestra startup (Healthify) es esencial identificar fortalezas y debilidades frente a la competencia, entender sus estrategias, tomar decisiones informadas, detectar oportunidades de crecimiento, anticipar movimientos y optimizar recursos para mejorar nuestra posición en el mercado. La Tabla 2.1 compara a Guardian+ con cada competidor en sus principales dimensiones.
 
 <a id="tabla-2-1"></a>**Tabla 2.1.** Competitive Analysis Landscape de Guardian+ frente a sus competidores
 
@@ -1028,7 +1058,7 @@ Para nuestra empresa (Guardian+) es esencial identificar fortalezas y debilidade
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-Nuestra solución contará con compatibilidad completa con dispositivos móviles Android e iOS(teóricamente, dado que en el curso no es 100% necesario trabajar con IOS), así como con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
+La solución está dirigida inicialmente a dispositivos Android, y se contempla su disponibilidad en iOS en versiones posteriores. Además, contará con servicios de geolocalización en tiempo real, lo que permitirá a cuidadores o familiares localizar a las personas que supervisan en cualquier momento, con notificaciones inmediatas ante emergencias o caídas.
 
 La pulsera IoT enviará actualizaciones constantes sobre signos vitales (frecuencia cardíaca, oxígeno, presión arterial), estado de actividad física y posibles caídas, de manera continua antes, durante y después de un evento crítico, generando un historial médico accesible desde la app.
 
@@ -1549,10 +1579,11 @@ Las User Stories describen las funcionalidades de Guardian+ desde la perspectiva
 * **EP05 - Presencia Web y Adquisición (Landing Page):** Difusión de la propuesta de valor, planes de suscripción, canales de contacto y educación al usuario respecto al ecosistema Guardian+.
 * **EP06 - Servicios de Integración y Plataforma Backend:** Capacidades técnicas de ingesta de telemetría, consultas RESTful y persistencia segura de datos clínicos e incidentes.
 * **EP07 - Spikes de Investigación Técnica:** Exploración, análisis de compatibilidad y prototipado rápido de dependencias de hardware embebido, protocolos IoT y pasarelas de pago.
+* **EP08 - Aplicación Móvil Multiplataforma:** Segunda implementación de la aplicación móvil en Flutter, con los mismos Bounded Contexts y Web Services que la versión en Kotlin.
 
 ---
 
-Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
+Las Tablas 2.13 a 2.53 presentan cada User Story, Technical Story y Spike con su identificador, usuario, prioridad, epic, título, descripción y criterios de aceptación.
 
 <a id="tabla-2-13"></a>**Tabla 2.13.** User Story US01: Visualización de ritmo cardíaco en tiempo real
 
@@ -2779,7 +2810,147 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-48"></a>**Tabla 2.48.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
+<a id="tabla-2-48"></a>**Tabla 2.48.** Technical Story TS03: Gestión de identidad y acceso con cuentas reales (IAM)
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS03</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Gestión de identidad y acceso con cuentas reales (IAM)</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el Bounded Context IAM en los Web Services y en la aplicación móvil para que familiares y cuidadores accedan con cuentas reales, verificadas por correo y protegidas con un código OTP.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro y verificación del correo</strong><br>- <strong>Dado que</strong> un usuario se registra con un correo que no está en uso y una contraseña válida.<br>- <strong>Cuando</strong> envía <code>POST /api/v1/auth/register</code> y luego confirma el código recibido con <code>POST /api/v1/auth/verify-email</code>.<br>- <strong>Entonces</strong> la cuenta queda activa y el usuario puede iniciar sesión.<br><br><strong>Escenario 2: Inicio de sesión en dos pasos</strong><br>- <strong>Dado que</strong> la cuenta del usuario está verificada.<br>- <strong>Cuando</strong> envía su correo y contraseña a <code>POST /api/v1/auth/login</code> y luego el código OTP recibido a <code>POST /api/v1/auth/otp/verify</code>.<br>- <strong>Entonces</strong> la API entrega un token de sesión JWT y la aplicación abre la pantalla de Inicio.<br><br><strong>Escenario 3: Recuperación de contraseña</strong><br>- <strong>Dado que</strong> el usuario olvidó su contraseña.<br>- <strong>Cuando</strong> solicita la recuperación con <code>POST /api/v1/auth/password-reset/request</code> y confirma una nueva contraseña con el token recibido.<br>- <strong>Entonces</strong> puede iniciar sesión con la nueva contraseña y el token queda consumido.<br><br><strong>Escenario 4: Acceso con Google</strong><br>- <strong>Dado que</strong> el usuario elige continuar con su cuenta de Google.<br>- <strong>Cuando</strong> la aplicación envía el ID token a <code>POST /api/v1/auth/google</code>.<br>- <strong>Entonces</strong> la API inicia sesión o crea la cuenta y entrega el token de sesión.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-49"></a>**Tabla 2.49.** Technical Story TS04: Integración del perfil y de la persona bajo cuidado en la aplicación
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS04</strong></td>
+    <td>Developer</td>
+    <td>High</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Integración del perfil y de la persona bajo cuidado en la aplicación</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos conectar la aplicación móvil al Bounded Context Profile para que cada usuario registre su perfil y el de la persona bajo cuidado, y para que todas las secciones de la aplicación trabajen sobre ese contexto de cuidado.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Registro de la persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario inició sesión y todavía no tiene personas bajo cuidado registradas.<br>- <strong>Cuando</strong> completa sus datos y los de la persona bajo cuidado en la aplicación.<br>- <strong>Entonces</strong> la aplicación crea los perfiles y la relación de cuidado mediante <code>POST /api/v1/care-recipient-profiles</code> y <code>POST /api/v1/care-relationships</code>, y muestra la pantalla de Inicio de esa persona.<br><br><strong>Escenario 2: Cambio de persona bajo cuidado</strong><br>- <strong>Dado que</strong> el usuario tiene más de una persona bajo cuidado registrada.<br>- <strong>Cuando</strong> selecciona otra persona desde la aplicación.<br>- <strong>Entonces</strong> las secciones Inicio, Salud, Alertas, Rutinas y Ubicación muestran la información de la persona seleccionada.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-50"></a>**Tabla 2.50.** Technical Story TS05: Ciclo de vida de la suscripción con pagos simulados
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS05</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP06 - Servicios de Integración y Plataforma Backend</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Ciclo de vida de la suscripción con pagos simulados</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar el ciclo de vida de la suscripción en el Bounded Context Subscriptions con un proveedor de pagos simulado, para habilitar los beneficios de cada plan sin depender todavía de la integración con Stripe.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Solicitud de suscripción</strong><br>- <strong>Dado que</strong> existe un plan disponible para el suscriptor.<br>- <strong>Cuando</strong> se envía <code>POST /api/v1/subscriptions</code> con el suscriptor y el plan.<br>- <strong>Entonces</strong> se registra la suscripción, se procesa el pago simulado y la suscripción se activa cuando el pago se confirma.<br><br><strong>Escenario 2: Cambio de plan y cancelación</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> cambia de plan con <code>PATCH /api/v1/subscriptions/{subscriptionId}/plan</code> o solicita la cancelación con <code>POST /api/v1/subscriptions/{subscriptionId}/cancellation</code>.<br>- <strong>Entonces</strong> la suscripción refleja el nuevo plan o queda con la cancelación programada.<br><br><strong>Escenario 3: Consulta de beneficios</strong><br>- <strong>Dado que</strong> el suscriptor tiene una suscripción vigente.<br>- <strong>Cuando</strong> se consulta <code>GET /api/v1/subscriptions/subscriber/{subscriberId}/entitlements</code>.<br>- <strong>Entonces</strong> la API devuelve los beneficios habilitados por su plan.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-51"></a>**Tabla 2.51.** Technical Story TS06: Implementación de la aplicación móvil en Flutter
+
+<table>
+  <tr>
+    <th style="width: 20%;">Story ID</th>
+    <th style="width: 25%;">User</th>
+    <th style="width: 20%;">Priority</th>
+    <th style="width: 35%;">Epic</th>
+  </tr>
+  <tr>
+    <td><strong>TS06</strong></td>
+    <td>Developer</td>
+    <td>Medium</td>
+    <td>EP08 - Aplicación Móvil Multiplataforma</td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td colspan="3"><strong>Implementación de la aplicación móvil en Flutter</strong></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Description</th>
+  </tr>
+  <tr>
+    <td colspan="4">Como equipo de desarrollo, deseamos implementar la aplicación móvil en Flutter con la misma arquitectura de cuatro capas por Bounded Context y los mismos Web Services que la versión en Kotlin, para contar con una segunda versión de la aplicación.</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center;">Acceptance Criteria</th>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Escenario 1: Mismas secciones que la versión en Kotlin</strong><br>- <strong>Dado que</strong> la versión en Kotlin ofrece las secciones Inicio, Salud, Alertas, Rutinas y Ubicación.<br>- <strong>Cuando</strong> el usuario recorre la aplicación en Flutter.<br>- <strong>Entonces</strong> encuentra las mismas secciones con la misma información y las mismas acciones.<br><br><strong>Escenario 2: Conexión con los Web Services</strong><br>- <strong>Dado que</strong> el usuario inició sesión con su cuenta de IAM.<br>- <strong>Cuando</strong> abre cualquiera de las secciones de la aplicación.<br>- <strong>Entonces</strong> la aplicación consulta los Web Services desplegados en Microsoft Azure y muestra los datos de la persona bajo cuidado.<br><br><strong>Escenario 3: Pruebas automatizadas</strong><br>- <strong>Dado que</strong> se modifica una de las capas de un Bounded Context.<br>- <strong>Cuando</strong> se ejecuta <code>flutter test</code>.<br>- <strong>Entonces</strong> las pruebas de dominio, aplicación y presentación terminan sin errores.</td>
+  </tr>
+</table>
+
+<br>
+
+<a id="tabla-2-52"></a>**Tabla 2.52.** Spike SP01: Investigación de protocolos de transporte ligero y telemetría MQTT sobre ESP32-S3
 
 <table>
   <tr>
@@ -2814,7 +2985,7 @@ Las Tablas 2.13 a 2.49 presentan cada User Story, Technical Story y Spike con su
 
 <br>
 
-<a id="tabla-2-49"></a>**Tabla 2.49.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
+<a id="tabla-2-53"></a>**Tabla 2.53.** Spike SP02: Investigación de pasarela de pagos y cobro recurrente de suscripciones con Stripe
 
 <table>
   <tr>
@@ -2869,10 +3040,10 @@ Asimismo, el artefacto permite mantener trazabilidad con las User Stories del Pr
 
 El Product Backlog se construyó a partir de las 33 User Stories definidas en la sección 2.4.1, ordenadas según el valor que cada una aporta al negocio. Bajo ese criterio, las historias con mayor valor de negocio son las de detección y respuesta ante emergencias (EP03) y localización (EP04), pues constituyen la propuesta de valor central de Guardian+ ("lazo de cuidado" bidireccional ante situaciones críticas); les siguen el monitoreo de salud en tiempo real (EP01) y, después, recordatorios, reportes y comunicación (EP02). Las historias del sitio web estático o Landing Page (EP05) se incorporan desde el primer sprint, en un frente de trabajo paralelo al del aplicativo móvil, ya que son necesarias tempranamente para la difusión de la propuesta de valor y la adquisición de usuarios.
 
-La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. La Tabla 2.50 presenta el Product Backlog priorizado.
+La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, en función de la complejidad técnica y del número de escenarios de aceptación de cada historia, utilizando ClickUp como herramienta de gestión del Product Backlog. Al cierre del Sprint 2 se agregaron al Product Backlog las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51), que registran el trabajo técnico que el Sprint 2 incluyó fuera de las User Stories: los Bounded Contexts IAM, Profile y Subscriptions y la implementación de la aplicación en Flutter. Su estimación usa la misma escala que las User Stories. La Tabla 2.54 presenta el Product Backlog priorizado.
 
 
-<a id="tabla-2-50"></a>**Tabla 2.50.** Product Backlog de Guardian+
+<a id="tabla-2-54"></a>**Tabla 2.54.** Product Backlog de Guardian+
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 |---|---|---|---|---|
@@ -2895,20 +3066,24 @@ La estimación de esfuerzo se realizó con Story Points en escala de Fibonacci, 
 | 17 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Sprint 2 |
 | 18 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Sprint 2 |
 | 19 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Sprint 2 |
-| 20 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
-| 21 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
-| 22 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
-| 23 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
-| 24 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
-| 25 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
-| 26 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
-| 27 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
-| 28 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
-| 29 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
-| 30 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
-| 31 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
-| 32 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
-| 33 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
+| 20 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | Sprint 2 |
+| 21 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Sprint 2 |
+| 22 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Sprint 2 |
+| 23 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Sprint 2 |
+| 24 | US06 | Emisión y confirmación de recordatorios de medicación | 5 | Sprint 3 |
+| 25 | US07 | Análisis comparativo y tendencias históricas de signos vitales | 5 | Sprint 3 |
+| 26 | US12 | Configuración y parametrización de niveles de alerta | 3 | Sprint 3 |
+| 27 | US13 | Programación y notificación de consultas médicas | 3 | Sprint 3 |
+| 28 | US19 | Exportación de reporte cronológico de telemetría médica | 3 | Sprint 3 |
+| 29 | US23 | Establecimiento de canal de comunicación directa | 5 | Sprint 3 |
+| 30 | US24 | Consolidación y despacho de reporte semanal de salud | 3 | Sprint 3 |
+| 31 | US28 | Delimitación y monitoreo perimetral mediante geocercas múltiples | 5 | Sprint 3 |
+| 32 | US14 | Recordatorios programados para actividad física ligera | 2 | Sprint 4 |
+| 33 | US17 | Estimación y registro de fases de sueño | 5 | Sprint 4 |
+| 34 | US22 | Silenciamiento de alertas no críticas en el Care Circle | 2 | Sprint 4 |
+| 35 | US26 | Recordatorios periódicos de hidratación y pausas activas | 2 | Sprint 4 |
+| 36 | US27 | Detección de inactividad física prolongada | 5 | Sprint 4 |
+| 37 | US29 | Previsión de agotamiento de stock y pedidos de medicinas | 5 | Sprint 4 |
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
@@ -4151,9 +4326,9 @@ El equipo sometió la totalidad de los siete Bounded Contexts candidatos al proc
 
 #### 2.5.2.2. Discusión de Alternativas de Context Mapping Global
 
-La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
+La Tabla 2.55 compara las alternativas de Context Mapping evaluadas por el equipo, con sus ventajas, desventajas y el veredicto sobre cada una.
 
-<a id="tabla-2-51"></a>**Tabla 2.51.** Alternativas de Context Mapping evaluadas
+<a id="tabla-2-55"></a>**Tabla 2.55.** Alternativas de Context Mapping evaluadas
 
 | Alternativa | Topología y Patrones Evaluados | Ventajas | Desventajas | Veredicto |
 | :--- | :--- | :--- | :--- | :--- |
@@ -4167,9 +4342,9 @@ La Tabla 2.51 compara las alternativas de Context Mapping evaluadas por el equip
 
 Siguiendo las recomendaciones de DDD Crew, el Context Map se presenta en un mapa global y en dos mapas enfocados en preguntas concretas. Los diagramas se generan con Context Mapper a partir de archivos CML: cada relación marca el extremo upstream (U) y downstream (D), y junto a cada contexto se indica el patrón que aplica.
 
-La Tabla 2.52 presenta la leyenda de los patrones usados en los diagramas.
+La Tabla 2.56 presenta la leyenda de los patrones usados en los diagramas.
 
-<a id="tabla-2-52"></a>**Tabla 2.52.** Leyenda de patrones del Context Map
+<a id="tabla-2-56"></a>**Tabla 2.56.** Leyenda de patrones del Context Map
 
 | Notación | Patrón | Significado en Guardian+ |
 | :--- | :--- | :--- |
@@ -4200,9 +4375,9 @@ La Figura 2.39 muestra cómo se integran con Guardian+ la identidad provista por
 
 #### 2.5.2.4. Catálogo de Relaciones y Patrones de Integración Global
 
-La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
+La Tabla 2.57 detalla cada relación del Context Map, con sus extremos, el patrón de integración aplicado y la justificación de su elección.
 
-<a id="tabla-2-53"></a>**Tabla 2.53.** Catálogo de relaciones del Context Map
+<a id="tabla-2-57"></a>**Tabla 2.57.** Catálogo de relaciones del Context Map
 
 | Relación | Upstream | Downstream | Patrón | Justificación |
 | :--- | :--- | :--- | :--- | :--- |
@@ -4223,6 +4398,13 @@ La Tabla 2.53 detalla cada relación del Context Map, con sus extremos, el patr�
 
 En esta sección se presenta la arquitectura de software de Guardian+ con el C4 Model en sus vistas de contexto, contenedores, componentes y despliegue.
 
+Las vistas de contexto, contenedores y componentes representan la arquitectura objetivo de la solución, mientras que la vista de despliegue describe también cómo se ejecuta la versión actual. Las diferencias entre la arquitectura objetivo y lo desplegado al cierre del Sprint 2 son las siguientes:
+
+- **Dispositivo wearable:** la arquitectura objetivo contempla la pulsera basada en ESP32-S3 con el Guardian+ Wearable Firmware. En la versión actual, la pulsera es reemplazada por el IoT Simulator, desplegado en Google Compute Engine (sección 4.1.4).
+- **Comunicación MQTT:** el IoT Simulator publica la telemetría por MQTT sobre TCP (puerto 1883) en el broker Eclipse Mosquitto, y el backend se suscribe a ese broker mediante MQTT sobre WebSocket (puerto 9001).
+- **Pagos:** la arquitectura objetivo integra Stripe. En la versión actual, Subscriptions utiliza flujos de pago simulados (sección 2.6.3), sin conexión con Stripe.
+- **Aplicación móvil:** la arquitectura objetivo considera la aplicación nativa en Kotlin. En la versión actual, además de Kotlin, se desarrolla una versión en Flutter que consume la misma API y que todavía no cubre todo el alcance de la versión en Kotlin.
+
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
 En esta sección se presenta la vista de contexto de Guardian+ aplicando el C4 Model, elaborada con Structurizr. Este diagrama posiciona a Guardian+ como un único sistema de software en el centro, y muestra alrededor a los actores que lo utilizan y a los sistemas externos con los que se integra, sin entrar todavía en detalles internos de implementación.
@@ -4239,9 +4421,9 @@ El sistema se integra con cuatro servicios externos, cada uno resolviendo una ne
 
 Esta sección descompone a Guardian+ en sus contenedores de alto nivel — las unidades desplegables independientes que conforman la solución — y muestra cómo se distribuyen las responsabilidades entre ellos, las decisiones tecnológicas adoptadas y los protocolos de comunicación entre contenedores.
 
-La plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
+En la arquitectura objetivo, la plataforma está compuesta por cinco contenedores. La Guardian+ Landing Page (React, HTML, CSS, JavaScript) es el sitio público de marketing donde familiares y cuidadores conocen la propuesta de valor, los planes de suscripción y los canales de contacto de Guardian+; funciona como página informativa independiente, sin comunicación directa con el backend. La Guardian+ Mobile Application (Android nativo, Kotlin) es la interfaz que usan diariamente familiares y cuidadores para todo el monitoreo, gestión de rutinas, alertas y localización — es el único cliente que consume la API. El Guardian+ Wearable Firmware (embebido en C/C++ sobre ESP32-S3) es el software que corre dentro de la pulsera IoT, responsable de capturar signos vitales, detectar caídas, obtener ubicación GPS y permitir la activación del botón SOS. La pulsera IoT se proporciona al suscriptor como parte de la afiliación a Guardian+, de modo que la plataforma opera sobre un dispositivo de características conocidas y el usuario aprovecha la totalidad de las funciones de la aplicación. Las capacidades de telemetría, detección de caídas, geolocalización, avisos hápticos y botón SOS están presentes en todos los modelos contemplados; en cambio, la comunicación bidireccional depende del modelo entregado: los modelos con cámara y pantalla admiten videollamada, los modelos con audio bidireccional se limitan a la llamada de voz y los modelos básicos no ofrecen este canal, caso en el que la aplicación recurre a la marcación telefónica convencional (US23).
 
-Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La comunicación del wearable con el backend utiliza MQTT sobre HTTPS — un protocolo liviano, adecuado para telemetría IoT de bajo consumo — mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
+Ambos clientes activos (Mobile Application y Wearable Firmware) se comunican con la Guardian+ REST API (Java y Spring Boot), que centraliza toda la lógica de negocio del sistema y persiste su información en la Guardian+ Database (PostgreSQL Server) vía JDBC. La telemetría del wearable llega al backend mediante MQTT, un protocolo liviano adecuado para telemetría IoT de bajo consumo, a través de un broker al que el dispositivo publica y al que el backend se suscribe, mientras que la aplicación móvil consume la API mediante peticiones RESTful en JSON sobre HTTPS. Adicionalmente, el backend se comunica directamente con Stripe, el servicio de notificaciones y Google Maps para resolver pagos, alertas y geolocalización respectivamente, mientras que la videollamada se establece directamente entre la aplicación móvil y el servicio externo correspondiente, una vez que el backend orquesta el inicio de la sesión. La Figura 2.41 presenta el diagrama de contenedores.
 
 
 <a id="figura-2-41"></a>**Figura 2.41.** Diagrama de contenedores de Guardian+
@@ -4266,7 +4448,7 @@ En esta sección se presenta la vista de despliegue de Guardian+ aplicando el C4
 
 La Guardian+ Landing Page se publica en Cloudflare Pages, que la distribuye a través de la red global de entrega de contenido de Cloudflare. La Guardian+ REST API se ejecuta como un contenedor Docker con JRE 26 dentro de una máquina virtual de Microsoft Azure con Ubuntu 24.04, detrás del proxy inverso Caddy, que la publica por HTTPS, y persiste su información en la Guardian+ Database, alojada en el servicio gestionado Azure Database for PostgreSQL. Ambos servicios se ubican en la región Chile Central para reducir la latencia entre el backend y la base de datos.
 
-La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; durante el desarrollo, este nodo es reemplazado por el IoT Simulator, que genera la telemetría y los eventos del dispositivo y los envía directamente a la REST API. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe en modo de prueba), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.43 presenta el diagrama de despliegue.
+La Guardian+ Mobile Application se ejecuta en los smartphones Android de familiares y cuidadores, desde Android 7.0 (API 24), y sus versiones de prueba se distribuyen mediante Firebase App Distribution. El Guardian+ Wearable Firmware se ejecuta en la pulsera basada en ESP32-S3; en la versión actual, este nodo es reemplazado por el IoT Simulator, que se ejecuta en una máquina virtual de Google Compute Engine junto con el broker Eclipse Mosquitto. El simulador publica la telemetría y los eventos del dispositivo en el broker por MQTT sobre TCP, y la REST API se suscribe a él mediante MQTT sobre WebSocket. Finalmente, el backend se integra con los servicios externos de notificaciones (Firebase), pagos (Stripe, reemplazado en la versión actual por flujos de pago simulados), mapas y geolocalización (Google Maps Platform) y videollamadas. La Figura 2.43 presenta el diagrama de despliegue.
 
 <a id="figura-2-43"></a>**Figura 2.43.** Diagrama de despliegue de Guardian+
 
@@ -6374,7 +6556,7 @@ Referencia inmutable al identificador de un usuario externo al Bounded Context P
 
 - `value: UUID`
 
-A diferencia de los identificadores pertenecientes al propio contexto, `UserId` no es generado por Profile. Se utiliza únicamente como referencia externa hacia el usuario que posteriormente será administrado por el Bounded Context IAM.
+A diferencia de los identificadores pertenecientes al propio contexto, `UserId` no es generado por Profile. Se utiliza únicamente como referencia externa hacia la cuenta de usuario administrada por el Bounded Context IAM.
 
 `UserPreferences` no posee un Value Object `UserPreferencesId`; su identidad dentro del dominio se encuentra asociada directamente a `UserId`.
 
@@ -7128,13 +7310,9 @@ Esto permite utilizar dichas dependencias mediante inyección sin introducir com
 
 Profile mantiene `UserId` como referencia externa hacia la identidad del usuario, pero no almacena contraseñas, tokens ni información de autenticación.
 
-En el estado actual del backend no existe todavía un Bounded Context IAM implementado en la rama `develop`. Por esta razón, tampoco se encuentra implementado un `IAMQueryAdapter`, `IdentityReferenceAdapter` o componente equivalente dentro de Profile.
+El Bounded Context IAM se encuentra implementado en los Web Services (sección 4.2.2.4), con el registro de credenciales y la verificación del correo, el inicio de sesión en dos pasos con un código OTP, la recuperación de contraseña y el acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta.
 
-La validación directa de referencias contra IAM queda pendiente para una etapa posterior de implementación, una vez que dicho Bounded Context proporcione una interfaz pública que pueda ser consumida sin generar acoplamiento directo entre los modelos internos de ambos contextos.
-
-Esta decisión mantiene preparado el diseño para una futura integración sin incorporar actualmente dependencias hacia componentes inexistentes.
-
-En el Sprint 2 se implementó el Bounded Context IAM en los Web Services (sección 4.2.2.4): registro de credenciales con verificación del correo, inicio de sesión en dos pasos con un código OTP, recuperación de contraseña y acceso con Google. IAM expone la interfaz pública `IamContextFacade`, que permite a otros contextos verificar la existencia de una cuenta, obtener su correo y validar un token de sesión, y publica el evento `UserAccountRegisteredIntegrationEvent` al registrarse una nueva cuenta. Desde entonces, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. La validación directa de `UserId` mediante `IamContextFacade` y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile se incorporarán en un siguiente incremento.
+Actualmente, la aplicación móvil utiliza el identificador de la cuenta de IAM (`userAccountId`) como `UserId` al crear y consultar la información de Profile. Quedan pendientes dos partes de la integración: la validación de `UserId` mediante `IamContextFacade` desde un adaptador dentro de Profile, y el consumo de `UserAccountRegisteredIntegrationEvent` desde Profile.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -7150,13 +7328,11 @@ Las solicitudes recibidas son delegadas hacia la Application Layer, implementada
 
 La lógica principal del dominio se concentra en cuatro Aggregate Roots: `UserProfile`, `CareRecipientProfile`, `CareRelationship` y `UserPreferences`. Adicionalmente, `CareRelationshipPolicy` encapsula la regla que evita establecer relaciones activas duplicadas entre un mismo usuario y una misma persona bajo cuidado.
 
-El diagrama conserva algunos elementos correspondientes al diseño arquitectónico planteado para etapas posteriores del proyecto. En particular, la integración directa mediante un adaptador hacia IAM permanece pendiente debido a que dicho Bounded Context todavía no se encuentra implementado en el backend actual. Profile mantiene por el momento `UserId` únicamente como referencia externa.
+El diagrama incluye además el adaptador hacia IAM, que corresponde a la integración pendiente descrita en la sección anterior: IAM ya expone `IamContextFacade`, pero Profile todavía no lo consume y mantiene `UserId` únicamente como referencia externa.
 
 La **Infrastructure Layer** implementada actualmente incluye los Repository Adapters, entidades JPA, Persistence Repositories, Persistence Assemblers, converters requeridos y la configuración técnica del contexto. La persistencia se realiza sobre las tablas propias de Profile y los Domain Events registrados por los Aggregate Roots son publicados utilizando la infraestructura de eventos proporcionada por Spring.
 
 De esta manera, el diagrama se mantiene como representación arquitectónica del contexto, mientras que la implementación desarrollada para el presente avance cubre las capacidades principales de Profile y deja las integraciones dependientes de otros Bounded Contexts para los siguientes incrementos.
-
-Con la implementación de IAM en el Sprint 2, el contexto del que depende este adaptador ya se encuentra disponible en el backend a través de `IamContextFacade`, por lo que el adaptador hacia IAM representado en el diagrama corresponde al siguiente paso de la integración descrita en la sección anterior.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -8064,7 +8240,9 @@ Las columnas `fragile_citizen_id` y `wearable_device_id` referencian los perfile
 
 ### 2.6.7. Bounded Context: IAM
 
-El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación reforzada con un segundo factor opcional (OTP) y la recuperación segura de la contraseña.
+El Bounded Context **IAM** pertenece al Generic Domain de Guardian+. Su responsabilidad consiste en gestionar la identidad digital de cuidadores y familiares: el registro y la verificación de credenciales mediante correo electrónico, la autenticación en dos pasos con un código OTP y la recuperación segura de la contraseña.
+
+En la versión entregada, el código OTP es obligatorio en cada inicio de sesión con correo y contraseña, mientras que el acceso con Google no lo solicita. Los elementos del diseño que permiten habilitar o deshabilitar el segundo factor por cuenta (`twoFactorEnabled`, `EnableTwoFactorCommand`, `DisableTwoFactorCommand`, `TwoFactorSettingChangedEvent` y `PUT /{userAccountId}/two-factor`) corresponden a una opción prevista para versiones posteriores y no forman parte de los Web Services actuales.
 
 A diferencia de los demás contextos, IAM no consume eventos de integración de ningún otro Bounded Context: es el contexto más upstream del dominio y actúa como Open Host Service (OHS), publicando un Published Language (PL) basado en JSON Web Tokens (JWT) firmados que cada contexto descendente valida localmente, sin consultar la base de datos de identidad.
 
@@ -8221,7 +8399,7 @@ Este contexto no requiere entidades internas: los tres agregados son de único n
 *   `EmailVerifiedEvent`: Emitido cuando el usuario confirma su correo con un código de propósito `EMAIL_VERIFICATION`; transiciona la cuenta a `ACTIVE`.
 *   `CredentialsValidatedEvent`: Emitido cuando `Login` valida correctamente el correo y la contraseña.
 *   `UserAuthenticatedEvent`: Emitido al concluir exitosamente el flujo de autenticación; dispara la emisión del JWT firmado.
-*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta.
+*   `TwoFactorSettingChangedEvent`: Emitido al habilitar o deshabilitar el segundo factor de una cuenta (previsto para versiones posteriores).
 *   `PasswordResetTokenIssuedEvent`: Emitido al emitir un token de recuperación de contraseña, portando su vencimiento.
 *   `PasswordResetCompletedEvent`: Emitido al completar el cambio de contraseña con un token vigente, que queda consumido.
 
@@ -8253,14 +8431,14 @@ Traduce estímulos externos hacia comandos y consultas de aplicación y expone c
     *   `POST /register`: Registra nuevas credenciales de usuario.
     *   `POST /verify-email`: Confirma el correo electrónico mediante el código de propósito `EMAIL_VERIFICATION` enviado.
     *   `POST /verify-email/resend`: Reemite el código de verificación de correo.
-    *   `POST /login`: Valida correo y contraseña y, si la cuenta tiene el segundo factor habilitado, dispara el desafío OTP.
+    *   `POST /login`: Valida correo y contraseña y dispara el desafío OTP.
     *   `POST /otp/verify`: Verifica el código OTP de propósito `LOGIN` y, de ser correcto, emite el JWT de sesión.
     *   `POST /password-reset/request`: Emite y envía el token de recuperación de contraseña.
     *   `POST /password-reset/confirm`: Establece la nueva contraseña a partir de un token vigente y no consumido.
 *   **UserAccountsController** (`/api/v1/user-accounts`):
     *   `GET /{userAccountId}`: Recupera el detalle de una cuenta.
     *   `GET /availability`: Consulta la disponibilidad de un correo electrónico (`Email Available?`).
-    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta.
+    *   `PUT /{userAccountId}/two-factor`: Habilita o deshabilita el segundo factor de autenticación de la cuenta (previsto para versiones posteriores).
 
 ##### Resources & Assemblers
 
@@ -8286,7 +8464,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 *   **UserAccountCommandService & UserAccountCommandServiceImpl:**
     *   `handle(RegisterUserCredentialsCommand command): Optional<UserAccount>`: Valida la disponibilidad del correo, aplica `PasswordHasher` y persiste el agregado en estado `PENDING_EMAIL_VERIFICATION`, con `emailVerified` en falso.
     *   `handle(VerifyEmailCommand command): void`: Recupera el código utilizable de propósito `EMAIL_VERIFICATION`, lo verifica contra su hash, lo marca como usado y transiciona la cuenta a `ACTIVE`.
-    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta.
+    *   `handle(EnableTwoFactorCommand command): void` y `handle(DisableTwoFactorCommand command): void`: Modifican la exigencia del segundo factor de la cuenta (previstos para versiones posteriores).
     *   `handle(ResetPasswordCommand command): void`: Recupera el token utilizable por su hash, lo marca como usado y reemplaza el `HashedPassword` de la cuenta asociada.
 *   **PasswordResetCommandService & PasswordResetCommandServiceImpl:**
     *   `handle(RequestPasswordResetCommand command): Optional<PasswordResetToken>`: Emite un token opaco mediante `SecretGenerator`, persiste únicamente su hash y publica `PasswordResetTokenIssuedEvent`. Si el correo no corresponde a ninguna cuenta, la operación no revela esa condición al solicitante.
@@ -8304,7 +8482,7 @@ Orquesta los flujos de registro, verificación, autenticación y recuperación d
 ##### Event Handlers
 
 *   `UserCredentialsRegisteredEventHandler`: Implementa la policy **Mandatory Email Verification**. Despacha `GenerateOtpCommand` con propósito `EMAIL_VERIFICATION` tras el registro.
-*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Si la cuenta tiene el segundo factor habilitado, despacha `GenerateOtpCommand` con propósito `LOGIN`; en caso contrario despacha directamente `AuthenticateUserCommand`.
+*   `CredentialsValidatedEventHandler`: Implementa la policy **Two-Factor OTP Authentication**. Despacha `GenerateOtpCommand` con propósito `LOGIN` en cada inicio de sesión con correo y contraseña.
 *   `OtpGeneratedEventHandler`: Despacha el envío del código por correo mediante el adaptador de notificaciones, según el propósito de la emisión.
 *   `OtpVerifiedEventHandler`: Despacha `AuthenticateUserCommand` cuando el propósito es `LOGIN`, cerrando el flujo de autenticación.
 *   `EmailVerifiedEventHandler`: Publica `UserAccountVerifiedIntegrationEvent` hacia los contextos descendentes.
@@ -12437,7 +12615,7 @@ El Sprint 2 se ejecuta entre el 20 de octubre y el 13 de noviembre de 2026 y con
 
 El alcance comprometido corresponde a las nueve User Stories que el Product Backlog asigna al Sprint 2. La primera parte completa la épica EP01: la visualización en tiempo real de los cinco signos vitales que mide la pulsera (US01 a US05) y la sincronización de las lecturas que el wearable almacena mientras no tiene conexión (US21). La segunda parte continúa la épica EP03 sobre el circuito de emergencia entregado en el Sprint 1: la confirmación de bienestar tras un incidente (US10), el aviso de batería crítica de la pulsera (US20) y el despacho simultáneo de las alertas críticas a todo el Care Circle (US25).
 
-Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran como User Stories en el Product Backlog y que absorben la capacidad restante del Sprint. El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
+Junto con ese alcance, el equipo acordó dos frentes de trabajo técnico, registrados en el Product Backlog como las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51). El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
 
 <a id="tabla-4-60"></a>**Tabla 4.60.** Sprint Planning del Sprint 2
 
@@ -12453,12 +12631,12 @@ Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran c
 | Sprint 1 Retrospective Summary | El equipo identificó tres aspectos por mejorar. Primero, el tablero de ClickUp no reflejó el avance real: varias tareas implementadas permanecieron en estado *To-do*. Segundo, la integración del Pull Request #11 de Mobility & Geofencing hizo fallar el job `test` del workflow `Deploy`, por lo que esa versión no se publicó hasta la integración siguiente. Tercero, la mayor parte de las integraciones se concentró en los dos últimos días del Sprint (5 y 6 de octubre). Los acuerdos para el Sprint 2 fueron actualizar el estado de cada tarea al abrir y al integrar su Pull Request, ejecutar las pruebas del backend antes de solicitar la revisión e integrar cada Bounded Context apenas esté listo, sin esperar al cierre del Sprint. |
 | **Sprint Goal & User Stories** | |
 | Sprint 2 Goal | *Our focus is on letting a family follow the vital signs of the person under their care as they happen —heart rate, blood pressure, oxygen saturation, temperature and respiratory rate— without losing the readings taken while the wristband was offline, and on making a critical alert reach the whole care circle at the same time.*<br><br>*We believe it delivers to caregivers a continuous and trustworthy picture of the health of the person under their care, and a faster response when an emergency happens, because every member of the care circle is warned at once instead of one after another.*<br><br>*This will be confirmed when a caregiver opens the Health section and sees each vital sign refreshed live and classified against its normal range, when the readings the wristband kept while offline appear in the history after it reconnects, and when a critical alert reaches the phone of every emergency contact as a push notification.*<br><br>**Métrica de cumplimiento:** la sección Salud muestra la última lectura de los cinco signos vitales con su clasificación (normal, en observación o fuera de rango) según los rangos de US01 a US05; las lecturas enviadas en lote por el wearable tras recuperar la conexión se registran en el historial en su orden cronológico (US21); una alerta crítica con difusión inmediata se entrega como notificación push a todos los contactos de emergencia activos, y cuando uno asume la respuesta los demás son informados (US25); y las 9 User Stories del alcance quedan verificadas contra sus criterios de aceptación (31 Story Points completados). |
-| Sprint 2 Velocity | 40 Story Points. El equipo mantuvo la velocidad del Sprint 1, cuya estimación se confirmó al completarse los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
-| Sum of Story Points | 31 Story Points. |
+| Sprint 2 Velocity | 40 Story Points (velocidad prevista). El equipo tomó como referencia el Sprint 1, en el que se completaron los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
+| Sum of Story Points | 55 Story Points: 31 de User Stories y 24 de Technical Stories. |
 
-Las User Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
+Las User Stories y Technical Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories comprometidas en el Sprint 2
+<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories y Technical Stories comprometidas en el Sprint 2
 
 | # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
 |---|---|---|---|---|
@@ -12471,9 +12649,13 @@ Las User Stories que conforman el alcance comprometido del Sprint 2 son las sigu
 | 7 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Emergency & Alerting |
 | 8 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Emergency & Alerting |
 | 9 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Health Monitoring |
-| | | **Total** | **31** | |
+| 10 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | IAM |
+| 11 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Profile |
+| 12 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Subscriptions |
+| 13 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Mobile App (Flutter) |
+| | | **Total** | **55** | |
 
-La suma de 31 Story Points se ubica 9 puntos por debajo de la velocidad establecida. Ese margen se reservó para los dos frentes acordados en la reunión que no están representados como User Stories: los Bounded Contexts IAM y Profile & Subscriptions, de los que dependen el inicio de sesión con cuentas reales y el contexto de cuidado de cada usuario, y la implementación de la aplicación en Flutter.
+En la reunión de planificación se reservó a estos dos frentes el margen de 9 puntos entre las User Stories y la velocidad prevista. Al registrarlos como Technical Stories, su estimación suma 24 Story Points, por lo que el alcance comprometido de 55 Story Points supera en 15 puntos la velocidad prevista. La sección 4.2.2.6 compara esta velocidad con los puntos completados al cierre del Sprint.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
@@ -12522,10 +12704,10 @@ La Tabla 4.63 detalla las tareas del Sprint 2 y su estado al cierre del Sprint. 
 | US10 | Confirmación manual de estado de bienestar tras incidente | TA-24 | US10 - Confirmación manual de estado de bienestar tras incidente | Permitir descartar una advertencia desde la pulsera y avisar al cuidador que fue descartada. | 6 | Lopez Monroy, Rodrigo Alfredo | In Progress |
 | US20 | Notificación de nivel crítico de batería en wearable | TA-25 | US20 - Notificación de nivel crítico de batería en wearable | Avisar al cuidador cuando la batería de la pulsera baje del 20 % y del 5 %. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
 | US25 | Despacho simultáneo a múltiples contactos de auxilio | TA-26 | US25 - Despacho simultáneo a múltiples contactos de auxilio | Difundir las alertas críticas a todo el Care Circle por notificación push e informar quién asumió la respuesta. | 6 | Lopez Monroy, Rodrigo Alfredo | Done |
-| — | — | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
+| TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
 | — | — | TA-03 | Bounded context routines | Conectar las pantallas de Rutinas de la aplicación a los Web Services de Care Routines & Wellness. | 16 | Mechan Montenegro, Luciana Carolina | Done |
 | — | — | TA-04 | Bounded context mobility | Implementar las pantallas de ubicación y zonas seguras de la aplicación y completar sus Web Services. | 16 | Luis Miranda, Diego Andres | Done |
-| — | — | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
+| TS04 / TS05 | Integración del perfil y ciclo de vida de la suscripción | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
 | US06 | Emisión y confirmación de recordatorios de medicación | TA-28 | US06 - Emisión y confirmación de recordatorios de medicación | Programar, confirmar y marcar como omitidos los recordatorios de medicación desde la aplicación. | 10 | Mechan Montenegro, Luciana Carolina | In Progress |
 | US13 | Programación y notificación de consultas médicas | TA-31 | US13 - Programación y notificación de consultas médicas | Programar citas médicas y notificarlas por push a los cuidadores antes de su hora. | 6 | Mechan Montenegro, Luciana Carolina | Done |
 | US07 | Análisis comparativo y tendencias históricas de signos vitales | TA-29 | US07 - Análisis comparativo y tendencias históricas de signos vitales | Filtrar el historial por periodo, signo vital y estado y comparar sus tendencias. | 10 | Azama Fukuda, Juan Pablo | In Progress |
@@ -13027,6 +13209,10 @@ Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales
 
 De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
 
+De las Technical Stories, TS03 (IAM), TS04 (Profile) y TS05 (Subscriptions) se completaron, con 16 Story Points, y TS06 (Flutter) quedó en progreso. En total se completaron 42 de los 55 Story Points comprometidos, frente a una velocidad prevista de 40 Story Points. Las User Stories del Sprint 3 que se adelantaron no se suman a esta cifra.
+
+El avance de la aplicación en Flutter se midió por pantallas: al cierre del Sprint, la rama `develop` de Flutter (commit `0ced4d7`) tiene 18 de las 47 pantallas que tiene la rama `develop` de Kotlin (commit `d33414a`), es decir, un 38 %. Están implementadas las secciones Salud y Rutinas conectadas a los Web Services, además de la configuración de alertas y los contactos de emergencia. El inicio de sesión todavía no se conecta a IAM y las secciones de perfil, suscripción y Ubicación quedan pendientes para el Sprint 3.
+
 ##### Mobile Application
 
 La Figura 4.23 muestra la aplicación móvil en Kotlin ejecutándose en el emulador de Android Studio.
@@ -13310,6 +13496,14 @@ Para la entrega del Sprint 2 se valida la aplicación móvil en Kotlin con las f
 6. **Valoración general:** ¿Qué opinas de la aplicación en general y crees que te sería útil en tu día a día? ¿Por qué?
 7. **Mejoras:** ¿Qué te gustaría que la aplicación incorpore o mejore más adelante?
 
+Además de las preguntas, la validación de la aplicación incluye tareas observables, que el participante realiza por su cuenta mientras el entrevistador observa sin intervenir, salvo que el participante pida ayuda:
+
+1. **Identificar una alerta:** encontrar la alerta activa de la persona bajo cuidado, abrir su detalle e indicar qué ocurrió y cuándo.
+2. **Registrar un recordatorio:** programar un recordatorio de medicación con su nombre, dosis y hora.
+3. **Localizar información de la persona bajo cuidado:** encontrar sus signos vitales actuales e indicar si alguno está fuera de rango, y luego ubicarla en el mapa.
+
+Para cada tarea se registra si el participante la completó sin ayuda, con ayuda o no la completó, el tiempo que tomó, la ayuda que necesitó y las dificultades que tuvo. Estas observaciones se registran junto con sus opiniones sobre la utilidad y el diseño de la aplicación. La validación se aplica a participantes de ambos segmentos, con al menos dos familiares y dos cuidadores.
+
 ### 4.3.2. Registro de Entrevistas
 
 A continuación se presenta el registro de las entrevistas de validación del Landing Page, incluyendo la ficha de cada entrevistado, la captura de pantalla correspondiente y el análisis de sus respuestas.
@@ -13447,7 +13641,7 @@ La Figura 4.37 muestra una captura de la entrevista de validación a Gabriela Cu
 
 #### Aplicación móvil — Sprint 2
 
-A continuación se presenta el registro de la entrevista de validación de la aplicación móvil.
+A continuación se presenta el registro de la entrevista de validación de la aplicación móvil. Esta sesión, con una participante del segmento Familiares, se realizó con el guion de preguntas, antes de incorporar las tareas observables de la sección 4.3.1. Las sesiones con tareas observables, que incluyen al segmento Cuidadores, se realizarán en el Sprint 3.
 
 **Entrevistado 1**
 
@@ -13476,7 +13670,7 @@ Ante una alerta de caída, esperaría que el detalle muestre los signos vitales 
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación.
+La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación. Como la evaluación se hizo sobre el prototipo, para cada problema se indica también su estado en la versión entregada al cierre del Sprint 2, revisado en la rama `develop` de cada aplicación: el commit `d33414a` de Kotlin y el commit `0ced4d7` de Flutter.
 
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
@@ -13494,7 +13688,7 @@ La Tabla 4.104 presenta los datos generales de la evaluación.
 | **AUDITOR** | Healthify |
 | **CLIENTE(S)** | Azama Fukuda, Juan Pablo, Mechan Montenegro, Luciana Carolina,Luis Miranda, Diego Andres, López Monroy, Rodrigo Alfredo, Sanchez Cuadrado, Juan Antonio |
 
-**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas, Rutinas y Ubicación)
+**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas y Rutinas)
 
 **TAREAS A EVALUAR:**
 
@@ -13504,6 +13698,7 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 2. Consultar el historial de signos vitales y aplicar filtros de búsqueda (Health Monitoring)
 3. Exportar el expediente de signos vitales seleccionando un periodo de tiempo (Health Monitoring)
 4. Agregar, editar y reordenar contactos de emergencia (Emergency & Alerting)
+5. Consultar el registro de sueño de la persona bajo cuidado (Care Routines & Wellness)
 
 No están incluidas en esta versión de la evaluación las siguientes tareas:
 
@@ -13528,17 +13723,17 @@ La Tabla 4.105 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.106 resume los problemas encontrados.
+La Tabla 4.106 resume los problemas encontrados y su estado en la versión entregada. Un problema está corregido cuando la pantalla implementada ya no lo presenta, persiste cuando la pantalla lo mantiene y no está implementado cuando la pantalla todavía no existe en esa aplicación.
 
 <a id="tabla-4-106"></a>**Tabla 4.106.** Resumen de problemas de la evaluación heurística
 
-| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
-|---|---|---|---|
-| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores |
-| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables |
-| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo |
-| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems |
-| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables |
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) | Estado en Kotlin | Estado en Flutter |
+|---|---|---|---|---|---|
+| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores | Corregido | Corregido |
+| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables | Corregido | Corregido |
+| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo | Corregido | Corregido |
+| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems | Persiste | No implementado |
+| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables | No implementado | No implementado |
 
 
 **PROBLEMA #1: Campos de fecha/hora sin placeholder ni formato de referencia**
@@ -13566,6 +13761,8 @@ Las Figuras 4.39 a 4.41 muestran las pantallas Nueva toma, Nueva cita y Nueva ac
 **Recomendación:**
 Agregar placeholders con el formato esperado y un ícono reconocible de reloj/calendario en todos los campos de fecha/hora, replicando el estándar de placeholders ya usado en el módulo de contactos de emergencia.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Los campos de fecha y hora son selectores con un ícono de reloj o de calendario y siempre muestran un valor. En Kotlin, `RoutineTimeField` y `RoutineDateField` (`careroutineswellness/presentation/common/RoutineFormFields.kt`) abren un `TimePicker` y un `DatePickerDialog`; en Flutter, `routine_form_fields.dart` usa `showTimePicker` y `showDatePicker` con los íconos `Icons.schedule` e `Icons.calendar_today_outlined`.
+
 ---
 **PROBLEMA #2: Reordenamiento de contactos de emergencia sin alternativa accesible al gesto de arrastre**
 
@@ -13581,6 +13778,8 @@ En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de u
 
 **Recomendación:**
 Agregar una alternativa accesible al drag-and-drop, como botones de flecha arriba/abajo en el menú de tres puntos de cada contacto, o una opción "Cambiar prioridad" dentro de "Editar contacto".
+
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada contacto tiene botones para subir y bajar su prioridad, y no se usa el gesto de arrastre. En Kotlin, `ContactCard.kt` (`emergencyalerting/presentation/emergencycontacts/component`) muestra los botones `ic_arrow_up` e `ic_arrow_down`; en Flutter, `contact_card.dart` muestra los botones "Subir" y "Bajar" con `Icons.keyboard_arrow_up` e `Icons.keyboard_arrow_down`.
 
 ---
 
@@ -13599,6 +13798,8 @@ En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco,
 **Recomendación:**
 Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila seleccionada, de forma que el usuario pueda reconocer su selección sin necesidad de recordarla.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada opción seleccionada cambia de fondo y de borde y muestra un ícono de check, y el botón indica cuántas opciones se eligieron. En Kotlin lo hace `FilterOptionRow` en `VitalFilterSheet.kt`; en Flutter, `vital_filter_sheet.dart`.
+
 ---
 
 **PROBLEMA #4: Orden no intuitivo de las opciones de periodo**
@@ -13615,6 +13816,8 @@ En "Exportar expediente", las opciones de periodo se presentan en el orden "Últ
 
 **Recomendación:**
 Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 días", "Personalizado".
+
+**Estado en la versión entregada:** Persiste en Kotlin: `ExportRecordSheet.kt` (`healthmonitoring/presentation/vitalhistory/component`) muestra "Últimos 30 días" antes que "Últimos 7 días" y deja seleccionada la primera opción. En Flutter no está implementado: el botón "Exportar PDF" del historial muestra un aviso de que la función aún no está disponible. La corrección queda para el Sprint 3.
 
 ---
 
@@ -13633,6 +13836,8 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 **Recomendación:**
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
 
+**Estado en la versión entregada:** No implementado en ninguna de las dos aplicaciones. La pantalla Sueño todavía no muestra las fases Profundo, Ligero y Despierta, sino la continuidad del sueño y los despertares de cada noche. La recomendación se aplicará cuando se implementen las fases de sueño (US17, Sprint 4).
+
 ## 4.4. Video About-the-Product
 
 El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
@@ -13649,24 +13854,36 @@ La Tabla 4.107 presenta el enlace al video.
 |---|---|
 | Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
 
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta a los integrantes del equipo Healthify y su participación en el desarrollo de Guardian+.
+
+La Tabla 4.108 presenta el enlace al video.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
 <div style="page-break-before: always; break-before: page;"></div>
 
 # Conclusiones y recomendaciones
 
 A partir del trabajo realizado, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
 
-En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad de saber a distancia que su familiar se encuentra bien y de ser avisados a tiempo ante una emergencia, mientras que los cuidadores priorizan centralizar el seguimiento de signos vitales, medicación y alertas para reducir la carga que genera la supervisión constante.
+En cuanto a los Assumptions definidos durante el proceso de Lean UX, los User Assumptions y User Outcome Assumptions relacionados con la necesidad de tranquilidad, reducción de la carga de supervisión y acceso a información en tiempo real se vieron reforzados por los resultados del Needfinding, evidenciando que ambos segmentos comparten una motivación común centrada en la seguridad, aunque con matices distintos: los familiares priorizan la tranquilidad de saber a distancia que su familiar se encuentra bien y de ser avisados a tiempo ante una emergencia, mientras que los cuidadores priorizan centralizar el seguimiento de signos vitales, medicación y alertas para reducir la carga que genera la supervisión constante. En cambio, las hipótesis H1 a H4 todavía no se han comprobado: las entrevistas recogen percepciones y sus métricas se medirán en la prueba piloto descrita en la sección 1.2.2.3.
 
 El diseño estratégico con Domain-Driven Design permitió organizar la solución en siete Bounded Contexts, con Emergency & Alerting y Health Monitoring como Core Domain, y definir sus relaciones mediante eventos de integración que mantienen a cada contexto independiente. Este modelo guió tanto el diseño de la aplicación móvil, cuya navegación se organiza en las secciones Inicio, Salud, Alertas, Rutinas y Ubicación, como la estructura de los Web Services, que replican en su código los mismos contextos y capas.
 
-Al cierre del Sprint 1, Guardian+ contaba con el Landing Page desplegado en Cloudflare Pages, con las User Stories US30 a US33 completadas, y con una primera versión de la aplicación móvil. Al cierre del Sprint 2, la aplicación en Kotlin opera con cuentas reales gracias al Bounded Context IAM, que cubre el registro, la verificación del correo y el inicio de sesión con código OTP o con Google; muestra en vivo los cinco signos vitales de la pulsera (US01 a US05), integra al historial las lecturas tomadas sin conexión (US21) y envía las alertas críticas como notificaciones push a todo el Care Circle (US25). Del Sprint 2 se completaron 7 de las 9 User Stories comprometidas, con 26 de 31 Story Points, y US10 y US20 pasan al Sprint 3. Los Web Services, desplegados en Microsoft Azure mediante GitHub Actions, pasaron de 63 a 97 rutas y cuentan con 460 pruebas automatizadas. Además, el equipo inició una segunda implementación de la aplicación en Flutter, que ya cubre las secciones de Alertas, Salud y Rutinas sobre los mismos Web Services.
+Al cierre del Sprint 1, Guardian+ contaba con el Landing Page desplegado en Cloudflare Pages, con las User Stories US30 a US33 completadas, y con una primera versión de la aplicación móvil. Al cierre del Sprint 2, la aplicación en Kotlin opera con cuentas reales gracias al Bounded Context IAM, que cubre el registro, la verificación del correo y el inicio de sesión con código OTP o con Google; muestra en vivo los cinco signos vitales de la pulsera (US01 a US05), integra al historial las lecturas tomadas sin conexión (US21) y envía las alertas críticas como notificaciones push a todo el Care Circle (US25). Del Sprint 2 se completaron 7 de las 9 User Stories comprometidas, con 26 de 31 Story Points, y US10 y US20 pasan al Sprint 3. Los Web Services, desplegados en Microsoft Azure mediante GitHub Actions, pasaron de 63 a 97 rutas y cuentan con 460 pruebas automatizadas. Además, el equipo inició una segunda implementación de la aplicación en Flutter, que cubre 18 de las 47 pantallas de la versión en Kotlin (38 %), con las secciones Salud y Rutinas, la configuración de alertas y los contactos de emergencia sobre los mismos Web Services.
 
-Las entrevistas de validación del Landing Page confirmaron que los usuarios comprenden la propuesta de valor y el funcionamiento del servicio, y que valoran especialmente la detección de caídas, el botón SOS, la ubicación por GPS, el recordatorio de medicación y el envío de alertas. La validación de la aplicación móvil del Sprint 2 reforzó ese resultado: la entrevistada describió la interfaz como intuitiva y atractiva, propuso distinguir los valores alterados por color y con una alerta, que es como la aplicación ya los presenta, y destacó el registro de la medicación y de las citas, así como la ubicación para acompañar a su familiar cuando se queda solo en casa. Por su parte, la evaluación heurística del prototipo identificó cinco problemas de usabilidad, diseño inclusivo y arquitectura de información, de los cuales el más severo es la falta de una alternativa accesible al gesto de arrastre para reordenar los contactos de emergencia.
+Las entrevistas de validación del Landing Page confirmaron que los usuarios comprenden la propuesta de valor y el funcionamiento del servicio, y que valoran especialmente la detección de caídas, el botón SOS, la ubicación por GPS, el recordatorio de medicación y el envío de alertas. La validación de la aplicación móvil del Sprint 2 reforzó ese resultado: la entrevistada describió la interfaz como intuitiva y atractiva, propuso distinguir los valores alterados por color y con una alerta, que es como la aplicación ya los presenta, y destacó el registro de la medicación y de las citas, así como la ubicación para acompañar a su familiar cuando se queda solo en casa. Por su parte, la evaluación heurística del prototipo identificó cinco problemas de usabilidad, diseño inclusivo y arquitectura de información. En la versión entregada, tres de ellos ya están corregidos en ambas aplicaciones, incluido el más severo, la falta de una alternativa accesible al gesto de arrastre para reordenar los contactos de emergencia; el orden de los periodos de exportación persiste en Kotlin y el gráfico de fases de sueño todavía no se implementa.
 
 A partir de estos resultados, el equipo plantea las siguientes recomendaciones para los próximos Sprints:
 
 - Completar US10 y US20, que quedaron en progreso y pendiente al cierre del Sprint 2, junto con las User Stories del Sprint 3.
-- Corregir los problemas identificados en la evaluación heurística, empezando por los de mayor severidad.
+- Corregir el orden de los periodos de exportación en Kotlin y aplicar las recomendaciones de la evaluación heurística a las pantallas que todavía faltan en Flutter y al gráfico de fases de sueño.
 - Llevar la aplicación en Flutter al mismo alcance que la de Kotlin, conectando su inicio de sesión al Bounded Context IAM e implementando la sección Ubicación.
 - Ampliar las entrevistas de validación de la aplicación móvil a más usuarios de ambos segmentos, en especial cuidadores, para contrastar sus flujos con las necesidades identificadas en el Needfinding.
 - Incorporar al Landing Page elementos más dinámicos, como sugirieron los usuarios entrevistados, para captar mejor la atención del visitante.
@@ -13677,7 +13894,9 @@ A partir de estos resultados, el equipo plantea las siguientes recomendaciones p
 
 Barrera, M. (2022). Diseño de un sistema de supervisión y control de la salud en el hogar, para adultos mayores en la vereda "La Venta" del municipio de Belén-Boyacá, haciendo uso del internet de las cosas (IoT) [Tesis de licenciatura, Universidad Cooperativa de Colombia]. Repositorio Institucional. [Enlace](https://repository.ucc.edu.co/entities/publication/e41d1244-9d65-4fed-a5e1-177da2504ea8)
 
-Guerrero, J., & Pardo, G. (2024). Apoyo familiar y su incidencia en los adultos mayores del proyecto Envejeciendo Juntos, Paltas. Tesla Revista Científica, 7(15), 223-234. [Enlace](https://doi.org/10.56124/tj.v7i15ep.014)
+Ceroni Gutierrez, D. (2021). Adultos mayores entre el abandono y la soledad en el caso de Lima [Tesis de licenciatura, Pontificia Universidad Católica del Perú]. Repositorio de Tesis PUCP. [Enlace](http://hdl.handle.net/20.500.12404/21233)
+
+Guerrero Tandazo, J. E., & Orellana Pardo, G. E. (2024). Apoyo familiar y su incidencia en los adultos mayores del proyecto Envejeciendo Juntos, Paltas. Revista Científica y Arbitrada de Ciencias Sociales y Trabajo Social: Tejedora, 7(15ep), 223-234. [Enlace](https://doi.org/10.56124/tj.v7i15ep.014)
 
 Instituto Nacional de Estadística e Informática. (2017). Perfil sociodemográfico de la población con discapacidad, 2017: Capítulo III. Resultados generales sobre la población con discapacidad. INEI. [Enlace](https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1675/cap03.pdf)
 
@@ -13685,4 +13904,10 @@ Instituto Nacional de Estadística e Informática. (2014). En el Perú 1 millón
 
 Instituto Nacional de Estadística e Informática. (2017). 47 de cada 100 personas con discapacidad son adultos mayores [Nota de prensa]. INEI. [Enlace](https://m.inei.gob.pe/prensa/noticias/47-de-cada-100-personas-con-discapacidad-son-adultos-mayores-10226/)
 
+Instituto Nacional de Estadística e Informática. (2025). Situación de la población adulta mayor: III trimestre 2025 (Informe Técnico N.° 04). INEI. [Enlace](https://www.inei.gob.pe/media/MenuRecursivo/boletines/situacion-de-la-poblacion-adulta-mayor-iii-trimestre-2025.pdf)
+
+Mestanza Barboza, A. del C., & Rojas Vásquez, A. Y. (2025). Factores de riesgo de accidentes en adultos mayores del caserío San Antonio de la Iraca - Chota 2024 [Tesis de licenciatura, Universidad Nacional Autónoma de Chota]. Repositorio Institucional UNACH. [Enlace](https://repositorio.unach.edu.pe/handle/20.500.14142/673)
+
 Ministerio de Salud. (2018, 13 de diciembre). Uno de cada tres adultos mayores de 65 años sufre una caída. Gob.pe. [Enlace](https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida)
+
+Silva Contreras, K., Cabrera Martínez, M., Peña López, M., Salazar Mendoza, J., Conzatti, M. E., López Posadas, J. R., & Almonte García, G. (2023). Impacto del abandono en la salud física y mental del adulto mayor. Ciencia Latina Revista Científica Multidisciplinar, 7(1), 10714-10733. [Enlace](https://doi.org/10.37811/cl_rcm.v7i1.5242)
