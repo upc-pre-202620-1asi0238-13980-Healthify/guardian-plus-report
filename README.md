@@ -13670,7 +13670,7 @@ Ante una alerta de caída, esperaría que el detalle muestre los signos vitales 
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación.
+La evaluación heurística se realizó sobre el prototipo de alta fidelidad de la aplicación móvil, considerando principios de usabilidad, diseño inclusivo y arquitectura de información. A continuación se presentan su alcance, las tareas evaluadas y los problemas encontrados con su severidad y recomendación. Como la evaluación se hizo sobre el prototipo, para cada problema se indica también su estado en la versión entregada al cierre del Sprint 2, revisado en la rama `develop` de cada aplicación: el commit `d33414a` de Kotlin y el commit `0ced4d7` de Flutter.
 
 #### UX Heuristics & Principles Evaluation
 **Usability - Inclusive Design - Information Architecture**
@@ -13688,7 +13688,7 @@ La Tabla 4.104 presenta los datos generales de la evaluación.
 | **AUDITOR** | Healthify |
 | **CLIENTE(S)** | Azama Fukuda, Juan Pablo, Mechan Montenegro, Luciana Carolina,Luis Miranda, Diego Andres, López Monroy, Rodrigo Alfredo, Sanchez Cuadrado, Juan Antonio |
 
-**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas, Rutinas y Ubicación)
+**SITE o APP A EVALUAR:** Guardian+ (prototipo de alta fidelidad — módulos de Salud, Alertas y Rutinas)
 
 **TAREAS A EVALUAR:**
 
@@ -13698,6 +13698,7 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 2. Consultar el historial de signos vitales y aplicar filtros de búsqueda (Health Monitoring)
 3. Exportar el expediente de signos vitales seleccionando un periodo de tiempo (Health Monitoring)
 4. Agregar, editar y reordenar contactos de emergencia (Emergency & Alerting)
+5. Consultar el registro de sueño de la persona bajo cuidado (Care Routines & Wellness)
 
 No están incluidas en esta versión de la evaluación las siguientes tareas:
 
@@ -13722,17 +13723,17 @@ La Tabla 4.105 define la escala de severidad utilizada.
 
 **TABLA RESUMEN:**
 
-La Tabla 4.106 resume los problemas encontrados.
+La Tabla 4.106 resume los problemas encontrados y su estado en la versión entregada. Un problema está corregido cuando la pantalla implementada ya no lo presenta, persiste cuando la pantalla lo mantiene y no está implementado cuando la pantalla todavía no existe en esa aplicación.
 
 <a id="tabla-4-106"></a>**Tabla 4.106.** Resumen de problemas de la evaluación heurística
 
-| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
-|---|---|---|---|
-| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores |
-| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables |
-| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo |
-| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems |
-| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables |
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) | Estado en Kotlin | Estado en Flutter |
+|---|---|---|---|---|---|
+| 1 | Los campos de fecha/hora en "Nueva toma", "Nueva cita" y "Nueva actividad" se muestran vacíos, sin placeholder ni formato de referencia (ej. HH:MM) | 2 | Usability: Prevención de errores | Corregido | Corregido |
+| 2 | El reordenamiento de contactos de emergencia solo puede hacerse mediante gesto de "mantener presionado y arrastrar", sin alternativa accesible (botones subir/bajar) | 3 | Inclusive Design: Proporciona experiencias comparables | Corregido | Corregido |
+| 3 | Las opciones del panel "Buscar y filtrar" se muestran como filas de texto plano, sin checkbox ni indicador visual de selección, pese a ser una selección múltiple con contador ("Aplicar · 0") | 2 | Usability: Reconocimiento antes que recuerdo | Corregido | Corregido |
+| 4 | En "Exportar expediente", las opciones de periodo se listan en orden "Últimos 30 días" → "Últimos 7 días", invirtiendo la progresión lógica de menor a mayor duración | 1 | Information Architecture: Organization Systems | Persiste | No implementado |
+| 5 | El gráfico de "Sueño" usa tonos de verde muy similares entre sí (Profundo/Ligero) junto con un tono naranja (Despierta) para diferenciar tres estados, sin patrón o textura adicional | 2 | Inclusive Design: Proporciona experiencias comparables | No implementado | No implementado |
 
 
 **PROBLEMA #1: Campos de fecha/hora sin placeholder ni formato de referencia**
@@ -13760,6 +13761,8 @@ Las Figuras 4.39 a 4.41 muestran las pantallas Nueva toma, Nueva cita y Nueva ac
 **Recomendación:**
 Agregar placeholders con el formato esperado y un ícono reconocible de reloj/calendario en todos los campos de fecha/hora, replicando el estándar de placeholders ya usado en el módulo de contactos de emergencia.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Los campos de fecha y hora son selectores con un ícono de reloj o de calendario y siempre muestran un valor. En Kotlin, `RoutineTimeField` y `RoutineDateField` (`careroutineswellness/presentation/common/RoutineFormFields.kt`) abren un `TimePicker` y un `DatePickerDialog`; en Flutter, `routine_form_fields.dart` usa `showTimePicker` y `showDatePicker` con los íconos `Icons.schedule` e `Icons.calendar_today_outlined`.
+
 ---
 **PROBLEMA #2: Reordenamiento de contactos de emergencia sin alternativa accesible al gesto de arrastre**
 
@@ -13775,6 +13778,8 @@ En "Contactos de emergencia", el único mecanismo para cambiar la prioridad de u
 
 **Recomendación:**
 Agregar una alternativa accesible al drag-and-drop, como botones de flecha arriba/abajo en el menú de tres puntos de cada contacto, o una opción "Cambiar prioridad" dentro de "Editar contacto".
+
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada contacto tiene botones para subir y bajar su prioridad, y no se usa el gesto de arrastre. En Kotlin, `ContactCard.kt` (`emergencyalerting/presentation/emergencycontacts/component`) muestra los botones `ic_arrow_up` e `ic_arrow_down`; en Flutter, `contact_card.dart` muestra los botones "Subir" y "Bajar" con `Icons.keyboard_arrow_up` e `Icons.keyboard_arrow_down`.
 
 ---
 
@@ -13793,6 +13798,8 @@ En el panel "Buscar y filtrar" del módulo Salud, las opciones (Ritmo cardíaco,
 **Recomendación:**
 Agregar checkboxes o un estado visual claro (cambio de fondo/borde) a cada fila seleccionada, de forma que el usuario pueda reconocer su selección sin necesidad de recordarla.
 
+**Estado en la versión entregada:** Corregido en ambas aplicaciones. Cada opción seleccionada cambia de fondo y de borde y muestra un ícono de check, y el botón indica cuántas opciones se eligieron. En Kotlin lo hace `FilterOptionRow` en `VitalFilterSheet.kt`; en Flutter, `vital_filter_sheet.dart`.
+
 ---
 
 **PROBLEMA #4: Orden no intuitivo de las opciones de periodo**
@@ -13810,6 +13817,8 @@ En "Exportar expediente", las opciones de periodo se presentan en el orden "Últ
 **Recomendación:**
 Reordenar las opciones de forma ascendente: "Últimos 7 días", "Últimos 30 días", "Personalizado".
 
+**Estado en la versión entregada:** Persiste en Kotlin: `ExportRecordSheet.kt` (`healthmonitoring/presentation/vitalhistory/component`) muestra "Últimos 30 días" antes que "Últimos 7 días" y deja seleccionada la primera opción. En Flutter no está implementado: el botón "Exportar PDF" del historial muestra un aviso de que la función aún no está disponible. La corrección queda para el Sprint 3.
+
 ---
 
 **PROBLEMA #5: Diferenciación de estados de sueño basada en tonos de color muy similares**
@@ -13826,6 +13835,8 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 
 **Recomendación:**
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
+
+**Estado en la versión entregada:** No implementado en ninguna de las dos aplicaciones. La pantalla Sueño todavía no muestra las fases Profundo, Ligero y Despierta, sino la continuidad del sueño y los despertares de cada noche. La recomendación se aplicará cuando se implementen las fases de sueño (US17, Sprint 4).
 
 ## 4.4. Video About-the-Product
 
