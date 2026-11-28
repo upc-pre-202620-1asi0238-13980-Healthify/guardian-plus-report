@@ -13910,4 +13910,4 @@ Mestanza Barboza, A. del C., & Rojas Vásquez, A. Y. (2025). Factores de riesgo 
 
 Ministerio de Salud. (2018, 13 de diciembre). Uno de cada tres adultos mayores de 65 años sufre una caída. Gob.pe. [Enlace](https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida)
 
-Silva Contreras, K., Cabrera Martínez, M., Peña López, M., Salazar Mendoza, J., Esperanza Conzatti, M., López Posadas, J. R., & Almonte García, G. (2023). Impacto del abandono en la salud física y mental del adulto mayor. Ciencia Latina Revista Científica Multidisciplinar, 7(1), 10714-10733. [Enlace](https://doi.org/10.37811/cl_rcm.v7i1.5242)
+Silva Contreras, K., Cabrera Martínez, M., Peña López, M., Salazar Mendoza, J., Conzatti, M. E., López Posadas, J. R., & Almonte García, G. (2023). Impacto del abandono en la salud física y mental del adulto mayor. Ciencia Latina Revista Científica Multidisciplinar, 7(1), 10714-10733. [Enlace](https://doi.org/10.37811/cl_rcm.v7i1.5242)
