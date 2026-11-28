@@ -1,7 +1,7 @@
 """Rebuild README.md from the chapter files.
 
 Keeps the README front matter (cover, version registry, insights, contents, student outcome
-and SMART objectives) and the closing sections (conclusions and bibliography), regenerates the
+and SMART objectives) and the closing sections (conclusions, videos and bibliography), regenerates the
 table and figure indexes from the captions in each chapter, and inserts the chapters with their
 image paths adjusted to the repository root. The front matter is also written to
 report/00-chapter.md, with its image paths relative to that folder and its links pointing to
@@ -16,14 +16,14 @@ PB = '<div style="page-break-before: always; break-before: page;"></div>'
 
 readme = open('README.md', encoding='utf-8').read()
 front = readme[:readme.index(PB + '\n\n# Capítulo I:')].rstrip() + '\n'
-closing = readme[readme.index(PB + '\n\n# Conclusiones y recomendaciones'):].strip() + '\n'
+closing = readme[readme.index(PB + '\n\n# Conclusiones\n'):].strip() + '\n'
 chapters = [open(f'report/0{n}-chapter.md', encoding='utf-8').read().strip() + '\n' for n in '1234']
 
 
 def index(kind, title):
     out = [PB, '', f'# {title}', '']
-    for chapter in chapters:
-        name = re.search(r'^# (Capítulo [IV]+: .+)$', chapter, re.M).group(1)
+    sections = [(re.search(r'^# (Capítulo [IV]+: .+)$', c, re.M).group(1), c) for c in chapters]
+    for name, chapter in sections + [('Conclusiones', closing)]:
         items = re.findall(rf'<a id="({kind.lower()}-[\d-]+)"></a>\*\*({kind} [\d.]+)\*\* (.+)$', chapter, re.M)
         if not items:
             continue

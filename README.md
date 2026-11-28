@@ -232,9 +232,10 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.1. Diseño de Entrevistas](#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](#433-evaluaciones-según-heurísticas)
-  - [4.4. Video About-the-Product](#44-video-about-the-product)
-  - [4.5. Video About-the-Team](#45-video-about-the-team)
-- [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+- [Conclusiones](#conclusiones)
+  - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+  - [Video About-the-Product](#video-about-the-product)
+  - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 
 <div style="page-break-before: always; break-before: page;"></div>
@@ -444,8 +445,12 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.104. Datos generales de la evaluación heurística](#tabla-4-104)
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](#tabla-4-106)
+
+**Conclusiones**
+
 - [Tabla 4.107. Video About-the-Product](#tabla-4-107)
-- [Tabla 4.108. Video About-the-Team](#tabla-4-108)
+- [Tabla 4.108. Pauta de secuencias del video About-the-Team](#tabla-4-108)
+- [Tabla 4.109. Video About-the-Team](#tabla-4-109)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -645,7 +650,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.43. Panel Buscar y filtrar del módulo de Salud](#figura-4-43)
 - [Figura 4.44. Pantalla Exportar expediente](#figura-4-44)
 - [Figura 4.45. Pantalla Sueño del módulo de Rutinas](#figura-4-45)
+
+**Conclusiones**
+
 - [Figura 4.46. Video About-the-Product de Guardian+](#figura-4-46)
+- [Figura 4.47. Video About-the-Team de Guardian+](#figura-4-47)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -13838,37 +13847,13 @@ Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja)
 
 **Estado en la versión entregada:** No implementado en ninguna de las dos aplicaciones. La pantalla Sueño todavía no muestra las fases Profundo, Ligero y Despierta, sino la continuidad del sueño y los despertares de cada noche. La recomendación se aplicará cuando se implementen las fases de sueño (US17, Sprint 4).
 
-## 4.4. Video About-the-Product
-
-El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
-
-<a id="figura-4-46"></a>**Figura 4.46.** Video About-the-Product de Guardian+
-
-![Video About-the-Product](assets/images/chatper4/about-the-product/about-the-product-video.png)
-
-La Tabla 4.107 presenta el enlace al video.
-
-<a id="tabla-4-107"></a>**Tabla 4.107.** Video About-the-Product
-
-| Recurso | Enlace |
-|---|---|
-| Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
-
-## 4.5. Video About-the-Team
-
-El video About-the-Team presenta a los integrantes del equipo Healthify y su participación en el desarrollo de Guardian+.
-
-La Tabla 4.108 presenta el enlace al video.
-
-<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
-
-| Recurso | Enlace |
-|---|---|
-| Video About-the-Team | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
-
 <div style="page-break-before: always; break-before: page;"></div>
 
-# Conclusiones y recomendaciones
+# Conclusiones
+
+En esta sección se presentan las conclusiones y recomendaciones del trabajo, junto con los videos About-the-Product y About-the-Team.
+
+## Conclusiones y recomendaciones
 
 A partir del trabajo realizado, el equipo logró confirmar la vigencia del Problem Statement planteado para Guardian+: tanto los familiares como los cuidadores de personas con necesidades especiales enfrentan dificultades reales para supervisar el bienestar de quienes están a su cargo cuando no pueden estar físicamente presentes, careciendo actualmente de herramientas tecnológicas especializadas que les brinden información oportuna ante emergencias o problemas de salud. Este hallazgo se sustenta directamente en el análisis de entrevistas realizado a ambos segmentos, donde el 100% de los participantes manifestó preocupación por la seguridad de su familiar o paciente durante periodos de ausencia, así como interés en recibir alertas y monitorear indicadores de salud a distancia.
 
@@ -13887,6 +13872,57 @@ A partir de estos resultados, el equipo plantea las siguientes recomendaciones p
 - Llevar la aplicación en Flutter al mismo alcance que la de Kotlin, conectando su inicio de sesión al Bounded Context IAM e implementando la sección Ubicación.
 - Ampliar las entrevistas de validación de la aplicación móvil a más usuarios de ambos segmentos, en especial cuidadores, para contrastar sus flujos con las necesidades identificadas en el Needfinding.
 - Incorporar al Landing Page elementos más dinámicos, como sugirieron los usuarios entrevistados, para captar mejor la atención del visitante.
+
+## Video About-the-Product
+
+El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
+
+<a id="figura-4-46"></a>**Figura 4.46.** Video About-the-Product de Guardian+
+
+![Video About-the-Product](assets/images/chatper4/about-the-product/about-the-product-video.png)
+
+La Tabla 4.107 presenta el enlace al video.
+
+<a id="tabla-4-107"></a>**Tabla 4.107.** Video About-the-Product
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
+
+## Video About-the-Team
+
+El video About-the-Team resume el proceso de trabajo del equipo Healthify en los Sprints 1 y 2 de Guardian+. Con narración en off y capturas de las sesiones de trabajo del equipo, muestra la investigación con Lean UX y Needfinding, el EventStorming con el que se definieron los Bounded Contexts, las reuniones de Sprint Planning, el diseño en Figma, el desarrollo de la aplicación móvil y la sesión de QA al cierre del Sprint 1. Al final, cuatro integrantes del equipo presentan su testimonio ante cámara. El video dura 6 minutos y 39 segundos y corresponde a su primera versión.
+
+La Tabla 4.108 presenta la pauta de secuencias del video, con el tiempo de inicio de cada sección.
+
+<a id="tabla-4-108"></a>**Tabla 4.108.** Pauta de secuencias del video About-the-Team
+
+| Inicio | Sección |
+|---|---|
+| 00:00:00 | Presentación de Guardian+ |
+| 00:00:28 | Investigación y User Personas |
+| 00:00:39 | EventStorming y definición de los Bounded Contexts |
+| 00:01:02 | Sprint Planning del Sprint 1 |
+| 00:01:11 | Diseño de wireframes, mock-ups y prototipos en Figma |
+| 00:01:20 | Desarrollo de la aplicación móvil |
+| 00:01:30 | Sesión de QA al cierre del Sprint 1 |
+| 00:01:51 | Sprint Planning del Sprint 2 |
+| 00:01:56 | Avance de la aplicación móvil en el Sprint 2 |
+| 00:02:15 | Testimonios de los integrantes del equipo, que inician en 00:02:33, 00:03:32, 00:04:32 y 00:05:36 |
+
+La Figura 4.47 muestra un cuadro del video, durante la sesión de QA del equipo.
+
+<a id="figura-4-47"></a>**Figura 4.47.** Video About-the-Team de Guardian+
+
+![Video About-the-Team](assets/images/chatper4/about-the-team/about-the-team-video.png)
+
+La Tabla 4.109 presenta el enlace al video publicado en Microsoft Stream.
+
+<a id="tabla-4-109"></a>**Tabla 4.109.** Video About-the-Team
+
+| Recurso | Enlace |
+|---|---|
+| Video About-the-Team (Microsoft Stream) | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 
 <div style="page-break-before: always; break-before: page;"></div>
 

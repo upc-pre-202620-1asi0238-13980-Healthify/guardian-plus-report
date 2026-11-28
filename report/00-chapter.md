@@ -232,9 +232,10 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
     - [4.3.1. Diseño de Entrevistas](04-chapter.md#431-diseño-de-entrevistas)
     - [4.3.2. Registro de Entrevistas](04-chapter.md#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según heurísticas](04-chapter.md#433-evaluaciones-según-heurísticas)
-  - [4.4. Video About-the-Product](04-chapter.md#44-video-about-the-product)
-  - [4.5. Video About-the-Team](04-chapter.md#45-video-about-the-team)
-- [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
+- [Conclusiones](../README.md#conclusiones)
+  - [Conclusiones y recomendaciones](../README.md#conclusiones-y-recomendaciones)
+  - [Video About-the-Product](../README.md#video-about-the-product)
+  - [Video About-the-Team](../README.md#video-about-the-team)
 - [Bibliografía](../README.md#bibliografía)
 
 <div style="page-break-before: always; break-before: page;"></div>
@@ -444,8 +445,12 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.104. Datos generales de la evaluación heurística](04-chapter.md#tabla-4-104)
 - [Tabla 4.105. Escala de severidad de la evaluación heurística](04-chapter.md#tabla-4-105)
 - [Tabla 4.106. Resumen de problemas de la evaluación heurística](04-chapter.md#tabla-4-106)
-- [Tabla 4.107. Video About-the-Product](04-chapter.md#tabla-4-107)
-- [Tabla 4.108. Video About-the-Team](04-chapter.md#tabla-4-108)
+
+**Conclusiones**
+
+- [Tabla 4.107. Video About-the-Product](../README.md#tabla-4-107)
+- [Tabla 4.108. Pauta de secuencias del video About-the-Team](../README.md#tabla-4-108)
+- [Tabla 4.109. Video About-the-Team](../README.md#tabla-4-109)
 
 <div style="page-break-before: always; break-before: page;"></div>
 
@@ -645,7 +650,11 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Figura 4.43. Panel Buscar y filtrar del módulo de Salud](04-chapter.md#figura-4-43)
 - [Figura 4.44. Pantalla Exportar expediente](04-chapter.md#figura-4-44)
 - [Figura 4.45. Pantalla Sueño del módulo de Rutinas](04-chapter.md#figura-4-45)
-- [Figura 4.46. Video About-the-Product de Guardian+](04-chapter.md#figura-4-46)
+
+**Conclusiones**
+
+- [Figura 4.46. Video About-the-Product de Guardian+](../README.md#figura-4-46)
+- [Figura 4.47. Video About-the-Team de Guardian+](../README.md#figura-4-47)
 
 <div style="page-break-before: always; break-before: page;"></div>
 

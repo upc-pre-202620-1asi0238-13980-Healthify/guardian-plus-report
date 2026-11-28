@@ -2926,31 +2926,3 @@ En la pantalla "Sueño", el gráfico de barras distingue tres estados (Profundo,
 Usar colores con mayor contraste entre sí (ej. verde oscuro, celeste y naranja) o agregar un patrón/textura distinto a cada barra además del color, siguiendo WCAG 1.4.1 (no depender únicamente del color para transmitir información).
 
 **Estado en la versión entregada:** No implementado en ninguna de las dos aplicaciones. La pantalla Sueño todavía no muestra las fases Profundo, Ligero y Despierta, sino la continuidad del sueño y los despertares de cada noche. La recomendación se aplicará cuando se implementen las fases de sueño (US17, Sprint 4).
-
-## 4.4. Video About-the-Product
-
-El video About-the-Product presenta Guardian+ en poco más de un minuto. Parte del problema que motiva el producto, las caídas de los adultos mayores, y muestra la pulsera y la aplicación móvil con cuatro de sus funcionalidades principales: los signos vitales en tiempo real, el aviso al siguiente contacto cuando nadie responde a una caída, los avisos de salida y regreso a la zona segura y la confirmación de cada toma de medicación. Cierra con el testimonio de una familiar entrevistada durante la validación de la aplicación móvil (sección 4.3.2). La Figura 4.46 muestra una captura del video.
-
-<a id="figura-4-46"></a>**Figura 4.46.** Video About-the-Product de Guardian+
-
-![Video About-the-Product](../assets/images/chatper4/about-the-product/about-the-product-video.png)
-
-La Tabla 4.107 presenta el enlace al video.
-
-<a id="tabla-4-107"></a>**Tabla 4.107.** Video About-the-Product
-
-| Recurso | Enlace |
-|---|---|
-| Video About-the-Product | [Guardian+ — About the Product](https://youtu.be/zI62F7bp0og) |
-
-## 4.5. Video About-the-Team
-
-El video About-the-Team presenta a los integrantes del equipo Healthify y su participación en el desarrollo de Guardian+.
-
-La Tabla 4.108 presenta el enlace al video.
-
-<a id="tabla-4-108"></a>**Tabla 4.108.** Video About-the-Team
-
-| Recurso | Enlace |
-|---|---|
-| Video About-the-Team | [Guardian+ - About the Team](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202411310_upc_edu_pe/IQAi2cFotfazTLisDzPQ-uJcAd5WKLuhr4gcOV-PgepqZU0?e=si4X2r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
