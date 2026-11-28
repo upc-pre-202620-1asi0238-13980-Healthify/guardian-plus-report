@@ -397,7 +397,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](#tabla-4-58)
 - [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](#tabla-4-59)
 - [Tabla 4.60. Sprint Planning del Sprint 2](#tabla-4-60)
-- [Tabla 4.61. User Stories comprometidas en el Sprint 2](#tabla-4-61)
+- [Tabla 4.61. User Stories y Technical Stories comprometidas en el Sprint 2](#tabla-4-61)
 - [Tabla 4.62. Leadership-and-Collaboration Matrix del Sprint 2](#tabla-4-62)
 - [Tabla 4.63. Sprint Backlog 2](#tabla-4-63)
 - [Tabla 4.64. Commits de Web Services: IAM](#tabla-4-64)
@@ -12601,7 +12601,7 @@ El Sprint 2 se ejecuta entre el 20 de octubre y el 13 de noviembre de 2026 y con
 
 El alcance comprometido corresponde a las nueve User Stories que el Product Backlog asigna al Sprint 2. La primera parte completa la épica EP01: la visualización en tiempo real de los cinco signos vitales que mide la pulsera (US01 a US05) y la sincronización de las lecturas que el wearable almacena mientras no tiene conexión (US21). La segunda parte continúa la épica EP03 sobre el circuito de emergencia entregado en el Sprint 1: la confirmación de bienestar tras un incidente (US10), el aviso de batería crítica de la pulsera (US20) y el despacho simultáneo de las alertas críticas a todo el Care Circle (US25).
 
-Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran como User Stories en el Product Backlog y que absorben la capacidad restante del Sprint. El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
+Junto con ese alcance, el equipo acordó dos frentes de trabajo técnico, registrados en el Product Backlog como las Technical Stories TS03 a TS06 (Tablas 2.48 a 2.51). El primero es la incorporación de los Bounded Contexts que la aplicación necesita para operar con cuentas reales: IAM, con registro, verificación de correo, inicio de sesión con código OTP y recuperación de contraseña, y Profile & Subscriptions, con el perfil de la persona bajo cuidado y el ciclo de vida de la suscripción. El segundo es la segunda implementación de la aplicación móvil en Flutter, requerida por el curso, que reproduce los Bounded Contexts de la aplicación en Kotlin con la arquitectura de cuatro capas y las librerías `http` y `get_it`. La Tabla 4.60 resume la planificación del Sprint 2.
 
 <a id="tabla-4-60"></a>**Tabla 4.60.** Sprint Planning del Sprint 2
 
@@ -12617,12 +12617,12 @@ Junto con ese alcance, el equipo acordó dos frentes de trabajo que no figuran c
 | Sprint 1 Retrospective Summary | El equipo identificó tres aspectos por mejorar. Primero, el tablero de ClickUp no reflejó el avance real: varias tareas implementadas permanecieron en estado *To-do*. Segundo, la integración del Pull Request #11 de Mobility & Geofencing hizo fallar el job `test` del workflow `Deploy`, por lo que esa versión no se publicó hasta la integración siguiente. Tercero, la mayor parte de las integraciones se concentró en los dos últimos días del Sprint (5 y 6 de octubre). Los acuerdos para el Sprint 2 fueron actualizar el estado de cada tarea al abrir y al integrar su Pull Request, ejecutar las pruebas del backend antes de solicitar la revisión e integrar cada Bounded Context apenas esté listo, sin esperar al cierre del Sprint. |
 | **Sprint Goal & User Stories** | |
 | Sprint 2 Goal | *Our focus is on letting a family follow the vital signs of the person under their care as they happen —heart rate, blood pressure, oxygen saturation, temperature and respiratory rate— without losing the readings taken while the wristband was offline, and on making a critical alert reach the whole care circle at the same time.*<br><br>*We believe it delivers to caregivers a continuous and trustworthy picture of the health of the person under their care, and a faster response when an emergency happens, because every member of the care circle is warned at once instead of one after another.*<br><br>*This will be confirmed when a caregiver opens the Health section and sees each vital sign refreshed live and classified against its normal range, when the readings the wristband kept while offline appear in the history after it reconnects, and when a critical alert reaches the phone of every emergency contact as a push notification.*<br><br>**Métrica de cumplimiento:** la sección Salud muestra la última lectura de los cinco signos vitales con su clasificación (normal, en observación o fuera de rango) según los rangos de US01 a US05; las lecturas enviadas en lote por el wearable tras recuperar la conexión se registran en el historial en su orden cronológico (US21); una alerta crítica con difusión inmediata se entrega como notificación push a todos los contactos de emergencia activos, y cuando uno asume la respuesta los demás son informados (US25); y las 9 User Stories del alcance quedan verificadas contra sus criterios de aceptación (31 Story Points completados). |
-| Sprint 2 Velocity | 40 Story Points. El equipo mantuvo la velocidad del Sprint 1, cuya estimación se confirmó al completarse los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
-| Sum of Story Points | 31 Story Points. |
+| Sprint 2 Velocity | 40 Story Points (velocidad prevista). El equipo tomó como referencia el Sprint 1, en el que se completaron los 39 Story Points comprometidos con la misma dedicación de cinco integrantes. |
+| Sum of Story Points | 55 Story Points: 31 de User Stories y 24 de Technical Stories. |
 
-Las User Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
+Las User Stories y Technical Stories que conforman el alcance comprometido del Sprint 2 son las siguientes, tomadas del Product Backlog en su orden de prioridad, como se presenta en la Tabla 4.61:
 
-<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories comprometidas en el Sprint 2
+<a id="tabla-4-61"></a>**Tabla 4.61.** User Stories y Technical Stories comprometidas en el Sprint 2
 
 | # Orden | User Story Id | Título | Story Points | Bounded Context / Producto |
 |---|---|---|---|---|
@@ -12635,9 +12635,13 @@ Las User Stories que conforman el alcance comprometido del Sprint 2 son las sigu
 | 7 | US20 | Notificación de nivel crítico de batería en wearable | 2 | Emergency & Alerting |
 | 8 | US25 | Despacho simultáneo a múltiples contactos de auxilio | 3 | Emergency & Alerting |
 | 9 | US21 | Sincronización y persistencia resiliente de telemetría (Offline Sync) | 8 | Health Monitoring |
-| | | **Total** | **31** | |
+| 10 | TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | 8 | IAM |
+| 11 | TS04 | Integración del perfil y de la persona bajo cuidado en la aplicación | 3 | Profile |
+| 12 | TS05 | Ciclo de vida de la suscripción con pagos simulados | 5 | Subscriptions |
+| 13 | TS06 | Implementación de la aplicación móvil en Flutter | 8 | Mobile App (Flutter) |
+| | | **Total** | **55** | |
 
-La suma de 31 Story Points se ubica 9 puntos por debajo de la velocidad establecida. Ese margen se reservó para los dos frentes acordados en la reunión que no están representados como User Stories: los Bounded Contexts IAM y Profile & Subscriptions, de los que dependen el inicio de sesión con cuentas reales y el contexto de cuidado de cada usuario, y la implementación de la aplicación en Flutter.
+En la reunión de planificación se reservó a estos dos frentes el margen de 9 puntos entre las User Stories y la velocidad prevista. Al registrarlos como Technical Stories, su estimación suma 24 Story Points, por lo que el alcance comprometido de 55 Story Points supera en 15 puntos la velocidad prevista. La sección 4.2.2.6 compara esta velocidad con los puntos completados al cierre del Sprint.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
@@ -12686,10 +12690,10 @@ La Tabla 4.63 detalla las tareas del Sprint 2 y su estado al cierre del Sprint. 
 | US10 | Confirmación manual de estado de bienestar tras incidente | TA-24 | US10 - Confirmación manual de estado de bienestar tras incidente | Permitir descartar una advertencia desde la pulsera y avisar al cuidador que fue descartada. | 6 | Lopez Monroy, Rodrigo Alfredo | In Progress |
 | US20 | Notificación de nivel crítico de batería en wearable | TA-25 | US20 - Notificación de nivel crítico de batería en wearable | Avisar al cuidador cuando la batería de la pulsera baje del 20 % y del 5 %. | 4 | Lopez Monroy, Rodrigo Alfredo | To-do |
 | US25 | Despacho simultáneo a múltiples contactos de auxilio | TA-26 | US25 - Despacho simultáneo a múltiples contactos de auxilio | Difundir las alertas críticas a todo el Care Circle por notificación push e informar quién asumió la respuesta. | 6 | Lopez Monroy, Rodrigo Alfredo | Done |
-| — | — | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
+| TS03 | Gestión de identidad y acceso con cuentas reales (IAM) | TA-06 | Bounded context IAM and login | Implementar el registro, la verificación de correo, el inicio de sesión con OTP, la recuperación de contraseña y el acceso con Google. | 20 | Azama Fukuda, Juan Pablo | Done |
 | — | — | TA-03 | Bounded context routines | Conectar las pantallas de Rutinas de la aplicación a los Web Services de Care Routines & Wellness. | 16 | Mechan Montenegro, Luciana Carolina | Done |
 | — | — | TA-04 | Bounded context mobility | Implementar las pantallas de ubicación y zonas seguras de la aplicación y completar sus Web Services. | 16 | Luis Miranda, Diego Andres | Done |
-| — | — | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
+| TS04 / TS05 | Integración del perfil y ciclo de vida de la suscripción | TA-05 | Bounded context profiles, subscriptions, configuration | Implementar el ciclo de vida de la suscripción y los flujos de perfil y configuración de la aplicación. | 16 | Sanchez Cuadrado, Juan Antonio | Done |
 | US06 | Emisión y confirmación de recordatorios de medicación | TA-28 | US06 - Emisión y confirmación de recordatorios de medicación | Programar, confirmar y marcar como omitidos los recordatorios de medicación desde la aplicación. | 10 | Mechan Montenegro, Luciana Carolina | In Progress |
 | US13 | Programación y notificación de consultas médicas | TA-31 | US13 - Programación y notificación de consultas médicas | Programar citas médicas y notificarlas por push a los cuidadores antes de su hora. | 6 | Mechan Montenegro, Luciana Carolina | Done |
 | US07 | Análisis comparativo y tendencias históricas de signos vitales | TA-29 | US07 - Análisis comparativo y tendencias históricas de signos vitales | Filtrar el historial por periodo, signo vital y estado y comparar sus tendencias. | 10 | Azama Fukuda, Juan Pablo | In Progress |
@@ -13190,6 +13194,8 @@ Los commits de la Tabla 4.84 contienen las pruebas automatizadas incorporadas du
 Al cierre del Sprint 2, la aplicación móvil en Kotlin opera con cuentas reales: el usuario se registra, verifica su correo, inicia sesión con un código OTP o con Google y registra a la persona bajo cuidado. En la sección Salud se muestran en vivo los cinco signos vitales de la pulsera con su clasificación (US01 a US05), y las lecturas que el wearable envía en lote tras recuperar la conexión se integran al historial (US21). Las alertas críticas llegan como notificaciones push a todos los contactos del Care Circle y abren su detalle al tocarlas (US25). Como avance del Sprint 3, la aplicación incorpora la sección Rutinas conectada a los Web Services, la sección Ubicación con las zonas seguras, las llamadas con la pulsera y los recordatorios de citas por push.
 
 De las 9 User Stories comprometidas se completaron 7, con 26 de los 31 Story Points. US10 quedó en progreso: la ventana para descartar una caída desde la pulsera y su escalamiento al vencer ya funcionan, pero el cuidador todavía no recibe el aviso de que el evento fue descartado. US20 no se inició, porque el backend aún no procesa el nivel de batería que publica el IoT Simulator; ambas pasan al Sprint 3.
+
+De las Technical Stories, TS03 (IAM), TS04 (Profile) y TS05 (Subscriptions) se completaron, con 16 Story Points, y TS06 (Flutter) quedó en progreso. En total se completaron 42 de los 55 Story Points comprometidos, frente a una velocidad prevista de 40 Story Points. Las User Stories del Sprint 3 que se adelantaron no se suman a esta cifra.
 
 El avance de la aplicación en Flutter se midió por pantallas: al cierre del Sprint, la rama `develop` de Flutter (commit `0ced4d7`) tiene 18 de las 47 pantallas que tiene la rama `develop` de Kotlin (commit `d33414a`), es decir, un 38 %. Están implementadas las secciones Salud y Rutinas conectadas a los Web Services, además de la configuración de alertas y los contactos de emergencia. El inicio de sesión todavía no se conecta a IAM y las secciones de perfil, suscripción y Ubicación quedan pendientes para el Sprint 3.
 

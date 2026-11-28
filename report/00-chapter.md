@@ -397,7 +397,7 @@ Las siguientes capturas muestran los insights del repositorio del informe, con l
 - [Tabla 4.58. Despliegue del IoT Simulator en el Sprint 1](04-chapter.md#tabla-4-58)
 - [Tabla 4.59. Pasos del despliegue del IoT Simulator en el Sprint 1](04-chapter.md#tabla-4-59)
 - [Tabla 4.60. Sprint Planning del Sprint 2](04-chapter.md#tabla-4-60)
-- [Tabla 4.61. User Stories comprometidas en el Sprint 2](04-chapter.md#tabla-4-61)
+- [Tabla 4.61. User Stories y Technical Stories comprometidas en el Sprint 2](04-chapter.md#tabla-4-61)
 - [Tabla 4.62. Leadership-and-Collaboration Matrix del Sprint 2](04-chapter.md#tabla-4-62)
 - [Tabla 4.63. Sprint Backlog 2](04-chapter.md#tabla-4-63)
 - [Tabla 4.64. Commits de Web Services: IAM](04-chapter.md#tabla-4-64)
